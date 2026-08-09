@@ -1,0 +1,115 @@
+
+@media (max-width: 640px) {
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .processGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .timelineRow {
+    grid-template-columns: 1fr;
+  }
+
+  .certGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .verticalsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .founderCardNew {
+    padding: 1.5rem;
+  }
+
+  .ctaBtnGroup {
+    flex-direction: column;
+  }
+
+  .ctaPrimaryBtn,
+  .ctaSecondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ─── DARK MODE OVERRIDES ─── */
+:root[data-theme="dark"] .sectionTitle,
+:root[data-theme="dark"] .storyTitle,
+:root[data-theme="dark"] .metricVal,
+:root[data-theme="dark"] .founderName,
+:root[data-theme="dark"] .verticalTitle,
+:root[data-theme="dark"] .pillarTitle,
+:root.dark .sectionTitle,
+:root.dark .storyTitle,
+:root.dark .metricVal,
+:root.dark .founderName,
+:root.dark .verticalTitle,
+:root.dark .pillarTitle {
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .sectionDesc,
+:root[data-theme="dark"] .metricLbl,
+:root[data-theme="dark"] .storyBio,
+:root[data-theme="dark"] .founderBio,
+:root.dark .sectionDesc,
+:root.dark .metricLbl,
+:root.dark .storyBio,
+:root.dark .founderBio {
+  color: var(--text-secondary);
+}
+
+:root[data-theme="dark"] .subEyebrow,
+:root.dark .subEyebrow {
+  color: var(--brand);
+}
+
+:root[data-theme="dark"] .metricsSection,
+:root[data-theme="dark"] .narrativeSection,
+:root[data-theme="dark"] .founderSectionNew,
+:root[data-theme="dark"] .verticalsSection,
+:root[data-theme="dark"] .timelineSection,
+:root.dark .metricsSection,
+:root.dark .narrativeSection,
+:root.dark .founderSectionNew,
+:root.dark .verticalsSection,
+:root.dark .timelineSection {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .metricCard,
+:root[data-theme="dark"] .founderCardNew,
+:root[data-theme="dark"] .verticalCard,
+:root[data-theme="dark"] .pillarCard,
+:root.dark .metricCard,
+:root.dark .founderCardNew,
+:root.dark .verticalCard,
+:root.dark .pillarCard {
+  background: var(--bg-card);
+  border-color: var(--border);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-md);
+}
+
+:root[data-theme="dark"] .metricCard:hover,
+:root[data-theme="dark"] .founderCardNew:hover,
+:root[data-theme="dark"] .verticalCard:hover,
+:root.dark .metricCard:hover,
+:root.dark .founderCardNew:hover,
+:root.dark .verticalCard:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--brand);
+}
+
+
+
+
+

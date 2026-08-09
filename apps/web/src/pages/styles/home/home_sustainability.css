@@ -1,0 +1,177 @@
+/* ── 8. Sustainability Spotlight ── */
+.sustainabilitySection {
+  background: var(--bg-card, #ffffff);
+  padding: 6.5rem 0;
+}
+
+.sustainabilityCard {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+  background: var(--hero-gradient, linear-gradient(135deg, #0B2F63 0%, #0B2F63 100%));
+  border-radius: var(--radius-xl);
+  padding: 4rem;
+  color: #ffffff;
+  box-shadow: 0 24px 60px rgba(11, 47, 99, 0.15);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(152, 209, 42, 0.15);
+}
+
+.sustainabilityCard::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(152, 209, 42, 0.12) 0%, transparent 70%);
+}
+
+.susLeft {
+  display: flex;
+  justify-content: center;
+}
+
+.susVisualBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.susCircleGraphic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(152, 209, 42, 0.08);
+  border: 2px dashed rgba(152, 209, 42, 0.35);
+  display: grid;
+  place-items: center;
+  font-size: 3.5rem;
+  color: var(--brand);
+  animation: spinSlow 20s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.susLineBox {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--brand);
+  border: 1px solid rgba(152, 209, 42, 0.25);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+}
+
+.susRight {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.susEyebrow {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--brand);
+  letter-spacing: 0.12em;
+}
+
+.susTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.susText {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(241, 245, 249, 0.85);
+}
+
+.susMiniStats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.susStatBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.susStatVal {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--brand);
+}
+
+.susStatLbl {
+  font-size: 0.75rem;
+  color: rgba(241, 245, 249, 0.6);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+/* ── 9. Company Statistics ── */
+.statsSection {
+  background: var(--dark);
+  padding: 4.5rem 0;
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.statsLayoutGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.statBox {
+  text-align: center;
+  position: relative;
+}
+
+.statBox:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.statBigNum {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  color: var(--brand);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.08em;
+}
+

@@ -1,0 +1,289 @@
+
+@media (max-width: 768px) {
+  .heroVisualWrapper {
+    height: auto;
+    aspect-ratio: auto;
+    max-width: 100%;
+  }
+
+  .showcaseCard {
+    height: auto;
+    padding: 1.5rem 1.25rem 0 1.25rem;
+    border-radius: 18px;
+    animation: none; /* Disable heavy floating animation on mobile */
+  }
+
+  .showcaseTitle {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+    text-align: left;
+  }
+
+  .showcaseImgContainer {
+    min-height: 160px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .showcaseImage {
+    max-height: 150px;
+  }
+
+  .showcaseFooter {
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.72rem;
+  }
+
+  .floatingStatCard {
+    display: none; /* Hide floating widgets on tablet/mobile to keep focus on center image */
+  }
+}
+@media (max-width: 768px) {
+
+  .ctaCard {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .ctaRight {
+    width: 100%;
+  }
+
+  .comparisonTable {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .comparisonTable table {
+    min-width: 700px;
+  }
+
+  .factoryMetrics {
+    grid-template-columns: 1fr;
+  }
+
+  .downloadGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .categoriesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+
+  .catCard {
+    border-radius: 12px;
+  }
+
+  .catCard:first-child {
+    grid-column: span 2;
+  }
+
+  .catCard:first-child .catImageWrapper {
+    height: 140px;
+  }
+
+  .whyGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+
+  .processSection {
+    padding: 2.5rem 0;
+  }
+
+  .timelineScroll {
+    overflow-x: visible;
+    margin: 0;
+    padding: 0.75rem 0 0;
+    width: 100%;
+  }
+
+  .timelineWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .timelineStep {
+    padding: 0.75rem 0.65rem;
+    border-radius: 12px;
+    border: 1px solid var(--border, #D9E2D2);
+    background: var(--bg-card, #ffffff);
+    gap: 0.4rem;
+  }
+
+  .stepNum {
+    width: 30px;
+    height: 30px;
+    font-size: 0.75rem;
+  }
+
+  .stepTitle {
+    font-size: 0.85rem;
+    line-height: 1.25;
+  }
+
+  .stepDesc {
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .timelineStep:last-child {
+    grid-column: span 2;
+    background: linear-gradient(135deg, var(--dark, #0B2F63) 0%, #083350 100%);
+    border: 1px solid rgba(152, 209, 42, 0.4);
+    color: #ffffff;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .timelineStep:last-child .stepTitle {
+    color: #ffffff;
+    font-size: 0.95rem;
+  }
+
+  .timelineStep:last-child .stepDesc {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.775rem;
+  }
+
+  .timelineStep:last-child .stepNum {
+    background: var(--brand, #98d12a);
+    color: var(--dark, #0B2F63);
+    border: none;
+    font-weight: 800;
+  }
+}
+@media (max-width: 640px) {
+
+  .whyCard {
+    padding: 1rem 0.85rem;
+    border-radius: 12px;
+    border: 1px solid var(--border, #D9E2D2);
+  }
+
+  .whyCard:first-child {
+    grid-column: span 2;
+    background: linear-gradient(135deg, var(--dark, #0B2F63) 0%, #083350 100%);
+    color: #ffffff;
+    border-color: rgba(152, 209, 42, 0.35);
+  }
+
+  .whyCard:first-child .whyCardTitle {
+    color: #ffffff;
+    font-size: 1.05rem;
+  }
+
+  .whyCard:first-child .whyCardDesc {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .whyCard:first-child .whyIconBox {
+    background: var(--brand, #98d12a);
+    color: var(--dark, #0B2F63);
+  }
+
+  .whyCard:last-child {
+    grid-column: span 2;
+    background: #F4F7F2;
+    border-color: rgba(152, 209, 42, 0.4);
+  }
+
+  .whyIconBox {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    margin-bottom: 0.65rem;
+    border-radius: 8px;
+  }
+
+  .whyCardTitle {
+    font-size: 0.875rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .whyCardDesc {
+    font-size: 0.775rem;
+    line-height: 1.45;
+  }
+
+  .industriesGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .industryCard {
+    padding: 1.5rem 1.25rem;
+    border-radius: 16px;
+    min-height: auto;
+  }
+
+  .span2, .span4, .cardLargeDark, .cardLargeLight {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    min-height: auto;
+  }
+
+  .cardBgImageRightHalf {
+    width: 100%;
+    opacity: 0.2;
+  }
+
+  .cardBgOverlayLightHalf {
+    background: linear-gradient(to bottom, #ffffff 40%, rgba(255, 255, 255, 0.8) 100%);
+  }
+
+  .cardBgOverlayDarkHalf {
+    background: linear-gradient(to bottom, #021530 40%, rgba(2, 21, 48, 0.8) 100%);
+  }
+
+  .cardContentWide {
+    padding-right: 0;
+  }
+
+  .cardContentWideRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .indCardMainRow {
+    padding-right: 0;
+  }
+
+  .arrowButton, .arrowButtonWide, .arrowButtonRow {
+    width: 2rem;
+    height: 2rem;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    font-size: 0.75rem;
+  }
+
+  .arrowButtonRow {
+    position: absolute;
+  }
+
+  .bentoBottomRow {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+  }
+
+  .catBody {
+    padding: 0.85rem;
+    gap: 0.35rem;
+  }
+}

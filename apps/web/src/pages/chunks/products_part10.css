@@ -1,0 +1,72 @@
+
+:root[data-theme="dark"] .customSelectDropdown,
+:root.dark .customSelectDropdown {
+  background-color: var(--bg-surface-elevated);
+  border-color: var(--border);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-lg);
+}
+
+:root[data-theme="dark"] .customSelectOption,
+:root.dark .customSelectOption {
+  color: var(--text-secondary);
+}
+
+:root[data-theme="dark"] .customSelectOptionHover,
+:root.dark .customSelectOptionHover {
+  background-color: var(--bg-interactive-hover);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .customSelectOptionSelected,
+:root.dark .customSelectOptionSelected {
+  background-color: var(--brand-light);
+  color: var(--brand);
+}
+
+:root[data-theme="dark"] .specBox,
+:root[data-theme="dark"] .specPill,
+:root[data-theme="dark"] .modalSpecItem,
+:root.dark .specBox,
+:root.dark .specPill,
+:root.dark .modalSpecItem {
+  background-color: var(--bg-interactive);
+  color: var(--text-secondary);
+  border-color: var(--border-subtle);
+}
+
+:root[data-theme="dark"] .viewToggleBtn,
+:root.dark .viewToggleBtn {
+  color: var(--text-muted);
+}
+
+:root[data-theme="dark"] .viewModeSwitcher,
+:root.dark .viewModeSwitcher {
+  background-color: var(--bg-interactive);
+  border-color: var(--border);
+}
+
+:root[data-theme="dark"] .ctaPhoneBtn,
+:root.dark .ctaPhoneBtn {
+  background-color: var(--bg-interactive);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+:root[data-theme="dark"] .ctaPhoneBtn:hover,
+:root.dark .ctaPhoneBtn:hover {
+  background-color: var(--bg-interactive-hover);
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+:root[data-theme="dark"] .modalCloseBtn,
+:root.dark .modalCloseBtn {
+  background-color: var(--bg-interactive-hover);
+  color: var(--text-primary);
+}
+
+
+
+
+

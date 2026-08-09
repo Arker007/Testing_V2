@@ -1,0 +1,79 @@
+/* RichTextEditor — Quill snow theme overrides to match admin design */
+.wrap {
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Toolbar */
+.wrap :global(.ql-toolbar.ql-snow) {
+  border: none;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  background: var(--surface, #f8fafc);
+  padding: 6px 10px;
+  font-family: inherit;
+}
+
+/* Editor area */
+.wrap :global(.ql-container.ql-snow) {
+  border: none;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.wrap :global(.ql-editor) {
+  min-height: 140px;
+  padding: 10px 14px;
+  color: var(--text, #1e293b);
+  line-height: 1.65;
+}
+
+.wrap :global(.ql-editor.ql-blank::before) {
+  color: var(--text-muted, #94a3b8);
+  font-style: normal;
+  left: 14px;
+}
+
+/* Toolbar buttons */
+.wrap :global(.ql-toolbar button),
+.wrap :global(.ql-toolbar .ql-picker-label) {
+  color: var(--text, #1e293b) !important;
+}
+
+.wrap :global(.ql-toolbar button:hover),
+.wrap :global(.ql-toolbar button.ql-active),
+.wrap :global(.ql-toolbar .ql-picker-label:hover) {
+  color: var(--brand, #16a34a) !important;
+}
+
+.wrap :global(.ql-toolbar button svg .ql-stroke),
+.wrap :global(.ql-toolbar .ql-picker-label svg .ql-stroke) {
+  stroke: currentColor;
+}
+
+.wrap :global(.ql-toolbar button svg .ql-fill),
+.wrap :global(.ql-toolbar .ql-picker-label svg .ql-fill) {
+  fill: currentColor;
+}
+
+/* blockquote */
+.wrap :global(.ql-editor blockquote) {
+  border-left: 3px solid var(--brand, #16a34a);
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+  color: var(--text-muted, #64748b);
+}
+
+/* lists */
+.wrap :global(.ql-editor ul),
+.wrap :global(.ql-editor ol) {
+  padding-left: 1.5rem;
+}
+
+/* picker dropdown */
+.wrap :global(.ql-snow .ql-picker-options) {
+  background: var(--surface, #f8fafc);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}

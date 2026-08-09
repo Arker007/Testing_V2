@@ -1,0 +1,289 @@
+@import "./AdminTableModal.css";
+@import "./AdminTableExtra.css";
+@import "./AdminTableShimmer.css";
+
+/* ==========================================================================
+   UNTITLED UI & MAGIC UI ADAPTIVE ADMIN DESIGN SYSTEM (TABLES, MODALS, FORMS)
+   ========================================================================== */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.countBar {
+  margin-bottom: 16px;
+}
+
+.count {
+  font-size: 0.85rem;
+  color: #64748B;
+  font-weight: 600;
+  background: #F1F5F9;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+.searchWrap {
+  position: relative;
+  flex: 1;
+  max-width: 360px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94A3B8;
+  font-size: 0.85rem;
+}
+
+.searchInput {
+  width: 100%;
+  border: 1px solid #EAECF0;
+  border-radius: 9999px; /* Pill layout search */
+  background: #ffffff;
+  color: #0F172A;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 10px 16px 10px 38px;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+.searchInput:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px rgba(152, 209, 42, 0.12), 0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+.filterSelect {
+  min-width: 180px;
+  border: 1px solid #EAECF0;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #334155;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 10px 20px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  transition: all 0.2s;
+}
+
+.filterSelect:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px rgba(152, 209, 42, 0.12);
+}
+
+/* Base Panel Container */
+.card {
+  background: #ffffff;
+  border: 1px solid #EAECF0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05), 0 1px 2px rgba(16, 24, 40, 0.02);
+}
+
+/* Modern Minimalist High-Fidelity Tables */
+.thead {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  gap: 16px;
+  padding: 16px 24px;
+  background: #FCFCFD;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.725rem;
+  font-weight: 700;
+  border-bottom: 1px solid #EAECF0;
+}
+
+.trow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 24px;
+  border-top: 1px solid #EAECF0;
+  background: #ffffff;
+  transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.trow:first-of-type {
+  border-top: none;
+}
+
+.trow:hover {
+  background-color: #F8FAFC;
+}
+
+.prodCell {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.thumb,
+.catIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.thumb {
+  border: 1px solid #EAECF0;
+  background: #F8FAFC;
+  color: #94A3B8;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.catIcon {
+  border: 1px solid rgba(152, 209, 42, 0.15);
+  background: var(--brand-light);
+  color: var(--brand-dark);
+  font-size: 1.15rem;
+}
+
+.prodName {
+  font-size: 0.9rem;
+  font-weight: 750;
+  color: #0F172A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prodSub {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748B;
+  word-break: break-word;
+}
+
+.muted {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+/* Adaptive Status Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px; /* Pill layout status labels */
+  background: #F1F5F9;
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid #E2E8F0;
+}
+
+/* Interactive Action Clustered Controls */
+.rowActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editBtn,
+.delBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid #EAECF0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.8rem;
+  background: #ffffff;
+}
+
+.editBtn {
+  color: #475569;
+}
+
+.editBtn:hover {
+  background: var(--brand-light);
+  color: var(--brand-dark);
+  border-color: rgba(152, 209, 42, 0.3);
+  transform: scale(1.05);
+}
+
+.delBtn {
+  color: #EF4444;
+}
+
+.delBtn:hover {
+  background: #FEF2F2;
+  border-color: #FEE2E2;
+  transform: scale(1.05);
+}
+
+/* Core Inline Delete Safety Dialogs */
+.confirmRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.confirmText {
+  font-size: 0.75rem;
+  color: #EF4444;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.confirmYes,
+.confirmNo {
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.confirmYes {
+  background: #EF4444;
+  color: #ffffff;
+}
+
+.confirmYes:hover {
+  background: #DC2626;
+}
+
+.confirmNo {
+  background: #ffffff;
+  color: #475569;
+  border: 1px solid #EAECF0;
+}
+
+.confirmNo:hover {
+  background: #F8FAFC;
+}

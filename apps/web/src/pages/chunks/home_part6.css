@@ -1,0 +1,207 @@
+
+.cardContentWideRow {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Specific Card Spans */
+.span2 {
+  grid-column: span 2;
+}
+
+.span4 {
+  grid-column: span 4;
+  min-height: 180px;
+}
+
+/* Specific Card archetypes */
+.cardLargeDark {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: #0B2F63;
+  color: #ffffff;
+  border: 1px solid rgba(152, 209, 42, 0.25) !important;
+  box-shadow: 0 16px 36px rgba(11, 47, 99, 0.15);
+  min-height: 584px;
+}
+
+.cardLargeDark .indName {
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.cardLargeDark .indDesc {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.cardLargeLight {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 16px 36px rgba(11, 47, 99, 0.05);
+  min-height: 584px;
+}
+
+.cardLargeLight .indName {
+  color: #0f172a;
+  font-size: 1.5rem;
+}
+
+.cardLargeLight .indDesc {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.cardLight {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  color: #0f172a;
+}
+
+.cardDark {
+  background: #0B2F63;
+  color: #ffffff;
+  border: 1px solid rgba(152, 209, 42, 0.2) !important;
+}
+
+.cardDark .indName {
+  color: #ffffff;
+}
+
+.cardDark .indDesc {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Icon Boxes */
+.iconBoxLime {
+  background: #98d12a !important;
+  color: #0d1800 !important;
+}
+
+.iconBoxSlate {
+  background: #f1f5f9 !important;
+  color: #475569 !important;
+}
+
+.iconBoxNavy {
+  background: #0B2F63 !important;
+  color: #ffffff !important;
+}
+
+.iconBoxGreen {
+  background: #f0fdf4 !important;
+  color: #166534 !important;
+}
+
+/* Badges */
+.bentoBadgeLime {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 99px;
+  background: rgba(130, 196, 25, 0.15);
+  color: #98d12a;
+  border: 1px solid rgba(130, 196, 25, 0.3);
+}
+
+.bentoBadgeLimeDark {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 99px;
+  background: rgba(130, 196, 25, 0.1);
+  color: #98d12a;
+  border: 1px solid rgba(130, 196, 25, 0.2);
+}
+
+.bentoBadgeBlue {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 99px;
+  background: rgba(15, 23, 42, 0.08);
+  color: #0F172A;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+}
+
+/* Dividers */
+.bentoDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 1.5rem 0 1rem;
+}
+
+/* Arrow buttons */
+.arrowButton,
+.arrowButtonWide,
+.arrowButtonRow {
+  position: absolute;
+  right: 1.75rem;
+  bottom: 1.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 5;
+}
+
+.cardDark .arrowButtonRow {
+  background: #ffffff;
+  color: #021530;
+  border: none;
+}
+
+.industryCard:hover .arrowButton,
+.industryCard:hover .arrowButtonWide,
+.industryCard:hover .arrowButtonRow {
+  background: #98d12a;
+  color: #0d1800;
+  border-color: #98d12a;
+  transform: scale(1.1);
+}
+
+.arrowButtonRow {
+  position: static;
+  flex-shrink: 0;
+}
+
+.indCardHeaderWide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.indCardHeaderWideRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}

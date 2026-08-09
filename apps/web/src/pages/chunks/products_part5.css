@@ -1,0 +1,209 @@
+
+.categoryNavItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #334155;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.categoryNavItem:hover {
+  background: #F8FAFC;
+  color: var(--color-text-primary);
+}
+
+.categoryNavItemActive {
+  background: rgba(56, 208, 89, 0.12) !important;
+  color: var(--color-text-primary) !important;
+  font-weight: 800 !important;
+  border-color: rgba(56, 208, 89, 0.4) !important;
+}
+
+.catNavLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.catCheckIcon {
+  color: var(--color-text-tertiary);
+}
+
+.catCountBadge {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--radius-xs);
+  background: #F1F5F9;
+  color: #64748B;
+}
+
+.categoryNavItemActive .catCountBadge {
+  background: var(--color-surface-muted);
+  color: var(--color-text-primary);
+}
+
+/* Trust Card */
+.sidebarTrustBox {
+  background: #F8FAFC;
+  border-radius: var(--radius-xs);
+  border: 1px solid #E2E8F0;
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+.trustBoxHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.4rem;
+}
+
+.trustShieldIcon {
+  color: var(--color-text-tertiary);
+}
+
+.trustBoxHeader h4 {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.sidebarTrustBox p {
+  font-size: 0.775rem;
+  color: #64748B;
+  line-height: 1.5;
+  margin: 0 0 0.75rem 0;
+}
+
+.trustPhoneBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-text-primary);
+  color: var(--color-text-inverse);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-xs);
+  text-decoration: none;
+  width: 100%;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.trustPhoneBtn:hover {
+  background: #0f221c;
+}
+
+.mobileDrawerFooter {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mobileDrawerResetBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-xs);
+  background: #F1F5F9;
+  color: var(--color-text-primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mobileDrawerApplyBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-xs);
+  background: var(--color-text-primary);
+  color: var(--color-surface-muted);
+  font-size: 0.875rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+}
+
+/* ─── MAIN CATALOG AREA & GRID ───────────────────────────── */
+.mainCatalogArea {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.prodGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 639px) {
+  .prodGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prodGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ─── GRID CARD ──────────────────────────────────────────── */
+.gridCard {
+  background: #FFFFFF;
+  border-radius: var(--radius-xs);
+  border: 1px solid #E2E8F0;
+  padding: 1.15rem;
+  box-shadow: 0 4px 20px -2px rgba(11, 47, 99, 0.03), 0 2px 4px -1px rgba(11, 47, 99, 0.02);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--motion-duration-fast, 300ms) cubic-bezier(0.16, 1, 0.3, 1);
+  height: 100%;
+}
+
+.gridCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -4px rgba(11, 47, 99, 0.08), 0 8px 16px -2px rgba(11, 47, 99, 0.03);
+  border-color: var(--color-surface-muted);
+}
+
+.gridCardTop {
+  display: flex;
+  flex-direction: column;
+}
+
+.gridCardThumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  margin-bottom: 0.85rem;
+}

@@ -1,0 +1,204 @@
+
+.teamCardNew:hover,
+.teamCardSelected {
+  border-color: #98d12a;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.teamAvatarNew {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display, inherit);
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+  transition: transform 0.3s ease;
+}
+
+.teamCardNew:hover .teamAvatarNew {
+  transform: scale(1.1);
+}
+
+.teamNameNew {
+  font-family: var(--font-display, inherit);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0B2F63;
+  margin: 0;
+}
+
+.teamRoleNew {
+  font-size: 0.8125rem;
+  color: #5B6873;
+  font-weight: 600;
+  margin: 0;
+}
+
+.teamDeptTag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8E9AA5;
+  background: rgba(5, 40, 63, 0.04);
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+}
+
+.teamBio {
+  font-size: 0.785rem;
+  color: #5B6873;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+/* ── Founder Statement Block ── */
+.founderSection {
+  padding: 4.5rem 0;
+  background: var(--bg-card, #ffffff);
+}
+
+.founderCardNew {
+  background: #F8FAFC;
+  border: 1.5px solid rgba(152, 209, 42, 0.35);
+  border-radius: 16px;
+  padding: 2.5rem 3rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: all 0.25s ease;
+}
+
+.founderCardNew:hover {
+  border-color: #98d12a;
+  box-shadow: var(--shadow-sm);
+}
+
+.founderQuoteIcon {
+  font-size: 2rem;
+  color: #98d12a;
+  line-height: 1;
+}
+
+.founderQuoteText {
+  font-size: 1.05rem;
+  color: #0B2F63;
+  line-height: 1.7;
+  font-weight: 600;
+  font-style: italic;
+  margin: 0;
+}
+
+.founderMetaNew {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(5, 40, 63, 0.08);
+}
+
+.founderAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0B2F63;
+  color: #98d12a;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.founderNameNew {
+  font-family: var(--font-display, inherit);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0B2F63;
+  display: block;
+}
+
+.founderRoleNew {
+  font-size: 0.785rem;
+  color: #5B6873;
+  display: block;
+}
+
+/* ── Industry Verticals ── */
+.verticalsSection {
+  padding: 4.5rem 0;
+  background: var(--bg-card, #ffffff);
+}
+
+.logoBar {
+  background: #F8FAFC;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.logoBarLabel {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #8E9AA5;
+}
+
+.logoRowNew {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.logoChipNew {
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.785rem;
+  font-weight: 700;
+  color: #0B2F63;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.logoChipNew:hover {
+  border-color: #98d12a;
+  transform: translateY(-2px);
+}
+
+.logoChipNew i {
+  color: #7db018;
+  font-size: 0.7rem;
+}
+
+.verticalsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.verticalCardNew {
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}

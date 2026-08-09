@@ -1,0 +1,215 @@
+/* Timeline Activity Feed */
+.activityFeed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activityItem {
+  display: flex;
+  gap: 16px;
+  position: relative;
+}
+
+.timelineTrack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 16px;
+  padding-top: 8px;
+}
+
+.timelineDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 0 4px #ffffff, 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.timelineLine {
+  width: 2px;
+  flex: 1;
+  background: #E2E8F0;
+  margin-top: 6px;
+  margin-bottom: -16px;
+}
+
+.activityCard {
+  flex: 1;
+  background: #FCFCFD;
+  border: 1px solid #EAECF0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  min-width: 0;
+  transition: all 0.25s ease;
+}
+
+.activityCard:hover {
+  border-color: #CBD5E1;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.03);
+}
+
+.activityMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.activityUser {
+  font-size: 0.825rem;
+  font-weight: 750;
+  color: #0F172A;
+}
+
+.activityTime {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #64748B;
+}
+
+.activitySnippet {
+  font-size: 0.8rem;
+  color: #475569;
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.activityBadge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Service Diagnostics Block */
+.healthTime {
+  font-size: 0.75rem;
+  color: #64748B;
+  font-weight: 600;
+  background: #F8FAFC;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  border: 1px solid #E2E8F0;
+}
+
+.statusFlexRow {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.statusRowMini {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #EAECF0;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.statusRowMini:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(16, 24, 40, 0.06);
+}
+
+.statusIconMini {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statusLabelMini {
+  font-size: 0.825rem;
+  font-weight: 750;
+  color: #0F172A;
+}
+
+.statusDetailMini {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.statusBadgeMini {
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stateOk {
+  border-color: rgba(34, 197, 94, 0.2);
+  background: #F0FDF4;
+}
+.stateOk .statusIconMini { color: #16A34A; }
+.stateOk .statusBadgeMini { color: #16A34A; }
+.stateOk .statusLabelMini { color: #14532D; }
+
+.stateDown {
+  border-color: rgba(239, 68, 68, 0.2);
+  background: #FEF2F2;
+}
+.stateDown .statusIconMini { color: #DC2626; }
+.stateDown .statusBadgeMini { color: #DC2626; }
+.stateDown .statusLabelMini { color: #7F1D1D; }
+
+.stateLoading {
+  border-color: rgba(59, 130, 246, 0.2);
+  background: #EFF6FF;
+}
+.stateLoading .statusIconMini { color: #2563EB; }
+.stateLoading .statusBadgeMini { color: #2563EB; }
+
+.skelWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skelRow {
+  height: 44px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200%;
+  animation: shimmer 1.5s infinite;
+}
+
+.empty {
+  padding: 40px;
+  text-align: center;
+  color: #64748B;
+}
+
+.empty i {
+  font-size: 2rem;
+  color: #CBD5E1;
+  margin-bottom: 12px;
+}
+
+@keyframes shimmer {
+  from { background-position: 200%; }
+  to { background-position: -200%; }
+}
+
+@media (max-width: 1024px) {
+  .grid2 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .hero { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .statsRow { grid-template-columns: 1fr; }
+  .statusFlexRow { flex-direction: column; align-items: stretch; }
+}

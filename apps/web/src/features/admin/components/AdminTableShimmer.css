@@ -1,0 +1,163 @@
+/* Standardized Content Shimmer States */
+.skeleRow {
+  height: 64px;
+  border-top: 1px solid #EAECF0;
+  background: linear-gradient(90deg, #F1F5F9 25%, #E2E8F0 50%, #F1F5F9 75%);
+  background-size: 200%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200%;
+  }
+  to {
+    background-position: -200%;
+  }
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 64px 24px;
+  color: #64748B;
+}
+
+.empty i {
+  font-size: 2.5rem;
+  color: #E2E8F0;
+  margin-bottom: 8px;
+}
+
+.empty p {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.loadingState {
+  padding: 64px;
+  text-align: center;
+  color: #64748B;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.notFoundCard {
+  padding: 40px;
+  text-align: center;
+}
+
+.notFoundTitle {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #0F172A;
+  font-size: 1.35rem;
+  font-weight: 850;
+  letter-spacing: -0.025em;
+}
+
+.detailCard {
+  padding: 28px;
+}
+
+.whatsappBtn {
+  background: #25D366;
+  border: 1px solid #22C55E;
+  color: #ffffff;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 20px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+.whatsappBtn:hover {
+  background: #22C55E;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+}
+
+@media (max-width: 980px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .row2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .toolbar {
+    align-items: stretch;
+  }
+  .toolbar > a,
+  .toolbar > button {
+    width: 100%;
+    justify-content: center;
+  }
+  .searchWrap {
+    max-width: 100%;
+  }
+  .filterSelect {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .thead {
+    display: none;
+  }
+  .trow {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 12px;
+    border: 1px solid #EAECF0;
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .trow > span,
+  .trow > div {
+    width: 100%;
+    min-width: 0;
+  }
+  .prodName,
+  .prodSub,
+  .badge {
+    white-space: normal;
+  }
+  .card {
+    border-radius: 12px;
+    overflow: visible;
+    border: none;
+    background: transparent;
+  }
+
+  .rowActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin-top: 8px;
+  }
+  .editBtn,
+  .delBtn {
+    width: 100%;
+    height: 40px;
+  }
+  .confirmRow {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    width: 100%;
+  }
+}

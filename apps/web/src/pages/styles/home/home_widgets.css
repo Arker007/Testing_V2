@@ -1,0 +1,108 @@
+/* Floating widgets inside Hero Right */
+.floatingOverlayBadge {
+  position: absolute;
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.floatingOverlayBadge:hover {
+  transform: scale(1.05);
+}
+
+.badgeLeft {
+  top: -4%;
+  left: -14%;
+  animation: badgeFloatLeft 5s ease-in-out infinite alternate;
+}
+
+.badgeRight {
+  bottom: -5%;
+  right: -10%;
+  animation: badgeFloatRight 6s ease-in-out infinite alternate;
+}
+
+@keyframes badgeFloatLeft {
+  0% { transform: translateY(0px) rotate(-1deg); }
+  100% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes badgeFloatRight {
+  0% { transform: translateY(0px) rotate(1deg); }
+  100% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+.badgeIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background: rgba(152, 209, 42, 0.1);
+  color: var(--brand-dark);
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.badgeLabel {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.badgeValue {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-top: 0.1rem;
+}
+
+/* ── 2. Trusted By Section ── */
+.trustedBy {
+  background: var(--bg-card, #ffffff);
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.trustedHeading {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logoRow {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  opacity: 0.75;
+}
+
+.logoBadge {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--bg-light);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+

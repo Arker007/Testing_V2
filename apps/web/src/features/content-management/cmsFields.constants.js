@@ -1,0 +1,233 @@
+export const CMS_FIELDS = [
+  {
+    section: "Homepage Hero",
+    fields: [
+      { key: "show_hero", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Hero Section" },
+      { key: "hero_title", label: "Hero Title", type: "text", placeholder: "Premium Plastic Solutions" },
+      { key: "hero_subtitle", label: "Hero Subtitle", type: "textarea", placeholder: "Your trusted polymer partner…" },
+      { key: "hero_cta_primary", label: "Primary CTA Text", type: "text", placeholder: "Explore Products" },
+      { key: "hero_cta_secondary", label: "Secondary CTA Text", type: "text", placeholder: "Get a Quote" },
+      { key: "home_hero_badge_1", label: "Trust Badge 1", type: "text", placeholder: "GST Registered" },
+      { key: "home_hero_badge_2", label: "Trust Badge 2", type: "text", placeholder: "100% Recycled Input" },
+      { key: "home_hero_badge_3", label: "Trust Badge 3", type: "text", placeholder: "Phytosanitary Compliant" },
+      { key: "home_hero_badge_4", label: "Trust Badge 4", type: "text", placeholder: "Pan-India Logistics" },
+    ],
+  },
+  {
+    section: "Homepage Testimonials",
+    fields: [
+      { key: "show_home_testimonials", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Testimonials Section" },
+      { key: "home_testimonial_quote", label: "Testimonial Quote", type: "textarea", placeholder: "Switching our facility handling platforms..." },
+      { key: "home_testimonial_initials", label: "Author Initials", type: "text", placeholder: "PM" },
+      { key: "home_testimonial_name", label: "Author Name", type: "text", placeholder: "Procurement Manager" },
+      { key: "home_testimonial_company", label: "Company / Organization", type: "text", placeholder: "National Logistics Hub" },
+    ],
+  },
+  {
+    section: "Homepage Trusted By",
+    fields: [
+      { key: "show_trusted_by", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Trusted By Section" },
+      { key: "trusted_title", label: "Title", type: "text", placeholder: "Trusted by Procurement Officers at Leading Enterprise Brands" },
+      { key: "trusted_b1", label: "Brand 1 Name", type: "text", placeholder: "INFRA-STRUCTURE CORP" },
+      { key: "trusted_b2", label: "Brand 2 Name", type: "text", placeholder: "METRO-BUILD" },
+      { key: "trusted_b3", label: "Brand 3 Name", type: "text", placeholder: "ECO-LOGISTICS" },
+      { key: "trusted_b4", label: "Brand 4 Name", type: "text", placeholder: "NATION PARKS" },
+    ],
+  },
+  {
+    section: "Homepage Categories",
+    fields: [
+      { key: "show_categories", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Product Categories" },
+      { key: "categories_title", label: "Title", type: "text", placeholder: "Product Categories" },
+      { key: "categories_subtitle", label: "Subtitle", type: "text", placeholder: "Browse our core offerings" },
+    ],
+  },
+  {
+    section: "Homepage Process",
+    fields: [
+      { key: "show_process", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Manufacturing Process" },
+      { key: "process_eyebrow", label: "Eyebrow Tag", type: "text", placeholder: "Circular Supply Chain" },
+      { key: "process_title", label: "Title", type: "text", placeholder: "Our Manufacturing Process" },
+      { key: "process_s1_title", label: "Step 1 Title", type: "text", placeholder: "Plastic Waste" },
+      { key: "process_s1_desc", label: "Step 1 Description", type: "text", placeholder: "Collection & Sourcing" },
+      { key: "process_s2_title", label: "Step 2 Title", type: "text", placeholder: "Sorting" },
+      { key: "process_s2_desc", label: "Step 2 Description", type: "text", placeholder: "Polymer Grade Separation" },
+      { key: "process_s3_title", label: "Step 3 Title", type: "text", placeholder: "Cleaning" },
+      { key: "process_s3_desc", label: "Step 3 Description", type: "text", placeholder: "Washing & Decontamination" },
+      { key: "process_s4_title", label: "Step 4 Title", type: "text", placeholder: "Extrusion" },
+      { key: "process_s4_desc", label: "Step 4 Description", type: "text", placeholder: "High-Pressure Molding" },
+      { key: "process_s5_title", label: "Step 5 Title", type: "text", placeholder: "Cooling" },
+      { key: "process_s5_desc", label: "Step 5 Description", type: "text", placeholder: "Structural Solidification" },
+      { key: "process_s6_title", label: "Step 6 Title", type: "text", placeholder: "Testing" },
+      { key: "process_s6_desc", label: "Step 6 Description", type: "text", placeholder: "Load & Quality Check" },
+      { key: "process_s7_title", label: "Step 7 Title", type: "text", placeholder: "Ready" },
+      { key: "process_s7_desc", label: "Step 7 Description", type: "text", placeholder: "Dispatch & Delivery" },
+    ],
+  },
+  {
+    section: "Homepage Industries",
+    fields: [
+      { key: "show_industries", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Industries Grid" },
+      { key: "industries_eyebrow", label: "Eyebrow Tag", type: "text", placeholder: "Market Versatility" },
+      { key: "industries_title", label: "Title", type: "text", placeholder: "Industries We Serve" },
+      { key: "industries_subtitle", label: "Subtitle", type: "textarea", placeholder: "Engineered specifications verified to meet rigid safety, environmental, and load compliance parameters across sectors." },
+    ],
+  },
+  {
+    section: "Homepage Why Us",
+    fields: [
+      { key: "show_why_us", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Why Choose Us" },
+      { key: "why_us_title", label: "Title", type: "text", placeholder: "Engineered for Strength. Delivered with Trust." },
+      { key: "why_us_subtitle", label: "Subtitle", type: "textarea", placeholder: "Sustainable engineering with industrial-grade strength…" },
+      { key: "why_us_f1_title", label: "Feature 1 Title", type: "text", placeholder: "100% Recycled" },
+      { key: "why_us_f1_desc", label: "Feature 1 Description", type: "textarea", placeholder: "Manufactured from 100% recycled plastic…" },
+      { key: "why_us_f2_title", label: "Feature 2 Title", type: "text", placeholder: "High Load Capacity" },
+      { key: "why_us_f2_desc", label: "Feature 2 Description", type: "textarea", placeholder: "Engineered to withstand heavy industrial loads…" },
+      { key: "why_us_f3_title", label: "Feature 3 Title", type: "text", placeholder: "Weather Resistant" },
+      { key: "why_us_f3_desc", label: "Feature 3 Description", type: "textarea", placeholder: "Impervious to moisture, UV exposure, and termites…" },
+      { key: "why_us_f4_title", label: "Feature 4 Title", type: "text", placeholder: "Pan India Supply" },
+      { key: "why_us_f4_desc", label: "Feature 4 Description", type: "textarea", placeholder: "Efficient logistics network ensuring reliable delivery…" },
+      { key: "why_us_f5_title", label: "Feature 5 Title", type: "text", placeholder: "Custom Manufacturing" },
+      { key: "why_us_f5_desc", label: "Feature 5 Description", type: "textarea", placeholder: "Tailor-made recycled plastic profiles…" },
+      { key: "why_us_f6_title", label: "Feature 6 Title", type: "text", placeholder: "50+ Year Lifespan" },
+      { key: "why_us_f6_desc", label: "Feature 6 Description", type: "textarea", placeholder: "Maintenance-free performance that outperforms traditional materials…" },
+      { key: "why_us_t1_title", label: "Trust Value 1 Title", type: "text", placeholder: "Sustainable Choice" },
+      { key: "why_us_t1_desc", label: "Trust Value 1 Description", type: "text", placeholder: "Low carbon footprint and environmentally responsible." },
+      { key: "why_us_t2_title", label: "Trust Value 2 Title", type: "text", placeholder: "Corrosion Proof" },
+      { key: "why_us_t2_desc", label: "Trust Value 2 Description", type: "text", placeholder: "Resistant to chemicals, salt, and corrosion." },
+      { key: "why_us_t3_title", label: "Trust Value 3 Title", type: "text", placeholder: "Low Maintenance" },
+      { key: "why_us_t3_desc", label: "Trust Value 3 Description", type: "text", placeholder: "No painting, no sealing, just long-lasting performance." },
+      { key: "why_us_t4_title", label: "Trust Value 4 Title", type: "text", placeholder: "Reliable Support" },
+      { key: "why_us_t4_desc", label: "Trust Value 4 Description", type: "text", placeholder: "Expert guidance and dedicated customer support." },
+    ],
+  },
+  {
+    section: "Homepage Sustainability",
+    fields: [
+      { key: "show_home_about", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show About Section" },
+      { key: "home_about_eyebrow", label: "Eyebrow Tag", type: "text", placeholder: "Eco-Infrastructure Impact" },
+      { key: "home_about_title", label: "Title", type: "text", placeholder: "Replacing Wood. Saving Forests." },
+      { key: "home_about_desc", label: "Main Description", type: "textarea", placeholder: "Every linear foot of plastic lumber contributes to saving forests…" },
+      { key: "home_about_stat1_number", label: "Stat 1 Number", type: "text", placeholder: "20+" },
+      { key: "home_about_stat1_label", label: "Stat 1 Label", type: "text", placeholder: "Years Experience" },
+      { key: "home_about_stat2_number", label: "Stat 2 Number", type: "text", placeholder: "1000+" },
+      { key: "home_about_stat2_label", label: "Stat 2 Label", type: "text", placeholder: "Satisfied Clients" },
+      { key: "home_about_stat3_number", label: "Stat 3 Number", type: "text", placeholder: "1500+" },
+      { key: "home_about_stat3_label", label: "Stat 3 Label", type: "text", placeholder: "Tons Recycled" },
+    ],
+  },
+  {
+    section: "Homepage CTA Banner",
+    fields: [
+      { key: "show_home_cta", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show CTA Banner" },
+      { key: "home_cta_title", label: "Title", type: "text", placeholder: "Looking for Durable Recycled Plastic Products?" },
+      { key: "home_cta_subtitle", label: "Subtitle", type: "textarea", placeholder: "Get in touch with our technical engineering team today…" },
+      { key: "home_cta_btn", label: "Button Text", type: "text", placeholder: "Get Quote" },
+    ],
+  },
+  {
+    section: "Footer",
+    fields: [
+      { key: "footer_tagline", label: "Footer About Text", type: "textarea", placeholder: "Transforming industrial plastic waste into premium recycled lumber…" },
+      { key: "footer_copy", label: "Copyright Notice", type: "text", placeholder: "© 2026 VISHAL ENTERPRISE. All rights reserved." },
+    ],
+  },
+  {
+    section: "About Hero",
+    fields: [
+      { key: "about_hero_enabled", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Hero Header" },
+      { key: "about_hero_title", label: "Title", type: "text", placeholder: "About VISHAL ENTERPRISE" },
+      { key: "about_hero_subtitle", label: "Subtitle", type: "textarea", placeholder: "Two decades of polymer innovation…" },
+    ],
+  },
+  {
+    section: "About Mission & History",
+    fields: [
+      { key: "about_bento_enabled", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Mission & Vision" },
+      { key: "about_mission_title", label: "Mission Title", type: "text", placeholder: "Our Mission" },
+      { key: "about_mission_text", label: "Mission Text", type: "textarea", placeholder: "To deliver high-grade…" },
+      { key: "about_vision_title", label: "Vision Title", type: "text", placeholder: "Our Vision" },
+      { key: "about_vision_text", label: "Vision Text", type: "textarea", placeholder: "To be the leading supplier…" },
+    ],
+  },
+  {
+    section: "About Timeline",
+    fields: [
+      { key: "about_timeline_enabled", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Milestones Intro" },
+      { key: "about_timeline_title", label: "Title", type: "text", placeholder: "Our Journey" },
+      { key: "about_timeline_subtitle", label: "Subtitle", type: "textarea", placeholder: "Two decades of growth…" },
+    ],
+  },
+  {
+    section: "About Timeline Entries",
+    fields: [],
+  },
+  {
+    section: "About Team",
+    fields: [
+      { key: "about_team_enabled", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Executive Team" },
+      { key: "about_team_title", label: "Team Title", type: "text", placeholder: "Our Executive Team" },
+      { key: "about_team_subtitle", label: "Team Subtitle", type: "text", placeholder: "Leadership steering our growth" },
+    ],
+  },
+  {
+    section: "About Certifications",
+    fields: [
+      { key: "about_cert_enabled", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Certifications Banner" },
+      { key: "experience_banner_title", label: "Banner Title", type: "text", placeholder: "Over 15 Years of Industrial Excellence" },
+      { key: "experience_banner_desc", label: "Banner Description", type: "textarea", placeholder: "Equipped with high-capacity extrusion lines at our Ankleshwar plant…" },
+      { key: "cert_gst", label: "GST Number", type: "text", placeholder: "GST Registered" },
+      { key: "cert_gmp", label: "Quality Compliance", type: "text", placeholder: "Made in India" },
+    ],
+  },
+  {
+    section: "About CTA",
+    fields: [
+      { key: "about_cta_enabled", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show CTA Section" },
+      { key: "about_cta_eyebrow", label: "Eyebrow Tag", type: "text", placeholder: "Ready to Upgrade Your Supply Chain?" },
+      { key: "about_cta_title", label: "Title", type: "text", placeholder: "Get Custom Quotes & Product Specs Today" },
+      { key: "about_cta_text", label: "Description", type: "textarea", placeholder: "Talk directly with our technical team in Ankleshwar for custom bulk orders…" },
+      { key: "about_cta_btn_text", label: "Button Text", type: "text", placeholder: "Get Started" },
+    ],
+  },
+  {
+    section: "Products Page",
+    fields: [
+      { key: "show_product_hero", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Catalog Hero Banner" },
+      { key: "products_hero_title", label: "Page Title", type: "text", placeholder: "Product Catalog" },
+      { key: "products_hero_subtitle", label: "Page Subtitle", type: "textarea", placeholder: "Browse our complete range…" },
+    ],
+  },
+  {
+    section: "Contact Hero",
+    fields: [
+      { key: "show_contact_hero", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Hero Header" },
+      { key: "contact_hero_title", label: "Title", type: "text", placeholder: "Get in Touch" },
+      { key: "contact_hero_subtitle", label: "Subtitle", type: "textarea", placeholder: "We are here to help…" },
+    ],
+  },
+  {
+    section: "Contact Info & Map",
+    fields: [
+      { key: "show_contact_info", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Contact Details & Location Map" },
+      { key: "contact_info_title", label: "Section Title", type: "text", placeholder: "Contact Information" },
+      { key: "contact_hours", label: "Working Hours", type: "text", placeholder: "Mon - Sat: 9:00 AM - 6:00 PM" },
+    ],
+  },
+  {
+    section: "Contact Form",
+    fields: [
+      { key: "show_contact_form", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Contact Form Settings" },
+      { key: "contact_form_title", label: "Form Title", type: "text", placeholder: "Send Us a Message" },
+      { key: "contact_form_subtitle", label: "Form Subtitle", type: "text", placeholder: "Fill out the form below…" },
+    ],
+  },
+  {
+    section: "SEO / Meta",
+    fields: [
+      { key: "seo_meta_title", label: "Default Meta Title", type: "text", placeholder: "VISHAL ENTERPRISE - Recycled Plastic Pallets & Lumber" },
+      { key: "seo_meta_desc", label: "Default Meta Description", type: "textarea", placeholder: "Leading manufacturer of industrial recycled plastic products in India." },
+      { key: "seo_keywords", label: "Meta Keywords", type: "text", placeholder: "plastic pallets, plastic lumber, recycled plastic" },
+    ],
+  },
+];

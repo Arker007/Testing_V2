@@ -1,0 +1,12 @@
+# Dependencies
+node_modules
+frontend/node_modules
+
+# VCS / editor
+.git
+.vscode
+.idea
+
+# Logs
+*.log
+npm-debug.log*

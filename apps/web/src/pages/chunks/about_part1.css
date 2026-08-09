@@ -1,0 +1,201 @@
+/* ── Hero Section (MUST REMAIN UNCHANGED) ── */
+.hero {
+  position: relative;
+  padding: calc(var(--nav-h, 70px) + 2rem) 0 4.5rem;
+  overflow: hidden;
+  background: var(--hero-gradient, linear-gradient(135deg, #0B2F63 0%, #0B2F63 100%));
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 75% 50%, rgba(152, 209, 42, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.heroTitle {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  margin: 0.75rem 0;
+}
+
+.heroSub {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.0625rem;
+  max-width: 680px;
+  line-height: 1.75;
+}
+
+.heroTagline {
+  margin-top: 1.25rem;
+  color: var(--brand, #98d12a);
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+/* ── Common Typography & Headers ── */
+.subEyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #7db018;
+  margin-bottom: 0.5rem;
+}
+
+.subEyebrowLight {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #98d12a;
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  color: #0B2F63;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.015em;
+}
+
+.sectionTitleLight {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.015em;
+}
+
+.sectionDesc {
+  font-size: 0.925rem;
+  color: #5B6873;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.sectionDescLight {
+  font-size: 0.925rem;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.sectionHeaderCenter {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* ── Key Metrics Section ── */
+.metricsSection {
+  background: var(--bg-card, #ffffff);
+  border-bottom: 1px solid rgba(5, 40, 63, 0.08);
+  padding: 3rem 0;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.metricCard {
+  background: #F8FAFC;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.metricCard:hover {
+  border-color: #98d12a;
+  background: var(--bg-card, #ffffff);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-4px);
+}
+
+.metricHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.metricIcon {
+  font-size: 1.25rem;
+  color: #7db018;
+  transition: transform 0.3s ease;
+}
+
+.metricCard:hover .metricIcon {
+  transform: scale(1.2) rotate(6deg);
+}
+
+.metricTag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8E9AA5;
+  background: rgba(5, 40, 63, 0.05);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.metricVal {
+  font-family: var(--font-display, inherit);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #0B2F63;
+  line-height: 1;
+}
+
+.metricLbl {
+  font-size: 0.8125rem;
+  color: #5B6873;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ── Corporate Narrative & Pillars ── */
+.narrativeSection {
+  padding: 4.5rem 0;
+  background: var(--bg-card, #ffffff);
+}
+
+.narrativeGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.storyCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.storyTitle {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  color: #0B2F63;
+  margin: 0.25rem 0 1.25rem 0;
+  line-height: 1.25;
+}

@@ -1,0 +1,202 @@
+
+.comparisonTimberTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #5B6873;
+  margin: 0;
+}
+
+.comparisonTr {
+  border-top: 1px solid rgba(5, 40, 63, 0.08);
+}
+
+.comparisonTdLabel {
+  padding: 1rem 1.5rem;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: #0B2F63;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
+
+.comparisonTdProduct {
+  padding: 1rem;
+  background: #EAF4E2;
+  border-left: 1px solid #D2E4C4;
+  border-right: 1px solid #D2E4C4;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.comparisonTdTimber {
+  padding: 1rem;
+  background: var(--bg-card, #ffffff);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.checkCircle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #40a05a;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  box-shadow: 0 2px 4px rgba(64, 160, 90, 0.25);
+}
+
+.crossCircle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #d1d5db;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+.comparisonCtaBox {
+  margin-top: 1.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+.comparisonEnquireBtn {
+  background: #f3e063;
+  color: #0B2F63;
+  font-weight: 800;
+  font-size: 0.875rem;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.comparisonEnquireBtn:hover {
+  background: #e8d348;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 640px) {
+  .comparisonThFeature,
+  .comparisonTdLabel {
+    padding: 0.75rem 0.75rem;
+    font-size: 0.7rem;
+  }
+  .comparisonThProduct,
+  .comparisonThTimber,
+  .comparisonTdProduct,
+  .comparisonTdTimber {
+    padding: 0.75rem 0.35rem;
+  }
+  .comparisonImgBox {
+    height: 60px;
+  }
+  .comparisonTitle {
+    font-size: 1.15rem;
+  }
+  .comparisonProductTitle,
+  .comparisonTimberTitle {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 640px) {
+}
+
+/* ── Detail CTA Band ── */
+.detailCtaBand {
+  margin: 3.5rem 0;
+  border-radius: 14px;
+  border: 1px solid rgba(152, 209, 42, 0.25);
+  background: rgba(152, 209, 42, 0.08);
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.detailCtaBand h3 {
+  color: #0B2F63;
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display, inherit);
+}
+
+.detailCtaBand p {
+  margin: 0;
+  color: #5B6873;
+  font-size: 0.875rem;
+}
+
+.detailCtaBand button {
+  background: #0B2F63;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.75rem;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.detailCtaBand button:hover {
+  background: #98d12a;
+  color: #0B2F63;
+}
+
+/* ── Product Information Tabs ── */
+.tabsContainer {
+  margin-bottom: 3.5rem;
+  background: var(--bg-card, #ffffff);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.tabsHeader {
+  display: flex;
+  border-bottom: 1px solid rgba(5, 40, 63, 0.08);
+  background: #F8FAFC;
+  overflow-x: auto;
+}
+
+.bigTab {
+  padding: 1.15rem 2rem;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: inherit;
+  color: #5B6873;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.bigTab:hover {
+  color: #0B2F63;
+}

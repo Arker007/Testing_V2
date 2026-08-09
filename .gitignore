@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+frontend/.env.local
+frontend/.env.*.local
+
+# Database (don't commit production DB, but commit the seed DB in data/)
+# data/*.db  ← keep in repo so Vercel can copy it to /tmp on cold-start
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# Temporary uploads on local dev (keep /uploads tracked for seeded images)
+# uploads/  ← intentionally NOT ignored so sample product images are in repo
+
+# Vercel
+.vercel/

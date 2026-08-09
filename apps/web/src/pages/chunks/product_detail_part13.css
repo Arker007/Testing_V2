@@ -1,0 +1,112 @@
+
+.darkInquiryBtn:hover {
+  background: #113c7a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(11, 47, 99, 0.25);
+}
+
+.darkInquiryBtn i {
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.darkInquiryBtn:hover i {
+  transform: translateX(4px);
+}
+
+/* Guarantee row borders */
+.galleryGuaranteeItem:not(:first-child) {
+  border-left: 1px solid rgba(5, 40, 63, 0.1);
+}
+
+@media (max-width: 768px) {
+  .bentoSpecsGridInner {
+    grid-template-columns: 1fr;
+  }
+  .galleryGuarantees {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .galleryGuaranteeItem:not(:first-child) {
+    border-left: none;
+    border-top: 1px solid rgba(5, 40, 63, 0.1);
+    padding-top: 0.75rem;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* ── Custom Dropdown Dark Mode Overrides ── */
+:root[data-theme="dark"] .customSelectTrigger,
+:root.dark .customSelectTrigger {
+  background: var(--bg-interactive);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .customSelectDropdown,
+:root.dark .customSelectDropdown {
+  background: var(--bg-surface-elevated);
+  border-color: var(--border);
+  box-shadow: var(--shadow-lg);
+}
+
+:root[data-theme="dark"] .customSelectOption,
+:root.dark .customSelectOption {
+  color: var(--text-secondary);
+}
+
+:root[data-theme="dark"] .customSelectOption:hover,
+:root.dark .customSelectOption:hover {
+  background: var(--bg-interactive-hover);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .customSelectOptionActive,
+:root.dark .customSelectOptionActive {
+  background: var(--brand-light);
+  color: var(--brand);
+}
+
+/* ── Related Card Dark Mode Overrides ── */
+:root[data-theme="dark"] .ratingCount,
+:root.dark .ratingCount {
+  color: var(--text-muted);
+}
+
+:root[data-theme="dark"] .relatedOldPrice,
+:root.dark .relatedOldPrice {
+  color: var(--text-disabled);
+}
+
+:root[data-theme="dark"] .cardTax,
+:root.dark .cardTax {
+  background: var(--bg-interactive);
+  color: var(--text-muted);
+}
+
+:root[data-theme="dark"] .wishBtn,
+:root.dark .wishBtn {
+  background: var(--bg-interactive);
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+:root[data-theme="dark"] .wishBtn:hover,
+:root.dark .wishBtn:hover {
+  background: rgba(248, 113, 113, 0.15);
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+:root[data-theme="dark"] .cardMeta,
+:root.dark .cardMeta {
+  color: var(--text-muted);
+}
+
+
+
+
+
+

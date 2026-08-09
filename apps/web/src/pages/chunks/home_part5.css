@@ -1,0 +1,204 @@
+
+.featuredRight {
+  width: 100%;
+}
+
+.featImageContainer {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.featMainImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featPlaceholderImg {
+  font-size: 4rem;
+  color: var(--brand);
+  opacity: 0.35;
+}
+
+/* ── 7. Industries We Serve (Bento Grid) ── */
+/* ── 7. Industries We Serve (Bento Grid) ── */
+.industriesSection {
+  background: #f8fafc;
+  padding: 6rem 0;
+  border-top: 1px solid var(--border, #E2E8F0);
+  border-bottom: 1px solid var(--border, #E2E8F0);
+}
+
+.industriesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.industryCard {
+  background: var(--bg-card, #ffffff);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 24px;
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.industryCard:hover {
+  /* Handled by Framer Motion variants */
+}
+
+.indCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.indCardMain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.indIconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(152, 209, 42, 0.12);
+  color: #0B2F63;
+  font-size: 1.25rem;
+  display: grid;
+  place-items: center;
+  margin: 0 0 1rem 0;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.industryCard:hover .indIconBox {
+  background: #98d12a;
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.indName {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--heading, #0F172A);
+  margin-bottom: 0.35rem;
+}
+
+.indDesc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--body-text, #475569);
+}
+
+/* Card BG Wrappers & Images */
+.cardBgWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.cardBgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardBgImageRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardBgImageRightHalf {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 55%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.industryCard:hover .cardBgImage,
+.industryCard:hover .cardBgImageRight,
+.industryCard:hover .cardBgImageRightHalf {
+  transform: scale(1.04);
+}
+
+/* Gradients Overlays */
+.cardBgOverlayDark {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(2, 21, 48, 0.95) 0%, rgba(5, 40, 80, 0.8) 50%, rgba(11, 47, 99, 0.3) 100%);
+  z-index: 1;
+}
+
+.cardBgOverlayLight {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.95) 40%, rgba(255, 255, 255, 0.1) 100%);
+  z-index: 1;
+}
+
+.cardBgOverlayLightHalf {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #ffffff 0%, #ffffff 45%, rgba(255, 255, 255, 0.8) 60%, rgba(255, 255, 255, 0.1) 100%);
+  z-index: 1;
+}
+
+.cardBgOverlayDarkHalf {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #021530 0%, #021530 45%, rgba(2, 21, 48, 0.8) 60%, rgba(2, 21, 48, 0.1) 100%);
+  z-index: 1;
+}
+
+/* Card Content containers */
+.cardContent {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardContentWide {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 40%;
+}

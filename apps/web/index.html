@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary meta -->
+  <title>VISHAL ENTERPRISE | Sustainable Plastic Manufacturing</title>
+  <meta name="description"
+    content="Leading manufacturer of sustainable plastic products using recycled polymer technology. ISO 9001:2015 certified. B2B industrial supply." />
+  <meta name="theme-color" content="#9EC037" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Open Graph (improves social-share + perceived trust) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="VISHAL ENTERPRISE | Recycled Plastic Manufacturer India" />
+  <meta property="og:description"
+    content="India's leading manufacturer of recycled plastic pallets, HDPE granules, plastic lumber & industrial containers. ISO 9001:2015 certified. B2B bulk supply." />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:site_name" content="VISHAL ENTERPRISE" />
+  <meta property="og:url" content="https://vishalenterprise.com" />
+  <meta property="og:image" content="https://vishalenterprise.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="VISHAL ENTERPRISE | Recycled Plastic Manufacturer India" />
+  <meta name="twitter:description"
+    content="India's leading manufacturer of recycled plastic pallets, HDPE granules & industrial containers. ISO 9001:2015 certified." />
+  <meta name="twitter:image" content="https://vishalenterprise.in/og-image.jpg" />
+
+  <!-- DNS prefetch for every external origin (faster than cold TCP) -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+  <!-- Preconnect for origins we'll open sockets to -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+  <!-- Google Fonts — non-blocking: preload CSS, swap to stylesheet on load -->
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap">
+  </noscript>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <!-- Kick off API fetches immediately, before React bundle even loads -->
+  <script>
+    window.__prefetch = {
+      products: fetch('/api/products').then(r => r.json()).catch(() => null),
+      categories: fetch('/api/categories').then(r => r.json()).catch(() => null),
+      company: fetch('/api/company').then(r => r.json()).catch(() => null),
+      content: fetch('/api/content').then(r => r.json()).catch(() => null),
+    };
+  </script>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+
+.featureThumbnails {
+  display: flex;
+  gap: 10px;
+}
+
+.featureThumb {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #EAEAEA;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.featureThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Page Right Styles */
+.pageRight {
+  width: 100%;
+  height: 100%;
+  padding: 65px 60px 45px 60px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.headerRight {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.titleBlockRight h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #666666;
+  letter-spacing: 0.5px;
+}
+
+.titleBlockRight h2 span {
+  color: #333333;
+  font-weight: 400;
+}
+
+.titleBlockRight h3 {
+  font-size: 28px;
+  font-weight: 300;
+  color: #A0A0A0;
+  margin-top: -2px;
+}
+
+.yellowBarTop {
+  width: 150px;
+  height: 25px;
+  background-color: #F4B218;
+  border-radius: 3px;
+}
+
+.productVariantThumbs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 10px;
+  padding-left: 170px; 
+}
+
+.variantThumbItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 65px;
+}
+
+.variantThumbItem img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.variantThumbItemFallback {
+  width: 48px;
+  height: 36px;
+  background: #e0e0e0;
+  border-radius: 3px;
+}
+
+.variantThumbItem span {
+  font-size: 9px;
+  color: #888;
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* SPECIFICATION TABLE MATCH */
+.specTableMatched {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  color: #333333;
+  margin-top: 10px;
+}
+
+.specTableMatched th, .specTableMatched td {
+  padding: 6px 5px;
+  text-align: center;
+  border: 1px solid #e5e5e5;
+}
+
+.specTableMatched th {
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.specTableMatched tr.headerRow1 th {
+  font-size: 11px;
+  color: #666666;
+  padding-bottom: 3px;
+}
+
+.specTableMatched tr.headerRow2 th {
+  font-size: 10px;
+  color: #999;
+  font-weight: normal;
+  padding-top: 0;
+  padding-bottom: 4px;
+}
+
+.specTableMatched tr.headerRow3 th {
+  font-size: 10px;
+  color: #666666;
+  text-transform: uppercase;
+  background-color: #EAEAEA;
+  border-bottom: 1px solid #fff;
+}
+
+.specTableMatched td.rowLabel {
+  text-align: left;
+  font-weight: 600;
+  background-color: #EAEAEA;
+  width: 170px;
+  padding-left: 10px;
+  border-bottom: 1px solid #fff;
+  color: #666666;
+}
+
+.specTableMatched tr:nth-child(even) td:not(.rowLabel) {
+  background-color: #F5F5F5;
+}
+
+.specTableMatched tr:nth-child(odd) td:not(.rowLabel) {
+  background-color: #ffffff;
+}
+
+.specTableMatched tr.darkRow td {
+  background-color: #575756 !important;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  padding: 8px 10px;
+}
+
+.specTableMatched tr.darkRow td.rowLabel {
+  background-color: #575756 !important;
+  color: white;
+}
+
+.specTableMatched td.highlightCol {
+  font-weight: bold;
+}
+
+.checkmark {
+  color: #F4B218;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* OPTIONS ON REQUEST SECTION */
+.optionsSectionMatched {
+  margin-top: 20px;
+  width: 170px;
+}
+
+.optionsTitleMatched {
+  background-color: #F4B218;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 5px 8px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-bottom: 6px;
+  letter-spacing: 0.2px;
+}

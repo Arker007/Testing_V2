@@ -1,0 +1,94 @@
+.mobileNav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobileNav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 62px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(5, 40, 63, 0.08);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+    z-index: 9990;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0.25rem;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .navItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    color: #5B6873;
+    text-decoration: none;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    gap: 3px;
+    transition: color 0.2s ease, transform 0.15s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem 0;
+  }
+
+  .navItem i {
+    font-size: 1.15rem;
+    transition: transform 0.2s ease;
+  }
+
+  .navItem:active {
+    transform: scale(0.92);
+  }
+
+  .active {
+    color: #98d12a;
+    font-weight: 700;
+  }
+
+  .active i {
+    transform: translateY(-1px);
+  }
+
+  .waItem {
+    color: #25d366;
+  }
+
+  .waItem.active, .waItem:hover {
+    color: #128c7e;
+  }
+
+  .quoteItem {
+    color: #0B2F63;
+  }
+
+  .quoteItem.active {
+    color: #98d12a;
+  }
+}
+
+:root[data-theme="dark"] .mobileNav,
+:root.dark .mobileNav {
+  background: var(--bg-glass);
+  border-top-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+:root[data-theme="dark"] .navItem,
+:root.dark .navItem {
+  color: var(--text-muted);
+}
+
+:root[data-theme="dark"] .quoteItem,
+:root.dark .quoteItem {
+  color: var(--brand);
+}

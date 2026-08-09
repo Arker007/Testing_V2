@@ -1,0 +1,16 @@
+@media (max-width: 576px) {
+  .badge {
+    padding: 0.25rem 0.8rem 0.25rem 0.35rem;
+    margin-bottom: 0.75rem;
+  }
+  .badgeIconWrapper {
+    padding: 0.15rem 0.4rem 0.15rem 0.2rem;
+  }
+  .badgeIcon {
+    width: 16px;
+    height: 16px;
+  }
+  .badgeText {
+    font-size: 0.75rem;
+  }
+}

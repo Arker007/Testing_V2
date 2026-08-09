@@ -1,0 +1,169 @@
+/* ── 6. Featured Products ── */
+.featuredSection {
+  background: #F8FAFC;
+  padding: 6rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.featuredBox {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  box-shadow: var(--shadow-lg);
+  align-items: flex-start;
+}
+
+.featuredLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.featuredTabSelector {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.75rem;
+  overflow-x: auto;
+}
+
+.tabBtn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.tabBtnActive {
+  color: var(--text-primary);
+}
+
+.tabBtnActive::after {
+  content: "";
+  position: absolute;
+  bottom: -0.85rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--brand);
+}
+
+.featuredProductDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.featName {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.featDesc {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.specsContainer {
+  margin-top: 1.5rem;
+}
+
+.specsHeading {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.specsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.specRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.specLabel {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.specVal {
+  color: var(--text-primary);
+  font-weight: 700;
+  text-align: right;
+}
+
+.applicationsBox {
+  margin-top: 1rem;
+  background: var(--bg-light);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  border-left: 3px solid var(--brand);
+}
+
+.appsText {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.featActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.featuredRight {
+  width: 100%;
+}
+
+.featImageContainer {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.featMainImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featPlaceholderImg {
+  font-size: 4rem;
+  color: var(--brand);
+  opacity: 0.35;
+}
+

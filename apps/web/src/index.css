@@ -1,0 +1,48 @@
+@import './shared/styles/index.css';
+
+
+.exploreBtnGlobal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: #8BD61A;
+  color: #FFFFFF !important;
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.85rem 2.2rem 0.85rem 1.6rem;
+  border-radius: 4px;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 6px 20px rgba(139, 214, 26, 0.35);
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+
+.exploreBtnGlobal:hover {
+  background: #7db018 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(139, 214, 26, 0.45);
+}
+
+.exploreBtnGlobal .exploreBtnArrowGlobal {
+  width: 1.1rem;
+  height: 1.1rem;
+  transition: transform 0.25s ease;
+}
+
+.exploreBtnGlobal:hover .exploreBtnArrowGlobal {
+  transform: translateX(5px);
+}
+
+@media (max-width: 640px) {
+  .exploreBtnGlobal {
+    clip-path: none;
+    border-radius: 8px;
+  }
+}

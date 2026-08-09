@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Manrope:wght@400;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #98d12a;
+  --color-brand-dark: #7db018;
+  --color-brand-hover: #7db018;
+  --color-brand-light: #e2f2eb;
+  --color-brand-text: #98d12a;
+
+  --color-navy: #0B2F63;
+  --color-navy-dark: #071E40;
+  --color-navy-light: #113a72;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    font-weight: 500;
+    line-height: 1.6;
+    background:
+      radial-gradient(1200px 500px at 5% -5%, rgba(152, 209, 42, 0.08), transparent 50%),
+      radial-gradient(1000px 400px at 100% 0%, rgba(23, 74, 140, 0.04), transparent 40%),
+      var(--bg-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading);
+    font-weight: 800;
+    letter-spacing: -0.015em;
+  }
+
+  p {
+    color: var(--body-text);
+    font-weight: 500;
+    line-height: 1.65;
+  }
+}
+
+#main-content {
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  #main-content {
+    padding-bottom: 64px;
+  }
+}
+
+@layer base {
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+  border-radius: 0.25rem;
+}
+
+.btn,
+a.btn,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  border-radius: 0.25rem;
+}
+
+/* ─── Focus visible ─────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+
+/* Remove focus ring for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ─── CSS Variables ──────────────────────────────────────── */
+:root {
+  /* 🏷️ Ecommerce Agency Design System Tokens */
+  --font-family-primary: 'DM Sans', 'DM Sans Fallback', sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 36px;
+  --font-size-2xl: 48px;
+  --font-size-3xl: 60px;
+
+  --color-text-primary: #1a1e2a;
+  --color-text-secondary: oklab(0.999994 0.0000455677 0.0000200868 / 0.7);
+  --color-text-tertiary: #ffffff;
+  --color-text-inverse: oklab(0.999994 0.0000455677 0.0000200868 / 0.6);
+  --color-surface-base: #000000;
+  --color-surface-muted: #38d059;
+  --color-surface-raised: oklab(0.999994 0.0000455678 0.0000200868 / 0.85);
+  --color-surface-strong: #edf1f2;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 36px;
+
+  --radius-xs: 8px;
+  --radius-sm-pill: 33554400px;
+
+  --motion-duration-instant: 200ms;
+  --motion-duration-fast: 300ms;
+
+  --font-body: 'DM Sans', 'DM Sans Fallback', sans-serif;
+  --font-display: 'DM Sans', 'DM Sans Fallback', sans-serif;
+
+  /* 🎨 Core Background & Layout */
+  --bg-page: #FFFFFF;
+  --bg-section: #F8FAFC;
+  --bg-surface: #F8FAFC;
+  --bg-surface-elevated: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FFFFFF;
+  --bg-interactive: #F1F5F9;
+  --bg-interactive-hover: #E2E8F0;
+  --bg-interactive-active: #CBD5E1;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+
+  --background: var(--bg-page);
+  --bg-light: var(--bg-section);
+  --surface: var(--bg-surface);
+
+  /* 🌑 Deep Background System (Used for Hero & Footer) */
+  --dark: #0B2F63; /* Deep Navy */
+  --dark-navy: #0B2F63;
+  --dark2: #0B2F63; /* Royal Navy style mapped to deep navy */
+  --dark3: #0B2F63;
+
+  /* 🧠 Text Hierarchy (High Readability & Contrast) */
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --text-disabled: #94A3B8;
+  --text-inverse: #FFFFFF;
+
+  --heading: var(--text-primary);
+  --body-text: var(--text-secondary);
+  --light-text: var(--text-muted);
+  --white-text: #FFFFFF;
+
+  /* 🌟 Brand (Rich Emerald Green #98d12a & Deep Navy #0B2F63) */
+  --brand: #98d12a;
+  --brand-rgb: 152, 209, 42;
+  --brand-dark: #7db018;
+  --brand-hover: #7db018;
+  --brand-light: #e2f2eb;
+  --brand-text: #98d12a; /* Accessible deep brand green for text/icons on white/light backgrounds */
+  --brand-glow: rgba(152, 209, 42, 0.25);
+
+  --accent: #98d12a;
+  --accent-dark: #7db018;
+
+  /* Primary Brand Colors */
+  --primary-color: #0B2F63;
+  --primary-navy: #0B2F63;
+  --secondary-color: #0B2F63;
+  --secondary-navy: #0B2F63;
+  --color-primary: #0B2F63;
+  --color-secondary: #0B2F63;
+
+  /* 🔲 Borders */
+  --border: #E2E8F0;
+  --border-strong: #CBD5E1;
+  --border-subtle: #F1F5F9;
+  --border-default: #E2E8F0;
+  --divider: rgba(226, 232, 240, 0.8);
+
+  /* ✨ Shadows */
+  --shadow-sm: 0 1px 3px rgba(11, 47, 99, 0.04), 0 1px 2px rgba(11, 47, 99, 0.02);
+  --shadow-md: 0 4px 12px rgba(11, 47, 99, 0.05), 0 2px 4px rgba(11, 47, 99, 0.03);
+  --shadow-lg: 0 12px 32px rgba(11, 47, 99, 0.08), 0 4px 12px rgba(11, 47, 99, 0.04);
+  --shadow-xl: 0 24px 60px rgba(11, 47, 99, 0.12), 0 8px 24px rgba(11, 47, 99, 0.06);
+
+  /* 💎 Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+
+  /* ⚡ Layout */
+  --nav-h: 80px;
+  --section-py: 5rem;
+
+  /* 🎯 Icon Themes */
+  --icon-primary: #0B2F63;
+  --icon-accent: #98d12a;
+  --icon-inactive: #94A3B8;
+
+  --icon-emerald-bg: rgba(152, 209, 42, 0.12);
+  --icon-emerald-fg: #98d12a;
+
+  --icon-cyan-bg: rgba(11, 47, 99, 0.12);
+  --icon-cyan-fg: #0B2F63;
+
+  --icon-amber-bg: rgba(245, 158, 11, 0.12);
+  --icon-amber-fg: #D97706;
+
+  --icon-indigo-bg: rgba(11, 47, 99, 0.12);
+  --icon-indigo-fg: #0B2F63;
+
+  /* Status Colors */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --info: #3B82F6;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+
+  /* 🏆 Glow Effects */
+  --award-stroke: rgba(152, 209, 42, 0.25);
+  --award-glow-soft: 0 12px 30px rgba(11, 47, 99, 0.12);
+  --award-glow-strong: 0 24px 60px rgba(11, 47, 99, 0.22);
+
+  /* 🌈 Gradient Accents */
+  --hero-gradient: linear-gradient(135deg, #0B2F63 0%, #071E40 100%);
+  --gradient-brand: linear-gradient(135deg, #98d12a, #7db018);
+  --gradient-dark: linear-gradient(135deg, #0B2F63 0%, #071E40 100%);
+  --gradient-glass: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.95),
+    rgba(255,255,255,0.7)
+  );
+
+  /* Focus Ring */
+  --focus-ring: #98d12a;
+}

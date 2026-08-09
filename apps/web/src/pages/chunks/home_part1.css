@@ -1,0 +1,699 @@
+.main {
+  overflow-x: hidden;
+  padding-top: 0;
+}
+
+/* ── Refactored Industrial Product Hero ── */
+.hero {
+  position: relative;
+  background: #F4F7FA; /* Light right side background */
+  color: #071E40;
+  padding-top: 3.5rem;
+  padding-bottom: 4rem;
+  overflow: hidden;
+  min-height: 780px;
+  display: flex;
+  align-items: center;
+}
+
+/* Diagonal Split Slices for Desktop */
+.slantBgGreen {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #8BD61A; /* Bright green diagonal boundary band */
+  clip-path: polygon(0 0, 63.5% 0, 49.5% 100%, 0 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.slantBgDark {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #0B2F63 0%, #071E40 100%); /* Footer section Navy Blue Theme */
+  clip-path: polygon(0 0, 62% 0, 48% 100%, 0 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Ultra-wide Screen Adjustment */
+@media (min-width: 1400px) {
+  .slantBgGreen {
+    clip-path: polygon(0 0, 62.5% 0, 48.5% 100%, 0 100%);
+  }
+  .slantBgDark {
+    clip-path: polygon(0 0, 61% 0, 47% 100%, 0 100%);
+  }
+}
+
+/* Decorative Dotted Grids */
+.dotsPatternLeft {
+  position: absolute;
+  top: 2.5rem;
+  left: 3.5rem;
+  width: 130px;
+  height: 75px;
+  background-image: radial-gradient(rgba(139, 214, 26, 0.4) 2.5px, transparent 2.5px);
+  background-size: 16px 16px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.dotsPatternRightTop {
+  position: absolute;
+  top: 2.5rem;
+  right: 3.5rem;
+  width: 140px;
+  height: 80px;
+  background-image: radial-gradient(rgba(100, 116, 139, 0.22) 2.5px, transparent 2.5px);
+  background-size: 16px 16px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.dotsPatternRightBottom {
+  position: absolute;
+  bottom: 2rem;
+  right: 3rem;
+  width: 120px;
+  height: 50px;
+  background-image: radial-gradient(rgba(100, 116, 139, 0.2) 2.5px, transparent 2.5px);
+  background-size: 16px 16px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+/* Embedded Navigation Chevron Buttons */
+.chevronBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.chevronBtnLeft {
+  left: -20px;
+  background: #071E40;
+  border: 1px solid rgba(139, 214, 26, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.chevronBtnLeft:hover {
+  background: #0B2F63;
+  border-color: #8BD61A;
+  transform: translateY(-50%) translateX(-2px);
+}
+
+.chevronBtnRight {
+  right: -20px;
+  background: #8BD61A;
+  box-shadow: 0 4px 18px rgba(139, 214, 26, 0.4);
+}
+
+.chevronBtnRight:hover {
+  background: #7db018;
+  transform: translateY(-50%) translateX(2px);
+}
+
+/* Hero Main Grid */
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.heroLeft {
+  position: relative;
+  z-index: 10;
+  color: #FFFFFF;
+  padding-right: 1rem;
+}
+
+/* Manufacturer Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(11, 47, 99, 0.9);
+  border: 1.5px solid rgba(139, 214, 26, 0.7);
+  padding: 0.35rem 1.1rem 0.35rem 0.5rem;
+  border-radius: 9999px;
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 12px rgba(139, 214, 26, 0.15);
+  transition: all 0.3s ease;
+}
+
+.badgeIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8BD61A;
+  padding: 0.25rem 0.6rem 0.25rem 0.35rem;
+  border-right: 1.5px solid rgba(139, 214, 26, 0.4);
+}
+
+.badgeIcon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.badgeText {
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+/* Headline Typography */
+.headline {
+  margin-bottom: 0.5rem;
+  line-height: 1.02;
+}
+
+.titleLime {
+  display: block;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(2.25rem, 4.25vw, 4rem);
+  font-weight: 900;
+  color: #8BD61A;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+}
+
+.titleWhite {
+  display: block;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: clamp(2.25rem, 4.25vw, 4rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+}
+
+/* Underline Accent Line & Dot */
+.underlineAccent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.underlineLine {
+  height: 3px;
+  width: 90px;
+  background: #8BD61A;
+  border-radius: 2px;
+}
+
+.underlineDot {
+  width: 7px;
+  height: 7px;
+  background: #8BD61A;
+  border-radius: 50%;
+}
+
+/* Description */
+.description {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 1.75rem;
+  max-width: 530px;
+}
+
+/* Feature Panel */
+.featurePanel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0.5rem 0;
+  margin-bottom: 2rem;
+  backdrop-filter: none;
+  box-shadow: none;
+  max-width: 550px;
+}
+
+.featureColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 0.75rem;
+}
+
+.featureColumn:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.featureIconRing {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid #8BD61A;
+  background: rgba(139, 214, 26, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8BD61A;
+  margin-bottom: 0.75rem;
+  transition: all 0.25s ease;
+}
+
+.featureColumn:hover .featureIconRing {
+  background: rgba(139, 214, 26, 0.22);
+  border-color: #9EE027;
+  box-shadow: 0 0 12px rgba(139, 214, 26, 0.35);
+  transform: translateY(-2px);
+}
+
+.featureIcon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.featureTitle {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+
+.featureDesc {
+  font-size: 0.71875rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.35;
+  max-width: 125px;
+}
+
+/* CTA Row & Decorative Slashes */
+.ctaRow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.exploreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: #8BD61A;
+  color: #FFFFFF !important;
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.85rem 2.2rem 0.85rem 1.6rem;
+  border-radius: 4px;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 6px 20px rgba(139, 214, 26, 0.35);
+  white-space: nowrap;
+}
+
+.exploreBtn:hover {
+  background: #7db018 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(139, 214, 26, 0.45);
+}
+
+.exploreBtnArrow {
+  width: 1.1rem;
+  height: 1.1rem;
+  transition: transform 0.25s ease;
+}
+
+.exploreBtn:hover .exploreBtnArrow {
+  transform: translateX(5px);
+}
+
+.decorativeSlashes {
+  display: flex;
+  gap: 5px;
+  color: rgba(139, 214, 26, 0.35);
+  font-weight: 900;
+  font-size: 1.25rem;
+  user-select: none;
+}
+
+/* Right Side Product Area */
+.heroRight {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 12;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 992px) {
+  .heroRight {
+    transform: translateX(clamp(35px, 24vw - 240px, 190px));
+  }
+}
+
+.productShowcase {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.productFrameWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  aspect-ratio: 1 / 1.04;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productFrameSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.productImageContainer {
+  position: relative;
+  z-index: 2;
+  width: 70%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.productImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 20px rgba(6, 27, 50, 0.1));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: floatProduct 6s ease-in-out infinite;
+}
+
+@keyframes floatProduct {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.01); }
+}
+
+/* Bottom Controls Row: Pagination + Assistance Card */
+.bottomControlsRow {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  gap: 1rem;
+}
+
+/* Pagination Dots */
+.paginationDots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: -3.5rem;
+  transform: translateX(-25px);
+}
+
+.paginationDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #CBD5E1;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.paginationDotActive {
+  background: #8BD61A;
+  width: 12px;
+  height: 12px;
+  box-shadow: 0 0 8px rgba(139, 214, 26, 0.6);
+}
+
+/* Floating Assistance Card */
+.assistanceCard {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: #FFFFFF;
+  border: 1px solid #DCE3E8;
+  border-radius: 16px;
+  padding: 0.75rem 1.1rem;
+  box-shadow: 0 10px 30px rgba(6, 27, 50, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin-right: 40px;
+}
+
+.assistanceCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(6, 27, 50, 0.12);
+}
+
+.assistanceIconCircle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #8BD61A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #FFFFFF;
+}
+
+.assistanceTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.assistanceLabel {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #071E40;
+  letter-spacing: 0.04em;
+}
+
+.assistanceSub {
+  font-size: 0.7rem;
+  color: #64748B;
+  line-height: 1.3;
+  max-width: 190px;
+}
+
+.assistanceBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #FFFFFF;
+  border: 1px solid #8BD61A;
+  color: #3F8F18;
+  font-size: 0.725rem;
+  font-weight: 800;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.assistanceBtn:hover {
+  background: #8BD61A;
+  color: #FFFFFF;
+}
+
+/* ── Responsive Behavior ── */
+@media (max-width: 1199px) {
+  .hero {
+    min-height: auto;
+    padding-top: 3rem;
+    padding-bottom: 3.5rem;
+  }
+  .heroGrid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2rem;
+  }
+  .bottomControlsRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .paginationDots {
+    margin-left: 0;
+    transform: none;
+  }
+  .assistanceCard {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero {
+    background: linear-gradient(135deg, #0B2F63 0%, #071E40 100%); /* Solid dark navy on tablet/mobile for clean stacking */
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  .slantBgGreen, .slantBgDark {
+    display: none;
+  }
+  .dotsPatternLeft, .dotsPatternRightTop, .dotsPatternRightBottom {
+    display: none;
+  }
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .heroLeft {
+    padding-right: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .underlineAccent {
+    justify-content: center;
+  }
+  .description {
+    max-width: 100%;
+  }
+  .featurePanel {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 0.5rem;
+    width: 100%;
+    max-width: 580px;
+    padding: 1.25rem 1rem;
+  }
+  .featureColumn:nth-child(1),
+  .featureColumn:nth-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding-bottom: 1rem;
+  }
+  .featureColumn:nth-child(odd) {
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .featureColumn:nth-child(even) {
+    border-right: none;
+  }
+  .ctaRow {
+    justify-content: center;
+  }
+  .bottomControlsRow {
+    align-items: center;
+  }
+  .assistanceCard {
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .titleLime, .titleWhite {
+    font-size: 1.85rem;
+  }
+  .ctaRow {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  .exploreBtn {
+    width: 100%;
+    clip-path: none;
+    border-radius: 8px;
+  }
+  .decorativeSlashes {
+    display: none;
+  }
+  .assistanceCard {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  .assistanceSub {
+    max-width: 100%;
+  }
+  .assistanceBtn {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 576px) {
+  .chevronBtn {
+    width: 36px;
+    height: 36px;
+  }
+  .chevronBtnLeft {
+    left: -10px;
+  }
+  .chevronBtnRight {
+    right: -10px;
+  }
+}
+@media (max-width: 576px) {
+  .badge {
+    padding: 0.25rem 0.8rem 0.25rem 0.35rem;
+    margin-bottom: 0.75rem;
+  }
+  .badgeIconWrapper {
+    padding: 0.15rem 0.4rem 0.15rem 0.2rem;
+  }
+  .badgeIcon {
+    width: 16px;
+    height: 16px;
+  }
+  .badgeText {
+    font-size: 0.75rem;
+  }
+}

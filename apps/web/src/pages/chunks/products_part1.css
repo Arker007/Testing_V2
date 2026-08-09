@@ -1,0 +1,214 @@
+/* ─── Products Page Complete Redesign CSS ─────────────────── */
+
+.main {
+  min-height: 100vh;
+  background-color: var(--color-surface-raised);
+  padding-bottom: 4rem;
+}
+
+/* ─── HERO HEADER ────────────────────────────────────────── */
+.productsHero {
+  position: relative;
+  background: linear-gradient(135deg, #0B2F63 0%, #061C3D 100%);
+  padding: calc(var(--nav-h, 70px) + 1.5rem) 0 3.5rem;
+  color: #FFFFFF;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(152, 209, 42, 0.2);
+}
+
+.heroBgPattern {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 65% 85% at 85% 40%, rgba(152, 209, 42, 0.15) 0%, transparent 70%),
+              radial-gradient(ellipse 40% 50% at 10% 90%, rgba(11, 47, 99, 0.5) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Breadcrumbs */
+.heroBreadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 1.5rem;
+}
+
+.heroBreadcrumb a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.heroBreadcrumb a:hover {
+  color: #98d12a;
+}
+
+.breadcrumbSep {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.breadcrumbActive {
+  color: #98d12a;
+  font-weight: 700;
+}
+
+/* Hero Content */
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .heroContent {
+    grid-template-columns: 1fr 340px;
+  }
+}
+
+.heroTextCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.heroEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #98d12a;
+  text-transform: uppercase;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #98d12a;
+  box-shadow: 0 0 8px rgba(152, 209, 42, 0.8);
+}
+
+.heroTitle {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.85rem, 4vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.heroTitleAccent {
+  color: #98d12a;
+}
+
+.heroDescription {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 680px;
+  margin: 0;
+}
+
+/* Stats Box */
+.heroStatsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius-xs);
+  padding: 1.25rem;
+}
+
+@media (max-width: 991px) {
+  .heroStatsCol {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}
+
+.statBox {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.4rem 0;
+}
+
+.statIconWrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-xs);
+  background: rgba(152, 209, 42, 0.15);
+  border: 1px solid rgba(152, 209, 42, 0.3);
+  color: #98d12a;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.statVal {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.statLabel {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* ─── MOBILE CATEGORY BAR ────────────────────────────────── */
+.mobileCategoryBar {
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 992px) {
+  .mobileCategoryBar {
+    display: none;
+  }
+}
+
+.mobileChipsTrack {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.25rem 0.1rem;
+  scrollbar-width: none;
+}
+
+.mobileChipsTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.mobileChip {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #FFFFFF;
+  color: #0B2F63;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.55rem 0.95rem;
+  border-radius: 9999px;
+  border: 1px solid #E2E8F0;
+  white-space: nowrap;
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}

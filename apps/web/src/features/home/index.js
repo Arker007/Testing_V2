@@ -1,0 +1,10 @@
+export { default as HomeHero } from "./HomeHero";
+export { default as HomeCtaSection } from "./HomeCtaSection";
+export { default as IndustriesGrid } from "./IndustriesGrid";
+export { default as IndustryCard } from "./IndustryCard";
+export { default as IndustryValueProps } from "./IndustryValueProps";
+export { default as ProcessSection } from "./ProcessSection";
+export { default as SustainabilitySection } from "./SustainabilitySection";
+export { default as TrustedBySection } from "./TrustedBySection";
+export * from "./home.constants";
+export * from "./industriesData";

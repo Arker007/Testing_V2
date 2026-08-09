@@ -1,0 +1,161 @@
+/* Newsletter divider & section */
+.newsletterDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 2rem 0;
+}
+
+.newsletter {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsletterForm {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 100%;
+}
+
+.newsletterInput {
+  width: 100%;
+  padding: 0.75rem 3.5rem 0.75rem 1rem;
+  border-radius: var(--radius-sm, 6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.newsletterInput:focus {
+  border-color: var(--brand, #98d12a);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.newsletterSubmit {
+  position: absolute;
+  right: 0.375rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--brand, #98d12a);
+  color: #06152B;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-xs, 4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.newsletterSubmit:hover {
+  transform: translateY(-50%) scale(1.05);
+  background-color: #ffffff;
+}
+
+.subscribedText {
+  font-size: 0.875rem;
+  color: var(--brand, #98d12a);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Bottom Bar */
+.bottom {
+  padding: 1.5rem 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.bottom :global(.container) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.bottomLeft {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.madeWith {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* WhatsApp floating button at bottom-right */
+.waPill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #25D366;
+  color: #ffffff;
+  padding: 0.625rem 1.25rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.waPill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  color: #ffffff;
+}
+
+.waPill i {
+  font-size: 1.125rem;
+}
+
+/* Responsive Rules */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  
+  .bottomLeft {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .bottom :global(.container) {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .bottomLeft {
+    align-items: center;
+    text-align: center;
+  }
+}

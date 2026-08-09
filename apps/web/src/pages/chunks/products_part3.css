@@ -1,0 +1,206 @@
+
+.quickSearchPillBtn:hover {
+  background: var(--color-text-primary);
+  color: var(--color-surface-muted);
+  border-color: var(--color-text-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(24, 48, 40, 0.15);
+}
+
+/* Custom Select Dropdown Styling */
+.customSelectContainer {
+  position: relative;
+  width: 100%;
+}
+
+.customSelectTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.625rem 0.85rem;
+  background: #FFFFFF;
+  color: var(--color-text-primary);
+  border: 1px solid #CBD5E1;
+  border-radius: var(--radius-xs);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.customSelectTrigger:hover {
+  border-color: var(--color-text-primary);
+  background: #F8FAFC;
+}
+
+.customSelectTrigger[aria-expanded="true"] {
+  border-color: var(--color-surface-muted);
+  box-shadow: 0 0 0 3px rgba(56, 208, 89, 0.2);
+  outline: none;
+}
+
+.selectChevron {
+  color: #64748B;
+  transition: transform 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+.chevronRotate {
+  transform: rotate(180deg);
+  color: var(--color-text-primary);
+}
+
+.customSelectDropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: var(--radius-xs);
+  box-shadow: 0 10px 25px -5px rgba(24, 48, 40, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  padding: 0.35rem;
+  list-style: none;
+  margin: 0;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.customSelectOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.customSelectOption:hover {
+  background: #F8FAFC;
+  color: var(--color-text-primary);
+}
+
+.customSelectOptionActive {
+  background: rgba(56, 208, 89, 0.15) !important;
+  color: var(--color-text-primary) !important;
+  font-weight: 700 !important;
+}
+
+/* Results bar & tags */
+.resultsBar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #F1F5F9;
+}
+
+@media (min-width: 640px) {
+  .resultsBar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.resultsText {
+  font-size: 0.8125rem;
+  color: #475569;
+}
+
+.resultsText strong {
+  color: var(--color-text-primary);
+  font-weight: 800;
+}
+
+.totalText {
+  color: #64748B;
+}
+
+.activeTagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.filterTagPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--color-text-primary);
+  color: var(--color-text-inverse);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-xs);
+}
+
+.tagRemoveBtn {
+  background: none;
+  border: none;
+  color: var(--color-surface-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  opacity: 0.85;
+}
+
+.tagRemoveBtn:hover {
+  opacity: 1;
+}
+
+.resetAllLinkBtn {
+  background: none;
+  border: none;
+  color: var(--color-text-tertiary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.resetAllLinkBtn:hover {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+}
+
+/* ─── CATALOG 2-COLUMN LAYOUT ────────────────────────────── */
+.catalogLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .catalogLayout {
+    grid-template-columns: 280px 1fr;
+  }
+}
+@media (min-width: 992px) {
+}
+
+/* ─── FILTER SIDEBAR & MOBILE DRAWER ─────────────────────── */
+.mobileDrawerBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 48, 40, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9998;
+  animation: fadeIn 0.2s ease;
+}

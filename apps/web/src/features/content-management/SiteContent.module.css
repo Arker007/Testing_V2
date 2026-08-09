@@ -1,0 +1,203 @@
+@import "./SiteContentRepeater.css";
+
+/* ==========================================================================
+   VENTIXE STYLE: CONTENT METADATA & CMS MANAGER REDESIGNED
+   ========================================================================== */
+
+.splitLayout {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  margin-top: 16px;
+  height: calc(100vh - 76px - 60px - 16px - 24px); /* Full height minus topbar, paddings, and margins */
+  overflow: hidden;
+}
+
+/* Left Panel: Section Tree Map navigation */
+.outlinePanel {
+  flex: 0 0 280px;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+  overflow-y: auto;
+}
+
+.outlinePanel::-webkit-scrollbar {
+  width: 4px;
+}
+
+.outlinePanel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.outlinePanel::-webkit-scrollbar-thumb {
+  background: rgba(5, 40, 63, 0.1);
+  border-radius: 4px;
+}
+
+.outlinePanel::-webkit-scrollbar-thumb:hover {
+  background: rgba(5, 40, 63, 0.2);
+}
+
+.treeHeader {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin: 14px 8px 4px;
+}
+
+.treeHeader:first-of-type {
+  margin-top: 6px;
+}
+
+.treeNode {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.treeNode:hover {
+  background: var(--brand-light);
+  color: var(--brand-dark);
+}
+
+.treeNodeActive {
+  background: var(--brand-light) !important;
+  color: var(--ink) !important;
+  font-weight: 700;
+  border-left: 3px solid var(--brand);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.treeSubNode {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px 8px 24px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.treeSubNode:hover {
+  background: var(--brand-light);
+  color: var(--ink);
+}
+
+.treeSubNodeActive {
+  background: var(--brand-light) !important;
+  color: var(--ink) !important;
+  font-weight: 700;
+  border-left: 3px solid var(--brand);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.nodeBadge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Right Panel: Focused Form Editor Sheet */
+.editorPanel {
+  flex: 1;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.editorPanel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.editorPanel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.editorPanel::-webkit-scrollbar-thumb {
+  background: rgba(5, 40, 63, 0.15);
+  border-radius: 4px;
+}
+
+.editorPanel::-webkit-scrollbar-thumb:hover {
+  background: rgba(5, 40, 63, 0.25);
+}
+
+.editorHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(5, 40, 63, 0.06);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.editorTitle {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.editorTitle i {
+  color: var(--brand);
+}
+
+.editorBody {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.editorFooter {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(5, 40, 63, 0.06);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 80px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}

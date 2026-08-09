@@ -1,0 +1,45 @@
+
+.hover-animate-wiggle:hover i,
+.hover-animate-wiggle:hover svg {
+  animation: flaticon-wiggle-micro 0.4s ease-in-out !important;
+  display: inline-block !important;
+}
+
+/* Hover-Triggered Spinning */
+@keyframes flaticon-spin-hover {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hover-animate-spin:hover i,
+.hover-animate-spin:hover svg {
+  animation: flaticon-spin-hover 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  display: inline-block !important;
+}
+
+/* Automatically make all FontAwesome icons on hover-capable cards bounce or pulse! */
+.whyCard:hover i,
+.whyCard:hover svg,
+.industryCard:hover i,
+.industryCard:hover svg,
+.catCard:hover i,
+.catCard:hover svg {
+  animation: flaticon-bounce-micro 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+
+
+.testimonial-nav-btn:hover {
+  background-color: #0B2F63 !important;
+  color: #ffffff !important;
+  border-color: #0B2F63 !important;
+}
+
+
+
+
+
