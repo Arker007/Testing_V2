@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Sun, Moon } from "lucide-react";
 import { useSite } from "../../shared/context/SiteContext";
 import { STATIC_CATEGORIES } from "../../data/home";
 import QuoteButton from "../../shared/components/QuoteButton";
@@ -21,14 +22,13 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { co, mobileMenuOpen: open, setMobileMenuOpen: setOpen } = useSite();
 
-  const [theme] = useState(() => {
-    return (
-      localStorage.getItem("theme") ||
-      (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light")
-    );
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light";
   });
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -194,6 +194,20 @@ export default function Navbar() {
                 categories={categories}
                 onSearchSubmit={() => setOpen(false)}
               />
+
+              <button
+                type="button"
+                className={styles.themeToggle}
+                onClick={toggleTheme}
+                aria-label="Toggle dark mode"
+                title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              >
+                {theme === "dark" ? (
+                  <Sun className="w-4 h-4 text-amber-400" />
+                ) : (
+                  <Moon className="w-4 h-4 text-slate-700" />
+                )}
+              </button>
 
               <div className={styles.headerQuoteBtnWrap}>
                 <QuoteButton
