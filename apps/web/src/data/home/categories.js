@@ -23,28 +23,28 @@ export const STATIC_CATEGORIES = [
   {
     id: "plastic-table",
     name: "Plastic Table",
-    image: "",
+    image: "/uploads/products/categories/plastic-table-1770446441648-0_medium.webp",
     desc: "Circular outdoor dining tables designed to withstand harsh outdoor weather.",
     icon: "fa-table"
   },
   {
     id: "garden-fence",
     name: "Garden Fence",
-    image: "",
+    image: "/uploads/products/categories/categories-1770374476904-61107_medium.webp",
     desc: "Maintenance-free perimeter fencing systems designed for residential use.",
     icon: "fa-bars-staggered"
   },
   {
     id: "outdoor-furniture",
     name: "Outdoor Furniture",
-    image: "",
+    image: "/uploads/products/garden-bench/gardenbench-1770441701366-1_medium.webp",
     desc: "Sleek, sustainable, and durable furniture built for modern spaces.",
     icon: "fa-couch"
   },
   {
     id: "custom-products",
     name: "Custom Products",
-    image: "",
+    image: "/uploads/products/lumber/plastic-lumber-pallet-1770447286569-0_medium.webp",
     desc: "Bespoke industrial shapes and parts molded to custom B2B drawings.",
     icon: "fa-gears"
   }

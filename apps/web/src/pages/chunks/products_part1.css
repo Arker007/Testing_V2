@@ -13,13 +13,13 @@
   padding: calc(var(--nav-h, 70px) + 1.5rem) 0 3.5rem;
   color: #FFFFFF;
   overflow: hidden;
-  border-bottom: 1px solid rgba(152, 209, 42, 0.2);
+  border-bottom: 1px solid rgba(63, 174, 90, 0.2);
 }
 
 .heroBgPattern {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 65% 85% at 85% 40%, rgba(152, 209, 42, 0.15) 0%, transparent 70%),
+  background: radial-gradient(ellipse 65% 85% at 85% 40%, rgba(63, 174, 90, 0.15) 0%, transparent 70%),
               radial-gradient(ellipse 40% 50% at 10% 90%, rgba(11, 47, 99, 0.5) 0%, transparent 60%);
   pointer-events: none;
 }
@@ -42,7 +42,7 @@
 }
 
 .heroBreadcrumb a:hover {
-  color: #98d12a;
+  color: var(--brand);
 }
 
 .breadcrumbSep {
@@ -50,7 +50,7 @@
 }
 
 .breadcrumbActive {
-  color: #98d12a;
+  color: var(--brand);
   font-weight: 700;
 }
 
@@ -81,7 +81,7 @@
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.1em;
-  color: #98d12a;
+  color: var(--brand);
   text-transform: uppercase;
 }
 
@@ -89,8 +89,8 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #98d12a;
-  box-shadow: 0 0 8px rgba(152, 209, 42, 0.8);
+  background-color: var(--brand);
+  box-shadow: 0 0 8px rgba(63, 174, 90, 0.8);
 }
 
 .heroTitle {

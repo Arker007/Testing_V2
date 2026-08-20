@@ -1,8 +1,8 @@
 
 .showcaseBadge {
-  background: rgba(152, 209, 42, 0.14);
+  background: rgba(63, 174, 90, 0.14);
   color: var(--dark);
-  border: 1px solid rgba(152, 209, 42, 0.3);
+  border: 1px solid rgba(63, 174, 90, 0.3);
   border-radius: 4px;
   padding: 0.25rem 0.65rem;
   font-size: 0.6875rem;
@@ -116,7 +116,7 @@
   width: 40px;
   height: 40px;
   border-radius: 6px;
-  background: rgba(152, 209, 42, 0.1);
+  background: rgba(63, 174, 90, 0.1);
   color: var(--brand-dark);
   display: grid;
   place-items: center;
@@ -144,7 +144,7 @@
 /* ── 2. Trusted By Section ── */
 .trustedBy {
   background: var(--bg-card, #ffffff);
-  padding: 3rem 0;
+  padding: 2.25rem 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -155,7 +155,7 @@
   letter-spacing: 0.1em;
   color: var(--text-muted);
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .logoRow {
@@ -182,12 +182,12 @@
 /* ── 3. Categories Section ── */
 .categoriesSection {
   background: var(--bg-card, #ffffff);
-  padding: 6rem 0;
+  padding: 3.5rem 0;
 }
 
 .sectionHeader {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.25rem;
 }
 
 .categoriesGrid {
@@ -208,4 +208,23 @@
               border-color 0.4s ease;
   text-decoration: none;
   color: inherit;
+}
+
+/* ── Dark Mode Adaptations for Layout Elevation Hierarchy ── */
+:global([data-theme="dark"]) .trustedBy,
+:global(.dark) .trustedBy {
+  background: var(--dark-section, #0F141A) !important;
+  border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .logoBadge,
+:global(.dark) .logoBadge {
+  background: var(--dark-card, #111820) !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .categoriesSection,
+:global(.dark) .categoriesSection {
+  background: var(--dark-page, #0B0F14) !important;
 }

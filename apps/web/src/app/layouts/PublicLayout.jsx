@@ -68,7 +68,7 @@ export default function PublicLayout() {
           top: "-100%",
           left: "1rem",
           background: "var(--brand)",
-          color: "#fff",
+          color: "var(--white)",
           padding: "0.5rem 1rem",
           borderRadius: "0 0 0.5rem 0.5rem",
           fontWeight: 700,

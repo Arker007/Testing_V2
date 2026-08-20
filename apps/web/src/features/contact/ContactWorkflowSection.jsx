@@ -1,13 +1,18 @@
 import React from "react";
 import styles from "../../pages/Contact.module.css";
 import { WORKFLOW_STEPS } from "./contact.constants";
+import Badge from "../../shared/components/ui/Badge";
 
 export default function ContactWorkflowSection() {
   return (
     <section className={styles.workflowSection}>
       <div className="container">
         <div className={styles.sectionHeaderCenter}>
-          <span className="section-eyebrow mx-auto">Easy Ordering Process</span>
+          <div className="flex justify-center mb-3">
+            <Badge variant="brand" size="sm">
+              Easy Ordering Process
+            </Badge>
+          </div>
           <h2 className={styles.sectionTitleLight}>5 Steps From Inquiry to Delivery</h2>
           <p className={styles.sectionDescLight}>
             Here is how simple it is to get high-quality recycled plastic products for your factory.

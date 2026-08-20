@@ -43,7 +43,7 @@ const defaultCategories = [
     name: "Plastic Table",
     slug: "plastic-table",
     description: "Circular outdoor dining tables designed to withstand harsh outdoor weather.",
-    image: "",
+    image: "/uploads/products/categories/plastic-table-1770446441648-0_medium.webp",
     fields: JSON.stringify([]),
   },
   {
@@ -51,7 +51,7 @@ const defaultCategories = [
     name: "Garden Fence",
     slug: "garden-fence",
     description: "Maintenance-free perimeter fencing systems designed for residential use.",
-    image: "",
+    image: "/uploads/products/categories/categories-1770374476904-61107_medium.webp",
     fields: JSON.stringify([]),
   },
   {
@@ -59,7 +59,7 @@ const defaultCategories = [
     name: "Outdoor Furniture",
     slug: "outdoor-furniture",
     description: "Sleek, sustainable, and durable furniture built for modern spaces.",
-    image: "",
+    image: "/uploads/products/garden-bench/gardenbench-1770441701366-1_medium.webp",
     fields: JSON.stringify([]),
   },
   {
@@ -67,7 +67,7 @@ const defaultCategories = [
     name: "Custom Products",
     slug: "custom-products",
     description: "Bespoke industrial shapes and parts molded to custom B2B drawings.",
-    image: "",
+    image: "/uploads/products/lumber/plastic-lumber-pallet-1770447286569-0_medium.webp",
     fields: JSON.stringify([]),
   },
 ];

@@ -4,6 +4,7 @@ import { useSite } from "../shared/context/SiteContext";
 import styles from "./Home.module.css";
 import ProductsShowcase from "../shared/components/ProductsShowcase";
 import FeaturesSection from "../shared/components/ui/FeaturesSection";
+import SectionHeader from "../shared/components/ui/SectionHeader";
 import HomeHero from "../features/home/HomeHero";
 import TrustedBySection from "../features/home/TrustedBySection";
 import IndustriesGrid from "../features/home/IndustriesGrid";
@@ -29,13 +30,14 @@ export default function Home() {
       {c("show_categories", "1") !== "0" && (
         <section className={styles.categoriesSection}>
           <div className="container">
-            <div className={styles.sectionHeader}>
-              <span className="section-eyebrow mx-auto">Product Ecosystem</span>
-              <h2 className="section-title">{c("categories_title", "High-Performance Recycled Alternatives")}</h2>
-              <p className="section-subtitle">
-                {c("categories_subtitle", "Replacing conventional lumber, steel, and concrete with carbon-negative structural materials that require absolutely zero maintenance.")}
-              </p>
-            </div>
+            <SectionHeader
+              eyebrow="Product Ecosystem"
+              title={c("categories_title", "High-Performance Recycled Alternatives")}
+              subtitle={c(
+                "categories_subtitle",
+                "Replacing conventional lumber, steel, and concrete with carbon-negative structural materials that require absolutely zero maintenance."
+              )}
+            />
             <ProductsShowcase />
           </div>
         </section>

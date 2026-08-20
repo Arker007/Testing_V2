@@ -80,7 +80,7 @@ export function getProductSpread({
               {imgUrl ? (
                 <img src={imgUrl} alt="Feature" />
               ) : (
-                <div style={{ fontSize: "1.5rem", color: "#ddd" }}>
+                <div style={{ fontSize: "1.5rem", color: "var(--gray-200)" }}>
                   <i className="fa-solid fa-cube" />
                 </div>
               )}

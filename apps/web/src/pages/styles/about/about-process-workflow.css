@@ -1,0 +1,208 @@
+
+.processCard:hover,
+.processCardActive {
+  background: var(--border-dark);
+  border-color: var(--brand);
+  transform: translateY(-3px);
+}
+
+.processCardIcon {
+  font-size: 1.1rem;
+  color: var(--brand);
+  margin-top: 0.2rem;
+}
+
+.processNumber {
+  font-family: var(--font-display, inherit);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--brand);
+  line-height: 1;
+}
+
+.processTitle {
+  font-size: 0.925rem;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0;
+}
+
+.processDesc {
+  font-size: 0.785rem;
+  color: var(--text-inverse-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Timeline Section ── */
+.timelineSection {
+  padding: 4.5rem 0;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--navy-subtle);
+}
+
+.timelineRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.tlCardNew {
+  background: var(--bg-card, var(--white));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.tlCardNew:hover {
+  border-color: var(--brand);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.tlHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tlYearBadge {
+  background: var(--navy);
+  color: var(--brand);
+  font-family: var(--font-display, inherit);
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 0.2rem 0.65rem;
+  border-radius: 6px;
+}
+
+.tlHeader i {
+  color: var(--brand-dark);
+  font-size: 0.9rem;
+}
+
+.tlTitleNew {
+  font-family: var(--font-display, inherit);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin: 0;
+}
+
+.tlDescNew {
+  font-size: 0.8125rem;
+  color: var(--gray-500);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── Certifications Section ── */
+.certSection {
+  padding: 4.5rem 0;
+  background: var(--bg-card, var(--white));
+}
+
+.certGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.certCardNew {
+  background: var(--gray-50);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.certCardNew:hover {
+  background: var(--bg-card, var(--white));
+  border-color: var(--brand);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.certHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.certIconNew {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--brand-glow-subtle);
+  color: var(--navy);
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  transition: transform 0.25s ease;
+}
+
+.certCardNew:hover .certIconNew {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.certTag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+  letter-spacing: 0.04em;
+}
+
+.certNameNew {
+  font-family: var(--font-display, inherit);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin: 0;
+}
+
+.certDescNew {
+  font-size: 0.8125rem;
+  color: var(--gray-500);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Leadership Team ── */
+.teamSection {
+  padding: 4.5rem 0;
+  background: var(--gray-50);
+  border-top: 1px solid var(--navy-subtle);
+  border-bottom: 1px solid var(--navy-subtle);
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.teamCardNew {
+  background: var(--bg-card, var(--white));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}

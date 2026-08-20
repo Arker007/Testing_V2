@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronDown, Check, Search, X } from "lucide-react";
-import styles from "../../../pages/Products.module.css";
+import styles from "./CustomSelect.module.css";
 
 export default function CustomSelect({ value, onChange, options = [], placeholder }) {
   const [isOpen, setIsOpen] = useState(false);

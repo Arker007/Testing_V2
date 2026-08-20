@@ -29,12 +29,18 @@
 }
 
 /* ── 7. Industries We Serve (Bento Grid) ── */
-/* ── 7. Industries We Serve (Bento Grid) ── */
 .industriesSection {
-  background: #f8fafc;
-  padding: 6rem 0;
+  background: var(--bg-page, #f8fafc);
+  padding: 3.5rem 0;
   border-top: 1px solid var(--border, #E2E8F0);
   border-bottom: 1px solid var(--border, #E2E8F0);
+}
+
+:global([data-theme="dark"]) .industriesSection,
+:global(.dark) .industriesSection {
+  background: var(--dark-page) !important;
+  border-top-color: var(--dark-border) !important;
+  border-bottom-color: var(--dark-border) !important;
 }
 
 .industriesGrid {
@@ -46,7 +52,7 @@
 .industryCard {
   background: var(--bg-card, #ffffff);
   border: 1px solid rgba(226, 232, 240, 0.8);
-  border-radius: 24px;
+  border-radius: 8px;
   padding: 2.25rem 2rem;
   display: flex;
   flex-direction: column;
@@ -54,6 +60,19 @@
   position: relative;
   overflow: hidden;
   min-height: 280px;
+}
+
+:global([data-theme="dark"]) .industryCard,
+:global(.dark) .industryCard {
+  background: var(--dark-card) !important;
+  border: 1px solid var(--dark-border) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8) !important;
+  color: #CBD5E1 !important;
+}
+
+:global([data-theme="dark"]) .industryCard:hover,
+:global(.dark) .industryCard:hover {
+  border-color: var(--brand) !important;
 }
 
 .industryCard:hover {
@@ -73,11 +92,15 @@
   gap: 0.35rem;
 }
 
+.cardLight .indCardMain {
+  padding-right: 3.25rem;
+}
+
 .indIconBox {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgba(152, 209, 42, 0.12);
+  background: rgba(63, 174, 90, 0.12);
   color: #0B2F63;
   font-size: 1.25rem;
   display: grid;
@@ -158,29 +181,43 @@
 .cardBgOverlayDark {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(2, 21, 48, 0.95) 0%, rgba(5, 40, 80, 0.8) 50%, rgba(11, 47, 99, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 45%, rgba(255, 255, 255, 0.7) 75%, rgba(255, 255, 255, 0.15) 100%);
   z-index: 1;
 }
 
 .cardBgOverlayLight {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.95) 40%, rgba(255, 255, 255, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 50%, rgba(255, 255, 255, 0.6) 80%, rgba(255, 255, 255, 0.1) 100%);
   z-index: 1;
 }
 
 .cardBgOverlayLightHalf {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, #ffffff 0%, #ffffff 45%, rgba(255, 255, 255, 0.8) 60%, rgba(255, 255, 255, 0.1) 100%);
+  background: linear-gradient(to right, #ffffff 0%, #ffffff 55%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0.2) 100%);
   z-index: 1;
 }
 
 .cardBgOverlayDarkHalf {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, #021530 0%, #021530 45%, rgba(2, 21, 48, 0.8) 60%, rgba(2, 21, 48, 0.1) 100%);
+  background: linear-gradient(to right, #ffffff 0%, #ffffff 55%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0.2) 100%);
   z-index: 1;
+}
+
+:global([data-theme="dark"]) .cardBgOverlayLight,
+:global(.dark) .cardBgOverlayLight,
+:global([data-theme="dark"]) .cardBgOverlayLightHalf,
+:global(.dark) .cardBgOverlayLightHalf {
+  background: linear-gradient(135deg, rgba(14, 16, 21, 0.95) 0%, rgba(14, 16, 21, 0.85) 45%, rgba(14, 16, 21, 0.3) 100%) !important;
+}
+
+:global([data-theme="dark"]) .cardBgOverlayDark,
+:global(.dark) .cardBgOverlayDark,
+:global([data-theme="dark"]) .cardBgOverlayDarkHalf,
+:global(.dark) .cardBgOverlayDarkHalf {
+  background: linear-gradient(135deg, rgba(9, 11, 15, 0.95) 0%, rgba(14, 16, 21, 0.85) 50%, rgba(14, 16, 21, 0.3) 100%) !important;
 }
 
 /* Card Content containers */
@@ -191,6 +228,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-width: 0px;
 }
 
 .cardContentWide {
@@ -201,4 +239,18 @@
   flex-direction: column;
   justify-content: space-between;
   padding-right: 40%;
+  border-width: 0px;
+}
+
+:global([data-theme="dark"]) .cardContent,
+:global(.dark) .cardContent,
+:global([data-theme="dark"]) .cardContentWide,
+:global(.dark) .cardContentWide,
+:global([data-theme="dark"]) .indCardMain,
+:global(.dark) .indCardMain,
+:global([data-theme="dark"]) .indCardHeader,
+:global(.dark) .indCardHeader {
+  border-width: 0px !important;
+  border: none !important;
+  background: transparent !important;
 }

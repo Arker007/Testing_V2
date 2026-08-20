@@ -7,7 +7,7 @@
 }
 
 .repeaterCard {
-  background: #fbfdff;
+  background: var(--gray-50);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 16px;
@@ -85,13 +85,13 @@
 }
 
 .repeaterDelBtn {
-  background: #fef2f2;
-  color: #ef4444;
+  background: var(--color-error);
+  color: var(--color-error);
 }
 
 .repeaterDelBtn:hover {
-  background: #ef4444;
-  color: #ffffff;
+  background: var(--color-error);
+  color: var(--white);
 }
 
 .repeaterAddCard {

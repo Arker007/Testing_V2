@@ -1,5 +1,17 @@
 export function getImg(p) {
   if (!p) return "/uploads/products/pallets/pallets-1770374237161-67758.webp";
+  
+  if (p.image) {
+    try {
+      const parsed = JSON.parse(p.image);
+      const arr = Array.isArray(parsed) ? parsed : [parsed];
+      const found = arr.map((item) => (typeof item === "object" && item !== null ? item.local || item.url : item)).filter(Boolean)[0];
+      if (found) return found;
+    } catch {
+      return p.image;
+    }
+  }
+
   if (p.image_url) return p.image_url;
   if (Array.isArray(p.images) && p.images.length > 0) return p.images[0];
   return "/uploads/products/pallets/pallets-1770374237161-67758.webp";

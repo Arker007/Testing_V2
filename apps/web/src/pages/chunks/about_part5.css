@@ -1,6 +1,6 @@
 
 .verticalCardNew:hover {
-  border-color: #98d12a;
+  border-color: var(--brand);
   transform: translateY(-3px);
   box-shadow: var(--shadow-sm);
 }
@@ -10,7 +10,7 @@
   height: 40px;
   border-radius: 8px;
   background: rgba(152, 209, 42, 0.18);
-  color: #0B2F63;
+  color: var(--navy);
   display: grid;
   place-items: center;
   font-size: 1rem;
@@ -25,13 +25,13 @@
   font-family: var(--font-display, inherit);
   font-size: 0.95rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy);
   margin: 0;
 }
 
 .verticalDescNew {
   font-size: 0.8125rem;
-  color: #5B6873;
+  color: var(--gray-500);
   line-height: 1.5;
   margin: 0;
 }
@@ -39,7 +39,7 @@
 /* ── Values ── */
 .valuesSection {
   padding: 4.5rem 0;
-  background: #F8FAFC;
+  background: var(--gray-50);
   border-top: 1px solid rgba(5, 40, 63, 0.08);
 }
 
@@ -50,7 +50,7 @@
 }
 
 .valueCardNew {
-  background: var(--bg-card, #ffffff);
+  background: var(--bg-card, var(--white));
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 1.75rem;
@@ -63,7 +63,7 @@
 }
 
 .valueCardNew:hover {
-  border-color: #98d12a;
+  border-color: var(--brand);
   transform: translateY(-3px);
   box-shadow: var(--shadow-sm);
 }
@@ -72,8 +72,8 @@
   width: 42px;
   height: 42px;
   border-radius: 10px;
-  background: #0B2F63;
-  color: #98d12a;
+  background: var(--navy);
+  color: var(--brand);
   display: grid;
   place-items: center;
   font-size: 1.1rem;
@@ -88,13 +88,13 @@
   font-family: var(--font-display, inherit);
   font-size: 1.05rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy);
   margin: 0;
 }
 
 .valueDescNew {
   font-size: 0.85rem;
-  color: #5B6873;
+  color: var(--gray-500);
   line-height: 1.6;
   margin: 0;
 }
@@ -102,8 +102,8 @@
 /* ── Closing Call-To-Action (CTA) ── */
 .cta {
   padding: 5rem 0;
-  background: #0B2F63;
-  color: #ffffff;
+  background: var(--navy);
+  color: var(--white);
 }
 
 .ctaEyebrow {
@@ -112,7 +112,7 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #98d12a;
+  color: var(--brand);
   margin-bottom: 0.5rem;
 }
 
@@ -120,7 +120,7 @@
   font-family: var(--font-display, inherit);
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--white);
   margin: 0 0 0.75rem 0;
 }
 
@@ -142,8 +142,8 @@
 .ctaPrimaryBtn {
   height: 48px;
   padding: 0 1.75rem;
-  background: #98d12a;
-  color: #0B2F63;
+  background: var(--brand);
+  color: var(--navy);
   border-radius: 8px;
   font-size: 0.85rem;
   font-weight: 800;
@@ -156,7 +156,7 @@
 }
 
 .ctaPrimaryBtn:hover {
-  background: #8eb02f;
+  background: var(--brand);
   transform: translateY(-2px);
 }
 
@@ -164,7 +164,7 @@
   height: 48px;
   padding: 0 1.75rem;
   background: transparent;
-  color: #ffffff;
+  color: var(--white);
   border: 1.5px solid rgba(255, 255, 255, 0.25);
   border-radius: 8px;
   font-size: 0.85rem;
@@ -178,7 +178,7 @@
 
 .ctaSecondaryBtn:hover {
   background: rgba(255, 255, 255, 0.08);
-  border-color: #ffffff;
+  border-color: var(--white);
   transform: translateY(-2px);
 }
 

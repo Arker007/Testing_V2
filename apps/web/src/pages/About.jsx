@@ -14,7 +14,7 @@ export default function About() {
   );
 
   return (
-    <main className="bg-[#FAFBFD] text-slate-800 min-h-screen pb-12 overflow-x-hidden">
+    <main className="bg-[var(--gray-50)] text-slate-800 min-h-screen pb-12 overflow-x-hidden">
       <AboutHero />
       <WhoWeAreSection />
       <WhyChooseUsSection />

@@ -44,10 +44,10 @@
 
 .companyBadge:hover {
   transform: translateY(-2px);
-  background: #FFFFFF;
-  border-color: var(--brand, #98d12a);
-  color: #0F172A;
-  box-shadow: 0 6px 16px rgba(152, 209, 42, 0.12);
+  background: var(--bg-card, #FFFFFF);
+  border-color: var(--brand);
+  color: var(--navy);
+  box-shadow: 0 6px 16px rgba(63, 174, 90, 0.12);
 }
 
 .companyBadge svg {
@@ -56,7 +56,7 @@
 }
 
 .companyBadge:hover svg {
-  color: var(--brand, #98d12a);
+  color: var(--brand);
 }
 
 /* ─── DARK MODE OVERRIDES ─── */
@@ -69,6 +69,7 @@
 :root[data-theme="dark"] .hubName,
 :root[data-theme="dark"] .faqQuestion,
 :root[data-theme="dark"] .successBox h3,
+:root[data-theme="dark"] .companiesTitle,
 :root.dark .sectionTitle,
 :root.dark .channelTitle,
 :root.dark .infoTitle,
@@ -77,7 +78,8 @@
 :root.dark .fieldLabel,
 :root.dark .hubName,
 :root.dark .faqQuestion,
-:root.dark .successBox h3 {
+:root.dark .successBox h3,
+:root.dark .companiesTitle {
   color: var(--text-primary);
 }
 
@@ -121,12 +123,20 @@
 :root[data-theme="dark"] .hubCard,
 :root[data-theme="dark"] .faqCard,
 :root[data-theme="dark"] .presetBox,
+:root[data-theme="dark"] .enquiryCard,
+:root[data-theme="dark"] .infoCardAccent,
+:root[data-theme="dark"] .assistanceBanner,
+:root[data-theme="dark"] .mapSectionWrapper,
 :root.dark .channelCard,
 :root.dark .infoCol,
 :root.dark .formCol,
 :root.dark .hubCard,
 :root.dark .faqCard,
-:root.dark .presetBox {
+:root.dark .presetBox,
+:root.dark .enquiryCard,
+:root.dark .infoCardAccent,
+:root.dark .assistanceBanner,
+:root.dark .mapSectionWrapper {
   background: var(--bg-card);
   border-color: var(--border);
   color: var(--text-primary);
@@ -170,6 +180,25 @@
   background: var(--bg-interactive);
   border-color: var(--border);
   color: var(--text-secondary);
+}
+
+:root[data-theme="dark"] .companyBadge:hover,
+:root.dark .companyBadge:hover {
+  background: var(--bg-card);
+  border-color: var(--brand);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .companyBadge:hover svg,
+:root.dark .companyBadge:hover svg {
+  color: var(--brand-text);
+}
+
+:root[data-theme="dark"] .hubAddress i,
+:root[data-theme="dark"] .hubMetaRow i,
+:root.dark .hubAddress i,
+:root.dark .hubMetaRow i {
+  color: var(--brand-text);
 }
 
 

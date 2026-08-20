@@ -98,7 +98,7 @@ export default function AdminCategoryEditor() {
         <button className={styles.actionBtnSecondary} style={{ padding: "8px 16px" }} onClick={() => navigate("/admin/categories")}>
           <i className="fa-solid fa-arrow-left" /> Back
         </button>
-        <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#1e2229", margin: 0 }}>
+        <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--gray-800)", margin: 0 }}>
           {isNew ? "Add New Category" : `Edit Category: ${form.name}`}
         </h2>
       </div>
@@ -108,24 +108,24 @@ export default function AdminCategoryEditor() {
           <div className={styles.formGrid} style={{ gridTemplateColumns: "1.4fr 0.6fr" }}>
             <div>
               <div className={styles.formSectionTitle}><i className="fa-solid fa-circle-info" /> Category Details</div>
-              <div className="form-group" style={{ marginBottom: "16px" }}>
-                <label className="form-label" style={{ fontWeight: 600, fontSize: "13px" }}>Category Name *</label>
-                <input className="form-input" style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid #edf2f7" }} required value={form.name} onChange={f("name")} placeholder="e.g., Plastic Lumber" />
+              <div className={styles.formGroup}>
+                <label className={styles.formLabel}>Category Name *</label>
+                <input className={styles.formInput} required value={form.name} onChange={f("name")} placeholder="e.g., Plastic Lumber" />
               </div>
-              <div className="form-group" style={{ marginBottom: "16px" }}>
-                <label className="form-label" style={{ fontWeight: 600, fontSize: "13px" }}>Description</label>
-                <textarea className="form-textarea" style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid #edf2f7", fontFamily: "inherit" }} rows={4} value={form.description} onChange={f("description")} placeholder="Enter category description..." />
+              <div className={styles.formGroup}>
+                <label className={styles.formLabel}>Description</label>
+                <textarea className={styles.formTextarea} rows={4} value={form.description} onChange={f("description")} placeholder="Enter category description..." />
               </div>
 
               <div className={styles.formSectionTitle} style={{ marginTop: "32px" }}><i className="fa-solid fa-list-check" /> Specifications Fields Template</div>
-              <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginBottom: "16px" }}>Define custom fields (e.g. dimensions, material) that products in this category will use.</p>
+              <p style={{ fontSize: "0.8125rem", color: "var(--text-muted)", marginBottom: "16px" }}>Define custom fields (e.g. dimensions, material) that products in this category will use.</p>
               
               {form.fields.length > 0 && (
-                <div style={{ display: "grid", gridTemplateColumns: "auto 1fr 1fr 1fr auto", gap: "8px", marginBottom: "8px", paddingBottom: "8px", borderBottom: "1px solid rgba(5, 40, 63, 0.06)" }}>
-                  <span style={{ width: "36px", fontSize: "11px", fontWeight: 700, color: "var(--muted)", textAlign: "center" }}>Grip</span>
-                  <span style={{ fontSize: "11px", fontWeight: 700, color: "var(--muted)" }}>Field Name (Key)</span>
-                  <span style={{ fontSize: "11px", fontWeight: 700, color: "var(--muted)" }}>Display Label</span>
-                  <span style={{ fontSize: "11px", fontWeight: 700, color: "var(--muted)" }}>Placeholder</span>
+                <div style={{ display: "grid", gridTemplateColumns: "auto 1fr 1fr 1fr auto", gap: "8px", marginBottom: "8px", paddingBottom: "8px", borderBottom: "1px solid var(--border-subtle)" }}>
+                  <span style={{ width: "36px", fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)", textAlign: "center" }}>Grip</span>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)" }}>Field Name (Key)</span>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)" }}>Display Label</span>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)" }}>Placeholder</span>
                   <span style={{ width: "36px" }} />
                 </div>
               )}
@@ -143,7 +143,7 @@ export default function AdminCategoryEditor() {
                     gap: "8px", 
                     marginBottom: "10px", 
                     alignItems: "center",
-                    background: draggedIndex === i ? "rgba(244, 178, 24, 0.05)" : "transparent",
+                    background: draggedIndex === i ? "var(--warning-bg)" : "transparent",
                     borderRadius: "8px",
                     transition: "background 0.2s"
                   }}
@@ -156,22 +156,22 @@ export default function AdminCategoryEditor() {
                       justifyContent: "center", 
                       width: "36px", 
                       height: "36px", 
-                      border: "1px solid #edf2f7", 
+                      border: "1px solid var(--border)", 
                       borderRadius: "8px", 
-                      background: "#f8fafc",
-                      color: "#a0aec0"
+                      background: "var(--bg-surface)",
+                      color: "var(--text-muted)"
                     }}
                     title="Drag to reorder"
                   >
                     <i className="fa-solid fa-grip-vertical" />
                   </div>
-                  <input className="form-input" style={{ width: "100%", padding: "8px", borderRadius: "8px", border: "1px solid #edf2f7" }} value={fld.name} onChange={(e) => setForm(p => ({ ...p, fields: p.fields.map((x, idx) => idx === i ? { ...x, name: e.target.value } : x) }))} placeholder="e.g. dimensions" />
-                  <input className="form-input" style={{ width: "100%", padding: "8px", borderRadius: "8px", border: "1px solid #edf2f7" }} value={fld.label} onChange={(e) => setForm(p => ({ ...p, fields: p.fields.map((x, idx) => idx === i ? { ...x, label: e.target.value } : x) }))} placeholder="e.g. Dimensions (mm)" />
-                  <input className="form-input" style={{ width: "100%", padding: "8px", borderRadius: "8px", border: "1px solid #edf2f7" }} value={fld.placeholder} onChange={(e) => setForm(p => ({ ...p, fields: p.fields.map((x, idx) => idx === i ? { ...x, placeholder: e.target.value } : x) }))} placeholder="e.g. 1200 x 1000 x 150" />
+                  <input className={styles.formInput} value={fld.name} onChange={(e) => setForm(p => ({ ...p, fields: p.fields.map((x, idx) => idx === i ? { ...x, name: e.target.value } : x) }))} placeholder="e.g. dimensions" />
+                  <input className={styles.formInput} value={fld.label} onChange={(e) => setForm(p => ({ ...p, fields: p.fields.map((x, idx) => idx === i ? { ...x, label: e.target.value } : x) }))} placeholder="e.g. Dimensions (mm)" />
+                  <input className={styles.formInput} value={fld.placeholder} onChange={(e) => setForm(p => ({ ...p, fields: p.fields.map((x, idx) => idx === i ? { ...x, placeholder: e.target.value } : x) }))} placeholder="e.g. 1200 x 1000 x 150" />
                   <button type="button" className={styles.delBtn} style={{ height: "36px", width: "36px", borderRadius: "8px" }} onClick={() => setForm(p => ({ ...p, fields: p.fields.filter((_, idx) => idx !== i) }))}><i className="fa-solid fa-trash" /></button>
                 </div>
               ))}
-              <button type="button" className={styles.actionBtnSecondary} style={{ padding: "8px 16px", marginTop: "8px" }} onClick={() => setForm(p => ({ ...p, fields: [...p.fields, { name: "", label: "", type: "text", placeholder: "" }] }))}>
+              <button type="button" className={styles.actionBtnSecondary} onClick={() => setForm(p => ({ ...p, fields: [...p.fields, { name: "", label: "", type: "text", placeholder: "" }] }))}>
                 <i className="fa-solid fa-plus" /> Add Custom Field
               </button>
             </div>
@@ -199,7 +199,7 @@ export default function AdminCategoryEditor() {
             </div>
           </div>
 
-          <div className={styles.modalFooter} style={{ borderTop: "1px solid #edf2f7", paddingTop: "20px", marginTop: "32px" }}>
+          <div className={styles.modalFooter} style={{ borderTop: "1px solid var(--gray-200)", paddingTop: "20px", marginTop: "32px" }}>
             <button type="button" className={styles.actionBtnSecondary} onClick={() => navigate("/admin/categories")}>Cancel</button>
             <button type="submit" className={styles.actionBtnPrimary} disabled={saving || uploading} style={{ minWidth: "160px" }}>
               {saving ? <><i className="fa-solid fa-circle-notch fa-spin" /> Saving category...</> : <><i className="fa-solid fa-floppy-disk" /> Save Category</>}

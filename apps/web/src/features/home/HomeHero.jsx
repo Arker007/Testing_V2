@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useSite } from "../../shared/context/SiteContext";
 import OptimizedImage from "../../shared/components/OptimizedImage";
@@ -82,14 +82,46 @@ const slides = [
 export default function HomeHero() {
   const { c, co } = useSite();
   const [current, setCurrent] = useState(2); // Default to Slide 3 (Weatherproof Garden Benches matching reference)
+  
+  const heroRef = useRef(null);
+  const hexagonRef = useRef(null);
+  const [centerY, setCenterY] = useState("50%");
 
-  // Auto-advance logic
+  // Align navigation buttons to the exact vertical center (equator) of the hexagon frame
+  useEffect(() => {
+    const updateCenter = () => {
+      if (heroRef.current && hexagonRef.current) {
+        const heroRect = heroRef.current.getBoundingClientRect();
+        const hexRect = hexagonRef.current.getBoundingClientRect();
+        // Calculate center of hexagon relative to the hero top
+        const hexCenterInHero = (hexRect.top - heroRect.top) + (hexRect.height / 2);
+        setCenterY(`${hexCenterInHero}px`);
+      }
+    };
+
+    updateCenter();
+    window.addEventListener("resize", updateCenter);
+    
+    // Also run multiple times to handle dynamic loading/layout shifts
+    const timer1 = setTimeout(updateCenter, 100);
+    const timer2 = setTimeout(updateCenter, 500);
+    const timer3 = setTimeout(updateCenter, 1500);
+
+    return () => {
+      window.removeEventListener("resize", updateCenter);
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
+  }, [current]);
+
+  // Auto-advance logic (resets timer when current changes)
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 7000);
     return () => clearInterval(timer);
-  }, []);
+  }, [current]);
 
   if (c("show_hero", "1") === "0") return null;
 
@@ -106,7 +138,7 @@ export default function HomeHero() {
   const cleanedPhone = companyPhone.replace(/\s+/g, "");
 
   return (
-    <section className={styles.hero} id="home-hero-redesign">
+    <section ref={heroRef} className={styles.hero} id="home-hero-redesign">
       {/* Background Diagonal Split Elements */}
       <div className={styles.slantBgGreen} />
       <div className={styles.slantBgDark} />
@@ -116,34 +148,54 @@ export default function HomeHero() {
       <div className={styles.dotsPatternRightTop} />
       <div className={styles.dotsPatternRightBottom} />
 
+      {/* Navigation Chevron Buttons shifted to entire Hero Section */}
+      <button
+        onClick={handlePrev}
+        className={`${styles.chevronBtn} ${styles.chevronBtnLeft}`}
+        style={{ top: centerY }}
+        aria-label="Previous Slide"
+      >
+        <ChevronLeft className="w-5 h-5 text-white" />
+      </button>
+      <button
+        onClick={handleNext}
+        className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
+        style={{ top: centerY }}
+        aria-label="Next Slide"
+      >
+        <ChevronRight className="w-5 h-5 text-white" />
+      </button>
+
       <div className="container relative z-10">
         <div className={styles.heroGrid}>
           {/* Left Content Column */}
           <div className={styles.heroLeft}>
-            {/* Manufacturer Badge */}
-            <div className={styles.badge}>
-              <div className={styles.badgeIconWrapper}>
-                <Factory className={styles.badgeIcon} />
+            <div className={styles.heroLeftTopGroup}>
+              {/* Manufacturer Badge */}
+              <div className={styles.badge}>
+                <div className={styles.badgeIconWrapper}>
+                  <Factory className={styles.badgeIcon} />
+                </div>
+                <span className={styles.badgeText}>{activeSlide.badge}</span>
               </div>
-              <span className={styles.badgeText}>{activeSlide.badge}</span>
+
+              {/* Headline */}
+              <h1 className={styles.headline}>
+                <span className={styles.titleLime}>{activeSlide.titleLime}</span>
+                <span className={styles.titleWhite}>{activeSlide.titleWhite}</span>
+              </h1>
+
+              {/* Headline Underline Accent */}
+              <div className={styles.underlineAccent}>
+                <span className={styles.underlineLine} />
+                <span className={styles.underlineDot} />
+              </div>
+
+              {/* Description */}
+              <p className={styles.description}>
+                {activeSlide.desc}
+              </p>
             </div>
-
-            {/* Headline */}
-            <h1 className={styles.headline}>
-              <span className={styles.titleLime}>{activeSlide.titleLime}</span>
-              <span className={styles.titleWhite}>{activeSlide.titleWhite}</span>
-            </h1>
-
-            {/* Headline Underline Accent */}
-            <div className={styles.underlineAccent}>
-              <span className={styles.underlineLine} />
-              <span className={styles.underlineDot} />
-            </div>
-
-            {/* Description */}
-            <p className={styles.description}>
-              {activeSlide.desc}
-            </p>
 
             {/* Feature Panel */}
             <div className={styles.featurePanel}>
@@ -177,24 +229,8 @@ export default function HomeHero() {
           {/* Right Product Showcase Column */}
           <div className={styles.heroRight}>
             <div className={styles.productShowcase}>
-              <div className={styles.productFrameWrapper}>
-                {/* Embedded Navigation Chevron Buttons */}
-                <button
-                  onClick={handlePrev}
-                  className={`${styles.chevronBtn} ${styles.chevronBtnLeft}`}
-                  aria-label="Previous Slide"
-                >
-                  <ChevronLeft className="w-5 h-5 text-white" />
-                </button>
-                <button
-                  onClick={handleNext}
-                  className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
-                  aria-label="Next Slide"
-                >
-                  <ChevronRight className="w-5 h-5 text-white" />
-                </button>
-
-                {/* Hexagonal Geometric SVG Frame with Full-Screen Clipped Image */}
+              <div ref={hexagonRef} className={styles.productFrameWrapper}>
+                {/* Hexagonal Geometric SVG Frame with Full-Screen Clipped Image and 3D Pedestal Stage */}
                 <svg
                   className={styles.productFrameSvg}
                   viewBox="0 0 500 520"
@@ -202,9 +238,20 @@ export default function HomeHero() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <defs>
-                    <filter id="heroFrameShadow" x="-15%" y="-15%" width="130%" height="130%">
-                      <feDropShadow dx="0" dy="16" stdDeviation="18" floodColor="#071E40" floodOpacity="0.10" />
-                    </filter>
+                    {/* Radial Spotlight Gradient for Product Stage */}
+                    <radialGradient id="stageSpotlight" cx="50%" cy="52%" r="50%">
+                      <stop offset="0%" stopColor="#3FAE5A" stopOpacity="0.14" />
+                      <stop offset="50%" stopColor="#0B2F63" stopOpacity="0.04" />
+                      <stop offset="100%" stopColor="#f8fafc" stopOpacity="0" />
+                    </radialGradient>
+
+                    {/* Floor Perspective Pedestal Shadow */}
+                    <radialGradient id="floorShadowGrad" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#071E40" stopOpacity="0.28" />
+                      <stop offset="60%" stopColor="#071E40" stopOpacity="0.08" />
+                      <stop offset="100%" stopColor="#071E40" stopOpacity="0" />
+                    </radialGradient>
+
                     <clipPath id="heroHexagonClip">
                       <path
                         d="M 250 42 
@@ -218,7 +265,7 @@ export default function HomeHero() {
                     </clipPath>
                   </defs>
 
-                  {/* Outer White Hexagonal Card with Soft Shadow */}
+                  {/* Outer White Hexagonal Card with Soft 3D Multi-Layer Shadow */}
                   <path
                     d="M 250 15 
                        C 275 15, 455 100, 465 115 
@@ -227,30 +274,69 @@ export default function HomeHero() {
                        C 225 505, 45 420, 35 405 
                        C 25 390, 25 130, 35 115 
                        C 45 100, 225 15, 250 15 Z"
-                    fill="#FFFFFF"
-                    filter="url(#heroFrameShadow)"
+                    fill="var(--white)"
+                  />
+
+                  {/* Specular Inner Top Highlight Line for 3D Beveled Feel */}
+                  <path
+                    d="M 50 120 
+                       C 60 108, 225 24, 250 24 
+                       C 275 24, 440 108, 450 120"
+                    fill="none"
+                    stroke="rgba(255, 255, 255, 0.95)"
+                    strokeWidth="3"
                   />
 
                   {/* Full-Screen Product Image Clipped to Hexagon */}
                   <g clipPath="url(#heroHexagonClip)">
                     <foreignObject x="0" y="0" width="500" height="520">
-                      <div style={{ width: "100%", height: "100%", backgroundColor: "#F4F7FA", display: "flex", alignItems: "center", justifyContent: "center", padding: "16px" }}>
-                        <OptimizedImage
-                          key={current}
-                          src={activeSlide.image}
-                          alt={activeSlide.titleWhite}
+                      <div style={{ width: "100%", height: "100%", backgroundColor: "var(--gray-50)", position: "relative", overflow: "hidden" }}>
+                        {/* 3D Pedestal Spotlight Backdrop */}
+                        <div
                           style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "contain",
-                            display: "block",
+                            position: "absolute",
+                            inset: 0,
+                            background: "radial-gradient(circle at 50% 50%, rgba(152, 209, 42, 0.16) 0%, rgba(11, 47, 99, 0.04) 55%, transparent 75%)",
+                            pointerEvents: "none",
                           }}
                         />
+
+                        {slides.map((slide, idx) => (
+                          <div
+                            key={idx}
+                            style={{
+                              position: "absolute",
+                              inset: 0,
+                              opacity: idx === current ? 1 : 0,
+                              pointerEvents: idx === current ? "auto" : "none",
+                              transition: "opacity 0.4s ease-in-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+                              transform: idx === current ? "translateY(0) scale(1)" : "translateY(8px) scale(0.97)",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              padding: "20px",
+                              zIndex: 2,
+                            }}
+                          >
+                            <OptimizedImage
+                              src={slide.image}
+                              alt={slide.titleWhite}
+                              loading="eager"
+                              style={{
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "contain",
+                                display: "block",
+                                filter: "none",
+                              }}
+                            />
+                          </div>
+                        ))}
                       </div>
                     </foreignObject>
                   </g>
 
-                  {/* Inset Green Outline Frame Overlaid on Image */}
+                  {/* Inset Green Accent Stroke Frame Overlaid on Image */}
                   <path
                     d="M 250 42 
                        C 270 42, 430 118, 438 131 
@@ -260,7 +346,7 @@ export default function HomeHero() {
                        C 54 376, 54 144, 62 131 
                        C 70 118, 230 42, 250 42 Z"
                     fill="none"
-                    stroke="#8BD61A"
+                    stroke="var(--brand)"
                     strokeWidth="2.5"
                   />
                 </svg>
@@ -270,16 +356,19 @@ export default function HomeHero() {
               <div className={styles.bottomControlsRow}>
                 {/* Pagination Dots */}
                 <div className={styles.paginationDots}>
-                  {slides.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrent(idx)}
-                      className={`${styles.paginationDot} ${
-                        idx === current ? styles.paginationDotActive : ""
-                      }`}
-                      aria-label={`Go to slide ${idx + 1}`}
-                    />
-                  ))}
+                  <div className={styles.paginationTrack}>
+                    {slides.map((slide, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrent(idx)}
+                        className={`${styles.paginationDot} ${
+                          idx === current ? styles.paginationDotActive : ""
+                        }`}
+                        aria-label={`Go to slide ${idx + 1}: ${slide.titleWhite}`}
+                        title={slide.titleWhite}
+                      />
+                    ))}
+                  </div>
                 </div>
 
                 {/* Floating Assistance Card */}
@@ -297,7 +386,7 @@ export default function HomeHero() {
                     href={`tel:${cleanedPhone}`}
                     className={styles.assistanceBtn}
                   >
-                    <Phone className="w-3.5 h-3.5 text-[#3F8F18]" />
+                    <Phone className="w-3.5 h-3.5 text-[var(--brand-dark)]" />
                     <span>CONTACT US</span>
                   </a>
                 </div>

@@ -42,10 +42,10 @@ export default function ProductTabsSection({
 
             {features.length > 0 && (
               <div style={{ marginTop: "1.5rem" }}>
-                <h3 style={{ fontSize: "1rem", fontWeight: 800, color: "#0B2F63", marginBottom: "0.5rem" }}>
+                <h3 style={{ fontSize: "1rem", fontWeight: 800, color: "var(--navy)", marginBottom: "0.5rem" }}>
                   Key Features
                 </h3>
-                <ul style={{ listStyle: "disc", paddingLeft: "1.25rem", color: "#5B6873", fontSize: "0.875rem" }}>
+                <ul style={{ listStyle: "disc", paddingLeft: "1.25rem", color: "var(--gray-500)", fontSize: "0.875rem" }}>
                   {features.map((feat, idx) => (
                     <li key={idx} style={{ marginBottom: "0.35rem" }}>
                       {feat}

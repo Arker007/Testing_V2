@@ -1,0 +1,207 @@
+
+.cardContentWideRow {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Specific Card Spans */
+.span2 {
+  grid-column: span 2;
+}
+
+.span4 {
+  grid-column: span 4;
+  min-height: 180px;
+}
+
+/* Specific Card archetypes */
+.cardLargeDark {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: var(--navy);
+  color: var(--white);
+  border: 1px solid var(--brand-border) !important;
+  box-shadow: 0 16px 36px var(--navy-glow);
+  min-height: 584px;
+}
+
+.cardLargeDark .indName {
+  color: var(--white);
+  font-size: 1.5rem;
+}
+
+.cardLargeDark .indDesc {
+  color: var(--bg-glass);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.cardLargeLight {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: var(--white);
+  color: var(--gray-900);
+  border: 1px solid var(--divider) !important;
+  box-shadow: 0 16px 36px var(--navy-subtle);
+  min-height: 584px;
+}
+
+.cardLargeLight .indName {
+  color: var(--gray-900);
+  font-size: 1.5rem;
+}
+
+.cardLargeLight .indDesc {
+  color: var(--gray-600);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.cardLight {
+  background: var(--white);
+  border: 1px solid var(--divider);
+  color: var(--gray-900);
+}
+
+.cardDark {
+  background: var(--navy);
+  color: var(--white);
+  border: 1px solid var(--brand-border) !important;
+}
+
+.cardDark .indName {
+  color: var(--white);
+}
+
+.cardDark .indDesc {
+  color: var(--bg-glass);
+}
+
+/* Icon Boxes */
+.iconBoxLime {
+  background: var(--brand) !important;
+  color: var(--brand-dark) !important;
+}
+
+.iconBoxSlate {
+  background: var(--gray-100) !important;
+  color: var(--gray-600) !important;
+}
+
+.iconBoxNavy {
+  background: var(--navy) !important;
+  color: var(--white) !important;
+}
+
+.iconBoxGreen {
+  background: var(--brand-light) !important;
+  color: var(--color-success) !important;
+}
+
+/* Badges */
+.bentoBadgeLime {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background: var(--brand-border);
+  color: var(--brand);
+  border: 1px solid var(--brand-border);
+}
+
+.bentoBadgeLimeDark {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background: var(--brand-glow-subtle);
+  color: var(--brand);
+  border: 1px solid var(--brand-border);
+}
+
+.bentoBadgeBlue {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background: var(--border-subtle);
+  color: var(--gray-900);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Dividers */
+.bentoDivider {
+  height: 1px;
+  background: var(--border-dark);
+  margin: 1.5rem 0 1rem;
+}
+
+/* Arrow buttons */
+.arrowButton,
+.arrowButtonWide,
+.arrowButtonRow {
+  position: absolute;
+  right: 1.75rem;
+  bottom: 1.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--divider);
+  color: var(--gray-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 10px var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 5;
+}
+
+.cardDark .arrowButtonRow {
+  background: var(--white);
+  color: var(--navy-dark);
+  border: none;
+}
+
+.industryCard:hover .arrowButton,
+.industryCard:hover .arrowButtonWide,
+.industryCard:hover .arrowButtonRow {
+  background: var(--brand);
+  color: var(--brand-dark);
+  border-color: var(--brand);
+  transform: scale(1.1);
+}
+
+.arrowButtonRow {
+  position: static;
+  flex-shrink: 0;
+}
+
+.indCardHeaderWide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.indCardHeaderWideRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}

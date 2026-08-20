@@ -1,16 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Manrope:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #98d12a;
-  --color-brand-dark: #7db018;
-  --color-brand-hover: #7db018;
-  --color-brand-light: #e2f2eb;
-  --color-brand-text: #98d12a;
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-light: var(--brand-light);
+  --color-brand-text: var(--brand-text);
 
-  --color-navy: #0B2F63;
-  --color-navy-dark: #071E40;
-  --color-navy-light: #113a72;
+  --color-navy: var(--navy);
+  --color-navy-dark: var(--navy-dark);
+  --color-navy-darker: var(--navy-darker);
+  --color-navy-light: var(--navy-light);
+  --color-navy-surface: var(--navy-surface);
+  --color-navy-card: var(--navy-card);
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
+  --radius-2xl: 8px;
+  --radius-3xl: 8px;
+
+  --color-bg-page: var(--bg-page);
+  --color-bg-section: var(--bg-section);
+  --color-bg-card: var(--bg-card);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-inverse: var(--text-inverse);
+
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
 }
 
 @layer base {
@@ -27,14 +51,12 @@ html {
 
 @layer base {
   body {
-    font-family: var(--font-body);
+    font-family: var(--font-family-primary);
     color: var(--text-primary);
-    font-weight: 500;
-    line-height: 1.6;
-    background:
-      radial-gradient(1200px 500px at 5% -5%, rgba(152, 209, 42, 0.08), transparent 50%),
-      radial-gradient(1000px 400px at 100% 0%, rgba(23, 74, 140, 0.04), transparent 40%),
-      var(--bg-light);
+    font-size: var(--font-size-md);
+    font-weight: 400;
+    line-height: 1.5;
+    background: var(--bg-page);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -42,14 +64,14 @@ html {
 
   h1, h2, h3, h4, h5, h6 {
     color: var(--heading);
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: -0.015em;
   }
 
   p {
     color: var(--body-text);
-    font-weight: 500;
-    line-height: 1.65;
+    font-weight: 400;
+    line-height: 1.5;
   }
 }
 
@@ -72,6 +94,7 @@ html {
   a {
     text-decoration: none;
     color: inherit;
+    transition: color var(--motion-duration-fast) ease;
   }
 }
 
@@ -80,7 +103,8 @@ button {
   font-family: inherit;
   border: none;
   background: none;
-  border-radius: 0.25rem;
+  border-radius: var(--radius-lg, 8px);
+  transition: background-color var(--motion-duration-fast) ease, border-color var(--motion-duration-fast) ease, transform var(--motion-duration-instant) ease;
 }
 
 .btn,
@@ -88,14 +112,14 @@ a.btn,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-  border-radius: 0.25rem;
+  border-radius: var(--radius-lg, 8px);
 }
 
-/* ─── Focus visible ─────────────────────────────────────── */
+/* ─── Accessibility & Focus-Visible Rules (WCAG 2.2 AA) ────────────────── */
 :focus-visible {
-  outline: 2px solid var(--brand);
-  outline-offset: 3px;
-  border-radius: 0.25rem;
+  outline: 2px solid var(--brand, #80cf23);
+  outline-offset: 2px;
+  border-radius: var(--radius-lg, 8px);
 }
 
 /* Remove focus ring for mouse users */
@@ -108,163 +132,219 @@ ol {
   list-style: none;
 }
 
-/* ─── CSS Variables ──────────────────────────────────────── */
+/* ─── CSS Variables & Design Tokens ──────────────────────────────────────── */
 :root {
-  /* 🏷️ Ecommerce Agency Design System Tokens */
-  --font-family-primary: 'DM Sans', 'DM Sans Fallback', sans-serif;
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-md: 16px;
-  --font-size-lg: 20px;
-  --font-size-xl: 36px;
-  --font-size-2xl: 48px;
-  --font-size-3xl: 60px;
+  /* 🏷️ Typography Tokens (Predator Helios / Acer Specs) */
+  --font-family-primary: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-stack: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 21px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
 
-  --color-text-primary: #1a1e2a;
-  --color-text-secondary: oklab(0.999994 0.0000455677 0.0000200868 / 0.7);
-  --color-text-tertiary: #ffffff;
-  --color-text-inverse: oklab(0.999994 0.0000455677 0.0000200868 / 0.6);
+  --font-body: var(--font-family-primary);
+  --font-display: var(--font-family-primary);
+
+  /* 🤍 Neutrals Palette */
+  --white: #FFFFFF;
+  --black: #000000;
+  --transparent: transparent;
+
+  /* 🔘 Slate & Gray System */
+  --gray-50: #F8FAFC;
+  --gray-100: #F1F5F9;
+  --gray-200: #DADADA;
+  --gray-300: #CBD5E1;
+  --gray-400: #999999;
+  --gray-500: #64748B;
+  --gray-600: #474747;
+  --gray-700: #334155;
+  --gray-800: #1E293B;
+  --gray-900: #0F172A;
+  --gray-950: #020617;
+
+  /* 🎨 Primary Brand - Deep Navy */
+  --navy: #0B2F63;
+  --navy-dark: #071E40;
+  --navy-darker: #061C3D;
+  --navy-light: #113a72;
+  --navy-surface: #0e2a52;
+  --navy-card: #13386b;
+  --navy-rgb: 11, 47, 99;
+  --navy-glow: rgba(11, 47, 99, 0.25);
+  --navy-subtle: rgba(11, 47, 99, 0.04);
+  --navy-badge-bg: rgba(11, 47, 99, 0.12);
+
+  --dark: var(--navy);
+  --dark-navy: var(--navy);
+  --dark2: var(--navy);
+  --dark3: var(--navy);
+  --primary-color: var(--navy);
+  --primary-navy: var(--navy);
+  --secondary-color: var(--navy);
+  --secondary-navy: var(--navy);
+  --color-primary: var(--navy);
+  --color-secondary: var(--navy);
+
+  /* 🌟 Accent Brand - Acer Predator Blue-Green Tech Accent (#80cf23 & #80c343) */
+  --brand: #80cf23;
+  --brand-rgb: 128, 207, 35;
+  --brand-dark: #68ad17;
+  --brand-hover: #73be1d;
+  --brand-light: #f2fbe8;
+  --brand-light-2: #e3f7cd;
+  --brand-text: #68ad17;
+  --brand-glow: rgba(128, 207, 35, 0.25);
+  --brand-glow-subtle: rgba(128, 207, 35, 0.08);
+  --brand-badge-bg: rgba(128, 207, 35, 0.15);
+  --brand-border: #80c343;
+
+  --accent: var(--brand);
+  --accent-dark: var(--brand-dark);
+  --color-surface-strong: #80cf23;
+  --color-surface-muted: #ffffff;
   --color-surface-base: #000000;
-  --color-surface-muted: #38d059;
-  --color-surface-raised: oklab(0.999994 0.0000455678 0.0000200868 / 0.85);
-  --color-surface-strong: #edf1f2;
 
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-7: 32px;
-  --space-8: 36px;
-
-  --radius-xs: 8px;
-  --radius-sm-pill: 33554400px;
-
-  --motion-duration-instant: 200ms;
-  --motion-duration-fast: 300ms;
-
-  --font-body: 'DM Sans', 'DM Sans Fallback', sans-serif;
-  --font-display: 'DM Sans', 'DM Sans Fallback', sans-serif;
-
-  /* 🎨 Core Background & Layout */
-  --bg-page: #FFFFFF;
+  /* 🎨 Background System */
+  --bg-page: var(--white);
   --bg-section: #F8FAFC;
-  --bg-surface: #F8FAFC;
-  --bg-surface-elevated: #FFFFFF;
-  --bg-card: #FFFFFF;
-  --bg-card-hover: #FFFFFF;
-  --bg-interactive: #F1F5F9;
-  --bg-interactive-hover: #E2E8F0;
-  --bg-interactive-active: #CBD5E1;
-  --bg-glass: rgba(255, 255, 255, 0.85);
-
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: var(--white);
+  --bg-card: var(--white);
+  --bg-card-hover: var(--white);
+  --bg-card-alt: var(--gray-50);
+  --bg-interactive: var(--gray-100);
+  --bg-interactive-hover: var(--gray-200);
+  --bg-interactive-active: var(--gray-300);
+  --bg-muted: var(--gray-100);
+  --bg-light: var(--gray-50);
+  --surface: var(--white);
   --background: var(--bg-page);
-  --bg-light: var(--bg-section);
-  --surface: var(--bg-surface);
+  --bg-dark: var(--navy);
+  --bg-dark-navy: var(--navy-dark);
+  --bg-dark-surface: var(--navy-surface);
+  --bg-dark-card: var(--navy-card);
 
-  /* 🌑 Deep Background System (Used for Hero & Footer) */
-  --dark: #0B2F63; /* Deep Navy */
-  --dark-navy: #0B2F63;
-  --dark2: #0B2F63; /* Royal Navy style mapped to deep navy */
-  --dark3: #0B2F63;
+  --bg-glass: rgba(255, 255, 255, 0.9);
+  --bg-glass-card: rgba(255, 255, 255, 0.95);
+  --bg-glass-dark: rgba(15, 23, 42, 0.9);
+  --bg-dark-overlay: rgba(15, 23, 42, 0.6);
+  --bg-modal-backdrop: rgba(15, 23, 42, 0.5);
+  --bg-shimmer: rgba(226, 232, 240, 0.6);
 
-  /* 🧠 Text Hierarchy (High Readability & Contrast) */
-  --text-primary: #0F172A;
-  --text-secondary: #334155;
-  --text-muted: #64748B;
-  --text-disabled: #94A3B8;
-  --text-inverse: #FFFFFF;
+  /* 🧠 Text Hierarchy */
+  --text-primary: #474747;
+  --text-secondary: var(--gray-700);
+  --text-muted: #999999;
+  --text-disabled: #999999;
+  --text-inverse: #ffffff;
+  --text-inverse-secondary: rgba(255, 255, 255, 0.85);
+  --text-inverse-muted: #999999;
+  --text-tertiary: #0000ee;
 
-  --heading: var(--text-primary);
-  --body-text: var(--text-secondary);
-  --light-text: var(--text-muted);
-  --white-text: #FFFFFF;
-
-  /* 🌟 Brand (Rich Emerald Green #98d12a & Deep Navy #0B2F63) */
-  --brand: #98d12a;
-  --brand-rgb: 152, 209, 42;
-  --brand-dark: #7db018;
-  --brand-hover: #7db018;
-  --brand-light: #e2f2eb;
-  --brand-text: #98d12a; /* Accessible deep brand green for text/icons on white/light backgrounds */
-  --brand-glow: rgba(152, 209, 42, 0.25);
-
-  --accent: #98d12a;
-  --accent-dark: #7db018;
-
-  /* Primary Brand Colors */
-  --primary-color: #0B2F63;
-  --primary-navy: #0B2F63;
-  --secondary-color: #0B2F63;
-  --secondary-navy: #0B2F63;
-  --color-primary: #0B2F63;
-  --color-secondary: #0B2F63;
+  --heading: #0F172A;
+  --body-text: #474747;
+  --light-text: #999999;
+  --white-text: var(--white);
+  --color-text-primary: #474747;
+  --color-text-secondary: rgba(255, 255, 255, 0.8);
+  --color-text-tertiary: #0000ee;
+  --color-text-inverse: #999999;
 
   /* 🔲 Borders */
-  --border: #E2E8F0;
-  --border-strong: #CBD5E1;
-  --border-subtle: #F1F5F9;
-  --border-default: #E2E8F0;
-  --divider: rgba(226, 232, 240, 0.8);
+  --border: #DADADA;
+  --border-subtle: #80c343;
+  --border-strong: #DADADA;
+  --border-default: #DADADA;
+  --border-dark: rgba(255, 255, 255, 0.15);
+  --border-dark-strong: rgba(255, 255, 255, 0.25);
+  --divider: #DADADA;
 
-  /* ✨ Shadows */
-  --shadow-sm: 0 1px 3px rgba(11, 47, 99, 0.04), 0 1px 2px rgba(11, 47, 99, 0.02);
-  --shadow-md: 0 4px 12px rgba(11, 47, 99, 0.05), 0 2px 4px rgba(11, 47, 99, 0.03);
-  --shadow-lg: 0 12px 32px rgba(11, 47, 99, 0.08), 0 4px 12px rgba(11, 47, 99, 0.04);
-  --shadow-xl: 0 24px 60px rgba(11, 47, 99, 0.12), 0 8px 24px rgba(11, 47, 99, 0.06);
+  --color-border-muted: #80c343;
+  --color-border-strong: #DADADA;
 
-  /* 💎 Radius */
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
-  --radius-xl: 12px;
+  /* 🟢 Semantic & Status Colors */
+  --success: #80cf23;
+  --success-bg: rgba(128, 207, 35, 0.12);
+  --success-border: rgba(128, 207, 35, 0.3);
+  --success-text: #68ad17;
+  --color-success: var(--success);
 
-  /* ⚡ Layout */
-  --nav-h: 80px;
-  --section-py: 5rem;
+  --warning: #F59E0B;
+  --warning-bg: rgba(245, 158, 11, 0.12);
+  --warning-border: rgba(245, 158, 11, 0.25);
+  --warning-text: #D97706;
+  --color-warning: var(--warning);
+
+  --danger: #EF4444;
+  --danger-bg: rgba(239, 68, 68, 0.12);
+  --danger-border: rgba(239, 68, 68, 0.25);
+  --danger-text: #DC2626;
+  --color-danger: var(--danger);
+  --color-error: var(--danger);
+
+  --info: #0000ee;
+  --info-bg: rgba(0, 0, 238, 0.08);
+  --info-border: rgba(0, 0, 238, 0.2);
+  --info-text: #0000ee;
+  --color-info: var(--info);
 
   /* 🎯 Icon Themes */
-  --icon-primary: #0B2F63;
-  --icon-accent: #98d12a;
-  --icon-inactive: #94A3B8;
+  --icon-primary: var(--navy);
+  --icon-accent: var(--brand);
+  --icon-inactive: #999999;
 
-  --icon-emerald-bg: rgba(152, 209, 42, 0.12);
-  --icon-emerald-fg: #98d12a;
+  /* ✨ Shadows & Elevation */
+  --shadow-1: rgba(0, 0, 0, 0.22) 0px 1px 3px 0px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.16);
 
-  --icon-cyan-bg: rgba(11, 47, 99, 0.12);
-  --icon-cyan-fg: #0B2F63;
+  --shadow-depth-1: var(--shadow-1);
+  --shadow-depth-card: 0 4px 12px rgba(0, 0, 0, 0.06), 0 0 0 1px #DADADA;
+  --shadow-depth-hover: 0 12px 24px rgba(0, 0, 0, 0.1), 0 0 0 1px #80c343;
 
-  --icon-amber-bg: rgba(245, 158, 11, 0.12);
-  --icon-amber-fg: #D97706;
+  /* 💎 Spacing Scale Tokens */
+  --space-1: 0.5px;
+  --space-2: 2.8px;
+  --space-3: 5px;
+  --space-4: 6px;
+  --space-5: 8px;
+  --space-6: 10px;
+  --space-7: 12px;
+  --space-8: 12.44px;
 
-  --icon-indigo-bg: rgba(11, 47, 99, 0.12);
-  --icon-indigo-fg: #0B2F63;
+  /* 🔘 Standardized Harmonized 8px Radius Scale */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
+  --radius-2xl: 8px;
+  --radius-card: 8px;
+  --radius-btn: 8px;
+  --radius-input: 8px;
+  --radius-badge: 8px;
+  --radius-modal: 8px;
+  --radius-pill: 8px;
+  --radius-full: 9999px;
 
-  /* Status Colors */
-  --success: #10B981;
-  --warning: #F59E0B;
-  --danger: #EF4444;
-  --info: #3B82F6;
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-error: #EF4444;
+  /* ⏱️ Motion & Duration Tokens */
+  --motion-duration-instant: 100ms;
+  --motion-duration-fast: 200ms;
+  --motion-duration-normal: 250ms;
+  --motion-duration-slow: 300ms;
 
-  /* 🏆 Glow Effects */
-  --award-stroke: rgba(152, 209, 42, 0.25);
-  --award-glow-soft: 0 12px 30px rgba(11, 47, 99, 0.12);
-  --award-glow-strong: 0 24px 60px rgba(11, 47, 99, 0.22);
-
-  /* 🌈 Gradient Accents */
-  --hero-gradient: linear-gradient(135deg, #0B2F63 0%, #071E40 100%);
-  --gradient-brand: linear-gradient(135deg, #98d12a, #7db018);
-  --gradient-dark: linear-gradient(135deg, #0B2F63 0%, #071E40 100%);
-  --gradient-glass: linear-gradient(
-    135deg,
-    rgba(255,255,255,0.95),
-    rgba(255,255,255,0.7)
-  );
+  /* ⚡ Layout */
+  --nav-h: 72px;
+  --section-py: 3rem;
 
   /* Focus Ring */
-  --focus-ring: #98d12a;
+  --focus-ring: var(--brand);
 }

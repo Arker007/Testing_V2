@@ -1,5 +1,5 @@
-import React from "react";
-import { Menu, X, Bell, Search } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Menu, X, Bell, Search, Sun, Moon } from "lucide-react";
 import AdminNotificationsDropdown from "./AdminNotificationsDropdown";
 import styles from "./AdminLayout.module.css";
 
@@ -19,6 +19,24 @@ export default function AdminTopBar({
   setNotifications,
   navigate,
 }) {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+  });
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   return (
     <header className={`${styles.topbar} ${!sidebarOpen ? styles.topbarCollapsed : ""}`}>
       <div className={styles.topLeft}>
@@ -38,12 +56,12 @@ export default function AdminTopBar({
           className={styles.headerSearch}
           onClick={() => setShowSearchCmd(true)}
           style={{
-            background: "#ffffff",
+            background: "var(--bg-card)",
             border: "1px solid var(--line)",
             borderRadius: "9999px",
             padding: "8px 16px 8px 38px",
             fontSize: "0.875rem",
-            color: "#64748B",
+            color: "var(--text-muted)",
             cursor: "pointer",
             display: "flex",
             alignItems: "center",
@@ -59,7 +77,7 @@ export default function AdminTopBar({
             style={{
               position: "absolute",
               left: "14px",
-              color: "#94A3B8",
+              color: "var(--text-muted)",
               pointerEvents: "none",
             }}
           />
@@ -68,11 +86,11 @@ export default function AdminTopBar({
             style={{
               fontSize: "0.68rem",
               fontWeight: 700,
-              background: "#F1F5F9",
-              color: "#475569",
+              background: "var(--bg-surface)",
+              color: "var(--text-secondary)",
               padding: "2px 6px",
               borderRadius: "4px",
-              border: "1px solid #E2E8F0",
+              border: "1px solid var(--border-subtle)",
               marginLeft: "auto",
             }}
           >
@@ -82,6 +100,20 @@ export default function AdminTopBar({
 
         {headerActions && <div className={styles.headerActions}>{headerActions}</div>}
 
+        <div style={{ position: "relative" }}>
+          <button
+            className={styles.topIconBtn}
+            onClick={toggleTheme}
+            aria-label="Toggle dark mode"
+            title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          >
+            {theme === "dark" ? (
+              <Sun size={20} strokeWidth={2} />
+            ) : (
+              <Moon size={20} strokeWidth={2} />
+            )}
+          </button>
+        </div>
         <div style={{ position: "relative" }}>
           <button
             className={styles.topIconBtn}
@@ -99,8 +131,8 @@ export default function AdminTopBar({
                   position: "absolute",
                   top: "-2px",
                   right: "-2px",
-                  background: "#EF4444",
-                  color: "#ffffff",
+                  background: "var(--color-error)",
+                  color: "var(--text-inverse)",
                   fontSize: "0.65rem",
                   fontWeight: 800,
                   width: "18px",
@@ -109,8 +141,8 @@ export default function AdminTopBar({
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  border: "2px solid #ffffff",
-                  boxShadow: "0 2px 4px rgba(239, 68, 68, 0.25)",
+                  border: "2px solid var(--bg-card)",
+                  boxShadow: "0 2px 4px var(--danger-border)",
                 }}
               >
                 {unreadCount}

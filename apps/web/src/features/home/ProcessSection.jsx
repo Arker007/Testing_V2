@@ -39,14 +39,14 @@ export default function ProcessSection() {
       ],
       color: "emerald",
       icon: (
-        <div className="relative w-16 h-16 bg-emerald-50 rounded-xl flex items-center justify-center border border-emerald-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-emerald-50 rounded-lg flex items-center justify-center border border-emerald-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-emerald-100/30 to-transparent" />
           <Trash2 className="w-8 h-8 text-emerald-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-emerald-400 rounded-full opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-emerald-400 rounded-lg opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-emerald-500 rounded-full flex items-center justify-center border-4 border-emerald-400/30 shadow-lg shadow-emerald-500/20">
+        <div className="relative w-28 h-28 bg-emerald-500 rounded-lg flex items-center justify-center border-4 border-emerald-400/30 shadow-lg shadow-emerald-500/20">
           <Trash2 className="w-12 h-12 text-white" />
         </div>
       )
@@ -64,14 +64,14 @@ export default function ProcessSection() {
       ],
       color: "blue",
       icon: (
-        <div className="relative w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center border border-blue-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center border border-blue-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-blue-100/30 to-transparent" />
           <Layers className="w-8 h-8 text-blue-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-blue-400 rounded-full opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-blue-400 rounded-lg opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-blue-500 rounded-full flex items-center justify-center border-4 border-blue-400/30 shadow-lg shadow-blue-500/20">
+        <div className="relative w-28 h-28 bg-blue-500 rounded-lg flex items-center justify-center border-4 border-blue-400/30 shadow-lg shadow-blue-500/20">
           <Layers className="w-12 h-12 text-white" />
         </div>
       )
@@ -89,14 +89,14 @@ export default function ProcessSection() {
       ],
       color: "sky",
       icon: (
-        <div className="relative w-16 h-16 bg-sky-50 rounded-xl flex items-center justify-center border border-sky-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-sky-50 rounded-lg flex items-center justify-center border border-sky-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-sky-100/30 to-transparent" />
           <Sparkles className="w-8 h-8 text-sky-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-sky-400 rounded-full opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-sky-400 rounded-lg opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-sky-500 rounded-full flex items-center justify-center border-4 border-sky-400/30 shadow-lg shadow-sky-500/20">
+        <div className="relative w-28 h-28 bg-sky-500 rounded-lg flex items-center justify-center border-4 border-sky-400/30 shadow-lg shadow-sky-500/20">
           <Sparkles className="w-12 h-12 text-white" />
         </div>
       )
@@ -114,14 +114,14 @@ export default function ProcessSection() {
       ],
       color: "indigo",
       icon: (
-        <div className="relative w-16 h-16 bg-indigo-50 rounded-xl flex items-center justify-center border border-indigo-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-indigo-50 rounded-lg flex items-center justify-center border border-indigo-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-indigo-100/30 to-transparent" />
           <Flame className="w-8 h-8 text-indigo-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-indigo-400 rounded-full opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-indigo-400 rounded-lg opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-indigo-500 rounded-full flex items-center justify-center border-4 border-indigo-400/30 shadow-lg shadow-indigo-500/20">
+        <div className="relative w-28 h-28 bg-indigo-500 rounded-lg flex items-center justify-center border-4 border-indigo-400/30 shadow-lg shadow-indigo-500/20">
           <Flame className="w-12 h-12 text-white" />
         </div>
       )
@@ -139,14 +139,14 @@ export default function ProcessSection() {
       ],
       color: "teal",
       icon: (
-        <div className="relative w-16 h-16 bg-teal-50 rounded-xl flex items-center justify-center border border-teal-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-teal-50 rounded-lg flex items-center justify-center border border-teal-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-teal-100/30 to-transparent" />
           <Snowflake className="w-8 h-8 text-teal-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-teal-400 rounded-full opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-teal-400 rounded-lg opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-teal-500 rounded-full flex items-center justify-center border-4 border-teal-400/30 shadow-lg shadow-teal-500/20">
+        <div className="relative w-28 h-28 bg-teal-500 rounded-lg flex items-center justify-center border-4 border-teal-400/30 shadow-lg shadow-teal-500/20">
           <Snowflake className="w-12 h-12 text-white" />
         </div>
       )
@@ -164,14 +164,14 @@ export default function ProcessSection() {
       ],
       color: "violet",
       icon: (
-        <div className="relative w-16 h-16 bg-violet-50 rounded-xl flex items-center justify-center border border-violet-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-violet-50 rounded-lg flex items-center justify-center border border-violet-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-violet-100/30 to-transparent" />
           <ShieldCheck className="w-8 h-8 text-violet-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-violet-400 rounded-full opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-violet-400 rounded-lg opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-violet-500 rounded-full flex items-center justify-center border-4 border-violet-400/30 shadow-lg shadow-violet-500/20">
+        <div className="relative w-28 h-28 bg-violet-500 rounded-lg flex items-center justify-center border-4 border-violet-400/30 shadow-lg shadow-violet-500/20">
           <ShieldCheck className="w-12 h-12 text-white" />
         </div>
       )
@@ -189,14 +189,14 @@ export default function ProcessSection() {
       ],
       color: "emerald",
       icon: (
-        <div className="relative w-16 h-16 bg-emerald-50 rounded-xl flex items-center justify-center border border-emerald-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-emerald-50 rounded-lg flex items-center justify-center border border-emerald-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-emerald-100/30 to-transparent" />
           <CheckCircle2 className="w-8 h-8 text-emerald-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-emerald-400 rounded-full opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-emerald-400 rounded-lg opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-emerald-500 rounded-full flex items-center justify-center border-4 border-emerald-400/30 shadow-lg shadow-emerald-500/20">
+        <div className="relative w-28 h-28 bg-emerald-500 rounded-lg flex items-center justify-center border-4 border-emerald-400/30 shadow-lg shadow-emerald-500/20">
           <CheckCircle2 className="w-12 h-12 text-white" />
         </div>
       )
@@ -232,42 +232,42 @@ export default function ProcessSection() {
 
   // Border and glow mapping
   const getGlowStyles = (stepIndex, isCurrentActive) => {
-    if (!isCurrentActive) return "border-slate-100 hover:border-emerald-300 hover:shadow-lg hover:-translate-y-1";
+    if (!isCurrentActive) return "border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#111820] hover:border-emerald-400/80 dark:hover:border-emerald-500/60 hover:shadow-md hover:-translate-y-0.5 shadow-2xs";
     switch (stepIndex) {
-      case 0: return "border-emerald-500 ring-2 ring-emerald-500/20 shadow-md -translate-y-1";
-      case 1: return "border-blue-500 ring-2 ring-blue-500/20 shadow-md -translate-y-1";
-      case 2: return "border-sky-500 ring-2 ring-sky-500/20 shadow-md -translate-y-1";
-      case 3: return "border-indigo-500 ring-2 ring-indigo-500/20 shadow-md -translate-y-1";
-      case 4: return "border-teal-500 ring-2 ring-teal-500/20 shadow-md -translate-y-1";
-      case 5: return "border-violet-500 ring-2 ring-violet-500/20 shadow-md -translate-y-1";
-      case 6: return "border-emerald-500 ring-2 ring-emerald-500/20 shadow-md -translate-y-1";
-      default: return "border-emerald-500 shadow-md -translate-y-1";
+      case 0: return "border-emerald-500 ring-2 ring-emerald-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
+      case 1: return "border-blue-500 ring-2 ring-blue-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
+      case 2: return "border-sky-500 ring-2 ring-sky-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
+      case 3: return "border-indigo-500 ring-2 ring-indigo-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
+      case 4: return "border-teal-500 ring-2 ring-teal-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
+      case 5: return "border-violet-500 ring-2 ring-violet-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
+      case 6: return "border-emerald-500 ring-2 ring-emerald-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
+      default: return "border-emerald-500 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
     }
   };
 
   if (c("show_process", "1") === "0") return null;
 
   return (
-    <section className="py-20 bg-[#FAFBFD] relative overflow-hidden">
+    <section className="py-20 bg-[var(--bg-page)] text-slate-800 dark:text-slate-200 relative overflow-hidden border-t border-slate-200/80 dark:border-white/10" id="manufacturing-process">
       {/* Dynamic Background Mesh Grid */}
-      <div className="absolute inset-0 opacity-40 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-100 rounded-full filter blur-[100px] opacity-20 animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-100 rounded-full filter blur-[100px] opacity-20" />
+      <div className="absolute inset-0 opacity-40 dark:opacity-20 pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,var(--gray-200)_1px,transparent_1px),linear-gradient(to_bottom,var(--gray-200)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full filter blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-[100px] pointer-events-none" />
       </div>
 
       <div className="container relative z-10">
         
         {/* Section Title Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-50 border border-emerald-200/50 rounded-full text-emerald-700 font-bold text-xs tracking-wide uppercase mb-4 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/60 dark:border-emerald-800/60 rounded-full text-[var(--brand-dark)] dark:text-emerald-400 font-bold text-xs tracking-wide uppercase mb-4 shadow-sm">
             <Recycle className="w-3.5 h-3.5 animate-spin-slow" />
             <span>Circular Supply Chain</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-[#0B2F63] tracking-tight leading-tight">
-            Our Manufacturing <span className="text-emerald-600">Process</span>
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+            Our Manufacturing <span className="text-[var(--brand-dark)] dark:text-emerald-400">Process</span>
           </h2>
-          <p className="text-slate-500 text-sm md:text-base max-w-2xl mx-auto mt-4 leading-relaxed font-medium">
+          <p className="text-slate-600 dark:text-slate-300 text-sm md:text-base max-w-2xl mx-auto mt-4 leading-relaxed font-normal">
             From responsible plastic waste to high-performance products — every step is engineered for quality, sustainability, and long-term impact.
           </p>
         </div>
@@ -284,19 +284,19 @@ export default function ProcessSection() {
                 {/* Flow lines */}
                 <path
                   d="M 170,120 Q 300,120 400,120 Q 500,120 700,120 M 740,120 Q 850,120 950,120 L 950,220"
-                  stroke="#cbd5e1"
+                  stroke="var(--gray-300)"
                   strokeWidth="2"
                   strokeDasharray="6 6"
                 />
                 <path
                   d="M 950,300 L 950,420 L 800,560"
-                  stroke="#cbd5e1"
+                  stroke="var(--gray-300)"
                   strokeWidth="2"
                   strokeDasharray="6 6"
                 />
                 <path
                   d="M 680,560 L 380,560 L 150,420 L 150,300"
-                  stroke="#cbd5e1"
+                  stroke="var(--gray-300)"
                   strokeWidth="2"
                   strokeDasharray="6 6"
                 />
@@ -309,21 +309,21 @@ export default function ProcessSection() {
               <button
                 type="button"
                 onClick={() => handleStepClick(0)}
-                className={`w-full bg-white p-6 rounded-2xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(0, activeStep === 0)}`}
+                className={`w-full p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(0, activeStep === 0)}`}
               >
                 {/* Step badge */}
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-[#0B2F63] text-white flex items-center justify-center font-bold text-xs shadow-md">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   01
                 </div>
                 {steps[0].icon}
                 <div>
-                  <h4 className="font-extrabold text-[#0B2F63] text-base">{steps[0].title}</h4>
-                  <span className="text-emerald-600 font-bold text-xs block mt-0.5">{steps[0].subtitle}</span>
-                  <p className="text-slate-400 text-2xs leading-relaxed mt-1">{steps[0].brief}</p>
+                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[0].title}</h4>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold text-xs block mt-0.5">{steps[0].subtitle}</span>
+                  <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[0].brief}</p>
                 </div>
               </button>
               {/* Connector to 02 */}
-              <div className="absolute top-1/2 -right-6 -translate-y-1/2 w-4 h-4 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center z-20 text-emerald-500 shadow-sm">
+              <div className="absolute top-1/2 -right-6 -translate-y-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <ChevronRight className="w-2.5 h-2.5" />
               </div>
             </div>
@@ -333,20 +333,20 @@ export default function ProcessSection() {
               <button
                 type="button"
                 onClick={() => handleStepClick(1)}
-                className={`w-full bg-white p-6 rounded-2xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(1, activeStep === 1)}`}
+                className={`w-full p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(1, activeStep === 1)}`}
               >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-[#0B2F63] text-white flex items-center justify-center font-bold text-xs shadow-md">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   02
                 </div>
                 {steps[1].icon}
                 <div>
-                  <h4 className="font-extrabold text-[#0B2F63] text-base">{steps[1].title}</h4>
-                  <span className="text-blue-600 font-bold text-xs block mt-0.5">{steps[1].subtitle}</span>
-                  <p className="text-slate-400 text-2xs leading-relaxed mt-1">{steps[1].brief}</p>
+                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[1].title}</h4>
+                  <span className="text-blue-600 dark:text-blue-400 font-bold text-xs block mt-0.5">{steps[1].subtitle}</span>
+                  <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[1].brief}</p>
                 </div>
               </button>
               {/* Connector to 03 */}
-              <div className="absolute top-1/2 -right-6 -translate-y-1/2 w-4 h-4 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center z-20 text-emerald-500 shadow-sm">
+              <div className="absolute top-1/2 -right-6 -translate-y-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <ChevronRight className="w-2.5 h-2.5" />
               </div>
             </div>
@@ -356,20 +356,20 @@ export default function ProcessSection() {
               <button
                 type="button"
                 onClick={() => handleStepClick(2)}
-                className={`w-full bg-white p-6 rounded-2xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(2, activeStep === 2)}`}
+                className={`w-full p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(2, activeStep === 2)}`}
               >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-[#0B2F63] text-white flex items-center justify-center font-bold text-xs shadow-md">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   03
                 </div>
                 {steps[2].icon}
                 <div>
-                  <h4 className="font-extrabold text-[#0B2F63] text-base">{steps[2].title}</h4>
-                  <span className="text-sky-600 font-bold text-xs block mt-0.5">{steps[2].subtitle}</span>
-                  <p className="text-slate-400 text-2xs leading-relaxed mt-1">{steps[2].brief}</p>
+                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[2].title}</h4>
+                  <span className="text-sky-600 dark:text-sky-400 font-bold text-xs block mt-0.5">{steps[2].subtitle}</span>
+                  <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[2].brief}</p>
                 </div>
               </button>
               {/* Downward Connector to 04 */}
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center z-20 text-emerald-500 shadow-sm">
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <ChevronRight className="w-2.5 h-2.5 rotate-90" />
               </div>
             </div>
@@ -380,20 +380,20 @@ export default function ProcessSection() {
               <button
                 type="button"
                 onClick={() => handleStepClick(6)}
-                className={`w-full bg-white p-6 rounded-2xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(6, activeStep === 6)}`}
+                className={`w-full p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(6, activeStep === 6)}`}
               >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-[#0B2F63] text-white flex items-center justify-center font-bold text-xs shadow-md">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   07
                 </div>
                 {steps[6].icon}
                 <div>
-                  <h4 className="font-extrabold text-[#0B2F63] text-base">{steps[6].title}</h4>
-                  <span className="text-emerald-600 font-bold text-xs block mt-0.5">{steps[6].subtitle}</span>
-                  <p className="text-slate-400 text-2xs leading-relaxed mt-1">{steps[6].brief}</p>
+                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[6].title}</h4>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold text-xs block mt-0.5">{steps[6].subtitle}</span>
+                  <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[6].brief}</p>
                 </div>
               </button>
               {/* Up Connector to 01 */}
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center z-20 text-emerald-500 shadow-sm">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <ChevronRight className="w-2.5 h-2.5 -rotate-90" />
               </div>
             </div>
@@ -401,17 +401,17 @@ export default function ProcessSection() {
             {/* Center Circular Recycle Banner */}
             <div className="flex flex-col items-center justify-center relative p-8">
               {/* Rotating outer dash circle */}
-              <div className="absolute w-56 h-56 rounded-full border-2 border-dashed border-emerald-500/20 animate-spin-slow pointer-events-none" />
-              <div className="absolute w-44 h-44 rounded-full bg-[#FAFBFD]/80 filter blur-md pointer-events-none" />
+              <div className="absolute w-56 h-56 rounded-full border-2 border-dashed border-emerald-500/30 animate-spin-slow pointer-events-none" />
+              <div className="absolute w-44 h-44 rounded-full bg-[var(--gray-50)]/80 dark:bg-white/5 filter blur-md pointer-events-none" />
               
               <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-emerald-500/10 to-blue-500/15 flex items-center justify-center border border-white shadow-xl mb-4 p-1.5 animate-pulse-slow">
-                  <div className="w-full h-full rounded-full bg-white flex items-center justify-center shadow-inner">
-                    <Recycle className="w-12 h-12 text-emerald-600" />
+                <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-emerald-500/20 to-blue-500/20 flex items-center justify-center border border-emerald-200 dark:border-emerald-800 shadow-lg mb-4 p-1.5 animate-pulse-slow">
+                  <div className="w-full h-full rounded-full bg-white dark:bg-[#111820] flex items-center justify-center shadow-inner">
+                    <Recycle className="w-12 h-12 text-emerald-600 dark:text-emerald-400" />
                   </div>
                 </div>
-                <h5 className="font-black text-[#0B2F63] text-sm tracking-tight">Zero Waste. Infinite Value.</h5>
-                <p className="text-slate-400 text-4xs max-w-xs mt-1">We don't just recycle, we recreate value.</p>
+                <h5 className="font-extrabold text-slate-900 dark:text-white text-sm tracking-tight">Zero Waste. Infinite Value.</h5>
+                <p className="text-slate-600 dark:text-slate-300 text-xs font-normal max-w-xs mt-1">We don't just recycle, we recreate value.</p>
               </div>
             </div>
 
@@ -420,20 +420,20 @@ export default function ProcessSection() {
               <button
                 type="button"
                 onClick={() => handleStepClick(3)}
-                className={`w-full bg-white p-6 rounded-2xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(3, activeStep === 3)}`}
+                className={`w-full p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(3, activeStep === 3)}`}
               >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-[#0B2F63] text-white flex items-center justify-center font-bold text-xs shadow-md">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   04
                 </div>
                 {steps[3].icon}
                 <div>
-                  <h4 className="font-extrabold text-[#0B2F63] text-base">{steps[3].title}</h4>
-                  <span className="text-indigo-600 font-bold text-xs block mt-0.5">{steps[3].subtitle}</span>
-                  <p className="text-slate-400 text-2xs leading-relaxed mt-1">{steps[3].brief}</p>
+                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[3].title}</h4>
+                  <span className="text-indigo-600 dark:text-indigo-400 font-bold text-xs block mt-0.5">{steps[3].subtitle}</span>
+                  <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[3].brief}</p>
                 </div>
               </button>
               {/* Down Connector to 05 */}
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center z-20 text-emerald-500 shadow-sm">
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <ChevronRight className="w-2.5 h-2.5 rotate-90" />
               </div>
             </div>
@@ -444,20 +444,20 @@ export default function ProcessSection() {
               <button
                 type="button"
                 onClick={() => handleStepClick(5)}
-                className={`w-[320px] bg-white p-6 rounded-2xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(5, activeStep === 5)}`}
+                className={`w-[320px] p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(5, activeStep === 5)}`}
               >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-[#0B2F63] text-white flex items-center justify-center font-bold text-xs shadow-md">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   06
                 </div>
                 {steps[5].icon}
                 <div>
-                  <h4 className="font-extrabold text-[#0B2F63] text-base">{steps[5].title}</h4>
-                  <span className="text-violet-600 font-bold text-xs block mt-0.5">{steps[5].subtitle}</span>
-                  <p className="text-slate-400 text-2xs leading-relaxed mt-1">{steps[5].brief}</p>
+                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[5].title}</h4>
+                  <span className="text-violet-600 dark:text-violet-400 font-bold text-xs block mt-0.5">{steps[5].subtitle}</span>
+                  <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[5].brief}</p>
                 </div>
               </button>
               {/* Left Connector to 07 */}
-              <div className="absolute top-1/2 -left-6 -translate-y-1/2 w-4 h-4 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center z-20 text-emerald-500 shadow-sm">
+              <div className="absolute top-1/2 -left-6 -translate-y-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <ChevronRight className="w-2.5 h-2.5 rotate-180" />
               </div>
             </div>
@@ -465,7 +465,7 @@ export default function ProcessSection() {
             {/* Bottom Row Spacers & Alignments */}
             <div className="flex justify-center items-center pointer-events-none">
               {/* Flow connector between 05 and 06 */}
-              <div className="w-10 h-10 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-500 shadow-sm z-20">
+              <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs z-20">
                 <ChevronRight className="w-3.5 h-3.5 rotate-180" />
               </div>
             </div>
@@ -475,31 +475,31 @@ export default function ProcessSection() {
               <button
                 type="button"
                 onClick={() => handleStepClick(4)}
-                className={`w-[320px] bg-white p-6 rounded-2xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(4, activeStep === 4)}`}
+                className={`w-[320px] p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(4, activeStep === 4)}`}
               >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-[#0B2F63] text-white flex items-center justify-center font-bold text-xs shadow-md">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   05
                 </div>
                 {steps[4].icon}
                 <div>
-                  <h4 className="font-extrabold text-[#0B2F63] text-base">{steps[4].title}</h4>
-                  <span className="text-teal-600 font-bold text-xs block mt-0.5">{steps[4].subtitle}</span>
-                  <p className="text-slate-400 text-2xs leading-relaxed mt-1">{steps[4].brief}</p>
+                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[4].title}</h4>
+                  <span className="text-teal-600 dark:text-teal-400 font-bold text-xs block mt-0.5">{steps[4].subtitle}</span>
+                  <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[4].brief}</p>
                 </div>
               </button>
               {/* Left Connector to 06 */}
-              <div className="absolute top-1/2 -left-6 -translate-y-1/2 w-4 h-4 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center z-20 text-emerald-500 shadow-sm">
+              <div className="absolute top-1/2 -left-6 -translate-y-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <ChevronRight className="w-2.5 h-2.5 rotate-180" />
               </div>
             </div>
 
           </div>
 
-          {/* Mobile & Tablet Horizontal Stepper Layout (Highly interactive & zero visual redundancy) */}
+          {/* Mobile & Tablet Horizontal Stepper Layout */}
           <div className="lg:hidden flex flex-col gap-6 max-w-lg mx-auto">
             <div className="flex justify-between items-center px-1">
-              <span className="text-xs font-extrabold text-slate-400 uppercase tracking-wider">Select Manufacturing Step</span>
-              <span className="text-[10px] font-bold text-slate-400 flex items-center gap-1 animate-pulse">
+              <span className="text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Select Manufacturing Step</span>
+              <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1 animate-pulse">
                 Swipe left/right <ChevronRight className="w-3 h-3" />
               </span>
             </div>
@@ -513,20 +513,20 @@ export default function ProcessSection() {
                     key={i}
                     type="button"
                     onClick={() => handleStepClick(i)}
-                    className={`flex-shrink-0 snap-center py-3 px-4 rounded-2xl transition-all duration-300 flex items-center gap-3 border text-left min-w-[210px] ${
+                    className={`flex-shrink-0 snap-center py-3 px-4 rounded-xl transition-all duration-300 flex items-center gap-3 border text-left min-w-[210px] ${
                       isActive
-                        ? "bg-[#0b2247] text-white border-[#0b2247] shadow-lg shadow-blue-900/20 scale-[1.02]"
-                        : "bg-white text-slate-700 hover:bg-slate-50 border-slate-200/80 shadow-2xs"
+                        ? "bg-slate-900 dark:bg-emerald-950/80 text-white border-emerald-500 shadow-lg scale-[1.02]"
+                        : "bg-white dark:bg-[#111820] text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#171E26] border-slate-200/90 dark:border-white/10 shadow-xs"
                     }`}
                   >
-                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center font-black text-xs transition-colors ${
-                      isActive ? "bg-emerald-500 text-[#0b2247]" : "bg-emerald-50 text-emerald-600 border border-emerald-100"
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-black text-xs transition-colors ${
+                      isActive ? "bg-emerald-500 text-slate-950" : "bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/50"
                     }`}>
                       {st.num}
                     </div>
                     <div>
-                      <h4 className={`font-extrabold text-xs leading-none ${isActive ? "text-white" : "text-slate-800"}`}>{st.title}</h4>
-                      <span className={`text-[10px] font-bold mt-1 block leading-none ${isActive ? "text-emerald-400" : "text-emerald-600"}`}>{st.subtitle}</span>
+                      <h4 className={`font-extrabold text-xs leading-none ${isActive ? "text-white" : "text-slate-800 dark:text-white"}`}>{st.title}</h4>
+                      <span className={`text-[10px] font-bold mt-1 block leading-none ${isActive ? "text-emerald-400" : "text-emerald-600 dark:text-emerald-400"}`}>{st.subtitle}</span>
                     </div>
                   </button>
                 );
@@ -536,21 +536,19 @@ export default function ProcessSection() {
 
         </div>
 
-        {/* 2. Interactive Dark Panel Details Section (Beautifully Matches Image) */}
-        <div className="max-w-6xl mx-auto bg-[#0b2247] text-white rounded-3xl p-8 lg:p-12 shadow-2xl relative overflow-hidden transition-all duration-500">
-          {/* Subtle Background Abstract Pattern */}
-          <div className="absolute inset-0 opacity-5 pointer-events-none">
-            <div className="absolute -top-12 -left-12 w-64 h-64 bg-emerald-500 rounded-full filter blur-xl" />
-            <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-600 rounded-full filter blur-2xl" />
-          </div>
+        {/* 2. Interactive Panel Details Section with CTA Container Styling */}
+        <div className="max-w-6xl mx-auto bg-white/95 dark:bg-[#0e1015] text-slate-900 dark:text-white rounded-2xl p-8 lg:p-12 shadow-xl backdrop-blur-sm relative overflow-hidden transition-all duration-500 border border-slate-200/90 dark:border-white/10">
+          {/* Ambient radial glow blobs */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/10 dark:bg-blue-500/5 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
             
             {/* Column A: Left side 3D Icon Container */}
             <div className="lg:col-span-3 flex justify-center items-center">
-              <div className="relative p-6 bg-slate-900/30 rounded-3xl border border-white/5 shadow-inner">
+              <div className="relative p-6 bg-slate-100 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-white/10 shadow-inner">
                 {steps[activeStep].activeIcon}
-                <div className="absolute -bottom-2 right-4 bg-emerald-500 text-[#0b2247] px-3 py-1 rounded-full text-xs font-black tracking-tight shadow-md">
+                <div className="absolute -bottom-2 right-4 bg-[var(--brand)] text-slate-950 px-3 py-1 rounded-lg text-xs font-black tracking-tight shadow-md">
                   Step {steps[activeStep].num}
                 </div>
               </div>
@@ -558,27 +556,27 @@ export default function ProcessSection() {
 
             {/* Column B: Center step text details */}
             <div className="lg:col-span-5 flex flex-col justify-center">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-emerald-400 mb-2 block">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[var(--brand-dark)] dark:text-[var(--brand)] mb-2 block">
                 {steps[activeStep].subtitle}
               </span>
-              <h3 className="text-2xl md:text-3.5xl font-black text-white tracking-tight mb-4 flex items-center gap-2">
+              <h3 className="text-2xl md:text-3.5xl font-black text-slate-900 dark:text-white tracking-tight mb-4 flex items-center gap-2">
                 {steps[activeStep].title}
               </h3>
-              <p className="text-slate-300 text-sm md:text-base leading-relaxed font-medium">
+              <p className="text-slate-600 dark:text-slate-200 text-sm md:text-base leading-relaxed font-normal">
                 {steps[activeStep].desc}
               </p>
             </div>
 
             {/* Column C: Right step checklist features */}
-            <div className="lg:col-span-4 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/10 pt-6 lg:pt-0 lg:pl-8 gap-4">
+            <div className="lg:col-span-4 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-white/15 pt-6 lg:pt-0 lg:pl-8 gap-4">
               {steps[activeStep].features.map((feature, idx) => (
                 <div key={idx} className="flex gap-3">
-                  <div className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5 border border-emerald-500/30">
+                  <div className="w-5 h-5 rounded-lg bg-[var(--brand-light)] text-[var(--brand-dark)] dark:text-[var(--brand)] flex items-center justify-center flex-shrink-0 mt-0.5 border border-[var(--brand-border)]/30">
                     <Check className="w-3.5 h-3.5 font-bold" />
                   </div>
                   <div>
-                    <h5 className="font-extrabold text-sm text-white">{feature.label}</h5>
-                    <p className="text-slate-400 text-xs mt-0.5 leading-relaxed">{feature.desc}</p>
+                    <h5 className="font-extrabold text-sm text-slate-900 dark:text-white">{feature.label}</h5>
+                    <p className="text-slate-600 dark:text-slate-300 text-xs mt-0.5 leading-relaxed font-normal">{feature.desc}</p>
                   </div>
                 </div>
               ))}
@@ -586,12 +584,12 @@ export default function ProcessSection() {
 
           </div>
 
-          {/* Nav buttons positioned responsively (relative/flex on mobile, absolute on desktop) */}
+          {/* Nav buttons positioned responsively */}
           <div className="mt-8 flex justify-end items-center gap-3 relative lg:absolute lg:bottom-8 lg:right-8 lg:mt-0">
             <button
               type="button"
               onClick={handlePrev}
-              className="w-10 h-10 rounded-full bg-white/10 hover:bg-emerald-500 hover:text-[#0b2247] border border-white/10 flex items-center justify-center transition text-white shadow-md"
+              className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-white/10 hover:bg-[var(--brand)] hover:text-slate-950 border border-[var(--border-card)] flex items-center justify-center transition text-slate-800 dark:text-white shadow-xs cursor-pointer"
               title="Previous Step"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -599,7 +597,7 @@ export default function ProcessSection() {
             <button
               type="button"
               onClick={handleNext}
-              className="w-10 h-10 rounded-full bg-emerald-500 text-[#0b2247] hover:bg-white flex items-center justify-center transition font-bold shadow-md shadow-emerald-500/20"
+              className="w-10 h-10 rounded-lg bg-[var(--brand)] text-slate-950 hover:brightness-110 flex items-center justify-center transition font-bold shadow-md cursor-pointer border-0"
               title="Next Step"
             >
               <ChevronRight className="w-5 h-5" />
@@ -607,51 +605,66 @@ export default function ProcessSection() {
           </div>
         </div>
 
-        {/* 3. Bottom Key Values Grid Panel (Exactly as shown in the image) */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 bg-white border border-slate-100 p-6 rounded-2xl shadow-sm mt-12">
-          
-          <div className="flex items-start gap-4 p-2">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 border border-emerald-100">
-              <Recycle className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="font-bold text-slate-900 text-sm mb-1">Sustainable</h4>
-              <p className="text-slate-500 text-xs leading-relaxed">Turning waste into long-lasting solutions.</p>
-              <div className="w-5 h-0.5 bg-emerald-500 rounded mt-2" />
-            </div>
-          </div>
+        {/* 3. Bottom Key Values Grid Panel with Full CTA Container Styling */}
+        <div className="max-w-6xl mx-auto relative overflow-hidden bg-white/95 dark:bg-[#0e1015] border border-slate-200/90 dark:border-white/10 p-6 sm:p-8 rounded-2xl shadow-xl backdrop-blur-sm mt-12">
+          {/* Ambient radial glow */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--brand)]/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
 
-          <div className="flex items-start gap-4 p-2">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 border border-emerald-100">
-              <ShieldCheck className="w-5 h-5" />
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            {/* Card 1 */}
+            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-xl p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10 w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
+                <Recycle className="w-5 h-5" />
+              </div>
+              <div className="relative z-10">
+                <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Sustainable</h4>
+                <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed font-normal">Turning waste into long-lasting solutions.</p>
+                <div className="w-6 h-0.5 bg-[var(--brand)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
+              </div>
             </div>
-            <div>
-              <h4 className="font-bold text-slate-900 text-sm mb-1">Quality Assured</h4>
-              <p className="text-slate-500 text-xs leading-relaxed">Each step is tested for performance and safety.</p>
-              <div className="w-5 h-0.5 bg-emerald-500 rounded mt-2" />
-            </div>
-          </div>
 
-          <div className="flex items-start gap-4 p-2">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 border border-emerald-100">
-              <Cpu className="w-5 h-5" />
+            {/* Card 2 */}
+            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-xl p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10 w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <div className="relative z-10">
+                <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Quality Assured</h4>
+                <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed font-normal">Each step is tested for performance and safety.</p>
+                <div className="w-6 h-0.5 bg-[var(--brand)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
+              </div>
             </div>
-            <div>
-              <h4 className="font-bold text-slate-900 text-sm mb-1">Advanced Technology</h4>
-              <p className="text-slate-500 text-xs leading-relaxed">Modern machines for precision and consistent quality.</p>
-              <div className="w-5 h-0.5 bg-emerald-500 rounded mt-2" />
-            </div>
-          </div>
 
-          <div className="flex items-start gap-4 p-2">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 border border-emerald-100">
-              <Globe className="w-5 h-5" />
+            {/* Card 3 */}
+            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-xl p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10 w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
+                <Cpu className="w-5 h-5" />
+              </div>
+              <div className="relative z-10">
+                <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Advanced Tech</h4>
+                <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed font-normal">Modern machines for precision and consistent quality.</p>
+                <div className="w-6 h-0.5 bg-[var(--brand)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
+              </div>
             </div>
-            <div>
-              <h4 className="font-bold text-slate-900 text-sm mb-1">Better for Planet</h4>
-              <p className="text-slate-500 text-xs leading-relaxed">Reducing landfill waste and building a circular future.</p>
-              <div className="w-5 h-0.5 bg-emerald-500 rounded mt-2" />
+
+            {/* Card 4 */}
+            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-xl p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10 w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
+                <Globe className="w-5 h-5" />
+              </div>
+              <div className="relative z-10">
+                <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Better for Planet</h4>
+                <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed font-normal">Reducing landfill waste and building a circular future.</p>
+                <div className="w-6 h-0.5 bg-[var(--brand)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
+              </div>
             </div>
+
           </div>
 
         </div>

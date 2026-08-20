@@ -24,7 +24,7 @@ react-website-vishal-enterpise---glass/
 ├── data/
 │   └── vishal_enterprise.db    # SQLite database file (local/Vercel fallback)
 │
-├── backend/                    # ── Backend Express API Server ──
+├── apps/api/                   # ── Backend Express API Server ──
 │   ├── index.js                # Express app bootstrap — middleware, global error handler, static files
 │   │
 │   ├── config/
@@ -63,7 +63,7 @@ react-website-vishal-enterpise---glass/
 │   │
 │   └── database.sqlite         # Legacy SQLite file (fallback)
 │
-├── frontend/                   # ── Frontend React App (Vite 7 + React 19 + React Router 7) ──
+├── apps/web/                   # ── Frontend React App (Vite 7 + React 19 + React Router 7) ──
 │   ├── package.json            # react 19.2, react-router-dom 7.13, quill 2.0.3, dompurify
 │   ├── vite.config.js          # Dev proxy (/api → :3000), manual chunks (admin isolated), ES2018
 │   ├── index.html              # SPA shell with Font Awesome CDN, meta tags, theme-color
@@ -402,37 +402,26 @@ This section provides an exact visual and structural blueprint of every page in 
 * **Layout Style**: Tight vertical grid, flexible row wrapper (`display: flex; justify-content: space-around; align-items: center; opacity: 0.6`).
 * **Elements**: Horizontal scroll of monochrome corporate logs representing top logistics, chemical, and municipal clients.
 
-#### Section 2.3: Categories Grid (`.categoriesSection`)
-* **Layout Style**: 4-column responsive grid layout containing hover-capable category card containers.
-* **Inside Cards**:
-  - Outer: `border-radius: 18px`, overflow hidden, aspect ratio 4:3.
-  - Image: Background cover image showing the Category (e.g. pallets stacked in warehouse).
-  - Overlay: Dark-gradient bottom cover wrapping the text. Hover state raises the text, displays a descriptive sentence, and shifts the image background scale up by 5% (`transform: scale(1.05)`).
+#### Section 2.3: Products Showcase Bento Grid (`ProductsShowcase`)
+* **Layout Style**: Modern bento grid layout (1 col mobile, 2 cols tablet, 3 cols desktop) displaying 6 products with a `grid-cols-3` structure and `aspect-square` cards.
+* **Featured Card (Card 01)**:
+  - Spans 2 columns and 2 rows on large screens (`lg:col-span-2 lg:row-span-2`).
+  - Includes specific product feature pills (e.g. Waterproof, UV Resistant).
+  - High-visibility action button ("Explore Collection") with solid white border and dark text (`#0f172a`) in both light and dark modes.
+* **Standard Cards (02-06)**:
+  - Square aspect ratio (`aspect-square`), top-right circular arrow action buttons.
+  - Image: Product image positioned behind the content (`absolute inset-0 z-0 opacity-100`).
+  - Overlay: Bottom-aligned pure black gradient (`from-black/90 via-black/60 to-transparent`) for extremely high text contrast.
+  - Text: Drop shadows added to title and description for visibility in light and dark modes.
 
-#### Section 2.4: Why Choose Recycled Plastics? (`.whySection`)
-* **Layout Style**: 2-column split panel. Left: Big statement layout detailing lumber replacement mechanics. Right: 4-cell matrix of engineering comparison metrics (Weight load limit, Moisture resistance, Lifetime years, Zero rot).
-* **Icons & colors**: Every comparison point features a green circle wrapper with a solid white metric symbol.
+#### Section 2.4: Features Section (`FeaturesSection`)
+* **Layout Style**: Grid highlighting key B2B value propositions (e.g., sustainability, durability, cost savings).
 
-#### Section 2.5: Circular Process Timeline (`.processSection`)
-* **Layout Style**: Horizontal connected track flow.
-* **Steps (1-4)**:
-  - Step 1: Sorting & Cleaning.
-  - Step 2: High-Density Shredding.
-  - Step 3: Heat Extrusion & Molds.
-  - Step 4: Quality Inspection.
-* **Aesthetics**: Connecting dashed green indicator lines, circles showing numerical steps (01, 02), and text describing manufacturing details.
+#### Section 2.5: Industries Served Grid (`IndustriesGrid`)
+* **Layout Style**: Responsive grid detailing target sectors like Warehousing, Chemical Plants, Marine Logistics.
 
-#### Section 2.6: Carbon Mitigation Calculator (`.sustainabilitySection`)
-* **Layout Style**: Split panel with interactive calculations. Left: Information cards showing carbon credit standards. Right: Multi-slider inputs representing standard lumber replacement tons, outputting live metrics (CO2 tons offset, trees saved, land pollution prevented).
-
-#### Section 2.7: Industries Served Grid (`.industriesSection`)
-* **Layout Style**: Hexagonal or bento-style responsive layout wrapping key sectors: Warehousing, Maritime Logistics, Chemical Plants, Parks & Recreation.
-
-#### Section 2.8: Client Case Studies & Testimonials (`.testimonialsSection`)
-* **Layout Style**: 3-column masonry reviews featuring client quote cards, corporate logos, and star ratings.
-
-#### Section 2.9: CTA Bottom Banner (`.ctaBannerSection`)
-* **Layout Style**: Full-bleed dark navy background (`#05283F`), heavy green accents. Main call-outs for Custom Mold Inquiries and Bulk Logistics Pricing.
+#### Section 2.6: CTA Bottom Banner (`HomeCtaSection`)
+* **Layout Style**: Full-bleed bottom banner driving users to contact forms and quote requests.
 
 ---
 

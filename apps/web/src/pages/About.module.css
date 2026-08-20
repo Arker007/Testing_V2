@@ -1,6 +1,6 @@
-@import './chunks/about_part1.css';
-@import './chunks/about_part2.css';
-@import './chunks/about_part3.css';
-@import './chunks/about_part4.css';
-@import './chunks/about_part5.css';
-@import './chunks/about_part6.css';
+@import "./styles/about/about-hero.css";
+@import "./styles/about/about-story-mission.css";
+@import "./styles/about/about-process-workflow.css";
+@import "./styles/about/about-team-leadership.css";
+@import "./styles/about/about-industry-verticals.css";
+@import "./styles/about/about-responsive.css";

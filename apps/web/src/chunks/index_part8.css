@@ -34,9 +34,9 @@
 
 
 .testimonial-nav-btn:hover {
-  background-color: #0B2F63 !important;
-  color: #ffffff !important;
-  border-color: #0B2F63 !important;
+  background-color: var(--navy) !important;
+  color: var(--white) !important;
+  border-color: var(--navy) !important;
 }
 
 

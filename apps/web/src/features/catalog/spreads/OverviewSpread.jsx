@@ -16,7 +16,7 @@ export function getOverviewSpreads({ cms, emailVal, webVal }) {
               marginTop: "50px",
               fontSize: "16px",
               lineHeight: "34px",
-              color: "#666",
+              color: "var(--gray-500)",
             }}
           >
             <p style={{ marginBottom: "20px" }}>
@@ -57,20 +57,20 @@ export function getOverviewSpreads({ cms, emailVal, webVal }) {
           >
             <div
               style={{
-                border: "2px solid #efefef",
+                border: "2px solid var(--gray-100)",
                 padding: "20px",
                 borderRadius: "8px",
               }}
             >
               <div
-                style={{ fontSize: "36px", fontWeight: 800, color: "#f5b21f" }}
+                style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-warning)" }}
               >
                 {cms.yearsExperience || "20"}+
               </div>
               <div
                 style={{
                   fontSize: "13px",
-                  color: "#888",
+                  color: "var(--gray-500)",
                   fontWeight: 600,
                   textTransform: "uppercase",
                   marginTop: "5px",
@@ -81,20 +81,20 @@ export function getOverviewSpreads({ cms, emailVal, webVal }) {
             </div>
             <div
               style={{
-                border: "2px solid #efefef",
+                border: "2px solid var(--gray-100)",
                 padding: "20px",
                 borderRadius: "8px",
               }}
             >
               <div
-                style={{ fontSize: "36px", fontWeight: 800, color: "#f5b21f" }}
+                style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-warning)" }}
               >
                 {cms.clients || "200"}+
               </div>
               <div
                 style={{
                   fontSize: "13px",
-                  color: "#888",
+                  color: "var(--gray-500)",
                   fontWeight: 600,
                   textTransform: "uppercase",
                   marginTop: "5px",
@@ -105,20 +105,20 @@ export function getOverviewSpreads({ cms, emailVal, webVal }) {
             </div>
             <div
               style={{
-                border: "2px solid #efefef",
+                border: "2px solid var(--gray-100)",
                 padding: "20px",
                 borderRadius: "8px",
               }}
             >
               <div
-                style={{ fontSize: "36px", fontWeight: 800, color: "#f5b21f" }}
+                style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-warning)" }}
               >
                 {Number(cms.recycledTons || 5000).toLocaleString()} MT
               </div>
               <div
                 style={{
                   fontSize: "13px",
-                  color: "#888",
+                  color: "var(--gray-500)",
                   fontWeight: 600,
                   textTransform: "uppercase",
                   marginTop: "5px",
@@ -129,20 +129,20 @@ export function getOverviewSpreads({ cms, emailVal, webVal }) {
             </div>
             <div
               style={{
-                border: "2px solid #efefef",
+                border: "2px solid var(--gray-100)",
                 padding: "20px",
                 borderRadius: "8px",
               }}
             >
               <div
-                style={{ fontSize: "36px", fontWeight: 800, color: "#f5b21f" }}
+                style={{ fontSize: "36px", fontWeight: 800, color: "var(--color-warning)" }}
               >
                 {cms.products || "50"}+
               </div>
               <div
                 style={{
                   fontSize: "13px",
-                  color: "#888",
+                  color: "var(--gray-500)",
                   fontWeight: 600,
                   textTransform: "uppercase",
                   marginTop: "5px",
@@ -173,7 +173,7 @@ export function getOverviewSpreads({ cms, emailVal, webVal }) {
               marginTop: "50px",
               fontSize: "16px",
               lineHeight: "34px",
-              color: "#666",
+              color: "var(--gray-500)",
             }}
           >
             <p style={{ marginBottom: "20px" }}>
@@ -209,7 +209,7 @@ export function getOverviewSpreads({ cms, emailVal, webVal }) {
               marginLeft: "260px",
               fontSize: "16px",
               lineHeight: "34px",
-              color: "#666",
+              color: "var(--gray-500)",
             }}
           >
             <p style={{ marginBottom: "20px" }}>

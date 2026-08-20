@@ -1,7 +1,7 @@
 
 .bigTabActive {
   color: #0B2F63 !important;
-  border-bottom-color: #98d12a !important;
+  border-bottom-color: var(--brand) !important;
   background: var(--bg-card, #ffffff);
 }
 

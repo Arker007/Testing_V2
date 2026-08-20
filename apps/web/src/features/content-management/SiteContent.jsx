@@ -68,11 +68,11 @@ export default function SiteContent() {
     const isOn = cms[key] !== "0";
     return (
       <label style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", userSelect: "none" }}>
-        <span style={{ fontSize: "11px", fontWeight: 700, color: isOn ? "#98d12a" : "#8a92a6", minWidth: 28 }}>{isOn ? "ON" : "OFF"}</span>
+        <span style={{ fontSize: "11px", fontWeight: 700, color: isOn ? "var(--brand)" : "var(--gray-400)", minWidth: 28 }}>{isOn ? "ON" : "OFF"}</span>
         <span style={{ position: "relative", display: "inline-flex", width: 40, height: 22 }}>
           <input type="checkbox" style={{ opacity: 0, width: 0, height: 0, position: "absolute" }} checked={isOn} onChange={() => handleToggleSection(sectionName)} />
-          <span style={{ position: "absolute", inset: 0, borderRadius: 22, backgroundColor: isOn ? "#98d12a" : "#e2e8f0", transition: "background-color 0.2s" }}>
-            <span style={{ position: "absolute", top: 3, left: isOn ? 21 : 3, width: 16, height: 16, borderRadius: "50%", backgroundColor: "#fff", transition: "left 0.2s", boxShadow: "0 1px 3px rgba(0,0,0,0.15)" }} />
+          <span style={{ position: "absolute", inset: 0, borderRadius: 22, backgroundColor: isOn ? "var(--brand)" : "var(--gray-200)", transition: "background-color 0.2s" }}>
+            <span style={{ position: "absolute", top: 3, left: isOn ? 21 : 3, width: 16, height: 16, borderRadius: "50%", backgroundColor: "var(--white)", transition: "left 0.2s", boxShadow: "0 1px 3px rgba(0,0,0,0.15)" }} />
           </span>
         </span>
       </label>
@@ -85,7 +85,7 @@ export default function SiteContent() {
     const isOn = cms[key] !== "0";
     return (
       <span className={cStyles.nodeBadge} style={{ 
-        background: isOn ? "rgba(152, 209, 42, 0.12)" : "#f1f5f9",
+        background: isOn ? "var(--brand-glow-subtle)" : "var(--gray-100)",
         color: isOn ? "var(--brand-dark)" : "var(--muted)",
       }}>
         {isOn ? "ON" : "OFF"}
@@ -123,7 +123,7 @@ export default function SiteContent() {
         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(5, 40, 63, 0.06)", paddingBottom: "16px", marginBottom: "24px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "var(--brand-light)", display: "flex", alignItems: "center", justifyItems: "center", justifyContent: "center" }}>
-              <i className={`fa-solid ${allSectionsList.find(s => s.key === activeSub)?.icon || "fa-file-pen"} text-[#7db018]`} style={{ fontSize: "1.1rem" }} />
+              <i className={`fa-solid ${allSectionsList.find(s => s.key === activeSub)?.icon || "fa-file-pen"} text-[var(--brand-dark)]`} style={{ fontSize: "1.1rem" }} />
             </div>
             <div>
               <h3 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 800, color: "var(--ink)" }}>{getSectionDisplayName(activeSub)}</h3>
@@ -133,8 +133,8 @@ export default function SiteContent() {
 
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             {selectedCmsGroup && getSectionToggleKey(activeSub) && (
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "#F8FAFC", padding: "6px 12px", borderRadius: "8px", border: "1px solid #E2E8F0" }}>
-                <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#475569" }}>Enable section:</span>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "var(--gray-50)", padding: "6px 12px", borderRadius: "8px", border: "1px solid var(--gray-200)" }}>
+                <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--gray-600)" }}>Enable section:</span>
                 {renderToggle(activeSub)}
               </div>
             )}
@@ -147,8 +147,8 @@ export default function SiteContent() {
                 value={searchFieldQuery} 
                 onChange={e => setSearchFieldQuery(e.target.value)}
                 style={{ 
-                  background: "#F8FAFC", 
-                  border: "1px solid #E2E8F0", 
+                  background: "var(--gray-50)", 
+                  border: "1px solid var(--gray-200)", 
                   borderRadius: "8px", 
                   padding: "6px 12px 6px 30px", 
                   fontSize: "0.8rem", 
@@ -156,7 +156,7 @@ export default function SiteContent() {
                   width: "180px",
                   outline: "none"
                 }}
-                className="focus:border-[#98d12a] focus:bg-white transition-all"
+                className="focus:border-[var(--brand)] focus:bg-white transition-all"
               />
               {searchFieldQuery && (
                 <button 

@@ -92,8 +92,8 @@
 .primaryInquiryBtn {
   flex: 1;
   height: 48px;
-  background: #98d12a;
-  color: #0B2F63;
+  background: var(--brand);
+  color: var(--white);
   border: none;
   border-radius: 8px;
   font-size: 0.8125rem;

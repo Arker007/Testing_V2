@@ -1,72 +1,514 @@
+/* ─── Complete Industrial Dark Mode Overrides for Product Catalog ─── */
 
-:root[data-theme="dark"] .customSelectDropdown,
-:root.dark .customSelectDropdown {
-  background-color: var(--bg-surface-elevated);
-  border-color: var(--border);
-  color: var(--text-primary);
-  box-shadow: var(--shadow-lg);
+:global([data-theme="dark"]) .topControlCard,
+:global(.dark) .topControlCard,
+:root[data-theme="dark"] [class*="topControlCard"],
+html.dark [class*="topControlCard"] {
+  background: var(--dark-card, #111820) !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
 }
 
-:root[data-theme="dark"] .customSelectOption,
-:root.dark .customSelectOption {
-  color: var(--text-secondary);
+:global([data-theme="dark"]) .searchBoxWrapper,
+:global(.dark) .searchBoxWrapper,
+:root[data-theme="dark"] [class*="searchBoxWrapper"],
+html.dark [class*="searchBoxWrapper"] {
+  background: var(--dark-elevated, #171E26) !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
 }
 
-:root[data-theme="dark"] .customSelectOptionHover,
-:root.dark .customSelectOptionHover {
-  background-color: var(--bg-interactive-hover);
-  color: var(--text-primary);
+:global([data-theme="dark"]) .searchInputField,
+:global(.dark) .searchInputField,
+:root[data-theme="dark"] [class*="searchInputField"],
+html.dark [class*="searchInputField"] {
+  color: #FFFFFF !important;
 }
 
-:root[data-theme="dark"] .customSelectOptionSelected,
-:root.dark .customSelectOptionSelected {
-  background-color: var(--brand-light);
-  color: var(--brand);
+:global([data-theme="dark"]) .searchInputField::placeholder,
+:global(.dark) .searchInputField::placeholder {
+  color: #64748B !important;
 }
 
-:root[data-theme="dark"] .specBox,
-:root[data-theme="dark"] .specPill,
-:root[data-theme="dark"] .modalSpecItem,
-:root.dark .specBox,
-:root.dark .specPill,
-:root.dark .modalSpecItem {
-  background-color: var(--bg-interactive);
-  color: var(--text-secondary);
-  border-color: var(--border-subtle);
+:global([data-theme="dark"]) .searchIcon,
+:global(.dark) .searchIcon {
+  color: #94A3B8 !important;
 }
 
-:root[data-theme="dark"] .viewToggleBtn,
-:root.dark .viewToggleBtn {
-  color: var(--text-muted);
+:global([data-theme="dark"]) .suggestionChip,
+:global(.dark) .suggestionChip,
+:root[data-theme="dark"] [class*="suggestionChip"],
+html.dark [class*="suggestionChip"] {
+  background: var(--dark-elevated, #171E26) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #CBD5E1 !important;
 }
 
-:root[data-theme="dark"] .viewModeSwitcher,
-:root.dark .viewModeSwitcher {
-  background-color: var(--bg-interactive);
-  border-color: var(--border);
+:global([data-theme="dark"]) .suggestionChip:hover,
+:global(.dark) .suggestionChip:hover {
+  background: var(--dark-hover, #1D2630) !important;
+  color: #FFFFFF !important;
+  border-color: var(--brand, #3FAE5A) !important;
 }
 
-:root[data-theme="dark"] .ctaPhoneBtn,
-:root.dark .ctaPhoneBtn {
-  background-color: var(--bg-interactive);
-  color: var(--text-primary);
-  border-color: var(--border);
+:global([data-theme="dark"]) .viewModeSwitcher,
+:global(.dark) .viewModeSwitcher,
+:root[data-theme="dark"] [class*="viewModeSwitcher"] {
+  background: var(--dark-elevated, #171E26) !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
 }
 
-:root[data-theme="dark"] .ctaPhoneBtn:hover,
-:root.dark .ctaPhoneBtn:hover {
-  background-color: var(--bg-interactive-hover);
-  border-color: var(--brand);
-  color: var(--brand);
+:global([data-theme="dark"]) .viewToggleBtn,
+:global(.dark) .viewToggleBtn {
+  color: #94A3B8 !important;
 }
 
-:root[data-theme="dark"] .modalCloseBtn,
-:root.dark .modalCloseBtn {
-  background-color: var(--bg-interactive-hover);
-  color: var(--text-primary);
+:global([data-theme="dark"]) .viewToggleBtnActive,
+:global(.dark) .viewToggleBtnActive {
+  background: var(--brand, #3FAE5A) !important;
+  color: #FFFFFF !important;
 }
 
+:global([data-theme="dark"]) .mobileFilterToggleBtn,
+:global(.dark) .mobileFilterToggleBtn {
+  background: var(--dark-elevated, #171E26) !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  color: #FFFFFF !important;
+}
 
+/* Sidebar & Drawer */
+:global([data-theme="dark"]) .sidebarPanel,
+:global(.dark) .sidebarPanel,
+:root[data-theme="dark"] [class*="sidebarPanel"],
+html.dark [class*="sidebarPanel"] {
+  background: var(--dark-card, #111820) !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
 
+:global([data-theme="dark"]) .sidebarInner,
+:global(.dark) .sidebarInner {
+  background: transparent !important;
+}
 
+:global([data-theme="dark"]) .sidebarHeader,
+:global(.dark) .sidebarHeader {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:global([data-theme="dark"]) .sidebarHeaderTitle h3,
+:global(.dark) .sidebarHeaderTitle h3 {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .headerIcon,
+:global(.dark) .headerIcon {
+  color: var(--brand-text, #4FC36D) !important;
+}
+
+:global([data-theme="dark"]) .activeFilterSummaryBar,
+:global(.dark) .activeFilterSummaryBar {
+  background: rgba(63, 174, 90, 0.08) !important;
+  border-color: rgba(63, 174, 90, 0.20) !important;
+}
+
+:global([data-theme="dark"]) .activeTagChip,
+:global(.dark) .activeTagChip {
+  background: rgba(63, 174, 90, 0.18) !important;
+  color: #4FC36D !important;
+  border-color: rgba(63, 174, 90, 0.3) !important;
+}
+
+:global([data-theme="dark"]) .filterSectionHeader,
+:global(.dark) .filterSectionHeader {
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+:global([data-theme="dark"]) .filterSectionLabel,
+:global(.dark) .filterSectionLabel {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .categorySearchInput,
+:global(.dark) .categorySearchInput {
+  background: var(--dark-elevated, #171E26) !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .presetChip,
+:global(.dark) .presetChip {
+  background: var(--dark-elevated, #171E26) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #CBD5E1 !important;
+}
+
+:global([data-theme="dark"]) .presetChip:hover,
+:global(.dark) .presetChip:hover {
+  background: var(--dark-hover, #1D2630) !important;
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .presetChipActive,
+:global(.dark) .presetChipActive {
+  background: rgba(63, 174, 90, 0.20) !important;
+  border-color: var(--brand, #3FAE5A) !important;
+  color: #4FC36D !important;
+}
+
+:global([data-theme="dark"]) .categoryNavItem,
+:global(.dark) .categoryNavItem {
+  color: #CBD5E1 !important;
+}
+
+:global([data-theme="dark"]) .categoryNavItem:hover,
+:global(.dark) .categoryNavItem:hover {
+  background: var(--dark-elevated, #171E26) !important;
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .categoryNavItemActive,
+:global(.dark) .categoryNavItemActive {
+  background: rgba(63, 174, 90, 0.15) !important;
+  color: #4FC36D !important;
+  font-weight: 700 !important;
+}
+
+:global([data-theme="dark"]) .catCountBadge,
+:global(.dark) .catCountBadge {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #94A3B8 !important;
+}
+
+:global([data-theme="dark"]) .sidebarTrustBox,
+:global(.dark) .sidebarTrustBox {
+  background: var(--dark-elevated, #171E26) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:global([data-theme="dark"]) .trustBoxHeader h4,
+:global(.dark) .trustBoxHeader h4 {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .sidebarTrustBox p,
+:global(.dark) .sidebarTrustBox p {
+  color: #94A3B8 !important;
+}
+
+:global([data-theme="dark"]) .trustPhoneBtn,
+:global(.dark) .trustPhoneBtn {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  color: #FFFFFF !important;
+}
+
+/* Product Cards Grid & List */
+:global([data-theme="dark"]) .gridCard,
+:global(.dark) .gridCard,
+:root[data-theme="dark"] [class*="gridCard"],
+html.dark [class*="gridCard"] {
+  background: var(--dark-card, #111820) !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+:global([data-theme="dark"]) .gridCard:hover,
+:global(.dark) .gridCard:hover {
+  border-color: rgba(63, 174, 90, 0.4) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6) !important;
+}
+
+:global([data-theme="dark"]) .gridCardThumb,
+:global(.dark) .gridCardThumb {
+  background: #0B0F14 !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:global([data-theme="dark"]) .catTag,
+:global(.dark) .catTag {
+  background: rgba(11, 15, 20, 0.85) !important;
+  color: #4FC36D !important;
+  border: 1px solid rgba(63, 174, 90, 0.3) !important;
+}
+
+:global([data-theme="dark"]) .gridCardTitle a,
+:global(.dark) .gridCardTitle a {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .gridCardTitle a:hover,
+:global(.dark) .gridCardTitle a:hover {
+  color: #4FC36D !important;
+}
+
+:global([data-theme="dark"]) .specsRow,
+:global(.dark) .specsRow,
+:root[data-theme="dark"] [class*="specsRow"],
+html.dark [class*="specsRow"] {
+  background: var(--dark-elevated, #171E26) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+}
+
+:global([data-theme="dark"]) .specItem,
+:global(.dark) .specItem,
+:root[data-theme="dark"] [class*="specItem"],
+html.dark [class*="specItem"] {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+:global([data-theme="dark"]) .specLabel,
+:global(.dark) .specLabel,
+:root[data-theme="dark"] [class*="specLabel"],
+html.dark [class*="specLabel"] {
+  color: #94A3B8 !important;
+}
+
+:global([data-theme="dark"]) .specValue,
+:global(.dark) .specValue,
+:root[data-theme="dark"] [class*="specValue"],
+html.dark [class*="specValue"] {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .gridCardActions,
+:global(.dark) .gridCardActions {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:global([data-theme="dark"]) .detailsBtn,
+:global(.dark) .detailsBtn {
+  background: var(--brand, #3FAE5A) !important;
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .detailsBtn:hover,
+:global(.dark) .detailsBtn:hover {
+  background: var(--brand-hover, #4FC36D) !important;
+}
+
+:global([data-theme="dark"]) .quickSpecsBtn,
+:global(.dark) .quickSpecsBtn {
+  background: var(--brand, #5cb31b) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .quickSpecsBtn:hover,
+:global(.dark) .quickSpecsBtn:hover {
+  background: #0f221c !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* List View Card */
+:global([data-theme="dark"]) .listCard,
+:global(.dark) .listCard,
+:root[data-theme="dark"] [class*="listCard"],
+html.dark [class*="listCard"] {
+  background: var(--dark-card, #111820) !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .listCardThumb,
+:global(.dark) .listCardThumb {
+  background: #0B0F14 !important;
+}
+
+:global([data-theme="dark"]) .catTagDesktop,
+:global(.dark) .catTagDesktop {
+  background: rgba(63, 174, 90, 0.16) !important;
+  color: #4FC36D !important;
+}
+
+:global([data-theme="dark"]) .skuBadge,
+:global(.dark) .skuBadge {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #94A3B8 !important;
+}
+
+:global([data-theme="dark"]) .listCardTitle a,
+:global(.dark) .listCardTitle a {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .listDescription,
+:global(.dark) .listDescription {
+  color: #E2E8F0 !important;
+}
+
+:global([data-theme="dark"]) .listSpecBadge,
+:global(.dark) .listSpecBadge {
+  background: var(--dark-elevated, #171E26) !important;
+  color: #94A3B8 !important;
+}
+
+:global([data-theme="dark"]) .listSpecBadge strong,
+:global(.dark) .listSpecBadge strong {
+  color: #FFFFFF !important;
+}
+
+/* Quick View Modal (Level 3 Popovers & Modals) */
+:global([data-theme="dark"]) .modalOverlay,
+:global(.dark) .modalOverlay {
+  background: rgba(0, 0, 0, 0.75) !important;
+  backdrop-filter: blur(6px) !important;
+}
+
+:global([data-theme="dark"]) .modalCard,
+:global(.dark) .modalCard,
+:root[data-theme="dark"] [class*="modalCard"],
+html.dark [class*="modalCard"] {
+  background: var(--dark-elevated, #212C3E) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .modalTitle,
+:global(.dark) .modalTitle {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .modalDescription,
+:global(.dark) .modalDescription {
+  color: #E2E8F0 !important;
+}
+
+:global([data-theme="dark"]) .modalSpecCell,
+:global(.dark) .modalSpecCell {
+  background: #171E26 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:global([data-theme="dark"]) .modalSpecLabel,
+:global(.dark) .modalSpecLabel {
+  color: #94A3B8 !important;
+}
+
+:global([data-theme="dark"]) .modalSpecValue,
+:global(.dark) .modalSpecValue {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .highlightItem,
+:global(.dark) .highlightItem {
+  color: #E2E8F0 !important;
+}
+
+/* Procurement Cards */
+:global([data-theme="dark"]) .procurementSection,
+:global(.dark) .procurementSection {
+  background: var(--dark-page, #0B0F14) !important;
+}
+
+:global([data-theme="dark"]) .procurementCard,
+:global(.dark) .procurementCard {
+  background: var(--dark-card, #111820) !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .procurementCard h3,
+:global(.dark) .procurementCard h3 {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .procurementCard p,
+:global(.dark) .procurementCard p {
+  color: #E2E8F0 !important;
+}
+
+/* Custom Select Dropdowns in Dark Mode */
+:global([data-theme="dark"]) .customSelectDropdown,
+:global(.dark) .customSelectDropdown {
+  background: var(--dark-elevated, #171E26) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+:global([data-theme="dark"]) .customSelectOption,
+:global(.dark) .customSelectOption {
+  color: #E2E8F0 !important;
+}
+
+:global([data-theme="dark"]) .customSelectOption:hover,
+:global(.dark) .customSelectOption:hover {
+  background: var(--dark-hover, #1D2630) !important;
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .customSelectOptionActive,
+:global(.dark) .customSelectOptionActive {
+  background: rgba(63, 174, 90, 0.18) !important;
+  color: #4FC36D !important;
+}
+
+/* ─── Products Catalog Hero Header Dark Mode Overrides ─── */
+:global([data-theme="dark"]) .productsHero,
+:global(.dark) .productsHero,
+:root[data-theme="dark"] [class*="productsHero"],
+html.dark [class*="productsHero"] {
+  background: var(--dark-page, #0B0F14) !important;
+  border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .heroBgPattern,
+:global(.dark) .heroBgPattern {
+  background: radial-gradient(ellipse 65% 85% at 85% 40%, rgba(63, 174, 90, 0.12) 0%, transparent 70%),
+              radial-gradient(ellipse 40% 50% at 10% 90%, rgba(17, 24, 32, 0.8) 0%, transparent 60%) !important;
+}
+
+:global([data-theme="dark"]) .heroBreadcrumb,
+:global(.dark) .heroBreadcrumb {
+  color: #94A3B8 !important;
+}
+
+:global([data-theme="dark"]) .heroBreadcrumb a,
+:global(.dark) .heroBreadcrumb a {
+  color: #CBD5E1 !important;
+}
+
+:global([data-theme="dark"]) .heroBreadcrumb a:hover,
+:global(.dark) .heroBreadcrumb a:hover {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .heroTitle,
+:global(.dark) .heroTitle {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .heroTitleAccent,
+:global(.dark) .heroTitleAccent {
+  color: var(--brand-text, #4FC36D) !important;
+}
+
+:global([data-theme="dark"]) .heroDescription,
+:global(.dark) .heroDescription {
+  color: #CBD5E1 !important;
+}
+
+:global([data-theme="dark"]) .heroStatsCol,
+:global(.dark) .heroStatsCol {
+  background: var(--dark-card, #111820) !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .statIconWrapper,
+:global(.dark) .statIconWrapper {
+  background: rgba(63, 174, 90, 0.16) !important;
+  border-color: rgba(63, 174, 90, 0.3) !important;
+  color: #4FC36D !important;
+}
+
+:global([data-theme="dark"]) .statVal,
+:global(.dark) .statVal {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .statLabel,
+:global(.dark) .statLabel {
+  color: #94A3B8 !important;
+}
 

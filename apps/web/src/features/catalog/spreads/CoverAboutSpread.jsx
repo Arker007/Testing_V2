@@ -15,7 +15,7 @@ export function getCoverAboutSpread({
     left: (
       <div
         className={`${styles.page} ${styles.left}`}
-        style={{ background: "#ffffff", padding: "65px 70px 50px" }}
+        style={{ background: "var(--white)", padding: "65px 70px 50px" }}
       >
         <div className={styles.coverHeader}>
           <div className={styles.coverHeaderTitle}>CATALOG {catalogYear}</div>
@@ -35,7 +35,7 @@ export function getCoverAboutSpread({
             >
               <i
                 className="fa-solid fa-v"
-                style={{ color: "#f5b21f", marginRight: "8px" }}
+                style={{ color: "var(--color-warning)", marginRight: "8px" }}
               />
               {company.name || "VISHAL ENTERPRISE"}
             </div>
@@ -148,10 +148,10 @@ export function getCoverAboutSpread({
                   width: "40px",
                   height: "40px",
                   borderRadius: "50%",
-                  background: "#1f8b4c",
+                  background: "var(--color-success)",
                   display: "grid",
                   placeItems: "center",
-                  color: "#fff",
+                  color: "var(--white)",
                 }}
               >
                 <i className="fa-solid fa-seedling" />
@@ -160,7 +160,7 @@ export function getCoverAboutSpread({
                 style={{
                   fontSize: "14px",
                   fontWeight: 700,
-                  color: "#1f8b4c",
+                  color: "var(--color-success)",
                   letterSpacing: "1px",
                 }}
               >

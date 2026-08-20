@@ -123,21 +123,22 @@
   width: 38px;
   height: 38px;
   flex-shrink: 0;
-  background: #FFFFFF;
-  color: var(--color-text-primary);
-  border-radius: var(--radius-xs);
-  border: 1px solid #CBD5E1;
+  background: var(--brand, #5cb31b);
+  color: #FFFFFF;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .quickSpecsBtn:hover {
-  background: rgba(56, 208, 89, 0.15);
-  border-color: rgba(56, 208, 89, 0.5);
-  color: var(--color-text-tertiary);
+  background: #0f221c;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
 }
 
 /* Compact Mobile Tweaks */

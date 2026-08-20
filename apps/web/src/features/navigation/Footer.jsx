@@ -280,11 +280,6 @@ export default function Footer() {
               Made with 💚 in {co("state", "Gujarat")}, India
             </span>
           </div>
-          
-          <a href={waLink} className={styles.waPill} target="_blank" rel="noopener noreferrer">
-            <i className="fa-brands fa-whatsapp" />
-            <span>WhatsApp</span>
-          </a>
         </div>
       </div>
     </footer>

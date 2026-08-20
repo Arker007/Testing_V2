@@ -1,6 +1,6 @@
 /* RichTextEditor — Quill snow theme overrides to match admin design */
 .wrap {
-  border: 1px solid var(--border, #e2e8f0);
+  border: 1px solid var(--border, var(--border-subtle));
   border-radius: 8px;
   overflow: hidden;
 }
@@ -8,8 +8,8 @@
 /* Toolbar */
 .wrap :global(.ql-toolbar.ql-snow) {
   border: none;
-  border-bottom: 1px solid var(--border, #e2e8f0);
-  background: var(--surface, #f8fafc);
+  border-bottom: 1px solid var(--border, var(--border-subtle));
+  background: var(--surface, var(--bg-page));
   padding: 6px 10px;
   font-family: inherit;
 }
@@ -24,12 +24,12 @@
 .wrap :global(.ql-editor) {
   min-height: 140px;
   padding: 10px 14px;
-  color: var(--text, #1e293b);
+  color: var(--text, var(--text-primary));
   line-height: 1.65;
 }
 
 .wrap :global(.ql-editor.ql-blank::before) {
-  color: var(--text-muted, #94a3b8);
+  color: var(--text-muted, var(--text-muted));
   font-style: normal;
   left: 14px;
 }
@@ -37,13 +37,13 @@
 /* Toolbar buttons */
 .wrap :global(.ql-toolbar button),
 .wrap :global(.ql-toolbar .ql-picker-label) {
-  color: var(--text, #1e293b) !important;
+  color: var(--text, var(--text-primary)) !important;
 }
 
 .wrap :global(.ql-toolbar button:hover),
 .wrap :global(.ql-toolbar button.ql-active),
 .wrap :global(.ql-toolbar .ql-picker-label:hover) {
-  color: var(--brand, #16a34a) !important;
+  color: var(--brand, var(--color-success)) !important;
 }
 
 .wrap :global(.ql-toolbar button svg .ql-stroke),
@@ -58,10 +58,10 @@
 
 /* blockquote */
 .wrap :global(.ql-editor blockquote) {
-  border-left: 3px solid var(--brand, #16a34a);
+  border-left: 3px solid var(--brand, var(--color-success));
   margin: 0.5rem 0;
   padding-left: 1rem;
-  color: var(--text-muted, #64748b);
+  color: var(--text-muted, var(--text-muted));
 }
 
 /* lists */
@@ -72,8 +72,8 @@
 
 /* picker dropdown */
 .wrap :global(.ql-snow .ql-picker-options) {
-  background: var(--surface, #f8fafc);
-  border: 1px solid var(--border, #e2e8f0);
+  background: var(--surface, var(--bg-page));
+  border: 1px solid var(--border, var(--border-subtle));
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }

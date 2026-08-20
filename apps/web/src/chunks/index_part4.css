@@ -1,13 +1,13 @@
 
 /* ─── Utility ────────────────────────────────────────────── */
 .container {
-  width: min(1280px, 100% - 3rem);
+  width: min(1280px, 100% - 2.7rem);
   margin-inline: auto;
 }
 
 @media (max-width: 640px) {
   .container {
-    width: min(1280px, 100% - 1rem);
+    width: min(1280px, 100% - 0.9rem);
   }
 }
 
@@ -19,7 +19,7 @@
 
 .section--dark {
   background: var(--dark);
-  color: #fff;
+  color: var(--white);
 }
 
 .section--light {
@@ -28,7 +28,7 @@
 
 .section--brand {
   background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
-  color: #fff;
+  color: var(--white);
 }
 
 .section-eyebrow {
@@ -39,9 +39,9 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #385305;
-  background-color: #e6f0cb;
-  border: 1px solid rgba(203, 213, 225, 0.3);
+  color: var(--brand-dark);
+  background-color: var(--brand-light);
+  border: 1px solid var(--border-strong);
   padding: 0.375rem 1rem;
   border-radius: 999px;
   margin-bottom: 1rem;
@@ -55,7 +55,7 @@
   width: 0.375rem;
   height: 0.375rem;
   border-radius: 999px;
-  background-color: #98d12a;
+  background-color: var(--brand);
 }
 
 /* Ensure bright high-visibility and high-contrast color scheme on dark/hero backgrounds or dark mode */
@@ -67,9 +67,9 @@
 [class*="cta"] .section-eyebrow,
 [class*="workflow"] .section-eyebrow,
 [class*="Workflow"] .section-eyebrow {
-  color: #98d12a;
-  background-color: rgba(152, 209, 42, 0.15);
-  border-color: rgba(152, 209, 42, 0.3);
+  color: var(--brand);
+  background-color: var(--brand-glow-subtle);
+  border-color: var(--brand-border);
 }
 
 [class*="hero"] .section-eyebrow::before,
@@ -80,7 +80,7 @@
 [class*="cta"] .section-eyebrow::before,
 [class*="workflow"] .section-eyebrow::before,
 [class*="Workflow"] .section-eyebrow::before {
-  background-color: #98d12a;
+  background-color: var(--brand);
 }
 
 .section-title {
@@ -93,25 +93,26 @@
 }
 
 .section-title--light {
-  color: #fff;
+  color: var(--white);
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2.25rem;
 }
 
-.section-desc {
+.section-desc,
+.section-subtitle {
   font-size: 1.0625rem;
   color: var(--text-secondary);
-  margin-top: 0.875rem;
-  max-width: 620px;
+  margin-top: 0.75rem;
+  max-width: 680px;
   margin-inline: auto;
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 .section-desc--light {
-  color: rgba(255, 255, 255, .65);
+  color: var(--bg-glass);
 }
 
 /* Grid */
@@ -184,9 +185,9 @@ button.btn::after,
   left: -60%;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0) 100%
+    transparent 0%,
+    var(--text-inverse-muted) 50%,
+    transparent 100%
   );
   transform: rotate(25deg);
   pointer-events: none;

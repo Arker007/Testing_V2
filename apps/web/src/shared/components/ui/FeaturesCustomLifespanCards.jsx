@@ -19,7 +19,7 @@ export default function FeaturesCustomLifespanCards({ cardVariant }) {
         viewport={{ once: true }}
         whileHover="hover"
         transition={{ delay: 0.4 }}
-        className="md:col-span-3 rounded-[24px] border border-slate-800/80 bg-navy p-6 md:p-8 shadow-xl relative overflow-hidden group flex flex-col md:flex-row items-center gap-6 md:gap-8 min-h-[220px]"
+        className="md:col-span-3 rounded-2xl border border-[var(--border-card)] bg-[var(--navy-dark)] p-6 md:p-8 shadow-xl relative overflow-hidden group flex flex-col md:flex-row items-center gap-6 md:gap-8 min-h-[220px]"
       >
         <div className="absolute inset-0 z-0">
           <img
@@ -27,13 +27,13 @@ export default function FeaturesCustomLifespanCards({ cardVariant }) {
             alt="Custom Manufacturing Grid"
             className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-70 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--navy-dark)] via-[var(--navy-dark)]/80 to-transparent" />
         </div>
 
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-12 rounded-xl border border-brand/20 bg-brand/10 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.08] shrink-0">
-              <Factory className="w-6 h-6 text-brand" />
+            <div className="w-12 h-12 rounded-xl border border-[var(--brand)]/30 bg-[var(--brand)]/15 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.08] shrink-0">
+              <Factory className="w-6 h-6 text-[var(--brand)]" />
             </div>
             <h3 className="text-xl md:text-2xl font-extrabold text-white tracking-tight">
               {c("why_us_f5_title", "Custom Manufacturing")}
@@ -53,7 +53,7 @@ export default function FeaturesCustomLifespanCards({ cardVariant }) {
         viewport={{ once: true }}
         whileHover="hover"
         transition={{ delay: 0.5 }}
-        className="md:col-span-3 rounded-[24px] border border-slate-800/80 bg-navy p-6 md:p-8 shadow-xl relative overflow-hidden group flex flex-col md:flex-row items-center gap-6 md:gap-8 min-h-[220px]"
+        className="md:col-span-3 rounded-2xl border border-[var(--border-card)] bg-[var(--navy-dark)] p-6 md:p-8 shadow-xl relative overflow-hidden group flex flex-col md:flex-row items-center gap-6 md:gap-8 min-h-[220px]"
       >
         <div className="absolute inset-0 z-0">
           <img
@@ -61,13 +61,13 @@ export default function FeaturesCustomLifespanCards({ cardVariant }) {
             alt="50+ Years Lifespan Badge"
             className="absolute right-6 top-1/2 -translate-y-1/2 h-[90%] w-auto object-contain transition-transform duration-700 ease-out group-hover:scale-[1.08] mix-blend-lighten opacity-100"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--navy-dark)] via-[var(--navy-dark)]/80 to-transparent" />
         </div>
 
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-12 rounded-xl border border-brand/20 bg-brand/10 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.08] shrink-0">
-              <Shield className="w-6 h-6 text-brand" />
+            <div className="w-12 h-12 rounded-xl border border-[var(--brand)]/30 bg-[var(--brand)]/15 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.08] shrink-0">
+              <Shield className="w-6 h-6 text-[var(--brand)]" />
             </div>
             <h3 className="text-xl md:text-2xl font-extrabold text-white tracking-tight">
               {c("why_us_f6_title", "50+ Year Lifespan")}

@@ -3,8 +3,8 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: rgba(152, 209, 42, 0.15);
-  color: #7db018;
+  background: rgba(63, 174, 90, 0.15);
+  color: var(--brand-dark);
   display: grid;
   place-items: center;
   font-size: 1.1rem;
@@ -42,7 +42,7 @@
 
 .factItem i {
   font-size: 1rem;
-  color: #98d12a;
+  color: var(--brand);
   margin-top: 2px;
   width: 20px;
   text-align: center;

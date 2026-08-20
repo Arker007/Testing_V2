@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { X, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { useInquiry } from "../hooks/useInquiry";
-import styles from "../../pages/ProductDetail.module.css";
+import styles from "./InquiryModal.module.css";
 
 export default function InquiryModal({ product, onClose }) {
   const { submitInquiry, submitting, success, error, resetState } = useInquiry();
@@ -38,7 +38,7 @@ export default function InquiryModal({ product, onClose }) {
 
   return (
     <div className={styles.modalOverlay} onClick={(e) => e.target === e.currentTarget && handleClose()}>
-      <div className={styles.modalCard} style={{ maxWidth: "520px" }}>
+      <div className={styles.modalCard}>
         <button
           type="button"
           onClick={handleClose}
@@ -48,20 +48,20 @@ export default function InquiryModal({ product, onClose }) {
           <X size={18} />
         </button>
 
-        <div style={{ marginBottom: "1rem" }}>
-          <span className={styles.catTag} style={{ position: "static" }}>
+        <div className={styles.modalHeader}>
+          <span className={styles.catTag}>
             Inquire for Quote
           </span>
-          <h2 className={styles.gridCardTitle} style={{ fontSize: "1.25rem", marginTop: "0.5rem" }}>
+          <h2 className={styles.gridCardTitle}>
             {product?.name ? `Quote Request: ${product.name}` : "Product Inquiry"}
           </h2>
         </div>
 
         {success ? (
-          <div style={{ textAlign: "center", padding: "1.5rem 0" }}>
-            <CheckCircle size={48} style={{ color: "#98d12a", margin: "0 auto 1rem" }} />
-            <h3 style={{ fontSize: "1.1rem", color: "#0B2F63", fontWeight: 700 }}>Inquiry Submitted!</h3>
-            <p style={{ fontSize: "0.875rem", color: "#5B6873", margin: "0.5rem 0 1.5rem" }}>
+          <div className={styles.successState}>
+            <CheckCircle size={48} className={styles.successIcon} />
+            <h3 className={styles.successTitle}>Inquiry Submitted!</h3>
+            <p className={styles.successSub}>
               Our sales team will contact you with pricing and product specifications within 2 hours.
             </p>
 
@@ -75,9 +75,9 @@ export default function InquiryModal({ product, onClose }) {
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
-            <div>
-              <label htmlFor="name" style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#0B2F63", marginBottom: "0.25rem" }}>
+          <form onSubmit={handleSubmit} className={styles.modalForm}>
+            <div className={styles.formGroup}>
+              <label htmlFor="name" className={styles.formLabel}>
                 Full Name *
               </label>
               <input
@@ -87,13 +87,13 @@ export default function InquiryModal({ product, onClose }) {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Rahul Patel"
-                style={{ width: "100%", padding: "0.6rem 0.75rem", borderRadius: "6px", border: "1px solid #cbd5e1", fontSize: "0.875rem" }}
+                className={styles.formInput}
               />
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
-              <div>
-                <label htmlFor="email" style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#0B2F63", marginBottom: "0.25rem" }}>
+            <div className={styles.formRow}>
+              <div className={styles.formGroup}>
+                <label htmlFor="email" className={styles.formLabel}>
                   Email Address *
                 </label>
                 <input
@@ -104,12 +104,12 @@ export default function InquiryModal({ product, onClose }) {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="name@company.com"
-                  style={{ width: "100%", padding: "0.6rem 0.75rem", borderRadius: "6px", border: "1px solid #cbd5e1", fontSize: "0.875rem" }}
+                  className={styles.formInput}
                 />
               </div>
 
-              <div>
-                <label htmlFor="phone" style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#0B2F63", marginBottom: "0.25rem" }}>
+              <div className={styles.formGroup}>
+                <label htmlFor="phone" className={styles.formLabel}>
                   Phone / Mobile *
                 </label>
                 <input
@@ -120,14 +120,14 @@ export default function InquiryModal({ product, onClose }) {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+91 98765 43210"
-                  style={{ width: "100%", padding: "0.6rem 0.75rem", borderRadius: "6px", border: "1px solid #cbd5e1", fontSize: "0.875rem" }}
+                  className={styles.formInput}
                 />
               </div>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
-              <div>
-                <label htmlFor="company" style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#0B2F63", marginBottom: "0.25rem" }}>
+            <div className={styles.formRow}>
+              <div className={styles.formGroup}>
+                <label htmlFor="company" className={styles.formLabel}>
                   Company Name
                 </label>
                 <input
@@ -136,12 +136,12 @@ export default function InquiryModal({ product, onClose }) {
                   value={formData.company}
                   onChange={handleChange}
                   placeholder="Company Inc."
-                  style={{ width: "100%", padding: "0.6rem 0.75rem", borderRadius: "6px", border: "1px solid #cbd5e1", fontSize: "0.875rem" }}
+                  className={styles.formInput}
                 />
               </div>
 
-              <div>
-                <label htmlFor="quantity" style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#0B2F63", marginBottom: "0.25rem" }}>
+              <div className={styles.formGroup}>
+                <label htmlFor="quantity" className={styles.formLabel}>
                   Estimated Quantity
                 </label>
                 <input
@@ -150,13 +150,13 @@ export default function InquiryModal({ product, onClose }) {
                   value={formData.quantity}
                   onChange={handleChange}
                   placeholder="e.g. 100 units"
-                  style={{ width: "100%", padding: "0.6rem 0.75rem", borderRadius: "6px", border: "1px solid #cbd5e1", fontSize: "0.875rem" }}
+                  className={styles.formInput}
                 />
               </div>
             </div>
 
-            <div>
-              <label htmlFor="message" style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#0B2F63", marginBottom: "0.25rem" }}>
+            <div className={styles.formGroup}>
+              <label htmlFor="message" className={styles.formLabel}>
                 Requirement Details *
               </label>
               <textarea
@@ -167,12 +167,12 @@ export default function InquiryModal({ product, onClose }) {
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Mention required dimensions, color preference, or delivery timeline..."
-                style={{ width: "100%", padding: "0.6rem 0.75rem", borderRadius: "6px", border: "1px solid #cbd5e1", fontSize: "0.875rem" }}
+                className={styles.formTextarea}
               />
             </div>
 
             {error && (
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "#dc2626", fontSize: "0.8rem" }}>
+              <div className={styles.errorBanner}>
                 <AlertCircle size={14} />
                 <span>{error}</span>
               </div>
@@ -181,8 +181,7 @@ export default function InquiryModal({ product, onClose }) {
             <button
               type="submit"
               disabled={submitting}
-              className="btn btn-primary"
-              style={{ width: "100%", marginTop: "0.5rem", justifyContent: "center" }}
+              className={`btn btn-primary ${styles.submitBtn}`}
             >
               {submitting ? (
                 <>

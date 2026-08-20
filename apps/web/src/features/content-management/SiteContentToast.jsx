@@ -13,8 +13,8 @@ export default function SiteContentToast({
         position: "fixed",
         bottom: "24px",
         right: "24px",
-        background: "#1E293B",
-        color: "#ffffff",
+        background: "var(--gray-800)",
+        color: "var(--white)",
         padding: "12px 20px",
         borderRadius: "12px",
         boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
@@ -32,11 +32,11 @@ export default function SiteContentToast({
           width: "20px",
           height: "20px",
           borderRadius: "50%",
-          background: toastMessage.includes("Failed") ? "#EF4444" : "#98d12a",
+          background: toastMessage.includes("Failed") ? "var(--color-error)" : "var(--brand)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "#ffffff",
+          color: "var(--white)",
         }}
       >
         <i
@@ -53,7 +53,7 @@ export default function SiteContentToast({
         style={{
           border: "none",
           background: "none",
-          color: "#94A3B8",
+          color: "var(--gray-400)",
           cursor: "pointer",
           marginLeft: "12px",
         }}

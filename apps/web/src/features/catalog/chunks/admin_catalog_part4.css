@@ -7,7 +7,7 @@
 
 .gridItemYellow {
   composes: gridItem;
-  background: #f5b21f;
+  background: var(--color-warning);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,11 +16,11 @@
 
 .gridItemWatermark {
   composes: gridItem;
-  background: #f5b21f;
+  background: var(--color-warning);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.15);
+  color: var(--border-dark);
   font-size: 7.5rem;
   border: none;
 }
@@ -31,7 +31,7 @@
 
 .gridItemGrayText {
   composes: gridItem;
-  background: #f4f4f4;
+  background: var(--gray-100);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,23 +43,23 @@
 .gridItemGrayText h4 {
   font-size: 18px;
   font-weight: 700;
-  color: #555;
+  color: var(--gray-600);
   margin-bottom: 10px;
 }
 
 .gridItemGrayText span {
   font-size: 13px;
-  color: #777;
+  color: var(--gray-500);
   font-weight: 600;
 }
 
 /* About Page 2 (Spread 1 Right) specific styles */
 .aboutHeaderBar {
-  background: #f5b21f;
+  background: var(--color-warning);
   padding: 12px 25px;
   font-size: 16px;
   font-weight: 800;
-  color: #fff;
+  color: var(--white);
   border-radius: 0 8px 8px 0;
   margin-left: -55px;
   margin-top: 44px;
@@ -83,7 +83,7 @@
 .aboutSubheading {
   font-size: 20px;
   font-weight: 700;
-  color: #f5b21f;
+  color: var(--color-warning);
   margin-bottom: 8px;
   text-transform: uppercase;
 }
@@ -91,7 +91,7 @@
 .aboutText {
   font-size: 14.5px;
   line-height: 30px;
-  color: #666;
+  color: var(--gray-500);
   font-weight: 500;
 }
 
@@ -106,7 +106,7 @@
   height: 220px;
   object-fit: cover;
   border-radius: 4px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--gray-200);
 }
 
 /* ────────────────────────────────────────────────────────── */
@@ -114,11 +114,11 @@
 /* ────────────────────────────────────────────────────────── */
 
 .contentsHeader {
-  background: #f5b21f;
+  background: var(--color-warning);
   padding: 12px 40px;
   font-size: 20px;
   font-weight: 800;
-  color: #fff;
+  color: var(--white);
   border-radius: 0 12px 12px 0;
   margin-left: -70px;
   margin-top: 44px;
@@ -129,7 +129,7 @@
 
 .contentsRightHeader {
   height: 48px;
-  background: #f5b21f;
+  background: var(--color-warning);
   margin-left: -55px;
   margin-right: -55px;
   margin-top: 44px;
@@ -139,12 +139,12 @@
 .contentsSectionTitle {
   font-size: 18px;
   font-weight: 700;
-  color: #f5b21f;
+  color: var(--color-warning);
   margin-top: 30px;
   margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--gray-200);
   padding-bottom: 6px;
 }
 
@@ -157,24 +157,24 @@
   display: flex;
   align-items: center;
   padding: 7px 12px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--gray-200);
 }
 
 .indexRowEven {
   composes: indexRow;
-  background: #ffffff;
+  background: var(--white);
 }
 
 .indexRowOdd {
   composes: indexRow;
-  background: #fdfdfd;
+  background: var(--gray-50);
 }
 
 .indexCellName {
   flex: 2;
   font-size: 13px;
   font-weight: 600;
-  color: #444;
+  color: var(--gray-600);
 }
 
 .indexCellColors {
@@ -196,7 +196,7 @@
 .indexCellSize {
   flex: 1.5;
   font-size: 12.5px;
-  color: #777;
+  color: var(--gray-500);
   font-weight: 500;
   padding-left: 10px;
 }

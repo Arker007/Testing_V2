@@ -1,8 +1,8 @@
 
 .swipe-btn:hover .btn-arrow-icon {
   transform: translateX(60%);
-  stroke: #0B2F63;
-  color: #0B2F63;
+  stroke: var(--navy);
+  color: var(--navy);
 }
 
 /* ─── Magic UI Interactive Hover Button ───────────────────── */
@@ -14,9 +14,9 @@
   height: 44px !important;
   padding: 0 24px !important;
   border-radius: 9999px !important; /* Force pill shape */
-  border: 1px solid var(--border, #E2E8F0) !important;
-  background-color: #ffffff !important;
-  color: #0B2F63 !important;
+  border: 1px solid var(--border, var(--gray-200)) !important;
+  background-color: var(--white) !important;
+  color: var(--navy) !important;
   font-family: var(--font-body) !important;
   font-weight: 700 !important;
   font-size: 0.875rem !important;
@@ -30,8 +30,8 @@
 }
 
 .interactive-hover-button:hover {
-  border-color: #98d12a !important;
-  box-shadow: 0 6px 16px rgba(11, 47, 99, 0.15) !important;
+  border-color: var(--brand) !important;
+  box-shadow: 0 6px 16px var(--navy-glow) !important;
 }
 
 /* Internal content wrapper (stays inside, does NOT translate out) */
@@ -61,7 +61,7 @@
   width: 8px !important;
   height: 8px !important;
   border-radius: 50% !important;
-  background-color: #98d12a !important;
+  background-color: var(--brand) !important;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   transform: scale(1) !important;
   transform-origin: center !important;
@@ -80,7 +80,7 @@
   align-items: center !important;
   justify-content: center !important;
   gap: 8px !important;
-  color: #FFFFFF !important; /* High contrast White text on Fresh Lime background */
+  color: var(--white) !important; /* High contrast White text on Fresh Lime background */
   font-weight: 700 !important;
   opacity: 0 !important;
   transform: translateX(-24px) !important; /* Slides in from left */

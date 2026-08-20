@@ -19,10 +19,10 @@ export default function AdminNotificationsDropdown({
         top: "calc(100% + 12px)",
         right: 0,
         width: "340px",
-        background: "#ffffff",
+        background: "var(--bg-card)",
         borderRadius: "16px",
         border: "1px solid var(--line)",
-        boxShadow: "0 10px 30px rgba(15, 23, 42, 0.08)",
+        boxShadow: "0 10px 30px var(--border-subtle)",
         zIndex: 300,
         overflow: "hidden",
         fontFamily: "inherit",
@@ -35,11 +35,11 @@ export default function AdminNotificationsDropdown({
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          background: "#FAFAFA",
+          background: "var(--bg-page)",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <BellRing size={16} className="text-[#98d12a]" />
+          <BellRing size={16} className="text-[var(--brand)]" />
           <span
             style={{ fontWeight: 800, fontSize: "0.85rem", color: "var(--ink)" }}
           >
@@ -57,7 +57,7 @@ export default function AdminNotificationsDropdown({
             style={{
               fontSize: "0.75rem",
               fontWeight: 700,
-              color: "#7db018",
+              color: "var(--brand-dark)",
               background: "none",
               border: "none",
               cursor: "pointer",
@@ -77,13 +77,13 @@ export default function AdminNotificationsDropdown({
             style={{
               padding: "32px 16px",
               textAlign: "center",
-              color: "#64748B",
+              color: "var(--text-muted)",
               fontSize: "0.8rem",
             }}
           >
             <Sparkles
               size={24}
-              style={{ margin: "0 auto 8px", color: "#94A3B8" }}
+              style={{ margin: "0 auto 8px", color: "var(--text-muted)" }}
             />
             No new notifications
           </div>
@@ -109,9 +109,9 @@ export default function AdminNotificationsDropdown({
               }}
               style={{
                 padding: "12px 18px",
-                borderBottom: "1px solid #F1F5F9",
+                borderBottom: "1px solid var(--bg-surface)",
                 cursor: "pointer",
-                background: n.read ? "transparent" : "#F4F9E8",
+                background: n.read ? "transparent" : "var(--brand-light)",
                 transition: "background 0.2s",
                 display: "flex",
                 gap: "10px",
@@ -123,7 +123,7 @@ export default function AdminNotificationsDropdown({
                   width: "8px",
                   height: "8px",
                   borderRadius: "50%",
-                  background: n.read ? "transparent" : "#98d12a",
+                  background: n.read ? "transparent" : "var(--brand)",
                   marginTop: "6px",
                   flexShrink: 0,
                 }}
@@ -148,7 +148,7 @@ export default function AdminNotificationsDropdown({
                   <span
                     style={{
                       fontSize: "0.68rem",
-                      color: "#94A3B8",
+                      color: "var(--text-muted)",
                       fontWeight: 500,
                     }}
                   >
@@ -159,7 +159,7 @@ export default function AdminNotificationsDropdown({
                   style={{
                     margin: 0,
                     fontSize: "0.75rem",
-                    color: "#64748B",
+                    color: "var(--text-muted)",
                     lineHeight: "1.35",
                   }}
                 >
@@ -174,7 +174,7 @@ export default function AdminNotificationsDropdown({
       <div
         style={{
           padding: "10px 18px",
-          background: "#FAFAFA",
+          background: "var(--bg-page)",
           borderTop: "1px solid var(--line)",
           textAlign: "center",
         }}
@@ -189,7 +189,7 @@ export default function AdminNotificationsDropdown({
             border: "none",
             fontSize: "0.75rem",
             fontWeight: 700,
-            color: "#475569",
+            color: "var(--text-secondary)",
             cursor: "pointer",
             display: "flex",
             alignItems: "center",

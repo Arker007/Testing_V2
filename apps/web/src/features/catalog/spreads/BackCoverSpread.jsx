@@ -23,7 +23,7 @@ export function getBackCoverSpread({
             marginTop: "40px",
             fontSize: "15px",
             lineHeight: "30px",
-            color: "#555",
+            color: "var(--gray-600)",
           }}
         >
           <p style={{ marginBottom: "15px" }}>
@@ -47,13 +47,13 @@ export function getBackCoverSpread({
       <div
         className={`${styles.page} ${styles.right}`}
         style={{
-          background: "#222222",
-          color: "#ffffff",
+          background: "var(--gray-700)",
+          color: "var(--white)",
           padding: "65px 70px 50px",
         }}
       >
         <div className={styles.coverHeader}>
-          <div className={styles.coverHeaderTitle} style={{ color: "#f5b21f" }}>
+          <div className={styles.coverHeaderTitle} style={{ color: "var(--color-warning)" }}>
             CONNECT WITH US
           </div>
         </div>
@@ -64,7 +64,7 @@ export function getBackCoverSpread({
               fontSize: "28px",
               fontWeight: 800,
               margin: "0 0 20px 0",
-              color: "#ffffff",
+              color: "var(--white)",
             }}
           >
             {company.name || "VISHAL ENTERPRISE"}
@@ -72,7 +72,7 @@ export function getBackCoverSpread({
           <p
             style={{
               fontSize: "16px",
-              color: "rgba(255,255,255,0.7)",
+              color: "var(--text-inverse-secondary)",
               lineHeight: "28px",
               marginBottom: "30px",
             }}
@@ -88,20 +88,20 @@ export function getBackCoverSpread({
           <div
             style={{
               padding: "20px",
-              background: "rgba(255,255,255,0.05)",
+              background: "var(--border-dark)",
               borderRadius: "8px",
-              borderLeft: "4px solid #f5b21f",
+              borderLeft: "4px solid var(--color-warning)",
             }}
           >
             <div
-              style={{ fontSize: "14px", fontWeight: 700, color: "#f5b21f" }}
+              style={{ fontSize: "14px", fontWeight: 700, color: "var(--color-warning)" }}
             >
               B2B CUSTOM ORDERS
             </div>
             <div
               style={{
                 fontSize: "13px",
-                color: "rgba(255,255,255,0.8)",
+                color: "var(--text-inverse-secondary)",
                 marginTop: "5px",
               }}
             >
@@ -113,12 +113,12 @@ export function getBackCoverSpread({
 
         <div
           className={styles.rightFooter}
-          style={{ color: "rgba(255,255,255,0.4)" }}
+          style={{ color: "var(--text-inverse-muted)" }}
         >
           Email: {emailVal} &nbsp;&nbsp; Website: {webVal}
           <div
             className={styles.rightPageNumber}
-            style={{ background: "#f5b21f", color: "#333" }}
+            style={{ background: "var(--color-warning)", color: "var(--gray-700)" }}
           >
             {backCoverPageStart + 1}
           </div>

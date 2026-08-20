@@ -93,12 +93,12 @@ function ImageZoom({ src, alt }) {
               width: `${lensSize}px`,
               height: `${lensSize}px`,
               borderRadius: "50%",
-              border: "3px solid #98d12a",
+              border: "3px solid var(--brand)",
               boxShadow: "0 10px 30px rgba(0, 0, 0, 0.25), inset 0 0 15px rgba(0, 0, 0, 0.1)",
               overflow: "hidden",
               pointerEvents: "none",
               zIndex: 10,
-              backgroundColor: "#ffffff",
+              backgroundColor: "var(--white)",
             }}
           >
             <div

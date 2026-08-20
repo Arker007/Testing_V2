@@ -1,0 +1,886 @@
+/* ─── Refined Industrial Graphite Dark Theme ──────────────── */
+:root[data-theme="dark"],
+html.dark {
+  color-scheme: dark;
+
+  /* 🔘 Master Refined Industrial Graphite Surfaces */
+  --dark-page: #0B0F14;
+  --dark-section: #0F141A;
+  --dark-card: #111820;
+  --dark-elevated: #171E26;
+  --dark-hover: #1D2630;
+
+  --bg-page: var(--dark-page);
+  --bg-section: var(--dark-section);
+  --bg-surface: var(--dark-card);
+  --bg-surface-elevated: var(--dark-elevated);
+  --bg-card: var(--dark-card);
+  --bg-card-hover: var(--dark-hover);
+  --bg-card-alt: var(--dark-section);
+  --bg-interactive: #171E26;
+  --bg-interactive-hover: #1D2630;
+  --bg-interactive-active: #25303D;
+  --bg-muted: #171E26;
+  --bg-light: var(--dark-section);
+  --surface: var(--dark-card);
+  --background: var(--dark-page);
+
+  --surface-page: var(--dark-page);
+  --surface-section: var(--dark-section);
+  --surface-card: var(--dark-card);
+  --surface-elevated: var(--dark-elevated);
+  --surface-hover: var(--dark-hover);
+  --surface-selected: rgba(63, 174, 90, 0.16);
+
+  /* 🌌 Industrial Navy in Dark Theme */
+  --color-brand-navy: #0B2F63;
+  --navy: #111820;
+  --navy-dark: #0B0F14;
+  --navy-darker: #06090D;
+  --navy-light: #171E26;
+  --navy-surface: #0F141A;
+  --navy-card: #111820;
+  --navy-glow: rgba(11, 47, 99, 0.4);
+  --navy-subtle: rgba(255, 255, 255, 0.04);
+  --navy-badge-bg: rgba(255, 255, 255, 0.08);
+
+  --dark: var(--dark-page);
+  --dark-navy: var(--dark-page);
+  --dark2: var(--dark-section);
+  --dark3: var(--dark-card);
+
+  /* ⚡ Sustainable Brand Green in Dark Mode */
+  --color-brand-green: #3FAE5A;
+  --color-brand-green-hover: #4FC36D;
+  --color-brand-green-soft: rgba(63, 174, 90, 0.16);
+
+  --brand: #3FAE5A;
+  --brand-rgb: 63, 174, 90;
+  --brand-dark: #26763A;
+  --brand-hover: #4FC36D;
+  --brand-light: rgba(63, 174, 90, 0.16);
+  --brand-light-2: rgba(63, 174, 90, 0.22);
+  --brand-text: #4FC36D;
+  --brand-border: #3FAE5A;
+  --brand-glow: rgba(63, 174, 90, 0.25);
+  --brand-glow-subtle: rgba(63, 174, 90, 0.06);
+  --brand-badge-bg: rgba(63, 174, 90, 0.16);
+
+  --accent: #3FAE5A;
+  --accent-dark: #26763A;
+
+  /* 🔤 High-Contrast Typography */
+  --dark-heading: #FFFFFF;
+  --dark-body: #E2E8F0;
+  --dark-muted: #94A3B8;
+
+  --heading: #FFFFFF;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E2E8F0;
+  --text-muted: #94A3B8;
+  --text-disabled: #64748B;
+  --text-inverse: #0F172A;
+  --body-text: #E2E8F0;
+  --light-text: #94A3B8;
+  --white-text: #FFFFFF;
+
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.4);
+
+  /* 🔲 Master Dark Mode Borders */
+  --dark-border-subtle: rgba(255, 255, 255, 0.06);
+  --dark-border: rgba(255, 255, 255, 0.10);
+  --dark-border-strong: rgba(255, 255, 255, 0.16);
+
+  --border-card: rgba(255, 255, 255, 0.10);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-interactive: var(--brand);
+  --border: var(--border-card);
+  --border-default: var(--border-card);
+  --border-dark: var(--border-card);
+  --border-dark-strong: var(--border-strong);
+  --divider: rgba(255, 255, 255, 0.10);
+
+  /* ✨ Shadows & Elevation */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.7);
+
+  /* Status Colors */
+  --success: #16A34A;
+  --success-bg: rgba(22, 163, 74, 0.16);
+  --success-border: rgba(22, 163, 74, 0.3);
+  --success-text: #4ADE80;
+  --info: #2563EB;
+}
+
+/* ─── Universal Pitch-Black Dark Mode Page Background Overrides ─────────── */
+:root[data-theme="dark"] body,
+html.dark body,
+:root[data-theme="dark"] #main-content,
+html.dark #main-content,
+:root[data-theme="dark"] main,
+html.dark main {
+  background-color: #000000;
+  color: #E2E8F0;
+}
+
+/* ─── Main Components & Primary Cards Only (High-Contrast White Border) ─── */
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .industryCard,
+:root[data-theme="dark"] .productCard,
+:root[data-theme="dark"] .catCard,
+:root[data-theme="dark"] .bentoGalleryCard,
+:root[data-theme="dark"] .bentoInfoCard,
+:root[data-theme="dark"] .bentoOptionsCard,
+:root[data-theme="dark"] .bentoActionsCard,
+:root[data-theme="dark"] .bentoHighlightCard,
+:root[data-theme="dark"] .bentoSpecTile,
+:root[data-theme="dark"] .b2bMatrix,
+:root[data-theme="dark"] .esgEstimatorCard,
+:root[data-theme="dark"] .assuranceCard,
+:root[data-theme="dark"] .cardFrame,
+:root[data-theme="dark"] .faqCard,
+:root[data-theme="dark"] .testimonialCard,
+:root[data-theme="dark"] .workflowCard,
+:root[data-theme="dark"] .assistanceCard,
+:root[data-theme="dark"] .ctaCard,
+:root[data-theme="dark"] .modal,
+:root[data-theme="dark"] .specsSheetModal,
+:root[data-theme="dark"] .mobileCardDrawer,
+:root[data-theme="dark"] .drawer,
+html.dark .card,
+html.dark .industryCard,
+html.dark .productCard,
+html.dark .catCard,
+html.dark .bentoGalleryCard,
+html.dark .bentoInfoCard,
+html.dark .bentoOptionsCard,
+html.dark .bentoActionsCard,
+html.dark .bentoHighlightCard,
+html.dark .bentoSpecTile,
+html.dark .b2bMatrix,
+html.dark .esgEstimatorCard,
+html.dark .assuranceCard,
+html.dark .cardFrame,
+html.dark .faqCard,
+html.dark .testimonialCard,
+html.dark .workflowCard,
+html.dark .assistanceCard,
+html.dark .ctaCard,
+html.dark .modal,
+html.dark .specsSheetModal,
+html.dark .mobileCardDrawer,
+html.dark .drawer {
+  background-color: #111820 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  color: #E2E8F0;
+}
+
+/* ─── Zero Borders for All Inner Content, Sub-Containers & Inner Elements ── */
+:root[data-theme="dark"] [class*="card"] [class*="Content"],
+:root[data-theme="dark"] [class*="card"] [class*="content"],
+:root[data-theme="dark"] [class*="Card"] [class*="Content"],
+:root[data-theme="dark"] [class*="Card"] [class*="content"],
+:root[data-theme="dark"] [class*="card"] [class*="Header"],
+:root[data-theme="dark"] [class*="card"] [class*="header"],
+:root[data-theme="dark"] [class*="card"] [class*="Body"],
+:root[data-theme="dark"] [class*="card"] [class*="body"],
+:root[data-theme="dark"] [class*="card"] [class*="Footer"],
+:root[data-theme="dark"] [class*="card"] [class*="footer"],
+:root[data-theme="dark"] [class*="card"] [class*="Main"],
+:root[data-theme="dark"] [class*="card"] [class*="main"],
+:root[data-theme="dark"] [class*="Card"] [class*="Main"],
+:root[data-theme="dark"] [class*="Card"] [class*="main"],
+:root[data-theme="dark"] .cardBgWrapper,
+:root[data-theme="dark"] .indCardHeader,
+:root[data-theme="dark"] .indCardMain,
+:root[data-theme="dark"] .indCardMainRow,
+:root[data-theme="dark"] .indCardHeaderWide,
+:root[data-theme="dark"] .indCardHeaderWideRow,
+:root[data-theme="dark"] .bentoFooter,
+:root[data-theme="dark"] .indIconBox,
+html.dark [class*="card"] [class*="Content"],
+html.dark [class*="card"] [class*="content"],
+html.dark [class*="Card"] [class*="Content"],
+html.dark [class*="Card"] [class*="content"],
+html.dark [class*="card"] [class*="Header"],
+html.dark [class*="card"] [class*="header"],
+html.dark [class*="card"] [class*="Body"],
+html.dark [class*="card"] [class*="body"],
+html.dark [class*="card"] [class*="Footer"],
+html.dark [class*="card"] [class*="footer"],
+html.dark [class*="card"] [class*="Main"],
+html.dark [class*="card"] [class*="main"],
+html.dark [class*="Card"] [class*="Main"],
+html.dark [class*="Card"] [class*="main"],
+html.dark .cardBgWrapper,
+html.dark .indCardHeader,
+html.dark .indCardMain,
+html.dark .indCardMainRow,
+html.dark .indCardHeaderWide,
+html.dark .indCardHeaderWideRow,
+html.dark .bentoFooter,
+html.dark .indIconBox {
+  border: 0 !important;
+  border-width: 0px !important;
+  background-color: transparent !important;
+}
+
+/* ─── Hover State Highlights (Electric Green Glow) ─────────────────────── */
+:root[data-theme="dark"] .card:hover,
+:root[data-theme="dark"] .industryCard:hover,
+:root[data-theme="dark"] .productCard:hover,
+:root[data-theme="dark"] .catCard:hover,
+:root[data-theme="dark"] .bentoGalleryCard:hover,
+:root[data-theme="dark"] .bentoInfoCard:hover,
+:root[data-theme="dark"] .cardFrame:hover,
+html.dark .card:hover,
+html.dark .industryCard:hover,
+html.dark .productCard:hover,
+html.dark .catCard:hover,
+html.dark .bentoGalleryCard:hover,
+html.dark .bentoInfoCard:hover,
+html.dark .cardFrame:hover {
+  border-color: var(--brand) !important;
+  box-shadow: 0 6px 24px rgba(63, 174, 90, 0.25) !important;
+}
+
+/* ─── Typography & Headings ─────────────────────────────────────────────── */
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4,
+:root[data-theme="dark"] h5,
+:root[data-theme="dark"] h6,
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .text-navy,
+:root[data-theme="dark"] [class*="text-[var(--navy)"],
+:root[data-theme="dark"] .text-slate-950,
+:root[data-theme="dark"] .text-slate-900,
+:root[data-theme="dark"] .text-slate-800,
+:root[data-theme="dark"] .text-gray-950,
+:root[data-theme="dark"] .text-gray-900,
+:root[data-theme="dark"] .text-gray-800,
+html.dark .text-navy,
+html.dark [class*="text-[var(--navy)"],
+html.dark .text-slate-950,
+html.dark .text-slate-900,
+html.dark .text-slate-800,
+html.dark .text-gray-950,
+html.dark .text-gray-900,
+html.dark .text-gray-800 {
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .text-slate-700,
+:root[data-theme="dark"] .text-slate-600,
+:root[data-theme="dark"] .text-gray-700,
+:root[data-theme="dark"] .text-gray-600,
+html.dark .text-slate-700,
+html.dark .text-slate-600,
+html.dark .text-gray-700,
+html.dark .text-gray-600 {
+  color: #E2E8F0 !important;
+}
+
+:root[data-theme="dark"] .text-slate-500,
+:root[data-theme="dark"] .text-slate-400,
+:root[data-theme="dark"] .text-gray-500,
+:root[data-theme="dark"] .text-gray-400,
+html.dark .text-slate-500,
+html.dark .text-slate-400,
+html.dark .text-gray-500,
+html.dark .text-gray-400 {
+  color: #CBD5E1 !important;
+}
+
+:root[data-theme="dark"] p,
+html.dark p {
+  color: #E2E8F0;
+}
+
+/* ─── Card Image Gradient Overlays (No White Glare) ──────────────────────── */
+:root[data-theme="dark"] .cardBgOverlayLight,
+:root[data-theme="dark"] .cardBgOverlayLightHalf,
+html.dark .cardBgOverlayLight,
+html.dark .cardBgOverlayLightHalf {
+  background: linear-gradient(135deg, rgba(14, 16, 21, 0.95) 0%, rgba(14, 16, 21, 0.85) 45%, rgba(14, 16, 21, 0.3) 100%) !important;
+}
+
+:root[data-theme="dark"] .cardBgOverlayDark,
+:root[data-theme="dark"] .cardBgOverlayDarkHalf,
+html.dark .cardBgOverlayDark,
+html.dark .cardBgOverlayDarkHalf {
+  background: linear-gradient(135deg, rgba(9, 11, 15, 0.95) 0%, rgba(14, 16, 21, 0.85) 50%, rgba(14, 16, 21, 0.3) 100%) !important;
+}
+
+/* ─── CTA Banner High-Contrast Typography ───────────────────────────────── */
+:root[data-theme="dark"] .cta-section h2,
+:root[data-theme="dark"] .cta-section h3,
+:root[data-theme="dark"] .cta-section [class*="title"],
+html.dark .cta-section h2,
+html.dark .cta-section h3,
+html.dark .cta-section [class*="title"] {
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .cta-section p,
+:root[data-theme="dark"] .cta-section [class*="subtitle"],
+:root[data-theme="dark"] .cta-section [class*="desc"],
+html.dark .cta-section p,
+html.dark .cta-section [class*="subtitle"],
+html.dark .cta-section [class*="desc"] {
+  color: #E2E8F0 !important;
+}
+
+/* ─── Badges, Eyebrows & Tags ───────────────────────────────────────────── */
+:root[data-theme="dark"] .section-eyebrow,
+html.dark .section-eyebrow {
+  background-color: rgba(63, 174, 90, 0.12) !important;
+  border-color: rgba(63, 174, 90, 0.4) !important;
+  color: var(--brand-text) !important;
+}
+
+:root[data-theme="dark"] .bentoBadgeBlue,
+html.dark .bentoBadgeBlue {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+:root[data-theme="dark"] .bentoBadgeLime,
+:root[data-theme="dark"] .bentoBadgeLimeDark,
+html.dark .bentoBadgeLime,
+html.dark .bentoBadgeLimeDark {
+  background: rgba(63, 174, 90, 0.15) !important;
+  color: var(--brand-text) !important;
+  border: 1px solid rgba(63, 174, 90, 0.4) !important;
+}
+
+/* ─── Buttons & Interactive Controls ────────────────────────────────────── */
+:root[data-theme="dark"] .swipe-btn,
+:root[data-theme="dark"] .quote-btn-primary,
+:root[data-theme="dark"] .magic-shimmer-btn,
+html.dark .swipe-btn,
+html.dark .quote-btn-primary,
+html.dark .magic-shimmer-btn {
+  background: var(--brand) !important;
+  color: #FFFFFF !important;
+  border-color: var(--brand) !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 14px rgba(63, 174, 90, 0.35) !important;
+}
+
+:root[data-theme="dark"] .swipe-btn .btn-text,
+:root[data-theme="dark"] .swipe-btn span,
+:root[data-theme="dark"] .quote-btn-primary span,
+:root[data-theme="dark"] .magic-shimmer-btn span,
+html.dark .swipe-btn .btn-text,
+html.dark .swipe-btn span,
+html.dark .quote-btn-primary span,
+html.dark .magic-shimmer-btn span {
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .swipe-btn svg,
+:root[data-theme="dark"] .quote-btn-primary svg,
+:root[data-theme="dark"] .magic-shimmer-btn svg,
+html.dark .swipe-btn svg,
+html.dark .quote-btn-primary svg,
+html.dark .magic-shimmer-btn svg {
+  stroke: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .swipe-btn:hover,
+:root[data-theme="dark"] .quote-btn-primary:hover,
+:root[data-theme="dark"] .magic-shimmer-btn:hover,
+html.dark .swipe-btn:hover,
+html.dark .quote-btn-primary:hover,
+html.dark .magic-shimmer-btn:hover {
+  background: var(--brand-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(63, 174, 90, 0.5) !important;
+}
+
+:root[data-theme="dark"] .btn-secondary,
+:root[data-theme="dark"] .btn-outline,
+html.dark .btn-secondary,
+html.dark .btn-outline {
+  background: #151822 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .btn-secondary:hover,
+:root[data-theme="dark"] .btn-outline:hover,
+html.dark .btn-secondary:hover,
+html.dark .btn-outline:hover {
+  background: var(--brand) !important;
+  border-color: var(--brand) !important;
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .assistanceLabel,
+html.dark .assistanceLabel {
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .assistanceSub,
+html.dark .assistanceSub {
+  color: #CBD5E1 !important;
+}
+
+:root[data-theme="dark"] .assistanceBtn,
+html.dark .assistanceBtn {
+  background: #151822 !important;
+  border: 1px solid var(--brand) !important;
+  color: var(--brand-text) !important;
+}
+
+:root[data-theme="dark"] .assistanceBtn:hover,
+html.dark .assistanceBtn:hover {
+  background: var(--brand) !important;
+  color: #FFFFFF !important;
+}
+
+/* ─── Forms, Inputs, Dropdowns & Textareas ──────────────────────────────── */
+:root[data-theme="dark"] .form-input,
+:root[data-theme="dark"] .form-select,
+:root[data-theme="dark"] .form-textarea,
+:root[data-theme="dark"] form:not([class*="search"]) input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]),
+:root[data-theme="dark"] form:not([class*="search"]) select,
+:root[data-theme="dark"] form:not([class*="search"]) textarea,
+html.dark .form-input,
+html.dark .form-select,
+html.dark .form-textarea,
+html.dark form:not([class*="search"]) input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]),
+html.dark form:not([class*="search"]) select,
+html.dark form:not([class*="search"]) textarea {
+  background-color: #171E26 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .form-input::placeholder,
+:root[data-theme="dark"] .form-textarea::placeholder,
+:root[data-theme="dark"] form:not([class*="search"]) input::placeholder,
+:root[data-theme="dark"] form:not([class*="search"]) textarea::placeholder,
+html.dark .form-input::placeholder,
+html.dark .form-textarea::placeholder,
+html.dark form:not([class*="search"]) input::placeholder,
+html.dark form:not([class*="search"]) textarea::placeholder {
+  color: #64748B !important;
+}
+
+:root[data-theme="dark"] .form-input:focus,
+:root[data-theme="dark"] .form-select:focus,
+:root[data-theme="dark"] .form-textarea:focus,
+:root[data-theme="dark"] form:not([class*="search"]) input:focus,
+:root[data-theme="dark"] form:not([class*="search"]) select:focus,
+:root[data-theme="dark"] form:not([class*="search"]) textarea:focus,
+html.dark .form-input:focus,
+html.dark .form-select:focus,
+html.dark .form-textarea:focus,
+html.dark form:not([class*="search"]) input:focus,
+html.dark form:not([class*="search"]) select:focus,
+html.dark form:not([class*="search"]) textarea:focus {
+  border-color: var(--brand) !important;
+  box-shadow: 0 0 0 3px rgba(63, 174, 90, 0.25) !important;
+}
+
+:root[data-theme="dark"] label,
+html.dark label {
+  color: #CBD5E1 !important;
+}
+
+/* ─── Navigation & Navbar (OLED Pitch Black) ────────────────────────────── */
+:root[data-theme="dark"] header,
+html.dark header {
+  background-color: transparent !important;
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+:root[data-theme="dark"] nav,
+html.dark nav {
+  background-color: transparent !important;
+}
+
+:root[data-theme="dark"] .nav,
+:root[data-theme="dark"] .navShrink,
+html.dark .nav,
+html.dark .navShrink {
+  background-color: #0b0f14 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+:root[data-theme="dark"] .dropdownMenuInner,
+:root[data-theme="dark"] .drawer,
+:root[data-theme="dark"] .mobileCardDrawer,
+html.dark .dropdownMenuInner,
+html.dark .drawer,
+html.dark .mobileCardDrawer {
+  background-color: #090b10 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ─── FAQ Accordions & Lists ────────────────────────────────────────────── */
+:root[data-theme="dark"] .faqCard,
+html.dark .faqCard {
+  background: #0e1015 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+:root[data-theme="dark"] .faqCardOpen,
+html.dark .faqCardOpen {
+  background: #11141b !important;
+  border-color: var(--brand) !important;
+}
+
+:root[data-theme="dark"] .faqQuestion,
+html.dark .faqQuestion {
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .faqQuestion:hover,
+html.dark .faqQuestion:hover {
+  color: var(--brand-text) !important;
+}
+
+:root[data-theme="dark"] .faqAnswer,
+html.dark .faqAnswer {
+  color: #CBD5E1 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+/* ─── Tables & Specifications ───────────────────────────────────────────── */
+:root[data-theme="dark"] table,
+:root[data-theme="dark"] th,
+:root[data-theme="dark"] td,
+html.dark table,
+html.dark th,
+html.dark td {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+:root[data-theme="dark"] th,
+html.dark th {
+  background: #131720 !important;
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] tr:nth-child(even),
+html.dark tr:nth-child(even) {
+  background: #080a0e !important;
+}
+
+/* ─── Contact Page Dark Theme ────────────────────────────────────────── */
+:root[data-theme="dark"] .mainSection,
+:root[data-theme="dark"] [class*="mainSection"],
+html.dark .mainSection,
+html.dark [class*="mainSection"] {
+  background: var(--dark-page, #0B0F14) !important;
+}
+
+:root[data-theme="dark"] .bgSlantBright,
+:root[data-theme="dark"] [class*="bgSlantBright"],
+html.dark .bgSlantBright,
+html.dark [class*="bgSlantBright"] {
+  background: radial-gradient(circle at 50% 0%, rgba(63, 174, 90, 0.06) 0%, transparent 70%) !important;
+}
+
+:root[data-theme="dark"] .dotsPattern,
+:root[data-theme="dark"] [class*="dotsPattern"],
+html.dark .dotsPattern,
+html.dark [class*="dotsPattern"] {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 2px, transparent 2px) !important;
+  opacity: 0.12 !important;
+}
+
+:root[data-theme="dark"] .enquiryCard,
+:root[data-theme="dark"] [class*="enquiryCard"],
+:root[data-theme="dark"] .infoCardAccent,
+:root[data-theme="dark"] [class*="infoCardAccent"],
+:root[data-theme="dark"] .assistanceBanner,
+:root[data-theme="dark"] [class*="assistanceBanner"],
+:root[data-theme="dark"] .mapSectionWrapper,
+:root[data-theme="dark"] [class*="mapSectionWrapper"],
+html.dark .enquiryCard,
+html.dark [class*="enquiryCard"],
+html.dark .infoCardAccent,
+html.dark [class*="infoCardAccent"],
+html.dark .assistanceBanner,
+html.dark [class*="assistanceBanner"],
+html.dark .mapSectionWrapper,
+html.dark [class*="mapSectionWrapper"] {
+  background: var(--dark-card, #111820) !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.12)) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+:root[data-theme="dark"] .formTitle,
+:root[data-theme="dark"] [class*="formTitle"],
+:root[data-theme="dark"] .rightTitle,
+:root[data-theme="dark"] [class*="rightTitle"],
+:root[data-theme="dark"] .mapTitle,
+:root[data-theme="dark"] [class*="mapTitle"],
+:root[data-theme="dark"] .bannerTitle,
+:root[data-theme="dark"] [class*="bannerTitle"],
+:root[data-theme="dark"] .infoCardValue,
+:root[data-theme="dark"] [class*="infoCardValue"],
+:root[data-theme="dark"] .sectionTitle,
+:root[data-theme="dark"] [class*="sectionTitle"],
+html.dark .formTitle,
+html.dark [class*="formTitle"],
+html.dark .rightTitle,
+html.dark [class*="rightTitle"],
+html.dark .mapTitle,
+html.dark [class*="mapTitle"],
+html.dark .bannerTitle,
+html.dark [class*="bannerTitle"],
+html.dark .infoCardValue,
+html.dark [class*="infoCardValue"],
+html.dark .sectionTitle,
+html.dark [class*="sectionTitle"] {
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .formSubText,
+:root[data-theme="dark"] [class*="formSubText"],
+:root[data-theme="dark"] .privacyNote,
+:root[data-theme="dark"] [class*="privacyNote"],
+:root[data-theme="dark"] .bannerSub,
+:root[data-theme="dark"] [class*="bannerSub"],
+:root[data-theme="dark"] .mapAddress,
+:root[data-theme="dark"] [class*="mapAddress"],
+:root[data-theme="dark"] .infoCardLabel,
+:root[data-theme="dark"] [class*="infoCardLabel"],
+:root[data-theme="dark"] .sectionDesc,
+:root[data-theme="dark"] [class*="sectionDesc"],
+html.dark .formSubText,
+html.dark [class*="formSubText"],
+html.dark .privacyNote,
+html.dark [class*="privacyNote"],
+html.dark .bannerSub,
+html.dark [class*="bannerSub"],
+html.dark .mapAddress,
+html.dark [class*="mapAddress"],
+html.dark .infoCardLabel,
+html.dark [class*="infoCardLabel"],
+html.dark .sectionDesc,
+html.dark [class*="sectionDesc"] {
+  color: #CBD5E1 !important;
+}
+
+:root[data-theme="dark"] .customInput,
+:root[data-theme="dark"] [class*="customInput"],
+:root[data-theme="dark"] .customSelect,
+:root[data-theme="dark"] [class*="customSelect"],
+:root[data-theme="dark"] .customTextarea,
+:root[data-theme="dark"] [class*="customTextarea"],
+:root[data-theme="dark"] .phonePrefixSelect,
+:root[data-theme="dark"] [class*="phonePrefixSelect"],
+html.dark .customInput,
+html.dark [class*="customInput"],
+html.dark .customSelect,
+html.dark [class*="customSelect"],
+html.dark .customTextarea,
+html.dark [class*="customTextarea"],
+html.dark .phonePrefixSelect,
+html.dark [class*="phonePrefixSelect"] {
+  background: var(--dark-elevated, #171E26) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] select option,
+html.dark select option {
+  background-color: #111820 !important;
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .customInput::placeholder,
+:root[data-theme="dark"] [class*="customInput"]::placeholder,
+:root[data-theme="dark"] .customTextarea::placeholder,
+:root[data-theme="dark"] [class*="customTextarea"]::placeholder,
+html.dark .customInput::placeholder,
+html.dark [class*="customInput"]::placeholder,
+html.dark .customTextarea::placeholder,
+html.dark [class*="customTextarea"]::placeholder {
+  color: #94A3B8 !important;
+}
+
+:root[data-theme="dark"] .customInput:focus,
+:root[data-theme="dark"] [class*="customInput"]:focus,
+:root[data-theme="dark"] .customSelect:focus,
+:root[data-theme="dark"] [class*="customSelect"]:focus,
+:root[data-theme="dark"] .customTextarea:focus,
+:root[data-theme="dark"] [class*="customTextarea"]:focus,
+:root[data-theme="dark"] .phonePrefixSelect:focus,
+:root[data-theme="dark"] [class*="phonePrefixSelect"]:focus,
+html.dark .customInput:focus,
+html.dark [class*="customInput"]:focus,
+html.dark .customSelect:focus,
+html.dark [class*="customSelect"]:focus,
+html.dark .customTextarea:focus,
+html.dark [class*="customTextarea"]:focus,
+html.dark .phonePrefixSelect:focus,
+html.dark [class*="phonePrefixSelect"]:focus {
+  background: #181c26 !important;
+  border-color: var(--brand) !important;
+  box-shadow: 0 0 0 3px rgba(63, 174, 90, 0.25) !important;
+}
+
+:root[data-theme="dark"] .infoCardIconCircle,
+:root[data-theme="dark"] [class*="infoCardIconCircle"],
+:root[data-theme="dark"] .bannerIconCircle,
+:root[data-theme="dark"] [class*="bannerIconCircle"],
+:root[data-theme="dark"] .mapIconCircle,
+:root[data-theme="dark"] [class*="mapIconCircle"],
+html.dark .infoCardIconCircle,
+html.dark [class*="infoCardIconCircle"],
+html.dark .bannerIconCircle,
+html.dark [class*="bannerIconCircle"],
+html.dark .mapIconCircle,
+html.dark [class*="mapIconCircle"] {
+  background: rgba(63, 174, 90, 0.2) !important;
+  border: 1px solid rgba(63, 174, 90, 0.4) !important;
+  color: var(--brand-text) !important;
+}
+
+:root[data-theme="dark"] .bannerBtn,
+:root[data-theme="dark"] [class*="bannerBtn"],
+html.dark .bannerBtn,
+html.dark [class*="bannerBtn"] {
+  background: var(--brand) !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+:root[data-theme="dark"] .mapDirectionsBtn,
+:root[data-theme="dark"] [class*="mapDirectionsBtn"],
+html.dark .mapDirectionsBtn,
+html.dark [class*="mapDirectionsBtn"] {
+  background: var(--brand) !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+:root[data-theme="dark"] .mapIframeFrame,
+:root[data-theme="dark"] [class*="mapIframeFrame"],
+html.dark .mapIframeFrame,
+html.dark [class*="mapIframeFrame"] {
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  background: var(--dark-section) !important;
+}
+
+:root[data-theme="dark"] .companyBadge,
+:root[data-theme="dark"] [class*="companyBadge"],
+html.dark .companyBadge,
+html.dark [class*="companyBadge"] {
+  background: var(--dark-card) !important;
+  border-color: var(--dark-border) !important;
+  color: #CBD5E1 !important;
+}
+
+:root[data-theme="dark"] .companyBadge:hover,
+:root[data-theme="dark"] [class*="companyBadge"]:hover,
+html.dark .companyBadge:hover,
+html.dark [class*="companyBadge"]:hover {
+  background: var(--dark-hover) !important;
+  border-color: var(--brand) !important;
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .workflowSection,
+:root[data-theme="dark"] [class*="workflowSection"],
+html.dark .workflowSection,
+html.dark [class*="workflowSection"] {
+  background: var(--dark-page) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+:root[data-theme="dark"] .workflowCard,
+:root[data-theme="dark"] [class*="workflowCard"],
+html.dark .workflowCard,
+html.dark [class*="workflowCard"] {
+  background: var(--dark-card) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+:root[data-theme="dark"] .faqSection,
+:root[data-theme="dark"] [class*="faqSection"],
+html.dark .faqSection,
+html.dark [class*="faqSection"] {
+  background: var(--dark-page) !important;
+  color: #FFFFFF !important;
+}
+
+/* ─── Testimonials Section ─── */
+:root[data-theme="dark"] .testimonialsSection,
+:root[data-theme="dark"] [class*="testimonialsSection"],
+html.dark .testimonialsSection,
+html.dark [class*="testimonialsSection"] {
+  background: var(--dark-page, #0B0F14) !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+}
+
+:root[data-theme="dark"] .testimonialSliderBox,
+:root[data-theme="dark"] [class*="testimonialSliderBox"],
+html.dark .testimonialSliderBox,
+html.dark [class*="testimonialSliderBox"] {
+  background: #171E26 !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5) !important;
+}
+
+:root[data-theme="dark"] .testimonialQuote,
+:root[data-theme="dark"] [class*="testimonialQuote"],
+html.dark .testimonialQuote,
+html.dark [class*="testimonialQuote"] {
+  color: #E2E8F0 !important;
+}
+
+:root[data-theme="dark"] .authorName,
+:root[data-theme="dark"] [class*="authorName"],
+html.dark .authorName,
+html.dark [class*="authorName"] {
+  color: #FFFFFF !important;
+}
+
+:root[data-theme="dark"] .authorMeta,
+:root[data-theme="dark"] [class*="authorMeta"],
+html.dark .authorMeta,
+html.dark [class*="authorMeta"] {
+  color: #94A3B8 !important;
+}
+
+/* ─── Footer ────────────────────────────────────────────────────────────── */
+:root[data-theme="dark"] footer,
+html.dark footer {
+  background-color: #000000 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+/* ─── Smooth Transition On Theme Toggle ─────────────────────────────────── */
+body,
+#main-content,
+header,
+footer,
+.card,
+section {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}

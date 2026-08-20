@@ -1,0 +1,206 @@
+
+.storyPara {
+  font-size: 0.925rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.storyBadgeBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--navy-subtle);
+}
+
+.badgeItem {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.badgeItem i {
+  color: var(--brand-dark);
+  font-size: 0.95rem;
+  transition: transform 0.25s ease;
+}
+
+.badgeItem:hover i {
+  transform: scale(1.25);
+}
+
+.pillarsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.pillarCard {
+  background: var(--gray-50);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.pillarCard:hover {
+  background: var(--bg-card, var(--white));
+  border-color: var(--brand);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.pillarIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--brand-glow-subtle);
+  color: var(--navy);
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.pillarCard:hover .pillarIcon {
+  transform: rotate(-8deg) scale(1.1);
+  background: var(--brand);
+  color: var(--navy);
+}
+
+.pillarHeading {
+  font-family: var(--font-display, inherit);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin: 0 0 0.35rem 0;
+}
+
+.pillarText {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Interactive Process Section ── */
+.processSection {
+  background: var(--navy);
+  padding: 5rem 0;
+  color: var(--white);
+}
+
+.processTabsNav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.stepTabBtn {
+  height: 40px;
+  padding: 0 1.25rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-dark);
+  background: var(--border-dark);
+  color: var(--text-inverse-secondary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+}
+
+.stepTabBtn:hover {
+  background: var(--border-dark);
+  color: var(--white);
+  border-color: var(--brand);
+}
+
+.stepTabActive {
+  background: var(--brand) !important;
+  color: var(--navy) !important;
+  border-color: var(--brand) !important;
+  box-shadow: 0 2px 10px var(--navy-glow);
+}
+
+.processHighlightCard {
+  background: var(--border-dark);
+  border: 1.5px solid var(--brand);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 10px 30px var(--shadow-sm);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.processCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.processIconLarge {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--brand);
+  color: var(--navy);
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+}
+
+.processTitleLarge {
+  font-family: var(--font-display, inherit);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--white);
+  margin: 0;
+}
+
+.processDescLarge {
+  font-size: 0.95rem;
+  color: var(--bg-glass);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.processCard {
+  background: var(--border-dark);
+  border: 1px solid var(--border-dark);
+  border-radius: 12px;
+  padding: 1.5rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}

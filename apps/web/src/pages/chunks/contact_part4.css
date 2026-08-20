@@ -31,7 +31,7 @@
 
 .successBox i {
   font-size: 3.5rem;
-  color: var(--brand-dark, #7db018);
+  color: var(--brand-dark);
 }
 
 .successBox h3 {
@@ -104,7 +104,7 @@
 }
 
 .hubCard:hover {
-  border-color: var(--brand, #98d12a);
+  border-color: var(--brand);
   transform: translateY(-3px);
   box-shadow: var(--shadow-sm);
 }
@@ -128,7 +128,7 @@
   font-weight: 800;
   text-transform: uppercase;
   color: #0B2F63;
-  background: rgba(152, 209, 42, 0.25);
+  background: var(--brand-light, rgba(63, 174, 90, 0.25));
   padding: 0.2rem 0.55rem;
   border-radius: 4px;
 }
@@ -152,7 +152,7 @@
 }
 
 .hubAddress i {
-  color: var(--brand-dark, #7db018);
+  color: var(--brand-dark);
   margin-top: 3px;
 }
 
@@ -168,7 +168,7 @@
 }
 
 .hubMetaRow i {
-  color: var(--brand-dark, #7db018);
+  color: var(--brand-dark);
   margin-right: 0.35rem;
 }
 

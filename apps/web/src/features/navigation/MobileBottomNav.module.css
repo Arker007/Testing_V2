@@ -29,7 +29,7 @@
     justify-content: center;
     flex: 1;
     height: 100%;
-    color: #5B6873;
+    color: var(--gray-500);
     text-decoration: none;
     font-size: 0.6875rem;
     font-weight: 600;
@@ -51,7 +51,7 @@
   }
 
   .active {
-    color: #98d12a;
+    color: var(--brand);
     font-weight: 700;
   }
 
@@ -60,35 +60,40 @@
   }
 
   .waItem {
-    color: #25d366;
+    color: var(--whatsapp);
   }
 
   .waItem.active, .waItem:hover {
-    color: #128c7e;
+    color: var(--whatsapp);
   }
 
   .quoteItem {
-    color: #0B2F63;
+    color: var(--navy);
   }
 
   .quoteItem.active {
-    color: #98d12a;
+    color: var(--brand);
   }
 }
 
 :root[data-theme="dark"] .mobileNav,
 :root.dark .mobileNav {
-  background: var(--bg-glass);
-  border-top-color: var(--border);
-  box-shadow: var(--shadow-sm);
+  background: rgba(0, 0, 0, 0.95) !important;
+  border-top-color: #1a1d26 !important;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.8) !important;
 }
 
 :root[data-theme="dark"] .navItem,
 :root.dark .navItem {
-  color: var(--text-muted);
+  color: #9CA3AF !important;
+}
+
+:root[data-theme="dark"] .navItem:hover,
+:root.dark .navItem:hover {
+  color: var(--brand-text, #4FC36D) !important;
 }
 
 :root[data-theme="dark"] .quoteItem,
 :root.dark .quoteItem {
-  color: var(--brand);
+  color: var(--brand-text, #4FC36D) !important;
 }

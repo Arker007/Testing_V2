@@ -1,0 +1,202 @@
+
+.comparisonTimberTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--gray-500);
+  margin: 0;
+}
+
+.comparisonTr {
+  border-top: 1px solid var(--navy-subtle);
+}
+
+.comparisonTdLabel {
+  padding: 1rem 1.5rem;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
+
+.comparisonTdProduct {
+  padding: 1rem;
+  background: var(--brand-light);
+  border-left: 1px solid var(--gray-300);
+  border-right: 1px solid var(--gray-300);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.comparisonTdTimber {
+  padding: 1rem;
+  background: var(--bg-card, var(--white));
+  text-align: center;
+  vertical-align: middle;
+}
+
+.checkCircle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-success);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  box-shadow: 0 2px 4px var(--success-border);
+}
+
+.crossCircle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gray-200);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.comparisonCtaBox {
+  margin-top: 1.75rem;
+  display: flex;
+  justify-content: center;
+}
+
+.comparisonEnquireBtn {
+  background: var(--color-warning);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 0.875rem;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: 0 2px 8px var(--shadow-sm);
+}
+
+.comparisonEnquireBtn:hover {
+  background: var(--color-warning);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-sm);
+}
+
+@media (max-width: 640px) {
+  .comparisonThFeature,
+  .comparisonTdLabel {
+    padding: 0.75rem 0.75rem;
+    font-size: 0.7rem;
+  }
+  .comparisonThProduct,
+  .comparisonThTimber,
+  .comparisonTdProduct,
+  .comparisonTdTimber {
+    padding: 0.75rem 0.35rem;
+  }
+  .comparisonImgBox {
+    height: 60px;
+  }
+  .comparisonTitle {
+    font-size: 1.15rem;
+  }
+  .comparisonProductTitle,
+  .comparisonTimberTitle {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 640px) {
+}
+
+/* ── Detail CTA Band ── */
+.detailCtaBand {
+  margin: 3.5rem 0;
+  border-radius: 12px;
+  border: 1px solid var(--brand-border);
+  background: var(--brand-glow-subtle);
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.detailCtaBand h3 {
+  color: var(--navy);
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-display, inherit);
+}
+
+.detailCtaBand p {
+  margin: 0;
+  color: var(--gray-500);
+  font-size: 0.875rem;
+}
+
+.detailCtaBand button {
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.75rem;
+  font-weight: 800;
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.detailCtaBand button:hover {
+  background: var(--brand);
+  color: var(--navy);
+}
+
+/* ── Product Information Tabs ── */
+.tabsContainer {
+  margin-bottom: 3.5rem;
+  background: var(--bg-card, var(--white));
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.tabsHeader {
+  display: flex;
+  border-bottom: 1px solid var(--navy-subtle);
+  background: var(--gray-50);
+  overflow-x: auto;
+}
+
+.bigTab {
+  padding: 1.15rem 2rem;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: inherit;
+  color: var(--gray-500);
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.bigTab:hover {
+  color: var(--navy);
+}

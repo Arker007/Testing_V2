@@ -106,8 +106,8 @@ export const industryCardVariant = {
   },
   hover: {
     y: -6,
-    borderColor: "rgba(152, 209, 42, 0.4)",
-    boxShadow: "0 20px 40px -10px rgba(11, 47, 99, 0.25), 0 0 20px -5px rgba(152, 209, 42, 0.15)",
+    borderColor: "var(--brand-border)",
+    boxShadow: "0 20px 40px -10px var(--navy-glow), 0 0 20px -5px var(--brand-glow-subtle)",
     transition: { type: "spring", stiffness: 300, damping: 20 }
   }
 };

@@ -2,13 +2,13 @@
 .optionsListMatched {
   list-style: none;
   font-size: 10px;
-  color: #666666;
+  color: var(--gray-500);
   line-height: 1.5;
   padding-left: 3px;
 }
 
 .optionsListMatched li {
-  border-bottom: 1px solid #EAEAEA;
+  border-bottom: 1px solid var(--gray-200);
   padding: 3px 0;
 }
 
@@ -17,7 +17,7 @@
   position: absolute;
   bottom: 45px;
   height: 1px;
-  background-color: #E0E0E0;
+  background-color: var(--gray-200);
 }
 
 .pageLeft .pageFooterLineMatched {
@@ -34,7 +34,7 @@
   position: absolute;
   bottom: 20px;
   font-size: 10px;
-  color: #666666;
+  color: var(--gray-500);
   display: flex;
   gap: 20px;
 }
@@ -45,7 +45,7 @@
 .pageNumberBox {
   position: absolute;
   bottom: 18px;
-  background-color: #575756;
+  background-color: var(--gray-600);
   color: white;
   font-size: 11px;
   font-weight: bold;

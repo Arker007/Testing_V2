@@ -146,8 +146,8 @@ export default function AdminInquiries() {
                             <div className={iStyles.productCell}>
                                 <span className={iStyles.productName}>{inq.productName || inq.product_name || '—'}</span>
                                 <span className={styles.badge} style={{ 
-                                    background: inq.source === 'contact_form' ? 'var(--brand-light)' : 'rgba(5, 40, 63, 0.08)', 
-                                    color: inq.source === 'contact_form' ? 'var(--brand-dark)' : 'var(--ink)' 
+                                    background: inq.source === 'contact_form' ? 'var(--brand-light)' : 'var(--bg-surface)', 
+                                    color: inq.source === 'contact_form' ? 'var(--brand-dark)' : 'var(--text-primary)' 
                                 }}>
                                     {inq.source === 'contact_form' ? 'General Form' : 'B2B Product Asset'}
                                 </span>
@@ -209,8 +209,8 @@ export default function AdminInquiries() {
                             <span className={styles.drawerLabel}>Source</span>
                             <div className={styles.drawerValue} style={{ marginTop: 4 }}>
                                 <span className={styles.badge} style={{ 
-                                    background: activeItem.source === 'contact_form' ? 'var(--brand-light)' : 'rgba(5, 40, 63, 0.08)', 
-                                    color: activeItem.source === 'contact_form' ? 'var(--brand-dark)' : 'var(--ink)',
+                                    background: activeItem.source === 'contact_form' ? 'var(--brand-light)' : 'var(--bg-surface)', 
+                                    color: activeItem.source === 'contact_form' ? 'var(--brand-dark)' : 'var(--text-primary)',
                                     padding: '2px 8px'
                                 }}>
                                     {activeItem.source === 'contact_form' ? 'Contact Form' : 'Product Page'}
@@ -231,14 +231,14 @@ export default function AdminInquiries() {
                                 {activeItem.message || 'No message content.'}
                             </div>
                         </div>
-                        <div style={{ marginTop: 'auto', paddingTop: 16, borderTop: '1px solid rgba(5, 40, 63, 0.06)', display: 'flex', gap: 12 }}>
+                        <div style={{ marginTop: 'auto', paddingTop: 16, borderTop: '1px solid var(--border)', display: 'flex', gap: 12 }}>
                             {activeItem.phone && (
                                 <a 
                                     href={`https://wa.me/${activeItem.phone.replace(/\D/g, '')}`} 
                                     target="_blank" 
                                     rel="noreferrer" 
                                     className={styles.actionBtnPrimary} 
-                                    style={{ flex: 1, justifyContent: 'center', textDecoration: 'none', background: '#25d366', color: '#ffffff' }}
+                                    style={{ flex: 1, justifyContent: 'center', textDecoration: 'none', background: 'var(--whatsapp)', color: 'var(--white)' }}
                                 >
                                     <i className="fa-brands fa-whatsapp" /> WhatsApp
                                 </a>

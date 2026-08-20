@@ -82,7 +82,7 @@
 .searchInputField:focus {
   background: #FFFFFF;
   border-color: var(--color-surface-muted);
-  box-shadow: 0 0 0 3px rgba(56, 208, 89, 0.2);
+  box-shadow: 0 0 0 3px rgba(63, 174, 90, 0.2);
 }
 
 .searchClearBtn {

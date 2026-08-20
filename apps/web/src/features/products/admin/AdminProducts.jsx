@@ -180,13 +180,13 @@ export default function AdminProducts() {
                   </div>
                 </div>
                 <span>
-                  <span className={styles.badge} style={{ background: "#f4f5f9", color: "#1e2229" }}>
+                  <span className={styles.badge} style={{ background: "var(--gray-100)", color: "var(--gray-800)" }}>
                     {p.category_name || "Unassigned"}
                   </span>
                 </span>
                 <span>
                   {(p.published !== null && p.published !== undefined && Number(p.published) === 0) ? (
-                    <span className={styles.badge} style={{ background: "#fffbeb", color: "#d97706" }}>
+                    <span className={styles.badge} style={{ background: "var(--color-warning-bg)", color: "var(--color-warning)" }}>
                       <i className="fa-solid fa-pen-to-square" style={{ fontSize: "10px" }} /> Draft
                     </span>
                   ) : (
@@ -236,7 +236,7 @@ export default function AdminProducts() {
             {(() => {
               let img = null;
               try { img = JSON.parse(activeItem.image)?.[0]; } catch { img = activeItem.image; }
-              return img ? <img src={img} style={{ width: "100%", height: 180, objectFit: "contain", borderRadius: 12, border: "1px solid var(--line)", background: "#fbfdff", marginBottom: 12 }} alt="" /> : null;
+              return img ? <img src={img} style={{ width: "100%", height: 180, objectFit: "contain", borderRadius: 12, border: "1px solid var(--border)", background: "var(--bg-surface)", marginBottom: 12 }} alt="" /> : null;
             })()}
             <div>
               <span className={styles.drawerLabel}>Product Name</span>
@@ -246,7 +246,7 @@ export default function AdminProducts() {
               <div>
                 <span className={styles.drawerLabel}>Category</span>
                 <div className={styles.drawerValue} style={{ marginTop: 4 }}>
-                  <span className={styles.badge} style={{ background: "#f4f5f9", color: "#1e2229", padding: "2px 8px" }}>
+                  <span className={styles.badge} style={{ background: "var(--gray-100)", color: "var(--gray-800)", padding: "2px 8px" }}>
                     {activeItem.category_name || "Unassigned"}
                   </span>
                 </div>
@@ -262,7 +262,7 @@ export default function AdminProducts() {
                 {toPlainPreview(activeItem.description, 1000) || "No description provided."}
               </div>
             </div>
-            <div style={{ marginTop: "auto", paddingTop: 16, borderTop: "1px solid rgba(5, 40, 63, 0.06)", display: "flex", gap: 12 }}>
+            <div style={{ marginTop: "auto", paddingTop: 16, borderTop: "1px solid var(--border)", display: "flex", gap: 12 }}>
               <Link to={`/admin/products/${activeItem.id}`} className={styles.actionBtnPrimary} style={{ flex: 1, justifyContent: "center", textDecoration: "none" }}>
                 <i className="fa-solid fa-pen" /> Full Editor
               </Link>

@@ -38,7 +38,7 @@
 
 .customSelectTrigger[aria-expanded="true"] {
   border-color: var(--color-surface-muted);
-  box-shadow: 0 0 0 3px rgba(56, 208, 89, 0.2);
+  box-shadow: 0 0 0 3px rgba(63, 174, 90, 0.2);
   outline: none;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .customSelectOptionActive {
-  background: rgba(56, 208, 89, 0.15) !important;
+  background: rgba(63, 174, 90, 0.15) !important;
   color: var(--color-text-primary) !important;
   font-weight: 700 !important;
 }

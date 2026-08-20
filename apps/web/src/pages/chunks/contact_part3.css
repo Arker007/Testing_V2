@@ -10,7 +10,7 @@
   background: rgba(37, 211, 102, 0.12);
   border: 1px solid rgba(37, 211, 102, 0.3);
   padding: 0.3rem 0.75rem;
-  border-radius: 20px;
+  border-radius: 8px;
   margin-bottom: 0.75rem;
 }
 
@@ -88,8 +88,8 @@
 }
 
 .presetChip:hover {
-  border-color: var(--brand, #98d12a);
-  background: rgba(152, 209, 42, 0.15);
+  border-color: var(--brand);
+  background: var(--brand-light, rgba(63, 174, 90, 0.15));
   transform: translateY(-1px);
 }
 
@@ -118,13 +118,13 @@
 
 .catTabBtn:hover {
   background: var(--bg-card, #ffffff);
-  border-color: var(--brand, #98d12a);
+  border-color: var(--brand);
   color: #0B2F63;
 }
 
 .catTabActive {
   background: #0B2F63 !important;
-  color: var(--brand, #98d12a) !important;
+  color: var(--brand) !important;
   border-color: #0B2F63 !important;
 }
 
@@ -170,9 +170,9 @@
 .fieldSelect:focus,
 .fieldTextarea:focus {
   outline: none;
-  border-color: var(--brand, #98d12a);
+  border-color: var(--brand);
   background: var(--bg-card, #ffffff);
-  box-shadow: 0 0 0 3px rgba(152, 209, 42, 0.15);
+  box-shadow: 0 0 0 3px var(--brand-glow-subtle, rgba(63, 174, 90, 0.15));
 }
 
 .fieldTextarea {
@@ -188,13 +188,13 @@
 }
 
 .privacyNote i {
-  color: var(--brand-dark, #7db018);
+  color: var(--brand-dark);
 }
 
 .submitBtn {
   height: 48px;
   background: #0B2F63;
-  color: var(--brand, #98d12a);
+  color: var(--brand);
   border: none;
   border-radius: 8px;
   font-size: 0.875rem;

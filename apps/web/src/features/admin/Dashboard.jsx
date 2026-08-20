@@ -150,7 +150,7 @@ export default function Dashboard() {
                 return (
                   <div key={inq.id ?? idx} className={styles.activityItem}>
                     <div className={styles.timelineTrack}>
-                      <div className={styles.timelineDot} style={{ background: isProduct ? "var(--brand)" : "var(--navy-deep)" }} />
+                      <div className={styles.timelineDot} style={{ background: isProduct ? "var(--brand)" : "var(--text-primary)" }} />
                       {idx < inquiries.length - 1 && <div className={styles.timelineLine} />}
                     </div>
                     <div className={styles.activityCard}>
@@ -160,8 +160,8 @@ export default function Dashboard() {
                       </div>
                       <p className={styles.activitySnippet}>{inq.message || ""}</p>
                       <span className={styles.activityBadge} style={{
-                        background: isProduct ? "var(--brand-light)" : "rgba(5, 40, 63, 0.05)",
-                        color: isProduct ? "var(--brand-dark)" : "var(--navy-deep)"
+                        background: isProduct ? "var(--brand-light)" : "var(--bg-surface)",
+                        color: isProduct ? "var(--brand-dark)" : "var(--text-primary)"
                       }}>
                         {isProduct ? "Product Quote" : "General Query"}
                       </span>

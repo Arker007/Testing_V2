@@ -19,26 +19,12 @@ export default function GeneralTab({
         gap: "20px",
       }}
     >
-      <div className="form-group" style={{ gridColumn: "span 2" }}>
-        <label
-          className="form-label"
-          style={{
-            fontWeight: 600,
-            fontSize: "13px",
-            display: "block",
-            marginBottom: "6px",
-          }}
-        >
+      <div className={styles.formGroup} style={{ gridColumn: "span 2" }}>
+        <label className={styles.formLabel}>
           Product Name *
         </label>
         <input
-          className="form-input"
-          style={{
-            width: "100%",
-            padding: "10px",
-            borderRadius: "8px",
-            border: "1px solid #edf2f7",
-          }}
+          className={styles.formInput}
           required
           value={form.name}
           onChange={f("name")}
@@ -46,16 +32,8 @@ export default function GeneralTab({
         />
       </div>
 
-      <div className="form-group" style={{ gridColumn: "span 1" }}>
-        <label
-          className="form-label"
-          style={{
-            fontWeight: 600,
-            fontSize: "13px",
-            display: "block",
-            marginBottom: "6px",
-          }}
-        >
+      <div className={styles.formGroup} style={{ gridColumn: "span 1" }}>
+        <label className={styles.formLabel}>
           Product Category *
         </label>
         <div
@@ -71,7 +49,6 @@ export default function GeneralTab({
             }}
             style={{
               width: "100%",
-              borderRadius: "8px",
               boxSizing: "border-box",
             }}
           >
@@ -125,95 +102,43 @@ export default function GeneralTab({
         </div>
       </div>
 
-      <div className="form-group" style={{ gridColumn: "span 1" }}>
-        <label
-          className="form-label"
-          style={{
-            fontWeight: 600,
-            fontSize: "13px",
-            display: "block",
-            marginBottom: "6px",
-          }}
-        >
+      <div className={styles.formGroup} style={{ gridColumn: "span 1" }}>
+        <label className={styles.formLabel}>
           Original Price (MRP)
         </label>
         <input
-          className="form-input"
-          style={{
-            width: "100%",
-            padding: "10px",
-            borderRadius: "8px",
-            border: "1px solid #edf2f7",
-          }}
+          className={styles.formInput}
           value={form.oldPrice}
           onChange={(e) => handlePricingChange("oldPrice", e.target.value)}
           placeholder="e.g. 1500"
         />
       </div>
 
-      <div className="form-group" style={{ gridColumn: "span 1" }}>
-        <label
-          className="form-label"
-          style={{
-            fontWeight: 600,
-            fontSize: "13px",
-            display: "block",
-            marginBottom: "6px",
-          }}
-        >
+      <div className={styles.formGroup} style={{ gridColumn: "span 1" }}>
+        <label className={styles.formLabel}>
           Discount (%)
         </label>
         <input
-          className="form-input"
-          style={{
-            width: "100%",
-            padding: "10px",
-            borderRadius: "8px",
-            border: "1px solid #edf2f7",
-          }}
+          className={styles.formInput}
           value={form.discountRate}
           onChange={(e) => handlePricingChange("discountRate", e.target.value)}
           placeholder="e.g. 10"
         />
       </div>
 
-      <div className="form-group" style={{ gridColumn: "span 1" }}>
-        <label
-          className="form-label"
-          style={{
-            fontWeight: 600,
-            fontSize: "13px",
-            display: "block",
-            marginBottom: "6px",
-          }}
-        >
+      <div className={styles.formGroup} style={{ gridColumn: "span 1" }}>
+        <label className={styles.formLabel}>
           Selling Price (Auto-Calculated)
         </label>
         <input
-          className="form-input"
-          style={{
-            width: "100%",
-            padding: "10px",
-            borderRadius: "8px",
-            border: "1px solid #edf2f7",
-            background: "#f8fafc",
-            color: "#64748b",
-          }}
+          className={styles.formInput}
           disabled
           value={form.price}
         />
       </div>
 
-      <div className="form-group" style={{ gridColumn: "1 / -1" }}>
-        <label
-          className="form-label"
-          style={{
-            fontWeight: 600,
-            fontSize: "13px",
-            display: "block",
-            marginBottom: "6px",
-          }}
-        >
+      <div className={styles.formGroup} style={{ gridColumn: "1 / -1" }}>
+        <label className={styles.formLabel}>
           Product Description
         </label>
         <RichTextEditor

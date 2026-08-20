@@ -1,7 +1,7 @@
 
 .workflowCard:hover {
   background: rgba(255, 255, 255, 0.08);
-  border-color: var(--brand, #98d12a);
+  border-color: var(--brand);
   transform: translateY(-3px);
 }
 
@@ -9,7 +9,7 @@
   font-family: var(--font-display, inherit);
   font-size: 1.5rem;
   font-weight: 900;
-  color: var(--brand, #98d12a);
+  color: var(--brand);
   line-height: 1;
 }
 
@@ -51,7 +51,7 @@
 
 .faqCardOpen {
   background: var(--bg-card, #ffffff);
-  border-color: var(--brand, #98d12a);
+  border-color: var(--brand);
   box-shadow: var(--shadow-sm);
 }
 
@@ -73,7 +73,7 @@
 }
 
 .faqQuestion i {
-  color: var(--brand-dark, #7db018);
+  color: var(--brand-dark);
   font-size: 0.9rem;
   flex-shrink: 0;
   transition: transform 0.25s ease;
@@ -106,7 +106,7 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--brand, #98d12a);
+  color: var(--brand);
   margin-bottom: 0.5rem;
 }
 
@@ -226,4 +226,44 @@
   .infoCol {
     padding: 1.5rem;
   }
+}
+
+/* ── FAQ DARK MODE ── */
+:global([data-theme="dark"]) .faqSection,
+:global(.dark) .faqSection,
+html.dark .faqSection {
+  background: var(--dark-page) !important;
+}
+
+:global([data-theme="dark"]) .faqCard,
+:global(.dark) .faqCard,
+html.dark .faqCard {
+  background: var(--dark-card) !important;
+  border-color: var(--dark-border) !important;
+}
+
+:global([data-theme="dark"]) .faqCardOpen,
+:global(.dark) .faqCardOpen,
+html.dark .faqCardOpen {
+  background: var(--dark-card) !important;
+  border-color: var(--brand) !important;
+}
+
+:global([data-theme="dark"]) .faqQuestion,
+:global(.dark) .faqQuestion,
+html.dark .faqQuestion {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .faqQuestion:hover,
+:global(.dark) .faqQuestion:hover,
+html.dark .faqQuestion:hover {
+  color: var(--brand-text) !important;
+}
+
+:global([data-theme="dark"]) .faqAnswer,
+:global(.dark) .faqAnswer,
+html.dark .faqAnswer {
+  color: #CBD5E1 !important;
+  border-top-color: var(--dark-border) !important;
 }

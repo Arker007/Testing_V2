@@ -1,34 +1,53 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import PublicLayout from "../layouts/PublicLayout";
+import Home from "../../pages/Home";
+
+// Helper for dynamic imports with automatic retry upon Vite module updates/network glitches
+const lazyRetry = (componentImport) =>
+  lazy(async () => {
+    const pageHasBeenForceRefreshed = JSON.parse(
+      window.sessionStorage.getItem("page-has-been-force-refreshed") || "false"
+    );
+
+    try {
+      return await componentImport();
+    } catch (error) {
+      if (!pageHasBeenForceRefreshed) {
+        window.sessionStorage.setItem("page-has-been-force-refreshed", "true");
+        window.location.reload();
+        return { default: () => null };
+      }
+      throw error;
+    }
+  });
 
 // Public pages — code-split, load only when the route is visited
-const Home = lazy(() => import("../../pages/Home"));
-const About = lazy(() => import("../../pages/About"));
-const Products = lazy(() => import("../../pages/Products"));
-const ProductDetail = lazy(() => import("../../pages/ProductDetail"));
-const Contact = lazy(() => import("../../pages/Contact"));
-const Manufacturing = lazy(() => import("../../pages/Manufacturing"));
-const Sustainability = lazy(() => import("../../pages/Sustainability"));
+const About = lazyRetry(() => import("../../pages/About"));
+const Products = lazyRetry(() => import("../../pages/Products"));
+const ProductDetail = lazyRetry(() => import("../../pages/ProductDetail"));
+const Contact = lazyRetry(() => import("../../pages/Contact"));
+const Manufacturing = lazyRetry(() => import("../../pages/Manufacturing"));
+const Sustainability = lazyRetry(() => import("../../pages/Sustainability"));
 
 // Admin pages — separate chunk, never loaded on public pages
-const AdminLayout = lazy(() => import("../layouts/AdminLayout"));
-const AdminLogin = lazy(() => import("../../features/auth/Login"));
-const Dashboard = lazy(() => import("../../features/admin/Dashboard"));
-const AdminProducts = lazy(() => import("../../features/products/admin/AdminProducts"));
-const AdminProductEditor = lazy(
+const AdminLayout = lazyRetry(() => import("../layouts/AdminLayout"));
+const AdminLogin = lazyRetry(() => import("../../features/auth/Login"));
+const Dashboard = lazyRetry(() => import("../../features/admin/Dashboard"));
+const AdminProducts = lazyRetry(() => import("../../features/products/admin/AdminProducts"));
+const AdminProductEditor = lazyRetry(
   () => import("../../features/products/admin/AdminProductEditor")
 );
-const AdminCategories = lazy(() => import("../../features/products/categories/AdminCategories"));
-const AdminCategoryEditor = lazy(
+const AdminCategories = lazyRetry(() => import("../../features/products/categories/AdminCategories"));
+const AdminCategoryEditor = lazyRetry(
   () => import("../../features/products/categories/AdminCategoryEditor")
 );
-const AdminInquiries = lazy(() => import("../../features/inquiries/AdminInquiries"));
-const AdminInquiryDetail = lazy(
+const AdminInquiries = lazyRetry(() => import("../../features/inquiries/AdminInquiries"));
+const AdminInquiryDetail = lazyRetry(
   () => import("../../features/inquiries/AdminInquiryDetail")
 );
-const AdminMedia = lazy(() => import("../../features/media/AdminMedia"));
-const AdminCatalog = lazy(() => import("../../features/catalog/AdminCatalog"));
+const AdminMedia = lazyRetry(() => import("../../features/media/AdminMedia"));
+const AdminCatalog = lazyRetry(() => import("../../features/catalog/AdminCatalog"));
 import SiteContent from "../../features/content-management/SiteContent";
 import AdminSettings from "../../features/admin/AdminSettings";
 import NotFound from "../../pages/NotFound";

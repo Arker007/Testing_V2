@@ -46,7 +46,7 @@ export default function TeamEditor({
     const name = cms[`team_${index}_name`] || "Anonymous Profile";
     const role = cms[`team_${index}_role`] || "Staff Executive";
     const init = cms[`team_${index}_init`] || "AP";
-    const color = cms[`team_${index}_color`] || "#98d12a";
+    const color = cms[`team_${index}_color`] || "var(--brand)";
     return { index, name, role, init, color };
   });
 
@@ -68,7 +68,7 @@ export default function TeamEditor({
                   <label className="form-label" style={{ fontWeight: 600, fontSize: "13px", display: "block", marginBottom: "6px" }}>{f.label}</label>
                   <input 
                     className="form-input" 
-                    style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid #edf2f7" }} 
+                    style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)" }} 
                     type="text" 
                     value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
                     onChange={setM(f.key)} 
@@ -93,7 +93,7 @@ export default function TeamEditor({
                     height: "36px", 
                     borderRadius: "50%", 
                     background: color, 
-                    color: "#ffffff", 
+                    color: "var(--white)", 
                     display: "flex", 
                     alignItems: "center", 
                     justifyContent: "center",
@@ -147,7 +147,7 @@ export default function TeamEditor({
                 setModalItem({
                   type: "team",
                   index: nextIdx,
-                  data: { name: "Team Member Name", role: "Specialist", init: "VE", color: "#0B2F63" }
+                  data: { name: "Team Member Name", role: "Specialist", init: "VE", color: "var(--navy)" }
                 });
               }}
             >

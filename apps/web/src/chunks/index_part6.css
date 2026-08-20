@@ -3,7 +3,7 @@
 .form-select:focus,
 .form-textarea:focus {
   border-color: var(--brand);
-  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.22);
+  box-shadow: 0 0 0 3px var(--border);
 }
 
 .form-textarea {
@@ -17,11 +17,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--gray-100);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: var(--gray-300);
   border-radius: 3px;
 }
 
@@ -108,9 +108,9 @@
   left: -60%;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.45) 50%,
-    rgba(255, 255, 255, 0) 100%
+    transparent 0%,
+    var(--text-inverse-muted) 50%,
+    transparent 100%
   );
   transform: rotate(25deg);
   pointer-events: none;
@@ -130,9 +130,9 @@
   justify-content: center;
   gap: 0.75rem;
   padding: 0.85rem 1.85rem;
-  background-color: var(--primary-color, #0B2F63) !important;
-  color: #ffffff !important;
-  border: 1px solid var(--primary-color, #0B2F63) !important;
+  background-color: var(--primary-color, var(--navy)) !important;
+  color: var(--white) !important;
+  border: 1px solid var(--primary-color, var(--navy)) !important;
   border-radius: 99px;
   font-size: 0.9375rem;
   font-weight: 700;
@@ -140,15 +140,15 @@
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
-  box-shadow: 0 4px 14px rgba(11, 47, 99, 0.22);
+  box-shadow: 0 4px 14px var(--navy-glow);
   transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out !important;
 }
 
 .swipe-btn:hover {
-  background-color: var(--brand, #98d12a) !important;
-  border-color: var(--brand, #98d12a) !important;
-  color: #0B2F63 !important;
-  box-shadow: 0 8px 24px rgba(11, 47, 99, 0.22);
+  background-color: var(--brand, var(--brand)) !important;
+  border-color: var(--brand, var(--brand)) !important;
+  color: var(--navy) !important;
+  box-shadow: 0 8px 24px var(--navy-glow);
   transform: translateY(-2px);
 }
 
@@ -160,7 +160,7 @@
 }
 
 .swipe-btn:hover .btn-text {
-  color: #0B2F63;
+  color: var(--navy);
 }
 
 /* The inner span holding the icon */
@@ -182,7 +182,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 50%;
   transform: translateX(-500%);
   opacity: 0;
@@ -202,8 +202,8 @@
   z-index: 1;
   width: 16px;
   height: 16px;
-  stroke: #ffffff;
-  color: #ffffff;
+  stroke: var(--white);
+  color: var(--white);
   transition: transform 0.5s ease-in-out, stroke 0.5s ease-in-out, color 0.5s ease-in-out;
   pointer-events: none;
 }

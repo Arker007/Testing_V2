@@ -37,12 +37,12 @@
 }
 
 .thumb:hover {
-  border-color: #98d12a;
+  border-color: var(--brand);
 }
 
 .thumbActive {
-  border: 2.5px solid #98d12a !important;
-  box-shadow: 0 0 0 2px rgba(152, 209, 42, 0.25) !important;
+  border: 2.5px solid var(--brand) !important;
+  box-shadow: 0 0 0 2px rgba(63, 174, 90, 0.25) !important;
 }
 
 .galleryGuarantees {
@@ -71,7 +71,7 @@
 }
 
 .galleryGuaranteeItem i {
-  color: #98d12a;
+  color: var(--brand);
   font-size: 0.9rem;
 }
 

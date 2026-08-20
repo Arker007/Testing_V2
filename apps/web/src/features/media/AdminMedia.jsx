@@ -100,7 +100,7 @@ export default function AdminMedia() {
                                 onClick={() => setActiveCategory(f.id)}
                             >
                                 <span>
-                                    <i className={`fa-solid ${f.icon}`} style={{ marginRight: 6, color: activeCategory === f.id ? 'var(--brand-dark)' : '#a0aec0' }} />
+                                    <i className={`fa-solid ${f.icon}`} style={{ marginRight: 6, color: activeCategory === f.id ? 'var(--brand-dark)' : 'var(--gray-300)' }} />
                                     {f.label}
                                 </span>
                                 <span style={{ fontSize: '0.72rem', color: 'var(--muted)', background: 'rgba(5, 40, 63, 0.04)', padding: '2px 6px', borderRadius: 10, fontWeight: 700 }}>

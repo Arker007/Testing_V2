@@ -19,11 +19,14 @@ export default function ProductGridCard({
   return (
     <motion.article
       className={styles.gridCard}
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.96 }}
-      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={{ y: -4 }}
+      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{
+        y: -6,
+        transition: { type: "spring", stiffness: 350, damping: 22 },
+      }}
     >
       <div className={styles.gridCardTop}>
         {/* Thumbnail Image Box */}

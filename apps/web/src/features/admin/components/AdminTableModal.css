@@ -18,7 +18,7 @@
 .settingsIcon {
   width: 40px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--brand-light);
   color: var(--brand-dark);
   display: flex;
@@ -31,7 +31,7 @@
   margin: 0;
   font-size: 1.25rem;
   font-weight: 850;
-  color: #0F172A;
+  color: var(--text-primary);
   letter-spacing: -0.015em;
 }
 
@@ -39,7 +39,7 @@
   margin: 0;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #64748B;
+  color: var(--text-muted);
 }
 
 .alertSuccess,
@@ -47,7 +47,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 12px 18px;
   margin-bottom: 24px;
   font-size: 0.875rem;
@@ -55,15 +55,15 @@
 }
 
 .alertSuccess {
-  background: #F0FDF4;
-  color: #16A34A;
-  border: 1px solid #BBF7D0;
+  background: var(--brand-light);
+  color: var(--color-success);
+  border: 1px solid var(--color-success-bg);
 }
 
 .alertError {
-  background: #FEF2F2;
-  color: #DC2626;
-  border: 1px solid #FECDDD;
+  background: var(--color-error);
+  color: var(--color-error);
+  border: 1px solid var(--color-error-bg);
 }
 
 .settingsFormTail {
@@ -91,8 +91,8 @@
   height: 110px;
   position: relative;
   border-radius: 12px;
-  border: 1px solid #EAECF0;
-  background: #F8FAFC;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-page);
   overflow: hidden;
 }
 
@@ -110,8 +110,8 @@
   height: 24px;
   border-radius: 50%;
   border: none;
-  background: rgba(239, 68, 68, 0.95);
-  color: #ffffff;
+  background: var(--danger-border);
+  color: var(--text-inverse);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,7 +122,7 @@
 
 .imgDel:hover {
   transform: scale(1.1);
-  background: #DC2626;
+  background: var(--color-error);
 }
 
 .imgMain {
@@ -132,7 +132,7 @@
   padding: 3px 8px;
   border-radius: 6px;
   background: var(--brand);
-  color: #0F172A;
+  color: var(--text-primary);
   font-size: 0.65rem;
   font-weight: 700;
 }
@@ -141,9 +141,9 @@
   width: 110px;
   height: 110px;
   border-radius: 12px;
-  border: 1.5px dashed #CBD5E1;
-  background: #ffffff;
-  color: #64748B;
+  border: 1.5px dashed var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -187,12 +187,12 @@
 .formSectionTitle {
   font-size: 0.95rem;
   font-weight: 750;
-  color: #0F172A;
+  color: var(--text-primary);
   margin: 12px 0 16px;
   display: flex;
   align-items: center;
   gap: 8px;
-  border-bottom: 1px solid #EAECF0;
+  border-bottom: 1px solid var(--border-subtle);
   padding-bottom: 8px;
 }
 
@@ -213,7 +213,7 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(15, 23, 42, 0.4);
+  background: var(--border-subtle);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
@@ -226,9 +226,9 @@
   max-height: min(90vh, 900px);
   overflow-y: auto;
   border-radius: 16px;
-  border: 1px solid #EAECF0;
-  background: #ffffff;
-  box-shadow: 0 24px 48px -12px rgba(16, 24, 40, 0.18);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  box-shadow: 0 24px 48px -12px var(--shadow-md);
   animation: modalEnter 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -243,15 +243,15 @@
   justify-content: space-between;
   gap: 16px;
   padding: 24px 28px;
-  border-bottom: 1px solid #EAECF0;
-  background: #FCFCFD;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-page);
 }
 
 .modalTitle {
   margin: 0;
   font-size: 1.15rem;
   font-weight: 850;
-  color: #0F172A;
+  color: var(--text-primary);
   letter-spacing: -0.02em;
 }
 
@@ -259,16 +259,16 @@
   margin-top: 4px;
   font-size: 0.85rem;
   font-weight: 500;
-  color: #64748B;
+  color: var(--text-muted);
 }
 
 .closeBtn {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid #EAECF0;
-  background: #ffffff;
-  color: #64748B;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-muted);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -277,9 +277,9 @@
 }
 
 .closeBtn:hover {
-  color: #0F172A;
-  border-color: #CBD5E1;
-  background-color: #F8FAFC;
+  color: var(--text-primary);
+  border-color: var(--border);
+  background-color: var(--bg-page);
 }
 
 .modalForm {

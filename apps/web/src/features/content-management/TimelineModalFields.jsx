@@ -9,7 +9,7 @@ export const TimelineModalFields = React.memo(function TimelineModalFields({ dat
         </label>
         <input
           className="form-input"
-          style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid #edf2f7" }}
+          style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)" }}
           required
           value={data.year || ""}
           onChange={(e) => onChange("year", e.target.value)}
@@ -22,7 +22,7 @@ export const TimelineModalFields = React.memo(function TimelineModalFields({ dat
         </label>
         <input
           className="form-input"
-          style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid #edf2f7" }}
+          style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)" }}
           required
           value={data.title || ""}
           onChange={(e) => onChange("title", e.target.value)}
@@ -35,7 +35,7 @@ export const TimelineModalFields = React.memo(function TimelineModalFields({ dat
         </label>
         <textarea
           className="form-textarea"
-          style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid #edf2f7", fontFamily: "inherit" }}
+          style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)", fontFamily: "inherit" }}
           rows={3}
           value={data.desc || ""}
           onChange={(e) => onChange("desc", e.target.value)}

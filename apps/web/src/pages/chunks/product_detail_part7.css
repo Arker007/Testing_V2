@@ -22,9 +22,9 @@
 
 .comparisonTdProduct {
   padding: 1rem;
-  background: #EAF4E2;
-  border-left: 1px solid #D2E4C4;
-  border-right: 1px solid #D2E4C4;
+  background: var(--brand-light);
+  border-left: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
   text-align: center;
   vertical-align: middle;
 }
@@ -40,13 +40,13 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #40a05a;
+  background: var(--color-success);
   color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 11px;
-  box-shadow: 0 2px 4px rgba(64, 160, 90, 0.25);
+  box-shadow: 0 2px 4px rgba(22, 163, 74, 0.25);
 }
 
 .crossCircle {
@@ -68,12 +68,12 @@
 }
 
 .comparisonEnquireBtn {
-  background: #f3e063;
-  color: #0B2F63;
-  font-weight: 800;
+  background: var(--brand);
+  color: var(--white);
+  font-weight: 700;
   font-size: 0.875rem;
   padding: 0.75rem 2rem;
-  border-radius: 4px;
+  border-radius: var(--radius-btn, 8px);
   border: none;
   cursor: pointer;
   display: inline-flex;
@@ -86,7 +86,7 @@
 }
 
 .comparisonEnquireBtn:hover {
-  background: #e8d348;
+  background: var(--brand-dark);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }

@@ -25,26 +25,12 @@ export default function SpecsTab({
           }}
         >
           {filteredCatFields.map((fld, idx) => (
-            <div key={idx} className="form-group">
-              <label
-                className="form-label"
-                style={{
-                  fontWeight: 600,
-                  fontSize: "13px",
-                  display: "block",
-                  marginBottom: "6px",
-                }}
-              >
+            <div key={idx} className={styles.formGroup}>
+              <label className={styles.formLabel}>
                 {fld.label || fld.name}
               </label>
               <input
-                className="form-input"
-                style={{
-                  width: "100%",
-                  padding: "10px",
-                  borderRadius: "8px",
-                  border: "1px solid #edf2f7",
-                }}
+                className={styles.formInput}
                 value={form.specifications[fld.name] || ""}
                 onChange={(e) =>
                   setForm((prev) => ({
@@ -66,12 +52,12 @@ export default function SpecsTab({
       ) : (
         <div
           style={{
-            background: "var(--bg-light)",
+            background: "var(--bg-section)",
             padding: "20px",
             borderRadius: "12px",
-            border: "1px solid rgba(5, 40, 63, 0.05)",
-            color: "var(--muted)",
-            fontSize: "0.8rem",
+            border: "1px solid var(--border)",
+            color: "var(--text-muted)",
+            fontSize: "0.8125rem",
             marginBottom: "32px",
           }}
         >
@@ -86,8 +72,8 @@ export default function SpecsTab({
       </div>
       <p
         style={{
-          fontSize: "0.78rem",
-          color: "var(--muted)",
+          fontSize: "0.8125rem",
+          color: "var(--text-muted)",
           marginBottom: "16px",
         }}
       >
@@ -109,7 +95,7 @@ export default function SpecsTab({
               alignItems: "center",
               background:
                 draggedFeatureIndex === idx
-                  ? "rgba(244, 178, 24, 0.05)"
+                  ? "var(--warning-bg)"
                   : "transparent",
               borderRadius: "8px",
               transition: "background 0.2s",
@@ -123,23 +109,18 @@ export default function SpecsTab({
                 justifyContent: "center",
                 width: "36px",
                 height: "42px",
-                border: "1px solid #edf2f7",
+                border: "1px solid var(--border)",
                 borderRadius: "8px",
-                background: "#f8fafc",
-                color: "#a0aec0",
+                background: "var(--bg-surface)",
+                color: "var(--text-muted)",
               }}
               title="Drag to reorder"
             >
               <i className="fa-solid fa-grip-vertical" />
             </div>
             <input
-              className="form-input"
-              style={{
-                flex: 1,
-                padding: "10px",
-                borderRadius: "8px",
-                border: "1px solid #edf2f7",
-              }}
+              className={styles.formInput}
+              style={{ flex: 1 }}
               value={feat}
               onChange={(e) =>
                 setForm((prev) => {

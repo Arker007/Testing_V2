@@ -44,19 +44,19 @@ export default function AdminSettings() {
         {errorMsg && <div role="alert" className={styles.alertError}><i className="fa-solid fa-circle-exclamation" /> {errorMsg}</div>}
 
         <form onSubmit={handleSubmit}>
-          <div className="form-group" style={{ marginBottom: "16px" }}>
-            <label htmlFor="currentPwd" className="form-label" style={{ fontWeight: 600, fontSize: "13px" }}>Current Password</label>
-            <input id="currentPwd" type="password" className="form-input" style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid #edf2f7" }} required autoComplete="current-password" value={form.current} onChange={f("current")} />
+          <div className={styles.formGroup}>
+            <label htmlFor="currentPwd" className={styles.formLabel}>Current Password</label>
+            <input id="currentPwd" type="password" className={styles.formInput} required autoComplete="current-password" value={form.current} onChange={f("current")} />
           </div>
-          <div className="form-group" style={{ marginBottom: "16px" }}>
-            <label htmlFor="newPwd" className="form-label" style={{ fontWeight: 600, fontSize: "13px" }}>New Password</label>
-            <input id="newPwd" type="password" className="form-input" style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid #edf2f7" }} required autoComplete="new-password" value={form.next} onChange={f("next")} placeholder="At least 6 characters" />
+          <div className={styles.formGroup}>
+            <label htmlFor="newPwd" className={styles.formLabel}>New Password</label>
+            <input id="newPwd" type="password" className={styles.formInput} required autoComplete="new-password" value={form.next} onChange={f("next")} placeholder="At least 6 characters" />
           </div>
-          <div className={`form-group ${styles.settingsFormTail}`} style={{ marginBottom: "24px" }}>
-            <label htmlFor="confirmPwd" className="form-label" style={{ fontWeight: 600, fontSize: "13px" }}>Confirm New Password</label>
-            <input id="confirmPwd" type="password" className="form-input" style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid #edf2f7" }} required autoComplete="new-password" value={form.confirm} onChange={f("confirm")} />
+          <div className={`${styles.formGroup} ${styles.settingsFormTail}`}>
+            <label htmlFor="confirmPwd" className={styles.formLabel}>Confirm New Password</label>
+            <input id="confirmPwd" type="password" className={styles.formInput} required autoComplete="new-password" value={form.confirm} onChange={f("confirm")} />
           </div>
-          <button type="submit" className={styles.actionBtnPrimary} style={{ width: "100%" }} disabled={status === "saving"}>
+          <button type="submit" className={`${styles.actionBtnPrimary} ${styles.settingsSubmit}`} disabled={status === "saving"}>
             {status === "saving" ? <><i className="fa-solid fa-spinner fa-spin" /> Saving password...</> : <><i className="fa-solid fa-floppy-disk" /> Save Password</>}
           </button>
         </form>

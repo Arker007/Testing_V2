@@ -1,33 +1,46 @@
 @import './shared/styles/index.css';
 
+/* Universal Typography Line-Height Rule (150% / 1.5) */
+p,
+.section-desc,
+.section-subtitle,
+.description,
+.ctaDescText,
+.indDesc,
+.catCardDesc,
+.projDetail,
+.testimonialQuote {
+  line-height: 1.5;
+}
+
 
 .exploreBtnGlobal {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  background: #8BD61A;
-  color: #FFFFFF !important;
-  font-size: 0.875rem;
+  background: var(--brand);
+  color: var(--text-inverse) !important;
+  font-size: var(--font-size-sm);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.85rem 2.2rem 0.85rem 1.6rem;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
   text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
-  box-shadow: 0 6px 20px rgba(139, 214, 26, 0.35);
+  transition: all var(--motion-duration-instant) cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: none;
   white-space: nowrap;
   border: none;
   cursor: pointer;
 }
 
 .exploreBtnGlobal:hover {
-  background: #7db018 !important;
-  color: #FFFFFF !important;
+  background: var(--brand-dark) !important;
+  color: var(--text-inverse) !important;
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(139, 214, 26, 0.45);
+  box-shadow: none;
 }
 
 .exploreBtnGlobal .exploreBtnArrowGlobal {

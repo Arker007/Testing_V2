@@ -109,7 +109,7 @@ export default function ContactInfoColumn({
       </div>
 
       {mapSrc && (
-        <div className="mt-6 rounded-2xl overflow-hidden border border-slate-100 shadow-sm h-64 relative">
+        <div className="mt-6 rounded-lg overflow-hidden border border-slate-100 shadow-sm h-64 relative">
           <iframe
             src={mapSrc}
             width="100%"

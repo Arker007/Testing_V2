@@ -1,6 +1,6 @@
-@import './chunks/contact_part1.css';
-@import './chunks/contact_part2.css';
-@import './chunks/contact_part3.css';
-@import './chunks/contact_part4.css';
-@import './chunks/contact_part5.css';
-@import './chunks/contact_part6.css';
+@import "./styles/contact/contact-hero.css";
+@import "./styles/contact/contact-main-layout.css";
+@import "./styles/contact/contact-form-fields.css";
+@import "./styles/contact/contact-actions-buttons.css";
+@import "./styles/contact/contact-workflow-cards.css";
+@import "./styles/contact/contact-trusted-partners.css";

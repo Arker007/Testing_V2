@@ -17,7 +17,6 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
     delay,
     cardType,
     spanClass,
-    isDark,
     badgeText,
     badgeClass,
     IconComponent,
@@ -58,8 +57,8 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
             {badgeText && <span className={styles[badgeClass]}>{badgeText}</span>}
           </div>
           <div className={styles.indCardMain}>
-            <h4 className={styles.indName}>{title}</h4>
-            <p className={styles.indDesc}>{desc}</p>
+            <h4 className={`${styles.indName} text-slate-900 dark:text-white font-extrabold`}>{title}</h4>
+            <p className={`${styles.indDesc} text-slate-700 dark:text-slate-300 font-normal`}>{desc}</p>
           </div>
           <div className={styles.bentoDivider} />
           <div className={styles.bentoFooter}>
@@ -85,7 +84,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         viewport={{ once: true, margin: "-50px" }}
         whileHover="hover"
         transition={{ delay }}
-        className={`${styles.industryCard} ${isDark ? styles.cardDark : styles.cardLight} ${spanClass ? styles[spanClass] : ""}`}
+        className={`${styles.industryCard} ${spanClass ? styles[spanClass] : ""}`}
       >
         <div className={styles.cardBgWrapper}>
           <OptimizedImage
@@ -93,7 +92,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
             alt={title}
             className={styles.cardBgImageRightHalf}
           />
-          <div className={isDark ? styles.cardBgOverlayDarkHalf : styles.cardBgOverlayLightHalf} />
+          <div className={styles.cardBgOverlayLightHalf} />
         </div>
 
         <div className={styles.cardContentWideRow}>
@@ -110,8 +109,8 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
             </div>
           )}
           <div className={styles.indCardMainRow}>
-            <h4 className={styles.indName}>{title}</h4>
-            <p className={styles.indDesc}>{desc}</p>
+            <h4 className={`${styles.indName} text-slate-900 dark:text-white font-extrabold`}>{title}</h4>
+            <p className={`${styles.indDesc} text-slate-700 dark:text-slate-300 font-normal`}>{desc}</p>
           </div>
           <div className={styles.arrowButtonRow}>
             <MotionArrowRight className="w-5 h-5 text-current" variants={bentoArrowVariants} />
@@ -156,12 +155,12 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
             </div>
           )}
           <div className={styles.indCardMain}>
-            <h4 className={styles.indName}>{title}</h4>
-            <p className={styles.indDesc}>{desc}</p>
+            <h4 className={`${styles.indName} text-slate-900 dark:text-white font-extrabold`}>{title}</h4>
+            <p className={`${styles.indDesc} text-slate-700 dark:text-slate-300 font-normal`}>{desc}</p>
           </div>
-          <div className={styles.arrowButtonWide}>
-            <MotionArrowRight className="w-5 h-5 text-current" variants={bentoArrowVariants} />
-          </div>
+        </div>
+        <div className={styles.arrowButtonWide}>
+          <MotionArrowRight className="w-5 h-5 text-current" variants={bentoArrowVariants} />
         </div>
       </motion.div>
     );
@@ -192,12 +191,12 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
           <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
         </div>
         <div className={styles.indCardMain}>
-          <h4 className={styles.indName}>{title}</h4>
-          <p className={styles.indDesc}>{desc}</p>
+          <h4 className={`${styles.indName} text-slate-900 dark:text-white font-extrabold`}>{title}</h4>
+          <p className={`${styles.indDesc} text-slate-700 dark:text-slate-300 font-normal`}>{desc}</p>
         </div>
-        <div className={styles.arrowButton}>
-          <MotionArrowRight className="w-5 h-5 text-current" variants={bentoArrowVariants} />
-        </div>
+      </div>
+      <div className={styles.arrowButton}>
+        <MotionArrowRight className="w-5 h-5 text-current" variants={bentoArrowVariants} />
       </div>
     </motion.div>
   );

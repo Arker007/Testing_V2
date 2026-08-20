@@ -4,122 +4,122 @@ html.dark {
   color-scheme: dark;
 
   /* 🎨 Core Background & Layout - Layers of Elevation in Dark Mode */
-  --bg-page: #0B111E;               /* Layer 1: Solid Dark Blue-Gray Base (Not pure black) */
-  --bg-section: #0F1726;            /* Layer 2: Soft section differentiation background */
-  --bg-surface: #141D2F;            /* Layer 3: Solid component/surface card background */
-  --bg-surface-elevated: #1C273D;   /* Layer 4: Popovers, Modals, Hovered list items */
-  --bg-card: #141D2F;               /* Card Base background */
-  --bg-card-hover: #1C273D;         /* Hover state of Cards */
-  --bg-interactive: #182338;        /* Input fields, select dropdowns, inactive tabs */
-  --bg-interactive-hover: #22304D;  /* Hover state for inputs, selects, secondary buttons */
-  --bg-interactive-active: #2B3C5E; /* Active/Pressed state for interactive surfaces */
-  --bg-glass: rgba(11, 15, 25, 0.85); /* Frosty transparent dark glass */
+  --bg-page: var(--gray-900);               /* Layer 1: Solid Dark Blue-Gray Base (Not pure black) */
+  --bg-section: var(--gray-900);            /* Layer 2: Soft section differentiation background */
+  --bg-surface: var(--gray-800);            /* Layer 3: Solid component/surface card background */
+  --bg-surface-elevated: var(--gray-800);   /* Layer 4: Popovers, Modals, Hovered list items */
+  --bg-card: var(--gray-800);               /* Card Base background */
+  --bg-card-hover: var(--gray-800);         /* Hover state of Cards */
+  --bg-interactive: var(--gray-800);        /* Input fields, select dropdowns, inactive tabs */
+  --bg-interactive-hover: var(--gray-800);  /* Hover state for inputs, selects, secondary buttons */
+  --bg-interactive-active: var(--gray-800); /* Active/Pressed state for interactive surfaces */
+  --bg-glass: var(--bg-glass-dark);
 
   --background: var(--bg-page);
   --bg-light: var(--bg-section);
   --surface: var(--bg-surface);
 
-  /* 🌑 Deep Background System (Remains dark, slightly lighter for layering) */
-  --dark: #080C14;
-  --dark-navy: #080C14;
-  --dark2: #0C121E;
-  --dark3: #121A2C;
+  /* 🌑 Deep Background System */
+  --dark: var(--gray-900);
+  --dark-navy: var(--gray-900);
+  --dark2: var(--gray-900);
+  --dark3: var(--gray-900);
 
   /* 🧠 Text Hierarchy (Optimized for Dark Mode Contrast, WCAG Compliant) */
-  --text-primary: #F8FAFC;          /* High contrast Slate-50 for crisp readability */
-  --text-secondary: #E2E8F0;        /* Slate-200 for subheadings and dense text copy */
-  --text-muted: #94A3B8;            /* Slate-400 for secondary descriptors and labels */
-  --text-disabled: #64748B;         /* Slate-500 for disabled actions/placeholder text */
-  --text-inverse: #0B111E;          /* Used for text inside highly bright primary badges */
+  --text-primary: var(--gray-50);          /* High contrast Slate-50 for crisp readability */
+  --text-secondary: var(--gray-200);        /* Slate-200 for subheadings and dense text copy */
+  --text-muted: var(--gray-400);            /* Slate-400 for secondary descriptors and labels */
+  --text-disabled: var(--gray-500);         /* Slate-500 for disabled actions/placeholder text */
+  --text-inverse: var(--gray-900);          /* Used for text inside highly bright primary badges */
 
   --heading: var(--text-primary);
   --body-text: var(--text-secondary);
   --light-text: var(--text-muted);
-  --white-text: #F8FAFC;
+  --white-text: var(--gray-50);
 
-  /* 🌟 Brand Palette (Slightly adjusted for safe luminescence on dark surfaces) */
-  --brand: #a3e635;                 /* Slightly warmer, highly accessible Fresh Lime */
-  --brand-rgb: 163, 230, 53;
-  --brand-dark: #84cc16;
-  --brand-hover: #bef264;
-  --brand-light: rgba(163, 230, 53, 0.12);
-  --brand-text: #a3e635;            /* Luminous, highly readable lime brand text */
-  --brand-glow: rgba(163, 230, 53, 0.15);
+  /* 🌟 Brand Palette */
+  --brand: var(--brand);
+  --brand-rgb: 152, 209, 42;
+  --brand-dark: var(--brand);
+  --brand-hover: var(--brand-light);
+  --brand-light: var(--brand-badge-bg);
+  --brand-text: var(--brand);
+  --brand-glow: var(--brand-glow);
 
-  --accent: #a3e635;
-  --accent-dark: #84cc16;
+  --accent: var(--brand);
+  --accent-dark: var(--brand);
 
   /* Primary Brand Colors */
-  --primary-color: #a3e635;
-  --primary-navy: #a3e635;
-  --secondary-color: #bef264;
-  --secondary-navy: #bef264;
-  --color-primary: #a3e635;
-  --color-secondary: #bef264;
+  --primary-color: var(--brand);
+  --primary-navy: var(--brand);
+  --secondary-color: var(--brand-light);
+  --secondary-navy: var(--brand-light);
+  --color-primary: var(--brand);
+  --color-secondary: var(--brand-light);
 
   /* 🔲 Borders & Dividers */
-  --border: rgba(148, 163, 184, 0.12); /* Balanced opacity Slate-400 borders */
-  --border-strong: rgba(148, 163, 184, 0.22);
-  --border-subtle: rgba(148, 163, 184, 0.08);
-  --border-default: rgba(148, 163, 184, 0.12);
-  --divider: rgba(148, 163, 184, 0.08);
+  --border: var(--border-dark);
+  --border-strong: var(--border-dark-strong);
+  --border-subtle: var(--border-dark);
+  --border-default: var(--border-dark);
+  --divider: var(--border-dark);
 
   /* ✨ Shadows & Elevation */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
-  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.6), 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
 
   /* 🎯 Icon Themes */
-  --icon-primary: #a3e635;
-  --icon-accent: #a3e635;
-  --icon-inactive: #64748B;
+  --icon-primary: var(--brand);
+  --icon-accent: var(--brand);
+  --icon-inactive: var(--gray-500);
 
-  --icon-emerald-bg: rgba(163, 230, 53, 0.15);
-  --icon-emerald-fg: #a3e635;
+  --icon-emerald-bg: var(--brand-glow-subtle);
+  --icon-emerald-fg: var(--brand);
 
-  --icon-cyan-bg: rgba(163, 230, 53, 0.12);
-  --icon-cyan-fg: #a3e635;
+  --icon-cyan-bg: var(--brand-glow-subtle);
+  --icon-cyan-fg: var(--brand);
 
-  --icon-amber-bg: rgba(245, 158, 11, 0.15);
-  --icon-amber-fg: #FBBF24;
+  --icon-amber-bg: var(--warning-bg);
+  --icon-amber-fg: var(--color-warning);
 
-  --icon-indigo-bg: rgba(163, 230, 53, 0.12);
-  --icon-indigo-fg: #a3e635;
+  --icon-indigo-bg: var(--brand-glow-subtle);
+  --icon-indigo-fg: var(--brand);
 
   /* Status Colors */
-  --success: #34D399;               /* Soft emerald */
-  --warning: #FBBF24;               /* Soft amber */
-  --danger: #F87171;                /* Soft red */
-  --info: #60A5FA;                  /* Soft blue */
-  --color-success: #34D399;
-  --color-warning: #FBBF24;
-  --color-error: #F87171;
+  --success: var(--color-success);
+  --warning: var(--color-warning);
+  --danger: var(--color-error);
+  --info: var(--color-info);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
 
   /* 🏆 Glow Effects */
-  --award-stroke: rgba(163, 230, 53, 0.15);
-  --award-glow-soft: 0 12px 30px rgba(0, 0, 0, 0.4);
-  --award-glow-strong: 0 24px 60px rgba(0, 0, 0, 0.5);
+  --award-stroke: var(--brand-glow-subtle);
+  --award-glow-soft: var(--shadow-lg);
+  --award-glow-strong: var(--shadow-xl);
 
   /* 🌈 Gradient Accents */
-  --hero-gradient: linear-gradient(135deg, #0B111E 0%, #0F1726 100%);
-  --gradient-brand: linear-gradient(135deg, #a3e635, #84cc16);
-  --gradient-dark: linear-gradient(135deg, #080C14 0%, #0F1726 100%);
+  --hero-gradient: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-900) 100%);
+  --gradient-brand: linear-gradient(135deg, var(--brand), var(--brand));
+  --gradient-dark: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-900) 100%);
   --gradient-glass: linear-gradient(
     135deg,
-    rgba(20, 29, 47, 0.95),
-    rgba(20, 29, 47, 0.8)
+    var(--bg-glass-dark),
+    var(--bg-glass-dark)
   );
 
   /* Focus Ring */
-  --focus-ring: #a3e635;
+  --focus-ring: var(--brand);
 }
 
 :root[data-theme="dark"] body,
 html.dark body {
   background:
-    radial-gradient(1200px 500px at 5% -5%, rgba(163, 230, 53, 0.08), transparent 50%),
-    radial-gradient(1000px 400px at 100% 0%, rgba(11, 15, 25, 0.4), transparent 50%),
+    radial-gradient(1200px 500px at 5% -5%, var(--brand-glow-subtle), transparent 50%),
+    radial-gradient(1000px 400px at 100% 0%, var(--navy-subtle), transparent 50%),
     var(--bg-page);
   color: var(--text-primary);
 }

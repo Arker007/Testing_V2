@@ -13,6 +13,19 @@ export default class ErrorBoundary extends Component {
 
   componentDidCatch(error, errorInfo) {
     console.error("ErrorBoundary caught an error", error, errorInfo);
+    // Check if error is related to stale Vite chunk or dynamic module import failure
+    const errorMsg = error?.message || "";
+    if (
+      errorMsg.includes("Failed to fetch dynamically imported module") ||
+      errorMsg.includes("dynamically imported module") ||
+      errorMsg.includes("Importing a module script failed")
+    ) {
+      const alreadyRefreshed = sessionStorage.getItem("chunk_reload_attempt");
+      if (!alreadyRefreshed) {
+        sessionStorage.setItem("chunk_reload_attempt", "1");
+        window.location.reload();
+      }
+    }
   }
 
   render() {

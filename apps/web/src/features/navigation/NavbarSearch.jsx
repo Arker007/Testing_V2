@@ -106,6 +106,7 @@ export default function NavbarSearch({ products = [], onSearchSubmit }) {
         </button>
 
         <input
+          id="navbar-search-input"
           ref={inputRef}
           type="text"
           placeholder="Search..."
@@ -117,6 +118,7 @@ export default function NavbarSearch({ products = [], onSearchSubmit }) {
           }}
           aria-label="Search products"
           autoComplete="off"
+          className="focus:outline-none focus:ring-0 border-none bg-transparent shadow-none"
         />
 
         {isExpanded && (

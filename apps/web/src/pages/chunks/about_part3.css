@@ -2,13 +2,13 @@
 .processCard:hover,
 .processCardActive {
   background: rgba(255, 255, 255, 0.1);
-  border-color: #98d12a;
+  border-color: var(--brand);
   transform: translateY(-3px);
 }
 
 .processCardIcon {
   font-size: 1.1rem;
-  color: #98d12a;
+  color: var(--brand);
   margin-top: 0.2rem;
 }
 
@@ -16,14 +16,14 @@
   font-family: var(--font-display, inherit);
   font-size: 1.25rem;
   font-weight: 900;
-  color: #98d12a;
+  color: var(--brand);
   line-height: 1;
 }
 
 .processTitle {
   font-size: 0.925rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--white);
   margin: 0;
 }
 
@@ -37,7 +37,7 @@
 /* ── Timeline Section ── */
 .timelineSection {
   padding: 4.5rem 0;
-  background: #F8FAFC;
+  background: var(--gray-50);
   border-bottom: 1px solid rgba(5, 40, 63, 0.08);
 }
 
@@ -48,7 +48,7 @@
 }
 
 .tlCardNew {
-  background: var(--bg-card, #ffffff);
+  background: var(--bg-card, var(--white));
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 1.5rem;
@@ -61,7 +61,7 @@
 }
 
 .tlCardNew:hover {
-  border-color: #98d12a;
+  border-color: var(--brand);
   transform: translateY(-3px);
   box-shadow: var(--shadow-sm);
 }
@@ -73,8 +73,8 @@
 }
 
 .tlYearBadge {
-  background: #0B2F63;
-  color: #98d12a;
+  background: var(--navy);
+  color: var(--brand);
   font-family: var(--font-display, inherit);
   font-size: 0.85rem;
   font-weight: 800;
@@ -83,7 +83,7 @@
 }
 
 .tlHeader i {
-  color: #7db018;
+  color: var(--brand-dark);
   font-size: 0.9rem;
 }
 
@@ -91,13 +91,13 @@
   font-family: var(--font-display, inherit);
   font-size: 1rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy);
   margin: 0;
 }
 
 .tlDescNew {
   font-size: 0.8125rem;
-  color: #5B6873;
+  color: var(--gray-500);
   line-height: 1.55;
   margin: 0;
 }
@@ -105,7 +105,7 @@
 /* ── Certifications Section ── */
 .certSection {
   padding: 4.5rem 0;
-  background: var(--bg-card, #ffffff);
+  background: var(--bg-card, var(--white));
 }
 
 .certGrid {
@@ -115,7 +115,7 @@
 }
 
 .certCardNew {
-  background: #F8FAFC;
+  background: var(--gray-50);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1.5rem;
@@ -127,8 +127,8 @@
 }
 
 .certCardNew:hover {
-  background: var(--bg-card, #ffffff);
-  border-color: #98d12a;
+  background: var(--bg-card, var(--white));
+  border-color: var(--brand);
   box-shadow: var(--shadow-sm);
   transform: translateY(-2px);
 }
@@ -144,7 +144,7 @@
   height: 38px;
   border-radius: 8px;
   background: rgba(152, 209, 42, 0.18);
-  color: #0B2F63;
+  color: var(--navy);
   display: grid;
   place-items: center;
   font-size: 1rem;
@@ -159,7 +159,7 @@
   font-size: 0.65rem;
   font-weight: 800;
   text-transform: uppercase;
-  color: #7db018;
+  color: var(--brand-dark);
   letter-spacing: 0.04em;
 }
 
@@ -167,13 +167,13 @@
   font-family: var(--font-display, inherit);
   font-size: 0.95rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy);
   margin: 0;
 }
 
 .certDescNew {
   font-size: 0.8125rem;
-  color: #5B6873;
+  color: var(--gray-500);
   line-height: 1.5;
   margin: 0;
 }
@@ -181,7 +181,7 @@
 /* ── Leadership Team ── */
 .teamSection {
   padding: 4.5rem 0;
-  background: #F8FAFC;
+  background: var(--gray-50);
   border-top: 1px solid rgba(5, 40, 63, 0.08);
   border-bottom: 1px solid rgba(5, 40, 63, 0.08);
 }
@@ -193,7 +193,7 @@
 }
 
 .teamCardNew {
-  background: var(--bg-card, #ffffff);
+  background: var(--bg-card, var(--white));
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 1.75rem 1.25rem;

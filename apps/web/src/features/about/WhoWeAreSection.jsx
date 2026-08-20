@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { Award, Eye, Target } from "lucide-react";
 import { useSite } from "../../shared/context/SiteContext";
+import Badge from "../../shared/components/ui/Badge";
 import { containerVariants, itemVariants } from "./about.constants";
 
 export default function WhoWeAreSection() {
@@ -13,20 +14,20 @@ export default function WhoWeAreSection() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Left Column: Heading & Paragraph */}
         <div className="lg:col-span-5 space-y-6">
-          <span className="section-eyebrow">
+          <Badge variant="brand" size="md">
             Who We Are
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-navy tracking-tight leading-tight">
+          </Badge>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
             {c("about_who_title", "Pioneering Eco-Friendly Industrial Plastics Since 2008.")}
           </h2>
-          <div className="h-1 w-16 bg-brand rounded-full" />
-          <p className="text-slate-600 text-base leading-relaxed font-normal">
+          <div className="h-1 w-16 bg-emerald-500 rounded-lg" />
+          <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed font-normal">
             {c(
               "about_who_text_1",
               "Founded in Gujarat, Vishal Enterprise has grown from a local recycling facility into one of Western India's most dependable manufacturers of high-density plastic pallets, industrial crates, and premium recycled plastic granules."
             )}
           </p>
-          <p className="text-slate-600 text-base leading-relaxed font-normal">
+          <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed font-normal">
             {c(
               "about_who_text_2",
               "By merging rigorous quality control with environmentally responsible processing techniques, we empower logistics, agriculture, chemical, and manufacturing sectors to cut operational overhead while significantly lowering their carbon footprint."
@@ -45,14 +46,14 @@ export default function WhoWeAreSection() {
           {/* Card 1: Mission */}
           <motion.div
             variants={itemVariants}
-            className="group flex items-start gap-5 p-6 bg-white rounded-2xl border border-slate-100/80 hover:border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300"
+            className="group flex items-start gap-5 p-6 bg-white dark:bg-[#171E26] rounded-xl border border-slate-200/90 dark:border-white/10 hover:border-emerald-300 dark:hover:border-emerald-500/50 shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300"
           >
-            <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center text-brand-dark transition-transform duration-300 group-hover:scale-110 shrink-0">
+            <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200/60 dark:border-emerald-500/30 flex items-center justify-center text-emerald-700 dark:text-emerald-400 transition-transform duration-300 group-hover:scale-110 shrink-0">
               <Target className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-black text-navy">Our Mission</h3>
-              <p className="text-sm text-slate-500 leading-relaxed font-normal mt-1">
+              <h3 className="text-lg font-black text-slate-900 dark:text-white">Our Mission</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal mt-1">
                 To deliver top-quality recycled plastic products that add value, reduce waste and create a better world.
               </p>
             </div>
@@ -61,14 +62,14 @@ export default function WhoWeAreSection() {
           {/* Card 2: Vision */}
           <motion.div
             variants={itemVariants}
-            className="group flex items-start gap-5 p-6 bg-white rounded-2xl border border-slate-100/80 hover:border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300"
+            className="group flex items-start gap-5 p-6 bg-white dark:bg-[#171E26] rounded-xl border border-slate-200/90 dark:border-white/10 hover:border-emerald-300 dark:hover:border-emerald-500/50 shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300"
           >
-            <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center text-brand-dark transition-transform duration-300 group-hover:scale-110 shrink-0">
+            <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200/60 dark:border-emerald-500/30 flex items-center justify-center text-emerald-700 dark:text-emerald-400 transition-transform duration-300 group-hover:scale-110 shrink-0">
               <Eye className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-black text-navy">Our Vision</h3>
-              <p className="text-sm text-slate-500 leading-relaxed font-normal mt-1">
+              <h3 className="text-lg font-black text-slate-900 dark:text-white">Our Vision</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal mt-1">
                 To be India's most trusted and preferred manufacturer of sustainable plastic solutions.
               </p>
             </div>
@@ -77,14 +78,14 @@ export default function WhoWeAreSection() {
           {/* Card 3: Commitment */}
           <motion.div
             variants={itemVariants}
-            className="group flex items-start gap-5 p-6 bg-white rounded-2xl border border-slate-100/80 hover:border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300"
+            className="group flex items-start gap-5 p-6 bg-white dark:bg-[#171E26] rounded-xl border border-slate-200/90 dark:border-white/10 hover:border-emerald-300 dark:hover:border-emerald-500/50 shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300"
           >
-            <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center text-brand-dark transition-transform duration-300 group-hover:scale-110 shrink-0">
+            <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200/60 dark:border-emerald-500/30 flex items-center justify-center text-emerald-700 dark:text-emerald-400 transition-transform duration-300 group-hover:scale-110 shrink-0">
               <Award className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-black text-navy">Our Commitment</h3>
-              <p className="text-sm text-slate-500 leading-relaxed font-normal mt-1">
+              <h3 className="text-lg font-black text-slate-900 dark:text-white">Our Commitment</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal mt-1">
                 Every product is checked, tested and delivered with a promise of quality you can rely on.
               </p>
             </div>

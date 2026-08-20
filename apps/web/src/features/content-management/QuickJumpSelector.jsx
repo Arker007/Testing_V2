@@ -24,22 +24,22 @@ export default function QuickJumpSelector({
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          background: "#ffffff",
-          border: "1px solid rgba(5, 40, 63, 0.12)",
+          background: "var(--white)",
+          border: "1px solid var(--navy-subtle)",
           borderRadius: "10px",
           padding: "8px 12px",
           cursor: "pointer",
-          boxShadow: "0 2px 6px rgba(0,0,0,0.02)",
+          boxShadow: "0 2px 6px var(--shadow-sm)",
           transition: "all 0.2s",
         }}
-        className="hover:border-[#98d12a]"
+        className="hover:border-[var(--brand)]"
       >
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <i
             className={`fa-solid ${
               ALL_SECTIONS_LIST.find((s) => s.key === activeSub)?.icon ||
               "fa-file-pen"
-            } text-[#98d12a]`}
+            } text-[var(--brand)]`}
           />
           <span
             style={{
@@ -66,10 +66,10 @@ export default function QuickJumpSelector({
             top: "calc(100% + 6px)",
             left: 0,
             right: 0,
-            background: "#ffffff",
+            background: "var(--white)",
             borderRadius: "12px",
-            border: "1px solid rgba(5, 40, 63, 0.12)",
-            boxShadow: "0 12px 28px rgba(0,0,0,0.08)",
+            border: "1px solid var(--navy-subtle)",
+            boxShadow: "0 12px 28px var(--shadow-sm)",
             zIndex: 100,
             overflow: "hidden",
             padding: "8px",
@@ -80,7 +80,7 @@ export default function QuickJumpSelector({
               display: "flex",
               alignItems: "center",
               padding: "8px 10px",
-              borderBottom: "1px solid #f1f5f9",
+              borderBottom: "1px solid var(--gray-100)",
               marginBottom: "6px",
             }}
           >
@@ -183,8 +183,8 @@ export default function QuickJumpSelector({
                       style={{
                         fontSize: "0.62rem",
                         textTransform: "uppercase",
-                        background: "#f1f5f9",
-                        color: "#475569",
+                        background: "var(--gray-100)",
+                        color: "var(--gray-600)",
                         padding: "1px 4px",
                         borderRadius: "3px",
                         fontWeight: 700,
@@ -210,8 +210,8 @@ export default function QuickJumpSelector({
                         padding: "1px 5px",
                         borderRadius: "4px",
                         background: isOn
-                          ? "rgba(152, 209, 42, 0.15)"
-                          : "#f1f5f9",
+                          ? "var(--brand-glow-subtle)"
+                          : "var(--gray-100)",
                         color: isOn ? "var(--brand-dark)" : "var(--muted)",
                       }}
                     >

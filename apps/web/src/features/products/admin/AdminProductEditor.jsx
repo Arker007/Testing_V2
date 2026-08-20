@@ -72,9 +72,9 @@ export default function AdminProductEditor() {
             type="checkbox"
             checked={form.published}
             onChange={(e) => setForm((p) => ({ ...p, published: e.target.checked }))}
-            style={{ accentColor: "#98d12a", transform: "scale(1.2)" }}
+            style={{ accentColor: "var(--brand)", transform: "scale(1.2)" }}
           />
-          <span style={{ fontSize: "13px", fontWeight: 700, color: form.published ? "#98d12a" : "#8a92a6" }}>
+          <span style={{ fontSize: "13px", fontWeight: 700, color: form.published ? "var(--brand)" : "var(--gray-400)" }}>
             Show in Catalog
           </span>
         </label>
@@ -132,7 +132,7 @@ export default function AdminProductEditor() {
         <button className={styles.actionBtnSecondary} style={{ padding: "8px 16px" }} onClick={() => navigate("/admin/products")}>
           <i className="fa-solid fa-arrow-left" /> Back
         </button>
-        <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#1e2229", margin: 0 }}>
+        <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--gray-800)", margin: 0 }}>
           {isNew ? "Add New Product" : `Edit Product: ${form.name}`}
         </h2>
       </div>
@@ -213,12 +213,12 @@ export default function AdminProductEditor() {
           )}
 
           {/* Persistent Action Footer */}
-          <div className={styles.modalFooter} style={{ borderTop: "1px solid #edf2f7", paddingTop: "20px", marginTop: "32px" }}>
+          <div className={styles.modalFooter} style={{ borderTop: "1px solid var(--gray-200)", paddingTop: "20px", marginTop: "32px" }}>
             <button type="button" className={styles.actionBtnSecondary} onClick={() => navigate("/admin/products")}>Cancel</button>
             <div style={{ display: "flex", alignItems: "center", gap: "16px", marginLeft: "auto" }}>
               <label style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
-                <input type="checkbox" checked={form.published} onChange={(e) => setForm(p => ({ ...p, published: e.target.checked }))} style={{ accentColor: "#98d12a", transform: "scale(1.2)" }} />
-                <span style={{ fontSize: "14px", fontWeight: 600, color: form.published ? "#98d12a" : "#8a92a6" }}>Visible on Website</span>
+                <input type="checkbox" checked={form.published} onChange={(e) => setForm(p => ({ ...p, published: e.target.checked }))} style={{ accentColor: "var(--brand)", transform: "scale(1.2)" }} />
+                <span style={{ fontSize: "14px", fontWeight: 600, color: form.published ? "var(--brand)" : "var(--gray-400)" }}>Visible on Website</span>
               </label>
               <button type="submit" className={styles.actionBtnPrimary} disabled={saving || uploading}>
                 {saving ? <><i className="fa-solid fa-circle-notch fa-spin" /> Saving...</> : <><i className="fa-solid fa-floppy-disk" /> Save Product</>}

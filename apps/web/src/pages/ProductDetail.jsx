@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import QuoteButton from "../shared/components/QuoteButton";
 import InquiryModal from "../shared/components/InquiryModal";
+import Card from "../shared/components/ui/Card";
+import Badge from "../shared/components/ui/Badge";
 import { useSite } from "../shared/context/SiteContext";
 import useDocumentTitle from "../shared/hooks/useDocumentTitle";
 import ProductGallery from "../features/product-detail/ProductGallery";
@@ -88,46 +90,46 @@ export default function ProductDetail() {
 
   if (loading) {
     return (
-      <main style={{ paddingTop: "var(--nav-h)", minHeight: "80vh", background: "#fafafa" }}>
+      <main className="pt-[var(--nav-h)] min-h-[80vh] bg-slate-50 dark:bg-slate-950">
         {/* Breadcrumb Skeleton */}
-        <div className={styles.breadcrumb} style={{ borderBottom: "1px solid #eee", padding: "1rem 0" }}>
-          <div className={`container ${styles.breadcrumbInner}`} style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-            <div style={{ width: "40px", height: "16px", background: "#e2e8f0", borderRadius: "4px" }} />
-            <div style={{ width: "10px", height: "16px", background: "#e2e8f0", borderRadius: "4px" }} />
-            <div style={{ width: "60px", height: "16px", background: "#e2e8f0", borderRadius: "4px" }} />
+        <div className={`${styles.breadcrumb} border-b border-[var(--border-card)] py-4`}>
+          <div className={`container ${styles.breadcrumbInner} flex gap-2.5 items-center`}>
+            <div className="w-10 h-4 bg-slate-200 dark:bg-white/10 rounded-sm" />
+            <div className="w-2.5 h-4 bg-slate-200 dark:bg-white/10 rounded-sm" />
+            <div className="w-16 h-4 bg-slate-200 dark:bg-white/10 rounded-sm" />
           </div>
         </div>
         
-        <div className={`container ${styles.detailContainer}`} style={{ marginTop: "2rem" }}>
+        <div className={`container ${styles.detailContainer} mt-8`}>
           <section className={styles.bentoHeroGrid}>
-            <div className={styles.leftColStack} style={{ display: "flex", flexDirection: "column", gap: "2rem", marginBottom: "2rem" }}>
+            <div className={`${styles.leftColStack} flex flex-col gap-8 mb-8`}>
                {/* Gallery Skeleton */}
-               <div style={{ width: "100%", aspectRatio: "4/3", background: "#e2e8f0", borderRadius: "16px" }} className="animate-pulse" />
-               <div style={{ display: "flex", gap: "1rem" }}>
+               <div className="w-full aspect-4/3 bg-slate-200 dark:bg-white/10 rounded-2xl animate-pulse" />
+               <div className="flex gap-4">
                  {[1, 2, 3].map((_, i) => (
-                   <div key={i} style={{ width: "80px", height: "80px", background: "#e2e8f0", borderRadius: "8px" }} className="animate-pulse" />
+                   <div key={i} className="w-20 h-20 bg-slate-200 dark:bg-white/10 rounded-lg animate-pulse" />
                  ))}
                </div>
             </div>
-            <div className={styles.rightColStack} style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            {/* Title & Desc Skeleton */}
-            <div style={{ width: "80%", height: "40px", background: "#e2e8f0", borderRadius: "8px" }} className="animate-pulse" />
-            <div style={{ width: "100%", height: "20px", background: "#e2e8f0", borderRadius: "4px" }} className="animate-pulse" />
-            <div style={{ width: "90%", height: "20px", background: "#e2e8f0", borderRadius: "4px" }} className="animate-pulse" />
-            
-            {/* Specs Grid Skeleton */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginTop: "2rem" }}>
-               {[1, 2, 3, 4].map((_, i) => (
-                 <div key={i} style={{ height: "60px", background: "#e2e8f0", borderRadius: "8px" }} className="animate-pulse" />
-               ))}
-            </div>
+            <div className={`${styles.rightColStack} flex flex-col gap-6`}>
+              {/* Title & Desc Skeleton */}
+              <div className="w-4/5 h-10 bg-slate-200 dark:bg-white/10 rounded-lg animate-pulse" />
+              <div className="w-full h-5 bg-slate-200 dark:bg-white/10 rounded-sm animate-pulse" />
+              <div className="w-[90%] h-5 bg-slate-200 dark:bg-white/10 rounded-sm animate-pulse" />
+              
+              {/* Specs Grid Skeleton */}
+              <div className="grid grid-cols-2 gap-4 mt-8">
+                 {[1, 2, 3, 4].map((_, i) => (
+                   <div key={i} className="h-16 bg-slate-200 dark:bg-white/10 rounded-lg animate-pulse" />
+                 ))}
+              </div>
 
-            {/* Buttons Skeleton */}
-            <div style={{ display: "flex", gap: "1rem", marginTop: "2rem" }}>
-              <div style={{ width: "50%", height: "48px", background: "#e2e8f0", borderRadius: "8px" }} className="animate-pulse" />
-              <div style={{ width: "50%", height: "48px", background: "#e2e8f0", borderRadius: "8px" }} className="animate-pulse" />
+              {/* Buttons Skeleton */}
+              <div className="flex gap-4 mt-8">
+                <div className="w-1/2 h-12 bg-slate-200 dark:bg-white/10 rounded-lg animate-pulse" />
+                <div className="w-1/2 h-12 bg-slate-200 dark:bg-white/10 rounded-lg animate-pulse" />
+              </div>
             </div>
-          </div>
           </section>
         </div>
       </main>
@@ -136,9 +138,9 @@ export default function ProductDetail() {
 
   if (!product || product.error) {
     return (
-      <main style={{ paddingTop: "var(--nav-h)", minHeight: "60vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem" }}>
-        <i className="fa-solid fa-triangle-exclamation" style={{ fontSize: "3rem", color: "#f59e0b" }} />
-        <p>Product not found.</p>
+      <main className="pt-[var(--nav-h)] min-h-[60vh] flex flex-col items-center justify-center gap-4 text-center px-4">
+        <i className="fa-solid fa-triangle-exclamation text-5xl text-amber-500" />
+        <p className="text-slate-700 dark:text-slate-300 font-medium">Product not found.</p>
         <Link to="/products" className="btn btn--outline">← Back to Products</Link>
       </main>
     );
@@ -175,7 +177,7 @@ export default function ProductDetail() {
   ].filter(Boolean);
 
   return (
-    <main style={{ paddingTop: "var(--nav-h)", paddingBottom: "4rem", background: "#fafafa" }}>
+    <main className="pt-[var(--nav-h)] pb-16 bg-slate-50 dark:bg-slate-950">
       {/* Breadcrumb */}
       <div className={styles.breadcrumb}>
         <div className={`container ${styles.breadcrumbInner}`}>
@@ -227,12 +229,32 @@ export default function ProductDetail() {
           </div>
         </section>
 
-        <section className={styles.detailCtaBand}>
-          <div>
-            <h3>Interested in custom requirements?</h3>
-            <p>Call us at {co("phone", "+91 98986 86379")} or request a quote</p>
-          </div>
-          <QuoteButton type="button" text="Get Quote" onClick={() => setShowInquiry(false)} />
+        <section className="my-8 cta-section">
+          <Card
+            variant="elevated"
+            className="p-8 sm:p-12 text-slate-900 dark:text-white shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[#171E26] border border-slate-200/90 dark:border-white/10 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+          >
+            {/* Ambient radial glow blobs */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--brand)]/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
+
+            <div className="relative z-10">
+              <div className="mb-3">
+                <Badge variant="brand" size="md">
+                  Custom Extrusion & Sizing
+                </Badge>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+                Interested in custom requirements or bulk lot orders?
+              </h3>
+              <p className="text-slate-600 dark:text-slate-300 text-sm mt-2 max-w-xl font-medium leading-relaxed">
+                Call our sales desk at {co("phone", "+91 98986 86379")} or request a direct factory quote.
+              </p>
+            </div>
+            <div className="relative z-10 shrink-0 self-start sm:self-auto">
+              <QuoteButton type="button" text="Get Quote" onClick={() => setShowInquiry(true)} className="shadow-md" />
+            </div>
+          </Card>
         </section>
 
         <ProductTabsSection

@@ -16,12 +16,12 @@
 .indexCellThumbsFallback {
   height: 26px;
   width: 32px;
-  background: #f4f4f4;
-  border: 1px solid #eee;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
   border-radius: 2px;
   display: grid;
   place-items: center;
-  color: #ccc;
+  color: var(--gray-200);
   font-size: 0.75rem;
 }
 
@@ -30,12 +30,12 @@
   text-align: right;
   font-size: 13px;
   font-weight: 700;
-  color: #555;
+  color: var(--gray-600);
 }
 
 .userGuideRow {
-  background: #fcf8f2;
-  border: 1px solid #f6ebe1;
+  background: var(--gray-50);
+  border: 1px solid var(--color-warning-bg);
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -47,7 +47,7 @@
 .userGuideLabel {
   font-size: 14.5px;
   font-weight: 800;
-  color: #f5b21f;
+  color: var(--color-warning);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -55,19 +55,19 @@
 .userGuideIcons {
   display: flex;
   gap: 15px;
-  color: #f5b21f;
+  color: var(--color-warning);
   font-size: 15px;
   align-items: center;
 }
 
 .userGuideIcons i {
-  background: #fff;
+  background: var(--white);
   width: 24px;
   height: 24px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--gray-200);
 }
 
 /* ────────────────────────────────────────────────────────── */
@@ -81,13 +81,13 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
+  background-color: var(--white);
 }
 
 .headerLeft h1 {
   font-size: 28px;
   font-weight: 800;
-  color: #F4B218;
+  color: var(--color-warning);
   letter-spacing: 0.5px;
   margin-bottom: 2px;
 }
@@ -95,7 +95,7 @@
 .headerLeft h2 {
   font-size: 26px;
   font-weight: 700;
-  color: #333333;
+  color: var(--gray-700);
 }
 
 .iconsTopRight {
@@ -109,14 +109,14 @@
 .iconsTopRight svg {
   width: 32px;
   height: 32px;
-  fill: #666666;
+  fill: var(--gray-500);
 }
 
 .bestSellerBadge {
   position: absolute;
   left: 0;
   top: 200px;
-  background-color: #79B93C;
+  background-color: var(--brand);
   color: white;
   padding: 8px 12px 8px 18px;
   font-size: 11px;
@@ -162,7 +162,7 @@
   width: 60%;
   font-size: 13px;
   line-height: 1.6;
-  color: #666666;
+  color: var(--gray-500);
   text-align: justify;
 }
 
@@ -176,20 +176,20 @@
 .featuresTitle {
   font-size: 14px;
   font-weight: bold;
-  color: #F4B218;
+  color: var(--color-warning);
   margin-bottom: 10px;
 }
 
 .featureMainCircle {
   width: 85px;
   height: 85px;
-  border: 2px solid #F4B218;
+  border: 2px solid var(--color-warning);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #fff;
+  background-color: var(--white);
   margin-bottom: 12px;
 }
 

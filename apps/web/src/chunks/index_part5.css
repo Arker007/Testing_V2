@@ -22,94 +22,94 @@ button.btn:hover i.fa-chevron-left {
 /* Primary CTA Button */
 .btn-primary,
 .btn--primary {
-  background-color: var(--brand, #98d12a) !important;
-  color: #FFFFFF !important; /* High-contrast white text on emerald-green button */
-  border: 1px solid var(--brand, #98d12a) !important;
-  box-shadow: 0 4px 14px rgba(152, 209, 42, 0.2) !important;
+  background-color: var(--brand, var(--brand)) !important;
+  color: var(--white) !important; /* High-contrast white text on emerald-green button */
+  border: 1px solid var(--brand, var(--brand)) !important;
+  box-shadow: 0 4px 14px var(--brand-border) !important;
 }
 
 .btn-primary:hover,
 .btn--primary:hover {
-  background-color: var(--brand-dark, #7db018) !important;
-  color: #FFFFFF !important;
-  border-color: var(--brand-dark, #7db018) !important;
-  box-shadow: 0 8px 24px rgba(152, 209, 42, 0.3) !important;
+  background-color: var(--brand-dark, var(--brand-dark)) !important;
+  color: var(--white) !important;
+  border-color: var(--brand-dark, var(--brand-dark)) !important;
+  box-shadow: 0 8px 24px var(--brand-border) !important;
   transform: translateY(-2px);
 }
 
-/* Secondary CTA Button (#0B2F63) */
+/* Secondary CTA Button (var(--navy)) */
 .btn-secondary,
 .btn--secondary {
-  background-color: #0B2F63 !important;
-  color: #FFFFFF !important;
-  border: 1px solid #0B2F63 !important;
-  box-shadow: 0 4px 14px rgba(11, 47, 99, 0.2) !important;
+  background-color: var(--navy) !important;
+  color: var(--white) !important;
+  border: 1px solid var(--navy) !important;
+  box-shadow: 0 4px 14px var(--navy-glow) !important;
 }
 
 .btn-secondary:hover,
 .btn--secondary:hover {
-  background-color: #113a72 !important;
-  color: #FFFFFF !important;
-  border-color: #113a72 !important;
+  background-color: var(--navy) !important;
+  color: var(--white) !important;
+  border-color: var(--navy) !important;
   transform: translateY(-2px);
 }
 
 /* Outline Button */
 .btn-outline,
 .btn--outline {
-  border: 2px solid #0B2F63 !important;
-  color: #0B2F63 !important;
-  background-color: #FFFFFF !important;
+  border: 2px solid var(--navy) !important;
+  color: var(--navy) !important;
+  background-color: var(--white) !important;
 }
 
 .btn-outline:hover,
 .btn--outline:hover {
-  background-color: #0B2F63 !important;
-  color: #FFFFFF !important;
-  border-color: #0B2F63 !important;
+  background-color: var(--navy) !important;
+  color: var(--white) !important;
+  border-color: var(--navy) !important;
   transform: translateY(-2px);
 }
 
 /* Outline Light Button */
 .btn-outline-light,
 .btn--outline-light {
-  border: 2px solid rgba(255, 255, 255, 0.8) !important;
-  color: #FFFFFF !important;
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid var(--text-inverse-secondary) !important;
+  color: var(--white) !important;
+  background-color: var(--border-dark) !important;
   backdrop-filter: blur(8px);
 }
 
 .btn-outline-light:hover,
 .btn--outline-light:hover {
-  border-color: #FFFFFF !important;
-  background-color: #FFFFFF !important;
-  color: #0B2F63 !important;
+  border-color: var(--white) !important;
+  background-color: var(--white) !important;
+  color: var(--navy) !important;
   transform: translateY(-2px);
 }
 
 .btn-dark,
 .btn--dark {
-  background-color: #0B2F63 !important;
-  color: #FFFFFF !important;
+  background-color: var(--navy) !important;
+  color: var(--white) !important;
 }
 
 .btn-dark:hover,
 .btn--dark:hover {
-  background-color: #113a72 !important;
-  color: #FFFFFF !important;
+  background-color: var(--navy) !important;
+  color: var(--white) !important;
 }
 
 .btn-ghost,
 .btn--ghost {
   background: transparent !important;
-  color: var(--brand-text, #385305) !important;
+  color: var(--brand-text, var(--brand-dark)) !important;
   padding: 0.5rem 0 !important;
   border: none !important;
 }
 
 .btn-ghost:hover,
 .btn--ghost:hover {
-  color: #0B2F63 !important;
+  color: var(--navy) !important;
   gap: 0.75rem;
 }
 
@@ -127,17 +127,17 @@ button.btn:hover i.fa-chevron-left {
 
 /* ─── Cards ──────────────────────────────────────────────── */
 .card {
-  background: #fff;
+  background: var(--white);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 8px 30px var(--shadow-sm);
 }
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: rgba(52, 174, 112, 0.26);
+  border-color: var(--brand-glow-subtle);
   box-shadow: var(--shadow-lg);
 }
 
@@ -150,9 +150,9 @@ button.btn:hover i.fa-chevron-left {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #385305;
-  background-color: #e6f0cb;
-  border: 1px solid rgba(203, 213, 225, 0.3);
+  color: var(--brand-dark);
+  background-color: var(--brand-light);
+  border: 1px solid var(--border-strong);
   padding: 0.375rem 1rem;
   border-radius: 999px;
   margin-bottom: 1rem;
@@ -165,7 +165,7 @@ button.btn:hover i.fa-chevron-left {
   width: 0.375rem;
   height: 0.375rem;
   border-radius: 999px;
-  background-color: #98d12a;
+  background-color: var(--brand);
 }
 
 /* ─── Forms ──────────────────────────────────────────────── */
@@ -177,7 +177,7 @@ button.btn:hover i.fa-chevron-left {
   display: block;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #374151;
+  color: var(--gray-700);
   margin-bottom: 0.375rem;
 }
 
@@ -190,8 +190,8 @@ button.btn:hover i.fa-chevron-left {
   border-radius: var(--radius-sm);
   font-size: 0.9375rem;
   font-family: inherit;
-  color: #1e293b;
-  background: #fff;
+  color: var(--gray-800);
+  background: var(--white);
   transition: all 0.15s ease;
   outline: none;
 }
@@ -200,7 +200,7 @@ button.btn:hover i.fa-chevron-left {
   appearance: none !important;
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
-  background-color: #fff;
+  background-color: var(--white);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;

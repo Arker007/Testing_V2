@@ -25,79 +25,145 @@
 .cardLargeDark {
   grid-column: span 2;
   grid-row: span 2;
-  background: #0B2F63;
-  color: #ffffff;
-  border: 1px solid rgba(152, 209, 42, 0.25) !important;
-  box-shadow: 0 16px 36px rgba(11, 47, 99, 0.15);
+  background: var(--bg-card, #ffffff);
+  color: var(--text-primary, #0f172a);
+  border: 1px solid var(--border, rgba(226, 232, 240, 0.8)) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.05);
   min-height: 584px;
 }
 
+:global([data-theme="dark"]) .cardLargeDark,
+:global(.dark) .cardLargeDark {
+  background: #0e1015 !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8) !important;
+}
+
 .cardLargeDark .indName {
-  color: #ffffff;
+  color: var(--heading, #0f172a);
   font-size: 1.5rem;
 }
 
+:global([data-theme="dark"]) .cardLargeDark .indName,
+:global(.dark) .cardLargeDark .indName {
+  color: #ffffff !important;
+}
+
 .cardLargeDark .indDesc {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-secondary, #475569);
   font-size: 0.95rem;
   line-height: 1.65;
+}
+
+:global([data-theme="dark"]) .cardLargeDark .indDesc,
+:global(.dark) .cardLargeDark .indDesc {
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .cardLargeLight {
   grid-column: span 2;
   grid-row: span 2;
-  background: #ffffff;
-  color: #0f172a;
-  border: 1px solid rgba(226, 232, 240, 0.8) !important;
-  box-shadow: 0 16px 36px rgba(11, 47, 99, 0.05);
+  background: var(--bg-card, #ffffff);
+  color: var(--text-primary, #0f172a);
+  border: 1px solid var(--border, rgba(226, 232, 240, 0.8)) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.05);
   min-height: 584px;
 }
 
+:global([data-theme="dark"]) .cardLargeLight,
+:global(.dark) .cardLargeLight {
+  background: #0e1015 !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8) !important;
+}
+
 .cardLargeLight .indName {
-  color: #0f172a;
+  color: var(--heading, #0f172a);
   font-size: 1.5rem;
 }
 
+:global([data-theme="dark"]) .cardLargeLight .indName,
+:global(.dark) .cardLargeLight .indName {
+  color: #ffffff !important;
+}
+
 .cardLargeLight .indDesc {
-  color: #475569;
+  color: var(--text-secondary, #475569);
   font-size: 0.95rem;
   line-height: 1.65;
 }
 
+:global([data-theme="dark"]) .cardLargeLight .indDesc,
+:global(.dark) .cardLargeLight .indDesc {
+  color: #CBD5E1 !important;
+}
+
 .cardLight {
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  color: #0f172a;
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border, rgba(226, 232, 240, 0.8));
+  color: var(--text-primary, #0f172a);
+}
+
+:global([data-theme="dark"]) .cardLight,
+:global(.dark) .cardLight {
+  background: #0e1015 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #CBD5E1 !important;
 }
 
 .cardDark {
-  background: #0B2F63;
-  color: #ffffff;
-  border: 1px solid rgba(152, 209, 42, 0.2) !important;
+  background: var(--bg-card, #ffffff);
+  color: var(--text-primary, #0f172a);
+  border: 1px solid var(--border, rgba(226, 232, 240, 0.8)) !important;
+}
+
+:global([data-theme="dark"]) .cardDark,
+:global(.dark) .cardDark {
+  background: #0e1015 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #CBD5E1 !important;
 }
 
 .cardDark .indName {
-  color: #ffffff;
+  color: var(--heading, #0f172a);
+}
+
+:global([data-theme="dark"]) .cardDark .indName,
+:global(.dark) .cardDark .indName {
+  color: #ffffff !important;
 }
 
 .cardDark .indDesc {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary, #475569);
+}
+
+:global([data-theme="dark"]) .cardDark .indDesc,
+:global(.dark) .cardDark .indDesc {
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
 /* Icon Boxes */
 .iconBoxLime {
-  background: #98d12a !important;
-  color: #0d1800 !important;
+  background: var(--brand, #5cb31b) !important;
+  color: #ffffff !important;
 }
 
 .iconBoxSlate {
-  background: #f1f5f9 !important;
-  color: #475569 !important;
+  background: var(--bg-light, #f1f5f9) !important;
+  color: var(--text-secondary, #475569) !important;
 }
 
 .iconBoxNavy {
-  background: #0B2F63 !important;
-  color: #ffffff !important;
+  background: var(--bg-light, #f1f5f9) !important;
+  color: var(--brand, #5cb31b) !important;
+}
+
+:global([data-theme="dark"]) .iconBoxNavy,
+:global(.dark) .iconBoxNavy {
+  background: rgba(63, 174, 90, 0.2) !important;
+  color: var(--brand-text, #4FC36D) !important;
 }
 
 .iconBoxGreen {
@@ -110,98 +176,171 @@
   font-size: 0.6875rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.25rem 0.65rem;
-  border-radius: 99px;
-  background: rgba(130, 196, 25, 0.15);
-  color: #98d12a;
-  border: 1px solid rgba(130, 196, 25, 0.3);
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  background: var(--brand, #5cb31b);
+  color: #ffffff;
 }
 
-.bentoBadgeLimeDark {
+.bentoBadgeSlate {
   font-size: 0.6875rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.25rem 0.65rem;
-  border-radius: 99px;
-  background: rgba(130, 196, 25, 0.1);
-  color: #98d12a;
-  border: 1px solid rgba(130, 196, 25, 0.2);
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  background: var(--bg-light, #f1f5f9);
+  color: var(--text-secondary, #475569);
+}
+
+.bentoBadgeDark {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  background: var(--bg-light, #f1f5f9);
+  color: var(--heading, #0f172a);
+}
+
+:global([data-theme="dark"]) .bentoBadgeDark,
+:global(.dark) .bentoBadgeDark {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
 }
 
 .bentoBadgeBlue {
   font-size: 0.6875rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.25rem 0.65rem;
-  border-radius: 99px;
-  background: rgba(15, 23, 42, 0.08);
-  color: #0F172A;
-  border: 1px solid rgba(15, 23, 42, 0.15);
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
 }
 
-/* Dividers */
-.bentoDivider {
-  height: 1px;
-  background: rgba(255, 255, 255, 0.1);
-  margin: 1.5rem 0 1rem;
+:global([data-theme="dark"]) .bentoBadgeBlue,
+:global(.dark) .bentoBadgeBlue {
+  background: rgba(14, 165, 233, 0.2) !important;
+  color: #38bdf8 !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
 }
 
-/* Arrow buttons */
+.bentoBadgeLimeDark {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+:global([data-theme="dark"]) .bentoBadgeLimeDark,
+:global(.dark) .bentoBadgeLimeDark {
+  background: rgba(63, 174, 90, 0.2) !important;
+  color: var(--brand-text, #4FC36D) !important;
+  border-color: rgba(63, 174, 90, 0.3) !important;
+}
+
+.cardBgWrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.cardBgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.cardBgOverlayDark {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.85) 100%);
+  z-index: 1;
+}
+
+:global([data-theme="dark"]) .cardBgOverlayDark,
+:global(.dark) .cardBgOverlayDark {
+  background: linear-gradient(180deg, rgba(14, 16, 21, 0.4) 0%, rgba(14, 16, 21, 0.95) 100%) !important;
+}
+
+.cardBgOverlayLight {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.85) 100%);
+  z-index: 1;
+}
+
+:global([data-theme="dark"]) .cardBgOverlayLight,
+:global(.dark) .cardBgOverlayLight {
+  background: linear-gradient(180deg, rgba(14, 16, 21, 0.4) 0%, rgba(14, 16, 21, 0.95) 100%) !important;
+}
+
+/* Arrow buttons for bento cards (e.g., IndustriesGrid, IndustryCard) */
 .arrowButton,
 .arrowButtonWide,
 .arrowButtonRow {
   position: absolute;
   right: 1.75rem;
   bottom: 1.75rem;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  color: #0f172a;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 12px;
+  background: var(--brand, #5cb31b);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.875rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 5;
-}
-
-.cardDark .arrowButtonRow {
-  background: #ffffff;
-  color: #021530;
-  border: none;
-}
-
-.industryCard:hover .arrowButton,
-.industryCard:hover .arrowButtonWide,
-.industryCard:hover .arrowButtonRow {
-  background: #98d12a;
-  color: #0d1800;
-  border-color: #98d12a;
-  transform: scale(1.1);
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .arrowButtonRow {
   position: static;
-  flex-shrink: 0;
 }
 
-.indCardHeaderWide {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.85rem;
+.arrowButton:hover,
+.arrowButtonWide:hover,
+.arrowButtonRow:hover {
+  background: #0f221c;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: scale(1.1);
 }
 
-.indCardHeaderWideRow {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.65rem;
-  flex-shrink: 0;
+:global([data-theme="dark"]) .arrowButton,
+:global([data-theme="dark"]) .arrowButtonWide,
+:global([data-theme="dark"]) .arrowButtonRow,
+:global(.dark) .arrowButton,
+:global(.dark) .arrowButtonWide,
+:global(.dark) .arrowButtonRow {
+  background: var(--brand, #5cb31b) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+:global([data-theme="dark"]) .arrowButton:hover,
+:global([data-theme="dark"]) .arrowButtonWide:hover,
+:global([data-theme="dark"]) .arrowButtonRow:hover,
+:global(.dark) .arrowButton:hover,
+:global(.dark) .arrowButtonWide:hover,
+:global(.dark) .arrowButtonRow:hover {
+  background: #0f221c !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
 }

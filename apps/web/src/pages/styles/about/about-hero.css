@@ -1,0 +1,105 @@
+/* ── Hero Section (MUST REMAIN UNCHANGED) ── */
+.hero {
+  position: relative;
+  padding: calc(var(--nav-h, 70px) + 2rem) 0 4.5rem;
+  overflow: hidden;
+  background: var(--hero-gradient, linear-gradient(135deg, var(--navy) 0%, var(--navy) 100%));
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 75% 50%, rgba(152, 209, 42, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.heroTitle {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin: 0.75rem 0;
+}
+
+.heroSub {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.0625rem;
+  max-width: 680px;
+  line-height: 1.75;
+}
+
+.heroTagline {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: var(--brand, var(--brand));
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.about-hero-section {
+  position: relative;
+  width: 100%;
+}
+
+/* ── Common Typography & Headers ── */
+.subEyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-dark);
+  margin-bottom: 0.5rem;
+}
+
+.subEyebrowLight {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand);
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  color: var(--navy);
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.015em;
+}
+
+.sectionTitleLight {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  color: var(--white);
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.015em;
+}
+
+.sectionDesc {
+  font-size: 0.925rem;
+  color: var(--gray-500);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.sectionDescLight {
+  font-size: 0.925rem;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.sectionHeaderCenter {
+  text-align: center;
+  margin-bottom: 3rem;
+}

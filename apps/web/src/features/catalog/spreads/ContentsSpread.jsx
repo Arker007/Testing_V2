@@ -78,7 +78,7 @@ export function getContentsSpread({
           ))
         ) : (
           <div
-            style={{ marginTop: "50px", color: "#888", fontStyle: "italic" }}
+            style={{ marginTop: "50px", color: "var(--gray-500)", fontStyle: "italic" }}
           >
             No products selected. Please check products in the sidebar.
           </div>
@@ -115,12 +115,12 @@ export function getContentsSpread({
           <div className={styles.userGuideIcons}>
             <i
               className="fa-solid fa-triangle-exclamation"
-              style={{ color: "#f5b21f" }}
+              style={{ color: "var(--color-warning)" }}
             />
-            <i className="fa-solid fa-ban" style={{ color: "#cc3333" }} />
-            <i className="fa-solid fa-info" style={{ color: "#0066cc" }} />
+            <i className="fa-solid fa-ban" style={{ color: "var(--color-error)" }} />
+            <i className="fa-solid fa-info" style={{ color: "var(--navy)" }} />
           </div>
-          <div style={{ fontSize: "13px", fontWeight: 700, color: "#555" }}>
+          <div style={{ fontSize: "13px", fontWeight: 700, color: "var(--gray-600)" }}>
             {pad(11 + catalogProducts.length * 2, 2)}
           </div>
         </div>

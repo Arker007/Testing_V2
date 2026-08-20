@@ -36,7 +36,7 @@ export const ContactInfoItem = React.memo(function ContactInfoItem({
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 >
-                  <Check className="w-3.5 h-3.5 text-[#7db018]" />
+                  <Check className="w-3.5 h-3.5 text-[var(--brand-dark)]" />
                 </motion.div>
               ) : (
                 <motion.div

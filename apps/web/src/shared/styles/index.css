@@ -1,8 +1,9 @@
-@import '../../chunks/index_part1.css';
-@import '../../chunks/index_part2.css';
-@import '../../chunks/index_part3.css';
-@import '../../chunks/index_part4.css';
-@import '../../chunks/index_part5.css';
-@import '../../chunks/index_part6.css';
-@import '../../chunks/index_part7.css';
-@import '../../chunks/index_part8.css';
+@import "./core/tokens.css";
+@import "./core/dark-theme.css";
+@import "./core/base-reset.css";
+@import "./core/buttons-forms.css";
+@import "./core/utilities-badges.css";
+@import "./core/surfaces-cards.css";
+@import "./core/layout-nav.css";
+@import "./core/modals-overlays.css";
+@import "./core/components-shared.css";

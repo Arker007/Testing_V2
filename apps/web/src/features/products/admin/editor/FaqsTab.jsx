@@ -46,9 +46,9 @@ export default function FaqsTab({ form, setForm }) {
                   width: "100%",
                   padding: "10px",
                   borderRadius: "8px",
-                  border: "1px solid #edf2f7",
+                  border: "1px solid var(--gray-200)",
                   fontWeight: 600,
-                  background: "#f8fafc",
+                  background: "var(--gray-50)",
                 }}
                 value={faq.question}
                 onChange={(e) =>
@@ -79,7 +79,7 @@ export default function FaqsTab({ form, setForm }) {
                   width: "100%",
                   padding: "10px",
                   borderRadius: "8px",
-                  border: "1px solid #edf2f7",
+                  border: "1px solid var(--gray-200)",
                   fontFamily: "inherit",
                 }}
                 rows={2}

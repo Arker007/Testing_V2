@@ -8,41 +8,46 @@ export const ProductSpecsModal = React.memo(function ProductSpecsModal({
   onRequestSheet,
 }) {
   return (
-    <div className={styles.modalOverlay} onClick={(e) => e.target === e.currentTarget && onClose()}>
-      <div className={styles.modalCard} style={{ maxWidth: "600px" }}>
-        <button
-          type="button"
-          onClick={onClose}
-          className={styles.modalCloseBtn}
-          aria-label="Close modal"
-        >
-          <i className="fa-solid fa-xmark" />
-        </button>
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
-          <span className={styles.catTag} style={{ position: "static" }}>
-            Technical Data Sheet
-          </span>
-        </div>
-        <h2 className={styles.gridCardTitle} style={{ fontSize: "1.25rem", marginBottom: "1rem" }}>
-          {product.name}
-        </h2>
-
-        <div className={styles.modalSpecsBox} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem", background: "#f8fafc", padding: "1rem", borderRadius: "8px" }}>
-          {Object.entries(specs).length > 0 ? (
-            Object.entries(specs).map(([k, v]) => (
-              <div key={k} style={{ padding: "0.25rem 0" }}>
-                <span className={styles.specLabel} style={{ fontSize: "0.75rem", color: "#64748b" }}>{k}</span>
-                <strong className={styles.specValue} style={{ display: "block", fontSize: "0.875rem", color: "#0f172a" }}>{v}</strong>
-              </div>
-            ))
-          ) : (
-            <p style={{ gridColumn: "span 2", fontSize: "0.875rem", color: "#64748b" }}>
-              Detailed specifications are available upon request.
-            </p>
-          )}
+    <div className={styles.overlay} onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div className={styles.specsSheetModal}>
+        <div className={styles.specsSheetHead}>
+          <div className={styles.specsSheetLogo}>
+            <span className={styles.catTag}>
+              Technical Data Sheet
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className={styles.closeBtn}
+            aria-label="Close modal"
+          >
+            <i className="fa-solid fa-xmark" />
+          </button>
         </div>
 
-        <div className={styles.modalActions} style={{ marginTop: "1.25rem", display: "flex", gap: "0.75rem" }}>
+        <div className={styles.specsSheetBody}>
+          <h2 className={styles.modalTitle}>
+            {product.name}
+          </h2>
+
+          <div className={styles.specsTable} style={{ marginTop: "1rem" }}>
+            {Object.entries(specs).length > 0 ? (
+              Object.entries(specs).map(([k, v]) => (
+                <div key={k} className={styles.specRow}>
+                  <span className={styles.specKey}>{k}</span>
+                  <span className={styles.specVal}>{v}</span>
+                </div>
+              ))
+            ) : (
+              <p style={{ padding: "1.5rem", fontSize: "0.875rem", color: "var(--text-muted)", margin: 0 }}>
+                Detailed specifications are available upon request.
+              </p>
+            )}
+          </div>
+        </div>
+
+        <div className={styles.specsSheetFooter}>
           <button
             type="button"
             onClick={() => window.print()}

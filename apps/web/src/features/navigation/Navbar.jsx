@@ -4,7 +4,6 @@ import { Sun, Moon } from "lucide-react";
 import { useSite } from "../../shared/context/SiteContext";
 import { STATIC_CATEGORIES } from "../../data/home";
 import QuoteButton from "../../shared/components/QuoteButton";
-import AnnouncementBar from "./AnnouncementBar";
 import MegaMenu from "./MegaMenu";
 import MobileNavDrawer from "./MobileNavDrawer";
 import NavbarSearch from "./NavbarSearch";
@@ -15,7 +14,6 @@ export default function Navbar() {
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeCatHover, setActiveCatHover] = useState(null);
   const [categories, setCategories] = useState(STATIC_CATEGORIES);
   const [products, setProducts] = useState([]);
   const { pathname } = useLocation();
@@ -100,35 +98,35 @@ export default function Navbar() {
 
   return (
     <>
-      <AnnouncementBar />
-
-      <header className={styles.headerContainer}>
+      <header className={`${styles.headerContainer} ${scrolled ? styles.headerScrolled : ""}`}>
         <div className={`${styles.nav} ${scrolled ? styles.navShrink : ""}`}>
           <div className={styles.inner}>
             {/* Logo */}
-            <Link to="/" className={styles.logo}>
-              {co("logo") && !logoError ? (
-                <img
-                  src={co("logo")}
-                  alt={co("name", "VISHAL ENTERPRISE")}
-                  className={styles.logoImg}
-                  onError={() => setLogoError(true)}
-                />
-              ) : (
-                <div className={styles.logoIcon}>
-                  {co("name", "VISHAL ENTERPRISE").charAt(0).toUpperCase()}
+            <div className={styles.logoWrapper}>
+              <Link to="/" className={styles.logo}>
+                {co("logo") && !logoError ? (
+                  <img
+                    src={co("logo")}
+                    alt={co("name", "VISHAL ENTERPRISE")}
+                    className={styles.logoImg}
+                    onError={() => setLogoError(true)}
+                  />
+                ) : (
+                  <div className={styles.logoIcon}>
+                    {co("name", "VISHAL ENTERPRISE").charAt(0).toUpperCase()}
+                  </div>
+                )}
+                <div className={styles.logoTextGroup}>
+                  <span className={styles.logoNameLine1}>
+                    {co("name", "VISHAL ENTERPRISE").trim().split(/\s+/)[0] || "VISHAL"}
+                  </span>
+                  <span className={styles.logoNameLine2}>
+                    {co("name", "VISHAL ENTERPRISE").trim().split(/\s+/).slice(1).join(" ") || "ENTERPRISE"}
+                    <span className={styles.logoDot}>.</span>
+                  </span>
                 </div>
-              )}
-              <div className={styles.logoTextGroup}>
-                <span className={styles.logoNameLine1}>
-                  {co("name", "VISHAL ENTERPRISE").trim().split(/\s+/)[0] || "VISHAL"}
-                </span>
-                <span className={styles.logoNameLine2}>
-                  {co("name", "VISHAL ENTERPRISE").trim().split(/\s+/).slice(1).join(" ") || "ENTERPRISE"}
-                  <span className={styles.logoDot}>.</span>
-                </span>
-              </div>
-            </Link>
+              </Link>
+            </div>
 
             {/* Navigation Links */}
             <nav className={styles.links} aria-label="Main navigation">
@@ -145,8 +143,6 @@ export default function Navbar() {
               <MegaMenu
                 categories={categories}
                 products={products}
-                activeCatHover={activeCatHover}
-                setActiveCatHover={setActiveCatHover}
                 isProductsActive={isProductsActive}
               />
 

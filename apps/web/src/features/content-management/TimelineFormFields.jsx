@@ -16,7 +16,7 @@ export default function TimelineFormFields({ data, onChange }) {
             width: "100%",
             padding: "10px",
             borderRadius: "8px",
-            border: "1px solid #edf2f7",
+            border: "1px solid var(--gray-200)",
           }}
           required
           value={data.year || ""}
@@ -37,7 +37,7 @@ export default function TimelineFormFields({ data, onChange }) {
             width: "100%",
             padding: "10px",
             borderRadius: "8px",
-            border: "1px solid #edf2f7",
+            border: "1px solid var(--gray-200)",
           }}
           required
           value={data.title || ""}
@@ -58,7 +58,7 @@ export default function TimelineFormFields({ data, onChange }) {
             width: "100%",
             padding: "10px",
             borderRadius: "8px",
-            border: "1px solid #edf2f7",
+            border: "1px solid var(--gray-200)",
             fontFamily: "inherit",
           }}
           rows={3}

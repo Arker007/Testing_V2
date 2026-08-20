@@ -39,7 +39,7 @@ export default function ProductHeaderSpecs({
       <div className={styles.bentoInfoCard}>
         <div className={styles.metaBadgeRow}>
           <span className={styles.categoryPill}>
-            <i className="fa-solid fa-seedling" style={{ marginRight: "0.25rem" }} /> {categoryName.toUpperCase()}
+            <i className="fa-solid fa-seedling mr-1" /> {categoryName.toUpperCase()}
           </span>
           <span className={styles.stockBadge}>
             <i className="fa-solid fa-circle-check" /> Production Ready
@@ -67,19 +67,19 @@ export default function ProductHeaderSpecs({
         <div className={styles.priceBox}>
           <div className={styles.priceGroup}>
             {currentPrice && currentPrice !== "0" ? (
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
-                <div style={{ display: "flex", alignItems: "baseline", gap: "0.5rem", flexWrap: "wrap" }}>
+              <div className="flex flex-col gap-1">
+                <div className="flex items-baseline gap-2 flex-wrap">
                   <span className={styles.currentPrice}>
-                    <i className="fa-solid fa-indian-rupee-sign" style={{ fontSize: "1.35rem", marginRight: "0.25rem" }} />
+                    <i className="fa-solid fa-indian-rupee-sign text-xl mr-1" />
                     {currentPrice}
                   </span>
                   {oldPrice && (
-                    <span className={styles.relatedOldPrice} style={{ fontSize: "1.05rem" }}>
+                    <span className={`${styles.relatedOldPrice} text-base`}>
                       ₹{oldPrice}
                     </span>
                   )}
                   {discount && (
-                    <span className={styles.discountBadge} style={{ background: "#ef4444", color: "#ffffff", fontSize: "0.75rem", fontWeight: 800, padding: "0.2rem 0.5rem", borderRadius: "6px", textTransform: "uppercase", marginLeft: "0.25rem" }}>
+                    <span className={`${styles.discountBadge} bg-rose-600 text-white text-xs font-extrabold px-2 py-0.5 rounded-md uppercase ml-1`}>
                       {discount}% OFF
                     </span>
                   )}
@@ -87,7 +87,7 @@ export default function ProductHeaderSpecs({
                 <span className={styles.priceTax}>Excl. GST & Delivery</span>
               </div>
             ) : (
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+              <div className="flex flex-col gap-1">
                 <span className={styles.currentPrice}>
                   Enquire for Volume Quote
                 </span>
@@ -176,7 +176,7 @@ export default function ProductHeaderSpecs({
                     }}
                   >
                     {option}
-                    {option === selectedSize && <i className="fa-solid fa-check" style={{ marginLeft: "auto", color: "#7db018" }} />}
+                    {option === selectedSize && <i className="fa-solid fa-check ml-auto text-[var(--brand-dark)]" />}
                   </li>
                 ))}
               </ul>

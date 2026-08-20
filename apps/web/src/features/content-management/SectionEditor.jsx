@@ -51,7 +51,7 @@ export default function SectionEditor({
                   {f.type === "textarea" ? (
                     <textarea 
                       className="form-textarea" 
-                      style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid #edf2f7", fontFamily: "inherit" }} 
+                      style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)", fontFamily: "inherit" }} 
                       rows={3} 
                       value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
                       onChange={setM(f.key)} 
@@ -61,16 +61,16 @@ export default function SectionEditor({
                     <label style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", marginTop: "4px" }}>
                       <input 
                         type="checkbox" 
-                        style={{ width: 16, height: 16, accentColor: "#98d12a" }} 
+                        style={{ width: 16, height: 16, accentColor: "var(--brand)" }} 
                         checked={cms[f.key] === "1" || cms[f.key] === undefined} 
                         onChange={(e) => setM(f.key)({ target: { value: e.target.checked ? "1" : "0" } })} 
                       />
-                      <span style={{ fontWeight: 500, fontSize: "13px", color: "#1e2229" }}>{f.checkboxLabel || "Enable flag parameter"}</span>
+                      <span style={{ fontWeight: 500, fontSize: "13px", color: "var(--gray-800)" }}>{f.checkboxLabel || "Enable flag parameter"}</span>
                     </label>
                   ) : (
                     <input 
                       className="form-input" 
-                      style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid #edf2f7" }} 
+                      style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)" }} 
                       type="text" 
                       value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
                       onChange={setM(f.key)} 

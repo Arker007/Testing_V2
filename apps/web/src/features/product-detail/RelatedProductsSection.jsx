@@ -131,7 +131,7 @@ export default function RelatedProductsSection({ relatedProducts }) {
                         <i
                           key={i}
                           className={`${isFull ? "fa-solid fa-star" : isHalf ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}`}
-                          style={{ color: "#fbbf24", fontSize: "0.75rem", marginRight: "2px" }}
+                          style={{ color: "var(--color-warning)", fontSize: "0.75rem", marginRight: "2px" }}
                         />
                       );
                     })}

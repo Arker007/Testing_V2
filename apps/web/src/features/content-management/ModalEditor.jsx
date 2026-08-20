@@ -35,12 +35,12 @@ export default function ModalEditor({ modalItem, setModalItem, handleModalSave }
     >
       <div
         style={{
-          background: "#ffffff",
+          background: "var(--white)",
           borderRadius: "16px",
           border: "1px solid rgba(5, 40, 63, 0.1)",
           width: "100%",
           maxWidth: "480px",
-          boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
+          boxShadow: "0 20px 40px var(--shadow-md)",
           overflow: "hidden",
         }}
       >
@@ -48,7 +48,7 @@ export default function ModalEditor({ modalItem, setModalItem, handleModalSave }
           <div
             style={{
               padding: "20px 24px",
-              borderBottom: "1px solid rgba(5, 40, 63, 0.06)",
+              borderBottom: "1px solid var(--navy-subtle)",
               display: "flex",
               justifyItems: "center",
               justifyContent: "space-between",
@@ -104,8 +104,8 @@ export default function ModalEditor({ modalItem, setModalItem, handleModalSave }
           <div
             style={{
               padding: "16px 24px",
-              background: "#fbfdff",
-              borderTop: "1px solid rgba(5, 40, 63, 0.06)",
+              background: "var(--gray-50)",
+              borderTop: "1px solid var(--navy-subtle)",
               display: "flex",
               justifyContent: "flex-end",
               gap: "12px",

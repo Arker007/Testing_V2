@@ -45,9 +45,9 @@ export default function ImagesTab({
                 display: "flex",
                 gap: "16px",
                 padding: "16px",
-                border: "1px solid rgba(5, 40, 63, 0.08)",
+                border: "1px solid var(--border)",
                 borderRadius: "12px",
-                backgroundColor: "#fff",
+                backgroundColor: "var(--bg-card)",
                 alignItems: "center",
                 position: "relative",
               }}
@@ -59,8 +59,8 @@ export default function ImagesTab({
                   height: "80px",
                   borderRadius: "8px",
                   overflow: "hidden",
-                  backgroundColor: "#f8fafc",
-                  border: "1px solid rgba(5, 40, 63, 0.05)",
+                  backgroundColor: "var(--bg-surface)",
+                  border: "1px solid var(--border)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -81,7 +81,7 @@ export default function ImagesTab({
                 ) : (
                   <i
                     className="fa-solid fa-image"
-                    style={{ color: "#cbd5e1", fontSize: "1.5rem" }}
+                    style={{ color: "var(--text-muted)", fontSize: "1.5rem" }}
                   />
                 )}
                 {i === 0 && (
@@ -91,12 +91,13 @@ export default function ImagesTab({
                       bottom: 0,
                       left: 0,
                       right: 0,
-                      backgroundColor: "var(--brand, #98d12a)",
-                      color: "#fff",
-                      fontSize: "9px",
-                      fontWeight: "bold",
+                      backgroundColor: "var(--brand)",
+                      color: "var(--white)",
+                      fontSize: "0.625rem",
+                      fontWeight: 700,
                       textAlign: "center",
                       padding: "2px 0",
+                      textTransform: "uppercase",
                     }}
                   >
                     Primary
@@ -118,9 +119,9 @@ export default function ImagesTab({
                 >
                   <span
                     style={{
-                      fontSize: "12px",
-                      fontWeight: "600",
-                      color: "#64748b",
+                      fontSize: "0.75rem",
+                      fontWeight: 600,
+                      color: "var(--text-muted)",
                       width: "95px",
                     }}
                   >
@@ -128,8 +129,8 @@ export default function ImagesTab({
                   </span>
                   <span
                     style={{
-                      fontSize: "13px",
-                      color: imgItem.local ? "#1e293b" : "#94a3b8",
+                      fontSize: "0.8125rem",
+                      color: imgItem.local ? "var(--text-primary)" : "var(--text-muted)",
                       fontFamily: "monospace",
                       overflow: "hidden",
                       textOverflow: "ellipsis",
@@ -141,14 +142,14 @@ export default function ImagesTab({
                   </span>
                   <label
                     style={{
-                      fontSize: "11px",
-                      fontWeight: "bold",
-                      color: "var(--brand, #98d12a)",
+                      fontSize: "0.6875rem",
+                      fontWeight: 700,
+                      color: "var(--brand-dark)",
                       cursor: "pointer",
                       padding: "4px 8px",
-                      border: "1px solid var(--brand, #98d12a)",
-                      borderRadius: "4px",
-                      backgroundColor: "transparent",
+                      border: "1px solid var(--brand-border)",
+                      borderRadius: "6px",
+                      backgroundColor: "var(--brand-glow-subtle)",
                       marginLeft: "auto",
                     }}
                   >
@@ -167,9 +168,9 @@ export default function ImagesTab({
                 >
                   <span
                     style={{
-                      fontSize: "12px",
-                      fontWeight: "600",
-                      color: "#64748b",
+                      fontSize: "0.75rem",
+                      fontWeight: 600,
+                      color: "var(--text-muted)",
                       width: "95px",
                     }}
                   >
@@ -180,13 +181,11 @@ export default function ImagesTab({
                     placeholder="Enter external/direct URL (e.g. https://...)"
                     value={imgItem.url || ""}
                     onChange={(e) => handleImageUrlChange(e.target.value, i)}
+                    className={styles.formInput}
                     style={{
                       flexGrow: 1,
                       padding: "6px 12px",
-                      borderRadius: "6px",
-                      border: "1px solid #e2e8f0",
-                      fontSize: "13px",
-                      boxSizing: "border-box",
+                      fontSize: "0.8125rem",
                     }}
                   />
                 </div>
@@ -207,31 +206,21 @@ export default function ImagesTab({
                 <button
                   type="button"
                   onClick={() => handleDeleteImage(i)}
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "none",
-                    color: "#ef4444",
-                    cursor: "pointer",
-                    padding: "4px 8px",
-                    fontSize: "14px",
-                  }}
+                  className={styles.delBtn}
                   title="Delete Image Slot"
                 >
-                  <i className="fa-solid fa-trash-can" />
+                  <i className="fa-solid fa-trash" />
                 </button>
                 {i > 0 && (
                   <button
                     type="button"
                     onClick={() => handleMakePrimary(i)}
+                    className={styles.actionBtnSecondary}
                     style={{
-                      backgroundColor: "#f1f5f9",
-                      border: "none",
-                      color: "#475569",
-                      borderRadius: "4px",
-                      padding: "4px 8px",
-                      fontSize: "11px",
-                      fontWeight: "bold",
-                      cursor: "pointer",
+                      height: "28px",
+                      padding: "0 10px",
+                      fontSize: "0.6875rem",
+                      fontWeight: 700,
                     }}
                   >
                     Set Primary

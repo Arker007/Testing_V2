@@ -28,27 +28,27 @@ export const getSpecs = (product) => {
 export const getDynamicColors = (product) => {
   const name = (product.name || "").toLowerCase();
   const colors = [];
-  if (name.includes("blue") || name.includes("euro")) colors.push("#0066cc");
-  if (name.includes("yellow") || name.includes("spill")) colors.push("#f5b21f");
-  if (name.includes("red") || name.includes("dairy")) colors.push("#cc3333");
-  if (name.includes("green")) colors.push("#1f8b4c");
+  if (name.includes("blue") || name.includes("euro")) colors.push("var(--navy)");
+  if (name.includes("yellow") || name.includes("spill")) colors.push("var(--color-warning)");
+  if (name.includes("red") || name.includes("dairy")) colors.push("var(--color-error)");
+  if (name.includes("green")) colors.push("var(--color-success)");
   if (name.includes("hygienic")) {
-    colors.push("#333");
-    colors.push("#aaa");
+    colors.push("var(--gray-700)");
+    colors.push("var(--gray-400)");
   }
   if (name.includes("nestable")) {
-    colors.push("#0066cc");
-    colors.push("#aaa");
+    colors.push("var(--navy)");
+    colors.push("var(--gray-400)");
   }
   // Fallback dots
   if (colors.length === 0) {
     if (product.categoryName?.toLowerCase().includes("pallet")) {
-      colors.push("#333");
+      colors.push("var(--gray-700)");
     } else if (product.categoryName?.toLowerCase().includes("lumber")) {
-      colors.push("#a88f70");
-      colors.push("#333");
+      colors.push("var(--color-warning)");
+      colors.push("var(--gray-700)");
     } else {
-      colors.push("#aaa");
+      colors.push("var(--gray-400)");
     }
   }
   return colors;

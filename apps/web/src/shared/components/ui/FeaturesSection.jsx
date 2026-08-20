@@ -1,211 +1,297 @@
 import React from "react";
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
-import {
-  Shield,
-  Leaf,
-  Weight,
-  Sun,
-  CloudRain,
-  Globe,
-} from "lucide-react";
-
-import recycledPlasticProfiles from "../../../assets/images/recycled_plastic_profiles_1785866736886.jpg";
-import highLoadCapacity from "../../../assets/images/high_load_capacity_1785866759510.jpg";
-import weatherResistantBg from "../../../assets/images/weather_resistant_bg_1785866780021.jpg";
-import indiaSupplyChainMap from "../../../assets/images/india_supply_chain_map_1785866798806.jpg";
-import FeaturesCustomLifespanCards from "./FeaturesCustomLifespanCards";
-import { featureCardVariant } from "./featureCardVariants";
 import { useSite } from "../../context/SiteContext";
+import Card from "./Card";
+
+// Minimal vector SVG icons for top strip
+function QualityIcon() {
+  return (
+    <svg className="w-10 h-10 md:w-12 md:h-12" style={{ color: "var(--brand)" }} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="8" y="6" width="32" height="24" rx="3" stroke="currentColor" strokeWidth="2.5" />
+      <path d="M16 18L22 24L32 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M18 30L14 42L24 37L34 42L30 30" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function CustomIcon() {
+  return (
+    <svg className="w-10 h-10 md:w-12 md:h-12" style={{ color: "var(--brand)" }} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 36L8 40V32L28 12C30 10 33 10 35 12L36 13C38 15 38 18 36 20L16 40H12Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M24 16L32 24" stroke="currentColor" strokeWidth="2.5" />
+      <path d="M6 42H42" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function EcoIcon() {
+  return (
+    <svg className="w-10 h-10 md:w-12 md:h-12" style={{ color: "var(--brand)" }} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M38 10C24 10 12 20 12 36C28 36 38 24 38 10Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+      <path d="M12 36L24 24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M6 36C6 36 12 28 20 28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function RoiIcon() {
+  return (
+    <svg className="w-10 h-10 md:w-12 md:h-12" style={{ color: "var(--brand)" }} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 38L18 26L28 32L40 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M30 14H40V24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="2" strokeDasharray="3 3" opacity="0.4" />
+    </svg>
+  );
+}
 
 export default function FeaturesSection() {
   const { c } = useSite();
 
-  if (c("show_why_us", "1") === "0") return null;
+  const features = [
+    {
+      icon: <QualityIcon />,
+      title: c("why_us_f1_title", "QUALITY CONTROL PROCESS"),
+      desc: c(
+        "why_us_f1_desc",
+        "We Ensure Superior Quality Products By Rigorously Testing HDPE Polymer Profiles For Tensile Strength, Structural Stability, Density, And Environmental Weather Durability."
+      ),
+    },
+    {
+      icon: <CustomIcon />,
+      title: c("why_us_f2_title", "CUSTOM SOLUTION DESIGN"),
+      desc: c(
+        "why_us_f2_desc",
+        "Tailored Recycled Polymer Lumber Dimensions, Steel Core Reinforcements, Custom Colors, Grain Textures, And Heavy-Duty Racking Designs Available Upon Request."
+      ),
+    },
+    {
+      icon: <EcoIcon />,
+      title: c("why_us_f3_title", "ECO-FRIENDLY RECYCLED PLASTIC"),
+      desc: c(
+        "why_us_f3_desc",
+        "100% Recycled HDPE Material Diversion Preventing Marine Landfill Plastic Waste. Sustainable Alternative Replacing Timber & Steel Without Environmental Degradation."
+      ),
+    },
+    {
+      icon: <RoiIcon />,
+      title: c("why_us_f4_title", "COST SAVINGS & ROI"),
+      desc: c(
+        "why_us_f4_desc",
+        "Durable Long-Life Span With Zero Splintering, Rotting, Painting, Or Termite Maintenance. Delivers Outstanding Long-Term Return On Investment."
+      ),
+    },
+  ];
 
   return (
-    <section className="bg-transparent py-16 md:py-24" id="features-advantage">
-      <div className="container">
-        {/* Header */}
-        <motion.div
-          className="text-center mb-16 md:mb-20"
-          variants={featureCardVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+    <section
+      id="features-advantage"
+      style={{
+        backgroundColor: "var(--bg-page, #ffffff)",
+        color: "var(--text-primary, #0f172a)",
+      }}
+      className="py-10 md:py-16 transition-colors"
+    >
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Top 4 Features Panel */}
+        <Card
+          variant="default"
+          className="py-10 px-6 md:px-12 mb-12 md:mb-16 shadow-xs"
         >
-          <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold bg-brand-light text-brand-text border border-slate-300/30 mb-4">
-            <div className="w-1.5 h-1.5 rounded-full bg-brand" />
-            <span>Built to Perform. Made to Last.</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-8 text-center">
+            {features.map((item, idx) => (
+              <div
+                key={idx}
+                className="flex flex-col items-center text-center px-2"
+              >
+                <div className="mb-4">
+                  {item.icon}
+                </div>
+                <h3
+                  style={{ color: "var(--heading, #0f172a)" }}
+                  className="text-xs md:text-[13px] font-bold tracking-widest uppercase mb-3"
+                >
+                  {item.title}
+                </h3>
+                <p
+                  style={{ color: "var(--text-secondary, #475569)" }}
+                  className="text-[11px] leading-relaxed font-normal max-w-[260px] mx-auto uppercase"
+                >
+                  {item.desc}
+                </p>
+              </div>
+            ))}
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 mt-2 mb-4 leading-tight">
-            {c("why_us_title", "Engineered for Strength. Delivered with Trust.")}
-          </h2>
-          <p className="max-w-2xl mx-auto text-center text-slate-600 text-base md:text-lg leading-relaxed">
-            {c("why_us_subtitle", "Sustainable engineering with industrial-grade strength, precision manufacturing, and reliable nationwide delivery.")}
-          </p>
-        </motion.div>
+        </Card>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-6 auto-rows-auto md:auto-rows-[300px] gap-4 md:gap-6">
-          {/* Card 1 - Large: 100% Recycled */}
-          <motion.div
-            variants={featureCardVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            whileHover="hover"
-            className="md:col-span-2 md:row-span-2 rounded-[24px] border border-slate-800/80 bg-navy p-6 md:p-8 shadow-xl relative overflow-hidden group flex flex-col justify-between min-h-[380px] md:min-h-[560px]"
-          >
-            <div className="absolute inset-0 z-0">
-              <img
-                src={recycledPlasticProfiles}
-                alt="100% Recycled Profiles"
-                className="absolute right-0 bottom-0 h-full w-2/3 object-cover object-left opacity-80 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/80 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-transparent" />
+        {/* Global Export World Map Section using User Specified SVG */}
+        <div className="relative w-full my-4">
+          <div className="relative w-full flex items-center justify-center min-h-[360px] md:min-h-[500px]">
+            {/* User Provided Custom World Map SVG */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              data-bbox="1.81 6.122 1030.379 599.963"
+              viewBox="0 0 1032 606"
+              data-type="ugc"
+              className="w-full h-auto max-h-[520px] object-contain"
+            >
+              <g>
+                <path
+                  style={{ fill: "var(--border, #ebebeb)" }}
+                  d="M1.81 341.6c4.67-6.19 6.45-13.37 6.22-20.88-.12-3.9.51-8.23-4.16-11.25-2.49-1.61-.54-5.71 1.2-7.92 3.15-4 3.03-10.36 8.93-12.32-1-7.24 7.25-9.3 8.55-15.22.5-2.3 2.45-2.52 4.11-2.97 4.47-1.2 8-3.71 11-7.13 1.79-2.05 2.45-3.98 2.11-7.04-.58-5.26 1.89-10.32 6.38-12.94 5.29-3.08 9.2-7.23 12.86-11.82 1.16-1.45 2.59-2.68 4.13-1.72 4.3 2.7 8.98 1.27 13.45 1.62 5.47.42 9.41-4.13 14.59-5.12 7.58-1.46 14.84-5.19 22.9-2.94 1.34.37 2.59.18 3.81-.48 3.08-1.68 6.31-1.61 9.56-.67 1.14.33 2.64.85 3.29-.03 4.15-5.52 8.42-.06 12.59-.18 1.49-.04 2 1.65.83 2.97-1.36 1.54-.78 2.99-.18 4.57.89 2.33-.19 5.17-2.32 6.73-1.85 1.35-2 2.49.1 4.1 5.12 3.92 11.08 5.1 17.21 5.9 3.32.43 6.46.86 7.59 4.9.36 1.3 1.79 2.74 3.25 2.78 4.8.12 8.8 2.34 13.02 4.18 3.12 1.36 4.93-.77 4.95-3.52.02-3.44-.07-6.63 3.72-8.13 4.5-1.79 9.02-1.83 13.25.76 1.72 1.05 3.45 1.74 5.41 2.2 6.37 1.48 12.72 3.08 19.02 4.81 2.8.77 5.08.59 7.89-.69 3.67-1.67 7.48-2.89 12.11-.7 5.45 2.58 9.49.36 11.92-5.43 2.38-5.67 6-10.94 5.66-17.6-.28-5.49-2.56-6.94-7.59-4.13-3.03 1.69-6.21 3.94-9.58 1.8-3.75-2.39-7-4.09-10.69-.13-.39.42-1.81.44-2.36.07-3.09-2.11-6.04-3.95-8.63.59-2.2-1.37-5.03-3.44-4.81-5.49.58-5.47-3.86-9.11-4.14-14.23-.15-2.71-3.11.63-4.89-1.11-.54-.79.84-1.17 1.27-1.89.43-.72.95-1.38.36-2.22-.68-.98-1.55-.79-2.61-.62-4.48.73-6.05 3.74-3.78 7.44.26.42.53.86.64 1.33 1.82 7.79 2.07 8.03 9.89 8.76-3.16 1.17-3.46 3.63-3.94 6.23-1.99-.31-2.69-4.06-5.39-1.86-.43.35-.99-.98-1.18-1.81-.4-1.78-1.08-3.97-3.24-3.08-.68.28-5.13 1.29-2.13 4.73 1.13 1.29.03 2.6-1.84 1.68-5.05-2.51-9.9-5.22-11.22-11.44-.4-1.91-1.21-3.55-2.82-5.01-2.44-2.21-5.05-4.42-3.27-8.73.79-1.91-.84-4.9-3.19-5.42-8.45-1.89-15.17-5.9-20.23-13.13-1.26-1.8-4.95-1.5-6.68-4.08-.57-.85-1.87.84-2.43 1.76-.94 1.55-2.17 3.66-.12 4.81 5.8 3.26 7.56 11.09 15.88 12.21 3.4.45 7.93 4.06 11.46 6.99 1.05.88 1.56 1.98.89 2.98-1.05 1.56-1.98.12-2.74-.56-1.7-1.52-3.49-1.99-5.27-.35-2.44 2.24.27 2.93 1.4 4.02 1.04 1 .57 1.82-.3 2.42-2.39 1.65-3.33 5.01-6.66 5.58-1.04.18-1.8 1.04-1.8 2.1.01 6.16-3.17 4.14-6.31 2.56-1.61-.81-3.33-1.38-4.98-2.11-1.36-.6-2.92-1.17-2.52-3.11.43-2.11 2.39-1.91 3.58-1.49 2.99 1.05 5.81.05 8.69-.13 1.85-.11 4.26-.47 4.51-2.25.31-2.23.57-5.11-1.86-6.72-3.39-2.25-6.75-4.67-10.44-6.31-6.39-2.84-12.04-6.25-15.67-12.52-2.63-4.53-8.43-5.07-12.27-1.47-1.43 1.34-2.79 2.77-4.35 3.95-2.26 1.71-4.59 2.42-7.13.21-1.69-1.47-3.89-1.51-6.08-1.55-2.97-.06-4.64.79-4.66 4.15-.02 4.56-2.86 7.33-6.93 8.55-5.68 1.7-10.08 3.58-10.21 11.02-.09 5.55-8.75 11.68-14.76 11.79-3.63.07-7.23.02-10.64 1.54-.72.32-1.84.67-2.36.34-4.56-2.92-9.44-4.36-14.88-4.02-1.18.07-1.45-1.22-1.41-2.22.11-2.47-.74-4.41-2.61-6.09-1.32-1.19-1.01-2.79.05-4 4.56-5.18 2.77-11.28 1.82-16.84-.53-3.08 0-4.1 2.45-5.07 5.27-2.07 10.84-1.57 16.06-.7 5.1.85 10.2-.19 15.2.98.55.13 1.29-.25 1.85-.56 4.47-2.41 2.12-7.16 3.51-10.67.76-1.93-.67-3.58-2.6-5.18-3.86-3.19-8.13-5.22-12.76-6.74-1.43-.47-2.19-1.39-2.15-2.9.05-1.88 1.63-1.52 2.75-2.07 3.72-1.81 7.42.74 11.14-.08.04-1.77-2.24-3.39-.16-5 1.77-1.37 3.25-.35 4.95.51 3.14 1.6 10.83-1.42 12.76-4.89.46-.83.41-2.13 1.64-2.13 7.72-.01 9.91-6.29 12.98-11.46.94-1.58 2.07-2.43 3.77-2.79 3.99-.84 7.95-1.93 11.98-2.54 4.44-.67 5.33-1.76 3.77-6-.62-1.69-1.22-3.31-1.53-5.13-.64-3.67 1.05-5.53 4.19-6.63 1.54-.54 3.13-.93 4.64-1.53 2.13-.86 3.13-.32 3.07 2.06-.02.89-1.89 5.93-2.78 6.78-.81.78-1.01 1.58-.52 2.64 1.05 2.25 2.07 5.46 4.68 5.2 9.14-.93 18.13 4.92 27.62-.52 3.85-2.21 9.63-2.96 14.78-1.3 5.83 1.89 8.9-.61 8.47-6.72-.47-6.57 3.63-9.71 9.75-7.37 1.62.62 3.23.85 4.83.51 2.28-.48 3.58-2.45 2.81-4.33-.74-1.79-2.23-4.63-5.15-2.55-1.55 1.11-2.88 1.46-3.54-.3-.76-2.02 1.58-1.62 2.54-2.11 5.65-2.89 11.94-.78 17.87-2.08 2.83-.62 7.57-.57 7.51-2.72-.08-3.09-4.26-1.25-6.64-1.52-4.82-.56-9.53.35-14 2.12-4.25 1.68-8.44.5-12.58-.03-2.08-.27-1.99-2.99-1.75-4.36.33-1.9.01-3.51-.41-5.25-1.2-4.98.39-8.82 5.4-10.14 5.54-1.45 8.88-5.85 14.09-8.06-7.1-4.16-15.66-1.84-18.98 4.75-.91 1.8-2.33 2.6-4.11 3.2-4.37 1.46-8.47 3.42-12.12 6.33-4.78 3.81-4.69 7.35.52 10.25 2.01 1.12 3.6 2.94 3.41 4.92-.19 1.93-2.75 3.16-4.46 3.4-4.48.62-6.28 2.81-6.77 7.22-.45 4.04-1.99 7.83-7.39 7.33-1.22-.11-2.48.3-3.03 1.33-1.78 3.34-4.16 4.19-7.72 2.74-1.51-.62-2.02.83-2.56 2.2-.92 2.35-3.49 2.95-5.33 2.28-2.14-.78-.55-3.64-1.6-5.53-.98-1.76 1.48-2.49 2.68-2.65 5.19-.68 4.82-2.72 1.77-5.8-.68-.69-1.11-1.62-1.65-2.45-1.82-2.76-2.08-8.32-4.95-8.03-2.72.28-6.37 2.03-9.22 3.91-5.18 3.43-9.97 1.97-14.62-1.13-2.42-1.61-3.31-3.2-.03-5.02 1.12-.62 3.55-2.09.97-3.3-2.01-.95-4.99-.64-5.14-3.5-.15-2.78 3.6-1.52 4.69-3.37-1.68-1.06-5.01.84-5.21-1.27-.27-2.83 3.18-2.37 5.18-3.21 4.4-1.85 8.54-4.43 13.03-5.97 7.75-2.66 13.81-8.56 21.72-10.83 1.24-.36 1.96-1.46 1.73-2.68-1.02-5.22 2.65-5.48 6.16-5.97 3.4-.47 7.29.2 8.41-4.68.39-1.71 2.28-.41 3.46-.58 1.32-.19 2.59-.8 2.96-2.26.42-1.66-1.21-1.03-1.84-1.53-2.43-1.95-.57-3 1.02-3.87 5.24-2.86 10.93-3.75 16.8-4.75 7.69-1.31 15.86.66 23.11-3.36 1.25-.69 2.17-.21 3.13.56 1.15.91 2.42.84 3.74.39 8.07-2.77 15.26-1.36 21.51 4.51.23.22.56.62.75.57 5.96-1.64 10.6 3.32 16.26 3.2 4.78-.1 9.22.62 13.45 3.41 4.71 3.11 10.68 3.03 15.88 5.04 2.03.79 4.4 1.28 4.47 3.88.07 2.41-2.45 3.1-4.05 3.86-6.15 2.9-12.66 3.34-19.19 1.39-4.04-1.21-8.05-.71-12.37-.46 2.83 1.59 4.61 3.47 4.35 6.96-.14 1.94 8.68 6.06 10.71 5.35 1.44-.5 1.72-1.45.98-2.67-.8-1.33-1.71-2.59-2.88-4.33 4.26-.31 6.99 2.49 10.3 2.84 2.66.28 7.01 2.24 5.57-3.82-.25-1.07.49-1.8 1.38-2.38 4.17-2.74 13.23-3.89 18.36-2.05-1.66-4.22 1.63-8.91-3.77-13.27 5.31.94 9.13 1.43 12.99 1.21 2.28-.13 3.54 1.64 3.66 3.28.15 2.09-2.07 1.44-3.41 1.63-1.22.17-3.04-.21-2.89 1.69.11 1.39 1.72 1.21 2.86 1.27 3.52.19 6.48 0 10-2.15 4.96-3.04 11.16-4.79 17.01-5.45 5.34-.61 10.27-2.17 15.25-3.63 1 1.62-.57 2.08-1.02 3.01-.52 1.08-.03 2.42 1.1 1.83 5.31-2.78 11.31-1 16.68-2.83 1.69-.57 3.64-.38 4.94-2.62 1.21-2.08 2.91-.53 3.37 1.29.42 1.64.64 3 2.78 1.83 1.35-.74 2.57-1.3 1.59-3.35-2.26-4.75 1.96-4.68 4.23-4.47 10.06.92 20.2 1.81 29.18 7.2.7.42 1.45.89 2.23 1.03 2.37.42 5.5 3.26 6.77-.17.47-1.28-2.94-4.77-5.9-5.19-2.8-.4-5.25-.29-5.19-4.19.05-3.33.74-5.57 4.58-6.29 2.53-.47 4.41-2.35 6.2-4.49 2.46-2.95 4.94-7.26 10.22-3.25 1.38 1.05 4.16.25 6.3.31 1.3.03 2.63-.16 3.47 1.28.95 1.66-.28 2.5-1.23 3.29-2.11 1.74-3.1 3.36-.3 5.37 1.2.86 1.23 2.03.81 3.5-1.06 3.7.14 7.31 1.88 10.38 1.51 2.66.9 3.8-1.42 4.91-1.62.78-2.53 2.6-4.48 2.95-1.22.22-2.24.96-1.79 2.39.32 1.02 1.34 1.31 2.38 1.44 2.81.35 12.4-5.41 12.76-8.11.27-2.01 1.32-4.46-1.72-5.97-2.24-1.11-2.23-3.37-1.19-5.58 1.09-2.32 1.07-4.06-1.66-5.64-2.99-1.72-2.77-3.86.71-5.12 1.08-.39 2.18-.75 3.28-1.05.99-.26 2.1-.55 2.27-1.62.23-1.43-1.1-1.3-2-1.52-.98-.24-2.06-.59-1.93-1.8.15-1.36 1.52-.91 2.37-1.21 6.84-2.45 6.84-2.45 11.13 1.12-.99 1.33-2.02.52-3.03.05-1.19-.55-2.45-1.41-3.49.12-1.17 1.73.03 3.17.91 4.5 1.03 1.56 2.58 1.46 3.88.46 2.4-1.84 4.41-5.49 7.58-.69.41.62 2.19-.62 2.83-1.99 1.46-3.16 1.09-2.61 3.62-.4 2.02 1.76 5.31 2.06 8.28 3.1.57-2.53-3.2-4.12-1-6.34 1.9-1.92 4.47-1.78 6.97-1.76 4.45.04 8.91.2 13.34-.07 2.31-.14 5.83.14 4.26-4.24-.25-.69-.12-1.43.68-1.5 8.16-.71 15.47-5.32 23.86-5.05 5.08.17 10.01-.2 14.83-2.48 3.88-1.84 8.21-.03 12.07.88 4.39 1.03 8.23.5 11.83-1.54 2.76-1.56 5.49-1.79 8.47-1.79 5.53.01 9.75-4.16 15.15-4.79 4.41-.51 9.13-3.61 12.25 2.5.27.53 2.16.27 3.29.33 2.18.11 5.31-2.62 5.95 2.15.12.89 1.41.3 2.13-.02 7.72-3.5 15.23-.75 22.63 1.14 1.39.36 2.97-.91 4.37.9 3.43 4.45 3.27 5.33-2.24 7.35-1.02.37-2.39.15-3.08 1.92 2.52-.08 5.17-.33 5.48 3.17.12 1.37 1.2 1.49 2.58 1.44 5.59-.22 11.19-.26 16.78-.25 3.11 0 5.97-.6 8.41 3.06 1.85 2.78 6.15.99 9.3.42 2.15-.39 4.14-.59 6.3-.08 4.15.99 8.24 1.62 10.12-3.76.4-1.16 1.6-1.78 2.83-1.58 7.09 1.17 14.17 2.43 20.9 3.6.43 1.98-.46 2.24-1.11 2.68-.93.61-2.57.79-2.46 2.1.11 1.37 1.44 2.07 2.8 2.44 1.94.53 3.52 1.42 4.7 3.27 2.53 3.94 6.31 3.67 9.36 1.24 3.85-3.07 7.48-4.53 12.09-2.11 1.52.8 3.27.81 4.84.36 4.91-1.4 9.74-.97 14.58.27 4.52 1.16 8.19-.01 10.33-4.26 1.49-2.97 3.78-4.22 6.8-3.65 7.39 1.41 15.18-.08 22.25 2.15 5.09 1.61 9.81-1.1 14.59.57 1.22.43 2.45.6 3.58 1.42 7 5.04 15.07 6.78 23.46 6.41 4.18-.19 8.28-1.68 12.6-1.81 6.71-.2 12.67 1.53 17.7 5.88 1.93 1.67 3.87 2.14 6.28 2.12 9.66-.08 19.32-.04 28.98-.02 3.49.01 6.2 1.91 8.91 3.78 4.32 3 5.79 2.44 6.59-2.78.26-1.69.72-3.13 2.52-2.93 12.16 1.33 24.79-1.06 36.47 3.52 9.12 3.57 18.15 7.21 27.71 9.42 2.5.58 4.37 2.27 5.7 4.45.83 1.35 1.59 2.66 3.44 1.6 6.81-3.89 12.71-1.34 18.47 2.5.64.43 1.73.42 1.51 1.54-.17.88-.94 1.34-1.79 1.45-1.64.21-3.23.09-4.86-.42-2.58-.79-4.36.51-5.76 2.61-1.11 1.65-.65 4.82-3.57 4.7-3.4-.14-7.54.1-9.79-2.39-3.49-3.85-7.55-3.31-11.77-3.41-1.42-.03-3.33.65-4.13-.85-2.6-4.89-4.22-2.58-6.44.39-1.91 2.56-4.14 5.16-8.45 4.55 2.22 3.17 4.26 5.78 4.84 9.09.51 2.86-.16 5.41-3.67 4.45-10.03-2.73-18.61 1.99-27.57 4.85-1.55.49-2.95 1.46-4.43 2.16-5.17 2.45-9.71 5.85-16.41 3.27-5.25-2.01-10.81 2.16-16.29 2.35-5.3.18-9.44 1.49-12.9 5.58-1.18 1.4-1.41 1.58-.2 3.28 4.36 6.1.05 16.25-7.39 18.09-3.35.83-6.99 1.18-7.38 5.82-.11 1.29-1.26 2.21-2.44 1.98-4.56-.87-5.45 2.1-6.3 5.46-.31 1.22-1.18 2.31-1.89 3.4-1.33 2.07-3.12 3.68-5.67 2.58-2.3-.99-2.64-3.24-2.1-5.49.96-3.96-1.13-7.33-2.14-10.84-3.02-10.51-.38-14.64 8.43-19.42 6.24-3.39 12.13-7.03 17.86-11.11 3.32-2.36 6.59-4.86 10.7-5.91 3.65-.94 3-4.51 4.01-7.26-3.1 5.84-9.85 5.31-14.37 8.61-2.22 1.62-5.47 2.43-6.1-2.22-.15-1.08-1.02-1.88-2.02-1.88-4.99 0-10.27-1.5-14.59 2.44-1.83 1.66-3.58 3.38-5.93 4.34-1.34.55-2.07 1.57-1.8 3.12.69 3.98-1.63 4.71-4.92 4.77-3.59.07-7.23-.59-10.78.65-1.56.54-3.17-.17-3.87-1.49-1.75-3.31-5.28-3.67-7.6-2.89-8.76 2.94-17.64 1.43-26.45 1.64-6.19.15-11.57 2.03-16.2 5.88-1.94 1.62-4.39.7-6.35 2.28-4.41 3.55-9.15 6.7-13.76 10-1.06.76-2.19 1.43-3.26 2.18-1.06.74-3.62.22-2.98 2.29.58 1.88 2.44.76 3.83.37 1.74-.49 2.99.59 3.65 1.9 1.52 3.01 3.76 3.3 6.6 2.28 4.15-1.5 7.95-1.5 11.1 2.3 2.97 3.59 1.45 6.95.03 10.55-1.69 4.29-1.88 8.93-2.3 13.47-.17 1.83-.02 3.71-1.69 4.91-7.6 5.45-11.37 14.79-19.97 19.32-2.15 1.13-3.29 4.05-5.21 5.79-3.64 3.3-7.54 6.17-12.53 2.16-1.01-.81-2.57-1.1-3.09-.04-2.31 4.8-8.98 5.51-10.26 11.36-.52 2.37-3.15 3.14-5.42 3.8-3.02.88-4.56 1.98-2.24 5.49 1.77 2.68 3.03 5.72 5.03 8.34 2.41 3.14.55 6.88 1.11 10.3.04.27-.22.61-.4.88-.64.97-13.22 5.57-14.27 5.27-1.27-.36-1.16-1.39-1.25-2.36-.16-1.65 1.04-2.69 1.75-3.96 3.88-7.02 1.14-11.73-6.95-11.96-.87-.02-1.94 1.03-2.46-.4-.4-1.08.35-1.86 1.16-2.49 2.3-1.77 2.09-4.12.82-6.12-1.3-2.06-3.47-1.98-5.71-1.13-3.38 1.28-6.93 2.12-9.66 4.72-.72.69-1.56 1.46-2.6.95-1.64-.81-.13-1.98-.16-2.99-.06-1.8.91-3.06 2.14-4.25.76-.74 2.17-1.55 1.26-2.8-.89-1.22-2.34-1.77-3.96-1.16-2.82 1.07-4.95 3.13-7.34 4.86-2.89 2.08-5.08 5.02-9.18 6.19 2.89 2.79 7.38 2.53 7.49 7.19.03 1.19 2.09.16 3.17-.68 1.61-1.25 11.05-.89 12.3.52 1.9 2.14.15 2.73-1.61 3.23-5.07 1.47-10.16 2.87-12.74 8.24-.71 1.48-1.24 2.76.44 3.82 6.01 3.8 6.48 10.38 8.44 16.28.89 2.67 2.59 4.87-1.42 6.59-1.39.6-.05 2.13 1.09 2.38 4.95 1.09 3.62 4.7 1.74 6.55-4.87 4.78-6.96 11.05-10.27 16.65-1.3 2.2-2.61 4.02-5.59 4.05-2.88.03-4.39 2.45-6.1 4.37-3.06 3.45-5.91 6.78-11.46 6.3-2.6-.23-5.53.64-7.62 3.53-1.83 2.53-5.66 2.29-8.64 3-5.49 1.32-6.1 2.08-4.38 7.17 1.24 3.66-1.51 8.87-5.12 9.6-1.87.38-3.57.13-4.91-1.48-1.55-1.86-.51-3.49.53-4.91.95-1.3 2.26-2.36 3.53-3.39 1.43-1.16.57-2.3.24-3.54-.36-1.36-.74-2.19-2.22-1.01-.54.43-1.41.52-1.6-.27-.99-4.21-3.66-1.88-5.11-.94-3.12 2.02-6 4.47-8.72 7.03-2.19 2.05-1.94 4.84-.69 7.26 2.79 5.39 7.34 9.38 11.67 13.45 8.87 8.34 6.7 25.02-4.15 30.38-3.81 1.88-5.65 5.97-9.33 7.9-1.24.65-2.23 2.51-3.85 1.58-1.6-.91.11-2.33.02-3.56-.1-1.34 0-2.8-1.21-3.58-5.22-3.38-9.07-8.13-13.38-12.46-1.71-1.72-5.48-1.46-7.42-4.49-1.13 6.74-6.52 11.86-5.84 19.37 4.7-2.85 5.48-.65 5.15 3.61-.34 4.39.8 7.33 5.42 10.17 6.23 3.83 12 9.52 11.3 18.31-.3 3.73 1.45 7.37 3.44 9.49 3.67 3.92.71 7.38 1.36 11.19-.71-.33-1.22-.44-1.24-.6-.59-5.72-3.58-9.09-9.14-11.06-5.35-1.9-8.83-6.28-10.14-11.85-1.31-5.54-4.88-10.32-5.28-16.15-.03-.49-.75-1.03-1.26-1.38-6.68-4.52-7.04-11.55-7.32-18.55-.4-10.12-.71-20.25-1.04-30.38-.05-1.44-.61-2.71-1.87-3.24-1.9-.8-1.97 1.23-2.64 2.15-1.38 1.9-2.93 3.47-5.2 4.32-2.17.82-4.24.88-6.06-.59-1.69-1.37-1.35-3.48-.69-5.03 2.32-5.51-1.7-10.12-1.89-15.26-.04-.98-1.33-1.97-2.55-2.06-5.11-.41-6.86-3.95-7.72-8.22-.66-3.3-1.69-3.9-4.87-2.03-3.32 1.96-7.06 2.7-11.16.87-3.25-1.45-5.71.8-6.68 3.91-1.23 3.95-3.99 6.09-7.38 8.08-6.35 3.72-11.56 8.91-16.06 14.63-1.99 2.53-4.91 2.91-7.19 4.66-4.01 3.06-5.82 6.26-4.3 11.3.58 1.95.66 4.43-.04 6.3-1.55 4.14-1.62 8.31-1.66 12.59-.04 4.08-8.49 12-12.44 11.68-1.79-.14-3.73-.9-4.19-2.93-2.15-9.58-8.82-17.46-10.2-27.36-.49-3.48-4.23-5.37-4.94-8.96-.91-4.64-3.14-9.24-3.01-13.8.16-5.76-4.71-8.64-5.84-13.41-.09-.39-.74-1.02-.86-.96-3.77 1.68-5.55-1.86-8.23-3.02-2.1-.9-5-1.15-5.09-3.91-.08-2.59 3.65-.7 4.44-2.74-5.32-3.88-12.47-5.46-15.63-12.16-.8-1.7-2.27-2.89-3.92-2.2-4.46 1.89-9-.07-13.54.66-4.03.65-8.24.55-12.49-1.32-3.05-1.35-7.13-.46-10.74-.41-3.25.04-5.78-.45-6.32-4.46-.52-3.85-2.94-4.06-6.14-2.7-7.51 3.19-19.21-.23-23.5-7.24-1.39-2.26-3.32-4.03-4.56-6.32-1.25-2.29-3.06-3.43-5.67-2.86-2.75.61-4.68 2.26-5.75 4.91-.57 1.41-.36 2.53.89 3.46 2.1 1.56 4.2 3.13 6.26 4.73 2.82 2.18 6.19 4.03 4.62 8.66-.21.61.79 1.62 1.19 2.37 1.8-.28 1.27-1.99 2.19-2.66 1.59-1.15 2.73-1.07 3.13 1.1.06.32-.04.68.06.98.7 2.33-1.91 5.93 2.44 6.84 5.52 1.15 11.57-1.21 13.51-4.69 1.42-2.55 3.22-4.91 5.03-7.21.83-1.06 2.38-1.28 2.35.52-.05 3.32 1.97 6.24 1.4 9.64-.81 4.81 2.01 6.42 6.1 5.59 2.29-.46 3.87.52 5.51 1.31 4.24 2.03 4.58 5.35 2.45 9.48-2.22 4.29-7.5 6.66-7.5 12.31 0 1.22-1.52 1.51-2.64 1.88-1.9.64-3.74 1.43-4.11 3.78-.02.16-.1.42-.18.44-4.91.83-7.22 6.64-12.68 6.51-3.63-.09-6.63.88-8.35 4.7-.91 2.01-2.81 3.7-5.08 4.49-8.34 2.9-16 7.62-24.78 9.31-1.84.35-3.29 1.09-4.79 2.22-5.13 3.86-9.87 1.92-11.47-4.2-1.04-4-1.94-7.93-1.73-12.09.19-3.77-.99-6.93-4.23-9.26-1.9-1.36-3.13-3.34-3.69-5.68-.69-2.89-2.55-5.15-4.93-6.56-4.4-2.61-5.74-6.61-5.83-11.2-.06-2.87-1.02-5.48-3.06-7.01-6.24-4.68-8.35-12.02-12.43-18.07-2.05-3.04-3.21-7.31-8.67-6.32-1.94.35-3.75-1.86-5.01-3.63-.94-1.32-1.61-2.84-3.17-3.56-1.19.77-.51 1.68-.1 2.09 7.52 7.42 10.31 17.27 13.88 26.72 1.12 2.97 2.59 5.95 5.38 7.48 4.52 2.48 5.15 6.55 5.13 10.86-.02 5.27.64 9.62 5.55 13.24 3.63 2.68 4.02 8.05 5.2 12.46.44 1.63.52 3.62 2.43 3.87 4.83.65 7.37 4.61 10.91 7.09 2.5 1.75 4.04 4.05 3.89 7.41-.25 5.58 6.4 10.13 11.79 8.72 5.46-1.43 11.06-2.38 16.63-3.28 3.13-.5 6.06-1.16 8.71-3.03 2.1-1.48 3.68-1.1 4.15 1.76.26 1.63.62 3.23-.1 4.81-6.71 14.75-12.58 30.01-24.9 41.39-2.65 2.44-5.26 4.97-8.18 7.07-6.46 4.65-10.45 11.51-15.82 17.12-.56.58-.77 1.54-1.37 2.02-2.87 2.29-6.23 3.79-6.31 8.57-.06 3.48-3.8 6.04-4.31 9.95 1.51.56 1.9-1.63 3.64-1.28-4.11 6.42-1.58 13.11-1.04 19.75.21 2.6.98 4.72 3.18 6.34 1.57 1.15 1.88 2.99 1.84 4.88-.14 5.74 1.19 11.37 1.16 17.14-.03 4.67-1.85 8.41-5.08 11.09-3.9 3.23-8.71 5.23-13.79 6.04-2.25.36-3.53.73-2.47 3.29 1.41 3.41-.56 4.59-3.44 5.55-5.21 1.74-6.35 4.42-3.83 9.35 2.09 4.08 2.79 8.27 2.83 12.8.04 4.7-2.16 7.26-6.31 8.76-6.46 2.32-7.78 4.03-7.4 10.66.31 5.45-2.02 9.11-6.39 12.07-4.77 3.23-7.34 8.58-11.46 12.54-5.17 4.97-9.55 9.79-17.55 11.36-9.67 1.91-19.73 1.29-29.18 5.08-4.97 1.99-11.01-5.54-9.47-11.54.99-3.86-.98-6.31-2.14-9.51-3.22-8.84-11.39-14.83-13.47-24.14-.89-3.97-1.54-8.05-1.7-12.11-.38-9.24-5.36-16.54-9.63-24.16-4.15-7.4-6.76-14.51-2.63-23.25 2.35-4.97 2.83-10.7 6.84-15.19 3.66-4.1.92-8.75-.48-13.05-.69-2.11-2.39-3.95-.26-6.28 1.03-1.13-.16-2.46-.62-3.66-4.28-11.17-9.59-21.63-18-30.5-2.91-3.06-3.93-7.92-1.57-12.3 1.78-3.31 3.54-7.09 4.06-10.3.54-3.37-.06-8.25-2.59-11.44-2.5-3.16-6.41-2.98-10.03-1.63-5.06 1.89-8.63 1.53-10.51-4.6-1.05-3.41-4.4-4.98-8.3-5.05-9.11-.17-17.16 3.85-25.62 6.24-1.53.43-2.8 1.62-4.61.67-5.97-3.15-12.23-3.04-17.94.12-7.14 3.95-13.49 1.46-18.72-2.56-5.12-3.94-11.18-6.94-15.12-12.36-.76-1.05-1.84-2.14-2.01-3.32-1.14-8.02-6.98-11.98-13.05-16.02-1.79-1.19-5.99-2.58-1.95-6.56 1.38-1.36-1.15-4.08-2.24-5.93-.87-1.47-2.59-2.44-3.93-3.63-.03-.78-.03-1.44-.03-2.1z"
+                ></path>
+                <path
+                  style={{ fill: "var(--bg-card, #ffffff)" }}
+                  d="M282.06 202.51c-4.49.45-9.26-.78-13.8-2.75-7.41-3.21-14.54-3.08-21.84.47-5.18 2.52-10.62 1.86-15.72-.49-3.58-1.64-4.77-5.04-2.82-8.23 3.8-6.2 8.18-12.06 12.49-17.93 1.1-1.49 2.93-2.12 4.86-1.02 1.6.91 3.31 1.22 5.16 1.41 1.99.2 6.88-1.72 3.34 3.86-1.06 1.67 4.11 5.88 6.08 4.64 8.28-5.22 15.03-.89 21.96 2.9 3.6 1.97 7.21 3.92 10.81 5.89 1.74.95 3.91 1.83 3.49 4.2-.45 2.52-1.14 5.04-4.2 6.12-3.06 1.08-6.14.86-9.81.93z"
+                ></path>
+                <path
+                  style={{ fill: "var(--bg-card, #ffffff)" }}
+                  d="M351.95 195.85c5.39-.62 7.09 2.93 7.94 5.27.97 2.64-2.16 3.41-4.61 3.32-2.96-.11-3.56.3-2.2 3.54 1.3 3.1 4.09 5.41 3.79 9.64-.44 6.09-1.49 8.44-7.73 8.37-6.32-.07-11.47-3.72-16.2-7.44-2.54-2-.09-8.76 3.62-11.47.95-.7 2.96-.64 2.47-2.47-.35-1.32-1.87-1.14-2.99-1.13-1.66.01-2.19-1.19-2.85-2.33-1.13-2-2.33-3.91-4.31-5.26-1.99-1.36-3.25-3.19-2.95-5.81.18-1.55-.63-2.86-1.43-4.11-.79-1.24-3.4-1.73-1.98-3.83 1.4-2.07 2.13-5.1 5.37-5.22 1.77-.06 3.09-.8 4.48-1.73 5.14-3.44 10.6-5.5 17.02-4.35 2.33.42 4.29.55 4.23 3.5-.06 2.74-1.48 4.21-4.22 4.45-1.6.14-3.28-.34-4.75.8-3.64 2.82-4.21 5.85-.98 9.28 2.72 2.86 6.05 5.14 8.28 6.98z"
+                ></path>
+                <path
+                  style={{ fill: "var(--bg-card, #ffffff)" }}
+                  d="M388.83 176.85c2.17.01 3.69 1.07 3.23 3.25-.57 2.71-.72 6.46-4.68 6.31-2.39-.09-5.43-.8-5.89-4.11-.28-2 4.66-5.52 7.34-5.45z"
+                ></path>
+                <path
+                  style={{ fill: "var(--bg-card, #fbfbfb)" }}
+                  d="M500.56 38.18c2.86 2.86 2.86 2.86-.06 5.88-1.46-2.04 2-3.84.06-5.88z"
+                ></path>
+                <path
+                  strokeMiterlimit="10"
+                  fill="none"
+                  strokeWidth=".5"
+                  stroke="var(--heading, #000000)"
+                  d="M288.5 294.5s-18-113-53.5-26.5"
+                ></path>
+                <path
+                  strokeMiterlimit="10"
+                  fill="none"
+                  strokeWidth=".5"
+                  stroke="var(--heading, #000000)"
+                  d="M289 295S170 87 52 258"
+                ></path>
+                <path
+                  strokeMiterlimit="10"
+                  fill="none"
+                  strokeWidth=".5"
+                  stroke="var(--heading, #000000)"
+                  d="M288.5 294.5s-134-180.4-252 72"
+                ></path>
+                <path
+                  d="M53 366c0 8.837-7.163 16-16 16s-16-7.163-16-16 7.163-16 16-16 16 7.163 16 16z"
+                  strokeMiterlimit="10"
+                  fill="none"
+                  stroke="var(--brand, #f5bf00)"
+                ></path>
+                <path
+                  d="M43.4 366a6.4 6.4 0 1 1-12.8 0 6.4 6.4 0 0 1 12.8 0z"
+                  fill="var(--brand)"
+                ></path>
+                <path
+                  strokeMiterlimit="10"
+                  fill="none"
+                  strokeWidth=".5"
+                  stroke="var(--heading, #000000)"
+                  d="M288.5 294.5s-167-43-100.5 165.5"
+                ></path>
+                <path
+                  strokeMiterlimit="10"
+                  fill="none"
+                  strokeWidth=".5"
+                  stroke="var(--heading, #000000)"
+                  d="M292 295s75.11-168.95 189.3 4.27"
+                ></path>
+                <path
+                  strokeMiterlimit="10"
+                  fill="none"
+                  strokeWidth=".5"
+                  stroke="var(--heading, #000000)"
+                  d="M289 298s6.5-232.5 107.5-163.5"
+                ></path>
+                <path
+                  d="M68.03 258.35c0 8.837-7.163 16-16 16s-16-7.163-16-16 7.163-16 16-16 16 7.163 16 16z"
+                  strokeMiterlimit="10"
+                  fill="none"
+                  stroke="var(--brand, #f5bf00)"
+                ></path>
+                <path
+                  d="M58.43 258.35a6.4 6.4 0 1 1-12.8 0 6.4 6.4 0 0 1 12.8 0z"
+                  fill="var(--brand)"
+                ></path>
+                <path
+                  d="M204.53 460.4c0 8.837-7.163 16-16 16s-16-7.163-16-16 7.163-16 16-16 16 7.163 16 16z"
+                  strokeMiterlimit="10"
+                  fill="none"
+                  stroke="var(--brand, #f5bf00)"
+                ></path>
+                <path
+                  d="M194.93 460.4a6.4 6.4 0 1 1-12.8 0 6.4 6.4 0 0 1 12.8 0z"
+                  fill="var(--brand)"
+                ></path>
+                <path
+                  d="M250.8 268.15c0 8.837-7.163 16-16 16s-16-7.163-16-16 7.163-16 16-16 16 7.163 16 16z"
+                  strokeMiterlimit="10"
+                  fill="none"
+                  stroke="var(--brand, #f5bf00)"
+                ></path>
+                <path
+                  d="M241.2 268.15a6.4 6.4 0 1 1-12.8 0 6.4 6.4 0 0 1 12.8 0z"
+                  fill="var(--brand)"
+                ></path>
+                <path
+                  d="M413.26 134.3c0 8.837-7.163 16-16 16s-16-7.163-16-16 7.163-16 16-16 16 7.163 16 16z"
+                  strokeMiterlimit="10"
+                  fill="none"
+                  stroke="var(--brand, #f5bf00)"
+                ></path>
+                <path
+                  d="M403.66 134.3a6.4 6.4 0 1 1-12.8 0 6.4 6.4 0 0 1 12.8 0z"
+                  fill="var(--brand)"
+                ></path>
+                <path
+                  d="M305.75 297.74c0 8.837-7.163 16-16 16s-16-7.163-16-16 7.163-16 16-16 16 7.163 16 16z"
+                  strokeMiterlimit="10"
+                  fill="none"
+                  stroke="var(--brand, #f5bf00)"
+                ></path>
+                <path
+                  d="M296.15 297.74a6.4 6.4 0 1 1-12.8 0 6.4 6.4 0 0 1 12.8 0z"
+                  fill="var(--brand)"
+                ></path>
+                <path
+                  d="M498.66 301.32c0 8.837-7.163 16-16 16s-16-7.163-16-16 7.163-16 16-16 16 7.163 16 16z"
+                  strokeMiterlimit="10"
+                  fill="none"
+                  stroke="var(--brand, #f5bf00)"
+                ></path>
+                <path
+                  d="M489.06 301.32a6.4 6.4 0 1 1-12.8 0 6.4 6.4 0 0 1 12.8 0z"
+                  fill="var(--brand)"
+                ></path>
+              </g>
+            </svg>
+
+            {/* Headline Overlay */}
+            <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-8 text-right z-10 pointer-events-none">
+              <span
+                style={{ color: "var(--text-secondary, #64748b)" }}
+                className="block text-2xl sm:text-3xl md:text-4xl font-light tracking-tight leading-snug"
+              >
+                Exporting
+              </span>
+              <h2
+                style={{ color: "var(--heading, #0f172a)" }}
+                className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-snug"
+              >
+                Driving Economic Growth
+              </h2>
+              <h2
+                style={{ color: "var(--heading, #0f172a)" }}
+                className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-snug"
+              >
+                & Global Expansion
+              </h2>
             </div>
-
-            <div className="relative z-10 flex flex-col h-full justify-between">
-              <div>
-                <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl border border-brand/20 bg-brand/10 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.08]">
-                  <Leaf className="w-6 h-6 md:w-7 md:h-7 text-brand" />
-                </div>
-                <h3 className="text-2xl md:text-3xl font-extrabold text-white mt-6 md:mt-8 mb-3 md:mb-4 tracking-tight leading-tight">
-                  {c("why_us_f1_title", "100% Recycled")}
-                </h3>
-                <p className="text-slate-200 text-sm md:text-base leading-relaxed max-w-[95%] md:max-w-[90%] font-medium drop-shadow-sm">
-                  {c("why_us_f1_desc", "Manufactured from 100% recycled plastic for exceptional durability while reducing environmental impact.")}
-                </p>
-              </div>
-
-              <div className="mt-6 md:mt-8">
-                <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-brand/20 border border-brand/30 text-brand text-xs font-semibold shadow-sm backdrop-blur-md">
-                  <Leaf className="w-3.5 h-3.5 flex-shrink-0" />
-                  <span className="truncate">Eco-Friendly • Sustainable • Earth Responsible</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Card 2 - High Load Capacity */}
-          <motion.div
-            variants={featureCardVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            whileHover="hover"
-            transition={{ delay: 0.1 }}
-            className="md:col-span-2 rounded-[24px] border border-slate-800/80 bg-navy p-6 md:p-8 shadow-xl relative overflow-hidden group flex flex-col justify-between min-h-[260px] md:min-h-[260px]"
-          >
-            <div className="absolute inset-0 z-0">
-              <img
-                src={highLoadCapacity}
-                alt="High Load Capacity"
-                className="absolute right-0 bottom-0 h-full w-1/2 object-cover opacity-60 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
-            </div>
-
-            <div className="relative z-10 flex flex-col h-full justify-between">
-              <div>
-                <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl border border-brand/20 bg-brand/10 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.08]">
-                  <Weight className="w-6 h-6 md:w-7 md:h-7 text-brand" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-extrabold text-white mt-5 md:mt-6 mb-2 md:mb-3 tracking-tight">
-                  {c("why_us_f2_title", "High Load Capacity")}
-                </h3>
-                <p className="text-slate-200 text-sm leading-relaxed max-w-[90%] md:max-w-[85%] font-medium drop-shadow-sm">
-                  {c("why_us_f2_desc", "Engineered to withstand heavy industrial loads without bending, cracking, or rotting under extreme pressure.")}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Card 3 - Pan India Supply */}
-          <motion.div
-            variants={featureCardVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            whileHover="hover"
-            transition={{ delay: 0.2 }}
-            className="md:col-span-2 md:row-span-2 rounded-[24px] border border-slate-800/80 bg-navy p-6 md:p-8 shadow-xl relative overflow-hidden group flex flex-col justify-between min-h-[380px] md:min-h-[560px]"
-          >
-            <div className="absolute inset-0 z-0">
-              <img
-                src={indiaSupplyChainMap}
-                alt="Pan India Supply Chain Map"
-                className="absolute bottom-0 left-0 w-full h-[65%] object-cover opacity-85 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/60 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
-            </div>
-
-            <div className="relative z-10 flex flex-col h-full justify-between">
-              <div>
-                <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl border border-brand/20 bg-brand/10 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.08]">
-                  <Globe className="w-6 h-6 md:w-7 md:h-7 text-brand" />
-                </div>
-                <h3 className="text-2xl md:text-3xl font-extrabold text-white mt-6 md:mt-8 mb-3 md:mb-4 tracking-tight leading-tight">
-                  {c("why_us_f4_title", "Pan India Supply")}
-                </h3>
-                <p className="text-slate-200 text-sm md:text-base leading-relaxed max-w-[95%] md:max-w-[90%] font-medium drop-shadow-sm">
-                  {c("why_us_f4_desc", "Efficient logistics network ensuring reliable delivery across India with consistent quality and highly dependable service.")}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Card 4 - Weather Resistant */}
-          <motion.div
-            variants={featureCardVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            whileHover="hover"
-            transition={{ delay: 0.3 }}
-            className="md:col-span-2 rounded-[24px] border border-slate-800/80 bg-navy p-6 md:p-8 shadow-xl relative overflow-hidden group flex flex-col justify-between min-h-[260px] md:min-h-[260px]"
-          >
-            <div className="absolute inset-0 z-0">
-              <img
-                src={weatherResistantBg}
-                alt="Weather Resistant Surface"
-                className="absolute right-0 bottom-0 h-full w-1/2 object-cover opacity-60 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
-            </div>
-
-            <div className="relative z-10 flex flex-col h-full justify-between">
-              <div>
-                <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl border border-brand/20 bg-brand/10 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.08]">
-                  <Sun className="w-6 h-6 md:w-7 md:h-7 text-brand" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-extrabold text-white mt-5 md:mt-6 mb-2 md:mb-3 tracking-tight">
-                  {c("why_us_f3_title", "Weather Resistant")}
-                </h3>
-                <p className="text-slate-200 text-sm leading-relaxed max-w-[90%] md:max-w-[85%] font-medium drop-shadow-sm">
-                  {c("why_us_f3_desc", "Impervious to moisture, UV exposure, and termites for long-lasting performance in any outdoor environment.")}
-                </p>
-              </div>
-
-              <div className="flex justify-end mt-2">
-                <div className="flex gap-2 items-center bg-navy/80 backdrop-blur-md border border-slate-800 rounded-xl px-3 py-1.5 w-fit shadow-sm">
-                  <CloudRain className="w-4 h-4 text-brand/90" />
-                  <span className="text-[10px] text-slate-300 font-bold uppercase tracking-widest">UV</span>
-                  <Shield className="w-4 h-4 text-brand/90" />
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <FeaturesCustomLifespanCards cardVariant={featureCardVariant} />
+          </div>
         </div>
-
-        
       </div>
     </section>
   );

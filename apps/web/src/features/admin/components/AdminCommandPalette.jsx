@@ -20,7 +20,7 @@ export default function AdminCommandPalette({
       style={{
         position: "fixed",
         inset: 0,
-        background: "rgba(15, 23, 42, 0.4)",
+        background: "var(--border-subtle)",
         backdropFilter: "blur(4px)",
         zIndex: 1000,
         display: "flex",
@@ -34,9 +34,9 @@ export default function AdminCommandPalette({
         style={{
           width: "100%",
           maxWidth: "540px",
-          background: "#ffffff",
+          background: "var(--bg-card)",
           borderRadius: "16px",
-          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+          boxShadow: "0 25px 50px -12px var(--shadow-md)",
           border: "1px solid var(--line)",
           overflow: "hidden",
         }}
@@ -71,11 +71,11 @@ export default function AdminCommandPalette({
             style={{
               fontSize: "0.68rem",
               fontWeight: 700,
-              background: "#F1F5F9",
-              color: "#475569",
+              background: "var(--bg-surface)",
+              color: "var(--text-secondary)",
               padding: "2px 6px",
               borderRadius: "4px",
-              border: "1px solid #E2E8F0",
+              border: "1px solid var(--border-subtle)",
             }}
           >
             ESC
@@ -87,7 +87,7 @@ export default function AdminCommandPalette({
             style={{
               fontSize: "0.7rem",
               fontWeight: 800,
-              color: "#94A3B8",
+              color: "var(--text-muted)",
               textTransform: "uppercase",
               letterSpacing: "0.05em",
               padding: "6px 10px",
@@ -101,7 +101,7 @@ export default function AdminCommandPalette({
               style={{
                 padding: "24px",
                 textAlign: "center",
-                color: "#64748B",
+                color: "var(--text-muted)",
                 fontSize: "0.85rem",
               }}
             >

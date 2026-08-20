@@ -20,7 +20,7 @@ export function getQualityStandardsSpread({ emailVal, webVal }) {
         >
           <div
             style={{
-              border: "1px solid #ddd",
+              border: "1px solid var(--gray-200)",
               borderRadius: "4px",
               padding: "15px",
             }}
@@ -28,20 +28,20 @@ export function getQualityStandardsSpread({ emailVal, webVal }) {
             <div
               style={{
                 fontWeight: 700,
-                color: "#f5b21f",
+                color: "var(--color-warning)",
                 fontSize: "16px",
                 marginBottom: "5px",
               }}
             >
               GST Registered
             </div>
-            <div style={{ color: "#666" }}>
+            <div style={{ color: "var(--gray-500)" }}>
               Audited B2B Management Systems
             </div>
           </div>
           <div
             style={{
-              border: "1px solid #ddd",
+              border: "1px solid var(--gray-200)",
               borderRadius: "4px",
               padding: "15px",
             }}
@@ -49,20 +49,20 @@ export function getQualityStandardsSpread({ emailVal, webVal }) {
             <div
               style={{
                 fontWeight: 700,
-                color: "#f5b21f",
+                color: "var(--color-warning)",
                 fontSize: "16px",
                 marginBottom: "5px",
               }}
             >
               100% Recycled
             </div>
-            <div style={{ color: "#666" }}>
+            <div style={{ color: "var(--gray-500)" }}>
               Granules Compounded In-House
             </div>
           </div>
           <div
             style={{
-              border: "1px solid #ddd",
+              border: "1px solid var(--gray-200)",
               borderRadius: "4px",
               padding: "15px",
             }}
@@ -70,20 +70,20 @@ export function getQualityStandardsSpread({ emailVal, webVal }) {
             <div
               style={{
                 fontWeight: 700,
-                color: "#f5b21f",
+                color: "var(--color-warning)",
                 fontSize: "16px",
                 marginBottom: "5px",
               }}
             >
               Phytosanitary Safe
             </div>
-            <div style={{ color: "#666" }}>
+            <div style={{ color: "var(--gray-500)" }}>
               Fumigation-Free Worldwide Export
             </div>
           </div>
           <div
             style={{
-              border: "1px solid #ddd",
+              border: "1px solid var(--gray-200)",
               borderRadius: "4px",
               padding: "15px",
             }}
@@ -91,14 +91,14 @@ export function getQualityStandardsSpread({ emailVal, webVal }) {
             <div
               style={{
                 fontWeight: 700,
-                color: "#f5b21f",
+                color: "var(--color-warning)",
                 fontSize: "16px",
                 marginBottom: "5px",
               }}
             >
               ASTM Tested
             </div>
-            <div style={{ color: "#666" }}>
+            <div style={{ color: "var(--gray-500)" }}>
               Tension & Elastic Limit Approved
             </div>
           </div>
@@ -129,7 +129,7 @@ export function getQualityStandardsSpread({ emailVal, webVal }) {
           <thead>
             <tr>
               <th>Feature</th>
-              <th style={{ background: "#f5b21f", color: "#333" }}>Polymer</th>
+              <th style={{ background: "var(--color-warning)", color: "var(--gray-700)" }}>Polymer</th>
               <th>Timber</th>
               <th>Steel</th>
             </tr>
@@ -137,7 +137,7 @@ export function getQualityStandardsSpread({ emailVal, webVal }) {
           <tbody>
             <tr>
               <td>Rotting & Pest Decay</td>
-              <td style={{ background: "#fdf8ee", fontWeight: 600 }}>
+              <td style={{ background: "var(--color-warning)", fontWeight: 600 }}>
                 No Decay
               </td>
               <td>Susceptible</td>
@@ -145,7 +145,7 @@ export function getQualityStandardsSpread({ emailVal, webVal }) {
             </tr>
             <tr>
               <td>Lifespan</td>
-              <td style={{ background: "#fdf8ee", fontWeight: 600 }}>
+              <td style={{ background: "var(--color-warning)", fontWeight: 600 }}>
                 50+ Years
               </td>
               <td>5-10 Years</td>
@@ -153,13 +153,13 @@ export function getQualityStandardsSpread({ emailVal, webVal }) {
             </tr>
             <tr>
               <td>Maintenance</td>
-              <td style={{ background: "#fdf8ee", fontWeight: 600 }}>Zero</td>
+              <td style={{ background: "var(--color-warning)", fontWeight: 600 }}>Zero</td>
               <td>High Cost</td>
               <td>Annual Paint</td>
             </tr>
             <tr>
               <td>Moisture Swelling</td>
-              <td style={{ background: "#fdf8ee", fontWeight: 600 }}>
+              <td style={{ background: "var(--color-warning)", fontWeight: 600 }}>
                 &lt; 0.1%
               </td>
               <td>High</td>
