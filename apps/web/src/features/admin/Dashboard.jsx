@@ -2,20 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Dashboard.module.css";
 import { InteractiveHoverButton } from "../../registry/magicui/interactive-hover-button";
-import {
-  Package,
-  Tags,
-  Mail,
-  AlertTriangle,
-  Image as ImageIcon,
-  Edit3,
-  Activity,
-  CheckCircle2,
-  XCircle,
-  Loader2,
-  Inbox,
-  Server
-} from "lucide-react";
+import { Icon } from "@iconify/react";
 
 function formatRelativeTime(dateStr) {
   if (!dateStr) return "";
@@ -32,12 +19,12 @@ function formatRelativeTime(dateStr) {
   return `${diffDay}d ago`;
 }
 
-function StatCard({ icon: Icon, label, value, href }) {
-  if (!Icon) return null;
+function StatCard({ iconName, label, value, href }) {
+  if (!iconName) return null;
   const card = (
     <div className={styles.stat}>
       <div className={styles.statIcon}>
-        <Icon size={22} strokeWidth={2} />
+        <Icon icon={iconName} className="w-5 h-5" />
       </div>
       <div className={styles.statInfo}>
         <div className={styles.statLabel}>{label}</div>
@@ -94,7 +81,7 @@ export default function Dashboard() {
           <InteractiveHoverButton onClick={() => navigate("/admin/products?new=1")} className="font-bold shadow-sm">
             Add Product
           </InteractiveHoverButton>
-          <InteractiveHoverButton onClick={() => navigate("/admin/categories?new=1")} className="font-bold shadow-sm bg-slate-50 border-slate-200 text-slate-700">
+          <InteractiveHoverButton onClick={() => navigate("/admin/categories?new=1")} className="font-bold shadow-sm">
             Add Category
           </InteractiveHoverButton>
         </div>
@@ -102,36 +89,38 @@ export default function Dashboard() {
 
       {statsError && (
         <div className={styles.alert}>
-          <AlertTriangle size={16} className="inline mr-2" /> Core services are uncommunicative. check API status.
+          <Icon icon="solar:danger-triangle-linear" className="w-4 h-4 inline mr-2 text-rose-500" /> Core services are uncommunicative. check API status.
         </div>
       )}
 
       <section className={styles.statsRow}>
-        <StatCard icon={Package} label="Products Listed" value={loading ? "..." : stats?.products ?? 0} href="/admin/products" />
-        <StatCard icon={Tags} label="Total Categories" value={loading ? "..." : stats?.categories ?? 0} href="/admin/categories" />
-        <StatCard icon={Mail} label="Inquiries Logged" value={loading ? "..." : inquiries.length} href="/admin/inquiries" />
+        <StatCard iconName="solar:box-minimalistic-linear" label="Products Listed" value={loading ? "..." : stats?.products ?? 0} href="/admin/products" />
+        <StatCard iconName="solar:tag-linear" label="Total Categories" value={loading ? "..." : stats?.categories ?? 0} href="/admin/categories" />
+        <StatCard iconName="solar:letter-linear" label="Inquiries Logged" value={loading ? "..." : inquiries.length} href="/admin/inquiries" />
       </section>
 
       <section className={styles.grid2}>
         <article className={styles.panel}>
           <div className={styles.panelHead}>
-            <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}><Package size={18} strokeWidth={2} /> Recent Catalog Products</h3>
+            <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <Icon icon="solar:box-minimalistic-linear" className="w-4.5 h-4.5" /> Recent Catalog Products
+            </h3>
             <Link to="/admin/products" className={styles.link}>See all</Link>
           </div>
-          {loading ? <Skel rows={5} /> : products.length === 0 ? <Empty icon={Inbox} msg="No products yet" /> : (
+          {loading ? <Skel rows={5} /> : products.length === 0 ? <Empty iconName="solar:inbox-linear" msg="No products yet" /> : (
             products.map((p) => {
               let img = null;
               try { img = JSON.parse(p.image)?.[0]; } catch { img = p.image; }
               return (
                 <div key={p.id} className={styles.listRow}>
                   <div className={styles.listThumb}>
-                    {img ? <img src={img} alt="" /> : <ImageIcon size={18} className="text-slate-400" />}
+                    {img ? <img src={img} alt="" /> : <Icon icon="solar:gallery-linear" className="w-4.5 h-4.5 text-slate-400" />}
                   </div>
                   <div className={styles.listInfo}>
                     <div className={styles.listName}>{p.name}</div>
                     <div className={styles.listSub}>{p.category_name || "Uncategorized"}</div>
                   </div>
-                  <Link to={`/admin/products/${p.id}`} className={styles.miniBtn}><Edit3 size={14} /></Link>
+                  <Link to={`/admin/products/${p.id}`} className={styles.miniBtn}><Icon icon="solar:pen-linear" className="w-3.5 h-3.5" /></Link>
                 </div>
               );
             })
@@ -140,10 +129,12 @@ export default function Dashboard() {
 
         <article className={styles.panel}>
           <div className={styles.panelHead}>
-            <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}><Mail size={18} strokeWidth={2} /> Recent Inquiries Timeline</h3>
+            <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <Icon icon="solar:letter-linear" className="w-4.5 h-4.5" /> Recent Inquiries Timeline
+            </h3>
             <Link to="/admin/inquiries" className={styles.link}>See all</Link>
           </div>
-          {loading ? <Skel rows={5} /> : inquiries.length === 0 ? <Empty icon={Inbox} msg="No incoming inquiries" /> : (
+          {loading ? <Skel rows={5} /> : inquiries.length === 0 ? <Empty iconName="solar:inbox-linear" msg="No incoming inquiries" /> : (
             <div className={styles.activityFeed}>
               {inquiries.map((inq, idx) => {
                 const isProduct = inq.product_id || inq.message?.toLowerCase().includes("product") || inq.message?.toLowerCase().includes("pallet");
@@ -176,41 +167,43 @@ export default function Dashboard() {
 
       <section className={styles.panel}>
         <div className={styles.panelHead}>
-          <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}><Server size={18} strokeWidth={2} /> System Service Metrics</h3>
+          <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <Icon icon="solar:server-linear" className="w-4.5 h-4.5" /> System Service Metrics
+          </h3>
           {sysStatus && <span className={styles.healthTime}>Refreshed at {sysStatus.time.toLocaleTimeString("en-IN")}</span>}
         </div>
         <div className={styles.statusFlexRow}>
-          <StatusRow label="API Framework" ok={sysStatus?.api?.ok} loading={sysLoading} detail={sysStatus?.api?.ok ? `${sysStatus.api.ms}ms` : "Network down"} icon={Activity} />
-          <StatusRow label="Products Registry" ok={sysStatus?.api?.ok} loading={sysLoading} detail={sysStatus?.api?.ok ? `${stats?.products ?? 0} items` : "Locked"} icon={Package} />
-          <StatusRow label="Categories Matrix" ok={sysStatus?.cats?.ok} loading={sysLoading} detail={sysStatus?.cats?.ok ? `${stats?.categories ?? 0} groups` : "Locked"} icon={Tags} />
-          <StatusRow label="Inquiries Stream" ok={sysStatus?.inqs?.ok} loading={sysLoading} detail={sysStatus?.inqs?.ok ? "Live" : "Unreachable"} icon={Mail} />
+          <StatusRow label="API Framework" ok={sysStatus?.api?.ok} loading={sysLoading} detail={sysStatus?.api?.ok ? `${sysStatus.api.ms}ms` : "Network down"} iconName="solar:pulse-linear" />
+          <StatusRow label="Products Registry" ok={sysStatus?.api?.ok} loading={sysLoading} detail={sysStatus?.api?.ok ? `${stats?.products ?? 0} items` : "Locked"} iconName="solar:box-minimalistic-linear" />
+          <StatusRow label="Categories Matrix" ok={sysStatus?.cats?.ok} loading={sysLoading} detail={sysStatus?.cats?.ok ? `${stats?.categories ?? 0} groups` : "Locked"} iconName="solar:tag-linear" />
+          <StatusRow label="Inquiries Stream" ok={sysStatus?.inqs?.ok} loading={sysLoading} detail={sysStatus?.inqs?.ok ? "Live" : "Unreachable"} iconName="solar:letter-linear" />
         </div>
       </section>
     </div>
   );
 }
 
-function StatusRow({ icon: Icon, label, ok, loading, detail }) {
-  if (!Icon) return null;
+function StatusRow({ iconName, label, ok, loading, detail }) {
+  if (!iconName) return null;
   const stateClass = loading ? styles.stateLoading : ok ? styles.stateOk : styles.stateDown;
   return (
     <div className={`${styles.statusRowMini} ${stateClass}`}>
       <div className={styles.statusIconMini}>
         {loading ? (
-          <Loader2 className="animate-spin" size={16} />
+          <Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin" />
         ) : (
-          <Icon size={16} strokeWidth={2} />
+          <Icon icon={iconName} className="w-4 h-4" />
         )}
       </div>
       <div className={styles.statusLabelMini}>{label}</div>
       <div className={styles.statusDetailMini}>{loading ? "Verifying..." : detail}</div>
       <div className={styles.statusBadgeMini}>
         {loading ? (
-          <Loader2 className="animate-spin" size={14} />
+          <Icon icon="solar:restart-linear" className="w-3.5 h-3.5 animate-spin" />
         ) : ok ? (
-          <CheckCircle2 className="text-emerald-500" size={14} />
+          <Icon icon="solar:check-circle-linear" className="w-3.5 h-3.5 text-emerald-500" />
         ) : (
-          <XCircle className="text-rose-500" size={14} />
+          <Icon icon="solar:close-circle-linear" className="w-3.5 h-3.5 text-rose-500" />
         )}
       </div>
     </div>
@@ -221,11 +214,11 @@ function Skel({ rows }) {
   return <div className={styles.skelWrap}>{Array(rows).fill(0).map((_, i) => <div key={i} className={styles.skelRow} />)}</div>;
 }
 
-function Empty({ icon: Icon, msg }) {
-  if (!Icon) return null;
+function Empty({ iconName, msg }) {
+  if (!iconName) return null;
   return (
     <div className={styles.empty}>
-      <Icon size={24} className="text-slate-400 mb-2" strokeWidth={1.5} />
+      <Icon icon={iconName} className="w-6 h-6 text-slate-400 mb-2" />
       <p>{msg}</p>
     </div>
   );

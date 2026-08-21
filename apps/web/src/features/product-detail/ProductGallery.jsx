@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "motion/react";
+import { Icon } from "@iconify/react";
 import OptimizedImage from "../../shared/components/OptimizedImage";
 import styles from "../../pages/ProductDetail.module.css";
 
@@ -146,79 +147,80 @@ export default function ProductGallery({
         <div className={styles.mainImgContainer}>
           <div className={styles.mainImg}>
             {images[currentImgIdx] ? (
-              <ImageZoom src={images[currentImgIdx]} alt={productName} />
-            ) : (
-              <div className={styles.noImg}>
-                <i className="fa-solid fa-image" />
-              </div>
-            )}
-          </div>
+               <ImageZoom src={images[currentImgIdx]} alt={productName} />
+             ) : (
+               <div className={styles.noImg}>
+                 <Icon icon="solar:gallery-linear" className="w-12 h-12 text-slate-400" />
+               </div>
+             )}
+           </div>
 
-          <div className={styles.imageBadgeOverlay}>
-            <i className="fa-solid fa-shield" /> 50+ Year Lifespan
-          </div>
+           <div className={styles.imageBadgeOverlay}>
+             <Icon icon="solar:shield-check-linear" className="w-4 h-4 inline mr-1 text-emerald-400 align-middle" />
+             <span>50+ Year Lifespan</span>
+           </div>
 
-          {images[currentImgIdx] && (
-            <button
-              type="button"
-              className={styles.fullscreenBtn}
-              onClick={() => setShowImageModal(true)}
-              aria-label="View image full screen"
-              title="Expand View"
-            >
-              <i className="fa-solid fa-expand" />
-            </button>
-          )}
-        </div>
+           {images[currentImgIdx] && (
+             <button
+               type="button"
+               className={styles.fullscreenBtn}
+               onClick={() => setShowImageModal(true)}
+               aria-label="View image full screen"
+               title="Expand View"
+             >
+               <Icon icon="solar:full-screen-square-linear" className="w-4 h-4" />
+             </button>
+           )}
+         </div>
 
-        {images.length > 1 && (
-          <div className={styles.thumbRow}>
-            <button
-              type="button"
-              className={styles.thumbNav}
-              onClick={handlePrevImage}
-              aria-label="Previous image"
-            >
-              <i className="fa-solid fa-chevron-left" />
-            </button>
-            <div className={styles.thumbs}>
-              {images.map((src, i) => (
-                <button
-                  key={i}
-                  className={`${styles.thumb} ${i === currentImgIdx ? styles.thumbActive : ""}`}
-                  onClick={() => setImg(i)}
-                  aria-label={`View image ${i + 1} of ${productName}`}
-                >
-                  <OptimizedImage src={src} alt={`${productName} image ${i + 1}`} />
-                </button>
-              ))}
-            </div>
-            <button
-              type="button"
-              className={styles.thumbNav}
-              onClick={handleNextImage}
-              aria-label="Next image"
-            >
-              <i className="fa-solid fa-chevron-right" />
-            </button>
-          </div>
-        )}
-      </div>
+         {images.length > 1 && (
+           <div className={styles.thumbRow}>
+             <button
+               type="button"
+               className={styles.thumbNav}
+               onClick={handlePrevImage}
+               aria-label="Previous image"
+             >
+               <Icon icon="solar:alt-arrow-left-linear" className="w-4 h-4" />
+             </button>
+             <div className={styles.thumbs}>
+               {images.map((src, i) => (
+                 <button
+                   key={i}
+                   className={`${styles.thumb} ${i === currentImgIdx ? styles.thumbActive : ""}`}
+                   onClick={() => setImg(i)}
+                   aria-label={`View image ${i + 1} of ${productName}`}
+                 >
+                   <OptimizedImage src={src} alt={`${productName} image ${i + 1}`} />
+                 </button>
+               ))}
+             </div>
+             <button
+               type="button"
+               className={styles.thumbNav}
+               onClick={handleNextImage}
+               aria-label="Next image"
+             >
+               <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4" />
+             </button>
+           </div>
+         )}
+       </div>
 
-      <div className={styles.galleryGuarantees}>
-        <div className={styles.galleryGuaranteeItem}>
-          <i className="fa-solid fa-award" />
-          <span>ISPM-15 Exempt</span>
-        </div>
-        <div className={styles.galleryGuaranteeItem}>
-          <i className="fa-solid fa-leaf" />
-          <span>Zero Rot / Splinter</span>
-        </div>
-        <div className={styles.galleryGuaranteeItem}>
-          <i className="fa-solid fa-recycle" />
-          <span>100% Recycled Polyethylene</span>
-        </div>
-      </div>
+       <div className={styles.galleryGuarantees}>
+         <div className={styles.galleryGuaranteeItem}>
+           <Icon icon="solar:verified-check-linear" className="w-4 h-4 text-emerald-500" />
+           <span>ISPM-15 Exempt</span>
+         </div>
+         <div className={styles.galleryGuaranteeItem}>
+           <Icon icon="solar:leaf-linear" className="w-4 h-4 text-emerald-500" />
+           <span>Zero Rot / Splinter</span>
+         </div>
+         <div className={styles.galleryGuaranteeItem}>
+           <Icon icon="solar:refresh-circle-linear" className="w-4 h-4 text-emerald-500" />
+           <span>100% Recycled Polyethylene</span>
+         </div>
+       </div>
     </div>
   );
 }

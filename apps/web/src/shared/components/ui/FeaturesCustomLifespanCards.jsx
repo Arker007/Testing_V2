@@ -1,7 +1,7 @@
 import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { Shield, Factory } from "lucide-react";
+import { Icon } from "@iconify/react";
 import customManufacturingBg from "../../../assets/images/custom_manufacturing_bg_1785866818566.jpg";
 import fiftyYearsBadge from "../../../assets/images/fifty_years_badge_1785866853287.jpg";
 import { useSite } from "../../context/SiteContext";
@@ -33,7 +33,7 @@ export default function FeaturesCustomLifespanCards({ cardVariant }) {
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 rounded-xl border border-[var(--brand)]/30 bg-[var(--brand)]/15 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.08] shrink-0">
-              <Factory className="w-6 h-6 text-[var(--brand)]" />
+              <Icon icon="solar:buildings-3-linear" className="w-6 h-6 text-[var(--brand)]" />
             </div>
             <h3 className="text-xl md:text-2xl font-extrabold text-white tracking-tight">
               {c("why_us_f5_title", "Custom Manufacturing")}
@@ -67,7 +67,7 @@ export default function FeaturesCustomLifespanCards({ cardVariant }) {
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 rounded-xl border border-[var(--brand)]/30 bg-[var(--brand)]/15 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.08] shrink-0">
-              <Shield className="w-6 h-6 text-[var(--brand)]" />
+              <Icon icon="solar:shield-check-linear" className="w-6 h-6 text-[var(--brand)]" />
             </div>
             <h3 className="text-xl md:text-2xl font-extrabold text-white tracking-tight">
               {c("why_us_f6_title", "50+ Year Lifespan")}

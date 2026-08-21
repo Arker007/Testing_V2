@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Bell, Search, Sun, Moon } from "lucide-react";
+import { Icon } from "@iconify/react";
 import AdminNotificationsDropdown from "./AdminNotificationsDropdown";
 import styles from "./AdminLayout.module.css";
 
@@ -41,7 +41,7 @@ export default function AdminTopBar({
     <header className={`${styles.topbar} ${!sidebarOpen ? styles.topbarCollapsed : ""}`}>
       <div className={styles.topLeft}>
         <button className={styles.toggleBtn} onClick={() => setSidebarOpen(!sidebarOpen)}>
-          {sidebarOpen ? <X size={20} strokeWidth={2} /> : <Menu size={20} strokeWidth={2} />}
+          {sidebarOpen ? <Icon icon="solar:close-circle-linear" className="w-5 h-5" /> : <Icon icon="solar:hamburger-menu-linear" className="w-5 h-5" />}
         </button>
         <div>
           <h1 className={styles.pageTitle}>{pageTitle}</h1>
@@ -71,9 +71,9 @@ export default function AdminTopBar({
             textAlign: "left",
           }}
         >
-          <Search
-            size={16}
-            strokeWidth={2.2}
+          <Icon
+            icon="solar:magnifer-linear"
+            className="w-4 h-4"
             style={{
               position: "absolute",
               left: "14px",
@@ -108,9 +108,9 @@ export default function AdminTopBar({
             title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
             {theme === "dark" ? (
-              <Sun size={20} strokeWidth={2} />
+              <Icon icon="solar:sun-2-linear" className="w-5 h-5" />
             ) : (
-              <Moon size={20} strokeWidth={2} />
+              <Icon icon="solar:moon-linear" className="w-5 h-5" />
             )}
           </button>
         </div>
@@ -124,7 +124,7 @@ export default function AdminTopBar({
             }}
             style={{ position: "relative" }}
           >
-            <Bell size={20} strokeWidth={2} />
+            <Icon icon="solar:bell-linear" className="w-5 h-5" />
             {unreadCount > 0 && (
               <span
                 style={{

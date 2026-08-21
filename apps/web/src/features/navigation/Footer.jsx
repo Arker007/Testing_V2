@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 import styles from "./Footer.module.css";
 
@@ -45,10 +46,10 @@ export default function Footer() {
     : "Plot No. 42, GIDC Industrial Estate, Vapi – 396195, Gujarat, India";
 
   const CONTACT = [
-    { icon: "fa-location-dot", text: addr },
-    { icon: "fa-phone", text: co("phone", "+91 98986 86379") },
-    { icon: "fa-envelope", text: co("email", "info@vishalenterprise.com") },
-    { icon: "fa-clock", text: "Mon – Sat: 9 AM – 6 PM" },
+    { icon: "solar:map-point-linear", text: addr },
+    { icon: "solar:phone-calling-linear", text: co("phone", "+91 98986 86379") },
+    { icon: "solar:letter-linear", text: co("email", "info@vishalenterprise.com") },
+    { icon: "solar:clock-circle-linear", text: "Mon – Sat: 9 AM – 6 PM" },
   ];
 
   const handleSubscribe = (e) => {
@@ -117,7 +118,7 @@ export default function Footer() {
           <div className={styles.brandLine} />
 
           <div className={styles.isoRow}>
-            <i className="fa-solid fa-circle-check" />
+            <Icon icon="solar:verified-check-linear" className="text-emerald-500 w-5 h-5 inline mr-1.5" />
             <span>ISO 9001:2015 Certified</span>
           </div>
 
@@ -130,7 +131,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i className="fa-brands fa-whatsapp" />
+                <Icon icon="logos:whatsapp-icon" className="text-lg" />
               </a>
             )}
             {co("email") && (
@@ -139,7 +140,7 @@ export default function Footer() {
                 className={styles.social}
                 aria-label="Email"
               >
-                <i className="fa-solid fa-envelope" />
+                <Icon icon="solar:letter-linear" className="text-lg" />
               </a>
             )}
             {co("phone") && (
@@ -148,7 +149,7 @@ export default function Footer() {
                 className={styles.social}
                 aria-label="Phone"
               >
-                <i className="fa-solid fa-phone" />
+                <Icon icon="solar:phone-calling-linear" className="text-lg" />
               </a>
             )}
             {co("linkedin") && (
@@ -159,7 +160,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i className="fa-brands fa-linkedin" />
+                <Icon icon="logos:linkedin-icon" className="text-lg" />
               </a>
             )}
           </div>
@@ -173,7 +174,10 @@ export default function Footer() {
             onClick={() => toggleSection("products")}
           >
             <span>Our Products</span>
-            <i className={`fa-solid fa-chevron-down ${styles.headingChevron} ${openSections.products ? styles.headingChevronActive : ""}`} />
+            <Icon
+              icon="solar:alt-arrow-down-linear"
+              className={`${styles.headingChevron} ${openSections.products ? styles.headingChevronActive : ""}`}
+            />
           </button>
           <div className={styles.headingLine} />
           <div className={`${styles.collapsibleContent} ${openSections.products ? styles.collapsibleContentOpen : ""}`}>
@@ -181,7 +185,8 @@ export default function Footer() {
               {PRODUCT_LINKS.map((item) => (
                 <li key={item.label}>
                   <Link to={item.path} className={styles.fLink}>
-                    <i className="fa-solid fa-chevron-right" /> {item.label}
+                    <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 inline mr-1 text-emerald-500" />
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -197,7 +202,10 @@ export default function Footer() {
             onClick={() => toggleSection("quick")}
           >
             <span>Quick Links</span>
-            <i className={`fa-solid fa-chevron-down ${styles.headingChevron} ${openSections.quick ? styles.headingChevronActive : ""}`} />
+            <Icon
+              icon="solar:alt-arrow-down-linear"
+              className={`${styles.headingChevron} ${openSections.quick ? styles.headingChevronActive : ""}`}
+            />
           </button>
           <div className={styles.headingLine} />
           <div className={`${styles.collapsibleContent} ${openSections.quick ? styles.collapsibleContentOpen : ""}`}>
@@ -205,7 +213,8 @@ export default function Footer() {
               {QUICK_LINKS.map((item) => (
                 <li key={item.label}>
                   <Link to={item.path} className={styles.fLink}>
-                    <i className="fa-solid fa-chevron-right" /> {item.label}
+                    <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 inline mr-1 text-emerald-500" />
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -221,7 +230,10 @@ export default function Footer() {
             onClick={() => toggleSection("contact")}
           >
             <span>Contact Us</span>
-            <i className={`fa-solid fa-chevron-down ${styles.headingChevron} ${openSections.contact ? styles.headingChevronActive : ""}`} />
+            <Icon
+              icon="solar:alt-arrow-down-linear"
+              className={`${styles.headingChevron} ${openSections.contact ? styles.headingChevronActive : ""}`}
+            />
           </button>
           <div className={styles.headingLine} />
           <div className={`${styles.collapsibleContent} ${openSections.contact ? styles.collapsibleContentOpen : ""}`}>
@@ -230,7 +242,7 @@ export default function Footer() {
                 (ci, i) =>
                   ci.text && (
                     <li key={i} className={styles.contactItem}>
-                      <i className={`fa-solid ${ci.icon} ${styles.cIcon}`} />
+                      <Icon icon={ci.icon} className={`${styles.cIcon} text-emerald-500 shrink-0 w-4 h-4`} />
                       <span>{ci.text}</span>
                     </li>
                   ),
@@ -245,7 +257,8 @@ export default function Footer() {
             <div className={styles.headingLine} />
             {subscribed ? (
               <p className={styles.subscribedText}>
-                <i className="fa-solid fa-circle-check" /> Thank you for subscribing!
+                <Icon icon="solar:check-circle-linear" className="text-emerald-500 inline mr-1" />
+                Thank you for subscribing!
               </p>
             ) : (
               <form onSubmit={handleSubscribe} className={styles.newsletterForm}>
@@ -258,7 +271,7 @@ export default function Footer() {
                   required
                 />
                 <button type="submit" className={styles.newsletterSubmit} aria-label="Subscribe">
-                  <i className="fa-solid fa-paper-plane" />
+                  <Icon icon="solar:plain-3-linear" className="w-4 h-4 text-emerald-400" />
                 </button>
               </form>
             )}

@@ -1,7 +1,7 @@
 import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
-import { Award, Eye, Target } from "lucide-react";
+import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 import Badge from "../../shared/components/ui/Badge";
 import { containerVariants, itemVariants } from "./about.constants";
@@ -49,7 +49,7 @@ export default function WhoWeAreSection() {
             className="group flex items-start gap-5 p-6 bg-white dark:bg-[#171E26] rounded-xl border border-slate-200/90 dark:border-white/10 hover:border-emerald-300 dark:hover:border-emerald-500/50 shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300"
           >
             <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200/60 dark:border-emerald-500/30 flex items-center justify-center text-emerald-700 dark:text-emerald-400 transition-transform duration-300 group-hover:scale-110 shrink-0">
-              <Target className="w-6 h-6" />
+              <Icon icon="solar:target-linear" className="w-6 h-6" />
             </div>
             <div>
               <h3 className="text-lg font-black text-slate-900 dark:text-white">Our Mission</h3>
@@ -65,7 +65,7 @@ export default function WhoWeAreSection() {
             className="group flex items-start gap-5 p-6 bg-white dark:bg-[#171E26] rounded-xl border border-slate-200/90 dark:border-white/10 hover:border-emerald-300 dark:hover:border-emerald-500/50 shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300"
           >
             <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200/60 dark:border-emerald-500/30 flex items-center justify-center text-emerald-700 dark:text-emerald-400 transition-transform duration-300 group-hover:scale-110 shrink-0">
-              <Eye className="w-6 h-6" />
+              <Icon icon="solar:eye-linear" className="w-6 h-6" />
             </div>
             <div>
               <h3 className="text-lg font-black text-slate-900 dark:text-white">Our Vision</h3>
@@ -81,7 +81,7 @@ export default function WhoWeAreSection() {
             className="group flex items-start gap-5 p-6 bg-white dark:bg-[#171E26] rounded-xl border border-slate-200/90 dark:border-white/10 hover:border-emerald-300 dark:hover:border-emerald-500/50 shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300"
           >
             <div className="w-12 h-12 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200/60 dark:border-emerald-500/30 flex items-center justify-center text-emerald-700 dark:text-emerald-400 transition-transform duration-300 group-hover:scale-110 shrink-0">
-              <Award className="w-6 h-6" />
+              <Icon icon="solar:medal-ribbons-star-linear" className="w-6 h-6" />
             </div>
             <div>
               <h3 className="text-lg font-black text-slate-900 dark:text-white">Our Commitment</h3>

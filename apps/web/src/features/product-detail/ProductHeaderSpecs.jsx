@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import QuoteButton from "../../shared/components/QuoteButton";
+import { Icon } from "@iconify/react";
 import styles from "../../pages/ProductDetail.module.css";
 
 export default function ProductHeaderSpecs({
@@ -39,10 +39,10 @@ export default function ProductHeaderSpecs({
       <div className={styles.bentoInfoCard}>
         <div className={styles.metaBadgeRow}>
           <span className={styles.categoryPill}>
-            <i className="fa-solid fa-seedling mr-1" /> {categoryName.toUpperCase()}
+            <Icon icon="solar:leaf-linear" className="w-3.5 h-3.5 mr-1 inline" /> {categoryName.toUpperCase()}
           </span>
           <span className={styles.stockBadge}>
-            <i className="fa-solid fa-circle-check" /> Production Ready
+            <Icon icon="solar:verified-check-linear" className="w-3.5 h-3.5 mr-1 inline text-emerald-500" /> Production Ready
           </span>
         </div>
 
@@ -70,8 +70,7 @@ export default function ProductHeaderSpecs({
               <div className="flex flex-col gap-1">
                 <div className="flex items-baseline gap-2 flex-wrap">
                   <span className={styles.currentPrice}>
-                    <i className="fa-solid fa-indian-rupee-sign text-xl mr-1" />
-                    {currentPrice}
+                    ₹{currentPrice}
                   </span>
                   {oldPrice && (
                     <span className={`${styles.relatedOldPrice} text-base`}>
@@ -103,7 +102,7 @@ export default function ProductHeaderSpecs({
         <div className={styles.bentoSpecsGridInner}>
           <div className={styles.bentoSpecTile}>
             <div className={styles.specIconBox}>
-              <i className="fa-solid fa-boxes-stacked" />
+              <Icon icon="solar:box-minimalistic-linear" className="w-5 h-5 text-emerald-500" />
             </div>
             <div>
               <span className={styles.matrixLabel}>Minimum Order</span>
@@ -113,7 +112,7 @@ export default function ProductHeaderSpecs({
 
           <div className={styles.bentoSpecTile}>
             <div className={styles.specIconBox}>
-              <i className="fa-solid fa-truck" />
+              <Icon icon="solar:delivery-linear" className="w-5 h-5 text-emerald-500" />
             </div>
             <div>
               <span className={styles.matrixLabel}>Dispatch</span>
@@ -123,7 +122,7 @@ export default function ProductHeaderSpecs({
 
           <div className={styles.bentoSpecTile}>
             <div className={styles.specIconBox}>
-              <i className="fa-solid fa-screwdriver-wrench" />
+              <Icon icon="solar:wrench-linear" className="w-5 h-5 text-emerald-500" />
             </div>
             <div>
               <span className={styles.matrixLabel}>Customization</span>
@@ -133,7 +132,7 @@ export default function ProductHeaderSpecs({
 
           <div className={styles.bentoSpecTile}>
             <div className={styles.specIconBox}>
-              <i className="fa-solid fa-weight-hanging" />
+              <Icon icon="solar:scale-linear" className="w-5 h-5 text-emerald-500" />
             </div>
             <div>
               <span className={styles.matrixLabel}>Load Capacity</span>
@@ -159,7 +158,7 @@ export default function ProductHeaderSpecs({
               aria-expanded={isOpen}
             >
               <span>{selectedSize}</span>
-              <i className={`fa-solid fa-chevron-down ${styles.selectIcon} ${isOpen ? styles.selectIconRotated : ""}`} />
+              <Icon icon="solar:alt-arrow-down-linear" className={`${styles.selectIcon} ${isOpen ? styles.selectIconRotated : ""}`} />
             </button>
             
             {isOpen && (
@@ -176,7 +175,7 @@ export default function ProductHeaderSpecs({
                     }}
                   >
                     {option}
-                    {option === selectedSize && <i className="fa-solid fa-check ml-auto text-[var(--brand-dark)]" />}
+                    {option === selectedSize && <Icon icon="solar:check-read-linear" className="ml-auto text-[var(--brand-dark)] w-4 h-4" />}
                   </li>
                 ))}
               </ul>
@@ -213,7 +212,7 @@ export default function ProductHeaderSpecs({
             onClick={() => setShowInquiry(true)}
           >
             <span>Request Quote</span>
-            <i className="fa-solid fa-arrow-right" />
+            <Icon icon="solar:arrow-right-linear" className="w-4 h-4 ml-1" />
           </button>
           <a
             href={waLink}
@@ -221,7 +220,7 @@ export default function ProductHeaderSpecs({
             rel="noopener noreferrer"
             className={styles.waBtn}
           >
-            <i className="fa-brands fa-whatsapp" /> Whatsapp Us
+            <Icon icon="logos:whatsapp-icon" className="w-4 h-4" /> Whatsapp Us
           </a>
         </div>
         <button
@@ -229,7 +228,7 @@ export default function ProductHeaderSpecs({
           className={styles.datasheetBtn}
           onClick={() => setShowSpecsSheet(true)}
         >
-          <i className="fa-solid fa-file-pdf" /> View Tech Sheet
+          <Icon icon="solar:document-text-linear" className="w-4 h-4 text-emerald-500" /> View Tech Sheet
         </button>
       </div>
     </div>

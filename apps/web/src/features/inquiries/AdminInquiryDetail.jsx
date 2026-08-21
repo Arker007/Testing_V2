@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Icon } from '@iconify/react';
 import styles from '../admin/components/AdminTable.module.css';
 import iStyles from './Inquiries.module.css';
 import { normalizeInquiry } from '../../shared/utils/parsers';
@@ -32,7 +33,7 @@ export default function AdminInquiryDetail() {
     if (loading) {
         return (
             <div className={styles.loadingState}>
-                <i className="fa-solid fa-spinner fa-spin" /> Loading inquiry details...
+                <Icon icon="solar:restart-linear" className="w-5 h-5 animate-spin inline mr-2" /> Loading inquiry details...
             </div>
         );
     }
@@ -43,7 +44,7 @@ export default function AdminInquiryDetail() {
                 <h2 className={styles.notFoundTitle}>Inquiry Not Found</h2>
                 <p className={styles.muted} style={{ marginBottom: '16px' }}>The requested inquiry does not exist or has been deleted.</p>
                 <Link to="/admin/inquiries" className={styles.actionBtnSecondary}>
-                    <i className="fa-solid fa-arrow-left" /> Return to Inquiries
+                    <Icon icon="solar:arrow-left-linear" className="w-4 h-4 mr-1 inline" /> Return to Inquiries
                 </Link>
             </div>
         );
@@ -55,7 +56,7 @@ export default function AdminInquiryDetail() {
         <div>
             <div className={iStyles.headRow}>
                 <button className={styles.actionBtnSecondary} style={{ padding: '8px 16px' }} onClick={() => navigate('/admin/inquiries')}>
-                    <i className="fa-solid fa-arrow-left" /> Back
+                    <Icon icon="solar:arrow-left-linear" className="w-4 h-4 mr-1 inline" /> Back
                 </button>
                 <div className={iStyles.navCluster}>
                     <Link
@@ -64,7 +65,7 @@ export default function AdminInquiryDetail() {
                         style={{ padding: '8px 14px' }}
                         onClick={(e) => !previous && e.preventDefault()}
                     >
-                        <i className="fa-solid fa-chevron-left" /> Prev
+                        <Icon icon="solar:alt-arrow-left-linear" className="w-4 h-4 mr-1 inline" /> Prev
                     </Link>
                     <Link
                         to={next ? `/admin/inquiries/${next.source}/${next.id}` : '#'}
@@ -72,7 +73,7 @@ export default function AdminInquiryDetail() {
                         style={{ padding: '8px 14px' }}
                         onClick={(e) => !next && e.preventDefault()}
                     >
-                        Next <i className="fa-solid fa-chevron-right" />
+                        Next <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 ml-1 inline" />
                     </Link>
                 </div>
             </div>
@@ -86,7 +87,7 @@ export default function AdminInquiryDetail() {
                         </p>
                     </div>
                     <span className={iStyles.sourceBadge}>
-                        <i className="fa-solid fa-inbox" /> {sourceLabel}
+                        <Icon icon="solar:inbox-linear" className="w-4 h-4 mr-1 inline text-emerald-500" /> {sourceLabel}
                     </span>
                 </div>
 
@@ -118,7 +119,7 @@ export default function AdminInquiryDetail() {
                 <div className={iStyles.actionsRow}>
                     {current.email && (
                         <a href={`mailto:${current.email}?subject=Re: ${current.productName || 'Your Request'}`} className={styles.actionBtnPrimary}>
-                            <i className="fa-solid fa-reply" /> Reply via Email
+                            <Icon icon="solar:reply-linear" className="w-4 h-4 mr-1.5 inline" /> Reply via Email
                         </a>
                     )}
                     {current.phone && (
@@ -128,7 +129,7 @@ export default function AdminInquiryDetail() {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <i className="fa-brands fa-whatsapp" /> WhatsApp
+                            <Icon icon="logos:whatsapp-icon" className="w-4 h-4 mr-1.5 inline" /> WhatsApp
                         </a>
                     )}
                 </div>

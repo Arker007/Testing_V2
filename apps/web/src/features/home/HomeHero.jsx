@@ -1,37 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 import OptimizedImage from "../../shared/components/OptimizedImage";
 import styles from "../../pages/Home.module.css";
-import {
-  ShieldCheck,
-  Droplets,
-  Wrench,
-  Leaf,
-  ChevronLeft,
-  ChevronRight,
-  Headphones,
-  ArrowRight,
-  Check,
-  Eye,
-  Plane,
-  Factory,
-  Phone,
-  Waves,
-  Link2
-} from "lucide-react";
 
-// Slide-specific icons map
+// Slide-specific linear icons map from @iconify/react
 const iconMap = {
-  ShieldCheck: ShieldCheck,
-  Link2: Link2,
-  Droplets: Droplets,
-  Wrench: Wrench,
-  Leaf: Leaf,
-  Check: Check,
-  Eye: Eye,
-  Plane: Plane,
-  Waves: Waves
+  ShieldCheck: "solar:shield-check-linear",
+  Link2: "solar:verified-check-linear",
+  Droplets: "solar:waterdrops-linear",
+  Wrench: "solar:bolt-linear",
+  Leaf: "solar:leaf-linear",
+  Check: "solar:check-read-linear",
+  Eye: "solar:star-linear",
+  Plane: "solar:delivery-linear",
+  Waves: "solar:waterdrops-linear"
 };
 
 const slides = [
@@ -155,7 +139,7 @@ export default function HomeHero() {
         style={{ top: centerY }}
         aria-label="Previous Slide"
       >
-        <ChevronLeft className="w-5 h-5 text-white" />
+        <Icon icon="solar:alt-arrow-left-linear" className="w-5 h-5 text-white" />
       </button>
       <button
         onClick={handleNext}
@@ -163,7 +147,7 @@ export default function HomeHero() {
         style={{ top: centerY }}
         aria-label="Next Slide"
       >
-        <ChevronRight className="w-5 h-5 text-white" />
+        <Icon icon="solar:alt-arrow-right-linear" className="w-5 h-5 text-white" />
       </button>
 
       <div className="container relative z-10">
@@ -174,7 +158,7 @@ export default function HomeHero() {
               {/* Manufacturer Badge */}
               <div className={styles.badge}>
                 <div className={styles.badgeIconWrapper}>
-                  <Factory className={styles.badgeIcon} />
+                  <Icon icon="solar:buildings-3-linear" className={styles.badgeIcon} />
                 </div>
                 <span className={styles.badgeText}>{activeSlide.badge}</span>
               </div>
@@ -200,11 +184,11 @@ export default function HomeHero() {
             {/* Feature Panel */}
             <div className={styles.featurePanel}>
               {activeSlide.features.map((feat, idx) => {
-                const IconComp = iconMap[feat.icon] || ShieldCheck;
+                const iconName = iconMap[feat.icon] || "solar:shield-check-linear";
                 return (
                   <div key={idx} className={styles.featureColumn}>
                     <div className={styles.featureIconRing}>
-                      <IconComp className={styles.featureIcon} />
+                      <Icon icon={iconName} className={styles.featureIcon} />
                     </div>
                     <h4 className={styles.featureTitle}>{feat.title}</h4>
                     <p className={styles.featureDesc}>{feat.text}</p>
@@ -217,7 +201,7 @@ export default function HomeHero() {
             <div className={styles.ctaRow}>
               <Link to="/products" className="exploreBtnGlobal">
                 <span>EXPLORE PRODUCTS</span>
-                <ArrowRight className="exploreBtnArrowGlobal" />
+                <Icon icon="solar:arrow-right-linear" className="exploreBtnArrowGlobal" />
               </Link>
               <div className={styles.decorativeSlashes} aria-hidden="true">
                 <span>/</span><span>/</span><span>/</span><span>/</span>
@@ -374,7 +358,7 @@ export default function HomeHero() {
                 {/* Floating Assistance Card */}
                 <div className={styles.assistanceCard}>
                   <div className={styles.assistanceIconCircle}>
-                    <Headphones className="w-5 h-5 text-white" />
+                    <Icon icon="solar:headphones-round-linear" className="w-5 h-5 text-white" />
                   </div>
                   <div className={styles.assistanceTextGroup}>
                     <span className={styles.assistanceLabel}>NEED ASSISTANCE?</span>
@@ -386,7 +370,7 @@ export default function HomeHero() {
                     href={`tel:${cleanedPhone}`}
                     className={styles.assistanceBtn}
                   >
-                    <Phone className="w-3.5 h-3.5 text-[var(--brand-dark)]" />
+                    <Icon icon="solar:phone-calling-linear" className="w-3.5 h-3.5 text-[var(--brand-dark)]" />
                     <span>CONTACT US</span>
                   </a>
                 </div>

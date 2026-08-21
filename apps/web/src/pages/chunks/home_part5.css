@@ -51,8 +51,8 @@
 
 .industryCard {
   background: var(--bg-card, #ffffff);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  border-radius: 8px;
+  border: 1px solid var(--border, #E2E8F0);
+  border-radius: 12px;
   padding: 2.25rem 2rem;
   display: flex;
   flex-direction: column;
@@ -60,23 +60,27 @@
   position: relative;
   overflow: hidden;
   min-height: 280px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 :global([data-theme="dark"]) .industryCard,
 :global(.dark) .industryCard {
-  background: var(--dark-card) !important;
-  border: 1px solid var(--dark-border) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8) !important;
+  background: var(--dark-card, #111111) !important;
+  border: 1px solid var(--border-strong, rgba(255, 255, 255, 0.2)) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
   color: #CBD5E1 !important;
+}
+
+.industryCard:hover {
+  border-color: var(--brand, #5cb31b);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 :global([data-theme="dark"]) .industryCard:hover,
 :global(.dark) .industryCard:hover {
-  border-color: var(--brand) !important;
-}
-
-.industryCard:hover {
-  /* Handled by Framer Motion variants */
+  border-color: var(--brand, #88E31B) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--brand, #88E31B) !important;
 }
 
 .indCardHeader {
@@ -149,25 +153,21 @@
 
 .cardBgImageRight {
   position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.75;
+  opacity: 1;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cardBgImageRightHalf {
   position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 55%;
+  inset: 0;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.85;
+  opacity: 1;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -177,47 +177,26 @@
   transform: scale(1.04);
 }
 
-/* Gradients Overlays */
-.cardBgOverlayDark {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 45%, rgba(255, 255, 255, 0.7) 75%, rgba(255, 255, 255, 0.15) 100%);
-  z-index: 1;
-}
-
-.cardBgOverlayLight {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.98) 50%, rgba(255, 255, 255, 0.6) 80%, rgba(255, 255, 255, 0.1) 100%);
-  z-index: 1;
-}
-
-.cardBgOverlayLightHalf {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, #ffffff 0%, #ffffff 55%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0.2) 100%);
-  z-index: 1;
-}
-
+/* Gradients Overlays - Removed heavy white layers for rich image clarity */
+.cardBgOverlayDark,
+.cardBgOverlayLight,
+.cardBgOverlayLightHalf,
 .cardBgOverlayDarkHalf {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, #ffffff 0%, #ffffff 55%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0.2) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.55) 100%);
   z-index: 1;
 }
 
 :global([data-theme="dark"]) .cardBgOverlayLight,
 :global(.dark) .cardBgOverlayLight,
 :global([data-theme="dark"]) .cardBgOverlayLightHalf,
-:global(.dark) .cardBgOverlayLightHalf {
-  background: linear-gradient(135deg, rgba(14, 16, 21, 0.95) 0%, rgba(14, 16, 21, 0.85) 45%, rgba(14, 16, 21, 0.3) 100%) !important;
-}
-
+:global(.dark) .cardBgOverlayLightHalf,
 :global([data-theme="dark"]) .cardBgOverlayDark,
 :global(.dark) .cardBgOverlayDark,
 :global([data-theme="dark"]) .cardBgOverlayDarkHalf,
 :global(.dark) .cardBgOverlayDarkHalf {
-  background: linear-gradient(135deg, rgba(9, 11, 15, 0.95) 0%, rgba(14, 16, 21, 0.85) 50%, rgba(14, 16, 21, 0.3) 100%) !important;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.65) 100%) !important;
 }
 
 /* Card Content containers */

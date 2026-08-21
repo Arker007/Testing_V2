@@ -1,9 +1,9 @@
-
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
   border-color: var(--brand);
-  box-shadow: 0 0 0 3px var(--border);
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
 }
 
 .form-textarea {
@@ -14,15 +14,16 @@
 /* ─── Scrollbar ──────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--gray-100);
+  background: var(--surface-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gray-300);
-  border-radius: 4px;
+  background: var(--border-default);
+  border-radius: var(--radius-sm, 4px);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -47,7 +48,7 @@
   }
 
   .section-title {
-    font-size: clamp(1.5rem, 6vw, 2.25rem);
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
     margin-bottom: 0.5rem;
   }
 
@@ -56,7 +57,7 @@
   }
 
   .btn {
-    padding: 0.6rem 1.25rem;
+    padding: 0.65rem 1.4rem;
     font-size: 0.875rem;
   }
 
@@ -76,7 +77,6 @@
   }
 }
 
-/* Add to the bottom of index.css */
 @media (hover: hover) {
   body.is-scrolling * {
     pointer-events: none !important;
@@ -85,70 +85,54 @@
 
 #main-content {
   overflow-x: hidden;
-  isolation: isolate; /* Isolates layout layers from background threads */
+  isolation: isolate;
 }
 
 /* ──────────────────────────────────────────────────────────
-   Get a Free Quote Interactive Button (.swipe-btn & .magic-shimmer-btn)
+   Primary Interactive CTA Button (.swipe-btn & .magic-shimmer-btn)
    ────────────────────────────────────────────────────────── */
 
-/* 1. The Shimmer Sweep (.magic-shimmer-btn) */
+/* 1. Shimmer Sweep (.magic-shimmer-btn) */
 .magic-shimmer-btn {
   position: relative;
   overflow: hidden;
   isolation: isolate;
 }
 
-.magic-shimmer-btn::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  bottom: -50%;
-  width: 50px;
-  left: -60%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--text-inverse-muted) 50%,
-    transparent 100%
-  );
-  transform: rotate(25deg);
-  pointer-events: none;
-  transition: left 0.8s ease;
-  z-index: 2;
+.magic-shimmer-btn::after,
+.btn::after,
+a.btn::after,
+button.btn::after {
+  display: none !important;
 }
 
-.magic-shimmer-btn:hover::after {
-  left: 130%;
-}
-
-/* 2. The Interactive Icon Slide (.swipe-btn) */
+/* 2. Interactive Icon Slide with Sliding Circle Animation (.swipe-btn) */
 .swipe-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  padding: 0.85rem 1.85rem;
-  background-color: var(--primary-color, var(--navy)) !important;
-  color: var(--white) !important;
-  border: 1px solid var(--primary-color, var(--navy)) !important;
-  border-radius: var(--radius-lg, 8px);
+  padding: 0.8rem 1.85rem;
+  background-color: var(--brand) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--brand) !important;
+  border-radius: var(--radius-pill, 9999px);
   font-size: 0.9375rem;
   font-weight: 700;
   line-height: 1.2;
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
-  box-shadow: 0 4px 14px var(--navy-glow);
-  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out !important;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease !important;
 }
 
 .swipe-btn:hover {
-  background-color: var(--brand, var(--brand)) !important;
-  border-color: var(--brand, var(--brand)) !important;
-  color: var(--navy) !important;
-  box-shadow: 0 8px 24px var(--navy-glow);
+  background-color: var(--brand-hover) !important;
+  border-color: var(--brand-hover) !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
@@ -157,10 +141,11 @@
   z-index: 1;
   transition: color 0.3s ease-in-out;
   pointer-events: none;
+  font-weight: 700;
 }
 
 .swipe-btn:hover .btn-text {
-  color: var(--navy);
+  color: var(--text-primary);
 }
 
 /* The inner span holding the icon */
@@ -175,35 +160,53 @@
   z-index: 1;
   flex-shrink: 0;
   pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* The Sliding White Bubble */
+.swipe-btn:hover .btn-icon-bubble {
+  transform: translateX(2px);
+}
+
+/* The Sliding Circle Bubble - perfectly concentric with the arrow */
 .swipe-btn .btn-icon-bubble::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background-color: var(--white);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
   border-radius: 50%;
-  transform: translateX(-500%);
+  transform: translateX(-300%);
   opacity: 0;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
   z-index: 0;
   pointer-events: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
 .swipe-btn:hover .btn-icon-bubble::before {
-  transform: translateX(30%);
+  transform: translateX(0);
   opacity: 1;
 }
 
-/* The Arrow Icon Motion */
+/* Arrow Icon - perfectly centered inside the circle */
 .swipe-btn .btn-arrow-icon {
   position: relative;
   z-index: 1;
   width: 16px;
   height: 16px;
-  stroke: var(--white);
-  color: var(--white);
-  transition: transform 0.5s ease-in-out, stroke 0.5s ease-in-out, color 0.5s ease-in-out;
+  display: block;
+  margin: auto;
+  stroke: var(--navy);
+  color: var(--navy);
+  transform: none;
+  transition: stroke 0.3s ease, color 0.3s ease;
   pointer-events: none;
+}
+
+.swipe-btn:hover .btn-arrow-icon {
+  transform: none;
+  stroke: var(--navy);
+  color: var(--navy);
 }

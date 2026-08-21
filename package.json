@@ -14,6 +14,7 @@
     "seed:specs": "node apps/api/scripts/backfillSpecifications.js"
   },
   "dependencies": {
+    "@iconify/react": "^6.0.2",
     "@libsql/client": "^0.17.0",
     "bcryptjs": "^3.0.3",
     "compression": "^1.7.4",

@@ -75,6 +75,68 @@ html.dark [class*="suggestionChip"] {
   color: #FFFFFF !important;
 }
 
+:global([data-theme="dark"]) .quickSearchPillsRow,
+:global(.dark) .quickSearchPillsRow {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:global([data-theme="dark"]) .quickSearchLabel,
+:global(.dark) .quickSearchLabel {
+  color: #94A3B8 !important;
+}
+
+:global([data-theme="dark"]) .quickSearchPillBtn,
+:global(.dark) .quickSearchPillBtn {
+  background: var(--dark-elevated, #171E26) !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
+  color: #CBD5E1 !important;
+}
+
+:global([data-theme="dark"]) .quickSearchPillBtn:hover,
+:global(.dark) .quickSearchPillBtn:hover {
+  background: rgba(16, 185, 129, 0.20) !important;
+  border-color: #10B981 !important;
+  color: #34D399 !important;
+}
+
+:global([data-theme="dark"]) .resultsBar,
+:global(.dark) .resultsBar {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:global([data-theme="dark"]) .resultsText,
+:global(.dark) .resultsText {
+  color: #94A3B8 !important;
+}
+
+:global([data-theme="dark"]) .resultsText strong,
+:global(.dark) .resultsText strong {
+  color: #F8FAFC !important;
+}
+
+:global([data-theme="dark"]) .filterTagPill,
+:global(.dark) .filterTagPill {
+  background: rgba(16, 185, 129, 0.20) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+  color: #34D399 !important;
+}
+
+:global([data-theme="dark"]) .tagRemoveBtn,
+:global(.dark) .tagRemoveBtn {
+  color: #34D399 !important;
+}
+
+:global([data-theme="dark"]) .resetAllLinkBtn,
+:global(.dark) .resetAllLinkBtn {
+  color: #94A3B8 !important;
+}
+
+:global([data-theme="dark"]) .resetAllLinkBtn:hover,
+:global(.dark) .resetAllLinkBtn:hover {
+  color: #F87171 !important;
+  background: rgba(248, 113, 113, 0.15) !important;
+}
+
 /* Sidebar & Drawer */
 :global([data-theme="dark"]) .sidebarPanel,
 :global(.dark) .sidebarPanel,
@@ -208,27 +270,27 @@ html.dark [class*="sidebarPanel"] {
 :root[data-theme="dark"] [class*="gridCard"],
 html.dark [class*="gridCard"] {
   background: var(--dark-card, #111820) !important;
-  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.12)) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
 }
 
 :global([data-theme="dark"]) .gridCard:hover,
 :global(.dark) .gridCard:hover {
-  border-color: rgba(63, 174, 90, 0.4) !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6) !important;
+  border-color: var(--brand, #88E31B) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--brand, #88E31B) !important;
 }
 
 :global([data-theme="dark"]) .gridCardThumb,
 :global(.dark) .gridCardThumb {
   background: #0B0F14 !important;
-  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
 }
 
 :global([data-theme="dark"]) .catTag,
 :global(.dark) .catTag {
-  background: rgba(11, 15, 20, 0.85) !important;
-  color: #4FC36D !important;
-  border: 1px solid rgba(63, 174, 90, 0.3) !important;
+  background: rgba(136, 227, 27, 0.15) !important;
+  color: #88E31B !important;
+  border: 1px solid rgba(136, 227, 27, 0.3) !important;
 }
 
 :global([data-theme="dark"]) .gridCardTitle a,
@@ -238,7 +300,7 @@ html.dark [class*="gridCard"] {
 
 :global([data-theme="dark"]) .gridCardTitle a:hover,
 :global(.dark) .gridCardTitle a:hover {
-  color: #4FC36D !important;
+  color: #88E31B !important;
 }
 
 :global([data-theme="dark"]) .specsRow,
@@ -246,7 +308,7 @@ html.dark [class*="gridCard"] {
 :root[data-theme="dark"] [class*="specsRow"],
 html.dark [class*="specsRow"] {
   background: var(--dark-elevated, #171E26) !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
   box-shadow: none !important;
 }
 
@@ -279,27 +341,32 @@ html.dark [class*="specValue"] {
 
 :global([data-theme="dark"]) .detailsBtn,
 :global(.dark) .detailsBtn {
-  background: var(--brand, #3FAE5A) !important;
+  background: #10B981 !important;
   color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3) !important;
 }
 
 :global([data-theme="dark"]) .detailsBtn:hover,
 :global(.dark) .detailsBtn:hover {
-  background: var(--brand-hover, #4FC36D) !important;
+  background: #059669 !important;
+  border-color: #059669 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4) !important;
 }
 
 :global([data-theme="dark"]) .quickSpecsBtn,
 :global(.dark) .quickSpecsBtn {
-  background: var(--brand, #5cb31b) !important;
+  background: #1E293B !important;
   border-color: rgba(255, 255, 255, 0.15) !important;
-  color: #FFFFFF !important;
+  color: #CBD5E1 !important;
 }
 
 :global([data-theme="dark"]) .quickSpecsBtn:hover,
 :global(.dark) .quickSpecsBtn:hover {
-  background: #0f221c !important;
-  color: #FFFFFF !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
+  background: rgba(16, 185, 129, 0.2) !important;
+  color: #34D399 !important;
+  border-color: #10B981 !important;
 }
 
 /* List View Card */
@@ -308,18 +375,28 @@ html.dark [class*="specValue"] {
 :root[data-theme="dark"] [class*="listCard"],
 html.dark [class*="listCard"] {
   background: var(--dark-card, #111820) !important;
-  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.12)) !important;
+}
+
+:global([data-theme="dark"]) .listCard:hover,
+:global(.dark) .listCard:hover {
+  border-color: var(--brand, #88E31B) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--brand, #88E31B) !important;
 }
 
 :global([data-theme="dark"]) .listCardThumb,
 :global(.dark) .listCardThumb {
   background: #0B0F14 !important;
+  border-color: rgba(255, 255, 255, 0.10) !important;
 }
 
 :global([data-theme="dark"]) .catTagDesktop,
-:global(.dark) .catTagDesktop {
-  background: rgba(63, 174, 90, 0.16) !important;
-  color: #4FC36D !important;
+:global(.dark) .catTagDesktop,
+:global([data-theme="dark"]) .catTagMobile,
+:global(.dark) .catTagMobile {
+  background: rgba(136, 227, 27, 0.15) !important;
+  color: #88E31B !important;
+  border: 1px solid rgba(136, 227, 27, 0.3) !important;
 }
 
 :global([data-theme="dark"]) .skuBadge,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ChevronDown, Check, Search, X } from "lucide-react";
+import { Icon } from "@iconify/react";
 import styles from "./CustomSelect.module.css";
 
 export default function CustomSelect({ value, onChange, options = [], placeholder }) {
@@ -28,7 +28,7 @@ export default function CustomSelect({ value, onChange, options = [], placeholde
   const selectedOption = options.find((opt) => opt.value === value) || options[0];
 
   const filteredOptions = options.filter((opt) =>
-    opt.label.toLowerCase().includes(searchQuery.toLowerCase())
+    String(opt.label || "").toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -40,34 +40,27 @@ export default function CustomSelect({ value, onChange, options = [], placeholde
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
-        <span
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flex: 1,
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap"
-          }}
-        >
-          <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+        <span className={styles.triggerLabelWrapper}>
+          <span className={styles.triggerLabel}>
             {selectedOption ? selectedOption.label : placeholder}
           </span>
           {selectedOption && selectedOption.badge !== undefined && (
-            <span className={styles.categoryCountBadge} style={{ marginLeft: "0.5rem", flexShrink: 0 }}>
+            <span className={styles.categoryCountBadge}>
               {selectedOption.badge}
             </span>
           )}
         </span>
-        <ChevronDown size={14} className={`${styles.selectChevron} ${isOpen ? styles.chevronRotate : ""}`} />
+        <Icon
+          icon="solar:alt-arrow-down-linear"
+          className={`${styles.selectChevron} ${isOpen ? styles.chevronRotate : ""}`}
+        />
       </button>
 
       {isOpen && (
         <div className={styles.customSelectDropdownWrapper}>
           {options.length > 5 && (
             <div className={styles.selectSearchContainer}>
-              <Search size={13} className={styles.selectSearchIcon} />
+              <Icon icon="solar:magnifer-linear" className={styles.selectSearchIcon} />
               <input
                 ref={searchInputRef}
                 type="text"
@@ -85,8 +78,9 @@ export default function CustomSelect({ value, onChange, options = [], placeholde
                     e.stopPropagation();
                     setSearchQuery("");
                   }}
+                  aria-label="Clear search"
                 >
-                  <X size={12} />
+                  <Icon icon="solar:close-circle-linear" className={styles.clearIcon} />
                 </button>
               )}
             </div>
@@ -108,13 +102,13 @@ export default function CustomSelect({ value, onChange, options = [], placeholde
                       setSearchQuery("");
                     }}
                   >
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
-                      <span>{option.label}</span>
+                    <div className={styles.optionContent}>
+                      <span className={styles.optionLabel}>{option.label}</span>
                       {option.badge !== undefined && (
                         <span className={styles.categoryCountBadge}>{option.badge}</span>
                       )}
                     </div>
-                    {isSelected && <Check size={14} className={styles.checkIcon} />}
+                    {isSelected && <Icon icon="solar:check-read-linear" className={styles.checkIcon} />}
                   </li>
                 );
               })
@@ -127,4 +121,5 @@ export default function CustomSelect({ value, onChange, options = [], placeholde
     </div>
   );
 }
+
 

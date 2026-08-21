@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import OptimizedImage from "../../shared/components/OptimizedImage";
 import styles from "../../pages/ProductDetail.module.css";
 
@@ -100,12 +101,12 @@ export default function RelatedProductsSection({ relatedProducts }) {
             <Link to={`/products/${p.id}`} key={p.id} className={styles.productCard}>
               <div className={styles.cardFrame}>
                 <span className={styles.wishBtn} aria-hidden="true">
-                  <i className="fa-regular fa-heart" />
+                  <Icon icon="solar:heart-linear" className="w-4 h-4 text-slate-500" />
                 </span>
 
                 {meta.verified && (
                   <span className={styles.verifiedTag}>
-                    Verified <i className="fa-solid fa-check" />
+                    Verified <Icon icon="solar:check-read-linear" className="w-3.5 h-3.5 inline ml-0.5" />
                   </span>
                 )}
 
@@ -113,7 +114,7 @@ export default function RelatedProductsSection({ relatedProducts }) {
                   {pImages[0] ? (
                     <OptimizedImage src={pImages[0]} alt={p.name} className={styles.cardImage} />
                   ) : (
-                    <i className="fa-solid fa-image" />
+                    <Icon icon="solar:gallery-linear" className="w-10 h-10 text-slate-400" />
                   )}
                 </div>
               </div>
@@ -124,17 +125,13 @@ export default function RelatedProductsSection({ relatedProducts }) {
 
                 <div className={styles.cardRating}>
                   <div className={styles.ratingStars}>
-                    {Array.from({ length: 5 }).map((_, i) => {
-                      const isFull = i < Math.floor(meta.rating);
-                      const isHalf = !isFull && (i + 0.5) <= meta.rating;
-                      return (
-                        <i
-                          key={i}
-                          className={`${isFull ? "fa-solid fa-star" : isHalf ? "fa-solid fa-star-half-stroke" : "fa-regular fa-star"}`}
-                          style={{ color: "var(--color-warning)", fontSize: "0.75rem", marginRight: "2px" }}
-                        />
-                      );
-                    })}
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Icon
+                        key={i}
+                        icon="solar:star-linear"
+                        className="w-3.5 h-3.5 inline text-amber-500 mr-0.5"
+                      />
+                    ))}
                   </div>
                   <span className={styles.ratingCount}>({meta.ratingCount})</span>
                 </div>

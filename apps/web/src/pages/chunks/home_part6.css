@@ -27,17 +27,18 @@
   grid-row: span 2;
   background: var(--bg-card, #ffffff);
   color: var(--text-primary, #0f172a);
-  border: 1px solid var(--border, rgba(226, 232, 240, 0.8)) !important;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border, #E2E8F0);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   min-height: 584px;
 }
 
 :global([data-theme="dark"]) .cardLargeDark,
 :global(.dark) .cardLargeDark {
-  background: #0e1015 !important;
+  background: var(--dark-card, #111111) !important;
   color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.12)) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6) !important;
 }
 
 .cardLargeDark .indName {
@@ -66,17 +67,18 @@
   grid-row: span 2;
   background: var(--bg-card, #ffffff);
   color: var(--text-primary, #0f172a);
-  border: 1px solid var(--border, rgba(226, 232, 240, 0.8)) !important;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border, #E2E8F0);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   min-height: 584px;
 }
 
 :global([data-theme="dark"]) .cardLargeLight,
 :global(.dark) .cardLargeLight {
-  background: #0e1015 !important;
+  background: var(--dark-card, #111111) !important;
   color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.12)) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6) !important;
 }
 
 .cardLargeLight .indName {
@@ -102,27 +104,29 @@
 
 .cardLight {
   background: var(--bg-card, #ffffff);
-  border: 1px solid var(--border, rgba(226, 232, 240, 0.8));
+  border: 1px solid var(--border, #E2E8F0);
+  border-radius: 12px;
   color: var(--text-primary, #0f172a);
 }
 
 :global([data-theme="dark"]) .cardLight,
 :global(.dark) .cardLight {
-  background: #0e1015 !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: var(--dark-card, #111111) !important;
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.12)) !important;
   color: #CBD5E1 !important;
 }
 
 .cardDark {
   background: var(--bg-card, #ffffff);
   color: var(--text-primary, #0f172a);
-  border: 1px solid var(--border, rgba(226, 232, 240, 0.8)) !important;
+  border: 1px solid var(--border, #E2E8F0);
+  border-radius: 12px;
 }
 
 :global([data-theme="dark"]) .cardDark,
 :global(.dark) .cardDark {
-  background: #0e1015 !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: var(--dark-card, #111111) !important;
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.12)) !important;
   color: #CBD5E1 !important;
 }
 
@@ -261,30 +265,6 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
-}
-
-.cardBgOverlayDark {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.85) 100%);
-  z-index: 1;
-}
-
-:global([data-theme="dark"]) .cardBgOverlayDark,
-:global(.dark) .cardBgOverlayDark {
-  background: linear-gradient(180deg, rgba(14, 16, 21, 0.4) 0%, rgba(14, 16, 21, 0.95) 100%) !important;
-}
-
-.cardBgOverlayLight {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.85) 100%);
-  z-index: 1;
-}
-
-:global([data-theme="dark"]) .cardBgOverlayLight,
-:global(.dark) .cardBgOverlayLight {
-  background: linear-gradient(180deg, rgba(14, 16, 21, 0.4) 0%, rgba(14, 16, 21, 0.95) 100%) !important;
 }
 
 /* Arrow buttons for bento cards (e.g., IndustriesGrid, IndustryCard) */

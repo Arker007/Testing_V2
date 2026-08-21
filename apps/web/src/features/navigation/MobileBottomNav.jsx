@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 import styles from "./MobileBottomNav.module.css";
 
@@ -21,7 +22,7 @@ export default function MobileBottomNav() {
           isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
         }
       >
-        <i className="fa-solid fa-house" />
+        <Icon icon="solar:home-2-linear" className="w-5 h-5 mb-0.5" />
         <span>Home</span>
       </NavLink>
 
@@ -31,7 +32,7 @@ export default function MobileBottomNav() {
           isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
         }
       >
-        <i className="fa-solid fa-boxes-stacked" />
+        <Icon icon="solar:box-minimalistic-linear" className="w-5 h-5 mb-0.5" />
         <span>Catalog</span>
       </NavLink>
 
@@ -41,7 +42,10 @@ export default function MobileBottomNav() {
         onClick={() => setMobileMenuOpen((prev) => !prev)}
         aria-label="Toggle Menu"
       >
-        <i className={mobileMenuOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars"} />
+        <Icon
+          icon={mobileMenuOpen ? "solar:close-circle-linear" : "solar:hamburger-menu-linear"}
+          className="w-5 h-5 mb-0.5"
+        />
         <span>Menu</span>
       </button>
 
@@ -52,7 +56,7 @@ export default function MobileBottomNav() {
         className={`${styles.navItem} ${styles.waItem}`}
         aria-label="Chat on WhatsApp"
       >
-        <i className="fa-brands fa-whatsapp" />
+        <Icon icon="logos:whatsapp-icon" className="w-5 h-5 mb-0.5" />
         <span>WhatsApp</span>
       </a>
 
@@ -62,7 +66,7 @@ export default function MobileBottomNav() {
           isActive ? `${styles.navItem} ${styles.active} ${styles.quoteItem}` : `${styles.navItem} ${styles.quoteItem}`
         }
       >
-        <i className="fa-solid fa-file-signature" />
+        <Icon icon="solar:document-text-linear" className="w-5 h-5 mb-0.5" />
         <span>Quote</span>
       </NavLink>
     </nav>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Icon } from '@iconify/react';
 import styles from './NotFound.module.css';
 
 export default function NotFound() {
@@ -13,10 +14,10 @@ export default function NotFound() {
         </p>
         <div className={styles.actions}>
           <Link to="/" className={styles.btnPrimary}>
-            <i className="fa-solid fa-house" /> Back to Safety
+            <Icon icon="solar:home-2-linear" className="w-4 h-4 mr-1.5" /> Back to Safety
           </Link>
           <Link to="/products" className={styles.btnOutline}>
-            <i className="fa-solid fa-box-open" /> Browse Catalog
+            <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4 mr-1.5" /> Browse Catalog
           </Link>
         </div>
       </div>

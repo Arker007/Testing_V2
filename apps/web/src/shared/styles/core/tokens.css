@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
@@ -9,6 +9,7 @@
   --color-brand-hover: var(--brand-hover);
   --color-brand-light: var(--brand-light);
   --color-brand-text: var(--brand-text);
+  --color-brand-soft: var(--brand-soft);
 
   --color-navy: var(--navy);
   --color-navy-dark: var(--navy-dark);
@@ -16,29 +17,36 @@
   --color-navy-light: var(--navy-light);
   --color-navy-surface: var(--navy-surface);
   --color-navy-card: var(--navy-card);
+  --color-navy-soft: var(--navy-soft);
 
   --radius-xs: 2px;
   --radius-sm: 4px;
-  --radius-md: 6px;
+  --radius-md: 8px;
   --radius-lg: 8px;
   --radius-xl: 8px;
-  --radius-2xl: 8px;
-  --radius-3xl: 8px;
+  --radius-2xl: 12px;
+  --radius-3xl: 12px;
+  --radius-card: 12px;
+  --radius-pill: 9999px;
 
   --color-bg-page: var(--bg-page);
   --color-bg-section: var(--bg-section);
   --color-bg-card: var(--bg-card);
+  --color-bg-surface: var(--bg-surface);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-surface-tertiary: var(--surface-tertiary);
 
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
+  --color-text-disabled: var(--text-disabled);
   --color-text-inverse: var(--text-inverse);
 
   --color-border: var(--border);
   --color-border-card: var(--border-card);
   --color-border-subtle: var(--border-subtle);
   --color-border-strong: var(--border-strong);
-  --color-border-interactive: var(--border-interactive);
+  --color-border-default: var(--border-default);
 
   --color-surface-page: var(--surface-page);
   --color-surface-card: var(--surface-card);
@@ -63,7 +71,7 @@ html {
   body {
     font-family: var(--font-family-primary);
     color: var(--text-primary);
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-base);
     font-weight: 400;
     line-height: 1.5;
     background: var(--bg-page);
@@ -75,7 +83,7 @@ html {
   h1, h2, h3, h4, h5, h6 {
     color: var(--heading);
     font-weight: 700;
-    letter-spacing: -0.015em;
+    letter-spacing: var(--tracking-tight);
   }
 
   p {
@@ -104,7 +112,7 @@ html {
   a {
     text-decoration: none;
     color: inherit;
-    transition: color var(--motion-duration-fast) ease;
+    transition: color var(--motion-duration-fast) var(--ease-standard);
   }
 }
 
@@ -114,8 +122,11 @@ html {
     font-family: inherit;
     border: none;
     background: none;
-    border-radius: var(--radius-lg, 8px);
-    transition: background-color var(--motion-duration-fast) ease, border-color var(--motion-duration-fast) ease, transform var(--motion-duration-instant) ease;
+    border-radius: var(--radius-md, 8px);
+    transition: background-color var(--motion-duration-fast) var(--ease-standard),
+                border-color var(--motion-duration-fast) var(--ease-standard),
+                transform var(--motion-duration-instant) var(--ease-standard),
+                box-shadow var(--motion-duration-fast) var(--ease-standard);
   }
 }
 
@@ -124,14 +135,14 @@ a.btn,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
-  border-radius: var(--radius-lg, 8px);
+  border-radius: var(--radius-pill, 9999px);
 }
 
 /* ─── Accessibility & Focus-Visible Rules (WCAG 2.2 AA) ────────────────── */
 :focus-visible {
-  outline: 2px solid var(--brand, #80cf23);
+  outline: 2px solid var(--brand, #77D986);
   outline-offset: 2px;
-  border-radius: var(--radius-lg, 8px);
+  border-radius: var(--radius-md, 8px);
 }
 
 /* Remove focus ring for mouse users */
@@ -144,40 +155,51 @@ ol {
   list-style: none;
 }
 
-/* ─── CSS Variables & Design Tokens ──────────────────────────────────────── */
+/* ─── CSS Variables & Design Tokens (Modern Industrial Tech) ───────────── */
 :root {
-  /* 🏷️ Typography Tokens (Predator Helios / Acer Specs) */
-  --font-family-primary: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-family-stack: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* 🏷️ Typography Tokens */
+  --font-family-primary: "Google Sans", "Noto Sans", Arial, Helvetica, sans-serif;
+  --font-family-stack: "Google Sans", "Noto Sans", Arial, Helvetica, sans-serif;
   
-  --font-size-xs: 10px;
-  --font-size-sm: 12px;
-  --font-size-md: 14px;
-  --font-size-lg: 16px;
-  --font-size-xl: 21px;
-  --font-size-2xl: 24px;
-  --font-size-3xl: 32px;
+  --font-size-base: 16px;
+  --font-weight-base: 400;
+  --line-height-base: 24px;
+
+  --font-size-xs: 11px;
+  --font-size-sm: 13px;
+  --font-size-md: 15px;
+  --font-size-lg: 18px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 36px;
 
   --font-body: var(--font-family-primary);
   --font-display: var(--font-family-primary);
 
-  /* 🤍 Neutrals Palette (Master Neutral System) */
+  /* Letter Spacing Tracking Tokens */
+  --tracking-display: -0.045em;
+  --tracking-heading: -0.035em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-label: 0.01em;
+
+  /* 🤍 Neutrals System */
   --white: #FFFFFF;
   --black: #000000;
   --transparent: transparent;
 
   /* 🔘 Slate & Gray Master System */
-  --color-neutral-50: #F8FAFC;
-  --color-neutral-100: #F1F5F9;
-  --color-neutral-200: #E2E8F0;
+  --color-neutral-50: #F7F8F6;
+  --color-neutral-100: #EEF1EC;
+  --color-neutral-200: #E4E8E0;
   --color-neutral-300: #CBD5E1;
   --color-neutral-400: #94A3B8;
-  --color-neutral-500: #64748B;
-  --color-neutral-600: #475569;
+  --color-neutral-500: #69727D;
+  --color-neutral-600: #4F5965;
   --color-neutral-700: #334155;
   --color-neutral-800: #1E293B;
-  --color-neutral-900: #0F172A;
-  --color-neutral-950: #020617;
+  --color-neutral-900: #0F1720;
+  --color-neutral-950: #070B10;
 
   --gray-50: var(--color-neutral-50);
   --gray-100: var(--color-neutral-100);
@@ -192,25 +214,24 @@ ol {
   --gray-950: var(--color-neutral-950);
 
   /* 🎨 Master Brand Palette - Industrial Navy */
-  --color-brand-navy: #0B2F63;
-  --color-brand-navy-hover: #08244B;
-  --color-brand-navy-active: #061C3D;
-
-  --navy: var(--color-brand-navy);
-  --navy-dark: var(--color-brand-navy-hover);
-  --navy-darker: var(--color-brand-navy-active);
-  --navy-light: #113a72;
-  --navy-surface: #0e2a52;
-  --navy-card: #13386b;
+  --navy: #0B2F63;
+  --navy-dark: #071E40;
+  --navy-darker: #061C3D;
+  --navy-hover: #071E40;
+  --navy-active: #061C3D;
+  --navy-soft: #EEF4FB;
+  --navy-light: #113A72;
+  --navy-surface: #0B2F63;
+  --navy-card: #0E2A52;
   --navy-rgb: 11, 47, 99;
-  --navy-glow: rgba(11, 47, 99, 0.25);
+  --navy-glow: rgba(11, 47, 99, 0.16);
   --navy-subtle: rgba(11, 47, 99, 0.04);
-  --navy-badge-bg: rgba(11, 47, 99, 0.12);
+  --navy-badge-bg: rgba(11, 47, 99, 0.08);
 
   --dark: var(--navy);
   --dark-navy: var(--navy);
-  --dark2: var(--navy);
-  --dark3: var(--navy);
+  --dark2: var(--navy-dark);
+  --dark3: var(--navy-card);
   --primary-color: var(--navy);
   --primary-navy: var(--navy);
   --secondary-color: var(--navy);
@@ -218,177 +239,203 @@ ol {
   --color-primary: var(--navy);
   --color-secondary: var(--navy);
 
-  /* 🌟 Master Brand Palette - Sustainable Engineering Green */
-  --color-brand-green: #3FAE5A;
-  --color-brand-green-hover: #2F8F46;
-  --color-brand-green-active: #26763A;
-  --color-brand-green-soft: #EAF6ED;
-
-  --brand: var(--color-brand-green);
-  --brand-rgb: 63, 174, 90;
-  --brand-dark: var(--color-brand-green-active);
-  --brand-hover: var(--color-brand-green-hover);
-  --brand-light: var(--color-brand-green-soft);
-  --brand-light-2: #D8EFE0;
-  --brand-text: #26763A;
-  --brand-glow: rgba(63, 174, 90, 0.20);
-  --brand-glow-subtle: rgba(63, 174, 90, 0.06);
-  --brand-badge-bg: rgba(63, 174, 90, 0.12);
-  --brand-border: #3FAE5A;
+  /* 🌟 Master Brand Palette - Eco-Engineered Green Accent */
+  --brand: #77D986;
+  --brand-rgb: 119, 217, 134;
+  --brand-hover: #5EC66E;
+  --brand-active: #4AB65B;
+  --brand-dark: #4AB65B;
+  --brand-soft: #EEF9F1;
+  --brand-light: #EEF9F1;
+  --brand-light-2: #DEF3E4;
+  --brand-text: #1D5C2C;
+  --brand-glow: rgba(119, 217, 134, 0.20);
+  --brand-glow-subtle: rgba(119, 217, 134, 0.08);
+  --brand-badge-bg: #EEF9F1;
+  --brand-border: rgba(119, 217, 134, 0.35);
 
   --accent: var(--brand);
   --accent-dark: var(--brand-dark);
   --color-surface-strong: var(--brand);
-  --color-surface-muted: #ffffff;
+  --color-surface-muted: #FFFFFF;
   --color-surface-base: #000000;
 
-  /* 🎨 Light Theme Surface System */
-  --surface-page: #F7F9FA;
-  --surface-section: #FFFFFF;
-  --surface-card: #FFFFFF;
-  --surface-subtle: #F8FAFC;
-  --surface-hover: #F1F5F9;
-  --surface-selected: #EAF6ED;
-  --surface-elevated: #FFFFFF;
-  --surface-nav: rgba(255, 255, 255, 0.92);
+  /* 🎨 4-Level Light Mode Surface Hierarchy */
+  --lvl1-bg: #FFFFFF;                  /* Level 1: Base Page Background */
+  --lvl2-bg: #F7F8F6;                  /* Level 2: Section Container Surface */
+  --lvl3-bg: #FFFFFF;                  /* Level 3: Card / Elevation Surface */
+  --lvl3-border: rgba(15, 23, 32, 0.08); /* Level 3: Card Border */
+  --lvl3-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
 
-  --bg-page: var(--surface-page);
-  --bg-section: var(--surface-section);
-  --bg-surface: var(--surface-card);
-  --bg-surface-elevated: var(--surface-elevated);
-  --bg-card: var(--surface-card);
-  --bg-card-hover: var(--surface-hover);
-  --bg-card-alt: var(--surface-subtle);
-  --bg-interactive: var(--gray-100);
-  --bg-interactive-hover: var(--gray-200);
-  --bg-interactive-active: var(--gray-300);
-  --bg-muted: var(--gray-100);
-  --bg-light: var(--surface-subtle);
-  --surface: var(--white);
+  --lvl4-navy: #0B2F63;                /* Level 4: Primary Brand Dark Accent */
+  --lvl4-brand: #77D986;               /* Level 4: Eco Accent Green */
+  --lvl4-brand-text: #1D5C2C;          /* Level 4: Readable Green Text */
+  --lvl4-text-primary: #0F1720;        /* Level 4: Primary Text */
+  --lvl4-text-secondary: #4F5965;      /* Level 4: Secondary Body Text */
+
+  /* 🎨 Soft Surface System (Spacious, Neutral, Soft Elevation) */
+  --bg-page: var(--lvl1-bg);
+  --bg-surface: var(--lvl1-bg);
+  --bg-section: var(--lvl2-bg);
+  --bg-surface-elevated: var(--lvl3-bg);
+  --bg-card: var(--lvl3-bg);
+  --bg-card-hover: var(--lvl3-bg);
+  --bg-card-alt: var(--lvl2-bg);
+  
+  --surface: var(--lvl1-bg);
+  --surface-page: var(--lvl1-bg);
+  --surface-secondary: var(--lvl2-bg);
+  --surface-tertiary: #EEF1EC;
+  --surface-elevated: var(--lvl3-bg);
+  --surface-card: var(--lvl3-bg);
+  --surface-subtle: var(--lvl2-bg);
+  --surface-hover: #EEF1EC;
+  --surface-selected: #F2FBE8;
+  --surface-nav: rgba(255, 255, 255, 0.90);
+
+  --bg-interactive: #F7F8F6;
+  --bg-interactive-hover: #EEF1EC;
+  --bg-interactive-active: #E4E8E0;
+  --bg-muted: #F7F8F6;
+  --bg-light: #F7F8F6;
   --background: var(--bg-page);
   --bg-dark: var(--navy);
   --bg-dark-navy: var(--navy-dark);
   --bg-dark-surface: var(--navy-surface);
   --bg-dark-card: var(--navy-card);
 
-  --bg-glass: rgba(255, 255, 255, 0.92);
-  --bg-glass-card: rgba(255, 255, 255, 0.96);
-  --bg-glass-dark: rgba(15, 23, 42, 0.9);
-  --bg-dark-overlay: rgba(15, 23, 42, 0.6);
-  --bg-modal-backdrop: rgba(15, 23, 42, 0.5);
+  --bg-glass: rgba(255, 255, 255, 0.90);
+  --bg-glass-card: rgba(255, 255, 255, 0.95);
+  --bg-glass-dark: rgba(11, 47, 99, 0.90);
+  --bg-dark-overlay: rgba(15, 23, 32, 0.60);
+  --bg-modal-backdrop: rgba(15, 23, 32, 0.45);
   --bg-shimmer: rgba(226, 232, 240, 0.6);
 
-  /* 🧠 Text Hierarchy */
-  --text-primary: #0F172A;
-  --text-secondary: #334155;
-  --text-muted: #64748B;
-  --text-disabled: #94A3B8;
-  --text-inverse: #ffffff;
-  --text-inverse-secondary: rgba(255, 255, 255, 0.9);
-  --text-inverse-muted: rgba(255, 255, 255, 0.75);
+  /* 🧠 Text System */
+  --text-primary: #0F1720;
+  --text-secondary: #4F5965;
+  --text-muted: #69727D;
+  --text-disabled: #8A929B;
+  --text-inverse: #FFFFFF;
+  --text-inverse-secondary: rgba(255, 255, 255, 0.85);
+  --text-inverse-muted: rgba(255, 255, 255, 0.65);
   --text-tertiary: #0B2F63;
 
-  --heading: #0F172A;
-  --body-text: #334155;
-  --light-text: #64748B;
+  --heading: #0F1720;
+  --body-text: #4F5965;
+  --light-text: #69727D;
   --white-text: var(--white);
-  --color-text-primary: #0F172A;
-  --color-text-secondary: #334155;
+  --color-text-primary: #0F1720;
+  --color-text-secondary: #4F5965;
   --color-text-tertiary: #0B2F63;
-  --color-text-inverse: #ffffff;
+  --color-text-inverse: #FFFFFF;
 
-  /* 🔲 Unified Border Architecture */
-  --border-card: var(--gray-200);
-  --border-subtle: var(--gray-100);
-  --border-strong: var(--gray-300);
+  /* 🔲 Restrained Border Architecture */
+  --border-subtle: rgba(15, 23, 32, 0.08);
+  --border-default: rgba(15, 23, 32, 0.12);
+  --border-strong: rgba(15, 23, 32, 0.18);
+  --border-card: rgba(15, 23, 32, 0.08);
+  --border: var(--border-default);
   --border-interactive: var(--brand);
-  --border: var(--border-card);
-  --border-default: var(--border-card);
-  --border-dark: rgba(255, 255, 255, 0.10);
-  --border-dark-strong: rgba(255, 255, 255, 0.16);
-  --divider: var(--gray-200);
+  --border-dark: rgba(255, 255, 255, 0.12);
+  --border-dark-strong: rgba(255, 255, 255, 0.20);
+  --divider: rgba(15, 23, 32, 0.08);
 
-  /* 🟢 Semantic Feedback System (NOT Brand Green) */
-  --color-success: #16A34A;
-  --color-warning: #D97706;
-  --color-error: #DC2626;
-  --color-info: #2563EB;
+  /* 🟢 Semantic Feedback System */
+  --color-success: #2F7D12;
+  --color-warning: #B56A00;
+  --color-error: #C92A2A;
+  --color-danger: #C92A2A;
+  --color-info: #2563A8;
 
   --success: var(--color-success);
-  --success-bg: rgba(22, 163, 74, 0.10);
-  --success-border: rgba(22, 163, 74, 0.25);
-  --success-text: #15803D;
+  --success-bg: #F2FBE8;
+  --success-border: rgba(47, 125, 18, 0.25);
+  --success-text: #2E6005;
 
   --warning: var(--color-warning);
-  --warning-bg: rgba(217, 119, 6, 0.10);
-  --warning-border: rgba(217, 119, 6, 0.25);
-  --warning-text: #B45309;
+  --warning-bg: #FFF7E6;
+  --warning-border: rgba(181, 106, 0, 0.25);
+  --warning-text: #925400;
 
-  --danger: var(--color-error);
-  --danger-bg: rgba(220, 38, 38, 0.10);
-  --danger-border: rgba(220, 38, 38, 0.25);
-  --danger-text: #B91C1C;
+  --danger: var(--color-danger);
+  --danger-bg: #FFF0F0;
+  --danger-border: rgba(201, 42, 42, 0.25);
+  --danger-text: #A61E1E;
 
   --info: var(--color-info);
-  --info-bg: rgba(37, 99, 235, 0.10);
-  --info-border: rgba(37, 99, 235, 0.25);
+  --info-bg: #EFF6FF;
+  --info-border: rgba(37, 99, 168, 0.25);
   --info-text: #1D4ED8;
 
   /* 🎯 Icon Themes */
   --icon-primary: var(--navy);
   --icon-accent: var(--brand);
-  --icon-inactive: #94A3B8;
+  --icon-inactive: #8A929B;
 
-  /* ✨ Master Shadow System */
-  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
-  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.10);
-  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.14);
-  --shadow-xl: 0 20px 40px rgba(15, 23, 42, 0.16);
+  /* ✨ Soft Multi-Layer Shadow System (Low-Opacity Elevation) */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.04), 0 12px 28px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.04), 0 24px 60px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.05), 0 32px 80px rgba(0, 0, 0, 0.10);
 
   --shadow-depth-1: var(--shadow-sm);
   --shadow-depth-card: var(--shadow-sm);
   --shadow-depth-hover: var(--shadow-md);
+  --shadow-card: var(--shadow-sm);
 
   /* 💎 Spacing Scale Tokens */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
   --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-7: 32px;
-  --space-8: 40px;
-  --space-9: 48px;
-  --space-10: 64px;
-  --space-11: 80px;
-  --space-12: 96px;
-  --space-13: 120px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
 
-  /* 🔘 Master Border Radius Scale */
-  --radius-xs: 4px;
-  --radius-sm: 6px;
+  /* 🔘 EXACT CANONICAL BORDER RADIUS SYSTEM (CRITICAL - PRESERVED EXACTLY) */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-2xl: 16px;
-  --radius-3xl: 16px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
+  --radius-2xl: 12px;
+  --radius-3xl: 12px;
   --radius-card: 12px;
-  --radius-btn: 8px;
+  --radius-btn: 9999px;
   --radius-input: 8px;
-  --radius-badge: 6px;
+  --radius-badge: 9999px;
   --radius-modal: 12px;
-  --radius-pill: 999px;
+  --radius-pill: 9999px;
   --radius-full: 9999px;
 
-  /* ⏱️ Motion & Duration Tokens */
-  --motion-duration-instant: 100ms;
-  --motion-duration-fast: 200ms;
-  --motion-duration-normal: 250ms;
-  --motion-duration-slow: 300ms;
+  /* ⏱️ Motion & Easing Tokens (Calm, Premium) */
+  --motion-instant: 150ms;
+  --motion-fast: 200ms;
+  --motion-base: 300ms;
+  --motion-slow: 500ms;
 
-  /* ⚡ Layout */
+  --motion-duration-instant: 150ms;
+  --motion-duration-fast: 200ms;
+  --motion-duration-normal: 300ms;
+  --motion-duration-slow: 500ms;
+
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ⚡ Layout Containers */
+  --container-xl: 1280px;
+  --container-lg: 1120px;
+  --container-md: 1024px;
+  --container-sm: 768px;
+
   --nav-h: 72px;
-  --section-py: 3rem;
+  --section-py: 4rem;
 
   /* Focus Ring */
   --focus-ring: var(--brand);

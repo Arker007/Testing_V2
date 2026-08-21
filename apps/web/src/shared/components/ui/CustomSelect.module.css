@@ -9,78 +9,89 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0.65rem 0.9rem;
-  background-color: var(--bg-card);
-  color: var(--text-primary);
-  border: 1px solid var(--border);
+  padding: 0.625rem 0.875rem;
+  background-color: var(--bg-card, #ffffff);
+  color: var(--text-primary, #0f172a);
+  border: 1px solid var(--border, #e2e8f0);
   border-radius: 8px;
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   outline: none;
 }
 
 .customSelectTrigger:hover {
-  border-color: var(--brand);
-  box-shadow: 0 0 0 3px var(--brand-glow-subtle);
-}
-
-.customSelectTrigger:focus-visible {
-  border-color: var(--brand);
-  box-shadow: 0 0 0 3px var(--brand-glow-subtle);
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
 
 .customSelectContainerOpen .customSelectTrigger {
-  border-color: var(--brand);
-  box-shadow: 0 0 0 3px var(--brand-glow-subtle);
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+.triggerLabelWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
+}
+
+.triggerLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .categoryCountBadge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.15rem 0.45rem;
+  padding: 0.125rem 0.5rem;
   font-size: 0.75rem;
   font-weight: 600;
   border-radius: 9999px;
-  background-color: var(--navy-subtle);
-  color: var(--text-primary);
+  background-color: rgba(148, 163, 184, 0.15);
+  color: var(--text-secondary, #475569);
+  margin-left: 0.5rem;
+  flex-shrink: 0;
 }
 
 .selectChevron {
-  color: var(--text-muted);
+  width: 1rem;
+  height: 1rem;
+  color: #64748b;
   transition: transform 0.2s ease;
   flex-shrink: 0;
   margin-left: 0.5rem;
 }
 
-.selectChevronRotated {
+.chevronRotate {
   transform: rotate(180deg);
 }
 
-.customSelectDropdown {
+/* --- Dropdown Wrapper & Popover --- */
+.customSelectDropdownWrapper {
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% + 6px);
   left: 0;
   right: 0;
-  z-index: 50;
-  max-height: 260px;
-  overflow-y: auto;
-  background-color: var(--bg-surface-elevated);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow: var(--shadow-lg);
-  padding: 0.35rem;
-  list-style: none;
-  margin: 0;
-  animation: selectFadeIn 0.15s ease-out;
+  z-index: 60;
+  background-color: var(--bg-card, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 10px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+  padding: 0.4rem;
+  overflow: hidden;
+  animation: selectFadeIn 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes selectFadeIn {
   from {
     opacity: 0;
-    transform: translateY(-4px);
+    transform: translateY(-6px);
   }
   to {
     opacity: 1;
@@ -88,66 +99,159 @@
   }
 }
 
-.customSelectSearchWrapper {
-  position: sticky;
-  top: 0;
-  background-color: var(--bg-surface-elevated);
-  padding-bottom: 0.35rem;
-  margin-bottom: 0.35rem;
-  border-bottom: 1px solid var(--border-subtle);
+/* --- Search Input inside Dropdown --- */
+.selectSearchContainer {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  z-index: 2;
+  margin-bottom: 0.35rem;
+  padding: 0 0.1rem;
 }
 
-.customSelectSearchInput {
+.selectSearchIcon {
+  position: absolute;
+  left: 0.65rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.selectSearchInput {
   width: 100%;
-  padding: 0.45rem 0.65rem;
-  border: 1px solid var(--border-subtle);
+  padding: 0.45rem 2rem 0.45rem 2rem;
+  border: 1px solid var(--border, #e2e8f0);
   border-radius: 6px;
   font-size: 0.8125rem;
-  background-color: var(--bg-interactive);
-  color: var(--text-primary);
+  background-color: var(--bg-surface-elevated, #f8fafc);
+  color: var(--text-primary, #0f172a);
   outline: none;
+  transition: border-color 0.15s ease;
 }
 
-.customSelectSearchInput:focus {
-  border-color: var(--brand);
+.selectSearchInput:focus {
+  border-color: #10b981;
+  background-color: var(--bg-card, #ffffff);
+}
+
+.selectSearchClear {
+  position: absolute;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0.2rem;
+  color: #94a3b8;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.selectSearchClear:hover {
+  color: #64748b;
+}
+
+.clearIcon {
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+/* --- Options List --- */
+.customSelectDropdown {
+  max-height: 220px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .customSelectOption {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.55rem 0.75rem;
-  font-size: 0.875rem;
-  color: var(--text-secondary);
+  padding: 0.5rem 0.65rem;
+  font-size: 0.8125rem;
+  color: var(--text-secondary, #334155);
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .customSelectOption:hover {
-  background-color: var(--bg-interactive);
-  color: var(--text-primary);
+  background-color: rgba(16, 185, 129, 0.08);
+  color: #059669;
 }
 
-.customSelectOptionSelected {
-  background-color: var(--brand-glow-subtle);
-  color: var(--text-primary);
+.customSelectOptionActive {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #059669;
   font-weight: 600;
 }
 
+.optionContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 0;
+}
+
+.optionLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .checkIcon {
-  color: var(--brand);
+  width: 0.9rem;
+  height: 0.9rem;
+  color: #10b981;
   margin-left: 0.5rem;
   flex-shrink: 0;
 }
 
-.customSelectEmpty {
-  padding: 1rem;
+.noOptionsMessage {
+  padding: 0.75rem;
   text-align: center;
   font-size: 0.8125rem;
-  color: var(--text-muted);
+  color: #94a3b8;
+}
+
+/* Dark Mode Overrides */
+:global(.dark) .customSelectTrigger {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+:global(.dark) .customSelectDropdownWrapper {
+  background-color: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+:global(.dark) .selectSearchInput {
+  background-color: #0f172a;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+:global(.dark) .customSelectOption {
+  color: #cbd5e1;
+}
+
+:global(.dark) .customSelectOption:hover {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
+:global(.dark) .customSelectOptionActive {
+  background-color: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+}
+
+:global(.dark) .categoryCountBadge {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
 }

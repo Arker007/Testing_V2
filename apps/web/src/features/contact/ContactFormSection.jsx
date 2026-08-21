@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CheckCircle, AlertTriangle, Loader2, Package, User, Mail, Globe, Phone, MessageSquare, Send, ShieldCheck, Headphones, MapPin, Navigation, ExternalLink } from "lucide-react";
+import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 import { ContactTrustedRow } from "./ContactTrustedRow";
 import { useContactForm } from "./useContactForm";
@@ -49,7 +49,7 @@ export default function ContactFormSection() {
 
             {status === "sent" ? (
               <div className={styles.successBox}>
-                <CheckCircle className="w-16 h-16 text-[var(--color-success)]" />
+                <Icon icon="solar:check-circle-linear" className="w-16 h-16 text-[var(--color-success)]" />
                 <h3 className="text-[var(--heading)] font-bold text-xl">Inquiry Sent Successfully!</h3>
                 <p className="text-[var(--text-secondary)]">
                   Thank you for contacting us. Our sales team will get back to you within{" "}
@@ -69,12 +69,12 @@ export default function ContactFormSection() {
                 <div className={styles.row2}>
                   <div className={styles.inputFieldWrapper}>
                     <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Package className="w-5 h-5" />
+                      <Icon icon="solar:box-minimalistic-linear" className="w-5 h-5" />
                     </div>
                     <input
                       id="productService"
                       required
-                      className={`${styles.customInput} bg-[var(--surface-subtle)] border-[var(--border-card)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand)]`}
+                      className={`${styles.customInput} bg-white dark:bg-white border-[var(--border-card)] text-slate-800 placeholder:text-slate-400 dark:text-slate-800 dark:placeholder:text-slate-400 focus:border-[var(--brand)]`}
                       value={form.productService || ""}
                       onChange={f("productService")}
                       placeholder="Product / Service Looking for"
@@ -83,12 +83,12 @@ export default function ContactFormSection() {
 
                   <div className={styles.inputFieldWrapper}>
                     <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <User className="w-5 h-5" />
+                      <Icon icon="solar:user-linear" className="w-5 h-5" />
                     </div>
                     <input
                       id="fullName"
                       required
-                      className={`${styles.customInput} bg-[var(--surface-subtle)] border-[var(--border-card)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand)]`}
+                      className={`${styles.customInput} bg-white dark:bg-white border-[var(--border-card)] text-slate-800 placeholder:text-slate-400 dark:text-slate-800 dark:placeholder:text-slate-400 focus:border-[var(--brand)]`}
                       value={form.fullName || ""}
                       onChange={f("fullName")}
                       placeholder="Your Name"
@@ -100,13 +100,13 @@ export default function ContactFormSection() {
                 <div className={styles.row2}>
                   <div className={styles.inputFieldWrapper}>
                     <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Mail className="w-5 h-5" />
+                      <Icon icon="solar:letter-linear" className="w-5 h-5" />
                     </div>
                     <input
                       id="email"
                       type="email"
                       required
-                      className={`${styles.customInput} bg-[var(--surface-subtle)] border-[var(--border-card)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand)]`}
+                      className={`${styles.customInput} bg-white dark:bg-white border-[var(--border-card)] text-slate-800 placeholder:text-slate-400 dark:text-slate-800 dark:placeholder:text-slate-400 focus:border-[var(--brand)]`}
                       value={form.email || ""}
                       onChange={f("email")}
                       placeholder="Email"
@@ -115,12 +115,12 @@ export default function ContactFormSection() {
 
                   <div className={styles.inputFieldWrapper}>
                     <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Globe className="w-5 h-5" />
+                      <Icon icon="solar:global-linear" className="w-5 h-5" />
                     </div>
                     <select
                       id="country"
                       required
-                      className={`${styles.customSelect} bg-[var(--surface-subtle)] border-[var(--border-card)] text-[var(--text-primary)] focus:border-[var(--brand)]`}
+                      className={`${styles.customSelect} bg-white dark:bg-white border-[var(--border-card)] text-[var(--text-primary)] focus:border-[var(--brand)]`}
                       value={form.country || "India"}
                       onChange={f("country")}
                     >
@@ -142,7 +142,7 @@ export default function ContactFormSection() {
                   <div>
                     <select
                       id="phonePrefix"
-                      className={`${styles.phonePrefixSelect} bg-[var(--surface-subtle)] border-[var(--border-card)] text-[var(--text-primary)] focus:border-[var(--brand)]`}
+                      className={`${styles.phonePrefixSelect} bg-white dark:bg-white border-[var(--border-card)] text-[var(--text-primary)] focus:border-[var(--brand)]`}
                       value={form.phonePrefix || "+91"}
                       onChange={f("phonePrefix")}
                     >
@@ -158,13 +158,13 @@ export default function ContactFormSection() {
                   </div>
                   <div className={styles.inputFieldWrapper}>
                     <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Phone className="w-5 h-5" />
+                      <Icon icon="solar:phone-calling-linear" className="w-5 h-5" />
                     </div>
                     <input
                       id="phone"
                       type="tel"
                       required
-                      className={`${styles.customInput} bg-[var(--surface-subtle)] border-[var(--border-card)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand)]`}
+                      className={`${styles.customInput} bg-white dark:bg-white border-[var(--border-card)] text-slate-800 placeholder:text-slate-400 dark:text-slate-800 dark:placeholder:text-slate-400 focus:border-[var(--brand)]`}
                       value={form.phone || ""}
                       onChange={f("phone")}
                       placeholder="Phone / Mobile"
@@ -175,12 +175,12 @@ export default function ContactFormSection() {
                 {/* Message */}
                 <div className={styles.inputFieldWrapper}>
                   <div className={`${styles.inputIcon} text-[var(--brand-text)]`} style={{ top: "1rem" }}>
-                    <MessageSquare className="w-5 h-5" />
+                    <Icon icon="solar:chat-round-dots-linear" className="w-5 h-5" />
                   </div>
                   <textarea
                     id="message"
                     required
-                    className={`${styles.customTextarea} bg-[var(--surface-subtle)] border-[var(--border-card)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand)]`}
+                    className={`${styles.customTextarea} bg-white dark:bg-white border-[var(--border-card)] text-slate-800 placeholder:text-slate-400 dark:text-slate-800 dark:placeholder:text-slate-400 focus:border-[var(--brand)]`}
                     style={{ paddingLeft: "2.75rem" }}
                     rows={4}
                     value={form.message || ""}
@@ -191,7 +191,7 @@ export default function ContactFormSection() {
 
                 {status === "error" && (
                   <p className={styles.errorText} role="alert">
-                    <AlertTriangle className="w-5 h-5 text-[var(--color-error)] shrink-0" />
+                    <Icon icon="solar:danger-triangle-linear" className="w-5 h-5 text-[var(--color-error)] shrink-0" />
                     Sending failed. Please try again or contact us directly.
                   </p>
                 )}
@@ -205,21 +205,21 @@ export default function ContactFormSection() {
                   >
                     {status === "sending" ? (
                       <>
-                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <Icon icon="solar:restart-linear" className="w-5 h-5 animate-spin" />
                         <span className="btn-text">Sending Message...</span>
                       </>
                     ) : (
                       <>
                         <span className="btn-text">Send Message</span>
                         <span className="btn-icon-bubble">
-                          <Send className="btn-arrow-icon w-4 h-4" />
+                          <Icon icon="solar:plain-2-linear" className="btn-arrow-icon w-4 h-4" />
                         </span>
                       </>
                     )}
                   </button>
 
                   <div className={`${styles.privacyNote} text-[var(--text-muted)]`}>
-                    <ShieldCheck className={`${styles.privacyIcon} text-[var(--brand-text)]`} />
+                    <Icon icon="solar:shield-check-linear" className={`${styles.privacyIcon} text-[var(--brand-text)] w-4 h-4`} />
                     <span>We respect your privacy. Your information is safe with us.</span>
                   </div>
                 </div>
@@ -242,7 +242,7 @@ export default function ContactFormSection() {
               {/* Card 1: Contact Person */}
               <div className={`${styles.infoCardAccent} bg-[var(--surface-card)] border border-[var(--border-card)] shadow-sm text-[var(--text-primary)]`} id="info-card-person">
                 <div className={`${styles.infoCardIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
-                  <User className="w-5 h-5" />
+                  <Icon icon="solar:user-linear" className="w-5 h-5" />
                 </div>
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Contact Person</span>
@@ -253,7 +253,7 @@ export default function ContactFormSection() {
               {/* Card 2: Address */}
               <div className={`${styles.infoCardAccent} bg-[var(--surface-card)] border border-[var(--border-card)] shadow-sm text-[var(--text-primary)]`} id="info-card-address">
                 <div className={`${styles.infoCardIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
-                  <MapPin className="w-5 h-5" />
+                  <Icon icon="solar:map-point-linear" className="w-5 h-5" />
                 </div>
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Address</span>
@@ -264,7 +264,7 @@ export default function ContactFormSection() {
               {/* Card 3: Mobile */}
               <div className={`${styles.infoCardAccent} bg-[var(--surface-card)] border border-[var(--border-card)] shadow-sm text-[var(--text-primary)]`} id="info-card-mobile">
                 <div className={`${styles.infoCardIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
-                  <Phone className="w-5 h-5" />
+                  <Icon icon="solar:phone-calling-linear" className="w-5 h-5" />
                 </div>
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Mobile</span>
@@ -289,7 +289,7 @@ export default function ContactFormSection() {
               {/* Card 4: Email */}
               <div className={`${styles.infoCardAccent} bg-[var(--surface-card)] border border-[var(--border-card)] shadow-sm text-[var(--text-primary)]`} id="info-card-email">
                 <div className={`${styles.infoCardIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
-                  <Mail className="w-5 h-5" />
+                  <Icon icon="solar:letter-linear" className="w-5 h-5" />
                 </div>
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Email</span>
@@ -303,18 +303,18 @@ export default function ContactFormSection() {
             </div>
 
             {/* Immediate Assistance Banner */}
-            <div className={`${styles.assistanceBanner} bg-[var(--surface-subtle)] border border-[var(--border-card)] shadow-sm text-[var(--text-primary)]`} id="assistance-banner">
+            <div className={`${styles.assistanceBanner} bg-white dark:bg-white border border-[var(--border-card)] shadow-sm text-[var(--text-primary)]`} id="assistance-banner">
               <div className={styles.bannerLeft}>
                 <div className={`${styles.bannerIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)]`}>
-                  <Headphones className="w-5 h-5" />
+                  <Icon icon="solar:headphones-round-linear" className="w-5 h-5" />
                 </div>
                 <div>
                   <h4 className="font-bold text-[var(--heading)] text-sm">Need Immediate Assistance?</h4>
                   <p className="text-xs text-[var(--text-secondary)] mt-0.5">Our team is ready to help you with your requirements.</p>
                 </div>
               </div>
-              <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="inline-flex items-center gap-2 bg-[var(--brand)] text-white font-semibold text-xs px-4 py-2.5 rounded-[var(--radius-btn,8px)] shadow-sm hover:opacity-95 transition-all">
-                <Phone className="w-4 h-4" />
+              <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="inline-flex items-center gap-2 bg-[var(--brand)] text-slate-950 font-semibold text-xs px-4 py-2.5 rounded-[var(--radius-btn,8px)] shadow-sm hover:opacity-95 transition-all">
+                <Icon icon="solar:phone-calling-linear" className="w-4 h-4 text-slate-950" />
                 Call Now
               </a>
             </div>
@@ -326,7 +326,7 @@ export default function ContactFormSection() {
           <div className={styles.mapHeader}>
             <div className={styles.mapTitleGroup}>
               <div className={`${styles.mapIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
-                <MapPin className="w-5 h-5" />
+                <Icon icon="solar:map-point-linear" className="w-5 h-5" />
               </div>
               <div>
                 <h3 className="font-bold text-[var(--heading)] text-base">Find Our Manufacturing Facility</h3>
@@ -339,12 +339,12 @@ export default function ContactFormSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[var(--navy)] text-white font-semibold text-xs px-4 py-2.5 rounded-[var(--radius-btn,8px)] shadow-sm hover:opacity-95 transition-all"
             >
-              <Navigation className="w-4 h-4" />
+              <Icon icon="solar:routing-2-linear" className="w-4 h-4" />
               <span>Get Directions</span>
-              <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+              <Icon icon="solar:arrow-right-up-linear" className="w-3.5 h-3.5 opacity-70" />
             </a>
           </div>
-          <div className="w-full h-96 rounded-[var(--radius-lg,12px)] overflow-hidden border border-[var(--border-card)] bg-[var(--surface-subtle)] mt-4">
+          <div className="w-full h-96 rounded-[var(--radius-lg,12px)] overflow-hidden border border-[var(--border-card)] bg-white dark:bg-white mt-4">
             <iframe
               title="Factory Location Map"
               src={`https://maps.google.com/maps?q=${encodeURIComponent(address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}

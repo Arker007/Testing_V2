@@ -3,7 +3,7 @@
   background: linear-gradient(180deg, var(--navy-dark, #071E40) 0%, var(--navy-darker, #061C3D) 100%);
   color: rgba(255, 255, 255, 0.85);
   padding-top: 4.5rem;
-  border-top: 4px solid var(--brand, #80cf23);
+  border-top: 4px solid var(--brand, #77D986);
   font-family: var(--font-family-primary, 'Noto Sans', sans-serif);
 }
 
@@ -76,7 +76,7 @@
 }
 
 .logoE {
-  color: var(--brand, #80cf23);
+  color: var(--brand, #77D986);
 }
 
 .logoTitles {
@@ -96,7 +96,7 @@
 
 .logoSub {
   font-size: 0.725rem;
-  color: var(--brand, #80cf23);
+  color: var(--brand, #77D986);
   margin-top: 4px;
   font-weight: 700;
   text-transform: uppercase;
@@ -115,7 +115,7 @@
 .brandLine {
   width: 40px;
   height: 2px;
-  background-color: var(--brand, #80cf23);
+  background-color: var(--brand, #77D986);
   margin-bottom: 1.5rem;
 }
 
@@ -130,7 +130,7 @@
 }
 
 .isoRow i {
-  color: var(--brand, #80cf23);
+  color: var(--brand, #77D986);
   font-size: 1rem;
 }
 
@@ -155,8 +155,8 @@
 }
 
 .social:hover {
-  background: var(--brand, #80cf23);
-  border-color: var(--brand, #80cf23);
+  background: var(--brand, #77D986);
+  border-color: var(--brand, #77D986);
   color: var(--navy-dark, #071E40);
   transform: translateY(-2px);
 }
@@ -352,7 +352,7 @@
 }
 
 .newsletterInput:focus {
-  border-color: var(--brand, #80cf23);
+  border-color: var(--brand, #77D986);
   background: rgba(255, 255, 255, 0.1);
 }
 
@@ -361,7 +361,7 @@
   right: 0.375rem;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--brand, #80cf23);
+  background: var(--brand, #77D986);
   color: var(--navy-dark, #071E40);
   border: none;
   width: 32px;
@@ -382,7 +382,7 @@
 
 .subscribedText {
   font-size: 0.875rem;
-  color: var(--brand, #80cf23);
+  color: var(--brand, #77D986);
   font-weight: 600;
   display: flex;
   align-items: center;

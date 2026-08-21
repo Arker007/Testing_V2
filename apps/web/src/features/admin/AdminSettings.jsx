@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Icon } from "@iconify/react";
 import styles from "./components/AdminTable.module.css";
 
 export default function AdminSettings() {
@@ -34,14 +35,14 @@ export default function AdminSettings() {
       <div className={`${styles.card} ${styles.settingsCard}`}>
         <div className={styles.settingsHead}>
           <div className={styles.settingsTitleRow}>
-            <div className={styles.settingsIcon}><i className="fa-solid fa-lock" /></div>
+            <div className={styles.settingsIcon}><Icon icon="solar:lock-password-linear" className="w-5 h-5 text-emerald-600" /></div>
             <h2 className={styles.settingsTitle}>Update Password</h2>
           </div>
           <p className={styles.settingsSub}>Enter your current password to set a new password for your account.</p>
         </div>
 
-        {status === "success" && <div className={styles.alertSuccess}><i className="fa-solid fa-circle-check" /> Password updated successfully.</div>}
-        {errorMsg && <div role="alert" className={styles.alertError}><i className="fa-solid fa-circle-exclamation" /> {errorMsg}</div>}
+        {status === "success" && <div className={styles.alertSuccess}><Icon icon="solar:check-circle-linear" className="w-4 h-4 inline mr-1" /> Password updated successfully.</div>}
+        {errorMsg && <div role="alert" className={styles.alertError}><Icon icon="solar:danger-circle-linear" className="w-4 h-4 inline mr-1" /> {errorMsg}</div>}
 
         <form onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
@@ -57,7 +58,7 @@ export default function AdminSettings() {
             <input id="confirmPwd" type="password" className={styles.formInput} required autoComplete="new-password" value={form.confirm} onChange={f("confirm")} />
           </div>
           <button type="submit" className={`${styles.actionBtnPrimary} ${styles.settingsSubmit}`} disabled={status === "saving"}>
-            {status === "saving" ? <><i className="fa-solid fa-spinner fa-spin" /> Saving password...</> : <><i className="fa-solid fa-floppy-disk" /> Save Password</>}
+            {status === "saving" ? <><Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin mr-1 inline" /> Saving password...</> : <><Icon icon="solar:diskette-linear" className="w-4 h-4 mr-1 inline" /> Save Password</>}
           </button>
         </form>
       </div>

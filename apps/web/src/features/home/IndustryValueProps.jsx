@@ -1,5 +1,5 @@
 import React from "react";
-import { Shield, Leaf, DropletOff, Hourglass } from "lucide-react";
+import { Icon } from "@iconify/react";
 import styles from "../../pages/Home.module.css";
 
 export default function IndustryValueProps() {
@@ -7,7 +7,7 @@ export default function IndustryValueProps() {
     <div className={styles.bentoBottomRow}>
       <div className={styles.bentoBottomBadge}>
         <div className={styles.bentoBottomIcon}>
-          <Shield className="w-5 h-5 text-brand" />
+          <Icon icon="solar:shield-check-linear" className="w-5 h-5 text-brand" />
         </div>
         <div className={styles.bentoBottomText}>
           <h6>Engineered Strength</h6>
@@ -17,7 +17,7 @@ export default function IndustryValueProps() {
 
       <div className={styles.bentoBottomBadge}>
         <div className={styles.bentoBottomIcon}>
-          <Leaf className="w-5 h-5 text-brand" />
+          <Icon icon="solar:leaf-linear" className="w-5 h-5 text-brand" />
         </div>
         <div className={styles.bentoBottomText}>
           <h6>Eco-Conscious</h6>
@@ -27,7 +27,7 @@ export default function IndustryValueProps() {
 
       <div className={styles.bentoBottomBadge}>
         <div className={styles.bentoBottomIcon}>
-          <DropletOff className="w-5 h-5 text-brand" />
+          <Icon icon="solar:wrench-linear" className="w-5 h-5 text-brand" />
         </div>
         <div className={styles.bentoBottomText}>
           <h6>Zero Maintenance</h6>
@@ -37,7 +37,7 @@ export default function IndustryValueProps() {
 
       <div className={styles.bentoBottomBadge}>
         <div className={styles.bentoBottomIcon}>
-          <Hourglass className="w-5 h-5 text-brand" />
+          <Icon icon="solar:clock-circle-linear" className="w-5 h-5 text-brand" />
         </div>
         <div className={styles.bentoBottomText}>
           <h6>Long Service Life</h6>

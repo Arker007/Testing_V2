@@ -1,9 +1,10 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { Icon } from "@iconify/react";
+import "./interactive-hover-button.css";
 
 /**
  * InteractiveHoverButton - A premium, high-fidelity responsive button component
- * with sleek hover transitions.
+ * with sleek hover transitions where text always stays crisp, visible, and accessible.
  */
 export const InteractiveHoverButton = React.forwardRef(
   ({ text = "Hover Me", children, className = "", style = {}, ...props }, ref) => {
@@ -17,15 +18,11 @@ export const InteractiveHoverButton = React.forwardRef(
         style={style}
         {...props}
       >
-        <div className="interactive-hover-button-content">
-          <div className="interactive-hover-button-dot" />
-          <span className="interactive-hover-button-text">{labelText}</span>
-        </div>
-
-        <div className="interactive-hover-button-hover">
-          <span>{labelText}</span>
-          <ArrowRight className="interactive-hover-button-arrow" />
-        </div>
+        <span className="interactive-hover-button-dot" />
+        <span className="interactive-hover-button-text">{labelText}</span>
+        <span className="interactive-hover-button-arrow-wrap">
+          <Icon icon="solar:arrow-right-linear" className="interactive-hover-button-arrow w-4 h-4" />
+        </span>
       </button>
     );
   }

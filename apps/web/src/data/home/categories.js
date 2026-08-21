@@ -4,49 +4,49 @@ export const STATIC_CATEGORIES = [
     name: "Plastic Lumber",
     image: "/uploads/products/lumber/plastic-lumber-pallet-1770447286569-0_medium.webp",
     desc: "Timber alternatives engineered for high strength and structural durability.",
-    icon: "fa-ruler-combined"
+    icon: "solar:layers-3-linear"
   },
   {
     id: "plastic-pallets",
     name: "Plastic Pallets",
     image: "/uploads/products/pallets/pallets-1770374237161-67758_medium.webp",
     desc: "ISPM-15 compliant heavy-duty pallets built for global export shipping.",
-    icon: "fa-pallet"
+    icon: "solar:box-minimalistic-linear"
   },
   {
     id: "garden-bench",
     name: "Garden Bench",
     image: "/uploads/products/garden-bench/gardenbench-1770441701359-0_medium.webp",
     desc: "Elegant and weather-resistant recycled plastic benches for municipal parks.",
-    icon: "fa-chair"
+    icon: "solar:chair-2-linear"
   },
   {
     id: "plastic-table",
     name: "Plastic Table",
     image: "/uploads/products/categories/plastic-table-1770446441648-0_medium.webp",
     desc: "Circular outdoor dining tables designed to withstand harsh outdoor weather.",
-    icon: "fa-table"
+    icon: "solar:desk-linear"
   },
   {
     id: "garden-fence",
     name: "Garden Fence",
     image: "/uploads/products/categories/categories-1770374476904-61107_medium.webp",
     desc: "Maintenance-free perimeter fencing systems designed for residential use.",
-    icon: "fa-bars-staggered"
+    icon: "solar:rows-linear"
   },
   {
     id: "outdoor-furniture",
     name: "Outdoor Furniture",
     image: "/uploads/products/garden-bench/gardenbench-1770441701366-1_medium.webp",
     desc: "Sleek, sustainable, and durable furniture built for modern spaces.",
-    icon: "fa-couch"
+    icon: "solar:sofa-linear"
   },
   {
     id: "custom-products",
     name: "Custom Products",
     image: "/uploads/products/lumber/plastic-lumber-pallet-1770447286569-0_medium.webp",
     desc: "Bespoke industrial shapes and parts molded to custom B2B drawings.",
-    icon: "fa-gears"
+    icon: "solar:settings-minimalistic-linear"
   }
 ];
 

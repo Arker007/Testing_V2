@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
+import { Icon } from '@iconify/react';
 import styles from '../admin/components/AdminTable.module.css';
 import mStyles from './Media.module.css';
 
@@ -75,7 +76,7 @@ export default function AdminMedia() {
                 </p>
                 <label className={`${styles.actionBtnPrimary} ${uploading ? 'disabled' : ''}`} style={{ cursor: 'pointer' }}>
                     <input type="file" accept="image/*" multiple onChange={handleUpload} style={{ display: 'none' }} />
-                    {uploading ? <><i className="fa-solid fa-spinner fa-spin" /> Uploading...</> : <><i className="fa-solid fa-upload" /> Upload Assets</>}
+                    {uploading ? <><Icon icon="solar:spinner-linear" className="w-4 h-4 animate-spin" /> Uploading...</> : <><Icon icon="solar:upload-track-2-linear" className="w-4 h-4 mr-1 inline" /> Upload Assets</>}
                 </label>
             </div>
 
@@ -86,11 +87,11 @@ export default function AdminMedia() {
                         Directories
                     </div>
                     {[
-                        { id: 'all', label: 'All Uploads', icon: 'fa-folder-open' },
-                        { id: 'pallets', label: 'pallets/', icon: 'fa-folder' },
-                        { id: 'lumber', label: 'lumber/', icon: 'fa-folder' },
-                        { id: 'garden-bench', label: 'garden-bench/', icon: 'fa-folder' },
-                        { id: 'general', label: 'general/', icon: 'fa-folder' },
+                        { id: 'all', label: 'All Uploads', icon: 'solar:folder-with-files-linear' },
+                        { id: 'pallets', label: 'pallets/', icon: 'solar:folder-linear' },
+                        { id: 'lumber', label: 'lumber/', icon: 'solar:folder-linear' },
+                        { id: 'garden-bench', label: 'garden-bench/', icon: 'solar:folder-linear' },
+                        { id: 'general', label: 'general/', icon: 'solar:folder-linear' },
                     ].map(f => {
                         const count = media.filter(m => f.id === 'all' || getFileCategory(m.url) === f.id).length;
                         return (
@@ -99,8 +100,8 @@ export default function AdminMedia() {
                                 className={`${mStyles.folderNode} ${activeCategory === f.id ? mStyles.folderNodeActive : ''}`}
                                 onClick={() => setActiveCategory(f.id)}
                             >
-                                <span>
-                                    <i className={`fa-solid ${f.icon}`} style={{ marginRight: 6, color: activeCategory === f.id ? 'var(--brand-dark)' : 'var(--gray-300)' }} />
+                                <span className="flex items-center gap-1.5">
+                                    <Icon icon={f.icon} className="w-4 h-4" style={{ color: activeCategory === f.id ? 'var(--brand-dark)' : 'var(--gray-300)' }} />
                                     {f.label}
                                 </span>
                                 <span style={{ fontSize: '0.72rem', color: 'var(--muted)', background: 'rgba(5, 40, 63, 0.04)', padding: '2px 6px', borderRadius: 10, fontWeight: 700 }}>
@@ -120,11 +121,11 @@ export default function AdminMedia() {
                     ) : filteredMedia.length === 0 ? (
                         <div className={styles.card} style={{ width: '100%' }}>
                             <div className={styles.empty}>
-                                <i className="fa-solid fa-photo-film" />
+                                <Icon icon="solar:gallery-linear" className="w-12 h-12 text-slate-300 mx-auto mb-2" />
                                 <p>No media files found in this directory folder.</p>
                                 <label className={styles.actionBtnPrimary} style={{ cursor: 'pointer', marginTop: '12px' }}>
                                     <input type="file" accept="image/*" multiple onChange={handleUpload} style={{ display: 'none' }} />
-                                    <i className="fa-solid fa-upload" /> Upload Files
+                                    <Icon icon="solar:upload-track-2-linear" className="w-4 h-4 mr-1 inline" /> Upload Files
                                 </label>
                             </div>
                         </div>
@@ -134,13 +135,13 @@ export default function AdminMedia() {
                                 <div key={m.id} className={mStyles.card}>
                                     <div className={mStyles.imgWrap}>
                                         <img src={m.url} alt={m.filename} onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }} />
-                                        <div className={mStyles.fallback} style={{ display: 'none' }}><i className="fa-solid fa-image" /></div>
+                                        <div className={mStyles.fallback} style={{ display: 'none' }}><Icon icon="solar:gallery-linear" className="w-8 h-8 text-slate-400" /></div>
                                     </div>
                                     <div className={mStyles.info}>
                                         <div className={mStyles.filename} title={m.filename}>{m.filename}</div>
                                         <div className={mStyles.url} title={m.url}>{m.url}</div>
                                         <button className={mStyles.copyBtn} onClick={() => copyUrl(m.url)}>
-                                            <i className={`fa-solid ${copied === m.url ? 'fa-check' : 'fa-copy'}`} />
+                                            <Icon icon={copied === m.url ? "solar:check-read-linear" : "solar:copy-linear"} className="w-3.5 h-3.5 mr-1 inline" />
                                             {copied === m.url ? 'Copied!' : 'Copy URL'}
                                         </button>
                                     </div>

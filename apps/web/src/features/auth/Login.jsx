@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Icon } from '@iconify/react';
 import { useSite } from '../../shared/context/SiteContext';
 import styles from './Login.module.css';
 
@@ -72,7 +73,7 @@ export default function AdminLogin() {
                     <div className={styles.features}>
                         {['Recycled Pallet Inventory Matrices', 'B2B Inquiry Live Streams', 'Taxonomy Architecture Controls', 'High-Fidelity Diagnostics'].map(f => (
                             <div key={f} className={styles.feature}>
-                                <i className="fa-solid fa-circle-check" />
+                                <Icon icon="solar:verified-check-linear" className="text-emerald-500 w-4 h-4" />
                                 <span>{f}</span>
                             </div>
                         ))}
@@ -90,7 +91,7 @@ export default function AdminLogin() {
                         <div className="form-group">
                             <label className="form-label" style={{ fontWeight: 600, fontSize: '13px', display: 'block', marginBottom: '6px' }}>Username Address</label>
                             <div className={styles.inputWrap}>
-                                <i className={`fa-solid fa-user ${styles.inputIcon}`} />
+                                <Icon icon="solar:user-linear" className={`${styles.inputIcon} w-4 h-4`} />
                                 <input
                                     className={styles.paddedInput}
                                     type="text"
@@ -105,7 +106,7 @@ export default function AdminLogin() {
                         <div className="form-group">
                             <label className="form-label" style={{ fontWeight: 600, fontSize: '13px', display: 'block', marginBottom: '6px' }}>Password Cipher</label>
                             <div className={styles.inputWrap}>
-                                <i className={`fa-solid fa-lock ${styles.inputIcon}`} />
+                                <Icon icon="solar:lock-password-linear" className={`${styles.inputIcon} w-4 h-4`} />
                                 <input
                                     className={styles.brandInput || styles.paddedInput}
                                     type={showPw ? 'text' : 'password'}
@@ -115,24 +116,24 @@ export default function AdminLogin() {
                                     onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                                 />
                                 <button type="button" className={styles.eye} onClick={() => setShowPw(v => !v)}>
-                                    <i className={`fa-solid ${showPw ? 'fa-eye-slash' : 'fa-eye'}`} />
+                                    <Icon icon={showPw ? "solar:eye-closed-linear" : "solar:eye-linear"} className="w-4 h-4" />
                                 </button>
                             </div>
                         </div>
 
                         {error && (
                             <div className={styles.errorBox}>
-                                <i className="fa-solid fa-triangle-exclamation" /> {error}
+                                <Icon icon="solar:danger-triangle-linear" className="w-4 h-4" /> {error}
                             </div>
                         )}
 
                         <button type="submit" className={styles.submitBtn} disabled={loading}>
-                            {loading ? <><i className="fa-solid fa-spinner fa-spin" /> Resolving Verification...</> : <><i className="fa-solid fa-right-to-bracket" /> Connect Node</>}
+                            {loading ? <><Icon icon="solar:spinner-linear" className="w-4 h-4 animate-spin" /> Resolving Verification...</> : <><Icon icon="solar:login-2-linear" className="w-4 h-4 mr-1.5 inline" /> Connect Node</>}
                         </button>
                     </form>
 
                     <p className={styles.back}>
-                        <a href="/"><i className="fa-solid fa-arrow-left" /> Back to Website</a>
+                        <a href="/"><Icon icon="solar:arrow-left-linear" className="w-4 h-4 inline mr-1" /> Back to Website</a>
                     </p>
                 </div>
             </div>

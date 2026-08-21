@@ -1,5 +1,5 @@
 import React from "react";
-import { Shield, Leaf, Wrench, Headset } from "lucide-react";
+import { Icon } from "@iconify/react";
 import { useSite } from "../../context/SiteContext";
 
 export default function FeaturesTrustRow() {
@@ -10,7 +10,7 @@ export default function FeaturesTrustRow() {
       {/* Value 1 */}
       <div className="flex items-start gap-4">
         <div className="w-10 h-10 rounded-lg bg-[var(--brand-light)] dark:bg-[var(--brand-badge-bg)] text-[var(--brand-dark)] dark:text-[var(--brand)] flex items-center justify-center shrink-0 border border-[var(--brand-border)]/30">
-          <Leaf className="w-5 h-5" />
+          <Icon icon="solar:leaf-linear" className="w-5 h-5" />
         </div>
         <div>
           <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">
@@ -25,7 +25,7 @@ export default function FeaturesTrustRow() {
       {/* Value 2 */}
       <div className="flex items-start gap-4">
         <div className="w-10 h-10 rounded-lg bg-[var(--brand-light)] dark:bg-[var(--brand-badge-bg)] text-[var(--brand-dark)] dark:text-[var(--brand)] flex items-center justify-center shrink-0 border border-[var(--brand-border)]/30">
-          <Shield className="w-5 h-5" />
+          <Icon icon="solar:shield-check-linear" className="w-5 h-5" />
         </div>
         <div>
           <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">
@@ -40,7 +40,7 @@ export default function FeaturesTrustRow() {
       {/* Value 3 */}
       <div className="flex items-start gap-4">
         <div className="w-10 h-10 rounded-lg bg-[var(--brand-light)] dark:bg-[var(--brand-badge-bg)] text-[var(--brand-dark)] dark:text-[var(--brand)] flex items-center justify-center shrink-0 border border-[var(--brand-border)]/30">
-          <Wrench className="w-5 h-5" />
+          <Icon icon="solar:wrench-linear" className="w-5 h-5" />
         </div>
         <div>
           <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">
@@ -55,7 +55,7 @@ export default function FeaturesTrustRow() {
       {/* Value 4 */}
       <div className="flex items-start gap-4">
         <div className="w-10 h-10 rounded-lg bg-[var(--brand-light)] dark:bg-[var(--brand-badge-bg)] text-[var(--brand-dark)] dark:text-[var(--brand)] flex items-center justify-center shrink-0 border border-[var(--brand-border)]/30">
-          <Headset className="w-5 h-5" />
+          <Icon icon="solar:headphones-round-linear" className="w-5 h-5" />
         </div>
         <div>
           <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">

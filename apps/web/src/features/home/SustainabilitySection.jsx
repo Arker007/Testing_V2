@@ -1,8 +1,8 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 import Card from "../../shared/components/ui/Card";
 import Badge from "../../shared/components/ui/Badge";
-import { Leaf } from "lucide-react";
 
 export default function SustainabilitySection() {
   const { c, co } = useSite();
@@ -23,7 +23,7 @@ export default function SustainabilitySection() {
           {/* Left Graphic */}
           <div className="flex flex-col items-center justify-center gap-4 py-4">
             <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border-2 border-dashed border-emerald-400 dark:border-emerald-500/50 flex items-center justify-center text-emerald-600 dark:text-[#88e31b] shadow-sm animate-icon-pulse">
-              <Leaf className="w-12 h-12 sm:w-16 sm:h-16" />
+              <Icon icon="solar:leaf-linear" className="w-12 h-12 sm:w-16 sm:h-16" />
             </div>
             <Badge variant="brand" size="md">
               Circular Economy

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { Icon } from "@iconify/react";
 
 /**
  * Unified Button Primitive
@@ -67,9 +67,9 @@ export default function Button({
       {showArrow && (
         <span className="shrink-0 transition-transform duration-200 group-hover:translate-x-1">
           {variant === "outline" || variant === "ghost" ? (
-            <ChevronRight className="w-4 h-4" />
+            <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4" />
           ) : (
-            <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+            <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
           )}
         </span>
       )}

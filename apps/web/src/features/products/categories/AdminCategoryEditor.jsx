@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, useOutletContext } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import styles from "../../admin/components/AdminTable.module.css";
 
 const EMPTY = { name: "", description: "", image: "", fields: [] };
@@ -49,7 +50,7 @@ export default function AdminCategoryEditor() {
         disabled={saving || uploading}
         style={{ minWidth: 150 }}
       >
-        {saving ? <><i className="fa-solid fa-spinner fa-spin" /> Syncing…</> : <><i className="fa-solid fa-floppy-disk" /> Save Category</>}
+        {saving ? <><Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin mr-1 inline" /> Syncing…</> : <><Icon icon="solar:diskette-linear" className="w-4 h-4 mr-1 inline" /> Save Category</>}
       </button>
     );
     return () => setHeaderActions(null);
@@ -90,13 +91,13 @@ export default function AdminCategoryEditor() {
     } catch { alert("A network error occurred. Please try again."); } finally { setSaving(false); }
   };
 
-  if (loading) return <div className={styles.loadingState}><i className="fa-solid fa-spinner fa-spin" /> Loading Category Editor...</div>;
+  if (loading) return <div className={styles.loadingState}><Icon icon="solar:restart-linear" className="w-5 h-5 animate-spin inline mr-2" /> Loading Category Editor...</div>;
 
   return (
     <div className={styles.dashboard}>
       <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "8px" }}>
         <button className={styles.actionBtnSecondary} style={{ padding: "8px 16px" }} onClick={() => navigate("/admin/categories")}>
-          <i className="fa-solid fa-arrow-left" /> Back
+          <Icon icon="solar:arrow-left-linear" className="w-4 h-4 mr-1 inline" /> Back
         </button>
         <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--gray-800)", margin: 0 }}>
           {isNew ? "Add New Category" : `Edit Category: ${form.name}`}
@@ -107,7 +108,7 @@ export default function AdminCategoryEditor() {
         <form id="category-editor-form" onSubmit={handleSave}>
           <div className={styles.formGrid} style={{ gridTemplateColumns: "1.4fr 0.6fr" }}>
             <div>
-              <div className={styles.formSectionTitle}><i className="fa-solid fa-circle-info" /> Category Details</div>
+              <div className={styles.formSectionTitle}><Icon icon="solar:info-circle-linear" className="w-4 h-4 mr-1 inline" /> Category Details</div>
               <div className={styles.formGroup}>
                 <label className={styles.formLabel}>Category Name *</label>
                 <input className={styles.formInput} required value={form.name} onChange={f("name")} placeholder="e.g., Plastic Lumber" />
@@ -117,7 +118,7 @@ export default function AdminCategoryEditor() {
                 <textarea className={styles.formTextarea} rows={4} value={form.description} onChange={f("description")} placeholder="Enter category description..." />
               </div>
 
-              <div className={styles.formSectionTitle} style={{ marginTop: "32px" }}><i className="fa-solid fa-list-check" /> Specifications Fields Template</div>
+              <div className={styles.formSectionTitle} style={{ marginTop: "32px" }}><Icon icon="solar:checklist-minimalistic-linear" className="w-4 h-4 mr-1 inline" /> Specifications Fields Template</div>
               <p style={{ fontSize: "0.8125rem", color: "var(--text-muted)", marginBottom: "16px" }}>Define custom fields (e.g. dimensions, material) that products in this category will use.</p>
               
               {form.fields.length > 0 && (
@@ -163,34 +164,40 @@ export default function AdminCategoryEditor() {
                     }}
                     title="Drag to reorder"
                   >
-                    <i className="fa-solid fa-grip-vertical" />
+                    <Icon icon="solar:hamburger-menu-linear" className="w-4 h-4" />
                   </div>
                   <input className={styles.formInput} value={fld.name} onChange={(e) => setForm(p => ({ ...p, fields: p.fields.map((x, idx) => idx === i ? { ...x, name: e.target.value } : x) }))} placeholder="e.g. dimensions" />
                   <input className={styles.formInput} value={fld.label} onChange={(e) => setForm(p => ({ ...p, fields: p.fields.map((x, idx) => idx === i ? { ...x, label: e.target.value } : x) }))} placeholder="e.g. Dimensions (mm)" />
                   <input className={styles.formInput} value={fld.placeholder} onChange={(e) => setForm(p => ({ ...p, fields: p.fields.map((x, idx) => idx === i ? { ...x, placeholder: e.target.value } : x) }))} placeholder="e.g. 1200 x 1000 x 150" />
-                  <button type="button" className={styles.delBtn} style={{ height: "36px", width: "36px", borderRadius: "8px" }} onClick={() => setForm(p => ({ ...p, fields: p.fields.filter((_, idx) => idx !== i) }))}><i className="fa-solid fa-trash" /></button>
+                  <button type="button" className={styles.delBtn} style={{ height: "36px", width: "36px", borderRadius: "8px" }} onClick={() => setForm(p => ({ ...p, fields: p.fields.filter((_, idx) => idx !== i) }))}>
+                    <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />
+                  </button>
                 </div>
               ))}
               <button type="button" className={styles.actionBtnSecondary} onClick={() => setForm(p => ({ ...p, fields: [...p.fields, { name: "", label: "", type: "text", placeholder: "" }] }))}>
-                <i className="fa-solid fa-plus" /> Add Custom Field
+                <Icon icon="solar:add-circle-linear" className="w-4 h-4 mr-1 inline" /> Add Custom Field
               </button>
             </div>
 
             <div>
-              <div className={styles.formSectionTitle}><i className="fa-solid fa-photo-film" /> Category Image</div>
+              <div className={styles.formSectionTitle}>
+                <Icon icon="solar:gallery-linear" className="w-4 h-4 mr-1 inline" /> Category Image
+              </div>
               <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginBottom: "16px" }}>Upload a thumbnail image to represent this category in the catalog.</p>
               <div className={styles.imgSection}>
                 <div className={styles.imgGrid}>
                   {form.image && (
                     <div className={styles.imgThumb} style={{ width: "160px", height: "120px" }}>
                       <img src={form.image} alt="" />
-                      <button type="button" className={styles.imgDel} onClick={() => setForm(p => ({ ...p, image: "" }))}><i className="fa-solid fa-xmark" /></button>
+                      <button type="button" className={styles.imgDel} onClick={() => setForm(p => ({ ...p, image: "" }))}>
+                        <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                      </button>
                     </div>
                   )}
                   {!form.image && (
                     <label className={styles.imgAdd} style={{ width: "160px", height: "120px" }}>
                       <input type="file" accept="image/*" onChange={handleImageUpload} style={{ display: "none" }} />
-                      {uploading ? <i className="fa-solid fa-spinner fa-spin" style={{ fontSize: "1.5rem" }} /> : <i className="fa-solid fa-plus" style={{ fontSize: "1.5rem" }} />}
+                      {uploading ? <Icon icon="solar:restart-linear" className="w-6 h-6 animate-spin" /> : <Icon icon="solar:add-circle-linear" className="w-6 h-6" />}
                       <span style={{ fontSize: "11px", fontWeight: "600", marginTop: "4px" }}>Add Image</span>
                     </label>
                   )}
@@ -202,7 +209,7 @@ export default function AdminCategoryEditor() {
           <div className={styles.modalFooter} style={{ borderTop: "1px solid var(--gray-200)", paddingTop: "20px", marginTop: "32px" }}>
             <button type="button" className={styles.actionBtnSecondary} onClick={() => navigate("/admin/categories")}>Cancel</button>
             <button type="submit" className={styles.actionBtnPrimary} disabled={saving || uploading} style={{ minWidth: "160px" }}>
-              {saving ? <><i className="fa-solid fa-circle-notch fa-spin" /> Saving category...</> : <><i className="fa-solid fa-floppy-disk" /> Save Category</>}
+              {saving ? <><Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin mr-1 inline" /> Saving category...</> : <><Icon icon="solar:diskette-linear" className="w-4 h-4 mr-1 inline" /> Save Category</>}
             </button>
           </div>
         </form>

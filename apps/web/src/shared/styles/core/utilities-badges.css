@@ -1,4 +1,4 @@
-
+/* ─── Button Interactions ────────────────────────────────── */
 /* Forward Arrow Slide on Hover */
 .btn:hover i,
 a.btn:hover i,
@@ -6,7 +6,7 @@ button.btn:hover i,
 .btn:hover svg,
 a.btn:hover svg,
 button.btn:hover svg {
-  transform: translateX(5px);
+  transform: translateX(3px);
 }
 
 /* Left Arrow Slide Backward on Hover */
@@ -16,101 +16,119 @@ a.btn:hover i.fa-arrow-left,
 a.btn:hover i.fa-chevron-left,
 button.btn:hover i.fa-arrow-left,
 button.btn:hover i.fa-chevron-left {
-  transform: translateX(-5px);
+  transform: translateX(-3px);
 }
 
 /* Primary CTA Button */
 .btn-primary,
 .btn--primary {
-  background-color: var(--brand, var(--brand)) !important;
-  color: var(--white) !important; /* High-contrast white text on emerald-green button */
-  border: 1px solid var(--brand, var(--brand)) !important;
-  box-shadow: 0 4px 14px var(--brand-border) !important;
+  background-color: var(--brand) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--brand) !important;
+  border-radius: var(--radius-pill, 9999px) !important;
+  font-weight: 600 !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: all var(--motion-fast) var(--ease-standard) !important;
 }
 
 .btn-primary:hover,
 .btn--primary:hover {
-  background-color: var(--brand-dark, var(--brand-dark)) !important;
-  color: var(--white) !important;
-  border-color: var(--brand-dark, var(--brand-dark)) !important;
-  box-shadow: 0 8px 24px var(--brand-border) !important;
-  transform: translateY(-2px);
+  background-color: var(--brand-hover) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--brand-hover) !important;
+  box-shadow: var(--shadow-md) !important;
+  transform: translateY(-1px);
 }
 
-/* Secondary CTA Button (var(--navy)) */
+.btn-primary:active,
+.btn--primary:active {
+  background-color: var(--brand-active) !important;
+  transform: translateY(0);
+}
+
+/* Secondary CTA Button (Surface Oriented) */
 .btn-secondary,
 .btn--secondary {
-  background-color: var(--navy) !important;
-  color: var(--white) !important;
-  border: 1px solid var(--navy) !important;
-  box-shadow: 0 4px 14px var(--navy-glow) !important;
+  background-color: var(--surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-default) !important;
+  border-radius: var(--radius-pill, 9999px) !important;
+  font-weight: 600 !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: all var(--motion-fast) var(--ease-standard) !important;
 }
 
 .btn-secondary:hover,
 .btn--secondary:hover {
-  background-color: var(--navy) !important;
-  color: var(--white) !important;
-  border-color: var(--navy) !important;
-  transform: translateY(-2px);
+  background-color: var(--surface-secondary) !important;
+  border-color: var(--border-strong) !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-sm) !important;
+  transform: translateY(-1px);
 }
 
 /* Outline Button */
 .btn-outline,
 .btn--outline {
-  border: 2px solid var(--navy) !important;
-  color: var(--navy) !important;
-  background-color: var(--white) !important;
+  border: 1px solid var(--border-default) !important;
+  color: var(--text-primary) !important;
+  background-color: var(--surface) !important;
+  border-radius: var(--radius-pill, 9999px) !important;
+  font-weight: 600 !important;
 }
 
 .btn-outline:hover,
 .btn--outline:hover {
-  background-color: var(--navy) !important;
-  color: var(--white) !important;
-  border-color: var(--navy) !important;
-  transform: translateY(-2px);
+  background-color: var(--surface-secondary) !important;
+  border-color: var(--border-strong) !important;
+  color: var(--text-primary) !important;
+  transform: translateY(-1px);
 }
 
 /* Outline Light Button */
 .btn-outline-light,
 .btn--outline-light {
-  border: 2px solid var(--text-inverse-secondary) !important;
+  border: 1px solid var(--border-dark) !important;
   color: var(--white) !important;
-  background-color: var(--border-dark) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
   backdrop-filter: blur(8px);
+  border-radius: var(--radius-pill, 9999px) !important;
 }
 
 .btn-outline-light:hover,
 .btn--outline-light:hover {
-  border-color: var(--white) !important;
-  background-color: var(--white) !important;
-  color: var(--navy) !important;
-  transform: translateY(-2px);
+  border-color: var(--border-dark-strong) !important;
+  background-color: rgba(255, 255, 255, 0.16) !important;
+  color: var(--white) !important;
+  transform: translateY(-1px);
 }
 
 .btn-dark,
 .btn--dark {
   background-color: var(--navy) !important;
   color: var(--white) !important;
+  border-radius: var(--radius-pill, 9999px) !important;
 }
 
 .btn-dark:hover,
 .btn--dark:hover {
-  background-color: var(--navy) !important;
+  background-color: var(--navy-hover) !important;
   color: var(--white) !important;
+  transform: translateY(-1px);
 }
 
 .btn-ghost,
 .btn--ghost {
   background: transparent !important;
-  color: var(--brand-text, var(--brand-dark)) !important;
+  color: var(--brand-text) !important;
   padding: 0.5rem 0 !important;
   border: none !important;
+  font-weight: 600 !important;
 }
 
 .btn-ghost:hover,
 .btn--ghost:hover {
-  color: var(--navy) !important;
-  gap: 0.75rem;
+  color: var(--brand-active) !important;
 }
 
 .btn-lg,
@@ -127,18 +145,20 @@ button.btn:hover i.fa-chevron-left {
 
 /* ─── Cards ──────────────────────────────────────────────── */
 .card {
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius-card, 12px);
+  border: 1px solid var(--border-subtle);
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  box-shadow: 0 8px 30px var(--shadow-sm);
+  transition: transform var(--motion-base) var(--ease-standard),
+              box-shadow var(--motion-base) var(--ease-standard),
+              border-color var(--motion-base) var(--ease-standard);
+  box-shadow: var(--shadow-sm);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  border-color: var(--brand-glow-subtle);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-md);
 }
 
 /* ─── Badge ──────────────────────────────────────────────── */
@@ -150,12 +170,11 @@ button.btn:hover i.fa-chevron-left {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--brand-dark);
-  background-color: var(--brand-light);
-  border: 1px solid var(--border-strong);
-  padding: 0.375rem 1rem;
-  border-radius: var(--radius-lg, 8px);
-  margin-bottom: 1rem;
+  color: var(--brand-text);
+  background-color: var(--brand-soft);
+  border: 1px solid var(--brand-border);
+  padding: 0.375rem 0.875rem;
+  border-radius: var(--radius-pill, 9999px);
   line-height: 1;
 }
 
@@ -164,20 +183,20 @@ button.btn:hover i.fa-chevron-left {
   display: inline-block;
   width: 0.375rem;
   height: 0.375rem;
-  border-radius: 2px;
+  border-radius: 50%;
   background-color: var(--brand);
 }
 
 /* ─── Forms ──────────────────────────────────────────────── */
 .form-group {
-  margin-bottom: 1.125rem;
+  margin-bottom: 1.25rem;
 }
 
 .form-label {
   display: block;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--gray-700);
+  color: var(--text-secondary);
   margin-bottom: 0.375rem;
 }
 
@@ -186,22 +205,31 @@ button.btn:hover i.fa-chevron-left {
 .form-textarea {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-lg, 8px);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md, 8px);
   font-size: 0.9375rem;
   font-family: inherit;
-  color: var(--gray-800);
-  background: var(--white);
-  transition: all 0.15s ease;
+  color: var(--text-primary);
+  background: var(--surface);
+  transition: border-color var(--motion-fast) var(--ease-standard),
+              box-shadow var(--motion-fast) var(--ease-standard);
   outline: none;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--brand);
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
 }
 
 .form-select {
   appearance: none !important;
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
-  background-color: var(--white);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-color: var(--surface);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F5965' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1.25em;

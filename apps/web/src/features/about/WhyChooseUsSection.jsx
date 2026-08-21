@@ -1,5 +1,5 @@
 import React from "react";
-import { ShieldCheck, CloudSun, Wrench, Leaf } from "lucide-react";
+import { Icon } from "@iconify/react";
 import QuoteButton from "../../shared/components/QuoteButton";
 
 export default function WhyChooseUsSection() {
@@ -51,7 +51,10 @@ export default function WhyChooseUsSection() {
             <div className="group bg-white/[0.04] border border-white/10 hover:border-brand/40 hover:bg-white/[0.07] rounded-lg p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
               <div>
                 <div className="w-12 h-12 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center text-brand mb-5 shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <ShieldCheck className="w-5 h-5" />
+                  <svg className="w-6 h-6 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
                 </div>
                 <h3 className="text-base sm:text-lg font-black text-white mb-2 leading-snug">
                   Heavy-Duty & Durable
@@ -67,7 +70,10 @@ export default function WhyChooseUsSection() {
             <div className="group bg-white/[0.04] border border-white/10 hover:border-brand/40 hover:bg-white/[0.07] rounded-lg p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
               <div>
                 <div className="w-12 h-12 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center text-brand mb-5 shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <CloudSun className="w-5 h-5" />
+                  <svg className="w-6 h-6 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                  </svg>
                 </div>
                 <h3 className="text-base sm:text-lg font-black text-white mb-2 leading-snug">
                   Weather & Corrosion Resistant
@@ -83,7 +89,9 @@ export default function WhyChooseUsSection() {
             <div className="group bg-white/[0.04] border border-white/10 hover:border-brand/40 hover:bg-white/[0.07] rounded-lg p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
               <div>
                 <div className="w-12 h-12 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center text-brand mb-5 shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <Wrench className="w-5 h-5" />
+                  <svg className="w-6 h-6 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                  </svg>
                 </div>
                 <h3 className="text-base sm:text-lg font-black text-white mb-2 leading-snug">
                   Zero Maintenance
@@ -99,7 +107,10 @@ export default function WhyChooseUsSection() {
             <div className="group bg-white/[0.04] border border-white/10 hover:border-brand/40 hover:bg-white/[0.07] rounded-lg p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
               <div>
                 <div className="w-12 h-12 rounded-lg bg-brand/10 border border-brand/20 flex items-center justify-center text-brand mb-5 shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <Leaf className="w-5 h-5" />
+                  <svg className="w-6 h-6 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 20A9 9 0 0 1 2 11 9 9 0 0 1 11 2c5 0 9 4 9 9 0 5-4 9-9 9z" />
+                    <path d="M2 21c0-6 4-10 10-10" />
+                  </svg>
                 </div>
                 <h3 className="text-base sm:text-lg font-black text-white mb-2 leading-snug">
                   Sustainable Solution

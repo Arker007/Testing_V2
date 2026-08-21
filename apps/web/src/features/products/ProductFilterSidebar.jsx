@@ -1,18 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SlidersHorizontal, RotateCcw, X, ShieldCheck, Phone, Check, Search, Filter } from "lucide-react";
+import { Icon } from "@iconify/react";
 import CustomSelect from "../../shared/components/ui/CustomSelect";
 import { loadCapacityOptions } from "./products.constants";
 import styles from "../../pages/Products.module.css";
-
-const QUICK_LOAD_PRESETS = [
-  { label: "Any Load", value: 0 },
-  { label: "1,000+ kg", value: 1000 },
-  { label: "2,000+ kg", value: 2000 },
-  { label: "3,000+ kg", value: 3000 },
-  { label: "5,000+ kg", value: 5000 },
-];
 
 export default function ProductFilterSidebar({
   selectedCategory,
@@ -62,7 +54,7 @@ export default function ProductFilterSidebar({
           {/* Header */}
           <div className={styles.sidebarHeader}>
             <div className={styles.sidebarHeaderTitle}>
-              <SlidersHorizontal size={16} className={styles.headerIcon} />
+              <Icon icon="solar:tuning-2-linear" className={styles.headerIcon} />
               <h3>Filters</h3>
             </div>
 
@@ -74,7 +66,7 @@ export default function ProductFilterSidebar({
               aria-label="Close filters"
               whileTap={{ scale: 0.9 }}
             >
-              <X size={18} />
+              <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
             </motion.button>
 
             {/* Reset Button */}
@@ -86,7 +78,7 @@ export default function ProductFilterSidebar({
                 title="Reset All Filters"
                 whileTap={{ scale: 0.95 }}
               >
-                <RotateCcw size={12} />
+                <Icon icon="solar:restart-linear" className="w-3.5 h-3.5" />
                 <span>Reset All</span>
               </motion.button>
             )}
@@ -96,7 +88,7 @@ export default function ProductFilterSidebar({
           {hasActiveFilters && (
             <div className={styles.activeFilterSummaryBar}>
               <div className={styles.activeSummaryHeader}>
-                <Filter size={12} />
+                <Icon icon="solar:filter-linear" className="w-3.5 h-3.5" />
                 <span>Active Filters:</span>
               </div>
               <div className={styles.activeTagsWrapper}>
@@ -108,7 +100,7 @@ export default function ProductFilterSidebar({
                       onClick={() => setSelectedCategory("All")}
                       aria-label="Remove category filter"
                     >
-                      <X size={10} />
+                      <Icon icon="solar:close-circle-linear" className="w-3 h-3" />
                     </button>
                   </span>
                 )}
@@ -120,7 +112,7 @@ export default function ProductFilterSidebar({
                       onClick={() => setMinStaticLoad(0)}
                       aria-label="Remove load filter"
                     >
-                      <X size={10} />
+                      <Icon icon="solar:close-circle-linear" className="w-3 h-3" />
                     </button>
                   </span>
                 )}
@@ -132,7 +124,7 @@ export default function ProductFilterSidebar({
                       onClick={() => setSelectedApplication("All")}
                       aria-label="Remove application filter"
                     >
-                      <X size={10} />
+                      <Icon icon="solar:close-circle-linear" className="w-3 h-3" />
                     </button>
                   </span>
                 )}
@@ -187,33 +179,12 @@ export default function ProductFilterSidebar({
                 )}
               </div>
 
-              {/* Quick Load Preset Chips */}
-              <div className={styles.quickPresetGrid}>
-                {QUICK_LOAD_PRESETS.map((preset) => {
-                  const isActive = minStaticLoad === preset.value;
-                  return (
-                    <motion.button
-                      key={preset.value}
-                      type="button"
-                      className={`${styles.presetChip} ${isActive ? styles.presetChipActive : ""}`}
-                      onClick={() => setMinStaticLoad(preset.value)}
-                      whileTap={{ scale: 0.94 }}
-                    >
-                      {preset.label}
-                    </motion.button>
-                  );
-                })}
-              </div>
-
-              {/* Custom Load Select */}
-              <div style={{ marginTop: "0.5rem" }}>
-                <CustomSelect
-                  value={minStaticLoad}
-                  onChange={(val) => setMinStaticLoad(Number(val))}
-                  options={loadCapacityOptions}
-                  placeholder="Custom Load Rating"
-                />
-              </div>
+              <CustomSelect
+                value={minStaticLoad}
+                onChange={(val) => setMinStaticLoad(Number(val))}
+                options={loadCapacityOptions}
+                placeholder="Custom Load Rating"
+              />
             </div>
 
             {/* 3. Industry Application Filter */}
@@ -238,20 +209,6 @@ export default function ProductFilterSidebar({
               />
             </div>
 
-            {/* 4. Compact B2B Customization Callout */}
-            <div className={styles.sidebarTrustBox}>
-              <div className={styles.trustBoxHeader}>
-                <ShieldCheck size={16} className={styles.trustShieldIcon} />
-                <h4>Custom Extrusion & OEM</h4>
-              </div>
-              <p>
-                Need custom section profiles, unique lengths, or heavy-duty formulations?
-              </p>
-              <a href="tel:+919898686379" className={styles.trustPhoneBtn}>
-                <Phone size={13} />
-                <span>Call +91 98986 86379</span>
-              </a>
-            </div>
           </div>
 
           {/* Mobile Footer with Apply / Reset */}
@@ -263,7 +220,7 @@ export default function ProductFilterSidebar({
                 onClick={resetFilters}
                 whileTap={{ scale: 0.95 }}
               >
-                <RotateCcw size={14} />
+                <Icon icon="solar:restart-linear" className="w-3.5 h-3.5" />
                 <span>Reset</span>
               </motion.button>
             )}

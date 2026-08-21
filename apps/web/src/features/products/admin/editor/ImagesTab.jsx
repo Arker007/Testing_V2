@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import styles from "../../../admin/components/AdminTable.module.css";
 
 export default function ImagesTab({
@@ -13,7 +14,7 @@ export default function ImagesTab({
   return (
     <div>
       <div className={styles.formSectionTitle} style={{ marginTop: 0 }}>
-        <i className="fa-solid fa-photo-film" /> Linked Product Images
+        <Icon icon="solar:gallery-linear" className="w-4 h-4 mr-1 inline" /> Linked Product Images
       </div>
       <p
         style={{
@@ -79,9 +80,9 @@ export default function ImagesTab({
                     }}
                   />
                 ) : (
-                  <i
-                    className="fa-solid fa-image"
-                    style={{ color: "var(--text-muted)", fontSize: "1.5rem" }}
+                  <Icon
+                    icon="solar:gallery-linear"
+                    className="w-6 h-6 text-slate-400"
                   />
                 )}
                 {i === 0 && (
@@ -209,7 +210,7 @@ export default function ImagesTab({
                   className={styles.delBtn}
                   title="Delete Image Slot"
                 >
-                  <i className="fa-solid fa-trash" />
+                  <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />
                 </button>
                 {i > 0 && (
                   <button
@@ -251,7 +252,7 @@ export default function ImagesTab({
             onChange={handleImageUpload}
             style={{ display: "none" }}
           />
-          <i className="fa-solid fa-cloud-arrow-up" /> Upload Multiple Images
+          <Icon icon="solar:upload-track-linear" className="w-4 h-4" /> Upload Multiple Images
         </label>
         <button
           type="button"
@@ -264,7 +265,7 @@ export default function ImagesTab({
           }}
           onClick={handleAddBlankImage}
         >
-          <i className="fa-solid fa-link" /> Add External Image URL Only
+          <Icon icon="solar:link-linear" className="w-4 h-4" /> Add External Image URL Only
         </button>
       </div>
     </div>

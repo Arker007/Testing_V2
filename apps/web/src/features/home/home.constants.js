@@ -1,27 +1,49 @@
+import React from "react";
 import { motion } from "framer-motion";
-import {
-  HardHat,
-  ShieldCheck,
-  Route,
-  Trees,
-  School,
-  Warehouse,
-  Sprout,
-  Home as HomeIcon,
-  Building2,
-  ArrowRight
-} from "lucide-react";
+import { Icon } from "@iconify/react";
 
-export const MotionHardHat = motion.create(HardHat);
-export const MotionShieldCheck = motion.create(ShieldCheck);
-export const MotionRoute = motion.create(Route);
-export const MotionTrees = motion.create(Trees);
-export const MotionSchool = motion.create(School);
-export const MotionWarehouse = motion.create(Warehouse);
-export const MotionSprout = motion.create(Sprout);
-export const MotionHomeIcon = motion.create(HomeIcon);
-export const MotionBuilding2 = motion.create(Building2);
-export const MotionArrowRight = motion.create(ArrowRight);
+function createMotionIcon(iconName) {
+  const IconWrapper = React.forwardRef((props, ref) => {
+    const {
+      _variants,
+      _initial,
+      _animate,
+      _whileHover,
+      _whileTap,
+      _whileFocus,
+      _whileDrag,
+      _whileInView,
+      _transition,
+      _custom,
+      className,
+      style,
+      ...iconProps
+    } = props;
+
+    return React.createElement(
+      "span",
+      {
+        ref,
+        className: `inline-flex items-center justify-center shrink-0 ${className || "w-5 h-5"}`,
+        style,
+      },
+      React.createElement(Icon, { icon: iconName, className: "w-full h-full", ...iconProps })
+    );
+  });
+  IconWrapper.displayName = `MotionIcon(${iconName})`;
+  return motion.create(IconWrapper);
+}
+
+export const MotionHardHat = createMotionIcon("solar:shield-warning-linear");
+export const MotionShieldCheck = createMotionIcon("solar:shield-check-linear");
+export const MotionRoute = createMotionIcon("solar:map-point-linear");
+export const MotionTrees = createMotionIcon("solar:leaf-linear");
+export const MotionSchool = createMotionIcon("solar:buildings-2-linear");
+export const MotionWarehouse = createMotionIcon("solar:box-minimalistic-linear");
+export const MotionSprout = createMotionIcon("solar:leaf-linear");
+export const MotionHomeIcon = createMotionIcon("solar:home-smile-linear");
+export const MotionBuilding2 = createMotionIcon("solar:buildings-3-linear");
+export const MotionArrowRight = createMotionIcon("solar:arrow-right-linear");
 
 export const hardHatVariants = {
   hover: {

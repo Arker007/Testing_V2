@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import RichTextEditor from "../../../admin/components/RichTextEditor";
 import styles from "../../../admin/components/AdminTable.module.css";
 
@@ -59,10 +60,9 @@ export default function GeneralTab({
                   )?.name || "Select Category"
                 : "Select Category"}
             </span>
-            <i
-              className={`fa-solid fa-chevron-down ${
-                catDropdownOpen ? styles.chevronOpen : ""
-              }`}
+            <Icon
+              icon="solar:alt-arrow-down-linear"
+              className={`${catDropdownOpen ? styles.chevronOpen : ""} w-4 h-4`}
             />
           </button>
           {catDropdownOpen && (

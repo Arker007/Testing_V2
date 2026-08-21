@@ -1,5 +1,5 @@
 import React from "react";
-import { Award } from "lucide-react";
+import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 import Card from "../../shared/components/ui/Card";
 
@@ -21,7 +21,7 @@ export default function ExperienceBanner() {
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div className="flex items-center gap-6">
             <div className="w-16 h-16 rounded-xl bg-[var(--brand)] text-slate-950 flex items-center justify-center shrink-0 font-black text-2xl shadow-lg shadow-emerald-500/20 border border-[var(--brand)]">
-              <Award className="w-8 h-8" />
+              <Icon icon="solar:medal-ribbons-star-linear" className="w-8 h-8" />
             </div>
             <div>
               <h3 className="text-xl sm:text-2xl font-black tracking-tight text-slate-950 dark:text-white">

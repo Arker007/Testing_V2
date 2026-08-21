@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { X, ChevronDown, ChevronRight, Search, ArrowRight } from "lucide-react";
-import QuoteButton from "../../shared/components/QuoteButton";
+import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 import styles from "./Navbar.module.css";
 
@@ -66,13 +65,13 @@ export default function MobileNavDrawer({
             onClick={() => setOpen(false)}
             aria-label="Close menu"
           >
-            <X className="w-5 h-5 text-slate-700 dark:text-slate-200" />
+            <Icon icon="solar:close-circle-bold" className="w-6 h-6 text-slate-700 dark:text-slate-200" />
           </button>
         </div>
 
         {/* Optional Search Bar */}
         <form onSubmit={handleSearch} className={styles.dSearch}>
-          <Search className="w-4 h-4 text-slate-400" />
+          <Icon icon="solar:magnifer-linear" className="w-4 h-4 text-slate-400" />
           <input
             type="text"
             placeholder="Search products..."
@@ -104,7 +103,8 @@ export default function MobileNavDrawer({
               onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
             >
               <span>Products</span>
-              <ChevronDown
+              <Icon
+                icon="solar:alt-arrow-down-linear"
                 className={`w-4 h-4 transition-transform duration-200 ${
                   mobileProductsOpen ? "rotate-180" : ""
                 }`}
@@ -130,7 +130,7 @@ export default function MobileNavDrawer({
                         onClick={() => setOpen(false)}
                       >
                         {cat.name}
-                        <ChevronRight className="w-3.5 h-3.5 ml-auto text-slate-400" />
+                        <Icon icon="solar:alt-arrow-right-linear" className="w-3.5 h-3.5 ml-auto text-slate-400" />
                       </Link>
                       <div className={styles.dCategoryProducts}>
                         {catProducts.slice(0, 3).map((prod) => (
@@ -214,7 +214,7 @@ export default function MobileNavDrawer({
             onClick={() => setOpen(false)}
           >
             <span>Get Quote</span>
-            <ArrowRight className="w-4 h-4" />
+            <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
           </Link>
         </div>
       </div>

@@ -35,7 +35,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); /* Footer section Navy Blue Theme */
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); /* Footer section Navy Blue Theme in Light mode */
   clip-path: polygon(0 0, 62% 0, 48% 100%, 0 100%);
   z-index: 2;
   pointer-events: none;
@@ -630,7 +630,7 @@
 
 @media (max-width: 991px) {
   .hero {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); /* Solid dark navy on tablet/mobile for clean stacking */
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); /* Solid dark navy on tablet/mobile for clean stacking in light mode */
     padding-top: 4rem;
     padding-bottom: 4rem;
   }

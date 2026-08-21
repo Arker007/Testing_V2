@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import QuoteButton from "../shared/components/QuoteButton";
 import InquiryModal from "../shared/components/InquiryModal";
 import Card from "../shared/components/ui/Card";
@@ -139,9 +140,12 @@ export default function ProductDetail() {
   if (!product || product.error) {
     return (
       <main className="pt-[var(--nav-h)] min-h-[60vh] flex flex-col items-center justify-center gap-4 text-center px-4">
-        <i className="fa-solid fa-triangle-exclamation text-5xl text-amber-500" />
+        <Icon icon="solar:danger-triangle-linear" className="text-5xl text-amber-500 w-14 h-14" />
         <p className="text-slate-700 dark:text-slate-300 font-medium">Product not found.</p>
-        <Link to="/products" className="btn btn--outline">← Back to Products</Link>
+        <Link to="/products" className="btn btn--outline flex items-center gap-1.5">
+          <Icon icon="solar:arrow-left-linear" className="w-4 h-4" />
+          <span>Back to Products</span>
+        </Link>
       </main>
     );
   }
@@ -182,15 +186,15 @@ export default function ProductDetail() {
       <div className={styles.breadcrumb}>
         <div className={`container ${styles.breadcrumbInner}`}>
           <Link to="/">Home</Link>
-          <i className="fa-solid fa-chevron-right" />
+          <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-400" />
           <Link to="/products">Products</Link>
           {categoryObj && (
             <>
-              <i className="fa-solid fa-chevron-right" />
+              <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-400" />
               <Link to={`/products?cat=${categoryObj.id}`}>{categoryObj.name}</Link>
             </>
           )}
-          <i className="fa-solid fa-chevron-right" />
+          <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-400" />
           <span>{product.name}</span>
         </div>
       </div>

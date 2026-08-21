@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, Outlet, useLocation } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import { useSite } from "../../../shared/context/SiteContext";
 import styles from "./AdminLayout.module.css";
 import AdminSidebar from "./AdminSidebar";
@@ -113,7 +114,7 @@ export default function AdminLayout() {
   if (checkingAuth) {
     return (
       <div className={styles.loadingScreen}>
-        <i className="fa-solid fa-spinner fa-spin" /> Verifying Authentication...
+        <Icon icon="solar:restart-linear" className="w-5 h-5 animate-spin inline mr-2" /> Verifying Authentication...
       </div>
     );
   }

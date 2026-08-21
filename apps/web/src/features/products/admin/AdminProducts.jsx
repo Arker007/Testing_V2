@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import styles from "../../admin/components/AdminTable.module.css";
 import { toPlainPreview } from "../../../shared/utils/parsers";
 import { InteractiveHoverButton } from "../../../registry/magicui/interactive-hover-button";
@@ -77,7 +78,7 @@ export default function AdminProducts() {
       <div className={styles.toolbar}>
         <div style={{ display: "flex", gap: "12px", flex: 1, flexWrap: "wrap" }}>
           <div className={styles.searchWrap}>
-            <i className={`fa-solid fa-magnifying-glass ${styles.searchIcon}`} />
+            <Icon icon="solar:magnifer-linear" className={styles.searchIcon} />
             <input
               className={styles.searchInput}
               placeholder="Search catalog products..."
@@ -94,7 +95,7 @@ export default function AdminProducts() {
               <span>
                 {catFilter === "all" ? "All Categories" : (categories.find(c => String(c.id) === catFilter)?.name || "All Categories")}
               </span>
-              <i className={`fa-solid fa-chevron-down ${dropdownOpen ? styles.chevronOpen : ""}`} />
+              <Icon icon="solar:alt-arrow-down-linear" className={`${dropdownOpen ? styles.chevronOpen : ""} w-4 h-4`} />
             </button>
             {dropdownOpen && (
               <div className={styles.customSelectOptions} style={{ maxHeight: '240px', overflowY: 'auto' }}>
@@ -148,7 +149,7 @@ export default function AdminProducts() {
           [1, 2, 3, 4, 5].map((i) => <div key={i} className={styles.skeleRow} />)
         ) : filtered.length === 0 ? (
           <div className={styles.empty}>
-            <i className="fa-solid fa-box-open" />
+            <Icon icon="solar:box-open-linear" className="w-8 h-8 text-slate-400 mb-2" />
             <p>{search || catFilter !== "all" ? "No products match your search filters." : "No products found."}</p>
             {!search && (
               <InteractiveHoverButton onClick={() => navigate("/admin/products/new")} className="font-bold shadow-sm" style={{ marginTop: "12px" }}>
@@ -172,7 +173,7 @@ export default function AdminProducts() {
               >
                 <div className={styles.prodCell}>
                   <div className={styles.thumb}>
-                    {img ? <img src={img} alt="" /> : <i className="fa-solid fa-image" />}
+                    {img ? <img src={img} alt="" /> : <Icon icon="solar:gallery-linear" className="w-4 h-4 text-slate-400" />}
                   </div>
                   <div>
                     <div className={styles.prodName}>{p.name}</div>
@@ -187,11 +188,11 @@ export default function AdminProducts() {
                 <span>
                   {(p.published !== null && p.published !== undefined && Number(p.published) === 0) ? (
                     <span className={styles.badge} style={{ background: "var(--color-warning-bg)", color: "var(--color-warning)" }}>
-                      <i className="fa-solid fa-pen-to-square" style={{ fontSize: "10px" }} /> Draft
+                      <Icon icon="solar:pen-linear" className="w-3 h-3 inline mr-1" /> Draft
                     </span>
                   ) : (
                     <span className={styles.badge}>
-                      <i className="fa-solid fa-circle-check" style={{ fontSize: "10px" }} /> Live
+                      <Icon icon="solar:check-circle-linear" className="w-3 h-3 inline mr-1" /> Live
                     </span>
                   )}
                 </span>
@@ -201,19 +202,19 @@ export default function AdminProducts() {
                 </span>
                 <div className={styles.rowActions}>
                   <Link to={`/admin/products/${p.id}`} className={styles.editBtn} title="Edit Product">
-                    <i className="fa-solid fa-pen" />
+                    <Icon icon="solar:pen-linear" className="w-4 h-4" />
                   </Link>
                   {confirmDelete === p.id ? (
                     <div className={styles.confirmRow}>
                       <span className={styles.confirmText}>Confirm?</span>
                       <button className={styles.confirmYes} onClick={() => handleDelete(p.id)} disabled={deleting === p.id}>
-                        {deleting === p.id ? <i className="fa-solid fa-spinner fa-spin" /> : "Yes"}
+                        {deleting === p.id ? <Icon icon="solar:restart-linear" className="w-3.5 h-3.5 animate-spin" /> : "Yes"}
                       </button>
                       <button className={styles.confirmNo} onClick={() => setConfirmDelete(null)}>No</button>
                     </div>
                   ) : (
                     <button className={styles.delBtn} onClick={() => setConfirmDelete(p.id)} title="Delete Product">
-                      <i className="fa-solid fa-trash" />
+                      <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />
                     </button>
                   )}
                 </div>
@@ -228,7 +229,7 @@ export default function AdminProducts() {
         <div className={styles.drawerHeader}>
           <h4 className={styles.drawerTitle}>Product Preview</h4>
           <button className={styles.drawerCloseBtn} onClick={() => setActiveItem(null)}>
-            <i className="fa-solid fa-xmark" />
+            <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
           </button>
         </div>
         {activeItem && (
@@ -264,7 +265,7 @@ export default function AdminProducts() {
             </div>
             <div style={{ marginTop: "auto", paddingTop: 16, borderTop: "1px solid var(--border)", display: "flex", gap: 12 }}>
               <Link to={`/admin/products/${activeItem.id}`} className={styles.actionBtnPrimary} style={{ flex: 1, justifyContent: "center", textDecoration: "none" }}>
-                <i className="fa-solid fa-pen" /> Full Editor
+                <Icon icon="solar:pen-linear" className="w-4 h-4 mr-1 inline" /> Full Editor
               </Link>
               <button type="button" className={styles.actionBtnSecondary} style={{ flex: 1, justifyContent: "center" }} onClick={() => setActiveItem(null)}>
                 Dismiss

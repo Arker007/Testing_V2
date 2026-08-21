@@ -1,33 +1,32 @@
-
-/* ─── Utility ────────────────────────────────────────────── */
+/* ─── Utility & Layout ───────────────────────────────────────── */
 .container {
-  width: min(1280px, 100% - 2.7rem);
+  width: min(100% - 32px, var(--container-xl, 1280px));
   margin-inline: auto;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 1024px) {
   .container {
-    width: min(1280px, 100% - 0.9rem);
+    width: min(100% - 64px, var(--container-xl, 1280px));
   }
 }
 
 .section {
-  padding: var(--section-py) 0;
-  scroll-margin-top: var(--nav-h);
+  padding: var(--section-py, 4rem) 0;
+  scroll-margin-top: var(--nav-h, 72px);
   position: relative;
 }
 
 .section--dark {
-  background: var(--dark);
+  background: var(--navy);
   color: var(--white);
 }
 
 .section--light {
-  background: var(--bg-light);
+  background: var(--bg-section);
 }
 
 .section--brand {
-  background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+  background: var(--navy);
   color: var(--white);
 }
 
@@ -39,11 +38,11 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--brand-dark);
-  background-color: var(--brand-light);
-  border: 1px solid var(--border-strong);
+  color: var(--brand-text);
+  background-color: var(--brand-soft);
+  border: 1px solid var(--brand-border);
   padding: 0.375rem 1rem;
-  border-radius: var(--radius-lg, 8px);
+  border-radius: var(--radius-pill, 9999px);
   margin-bottom: 1rem;
   line-height: 1;
   width: fit-content;
@@ -54,11 +53,11 @@
   display: inline-block;
   width: 0.375rem;
   height: 0.375rem;
-  border-radius: 2px;
+  border-radius: 50%;
   background-color: var(--brand);
 }
 
-/* Ensure bright high-visibility and high-contrast color scheme on dark/hero backgrounds or dark mode */
+/* Visibility on dark/hero backgrounds or dark mode */
 [class*="hero"] .section-eyebrow,
 [class*="Hero"] .section-eyebrow,
 .section--brand .section-eyebrow,
@@ -67,8 +66,8 @@
 [class*="cta"] .section-eyebrow,
 [class*="workflow"] .section-eyebrow,
 [class*="Workflow"] .section-eyebrow {
-  color: var(--brand);
-  background-color: var(--brand-glow-subtle);
+  color: var(--brand-text);
+  background-color: var(--brand-soft);
   border-color: var(--brand-border);
 }
 
@@ -85,11 +84,11 @@
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  font-weight: 800;
+  font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 700;
   color: var(--heading);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  letter-spacing: var(--tracking-heading, -0.035em);
+  line-height: 1.08;
 }
 
 .section-title--light {
@@ -98,24 +97,24 @@
 
 .section-header {
   text-align: center;
-  margin-bottom: 2.25rem;
+  margin-bottom: 2.5rem;
 }
 
 .section-desc,
 .section-subtitle {
   font-size: 1.0625rem;
   color: var(--text-secondary);
-  margin-top: 0.75rem;
+  margin-top: 0.875rem;
   max-width: 680px;
   margin-inline: auto;
   line-height: 1.5;
 }
 
 .section-desc--light {
-  color: var(--bg-glass);
+  color: var(--text-inverse-secondary);
 }
 
-/* Grid */
+/* Grid System */
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -158,13 +157,13 @@ input[type="reset"] {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
-  border-radius: var(--radius-lg, 8px);
+  border-radius: var(--radius-pill, 9999px);
   font-size: 0.9375rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--motion-fast) var(--ease-standard);
   white-space: nowrap;
   box-sizing: border-box;
   position: relative;
@@ -172,45 +171,15 @@ input[type="reset"] {
   isolation: isolate;
 }
 
-/* Shimmer Sweep Effect on All Buttons */
-.btn::after,
-a.btn::after,
-button.btn::after,
-.magic-shimmer-btn::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  bottom: -50%;
-  width: 50px;
-  left: -60%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--text-inverse-muted) 50%,
-    transparent 100%
-  );
-  transform: rotate(25deg);
-  pointer-events: none;
-  transition: left 0.8s ease;
-  z-index: 2;
-}
-
-.btn:hover::after,
-a.btn:hover::after,
-button.btn:hover::after,
-.magic-shimmer-btn:hover::after {
-  left: 130%;
-}
-
-/* Universal Arrow Icon Animation in Standard Buttons */
+/* Restrained Arrow Animation in Standard Buttons */
 .btn i,
 a.btn i,
 button.btn i,
-.btn svg,
-a.btn svg,
-button.btn svg {
+.btn svg:not(.btn-arrow-icon),
+a.btn svg:not(.btn-arrow-icon),
+button.btn svg:not(.btn-arrow-icon) {
   display: inline-block;
   vertical-align: middle;
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), stroke 0.3s ease, color 0.3s ease;
+  transition: transform var(--motion-fast) var(--ease-standard), stroke var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard);
   pointer-events: none;
 }

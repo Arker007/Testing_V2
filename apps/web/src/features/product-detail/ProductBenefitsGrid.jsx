@@ -1,19 +1,20 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import styles from "../../pages/ProductDetail.module.css";
 
 const benefits = [
-  { icon: "fa-cloud-rain", label: "Weather Resistant" },
-  { icon: "fa-grip-lines", label: "Will Not Split or Splinter" },
-  { icon: "fa-shield-halved", label: "Extremely Durable" },
-  { icon: "fa-recycle", label: "Made From 100% Recycled Plastic" },
-  { icon: "fa-leaf", label: "Ecological Alternative to Wood" },
-  { icon: "fa-bug", label: "Rot & Fungi Resistant" },
-  { icon: "fa-screwdriver-wrench", label: "Maintenance Free" },
-  { icon: "fa-user-shield", label: "Vandal Resistant" },
-  { icon: "fa-spray-can-sparkles", label: "Jet Washable" },
-  { icon: "fa-sack-dollar", label: "Cost Effective" },
-  { icon: "fa-gear", label: "Easy to Install" },
-  { icon: "fa-drill", label: "Can Be Screwed, Drilled and Sawn" },
+  { icon: "solar:waterdrops-linear", label: "Weather Resistant" },
+  { icon: "solar:shield-cross-linear", label: "Will Not Split or Splinter" },
+  { icon: "solar:shield-check-linear", label: "Extremely Durable" },
+  { icon: "solar:leaf-linear", label: "Made From 100% Recycled Plastic" },
+  { icon: "solar:leaf-linear", label: "Ecological Alternative to Wood" },
+  { icon: "solar:bug-linear", label: "Rot & Fungi Resistant" },
+  { icon: "solar:wrench-linear", label: "Maintenance Free" },
+  { icon: "solar:user-shield-linear", label: "Vandal Resistant" },
+  { icon: "solar:waterdrops-linear", label: "Jet Washable" },
+  { icon: "solar:tag-linear", label: "Cost Effective" },
+  { icon: "solar:settings-minimalistic-linear", label: "Easy to Install" },
+  { icon: "solar:slider-vertical-linear", label: "Can Be Screwed, Drilled and Sawn" },
 ];
 
 export const ProductBenefitsGrid = React.memo(function ProductBenefitsGrid() {
@@ -21,7 +22,7 @@ export const ProductBenefitsGrid = React.memo(function ProductBenefitsGrid() {
     <div className={styles.bentoHighlightCard} style={{ width: "100%", margin: 0 }}>
       <div className={styles.bentoCardHeader}>
         <div className={styles.bentoIconBadge}>
-          <i className="fa-solid fa-leaf" />
+          <Icon icon="solar:leaf-linear" className="w-5 h-5 text-emerald-500" />
         </div>
         <div>
           <h3 className={styles.bentoCardTitle}>Material Advantages</h3>
@@ -32,7 +33,7 @@ export const ProductBenefitsGrid = React.memo(function ProductBenefitsGrid() {
         {benefits.slice(0, 6).map((item) => (
           <div key={item.label} className={styles.benefitCard}>
             <div className={styles.benefitIcon}>
-              <i className={`fa-solid ${item.icon}`} />
+              <Icon icon={item.icon} className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
             </div>
             <span className={styles.benefitLabel}>{item.label}</span>
           </div>

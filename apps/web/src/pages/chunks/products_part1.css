@@ -9,18 +9,16 @@
 /* ─── HERO HEADER ────────────────────────────────────────── */
 .productsHero {
   position: relative;
-  background: linear-gradient(135deg, #0B2F63 0%, #061C3D 100%);
-  padding: calc(var(--nav-h, 70px) + 1.5rem) 0 3.5rem;
+  background: var(--hero-gradient, linear-gradient(135deg, var(--navy) 0%, var(--navy) 100%));
+  padding: calc(var(--nav-h, 70px) + 2rem) 0 4.5rem;
   color: #FFFFFF;
   overflow: hidden;
-  border-bottom: 1px solid rgba(63, 174, 90, 0.2);
 }
 
 .heroBgPattern {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 65% 85% at 85% 40%, rgba(63, 174, 90, 0.15) 0%, transparent 70%),
-              radial-gradient(ellipse 40% 50% at 10% 90%, rgba(11, 47, 99, 0.5) 0%, transparent 60%);
+  background: radial-gradient(ellipse 60% 80% at 75% 50%, rgba(152, 209, 42, 0.1) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -56,51 +54,30 @@
 
 /* Hero Content */
 .heroContent {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-@media (min-width: 992px) {
-  .heroContent {
-    grid-template-columns: 1fr 340px;
-  }
+  display: block;
 }
 
 .heroTextCol {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
 }
 
-.heroEyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+.heroTagline {
+  display: inline-block;
   color: var(--brand);
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.eyebrowDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--brand);
-  box-shadow: 0 0 8px rgba(63, 174, 90, 0.8);
+  font-weight: 800;
 }
 
 .heroTitle {
   font-family: var(--font-display, inherit);
-  font-size: clamp(1.85rem, 4vw, 2.85rem);
+  font-size: clamp(2rem, 5vw, 3.25rem);
   font-weight: 800;
-  line-height: 1.2;
-  color: #FFFFFF;
-  margin: 0;
+  color: var(--white);
   letter-spacing: -0.02em;
+  margin: 0.75rem 0;
 }
 
 .heroTitleAccent {
@@ -108,11 +85,10 @@
 }
 
 .heroDescription {
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.0625rem;
   max-width: 680px;
-  margin: 0;
+  line-height: 1.75;
 }
 
 /* Stats Box */

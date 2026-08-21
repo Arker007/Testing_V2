@@ -21,11 +21,6 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
     badgeClass,
     IconComponent,
     iconVariants,
-    iconBoxClass,
-    statIcon: StatIcon,
-    statVariants,
-    statText,
-    tagText,
   } = item;
 
   // Featured Large Card Layout
@@ -38,7 +33,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         viewport={{ once: true, margin: "-50px" }}
         whileHover="hover"
         transition={{ delay }}
-        className={`${styles.industryCard} ${styles.cardLargeDark}`}
+        className={`${styles.industryCard} ${styles.cardLargeDark} !p-3.5 sm:!p-4 flex flex-col justify-between relative`}
       >
         <div className={styles.cardBgWrapper}>
           <OptimizedImage
@@ -46,29 +41,18 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
             alt={title}
             className={styles.cardBgImage}
           />
-          <div className={styles.cardBgOverlayDark} />
         </div>
 
-        <div className={styles.cardContent}>
-          <div className={styles.indCardHeader}>
-            <div className={`${styles.indIconBox} ${styles[iconBoxClass]}`}>
-              <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
-            </div>
-            {badgeText && <span className={styles[badgeClass]}>{badgeText}</span>}
+        <div className="relative z-10 flex items-center justify-between mb-4">
+          <div className="w-12 h-12 rounded-lg bg-white/80 dark:bg-black/50 backdrop-blur-md border border-slate-200/80 dark:border-white/20 flex items-center justify-center text-[var(--brand-text)] dark:text-[var(--brand)] shrink-0 shadow-md">
+            <IconComponent className="w-6 h-6 text-current" variants={iconVariants} />
           </div>
-          <div className={styles.indCardMain}>
-            <h4 className={`${styles.indName} text-slate-900 dark:text-white font-extrabold`}>{title}</h4>
-            <p className={`${styles.indDesc} text-slate-700 dark:text-slate-300 font-normal`}>{desc}</p>
-          </div>
-          <div className={styles.bentoDivider} />
-          <div className={styles.bentoFooter}>
-            {StatIcon && statText && (
-              <span className={styles.bentoStat}>
-                <StatIcon className="w-4 h-4 text-current" variants={statVariants} /> {statText}
-              </span>
-            )}
-            {tagText && <span className={styles.bentoTag}>{tagText}</span>}
-          </div>
+          {badgeText && <span className={styles[badgeClass]}>{badgeText}</span>}
+        </div>
+
+        <div className="relative z-10 mt-auto bg-white/85 dark:bg-black/60 backdrop-blur-md p-3.5 sm:p-4 rounded-xl border border-slate-200/90 dark:border-white/20 text-slate-900 dark:text-white shadow-lg dark:shadow-xl">
+          <h4 className="text-slate-900 dark:text-white text-base sm:text-lg font-extrabold mb-1">{title}</h4>
+          <p className="text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-medium leading-relaxed">{desc}</p>
         </div>
       </motion.div>
     );
@@ -84,7 +68,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         viewport={{ once: true, margin: "-50px" }}
         whileHover="hover"
         transition={{ delay }}
-        className={`${styles.industryCard} ${spanClass ? styles[spanClass] : ""}`}
+        className={`${styles.industryCard} ${spanClass ? styles[spanClass] : ""} !p-3.5 sm:!p-4 flex flex-col justify-between relative`}
       >
         <div className={styles.cardBgWrapper}>
           <OptimizedImage
@@ -92,28 +76,24 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
             alt={title}
             className={styles.cardBgImageRightHalf}
           />
-          <div className={styles.cardBgOverlayLightHalf} />
         </div>
 
-        <div className={styles.cardContentWideRow}>
-          {cardType === "wideRowHeader" && badgeText ? (
-            <div className={styles.indCardHeaderWideRow}>
-              <div className={`${styles.indIconBox} ${styles[iconBoxClass]}`}>
-                <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
-              </div>
-              <span className={styles[badgeClass]}>{badgeText}</span>
-            </div>
-          ) : (
-            <div className={`${styles.indIconBox} ${styles[iconBoxClass]}`}>
-              <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
-            </div>
-          )}
-          <div className={styles.indCardMainRow}>
-            <h4 className={`${styles.indName} text-slate-900 dark:text-white font-extrabold`}>{title}</h4>
-            <p className={`${styles.indDesc} text-slate-700 dark:text-slate-300 font-normal`}>{desc}</p>
+        <div className="relative z-10 flex items-center justify-between mb-4">
+          <div className="w-12 h-12 rounded-lg bg-white/80 dark:bg-black/50 backdrop-blur-md border border-slate-200/80 dark:border-white/20 flex items-center justify-center text-[var(--brand-text)] dark:text-[var(--brand)] shrink-0 shadow-md">
+            <IconComponent className="w-6 h-6 text-current" variants={iconVariants} />
           </div>
-          <div className={styles.arrowButtonRow}>
-            <MotionArrowRight className="w-5 h-5 text-current" variants={bentoArrowVariants} />
+          {cardType === "wideRowHeader" && badgeText && <span className={styles[badgeClass]}>{badgeText}</span>}
+        </div>
+
+        <div className="relative z-10 mt-auto bg-white/85 dark:bg-black/60 backdrop-blur-md p-3.5 sm:p-4 rounded-xl border border-slate-200/90 dark:border-white/20 text-slate-900 dark:text-white shadow-lg dark:shadow-xl">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <h4 className="text-slate-900 dark:text-white text-base sm:text-lg font-extrabold mb-1">{title}</h4>
+              <p className="text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-medium leading-relaxed">{desc}</p>
+            </div>
+            <div className="w-8 h-8 rounded-full bg-slate-900/10 dark:bg-white/10 border border-slate-900/15 dark:border-white/20 flex items-center justify-center text-slate-900 dark:text-white shrink-0 mt-0.5">
+              <MotionArrowRight className="w-4 h-4" variants={bentoArrowVariants} />
+            </div>
           </div>
         </div>
       </motion.div>
@@ -130,7 +110,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         viewport={{ once: true, margin: "-50px" }}
         whileHover="hover"
         transition={{ delay }}
-        className={`${styles.industryCard} ${styles.cardLight} ${spanClass ? styles[spanClass] : ""}`}
+        className={`${styles.industryCard} ${spanClass ? styles[spanClass] : ""} !p-3.5 sm:!p-4 flex flex-col justify-between relative`}
       >
         <div className={styles.cardBgWrapper}>
           <OptimizedImage
@@ -138,29 +118,25 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
             alt={title}
             className={styles.cardBgImageRightHalf}
           />
-          <div className={styles.cardBgOverlayLightHalf} />
         </div>
 
-        <div className={styles.cardContentWide}>
-          {cardType === "wideHeader" && badgeText ? (
-            <div className={styles.indCardHeaderWide}>
-              <div className={`${styles.indIconBox} ${styles[iconBoxClass]}`}>
-                <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
-              </div>
-              <span className={styles[badgeClass]}>{badgeText}</span>
-            </div>
-          ) : (
-            <div className={`${styles.indIconBox} ${styles[iconBoxClass]}`}>
-              <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
-            </div>
-          )}
-          <div className={styles.indCardMain}>
-            <h4 className={`${styles.indName} text-slate-900 dark:text-white font-extrabold`}>{title}</h4>
-            <p className={`${styles.indDesc} text-slate-700 dark:text-slate-300 font-normal`}>{desc}</p>
+        <div className="relative z-10 flex items-center justify-between mb-4">
+          <div className="w-12 h-12 rounded-lg bg-white/80 dark:bg-black/50 backdrop-blur-md border border-slate-200/80 dark:border-white/20 flex items-center justify-center text-[var(--brand-text)] dark:text-[var(--brand)] shrink-0 shadow-md">
+            <IconComponent className="w-6 h-6 text-current" variants={iconVariants} />
           </div>
+          {cardType === "wideHeader" && badgeText && <span className={styles[badgeClass]}>{badgeText}</span>}
         </div>
-        <div className={styles.arrowButtonWide}>
-          <MotionArrowRight className="w-5 h-5 text-current" variants={bentoArrowVariants} />
+
+        <div className="relative z-10 mt-auto bg-white/85 dark:bg-black/60 backdrop-blur-md p-3.5 sm:p-4 rounded-xl border border-slate-200/90 dark:border-white/20 text-slate-900 dark:text-white shadow-lg dark:shadow-xl">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <h4 className="text-slate-900 dark:text-white text-base sm:text-lg font-extrabold mb-1">{title}</h4>
+              <p className="text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-medium leading-relaxed">{desc}</p>
+            </div>
+            <div className="w-8 h-8 rounded-full bg-slate-900/10 dark:bg-white/10 border border-slate-900/15 dark:border-white/20 flex items-center justify-center text-slate-900 dark:text-white shrink-0 mt-0.5">
+              <MotionArrowRight className="w-4 h-4" variants={bentoArrowVariants} />
+            </div>
+          </div>
         </div>
       </motion.div>
     );
@@ -175,7 +151,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
       viewport={{ once: true, margin: "-50px" }}
       whileHover="hover"
       transition={{ delay }}
-      className={`${styles.industryCard} ${styles.cardLight}`}
+      className={`${styles.industryCard} !p-3.5 sm:!p-4 flex flex-col justify-between relative`}
     >
       <div className={styles.cardBgWrapper}>
         <OptimizedImage
@@ -183,20 +159,24 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
           alt={title}
           className={styles.cardBgImageRight}
         />
-        <div className={styles.cardBgOverlayLight} />
       </div>
 
-      <div className={styles.cardContent}>
-        <div className={`${styles.indIconBox} ${styles[iconBoxClass]}`}>
-          <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
-        </div>
-        <div className={styles.indCardMain}>
-          <h4 className={`${styles.indName} text-slate-900 dark:text-white font-extrabold`}>{title}</h4>
-          <p className={`${styles.indDesc} text-slate-700 dark:text-slate-300 font-normal`}>{desc}</p>
+      <div className="relative z-10 flex items-center justify-between mb-4">
+        <div className="w-12 h-12 rounded-lg bg-white/80 dark:bg-black/50 backdrop-blur-md border border-slate-200/80 dark:border-white/20 flex items-center justify-center text-[var(--brand-text)] dark:text-[var(--brand)] shrink-0 shadow-md">
+          <IconComponent className="w-6 h-6 text-current" variants={iconVariants} />
         </div>
       </div>
-      <div className={styles.arrowButton}>
-        <MotionArrowRight className="w-5 h-5 text-current" variants={bentoArrowVariants} />
+
+      <div className="relative z-10 mt-auto bg-white/85 dark:bg-black/60 backdrop-blur-md p-3.5 sm:p-4 rounded-xl border border-slate-200/90 dark:border-white/20 text-slate-900 dark:text-white shadow-lg dark:shadow-xl">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <h4 className="text-slate-900 dark:text-white text-base sm:text-lg font-extrabold mb-1">{title}</h4>
+            <p className="text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-medium leading-relaxed">{desc}</p>
+          </div>
+          <div className="w-8 h-8 rounded-full bg-slate-900/10 dark:bg-white/10 border border-slate-900/15 dark:border-white/20 flex items-center justify-center text-slate-900 dark:text-white shrink-0 mt-0.5">
+            <MotionArrowRight className="w-4 h-4" variants={bentoArrowVariants} />
+          </div>
+        </div>
       </div>
     </motion.div>
   );

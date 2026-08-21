@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { Icon } from '@iconify/react';
 import styles from '../admin/components/AdminTable.module.css';
 import iStyles from './Inquiries.module.css';
 import { normalizeInquiry } from '../../shared/utils/parsers';
@@ -60,7 +61,7 @@ export default function AdminInquiries() {
             <div className={styles.toolbar}>
                 <div style={{ display: 'flex', gap: '12px', flex: 1, flexWrap: 'wrap' }}>
                     <div className={styles.searchWrap}>
-                        <i className={`fa-solid fa-magnifying-glass ${styles.searchIcon}`} />
+                        <Icon icon="solar:magnifer-linear" className={styles.searchIcon} />
                         <input
                             className={styles.searchInput}
                             placeholder="Search client inquiries..."
@@ -79,7 +80,7 @@ export default function AdminInquiries() {
                                 {sourceFilter === 'contact_form' && 'Contact Form'}
                                 {sourceFilter === 'product_inquiry' && 'Product Inquiries'}
                             </span>
-                            <i className={`fa-solid fa-chevron-down ${dropdownOpen ? styles.chevronOpen : ''}`} />
+                            <Icon icon="solar:alt-arrow-down-linear" className={`${dropdownOpen ? styles.chevronOpen : ''} w-4 h-4`} />
                         </button>
                         {dropdownOpen && (
                             <div className={styles.customSelectOptions}>
@@ -116,7 +117,7 @@ export default function AdminInquiries() {
                 {loading ? [1, 2, 3, 4].map(i => <div key={i} className={styles.skeleRow} />) :
                     filteredInquiries.length === 0 ? (
                         <div className={styles.empty}>
-                            <i className="fa-solid fa-inbox" />
+                            <Icon icon="solar:inbox-linear" className="w-8 h-8 text-slate-400" />
                             <p>No matching inquiries found</p>
                         </div>
                     ) : filteredInquiries.map(inq => (
@@ -135,8 +136,8 @@ export default function AdminInquiries() {
                                     {inq.message || 'No text snippet provided.'}
                                 </div>
                                 <div className={iStyles.metaLine}>
-                                    {inq.phone && <span><i className="fa-solid fa-phone" /> {inq.phone}</span>}
-                                    {inq.company && <span><i className="fa-solid fa-building" /> {inq.company}</span>}
+                                    {inq.phone && <span><Icon icon="solar:phone-calling-linear" className="w-3.5 h-3.5 inline mr-1" /> {inq.phone}</span>}
+                                    {inq.company && <span><Icon icon="solar:buildings-3-linear" className="w-3.5 h-3.5 inline mr-1" /> {inq.company}</span>}
                                 </div>
                             </div>
                             <div className={iStyles.contactCell}>
@@ -157,10 +158,10 @@ export default function AdminInquiries() {
                             </div>
                             <div className={styles.rowActions} style={{ justifyContent: 'center' }}>
                                 <Link className={styles.editBtn} to={`/admin/inquiries/${inq.source}/${inq.id}`} title="View Inquiry">
-                                    <i className="fa-solid fa-eye" />
+                                    <Icon icon="solar:eye-linear" className="w-4 h-4" />
                                 </Link>
                                 <button className={styles.delBtn} onClick={() => handleDelete(inq.id, inq.source)} disabled={deleting === inq.id}>
-                                    {deleting === inq.id ? <i className="fa-solid fa-spinner fa-spin" /> : <i className="fa-solid fa-trash" />}
+                                    {deleting === inq.id ? <Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin" /> : <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />}
                                 </button>
                             </div>
                         </div>
@@ -172,7 +173,7 @@ export default function AdminInquiries() {
                 <div className={styles.drawerHeader}>
                     <h4 className={styles.drawerTitle}>Inquiry Details</h4>
                     <button className={styles.drawerCloseBtn} onClick={() => setActiveItem(null)}>
-                        <i className="fa-solid fa-xmark" />
+                        <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
                     </button>
                 </div>
                 {activeItem && (
@@ -240,7 +241,7 @@ export default function AdminInquiries() {
                                     className={styles.actionBtnPrimary} 
                                     style={{ flex: 1, justifyContent: 'center', textDecoration: 'none', background: 'var(--whatsapp)', color: 'var(--white)' }}
                                 >
-                                    <i className="fa-brands fa-whatsapp" /> WhatsApp
+                                    <Icon icon="solar:chat-round-line-linear" className="w-4 h-4 mr-1" /> WhatsApp
                                 </a>
                             )}
                             <button type="button" className={styles.actionBtnSecondary} style={{ flex: 1, justifyContent: 'center' }} onClick={() => setActiveItem(null)}>

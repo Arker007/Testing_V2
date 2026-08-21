@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ChevronRight, Eye, Layers, Weight } from "lucide-react";
+import { Icon } from "@iconify/react";
 import OptimizedImage from "../../shared/components/OptimizedImage";
 import styles from "../../pages/Products.module.css";
 
@@ -51,13 +51,13 @@ export default function ProductGridCard({
           <div className={styles.specsRow}>
             <div className={styles.specItem}>
               <span className={styles.specLabel}>
-                <Layers size={11} /> Size / Profile
+                <Icon icon="solar:layers-minimalistic-linear" className="w-3 h-3 inline mr-1" /> Size / Profile
               </span>
               <span className={styles.specValue}>{dimStr}</span>
             </div>
             <div className={styles.specItem}>
               <span className={styles.specLabel}>
-                <Weight size={11} /> Static Load
+                <Icon icon="solar:box-minimalistic-linear" className="w-3 h-3 inline mr-1" /> Static Load
               </span>
               <span className={styles.specValue}>
                 {staticLoad > 0 ? `${staticLoad.toLocaleString()} kg` : "Custom Grade"}
@@ -72,7 +72,7 @@ export default function ProductGridCard({
         <motion.div style={{ flex: 1 }} whileTap={{ scale: 0.97 }}>
           <Link to={`/products/${product.id}`} className={styles.detailsBtn}>
             <span>View Details</span>
-            <ChevronRight size={15} />
+            <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4" />
           </Link>
         </motion.div>
 
@@ -85,7 +85,7 @@ export default function ProductGridCard({
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.92 }}
         >
-          <Eye size={16} />
+          <Icon icon="solar:eye-linear" className="w-4 h-4" />
         </motion.button>
       </div>
     </motion.article>

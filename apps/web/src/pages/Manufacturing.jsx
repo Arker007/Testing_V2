@@ -2,7 +2,7 @@ import React from "react";
 import useDocumentTitle from "../shared/hooks/useDocumentTitle";
 import { useSite } from "../shared/context/SiteContext";
 import ProcessSection from "../features/home/ProcessSection";
-import { Cpu, ShieldCheck, Zap, ArrowRight } from "lucide-react";
+import { Icon } from "@iconify/react";
 import styles from "./About.module.css";
 import Card from "../shared/components/ui/Card";
 import Badge from "../shared/components/ui/Badge";
@@ -58,7 +58,7 @@ export default function Manufacturing() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-slate-50 dark:bg-[#171E26] p-6 rounded-lg border border-slate-200/90 dark:border-white/10 transition hover:-translate-y-1 hover:shadow-md duration-300">
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
-                <Cpu className="w-5 h-5" />
+                <Icon icon="solar:cpu-linear" className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Advanced Automation</h3>
               <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
@@ -68,7 +68,7 @@ export default function Manufacturing() {
 
             <div className="bg-slate-50 dark:bg-[#171E26] p-6 rounded-lg border border-slate-200/90 dark:border-white/10 transition hover:-translate-y-1 hover:shadow-md duration-300">
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
-                <ShieldCheck className="w-5 h-5" />
+                <Icon icon="solar:shield-check-linear" className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">ISO 9001 Quality Check</h3>
               <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
@@ -78,7 +78,7 @@ export default function Manufacturing() {
 
             <div className="bg-slate-50 dark:bg-[#171E26] p-6 rounded-lg border border-slate-200/90 dark:border-white/10 transition hover:-translate-y-1 hover:shadow-md duration-300">
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
-                <Zap className="w-5 h-5" />
+                <Icon icon="solar:bolt-linear" className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Zero Chemical Toxins</h3>
               <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
@@ -118,7 +118,7 @@ export default function Manufacturing() {
                 as="link"
                 to="/contact?source=manufacturing"
                 variant="swipe"
-                icon={<ArrowRight className="w-4 h-4" />}
+                icon={<Icon icon="solar:arrow-right-linear" className="w-4 h-4" />}
                 className="shadow-md"
               >
                 Request Facility Tour

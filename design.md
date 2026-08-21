@@ -1,483 +1,1831 @@
-# Comprehensive Design System Documentation & Blueprint (`design.md`)
+# Comprehensive Design System Documentation & Architecture (`design.md`)
 
 > **Project Target**: VISHAL ENTERPRISE — Industrial Recycled Plastic & Sustainable Polymers Web Application
-> **System Version**: 2.0.0 (High-Contrast Precision Tech & Industrial Eco-Engineering Theme)
+> **System Version**: 4.0.0 — Soft Industrial Tech / Precision Editorial / Responsive Product Architecture
 > **Author**: Senior UI/UX Architect & Frontend Design Auditor
+> **Last Updated**: August 2026
 
 ---
 
-## 1. Project Overview
+# 1. Project Overview
 
-### Design Philosophy
-The design philosophy bridges **Industrial Durability** with **Eco-Friendly Polymer Innovation**. It balances technical precision (engineering specifications, load capacities, polymer specs) with modern, clean visual hierarchy. Every visual element emphasizes reliability, zero-maintenance sustainability, and heavy-duty industrial performance.
+## Design Philosophy
 
-### Brand Personality
-* **Authoritative & Industrial**: Solid geometry, sharp typography, high contrast, bold metrics.
-* **Eco-Engineered**: Vibrant tech-green accents (`#80cf23` / `#88e31b`) representing circular plastic recycling and forest preservation.
-* **Trustworthy & B2B Focused**: Deep industrial navy (`#0B2F63`) background elements, clear spec sheets, instant RFQ action paths.
-* **Precision & Quality**: High legibility, strict contrast ratios (WCAG 2.2 AAA compliant), zero fluff.
+The VISHAL ENTERPRISE design system combines **industrial engineering credibility** with a **modern, spacious, technology-oriented interface language**.
 
-### Visual Identity
-* **Primary Palette**: Deep Industrial Navy (`#0B2F63`), Pitch Dark / OLED (`#000000`, `#05070a`, `#0e1015`), Crisp White (`#FFFFFF`).
-* **Accent Palette**: Tech Emerald / Acer Green Accent (`#80cf23` light / `#88e31b` dark theme).
-* **Card Surface Architecture**: Elevated 8px rounded cards with 1px structural borders (`#DADADA` light / `rgba(255, 255, 255, 0.12)` dark).
+The redesign must feel less like a conventional industrial dashboard and more like a **premium technology company that manufactures industrial products**.
 
-### Design Style Classification
-**High-Contrast Industrial Tech / Neo-Bento Industrial Design System** with dual-mode (Light / OLED Dark Mode) adaptive mechanics.
+The interface must communicate:
 
-### Industry Category
-Industrial Manufacturing, Heavy-Duty Logistics Equipment, Sustainable Recycled Plastic Engineering & ESG Procurement.
+* Engineering precision
+* Recycled-material innovation
+* Industrial reliability
+* Product quality
+* Sustainability
+* B2B trust
+* Fast quotation discovery
+* Technical clarity
 
-### User Experience Goals
-1. Fast B2B Quote Conversion (under 2 clicks to RFQ).
-2. Frictionless Technical Spec Verification (load capacity, pallet dimensions, material data sheets).
-3. Seamless Dual-Theme Comfort (Clean crisp light mode for daylight office work, pitch-black OLED dark mode for night/industrial monitoring).
-4. Instant Search & Product Filtering with zero layout shift.
+The visual system should use **large typography, generous whitespace, soft elevation, restrained borders, rounded surfaces, large product imagery, subtle motion, and highly controlled green/navy accents**.
+
+The product remains industrial. The presentation becomes more modern, calm, premium, and approachable.
 
 ---
 
-## 2. Global Design Tokens
+## Brand Personality
 
-### Colors & Palette Definition
+### Industrial
 
-#### Primary Colors
-| Token Name | Light Value | Dark Value | CSS Variable | Purpose |
-| :--- | :--- | :--- | :--- | :--- |
-| **Primary (Navy)** | `#0B2F63` | `#0B2F63` | `--navy` | Core B2B Brand Identity, Headers, Primary Buttons |
-| **Primary Hover** | `#071E40` | `#113a72` | `--navy-dark` | Hover states on primary elements |
-| **Primary Active** | `#061C3D` | `#0e2a52` | `--navy-darker` | Click/Active states |
-| **Primary Light** | `#113a72` | `#13386b` | `--navy-light` | Gradient transitions, section fills |
-| **Primary Dark** | `#071E40` | `#05070a` | `--navy-dark` | Deep dark mode background |
+The interface must retain strong technical credibility through:
 
-#### Secondary / Accent Colors (Tech Green Scale)
-| Token Name | Light Value | Dark Value | CSS Variable | Purpose |
-| :--- | :--- | :--- | :--- | :--- |
-| **Brand Accent** | `#80cf23` | `#88e31b` | `--brand` | Secondary CTA, Tech Accents, Highlights, Badges |
-| **Brand Hover** | `#73be1d` | `#9be835` | `--brand-hover` | Hover states on tech green elements |
-| **Brand Active** | `#68ad17` | `#78be16` | `--brand-dark` | Active states |
-| **Brand Light** | `#f2fbe8` | `rgba(136,227,27,0.12)` | `--brand-light` | Tinted badge/card fills |
-| **Brand Text** | `#2e6005` | `#88e31b` | `--brand-text` | High-contrast text on light backgrounds |
+* Structured information
+* Precise specifications
+* Load-capacity metrics
+* Product dimensions
+* Material information
+* Consistent alignment
+* Reliable navigation
+* Clear quotation workflows
 
-#### Semantic Status Colors
-| Token Name | Light Value | Dark Value | CSS Variable |
-| :--- | :--- | :--- | :--- |
-| **Success** | `#80cf23` | `#88e31b` | `--color-success` |
-| **Success Light** | `#f2fbe8` | `rgba(136, 227, 27, 0.15)` | `--success-bg` |
-| **Warning** | `#F59E0B` | `#FBBF24` | `--color-warning` |
-| **Warning Light** | `#FEF3C7` | `rgba(245, 158, 11, 0.15)` | `--warning-bg` |
-| **Error / Danger** | `#EF4444` | `#F87171` | `--color-danger` |
-| **Error Light** | `#FEE2E2` | `rgba(239, 68, 68, 0.15)` | `--danger-bg` |
-| **Info** | `#0000EE` | `#60A5FA` | `--color-info` |
-| **Info Light** | `#EFF6FF` | `rgba(0, 0, 238, 0.15)` | `--info-bg` |
+### Eco-Engineered
 
-#### Neutral Scale
-| Scale Token | Light Value | Dark Value | CSS Variable | Usage |
-| :--- | :--- | :--- | :--- | :--- |
-| **Neutral 50** | `#F8FAFC` | `#05070a` | `--gray-50` | Page background, alternating section fill |
-| **Neutral 100** | `#F1F5F9` | `#090b10` | `--gray-100` | Subtle container background |
-| **Neutral 200** | `#DADADA` | `rgba(255, 255, 255, 0.12)` | `--gray-200` | Card borders, dividers |
-| **Neutral 300** | `#CBD5E1` | `rgba(255, 255, 255, 0.25)` | `--gray-300` | Muted text, strong borders |
-| **Neutral 400** | `#999999` | `#64748B` | `--gray-400` | Inactive icons, subtle text |
-| **Neutral 500** | `#64748B` | `#94A3B8` | `--gray-500` | Secondary body text, subtext |
-| **Neutral 600** | `#474747` | `#CBD5E1` | `--gray-600` | Body text |
-| **Neutral 700** | `#334155` | `#E2E8F0` | `--gray-700` | Dark body text |
-| **Neutral 800** | `#1E293B` | `#F1F5F9` | `--gray-800` | High-emphasis body text |
-| **Neutral 900** | `#0F172A` | `#FFFFFF` | `--gray-900` | Headings, title text |
-| **Neutral 950** | `#020617` | `#FFFFFF` | `--gray-950` | Darkest accents |
+The brand green remains the primary visual accent and must communicate:
 
-#### Background Tokens
-* **Page Background**: `#FFFFFF` (Light) / `#000000` or `#05070a` (Dark)
-* **Surface Background**: `#FFFFFF` (Light) / `#0e1015` (Dark)
-* **Elevated Surface**: `#FFFFFF` (Light) / `#11141b` (Dark)
-* **Card Background**: `#FFFFFF` (Light) / `#0e1015` (Dark)
-* **Modal Background**: `#FFFFFF` (Light) / `#0e1015` (Dark)
+* Circularity
+* Recycled polymers
+* Sustainability
+* Material innovation
+* Environmental responsibility
 
-#### Text Color Tokens
-* **Heading**: `#090D16` (Light) / `#FFFFFF` (Dark)
-* **Body**: `#1E293B` (Light) / `#E2E8F0` (Dark)
-* **Muted**: `#475569` (Light) / `#CBD5E1` (Dark)
-* **Disabled**: `#64748B` (Light) / `#64748B` (Dark)
-* **Inverse**: `#FFFFFF` (Light) / `#000000` (Dark)
+Green should be used strategically rather than covering large portions of the interface.
+
+### Premium Technology
+
+The interface should use:
+
+* Large expressive typography
+* Spacious layouts
+* Soft cards
+* Minimal visual noise
+* Large rounded image containers
+* Subtle elevation
+* Smooth transitions
+* Restrained animation
+
+### B2B Trust
+
+The interface must make product verification and RFQ conversion extremely easy.
+
+Technical information must never be hidden behind decorative UI.
 
 ---
 
-## 3. Typography System
+# 2. Design Style Classification
 
-### Primary Font Family
-`font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;`
+**Primary Style**
 
-### Type Scale Specification
+> Soft Industrial Technology / Modern Manufacturing Editorial UI
 
-| Element | Size (px / rem) | Font Weight | Line Height | Letter Spacing | Text Transform |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Display Hero Title** | `52px` / `3.25rem` | 800 (ExtraBold) | `1.15` | `-0.025em` | Normal |
-| **H1 Heading** | `36px` - `42px` / `2.625rem` | 800 (ExtraBold) | `1.2` | `-0.02em` | Normal |
-| **H2 Heading** | `28px` - `32px` / `2.0rem` | 800 (ExtraBold) | `1.25` | `-0.015em` | Normal |
-| **H3 Heading** | `22px` - `24px` / `1.5rem` | 700 (Bold) | `1.3` | `-0.01em` | Normal |
-| **H4 Heading** | `18px` - `20px` / `1.25rem` | 700 (Bold) | `1.35` | `0em` | Normal |
-| **H5 Heading** | `16px` / `1.0rem` | 700 (Bold) | `1.4` | `0em` | Normal |
-| **H6 Heading** | `14px` / `0.875rem` | 700 (Bold) | `1.4` | `0.02em` | Uppercase |
-| **Body Large** | `16px` / `1.0rem` | 400 (Regular) / 500 | `1.6` | `0em` | Normal |
-| **Body Medium** | `14px` / `0.875rem` | 400 (Regular) / 500 | `1.5` | `0em` | Normal |
-| **Body Small** | `12px` / `0.75rem` | 400 (Regular) / 500 | `1.5` | `0em` | Normal |
-| **Eyebrow / Tag** | `12px` / `0.75rem` | 800 (ExtraBold) | `1.2` | `0.08em` | Uppercase |
-| **Button Label** | `14px` / `0.875rem` | 700 (Bold) / 800 | `1.0` | `0.02em` | Normal / Uppercase |
-| **Badge Label** | `11px` - `12px` / `0.75rem` | 800 (ExtraBold) | `1.0` | `0.05em` | Uppercase |
-| **Input Value** | `14px` / `0.875rem` | 500 (Medium) | `1.4` | `0em` | Normal |
+**Supporting Styles**
 
----
+* Premium B2B product design
+* Editorial technology interface
+* Soft neo-bento architecture
+* Minimal industrial luxury
+* Product-led SaaS-style interaction patterns
 
-## 4. Layout System
+The system must not become generic SaaS.
 
-### Containers & Max Widths
-* **Max Content Container**: `1280px` (`max-w-7xl` or `.container`)
-* **Narrow Content Container**: `1024px` (`max-w-5xl`)
-* **Modal / Dialog Container**: `480px` - `640px` (`max-w-md` / `max-w-xl`)
+Industrial identity must remain visible through:
 
-### Responsive Breakpoints
-* **xs**: `<640px` (Mobile portrait)
-* **sm**: `640px` (Mobile landscape / small tablet)
-* **md**: `768px` (Tablet / Navigation drawer toggle point)
-* **lg**: `1024px` (Laptop / Desktop navigation)
-* **xl**: `1280px` (Desktop max container)
-* **2xl**: `1536px` (Wide screen displays)
-
-### Section Spacing Architecture
-* **Desktop Section Padding**: `padding-top: 4.5rem; padding-bottom: 4.5rem;` (`py-18` or `py-16`)
-* **Compact Section Padding**: `padding-top: 2.5rem; padding-bottom: 2.5rem;` (`py-10`)
-* **Mobile Section Padding**: `padding-top: 2.5rem; padding-bottom: 2.5rem;`
-* **Grid Gutters**: `1.5rem` (`24px` / `gap-6`) or `2.0rem` (`32px` / `gap-8`)
+* Product photography
+* Technical data
+* Engineering terminology
+* Navy brand color
+* Green sustainability accent
+* Specification-first layouts
 
 ---
 
-## 5. Spacing System
+# 3. Core Visual Principles
 
-The project uses a unified 8px-based harmonized spacing scale with micro-step support:
+## Principle 01 — Typography Leads
 
+Typography must establish hierarchy before decoration.
+
+Large headings should communicate the primary message immediately.
+
+Avoid filling the hero with multiple badges, metrics, borders, or small cards.
+
+---
+
+## Principle 02 — Space Is a Design Element
+
+Layouts must have generous whitespace.
+
+Content must not be packed simply because screen space is available.
+
+Large structural spacing should separate:
+
+* Hero
+* Product sections
+* Technical sections
+* Sustainability sections
+* RFQ sections
+* Footer
+
+---
+
+## Principle 03 — Elevation Over Borders
+
+Cards should primarily be differentiated through:
+
+1. Surface color
+2. Shadow
+3. Spacing
+4. Image treatment
+
+Borders should be subtle and used only when necessary for structure or accessibility.
+
+---
+
+## Principle 04 — Large Product Surfaces
+
+Product images are a major part of the visual identity.
+
+Images should occupy meaningful surface area rather than appearing as small thumbnails.
+
+---
+
+## Principle 05 — Restrained Motion
+
+Motion must feel smooth and premium.
+
+Interactions must never feel game-like, excessive, or distracting.
+
+---
+
+## Principle 06 — Technical Information Remains Precise
+
+The visual redesign must not weaken technical communication.
+
+Specifications must remain:
+
+* Easy to scan
+* Numerically clear
+* Consistently aligned
+* Responsive
+* Accessible
+* Comparable across products
+
+---
+
+## Principle 07 — Green Is an Accent, Not the Background
+
+The brand green should primarily identify:
+
+* Primary CTA
+* Active states
+* Sustainability markers
+* Verified states
+* Selected filters
+* Important metrics
+* Product highlights
+
+Do not turn entire sections green unless there is a deliberate marketing reason.
+
+---
+
+# 4. Global Design Tokens
+
+## 4.1 Color Foundations
+
+### Brand
+
+| Token              | Light     | Dark                   | CSS Variable     | Purpose                            |
+| ------------------ | --------- | ---------------------- | ---------------- | ---------------------------------- |
+| Primary Navy       | `#0B2F63` | `#0B2F63`              | `--navy`         | Brand anchor, navigation, dark CTA |
+| Navy Hover         | `#071E40` | `#113A72`              | `--navy-hover`   | Hover state                        |
+| Navy Active        | `#061C3D` | `#0E2A52`              | `--navy-active`  | Active state                       |
+| Navy Soft          | `#EEF4FB` | `rgba(11,47,99,.18)`   | `--navy-soft`    | Soft brand surfaces                |
+| Brand Green        | `#80CF23` | `#88E31B`              | `--brand`        | Primary accent                     |
+| Brand Green Hover  | `#73BE1D` | `#9BE835`              | `--brand-hover`  | Hover                              |
+| Brand Green Active | `#68AD17` | `#78BE16`              | `--brand-active` | Active                             |
+| Brand Green Soft   | `#F2FBE8` | `rgba(136,227,27,.12)` | `--brand-soft`   | Background / badge                 |
+| Brand Text         | `#2E6005` | `#88E31B`              | `--brand-text`   | Green-on-light text                |
+
+---
+
+## 4.2 Surface System
+
+The surface system must provide hierarchy without requiring heavy borders.
+
+| Token             | Light     | Dark      | Purpose             |
+| ----------------- | --------- | --------- | ------------------- |
+| Page              | `#FFFFFF` | `#000000` | Main page           |
+| Surface           | `#FFFFFF` | `#0B0B0B` | Main content        |
+| Surface Secondary | `#F7F8F6` | `#111111` | Section backgrounds |
+| Surface Tertiary  | `#EEF1EC` | `#171717` | Secondary blocks    |
+| Elevated          | `#FFFFFF` | `#141414` | Elevated cards      |
+| Modal             | `#FFFFFF` | `#141414` | Dialogs             |
+| Inverse           | `#0B0F14` | `#FFFFFF` | Inverse surfaces    |
+
+---
+
+## 4.3 Text System
+
+| Token     | Light     | Dark      | Usage               |
+| --------- | --------- | --------- | ------------------- |
+| Primary   | `#0F1720` | `#FFFFFF` | Main headings/body  |
+| Secondary | `#4F5965` | `#CBD5E1` | Supporting text     |
+| Muted     | `#69727D` | `#94A3B8` | Metadata            |
+| Disabled  | `#8A929B` | `#64748B` | Disabled UI         |
+| Inverse   | `#FFFFFF` | `#000000` | Inverse surfaces    |
+| Brand     | `#2E6005` | `#88E31B` | Brand-specific text |
+
+Text must always use semantic tokens.
+
+Raw colors must not be introduced directly into component styles.
+
+---
+
+# 5. Semantic Status Colors
+
+| Token           | Light     | Dark                    | Usage                       |
+| --------------- | --------- | ----------------------- | --------------------------- |
+| Success         | `#2F7D12` | `#88E31B`               | Verified / operational      |
+| Success Surface | `#F2FBE8` | `rgba(136,227,27,.12)`  | Success backgrounds         |
+| Warning         | `#B56A00` | `#FBBF24`               | Pending / caution           |
+| Warning Surface | `#FFF7E6` | `rgba(251,191,36,.12)`  | Warning backgrounds         |
+| Danger          | `#C92A2A` | `#F87171`               | Errors / destructive action |
+| Danger Surface  | `#FFF0F0` | `rgba(248,113,113,.12)` | Error backgrounds           |
+| Info            | `#2563A8` | `#60A5FA`               | Information                 |
+| Info Surface    | `#EFF6FF` | `rgba(96,165,250,.12)`  | Information backgrounds     |
+
+---
+
+# 6. Border System
+
+Borders must be substantially quieter than the previous design system.
+
+```css
+--border-subtle: rgba(15, 23, 32, 0.08);
+--border-default: rgba(15, 23, 32, 0.12);
+--border-strong: rgba(15, 23, 32, 0.18);
 ```
---space-1: 0.5px
---space-2: 2.8px
---space-3: 5px
---space-4: 6px
---space-5: 8px     (xs)
---space-6: 10px
---space-7: 12px    (sm)
---space-8: 16px    (md)
---space-9: 20px
---space-10: 24px   (lg)
---space-11: 32px   (xl)
---space-12: 48px   (2xl)
---space-13: 64px   (3xl)
+
+Dark mode:
+
+```css
+--border-subtle: rgba(255,255,255,0.08);
+--border-default: rgba(255,255,255,0.12);
+--border-strong: rgba(255,255,255,0.18);
+```
+
+Borders should normally be used for:
+
+* Form controls
+* Tables
+* Navigation separation
+* Selected states
+* Interactive boundaries
+* Accessibility-sensitive component definition
+
+Borders must not be added simply to make cards visually obvious.
+
+---
+
+# 7. Shadow System
+
+The redesign must use **soft, low-opacity, multi-layer elevation**.
+
+Do not use heavy black shadows.
+
+```css
+--shadow-none: none;
+
+--shadow-sm:
+  0 1px 2px rgba(0,0,0,.04),
+  0 4px 12px rgba(0,0,0,.04);
+
+--shadow-md:
+  0 4px 8px rgba(0,0,0,.04),
+  0 12px 28px rgba(0,0,0,.06);
+
+--shadow-lg:
+  0 8px 16px rgba(0,0,0,.04),
+  0 24px 60px rgba(0,0,0,.08);
+
+--shadow-xl:
+  0 12px 24px rgba(0,0,0,.05),
+  0 32px 80px rgba(0,0,0,.10);
+```
+
+Dark mode should use reduced-opacity white/black elevation rather than copying light shadows.
+
+```css
+--shadow-dark-sm:
+  0 2px 8px rgba(0,0,0,.24);
+
+--shadow-dark-md:
+  0 8px 24px rgba(0,0,0,.32);
+
+--shadow-dark-lg:
+  0 16px 48px rgba(0,0,0,.42);
 ```
 
 ---
 
-## 6. Component Hierarchy Tree
+# 8. Radius System
 
+**The existing radius system must be retained.**
+
+No global radius redesign is permitted.
+
+```css
+--radius-sm: 4px;
+--radius-md: 8px;
+--radius-card: 12px;
+--radius-pill: 9999px;
 ```
-App
-├── SiteProvider (Global State & CMS Settings)
-├── CartProvider (RFQ Cart State)
-├── ToastProvider (Floating Notifications)
-├── Navbar (Sticky Glassmorphic Header)
-│   ├── TopAnnounceBar (GST / Factory Plant Badge)
-│   ├── Logo ("VISHAL ENTERPRISE")
-│   ├── DesktopNavLinks
-│   ├── QuickSearchTrigger
-│   ├── ThemeToggle (Light / OLED Dark Toggle)
-│   ├── QuoteCartTrigger (Item Counter Badge)
-│   └── MobileMenuDrawer
-├── Main Content Router
-│   ├── Home Page
-│   │   ├── HeroSection
-│   │   ├── StatsStrip
-│   │   ├── CategoryBentoGrid
-│   │   ├── ProductShowcase
-│   │   ├── IndustrialApplications
-│   │   ├── ManufacturingCapacity
-│   │   ├── SustainabilitySection
-│   │   ├── Testimonials
-│   │   └── ClosingCtaBanner
-│   ├── Products Page
-│   │   ├── ProductHero
-│   │   ├── ProductSearchFilterBar
-│   │   └── ProductGridCard
-│   ├── Product Detail Page
-│   │   ├── ImageGallery
-│   │   ├── TechSpecsTable
-│   │   ├── LoadCapacityWidget
-│   │   └── RFQActionCard
-│   ├── Manufacturing Page
-│   │   ├── PlantOverviewHero
-│   │   ├── ExtrusionCapacitySection
-│   │   ├── QualityTestingSpecs
-│   │   └── B2BSupplyChainBanner
-│   ├── Sustainability Page
-│   │   ├── ESGCommitmentHero
-│   │   ├── CircularEconomyGrid
-│   │   └── RecycledTonMetrics
-│   ├── Contact Page
-│   │   ├── ContactHero
-│   │   ├── InteractiveEnquiryCard (Form)
-│   │   ├── ContactDetailsList
-│   │   ├── ImmediateAssistanceBanner
-│   │   ├── GoogleMapSection
-│   │   └── ContactFaqSection
-│   ├── Quote Builder Page
-│   │   ├── Step1_ProductSelect
-│   │   ├── Step2_CustomSpecs
-│   │   └── Step3_RFQSubmit
-│   └── Admin Dashboard
-│       ├── ProductManager
-│       └── SiteSettingsCMS
-└── Footer
-    ├── BrandSummary
-    ├── QuickLinksGrid
-    ├── ProductCategoryList
-    ├── ContactInfoColumn
-    └── CopyrightRow
+
+Component guidance:
+
+| Component         | Radius          |
+| ----------------- | --------------- |
+| Small icon button | `--radius-md`   |
+| Inputs            | `--radius-md`   |
+| Small controls    | `--radius-md`   |
+| Product card      | `--radius-card` |
+| Section card      | `--radius-card` |
+| Image container   | `--radius-card` |
+| Modal             | `--radius-card` |
+| Primary button    | `--radius-pill` |
+| Secondary button  | `--radius-pill` |
+| Badge             | `--radius-pill` |
+| Filter chips      | `--radius-pill` |
+
+The visual softness must come primarily from:
+
+* Whitespace
+* Shadows
+* Typography
+* Image scale
+* Surface hierarchy
+* Motion
+
+It must **not** come from increasing border radius.
+
+---
+
+# 9. Typography System
+
+## Font Stack
+
+Primary:
+
+```css
+--font-family-primary:
+  "Google Sans",
+  "Noto Sans",
+  Arial,
+  Helvetica,
+  sans-serif;
+```
+
+Production implementations must provide an approved fallback when Google Sans is unavailable.
+
+---
+
+## Base Typography
+
+```css
+--font-size-base: 16px;
+--font-weight-base: 400;
+--line-height-base: 24px;
 ```
 
 ---
 
-## 7. Component Design Specifications
+## Typography Scale
 
-### Navbar
-* **Height**: `72px` (`var(--nav-h)`)
-* **Background**: `rgba(255, 255, 255, 0.9)` (Light) / `#000000` (Dark)
-* **Backdrop Filter**: `blur(12px)`
-* **Border**: `1px solid #DADADA` (Light) / `1px solid rgba(255, 255, 255, 0.15)` (Dark)
-* **Shadow**: `0 2px 10px rgba(0,0,0,0.05)`
-* **Navigation Links**: Font weight 700, `14px`, transition color on hover (`#80cf23` / `#88e31b`).
+| Token      |      Size | Weight | Line Height | Usage            |
+| ---------- | --------: | -----: | ----------: | ---------------- |
+| Display    | `64–84px` |    700 | `0.98–1.05` | Hero             |
+| H1         | `48–64px` |    700 | `1.05–1.10` | Main headings    |
+| H2         | `36–48px` |    700 | `1.10–1.15` | Section headings |
+| H3         | `28–36px` |    600 | `1.15–1.25` | Subsections      |
+| H4         | `22–28px` |    600 |      `1.25` | Card titles      |
+| H5         | `18–20px` |    600 |       `1.3` | Small headings   |
+| Body Large |    `18px` |    400 |      `28px` | Lead text        |
+| Body       |    `16px` |    400 |      `24px` | Standard copy    |
+| Body Small |    `14px` |    400 |      `20px` | Supporting copy  |
+| Label      |    `14px` |    600 |      `20px` | UI labels        |
+| Caption    |    `12px` |    500 |      `18px` | Metadata         |
+
+---
+
+## Responsive Display Typography
+
+Hero typography must be fluid.
+
+```css
+font-size: clamp(48px, 7vw, 84px);
+line-height: 0.98;
+letter-spacing: -0.045em;
+font-weight: 700;
+```
+
+Section headings:
+
+```css
+font-size: clamp(36px, 5vw, 56px);
+line-height: 1.05;
+letter-spacing: -0.035em;
+```
+
+Body text must remain readable at all breakpoints.
+
+---
+
+# 10. Letter Spacing
+
+Large typography should use tighter tracking.
+
+```css
+--tracking-display: -0.045em;
+--tracking-heading: -0.035em;
+--tracking-tight: -0.02em;
+--tracking-normal: 0;
+--tracking-label: 0.01em;
+```
+
+Uppercase labels may use:
+
+```css
+letter-spacing: .06em;
+```
+
+Large headings must not use excessive letter spacing.
+
+---
+
+# 11. Spacing System
+
+The spacing system must become more generous while retaining a consistent token structure.
+
+```css
+--space-1: 4px;
+--space-2: 8px;
+--space-3: 12px;
+--space-4: 16px;
+--space-5: 24px;
+--space-6: 32px;
+--space-7: 48px;
+--space-8: 64px;
+--space-9: 96px;
+--space-10: 128px;
+```
+
+### Usage
+
+```text
+4px   → micro alignment
+8px   → icon/text spacing
+12px  → control internals
+16px  → compact component spacing
+24px  → card internals
+32px  → local section gaps
+48px  → component groups
+64px  → section spacing
+96px  → major section spacing
+128px → hero / major editorial separation
+```
+
+No one-off spacing values should be introduced without a system-level reason.
+
+---
+
+# 12. Container Architecture
+
+```css
+--container-xl: 1280px;
+--container-lg: 1120px;
+--container-md: 1024px;
+--container-sm: 768px;
+```
+
+Primary page container:
+
+```css
+width: min(100% - 32px, var(--container-xl));
+margin-inline: auto;
+```
+
+Desktop:
+
+```css
+width: min(100% - 64px, var(--container-xl));
+```
+
+Large hero content may intentionally use a narrower maximum width for stronger typography.
+
+---
+
+# 13. Responsive Breakpoints
+
+```text
+xs   < 640px
+sm   ≥ 640px
+md   ≥ 768px
+lg   ≥ 1024px
+xl   ≥ 1280px
+2xl  ≥ 1536px
+```
+
+Responsive behavior must prioritize:
+
+1. Content readability
+2. Product image clarity
+3. CTA accessibility
+4. Technical information visibility
+5. Navigation usability
+
+---
+
+# 14. Motion System
+
+Motion must be subtle and intentional.
+
+```css
+--motion-instant: 150ms;
+--motion-fast: 200ms;
+--motion-base: 300ms;
+--motion-slow: 500ms;
+```
+
+Easing:
+
+```css
+--ease-standard: cubic-bezier(.2,.8,.2,1);
+--ease-emphasized: cubic-bezier(.16,1,.3,1);
+```
+
+---
+
+## Motion Rules
+
+### Cards
+
+```css
+transition:
+  transform 300ms var(--ease-standard),
+  box-shadow 300ms var(--ease-standard);
+```
+
+Hover:
+
+```css
+transform: translateY(-3px);
+```
+
+No excessive scaling.
+
+---
+
+### Product Images
+
+```css
+transition:
+  transform 500ms var(--ease-emphasized);
+```
+
+Hover:
+
+```css
+transform: scale(1.035);
+```
+
+---
 
 ### Buttons
-All buttons share standardized 8px rounded corners (`border-radius: 8px`).
 
-#### Variant 1: Primary (Navy Solid)
-* **Background**: `#0B2F63`
-* **Text**: `#FFFFFF`
-* **Padding**: `0.75rem 1.5rem` (`12px 24px`)
-* **Font**: Weight 700, `14px`
-* **Hover State**: Background `#071E40` (Light) / `#88e31b` text `#000` (Dark hover)
+Buttons may use:
 
-#### Variant 2: Tech Accent (Green Shimmer)
-* **Background**: `#80cf23` (Light) / `#88e31b` (Dark)
-* **Text**: `#090D16` (Bold black)
-* **Padding**: `0.75rem 1.5rem`
-* **Font**: Weight 800, `14px`, uppercase tracking `0.05em`
-* **Hover State**: Background `#73be1d` / `#9be835`, `transform: translateY(-2px)`
+* Icon translation
+* Small elevation change
+* Subtle background transition
 
-#### Variant 3: Secondary / Outline
-* **Background**: `transparent` or `rgba(255, 255, 255, 0.05)`
-* **Border**: `1px solid #DADADA` (Light) / `1px solid rgba(255, 255, 255, 0.2)` (Dark)
-* **Text**: `#0F172A` (Light) / `#FFFFFF` (Dark)
-* **Hover State**: Border-color `#80cf23`, background `rgba(128, 207, 35, 0.08)`
+Buttons must not:
+
+* Expand dramatically
+* Hide text
+* Flash
+* Rotate
+* Grow beyond their layout bounds
 
 ---
 
-## 8. Cards System
+## Reduced Motion
 
-### Card Specifications
-* **Border Radius**: Harmonized `8px` (`--radius-card`)
-* **Light Card Background**: `#FFFFFF`
-* **Light Card Border**: `1px solid #DADADA`
-* **Light Card Shadow**: `0 4px 12px rgba(0, 0, 0, 0.06)`
-* **Dark Card Background**: `#0e1015`
-* **Dark Card Border**: `1px solid rgba(255, 255, 255, 0.12)`
-* **Dark Card Shadow**: `0 10px 30px rgba(0, 0, 0, 0.5)`
-* **Hover Effect**: `transform: translateY(-3px); border-color: #80cf23; shadow: 0 12px 28px rgba(0, 0, 0, 0.12)`
+When:
+
+```css
+@media (prefers-reduced-motion: reduce)
+```
+
+the system must substantially reduce or disable non-essential animation.
 
 ---
 
-## 9. Form Design System
+# 15. Navigation
 
-### Form Field Specifications
-* **Input Height**: `44px` (`2.75rem`)
-* **Input Border Radius**: `8px`
-* **Input Light Background**: `#F8FAFC`
-* **Input Light Border**: `1px solid #DADADA`
-* **Input Dark Background**: `#141720`
-* **Input Dark Border**: `1px solid rgba(255, 255, 255, 0.18)`
-* **Input Text Color**: `#0F172A` (Light) / `#FFFFFF` (Dark)
-* **Input Placeholder Color**: `#94A3B8` (Light) / `#64748B` (Dark)
-* **Focus Ring**: `border-color: #80cf23; box-shadow: 0 0 0 3px rgba(128, 207, 35, 0.25);`
+The global navigation should use a lightweight floating/surface-oriented architecture.
 
----
+### Structure
 
-## 10. Navigation Architecture
+```text
+Brand
+Products
+Solutions
+Sustainability
+About
+Contact
 
-### Desktop Header Layout (`>= 1024px`)
-* Left: Brand Logo (`VISHAL ENTERPRISE` with green dot emblem).
-* Center: Categorized Dropdown Navigation (`Products`, `Manufacturing`, `Sustainability`, `About Us`, `Downloads`, `Contact`).
-* Right: Global Search Trigger, Dark/Light Mode Switcher, Quick RFQ Cart Trigger, Direct Call Button.
+                         Request Quote
+```
 
-### Mobile Navigation Layout (`< 1024px`)
-* Compact Header bar (`72px`) with Logo, Cart Trigger, Theme Toggle, and Hamburger Button.
-* Slide-out Drawer (`#090b10` in dark mode) with accordion category collapse, direct WhatsApp quick contact, and direct phone link.
+### Styling
 
----
+```css
+min-height: 56px;
+background: rgba(255,255,255,.90);
+backdrop-filter: blur(20px);
+box-shadow: var(--shadow-sm);
+border: 1px solid var(--border-subtle);
+border-radius: var(--radius-pill);
+```
 
-## 11. Animation System
+The navigation should remain visually quiet.
 
-* **Hover Transitions**: `transition: all 200ms cubic-bezier(0.25, 1, 0.5, 1)`
-* **Pulsing Icon Animation**: `@keyframes iconPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }`
-* **Spin Animation**: `@keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`
-* **Shimmer Effect**: `@keyframes shimmer { from { background-position: -200% 0; } to { background-position: 200% 0; } }`
+The primary CTA must provide the strongest visual emphasis.
 
 ---
 
-## 12. Responsive System
+# 16. Primary Button
 
-| Breakpoint | Target Device | Navigation | Layout Changes |
-| :--- | :--- | :--- | :--- |
-| **`<640px`** | Mobile Portrait | Drawer | 1 Column Grids, 100% Width Buttons |
-| **`640px` - `768px`** | Mobile Landscape | Drawer | 2 Column Mini-Stats, 1 Column Cards |
-| **`768px` - `1024px`** | Tablet | Drawer | 2 Column Product Grids, Compressed Hero |
-| **`1024px` - `1280px`** | Laptop | Top Navbar | 3 Column Cards, Full Inline Menu |
-| **`>=1280px`** | Widescreen Desktop | Top Navbar | Full 4 Column Bento Grids, Expanded Spec Tables |
+## Anatomy
 
----
+```text
+[ Label                    → ]
+```
 
-## 13. Visual Effects
+### Geometry
 
-* **Glassmorphic Surface**: `background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px);`
-* **OLED Dark Surface**: `background: #0e1015; border: 1px solid rgba(255, 255, 255, 0.12);`
-* **Ambient Radial Glow**: `background: radial-gradient(circle, rgba(128, 207, 35, 0.1) 0%, transparent 70%);`
+```css
+height: 48px;
+padding-inline: 24px;
+border-radius: var(--radius-pill);
+font-size: 15px;
+font-weight: 600;
+```
 
----
+### Default
 
-## 14. Iconography System
+* Background: `--brand`
+* Text: `--text-primary`
+* Shadow: `--shadow-sm`
 
-* **Primary Icon Library**: Lucide React (`lucide-react`)
-* **Fallback Icon Set**: FontAwesome 6 Free SVG / Webfonts
-* **Standard Icon Sizes**:
-  * Micro Badge: `14px` (`w-3.5 h-3.5`)
-  * Normal Body/Button: `18px` - `20px` (`w-4 h-4` / `w-5 h-5`)
-  * Feature Box / Card Icon: `24px` - `32px` (`w-6 h-6` / `w-8 h-8`)
-* **Stroke Width**: `2px` (default) or `2.5px` (for high-emphasis badges)
+### Hover
 
----
+* Background: `--brand-hover`
+* Transform: `translateY(-1px)`
+* Shadow: `--shadow-md`
 
-## 15. Image System
+### Focus-visible
 
-* **Product Cards Aspect Ratio**: `4 / 3` or `1 / 1` (Square)
-* **Hero Banners**: Aspect ratio `16 / 9` or fixed height `380px` - `480px`
-* **Object Fit**: `object-fit: cover` with fallback placeholder backgrounds
-* **Border Radius**: Harmonized `8px` rounded corners
+Must display a clear focus ring using the brand token.
 
----
+### Active
 
-## 16. Page-by-Page Hierarchy
+```css
+transform: translateY(0);
+```
 
-1. **Home Page**:
-   `Hero -> StatsStrip -> CategoryBento -> ProductShowcase -> SustainabilitySpotlight -> CapacityBanner -> Testimonials -> CTABanner`
-2. **Products Page**:
-   `PageHero -> FilterBar -> ProductGrid -> ProductCompareTable -> RFQFooterCard`
-3. **Product Detail Page**:
-   `Breadcrumbs -> Gallery & Summary -> TechnicalSpecsTable -> LoadCapacityCalculator -> RelatedProducts`
-4. **Manufacturing Page**:
-   `PlantHero -> ExtrusionCapacity -> QualityTesting -> B2BSupplyChainGrid`
-5. **Sustainability Page**:
-   `ESGHero -> CircularEconomyPillars -> TonsRecycledCalculator -> CertificationBadges`
-6. **Contact Page**:
-   `ContactHero -> InteractiveEnquiryForm -> ContactDetails -> ImmediateAssistanceBanner -> MapSection -> FAQ`
+### Disabled
+
+Opacity may be reduced, but disabled text must remain legible.
+
+### Loading
+
+The label must remain associated with the action while an accessible loading indicator is displayed.
+
+### Error
+
+Use contextual error messaging rather than turning the entire button red unless the action itself is destructive.
 
 ---
 
-## 17. CSS Architecture
+# 17. Secondary Button
 
-The application uses **Tailwind CSS v4** combined with **CSS Custom Properties** defined in `tokens.css` and dark mode theme rules in `dark-theme.css`:
+```text
+[ Label ]
+```
 
-* `@import "tailwindcss";` in `tokens.css`.
-* Dual theme switching via `html.dark` or `[data-theme="dark"]`.
-* Atomic class overrides directly on components for 100% style stability.
+Default:
 
----
+```css
+background: var(--surface);
+border: 1px solid var(--border-default);
+color: var(--text-primary);
+border-radius: var(--radius-pill);
+```
 
-## 18. Design Patterns
+Hover:
 
-* **Elevated B2B Card**: High-contrast white/dark card with 1px border and hover lift.
-* **Badge Eyebrow**: Uppercase bold text tag with solid/subtle tinted background.
-* **Quick RFQ Drawer**: Side-panel summary of selected B2B items with direct quotation submission.
-
----
-
-## 19. Accessibility Audit (WCAG 2.2 AAA)
-
-* **Contrast Ratio**: `#FFFFFF` text on `#0B2F63` (Contrast Ratio > 10:1 AAA compliant).
-* **Dark Mode Contrast**: `#FFFFFF` text on `#0e1015` (Contrast Ratio > 15:1 AAA compliant).
-* **Tech Green Accent**: `#80cf23` on `#000000` dark backgrounds provides a 10.5:1 contrast ratio.
-* **Focus Visibility**: Clear focus rings (`outline: 2px solid #80cf23; outline-offset: 2px`) for keyboard navigation.
+```css
+background: var(--surface-secondary);
+box-shadow: var(--shadow-sm);
+```
 
 ---
 
-## 20. COMPLETE DESIGN BLUEPRINT
+# 18. Text Action
 
-*(Copy-paste ready specification for AI studio / developer recreation)*
+For secondary navigation or product exploration:
 
-### A. Root CSS Tokens Configuration (`tokens.css`)
+```text
+View Product →
+```
+
+The arrow should move subtly:
+
+```css
+transform: translateX(3px);
+```
+
+The interaction must remain readable without hover.
+
+---
+
+# 19. Product Card
+
+Product cards must become larger, cleaner, and more editorial.
+
+## Anatomy
+
+```text
+Product Image
+
+Eco / Material badge
+
+Product Name
+
+Short technical description
+
+Primary specification
+Secondary specification
+
+View Product →
+```
+
+### Image
+
+```css
+aspect-ratio: 4 / 3;
+overflow: hidden;
+border-radius: var(--radius-card);
+```
+
+### Card
+
+```css
+background: var(--surface);
+border-radius: var(--radius-card);
+box-shadow: var(--shadow-sm);
+padding: 12px;
+```
+
+### Hover
+
+```css
+transform: translateY(-3px);
+box-shadow: var(--shadow-lg);
+```
+
+The card must not jump in height when content changes.
+
+---
+
+# 20. Product Card Information Hierarchy
+
+Order:
+
+1. Product image
+2. Product category / material
+3. Product title
+4. Product description
+5. Primary engineering specification
+6. Secondary specification
+7. CTA
+
+The most important technical metric should visually dominate secondary data.
+
+---
+
+# 21. Product Image Rules
+
+Images must:
+
+* Maintain correct aspect ratio
+* Use `object-fit: cover` where appropriate
+* Never overflow card bounds
+* Have responsive loading
+* Provide meaningful alternate text
+* Maintain stable dimensions before loading
+
+Image layout must reserve the final rendering area to prevent layout shift.
+
+---
+
+# 22. Technical Specification Component
+
+Technical specifications should be presented through typography and alignment rather than dense bordered grids whenever practical.
+
+Example:
+
+```text
+TECHNICAL PERFORMANCE
+
+Static Load                  5000 kg
+Dynamic Load                 2000 kg
+Material                     Recycled HDPE
+Operating Range              -20°C — 60°C
+Service Life                 10+ years
+```
+
+Values:
+
+```css
+font-size: 20px;
+font-weight: 600;
+```
+
+Labels:
+
+```css
+font-size: 14px;
+color: var(--text-secondary);
+```
+
+---
+
+# 23. Specification Cards
+
+When specifications require a card:
+
+```css
+background: var(--surface-secondary);
+border-radius: var(--radius-card);
+padding: 24px;
+box-shadow: var(--shadow-sm);
+```
+
+The card must remain visually quiet.
+
+---
+
+# 24. Badge System
+
+Badges must be compact and lightweight.
+
+Example:
+
+```text
+ECO ENGINEERED
+100% RECYCLED
+HDPE
+HEAVY DUTY
+```
+
+```css
+height: 30px;
+padding-inline: 12px;
+border-radius: var(--radius-pill);
+font-size: 12px;
+font-weight: 600;
+```
+
+Badges should not compete visually with product titles or CTAs.
+
+---
+
+# 25. Form Controls
+
+## Input Geometry
+
+Existing radius must be retained.
+
+```css
+height: 44px;
+padding-inline: 14px;
+border-radius: var(--radius-md);
+```
+
+Large forms may use:
+
+```css
+height: 48px;
+```
+
+### Default
+
+```css
+background: var(--surface);
+border: 1px solid var(--border-default);
+```
+
+### Hover
+
+Border may strengthen slightly.
+
+### Focus-visible
+
+```css
+outline: 2px solid var(--brand);
+outline-offset: 2px;
+```
+
+### Disabled
+
+Input must visibly communicate its disabled state without becoming unreadable.
+
+### Error
+
+Error state must include:
+
+* Color
+* Text explanation
+* Accessible association
+* Clear recovery guidance
+
+### Loading
+
+Loading must preserve layout dimensions.
+
+---
+
+# 26. Search and Filter Controls
+
+Search and filtering must prioritize instant comprehension.
+
+Search field:
+
+```text
+[ Search products, materials, dimensions... ]
+```
+
+Filters should use:
+
+```text
+[ Material ]
+[ Load Capacity ]
+[ Application ]
+[ Size ]
+[ Sustainability ]
+```
+
+Filter chips should use `--radius-pill`.
+
+Active filters must be clearly distinguishable without relying only on color.
+
+---
+
+# 27. Bento Layout System
+
+Bento layouts remain part of the system, but their visual treatment must be softened.
+
+Bento surfaces should use:
+
+* Large whitespace
+* Strong typography
+* Product imagery
+* Soft elevation
+* Limited decoration
+* Clear focal points
+
+A bento grid must not become a collection of miniature dashboards.
+
+---
+
+# 28. Hero Section
+
+The hero should emphasize a single proposition.
+
+Recommended structure:
+
+```text
+EYEBROW
+
+ENGINEERED FOR A
+CIRCULAR FUTURE.
+
+Recycled plastic products engineered for
+demanding industrial environments.
+
+[ Explore Products ] [ Request Quote ]
+
+Large product/environment image
+```
+
+Hero typography:
+
+```css
+font-size: clamp(48px, 7vw, 84px);
+line-height: .98;
+font-weight: 700;
+letter-spacing: -0.045em;
+```
+
+Hero content must not be overloaded with statistics.
+
+---
+
+# 29. Sustainability Section
+
+Sustainability should be shown through real information rather than decorative green styling.
+
+Preferred presentation:
+
+```text
+100%
+RECYCLED MATERIAL
+
+LOW
+MAINTENANCE
+
+LONG
+SERVICE LIFE
+```
+
+Large numbers should use typography rather than giant graphic components.
+
+---
+
+# 30. RFQ / Quote CTA
+
+RFQ must remain one of the highest-priority conversion paths.
+
+Primary actions:
+
+```text
+Request a Quote
+Add to RFQ
+Get Pricing
+Talk to Sales
+```
+
+The CTA must remain visible without dominating every component.
+
+---
+
+# 31. Admin Dashboard
+
+The admin interface may remain more information-dense than the marketing website.
+
+However, it must use the same:
+
+* Typography
+* Colors
+* Radius system
+* Buttons
+* Inputs
+* Shadow system
+* State system
+
+Admin cards:
+
+```css
+background: var(--surface);
+border-radius: var(--radius-card);
+box-shadow: var(--shadow-sm);
+```
+
+Avoid recreating a heavy enterprise dashboard aesthetic.
+
+---
+
+# 32. Admin Stats Cards
+
+Stats cards should emphasize one metric.
+
+```text
+ACTIVE PRODUCTS
+
+128
+
++12 this month
+```
+
+Metric:
+
+```css
+font-size: 32px;
+font-weight: 700;
+letter-spacing: -0.03em;
+```
+
+Label:
+
+```css
+font-size: 14px;
+color: var(--text-secondary);
+```
+
+---
+
+# 33. Activity Feed
+
+Activity should use a calm timeline.
+
+```text
+● Product RFQ received
+  5m ago
+
+● Product updated
+  2h ago
+
+● New enquiry
+  Yesterday
+```
+
+Do not overuse timeline lines, icons, and colored dots.
+
+---
+
+# 34. Status System
+
+Status must communicate clearly.
+
+```text
+● Operational
+● Verifying
+● Offline
+```
+
+Color must not be the only indicator.
+
+Use:
+
+* Icon
+* Text
+* Color
+
+---
+
+# 35. Empty States
+
+Empty states must explain:
+
+1. What is missing
+2. Why it matters
+3. What action should happen next
+
+Example:
+
+```text
+No products found
+
+Try changing your filters or search terms.
+
+[ Clear Filters ]
+```
+
+Empty-state components must not occupy excessive vertical space.
+
+---
+
+# 36. Loading States
+
+Use skeleton loading rather than blocking spinners whenever possible.
+
+Skeletons must:
+
+* Match final component dimensions
+* Avoid layout shift
+* Respect reduced-motion preferences
+* Use subtle animation
+
+---
+
+# 37. Error States
+
+Errors must be actionable.
+
+Bad:
+
+```text
+Something went wrong.
+```
+
+Better:
+
+```text
+We couldn't load the product catalogue.
+
+Please try again.
+
+[ Retry ]
+```
+
+---
+
+# 38. Interaction States
+
+Every interactive component must define:
+
+* Default
+* Hover
+* Focus-visible
+* Active
+* Disabled
+* Loading
+* Error
+
+No component is production-ready without explicit state behavior.
+
+---
+
+# 39. Keyboard Interaction
+
+All interactive elements must be keyboard accessible.
+
+Requirements:
+
+* Logical tab order
+* Visible focus indicator
+* Enter activation where appropriate
+* Space activation for button-like controls
+* Escape for dismissible overlays
+* Arrow keys for components where semantically appropriate
+
+Focus must never be removed only for visual styling.
+
+---
+
+# 40. Touch Interaction
+
+Touch targets must be sufficiently large for reliable mobile interaction.
+
+Controls must not rely on hover to expose essential functionality.
+
+Mobile users must have access to all primary actions without desktop-only interactions.
+
+---
+
+# 41. Accessibility Standard
+
+Target:
+
+**WCAG 2.2 AA minimum**
+
+The visual system may exceed AA where practical, but no component may ship below the defined accessibility requirements.
+
+---
+
+# 42. Accessibility Acceptance Criteria
+
+## Text
+
+PASS when:
+
+* Body text meets required contrast
+* Heading text meets required contrast
+* Disabled text remains distinguishable
+* Links remain distinguishable without relying only on color
+
+---
+
+## Focus
+
+PASS when:
+
+* Every interactive control has visible `:focus-visible`
+* Focus remains visible against all surfaces
+* Focus is not removed through `outline: none` without an equivalent replacement
+
+---
+
+## Motion
+
+PASS when:
+
+* Reduced-motion preference is respected
+* No essential information depends on animation
+* Motion does not cause content instability
+
+---
+
+## Forms
+
+PASS when:
+
+* Labels are programmatically associated
+* Errors are accessible
+* Required fields are communicated
+* Keyboard interaction works without pointer input
+
+---
+
+## Images
+
+PASS when:
+
+* Informative images have meaningful alternative text
+* Decorative images are hidden appropriately
+* Images reserve layout space before loading
+
+---
+
+# 43. Content and Tone
+
+Copy must be:
+
+* Concise
+* Technical
+* Confident
+* Human
+* B2B-oriented
+* Specific
+
+Avoid:
+
+* Excessive marketing language
+* Generic AI-style wording
+* Empty sustainability claims
+* Overuse of adjectives
+* Unverified environmental claims
+
+---
+
+# 44. Content Examples
+
+### Product
+
+Bad:
+
+```text
+Amazing Eco-Friendly Premium Pallet
+```
+
+Better:
+
+```text
+Recycled Plastic Heavy-Duty Pallet
+```
+
+### CTA
+
+Bad:
+
+```text
+Click Here
+```
+
+Better:
+
+```text
+View Product
+```
+
+### RFQ
+
+Bad:
+
+```text
+Submit
+```
+
+Better:
+
+```text
+Request a Quote
+```
+
+### Technical description
+
+Bad:
+
+```text
+A fantastic pallet built with amazing quality.
+```
+
+Better:
+
+```text
+Heavy-duty recycled polymer pallet designed for repeated industrial handling.
+```
+
+---
+
+# 45. Anti-Patterns
+
+The following implementations are prohibited.
+
+## Visual
+
+* Heavy card outlines everywhere
+* Large opaque shadows
+* Excessive gradients
+* Excessive green backgrounds
+* Random border radii
+* Decorative UI without functional purpose
+* Excessive glassmorphism
+* Excessive blur
+* Giant animated hover effects
+
+---
+
+## Typography
+
+* Random font families
+* Uncontrolled font sizes
+* Multiple unrelated heading scales
+* Excessive uppercase text
+* Extremely tight body text
+* Decorative typography that reduces readability
+
+---
+
+## Interaction
+
+* Disappearing button labels
+* Hover-only essential functionality
+* Large layout shifts
+* Uncontrolled transforms
+* Unnecessary animations
+* Invisible focus states
+
+---
+
+## Layout
+
+* One-off spacing values
+* Arbitrary card widths
+* Inconsistent content containers
+* Dense UI without hierarchy
+* Excessive bento fragmentation
+* Unnecessary nested cards
+
+---
+
+# 46. Migration Notes From Design System 3.0
+
+The redesign must preserve:
+
+* Navy brand identity
+* Green sustainability identity
+* Dual theme support
+* Product-led architecture
+* B2B RFQ flows
+* Technical specification visibility
+* Responsive grid architecture
+* Existing radius tokens
+
+The following must change:
+
+### Replace
+
+Heavy border-driven cards
+
+### With
+
+Surface + spacing + soft elevation
+
+---
+
+### Replace
+
+Dense industrial UI
+
+### With
+
+Spacious editorial hierarchy
+
+---
+
+### Replace
+
+Aggressive hover animations
+
+### With
+
+Subtle elevation and movement
+
+---
+
+### Replace
+
+Small typography-heavy layouts
+
+### With
+
+Larger heading hierarchy and readable body copy
+
+---
+
+### Replace
+
+Large areas of navy/green
+
+### With
+
+Mostly neutral surfaces with controlled brand accents
+
+---
+
+# 47. Core CSS Blueprint
 
 ```css
 :root {
-  /* Font Family */
-  --font-family-primary: 'Noto Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Font */
+  --font-family-primary:
+    "Google Sans",
+    "Noto Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  /* Colors - Light Theme */
+  --font-size-base: 16px;
+  --line-height-base: 24px;
+
+  /* Brand */
   --navy: #0B2F63;
-  --navy-dark: #071E40;
-  --brand: #80cf23;
-  --brand-hover: #73be1d;
-  --brand-light: #f2fbe8;
+  --navy-hover: #071E40;
+  --navy-active: #061C3D;
+  --navy-soft: #EEF4FB;
 
-  --gray-50: #F8FAFC;
-  --gray-100: #F1F5F9;
-  --gray-200: #DADADA;
-  --gray-300: #CBD5E1;
-  --gray-500: #64748B;
-  --gray-900: #0F172A;
+  --brand: #80CF23;
+  --brand-hover: #73BE1D;
+  --brand-active: #68AD17;
+  --brand-soft: #F2FBE8;
+  --brand-text: #2E6005;
 
-  /* Surfaces & Borders */
+  /* Surfaces */
   --bg-page: #FFFFFF;
-  --bg-card: #FFFFFF;
-  --border-card: #DADADA;
+  --surface: #FFFFFF;
+  --surface-secondary: #F7F8F6;
+  --surface-tertiary: #EEF1EC;
+  --surface-elevated: #FFFFFF;
 
-  /* Radius */
-  --radius-card: 8px;
-  --radius-btn: 8px;
-  --radius-input: 8px;
+  /* Text */
+  --text-primary: #0F1720;
+  --text-secondary: #4F5965;
+  --text-muted: #69727D;
+  --text-disabled: #8A929B;
+  --text-inverse: #FFFFFF;
+
+  /* Borders */
+  --border-subtle: rgba(15, 23, 32, 0.08);
+  --border-default: rgba(15, 23, 32, 0.12);
+  --border-strong: rgba(15, 23, 32, 0.18);
+
+  /* Existing Radius System — MUST remain unchanged */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-card: 12px;
+  --radius-pill: 9999px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Shadows */
+  --shadow-sm:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.04);
+
+  --shadow-md:
+    0 4px 8px rgba(0, 0, 0, 0.04),
+    0 12px 28px rgba(0, 0, 0, 0.06);
+
+  --shadow-lg:
+    0 8px 16px rgba(0, 0, 0, 0.04),
+    0 24px 60px rgba(0, 0, 0, 0.08);
+
+  /* Motion */
+  --motion-instant: 150ms;
+  --motion-fast: 200ms;
+  --motion-base: 300ms;
+  --motion-slow: 500ms;
+
+  --ease-standard: cubic-bezier(.2, .8, .2, 1);
+  --ease-emphasized: cubic-bezier(.16, 1, .3, 1);
 }
 
-/* Dark Theme Overrides */
-html.dark, :root[data-theme="dark"] {
-  --bg-page: #05070a;
-  --bg-card: #0e1015;
-  --border-card: rgba(255, 255, 255, 0.12);
-  --gray-900: #FFFFFF;
-  --gray-500: #CBD5E1;
-  --brand: #88e31b;
+html[data-theme="dark"],
+html.dark {
+  --bg-page: #000000;
+  --surface: #0B0B0B;
+  --surface-secondary: #111111;
+  --surface-tertiary: #171717;
+  --surface-elevated: #141414;
+
+  --brand: #88E31B;
+  --brand-hover: #9BE835;
+  --brand-active: #78BE16;
+  --brand-soft: rgba(136, 227, 27, 0.12);
+  --brand-text: #88E31B;
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-disabled: #64748B;
+  --text-inverse: #000000;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  --shadow-sm:
+    0 2px 8px rgba(0, 0, 0, 0.24);
+
+  --shadow-md:
+    0 8px 24px rgba(0, 0, 0, 0.32);
+
+  --shadow-lg:
+    0 16px 48px rgba(0, 0, 0, 0.42);
 }
-```
-
-### B. Standardized Card Component Template
-
-```jsx
-<div className="p-8 rounded-2xl bg-white dark:bg-[#0e1015] border border-slate-200/90 dark:border-white/10 shadow-xl dark:shadow-2xl text-slate-900 dark:text-white transition-all duration-300 relative overflow-hidden">
-  {/* Ambient radial glow */}
-  <div className="absolute top-0 right-0 w-80 h-80 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-  
-  <div className="relative z-10">
-    <span className="inline-block px-3 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-[#88e31b] border border-emerald-200 dark:border-emerald-500/40 text-xs font-bold uppercase tracking-wider mb-3">
-      Specification Tag
-    </span>
-    <h3 className="text-xl sm:text-2xl font-black text-slate-950 dark:text-white tracking-tight">
-      Component Title
-    </h3>
-    <p className="text-slate-700 dark:text-slate-200 text-sm mt-2 leading-relaxed">
-      Detailed technical description goes here with full contrast readability.
-    </p>
-  </div>
-</div>
 ```
 
 ---
+
+# 48. Component Consistency Rules
+
+Every production component must use:
+
+* Semantic color tokens
+* Existing radius tokens
+* Defined typography tokens
+* Defined spacing tokens
+* Defined shadow tokens
+* Defined motion tokens
+* Explicit states
+* Responsive behavior
+* Keyboard behavior
+* Touch behavior
+* Overflow handling
+* Empty-state behavior where applicable
+
+Components must not introduce local visual systems.
+
+---
+
+# 49. Density Guidelines
+
+The marketing website should remain visually spacious.
+
+Known page-component density:
+
+```text
+Links       : 282
+Cards       : 81
+Buttons     : 26
+Lists       : 20
+Navigation  : 7
+Inputs      : 3
+```
+
+These counts must not result in visually dense layouts.
+
+Repeated components should be grouped into clear visual sections.
+
+---
+
+# 50. QA Checklist
+
+## Foundations
+
+* [ ] Correct font stack is used
+* [ ] Typography tokens are used
+* [ ] No arbitrary spacing values exist
+* [ ] Existing radius tokens remain unchanged
+* [ ] Semantic colors are used instead of raw colors
+
+## Cards
+
+* [ ] Card surfaces use correct elevation
+* [ ] Shadows remain subtle
+* [ ] Card heights remain stable
+* [ ] Images cannot overflow
+* [ ] Hover states are restrained
+
+## Buttons
+
+* [ ] Primary and secondary hierarchy is clear
+* [ ] Button text never disappears
+* [ ] Focus-visible state is visible
+* [ ] Hover state does not alter layout unexpectedly
+* [ ] Touch interaction works on mobile
+
+## Typography
+
+* [ ] Hero typography is responsive
+* [ ] Heading hierarchy is clear
+* [ ] Body copy remains readable
+* [ ] Letter spacing follows tokens
+* [ ] No random font sizes are introduced
+
+## Forms
+
+* [ ] Labels are accessible
+* [ ] Focus states are visible
+* [ ] Error messages are clear
+* [ ] Loading states preserve dimensions
+* [ ] Keyboard operation works
+
+## Responsive
+
+* [ ] Mobile content stacks correctly
+* [ ] Product imagery remains readable
+* [ ] CTA buttons remain accessible
+* [ ] Navigation remains usable
+* [ ] No horizontal overflow occurs
+
+## Accessibility
+
+* [ ] WCAG 2.2 AA requirements pass
+* [ ] Keyboard navigation works
+* [ ] Focus indicators remain visible
+* [ ] Contrast is verified
+* [ ] Reduced-motion behavior works
+* [ ] Images have appropriate alternative text
+
+## Performance
+
+* [ ] Images use responsive loading
+* [ ] Layout shift is minimized
+* [ ] Animations remain GPU-friendly
+* [ ] Shadows do not create excessive rendering cost
+* [ ] Off-screen content is not unnecessarily animated
+
+---
+
+# 51. Final Design Direction
+
+VISHAL ENTERPRISE must visually communicate:
+
+> **Industrial engineering with modern technology-company clarity.**
+
+The interface should feel:
+
+**Precise**
+**Spacious**
+**Premium**
+**Technical**
+**Reliable**
+**Sustainable**
+**Modern**
+**Quietly confident**
+
+The design system must preserve the existing VISHAL ENTERPRISE identity while adopting a softer, more editorial interface language inspired by modern technology-product design.
+
+The key transformation is:
+
+```text
+OLD
+
+Industrial
++ Dense
++ Border-heavy
++ Sharp
++ Dashboard-like
++ Aggressive hover effects
+
+                    ↓
+
+NEW
+
+Industrial
++ Spacious
++ Typography-led
++ Soft elevation
++ Product-focused
++ Restrained borders
++ Calm motion
++ Premium technology aesthetic
+```
+
+**The existing border-radius system remains unchanged and is the canonical radius system for the entire application.**
+
+---
+
 *End of Design System Documentation (`design.md`)*

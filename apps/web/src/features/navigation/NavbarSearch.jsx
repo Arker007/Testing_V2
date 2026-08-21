@@ -1,11 +1,28 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import styles from "./Navbar.module.css";
 
-export default function NavbarSearch({ products = [], onSearchSubmit }) {
+export default function NavbarSearch({
+  products = [],
+  onSearchSubmit,
+  isExpanded: controlledExpanded,
+  onExpandChange,
+}) {
   const [query, setQuery] = useState("");
   const [isFocused, setIsFocused] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [internalExpanded, setInternalExpanded] = useState(false);
+  const isExpanded =
+    controlledExpanded !== undefined ? controlledExpanded : internalExpanded;
+
+  const setExpandedState = useCallback(
+    (val) => {
+      setInternalExpanded(val);
+      if (onExpandChange) onExpandChange(val);
+    },
+    [onExpandChange]
+  );
+
   const containerRef = useRef(null);
   const inputRef = useRef(null);
   const navigate = useNavigate();
@@ -16,13 +33,13 @@ export default function NavbarSearch({ products = [], onSearchSubmit }) {
       if (containerRef.current && !containerRef.current.contains(e.target)) {
         setIsFocused(false);
         if (!query.trim()) {
-          setIsExpanded(false);
+          setExpandedState(false);
         }
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [query]);
+  }, [query, setExpandedState]);
 
   // Collapse on Escape key if empty
   useEffect(() => {
@@ -30,14 +47,14 @@ export default function NavbarSearch({ products = [], onSearchSubmit }) {
       if (e.key === "Escape") {
         setIsFocused(false);
         if (!query.trim()) {
-          setIsExpanded(false);
+          setExpandedState(false);
         }
         inputRef.current?.blur();
       }
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [query]);
+  }, [query, setExpandedState]);
 
   // Filter matching products (only when user starts typing)
   const matchingProducts = useMemo(() => {
@@ -58,6 +75,7 @@ export default function NavbarSearch({ products = [], onSearchSubmit }) {
     if (query.trim()) {
       navigate(`/products?search=${encodeURIComponent(query.trim())}`);
       setIsFocused(false);
+      setExpandedState(false);
       if (onSearchSubmit) onSearchSubmit();
     }
   };
@@ -65,7 +83,7 @@ export default function NavbarSearch({ products = [], onSearchSubmit }) {
   const handleIconClick = (e) => {
     if (!isExpanded) {
       e.preventDefault();
-      setIsExpanded(true);
+      setExpandedState(true);
       setTimeout(() => {
         inputRef.current?.focus();
       }, 50);
@@ -76,20 +94,25 @@ export default function NavbarSearch({ products = [], onSearchSubmit }) {
     navigate(`/product/${id}`);
     setIsFocused(false);
     setQuery("");
-    setIsExpanded(false);
+    setExpandedState(false);
     if (onSearchSubmit) onSearchSubmit();
   };
 
   const clearSearch = () => {
     setQuery("");
-    setIsExpanded(false);
+    setExpandedState(false);
     setIsFocused(false);
   };
 
   const showDropdown = isFocused && query.trim().length > 0;
 
   return (
-    <div className={styles.searchWrapper} ref={containerRef}>
+    <div
+      className={`${styles.searchWrapper} ${
+        isExpanded ? styles.searchWrapperExpanded : ""
+      }`}
+      ref={containerRef}
+    >
       <form
         onSubmit={handleSubmit}
         className={`${styles.search} ${
@@ -99,10 +122,10 @@ export default function NavbarSearch({ products = [], onSearchSubmit }) {
         <button
           type={isExpanded ? "submit" : "button"}
           onClick={handleIconClick}
-          className={styles.searchSubmitBtn}
+          className={`${styles.searchSubmitBtn} text-slate-500 dark:text-slate-300`}
           aria-label={isExpanded ? "Submit search" : "Open search bar"}
         >
-          <i className="fa-solid fa-magnifying-glass" />
+          <Icon icon="solar:magnifer-linear" className="w-4 h-4" />
         </button>
 
         <input
@@ -114,22 +137,29 @@ export default function NavbarSearch({ products = [], onSearchSubmit }) {
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => {
             setIsFocused(true);
-            setIsExpanded(true);
+            setExpandedState(true);
           }}
           aria-label="Search products"
           autoComplete="off"
-          className="focus:outline-none focus:ring-0 border-none bg-transparent shadow-none"
+          style={{
+            outline: "none",
+            border: "none",
+            boxShadow: "none",
+            background: "transparent",
+            WebkitAppearance: "none",
+          }}
+          className="w-full bg-transparent border-0 outline-none focus:outline-none focus:ring-0 focus:border-0 shadow-none text-sm font-medium text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-300"
         />
 
         {isExpanded && (
           <button
             type="button"
             onClick={clearSearch}
-            className={styles.searchClearBtn}
+            className={`${styles.searchClearBtn} text-slate-500 dark:text-slate-300`}
             title="Close"
             aria-label="Close search"
           >
-            <i className="fa-solid fa-xmark" />
+            <Icon icon="solar:close-circle-bold" className="w-4 h-4" />
           </button>
         )}
       </form>
@@ -182,7 +212,7 @@ export default function NavbarSearch({ products = [], onSearchSubmit }) {
                 onClick={handleSubmit}
               >
                 <span>View all results for &ldquo;{query.trim()}&rdquo;</span>
-                <i className="fa-solid fa-arrow-right" />
+                <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
               </button>
             </>
           ) : (

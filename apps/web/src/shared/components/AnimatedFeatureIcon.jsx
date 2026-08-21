@@ -1,10 +1,12 @@
 import React from "react";
+/* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
-import { Droplets, Sun, ShieldCheck, Wrench } from "lucide-react";
+/* eslint-enable no-unused-vars */
+import { Icon } from "@iconify/react";
 
 const iconMap = {
   waterproof: {
-    Icon: Droplets,
+    icon: "solar:cloud-waterdrop-linear",
     variants: {
       hover: {
         y: [0, -3, 0],
@@ -13,7 +15,7 @@ const iconMap = {
     }
   },
   uv: {
-    Icon: Sun,
+    icon: "solar:sun-2-linear",
     variants: {
       hover: {
         rotate: 360,
@@ -22,7 +24,7 @@ const iconMap = {
     }
   },
   termite: {
-    Icon: ShieldCheck,
+    icon: "solar:shield-check-linear",
     variants: {
       hover: {
         scale: [1, 1.15, 1],
@@ -31,7 +33,7 @@ const iconMap = {
     }
   },
   maintenance: {
-    Icon: Wrench,
+    icon: "solar:wrench-linear",
     variants: {
       hover: {
         rotate: [0, 15, -15, 15, 0],
@@ -45,6 +47,9 @@ export const AnimatedFeatureIcon = React.memo(function AnimatedFeatureIcon({ typ
   const config = iconMap[type];
   if (!config) return null;
 
-  const MotionIcon = motion.create(config.Icon);
-  return <MotionIcon className="w-4 h-4 text-[#98d12a]" variants={config.variants} />;
+  return (
+    <motion.span className="inline-flex items-center justify-center" variants={config.variants}>
+      <Icon icon={config.icon} className="w-4 h-4 text-[#98d12a]" />
+    </motion.span>
+  );
 });

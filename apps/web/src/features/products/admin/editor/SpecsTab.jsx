@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import styles from "../../../admin/components/AdminTable.module.css";
 
 export default function SpecsTab({
@@ -13,7 +14,7 @@ export default function SpecsTab({
   return (
     <div>
       <div className={styles.formSectionTitle} style={{ marginTop: 0 }}>
-        <i className="fa-solid fa-gears" /> Category Specification Matrix
+        <Icon icon="solar:settings-linear" className="w-4 h-4 mr-1 inline" /> Category Specification Matrix
       </div>
       {filteredCatFields.length > 0 ? (
         <div
@@ -61,14 +62,14 @@ export default function SpecsTab({
             marginBottom: "32px",
           }}
         >
-          <i className="fa-solid fa-circle-info" /> Select a category tree
+          <Icon icon="solar:info-circle-linear" className="w-4 h-4 mr-1 inline" /> Select a category tree
           directory on the Core Details tab to unlock product specification
           attributes.
         </div>
       )}
 
       <div className={styles.formSectionTitle}>
-        <i className="fa-solid fa-list-check" /> Core Bullet Features
+        <Icon icon="solar:checklist-minimalistic-linear" className="w-4 h-4 mr-1 inline" /> Core Bullet Features
       </div>
       <p
         style={{
@@ -116,7 +117,7 @@ export default function SpecsTab({
               }}
               title="Drag to reorder"
             >
-              <i className="fa-solid fa-grip-vertical" />
+              <Icon icon="solar:hamburger-menu-linear" className="w-4 h-4" />
             </div>
             <input
               className={styles.formInput}
@@ -141,7 +142,7 @@ export default function SpecsTab({
                 }))
               }
             >
-              <i className="fa-solid fa-trash" />
+              <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />
             </button>
           </div>
         ))}
@@ -156,7 +157,7 @@ export default function SpecsTab({
             }))
           }
         >
-          <i className="fa-solid fa-plus" /> Add Highlight Feature
+          <Icon icon="solar:add-circle-linear" className="w-4 h-4 mr-1 inline" /> Add Highlight Feature
         </button>
       </div>
     </div>

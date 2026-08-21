@@ -1,5 +1,5 @@
 import React from "react";
-import { BellRing, CheckCheck, Sparkles, Activity } from "lucide-react";
+import { Icon } from "@iconify/react";
 
 export default function AdminNotificationsDropdown({
   showNotifDropdown,
@@ -39,7 +39,7 @@ export default function AdminNotificationsDropdown({
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <BellRing size={16} className="text-[var(--brand)]" />
+          <Icon icon="solar:bell-bing-linear" className="w-4 h-4 text-[var(--brand)]" />
           <span
             style={{ fontWeight: 800, fontSize: "0.85rem", color: "var(--ink)" }}
           >
@@ -66,7 +66,7 @@ export default function AdminNotificationsDropdown({
               gap: "4px",
             }}
           >
-            <CheckCheck size={12} /> Mark read
+            <Icon icon="solar:check-read-linear" className="w-3.5 h-3.5" /> Mark read
           </button>
         )}
       </div>
@@ -81,9 +81,9 @@ export default function AdminNotificationsDropdown({
               fontSize: "0.8rem",
             }}
           >
-            <Sparkles
-              size={24}
-              style={{ margin: "0 auto 8px", color: "var(--text-muted)" }}
+            <Icon
+              icon="solar:stars-linear"
+              className="w-6 h-6 mx-auto mb-2 text-slate-400"
             />
             No new notifications
           </div>
@@ -198,7 +198,7 @@ export default function AdminNotificationsDropdown({
             width: "100%",
           }}
         >
-          <Activity size={12} /> View all system logs
+          <Icon icon="solar:pulse-linear" className="w-3.5 h-3.5" /> View all system logs
         </button>
       </div>
     </div>

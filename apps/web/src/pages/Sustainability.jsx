@@ -2,7 +2,7 @@ import React from "react";
 import useDocumentTitle from "../shared/hooks/useDocumentTitle";
 import { useSite } from "../shared/context/SiteContext";
 import SustainabilitySection from "../features/home/SustainabilitySection";
-import { Leaf, Trees, Globe, ArrowRight } from "lucide-react";
+import { Icon } from "@iconify/react";
 import styles from "./About.module.css";
 import Card from "../shared/components/ui/Card";
 import Badge from "../shared/components/ui/Badge";
@@ -58,7 +58,9 @@ export default function Sustainability() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-slate-50 dark:bg-[#171E26] p-6 rounded-lg border border-slate-200/90 dark:border-white/10 transition hover:-translate-y-1 hover:shadow-md duration-300">
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
-                <Trees className="w-5 h-5" />
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L4.5 12.5H7.5L3.5 17.5H8V22H16V17.5H20.5L16.5 12.5H19.5L12 2Z" />
+                </svg>
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Zero Deforestation</h3>
               <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
@@ -68,7 +70,7 @@ export default function Sustainability() {
 
             <div className="bg-slate-50 dark:bg-[#171E26] p-6 rounded-lg border border-slate-200/90 dark:border-white/10 transition hover:-translate-y-1 hover:shadow-md duration-300">
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
-                <Leaf className="w-5 h-5" />
+                <Icon icon="solar:leaf-linear" className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Carbon Avoidance</h3>
               <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
@@ -78,7 +80,7 @@ export default function Sustainability() {
 
             <div className="bg-slate-50 dark:bg-[#171E26] p-6 rounded-lg border border-slate-200/90 dark:border-white/10 transition hover:-translate-y-1 hover:shadow-md duration-300">
               <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
-                <Globe className="w-5 h-5" />
+                <Icon icon="solar:global-linear" className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">100% Recyclable</h3>
               <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
@@ -118,7 +120,7 @@ export default function Sustainability() {
                 as="link"
                 to="/contact?source=sustainability"
                 variant="swipe"
-                icon={<ArrowRight className="w-4 h-4" />}
+                icon={<Icon icon="solar:arrow-right-linear" className="w-4 h-4" />}
                 className="shadow-md"
               >
                 Explore ESG Solutions

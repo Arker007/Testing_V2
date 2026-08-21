@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./AdminLayout.module.css";
-import { Globe, LogOut, Zap } from "lucide-react";
+import { Icon } from "@iconify/react";
 import { NAV_ITEMS } from "./adminNav.constants";
 
 export default function AdminSidebar({
@@ -23,7 +23,7 @@ export default function AdminSidebar({
             </div>
           ) : (
             <div className={styles.logoIcon}>
-              <Zap size={18} strokeWidth={2.5} />
+              <Icon icon="solar:bolt-linear" className="w-5 h-5 text-white" />
             </div>
           )}
           {sidebarOpen && (
@@ -38,7 +38,7 @@ export default function AdminSidebar({
 
         <nav className={styles.nav}>
           {NAV_ITEMS.map((n) => {
-            const Icon = n.icon;
+            const iconName = typeof n.icon === "string" ? n.icon : "solar:box-minimalistic-linear";
             return (
               <NavLink
                 key={n.path}
@@ -50,9 +50,8 @@ export default function AdminSidebar({
                 data-label={n.label}
               >
                 <Icon
-                  className={styles.navIcon}
-                  size={18}
-                  strokeWidth={2.2}
+                  icon={iconName}
+                  className={`${styles.navIcon} w-4.5 h-4.5`}
                 />
                 {sidebarOpen && <span>{n.label}</span>}
               </NavLink>
@@ -70,7 +69,7 @@ export default function AdminSidebar({
           title="View Website"
           data-label="View Website"
         >
-          <Globe className={styles.navIcon} size={18} strokeWidth={2.2} />
+          <Icon icon="solar:global-linear" className={`${styles.navIcon} w-4.5 h-4.5`} />
           {sidebarOpen && <span>View Website</span>}
         </a>
         <button
@@ -79,7 +78,7 @@ export default function AdminSidebar({
           data-label="Logout"
           onClick={logout}
         >
-          <LogOut className={styles.navIcon} size={18} strokeWidth={2.2} />
+          <Icon icon="solar:logout-2-linear" className={`${styles.navIcon} w-4.5 h-4.5`} />
           {sidebarOpen && <span>Logout</span>}
         </button>
       </div>

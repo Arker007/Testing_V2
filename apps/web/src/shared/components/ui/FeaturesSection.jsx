@@ -1,82 +1,62 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import { useSite } from "../../context/SiteContext";
 import Card from "./Card";
-
-// Minimal vector SVG icons for top strip
-function QualityIcon() {
-  return (
-    <svg className="w-10 h-10 md:w-12 md:h-12" style={{ color: "var(--brand)" }} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="8" y="6" width="32" height="24" rx="3" stroke="currentColor" strokeWidth="2.5" />
-      <path d="M16 18L22 24L32 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M18 30L14 42L24 37L34 42L30 30" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function CustomIcon() {
-  return (
-    <svg className="w-10 h-10 md:w-12 md:h-12" style={{ color: "var(--brand)" }} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 36L8 40V32L28 12C30 10 33 10 35 12L36 13C38 15 38 18 36 20L16 40H12Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M24 16L32 24" stroke="currentColor" strokeWidth="2.5" />
-      <path d="M6 42H42" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function EcoIcon() {
-  return (
-    <svg className="w-10 h-10 md:w-12 md:h-12" style={{ color: "var(--brand)" }} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M38 10C24 10 12 20 12 36C28 36 38 24 38 10Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-      <path d="M12 36L24 24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M6 36C6 36 12 28 20 28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function RoiIcon() {
-  return (
-    <svg className="w-10 h-10 md:w-12 md:h-12" style={{ color: "var(--brand)" }} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8 38L18 26L28 32L40 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M30 14H40V24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="2" strokeDasharray="3 3" opacity="0.4" />
-    </svg>
-  );
-}
 
 export default function FeaturesSection() {
   const { c } = useSite();
 
   const features = [
     {
-      icon: <QualityIcon />,
-      title: c("why_us_f1_title", "QUALITY CONTROL PROCESS"),
+      icon: (
+        <Icon
+          icon="solar:verified-check-linear"
+          className="w-7 h-7 text-emerald-600 dark:text-emerald-400"
+        />
+      ),
+      title: c("why_us_f1_title", "Quality Control Process"),
       desc: c(
         "why_us_f1_desc",
-        "We Ensure Superior Quality Products By Rigorously Testing HDPE Polymer Profiles For Tensile Strength, Structural Stability, Density, And Environmental Weather Durability."
+        "We ensure superior quality products by rigorously testing HDPE polymer profiles for tensile strength, density, structural stability, and weather durability."
       ),
     },
     {
-      icon: <CustomIcon />,
-      title: c("why_us_f2_title", "CUSTOM SOLUTION DESIGN"),
+      icon: (
+        <Icon
+          icon="solar:settings-minimalistic-linear"
+          className="w-7 h-7 text-emerald-600 dark:text-emerald-400"
+        />
+      ),
+      title: c("why_us_f2_title", "Custom Solution Design"),
       desc: c(
         "why_us_f2_desc",
-        "Tailored Recycled Polymer Lumber Dimensions, Steel Core Reinforcements, Custom Colors, Grain Textures, And Heavy-Duty Racking Designs Available Upon Request."
+        "Tailored recycled polymer lumber dimensions, steel core reinforcements, custom colors, grain textures, and heavy-duty designs available upon request."
       ),
     },
     {
-      icon: <EcoIcon />,
-      title: c("why_us_f3_title", "ECO-FRIENDLY RECYCLED PLASTIC"),
+      icon: (
+        <Icon
+          icon="solar:leaf-linear"
+          className="w-7 h-7 text-emerald-600 dark:text-emerald-400"
+        />
+      ),
+      title: c("why_us_f3_title", "Eco-Friendly Recycled Plastic"),
       desc: c(
         "why_us_f3_desc",
-        "100% Recycled HDPE Material Diversion Preventing Marine Landfill Plastic Waste. Sustainable Alternative Replacing Timber & Steel Without Environmental Degradation."
+        "100% recycled HDPE material diversion preventing landfill & marine plastic waste. A sustainable alternative replacing timber & steel."
       ),
     },
     {
-      icon: <RoiIcon />,
-      title: c("why_us_f4_title", "COST SAVINGS & ROI"),
+      icon: (
+        <Icon
+          icon="solar:graph-up-linear"
+          className="w-7 h-7 text-emerald-600 dark:text-emerald-400"
+        />
+      ),
+      title: c("why_us_f4_title", "Cost Savings & ROI"),
       desc: c(
         "why_us_f4_desc",
-        "Durable Long-Life Span With Zero Splintering, Rotting, Painting, Or Termite Maintenance. Delivers Outstanding Long-Term Return On Investment."
+        "Durable long-life span with zero splintering, rotting, painting, or termite maintenance. Delivers outstanding long-term return on investment."
       ),
     },
   ];
@@ -94,26 +74,24 @@ export default function FeaturesSection() {
         {/* Top 4 Features Panel */}
         <Card
           variant="default"
-          className="py-10 px-6 md:px-12 mb-12 md:mb-16 shadow-xs"
+          className="py-10 px-6 md:px-12 mb-12 md:mb-16 shadow-sm border border-slate-200/80 dark:border-white/10"
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-8 text-center">
             {features.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center text-center px-2"
+                className="group flex flex-col items-center text-center px-2"
               >
-                <div className="mb-4">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300">
                   {item.icon}
                 </div>
                 <h3
-                  style={{ color: "var(--heading, #0f172a)" }}
-                  className="text-xs md:text-[13px] font-bold tracking-widest uppercase mb-3"
+                  className="text-sm md:text-base font-bold tracking-tight uppercase mb-2.5 text-slate-900 dark:text-white"
                 >
                   {item.title}
                 </h3>
                 <p
-                  style={{ color: "var(--text-secondary, #475569)" }}
-                  className="text-[11px] leading-relaxed font-normal max-w-[260px] mx-auto uppercase"
+                  className="text-xs sm:text-[13px] leading-relaxed font-normal text-slate-600 dark:text-slate-300 max-w-[270px] mx-auto"
                 >
                   {item.desc}
                 </p>

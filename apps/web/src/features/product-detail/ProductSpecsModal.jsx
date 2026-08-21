@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import styles from "../../pages/ProductDetail.module.css";
 
 export const ProductSpecsModal = React.memo(function ProductSpecsModal({
@@ -22,7 +23,7 @@ export const ProductSpecsModal = React.memo(function ProductSpecsModal({
             className={styles.closeBtn}
             aria-label="Close modal"
           >
-            <i className="fa-solid fa-xmark" />
+            <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
           </button>
         </div>
 
@@ -54,7 +55,7 @@ export const ProductSpecsModal = React.memo(function ProductSpecsModal({
             className="btn btn--outline"
             style={{ flex: 1, justifyContent: "center" }}
           >
-            <i className="fa-solid fa-print" /> Print Specs
+            <Icon icon="solar:printer-linear" className="w-4 h-4 mr-1.5 inline" /> Print Specs
           </button>
           <button
             type="button"

@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ChevronRight, Eye } from "lucide-react";
+import { Icon } from "@iconify/react";
 import OptimizedImage from "../../shared/components/OptimizedImage";
 import styles from "../../pages/Products.module.css";
 
@@ -67,7 +67,7 @@ export default function ProductListItemCard({
         <motion.div whileTap={{ scale: 0.97 }}>
           <Link to={`/products/${product.id}`} className={styles.detailsBtn}>
             <span>View Details</span>
-            <ChevronRight size={15} />
+            <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4" />
           </Link>
         </motion.div>
         <motion.button
@@ -79,7 +79,7 @@ export default function ProductListItemCard({
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.92 }}
         >
-          <Eye size={16} />
+          <Icon icon="solar:eye-linear" className="w-4 h-4" />
         </motion.button>
       </div>
     </motion.article>

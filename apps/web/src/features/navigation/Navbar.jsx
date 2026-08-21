@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { Sun, Moon } from "lucide-react";
+import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 import { STATIC_CATEGORIES } from "../../data/home";
 import QuoteButton from "../../shared/components/QuoteButton";
@@ -14,6 +14,7 @@ export default function Navbar() {
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const [categories, setCategories] = useState(STATIC_CATEGORIES);
   const [products, setProducts] = useState([]);
   const { pathname } = useLocation();
@@ -68,6 +69,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setOpen(false);
+    setIsSearchExpanded(false);
     setScrolled(window.scrollY > 40);
   }, [pathname, setOpen]);
 
@@ -92,6 +94,7 @@ export default function Navbar() {
     if (searchQuery.trim()) {
       navigate(`/products?search=${encodeURIComponent(searchQuery.trim())}`);
       setSearchQuery("");
+      setIsSearchExpanded(false);
       setOpen(false);
     }
   };
@@ -129,7 +132,10 @@ export default function Navbar() {
             </div>
 
             {/* Navigation Links */}
-            <nav className={styles.links} aria-label="Main navigation">
+            <nav
+              className={`${styles.links} ${isSearchExpanded ? styles.linksHidden : ""}`}
+              aria-label="Main navigation"
+            >
               <NavLink
                 to="/"
                 end
@@ -184,11 +190,16 @@ export default function Navbar() {
             </nav>
 
             {/* Action slots & Hamburger */}
-            <div className={styles.actions}>
+            <div className={`${styles.actions} ${isSearchExpanded ? styles.actionsExpanded : ""}`}>
               <NavbarSearch
                 products={products}
                 categories={categories}
-                onSearchSubmit={() => setOpen(false)}
+                isExpanded={isSearchExpanded}
+                onExpandChange={setIsSearchExpanded}
+                onSearchSubmit={() => {
+                  setIsSearchExpanded(false);
+                  setOpen(false);
+                }}
               />
 
               <button
@@ -199,9 +210,9 @@ export default function Navbar() {
                 title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
               >
                 {theme === "dark" ? (
-                  <Sun className="w-4 h-4 text-amber-400" />
+                  <Icon icon="solar:sun-2-linear" className="w-5 h-5 text-amber-400" />
                 ) : (
-                  <Moon className="w-4 h-4 text-slate-700" />
+                  <Icon icon="solar:moon-linear" className="w-5 h-5 text-slate-700" />
                 )}
               </button>
 
@@ -219,7 +230,10 @@ export default function Navbar() {
                 aria-label="Toggle navigation menu"
                 aria-expanded={open}
               >
-                <i className={open ? "fa-solid fa-xmark" : "fa-solid fa-bars"} />
+                <Icon
+                  icon={open ? "solar:close-circle-linear" : "solar:hamburger-menu-linear"}
+                  className="w-5 h-5"
+                />
               </button>
             </div>
           </div>
@@ -246,7 +260,7 @@ export default function Navbar() {
         className={styles.floatingWa}
         aria-label="Chat on WhatsApp"
       >
-        <i className="fa-brands fa-whatsapp" />
+        <Icon icon="logos:whatsapp-icon" className="text-xl" />
         <span>WhatsApp</span>
       </a>
     </>

@@ -1,20 +1,20 @@
 import React from "react";
-import { ShieldCheck, Layers, Award } from "lucide-react";
+import { Icon } from "@iconify/react";
 import styles from "../../pages/Products.module.css";
 
 const procurementItems = [
   {
-    icon: ShieldCheck,
+    icon: "solar:shield-check-linear",
     title: "Dimensional Tolerance Control",
     desc: "Extrusion section control to maintain exact section dimensions and structural density across volume orders.",
   },
   {
-    icon: Layers,
+    icon: "solar:layers-minimalistic-linear",
     title: "Scheduled Batch Dispatch",
     desc: "Streamlined inventory and logistics support for recurring OEM production schedules and pan-India distribution.",
   },
   {
-    icon: Award,
+    icon: "solar:medal-ribbons-star-linear",
     title: "Technical Consultation",
     desc: "Direct access to polymer extrusion engineers to determine exact load calculations and profile selection.",
   },
@@ -33,11 +33,10 @@ export default function ProcurementAdvantage() {
 
       <div className={styles.procurementGrid}>
         {procurementItems.map((item, idx) => {
-          const IconComp = item.icon;
           return (
             <article key={idx} className={styles.procurementCard}>
               <div className={styles.procurementIcon}>
-                <IconComp size={22} />
+                <Icon icon={item.icon} className="w-6 h-6" />
               </div>
               <h3>{item.title}</h3>
               <p>{item.desc}</p>

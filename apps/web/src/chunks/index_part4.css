@@ -177,29 +177,7 @@ input[type="reset"] {
 a.btn::after,
 button.btn::after,
 .magic-shimmer-btn::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  bottom: -50%;
-  width: 50px;
-  left: -60%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--text-inverse-muted) 50%,
-    transparent 100%
-  );
-  transform: rotate(25deg);
-  pointer-events: none;
-  transition: left 0.8s ease;
-  z-index: 2;
-}
-
-.btn:hover::after,
-a.btn:hover::after,
-button.btn:hover::after,
-.magic-shimmer-btn:hover::after {
-  left: 130%;
+  display: none !important;
 }
 
 /* Universal Arrow Icon Animation in Standard Buttons */

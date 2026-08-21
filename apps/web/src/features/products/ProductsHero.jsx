@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Recycle, ShieldCheck, Truck, ChevronRight } from "lucide-react";
+import { Icon } from "@iconify/react";
 import styles from "../../pages/Products.module.css";
 
 export default function ProductsHero({ activeCategory }) {
@@ -19,11 +19,11 @@ export default function ProductsHero({ activeCategory }) {
           transition={{ duration: 0.3 }}
         >
           <Link to="/">Home</Link>
-          <ChevronRight size={12} className={styles.breadcrumbSep} />
+          <Icon icon="solar:alt-arrow-right-linear" className={`${styles.breadcrumbSep} w-3 h-3 inline`} />
           <span>Catalog</span>
           {activeCategory && activeCategory !== "All" && (
             <>
-              <ChevronRight size={12} className={styles.breadcrumbSep} />
+              <Icon icon="solar:alt-arrow-right-linear" className={`${styles.breadcrumbSep} w-3 h-3 inline`} />
               <span className={styles.breadcrumbActive}>{activeCategory}</span>
             </>
           )}
@@ -36,58 +36,18 @@ export default function ProductsHero({ activeCategory }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, delay: 0.05 }}
           >
-            <div className={styles.heroEyebrow}>
-              <span className={styles.eyebrowDot} />
-              <span>SUSTAINABLE POLYMER MANUFACTURING</span>
-            </div>
+            <span className={styles.heroTagline}>SUSTAINABLE POLYMER MANUFACTURING</span>
             <h1 className={styles.heroTitle}>
-              Recycled Plastic <br className="hidden sm:inline" />
-              <span className={styles.heroTitleAccent}>Lumber & Pallet Catalog</span>
+              Recycled Plastic <span className={styles.heroTitleAccent}>Lumber & Pallet Catalog</span>
             </h1>
             <p className={styles.heroDescription}>
               Engineered industrial profiles, heavy-duty logistics pallets, municipal benches,
               and custom extruded profiles built from 100% post-consumer plastic. Zero rot, maintenance-free, and weather-proof.
             </p>
           </motion.div>
-
-          <motion.div
-            className={styles.heroStatsCol}
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, delay: 0.12 }}
-          >
-            <div className={styles.statBox}>
-              <div className={styles.statIconWrapper}>
-                <Recycle size={20} />
-              </div>
-              <div>
-                <span className={styles.statVal}>100%</span>
-                <span className={styles.statLabel}>Recycled Plastic</span>
-              </div>
-            </div>
-
-            <div className={styles.statBox}>
-              <div className={styles.statIconWrapper}>
-                <ShieldCheck size={20} />
-              </div>
-              <div>
-                <span className={styles.statVal}>Zero Rot</span>
-                <span className={styles.statLabel}>Weather & Termite Proof</span>
-              </div>
-            </div>
-
-            <div className={styles.statBox}>
-              <div className={styles.statIconWrapper}>
-                <Truck size={20} />
-              </div>
-              <div>
-                <span className={styles.statVal}>Bulk Dispatch</span>
-                <span className={styles.statLabel}>Pan-India B2B Supply</span>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </header>
   );
 }
+

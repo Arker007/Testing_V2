@@ -1,5 +1,5 @@
 import React from "react";
-import { Search, ChevronRight } from "lucide-react";
+import { Icon } from "@iconify/react";
 import { NAV_ITEMS } from "./adminNav.constants";
 
 export default function AdminCommandPalette({
@@ -51,7 +51,7 @@ export default function AdminCommandPalette({
             gap: "12px",
           }}
         >
-          <Search size={20} className="text-slate-400" />
+          <Icon icon="solar:magnifer-linear" className="w-5 h-5 text-slate-400" />
           <input
             type="text"
             placeholder="Type a command or page name..."
@@ -109,7 +109,7 @@ export default function AdminCommandPalette({
             </div>
           ) : (
             filteredNavs.map((n) => {
-              const Icon = n.icon;
+              const iconName = typeof n.icon === "string" ? n.icon : "solar:box-minimalistic-linear";
               return (
                 <button
                   key={n.path}
@@ -131,7 +131,7 @@ export default function AdminCommandPalette({
                     textAlign: "left",
                     transition: "background 0.15s",
                   }}
-                  className="hover:bg-slate-100"
+                  className="hover:bg-slate-100 dark:hover:bg-slate-800"
                 >
                   <div
                     style={{
@@ -140,7 +140,7 @@ export default function AdminCommandPalette({
                       gap: "12px",
                     }}
                   >
-                    <Icon size={18} className="text-slate-600" />
+                    <Icon icon={iconName} className="w-4.5 h-4.5 text-slate-600 dark:text-slate-300" />
                     <span
                       style={{
                         fontSize: "0.875rem",
@@ -151,7 +151,7 @@ export default function AdminCommandPalette({
                       {n.label}
                     </span>
                   </div>
-                  <ChevronRight size={16} className="text-slate-400" />
+                  <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 text-slate-400" />
                 </button>
               );
             })

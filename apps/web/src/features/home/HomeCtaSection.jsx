@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import QuoteButton from "../../shared/components/QuoteButton";
 import Card from "../../shared/components/ui/Card";
 import Badge from "../../shared/components/ui/Badge";
@@ -16,11 +17,9 @@ export default function HomeCtaSection() {
             <div className={styles.testimonialSliderBox}>
               <div className={styles.testimonialSlide}>
                 <div className={styles.starsRow}>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Icon key={s} icon="solar:star-linear" className="text-amber-500 w-4 h-4 inline" />
+                  ))}
                 </div>
                 <p className={styles.testimonialQuote}>
                   "{c("home_testimonial_quote", `Switching our facility handling platforms over to ${co("name", "VISHAL ENTERPRISE")}'s high-capacity recycled plastic pallets eliminated our recurring replacement budget entirely. They handle heavy racking cycles flawlessly without a single crack.`)}"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { X, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Icon } from "@iconify/react";
 import { useInquiry } from "../hooks/useInquiry";
 import styles from "./InquiryModal.module.css";
 
@@ -45,7 +45,7 @@ export default function InquiryModal({ product, onClose }) {
           className={styles.modalCloseBtn}
           aria-label="Close"
         >
-          <X size={18} />
+          <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
         </button>
 
         <div className={styles.modalHeader}>
@@ -59,7 +59,7 @@ export default function InquiryModal({ product, onClose }) {
 
         {success ? (
           <div className={styles.successState}>
-            <CheckCircle size={48} className={styles.successIcon} />
+            <Icon icon="solar:check-circle-linear" className={`${styles.successIcon} w-12 h-12 text-emerald-500`} />
             <h3 className={styles.successTitle}>Inquiry Submitted!</h3>
             <p className={styles.successSub}>
               Our sales team will contact you with pricing and product specifications within 2 hours.
@@ -173,7 +173,7 @@ export default function InquiryModal({ product, onClose }) {
 
             {error && (
               <div className={styles.errorBanner}>
-                <AlertCircle size={14} />
+                <Icon icon="solar:danger-triangle-linear" className="w-4 h-4" />
                 <span>{error}</span>
               </div>
             )}
@@ -185,7 +185,7 @@ export default function InquiryModal({ product, onClose }) {
             >
               {submitting ? (
                 <>
-                  <Loader2 size={16} className="animate-spin" />
+                  <Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin" />
                   <span>Submitting Inquiry...</span>
                 </>
               ) : (

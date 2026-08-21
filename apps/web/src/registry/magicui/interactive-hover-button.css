@@ -1,0 +1,103 @@
+/* ─── Magic UI Interactive Hover Button ───────────────────── */
+.interactive-hover-button {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  height: 42px !important;
+  padding: 0 22px !important;
+  border-radius: 9999px !important; /* Force pill shape */
+  border: 1px solid var(--border-subtle, #DADADA) !important;
+  background-color: var(--bg-card, #FFFFFF);
+  color: var(--text-primary, #0B2F63);
+  font-family: var(--font-family-primary, 'Noto Sans', sans-serif) !important;
+  font-weight: 700 !important;
+  font-size: 0.875rem !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 1px 3px var(--shadow-sm, rgba(0, 0, 0, 0.05)) !important;
+  user-select: none !important;
+  white-space: nowrap !important;
+  line-height: 1 !important;
+  z-index: 1 !important;
+}
+
+/* Background expansion dot */
+.interactive-hover-button-dot {
+  position: absolute !important;
+  left: 14px !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background-color: var(--brand, #77D986) !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease !important;
+  transform: scale(1) !important;
+  transform-origin: center !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+/* Text Label - Always 100% visible and legible, never disappearing */
+.interactive-hover-button-text {
+  display: inline-block !important;
+  position: relative !important;
+  z-index: 2 !important;
+  margin-left: 10px !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
+  transform: translateX(0) !important;
+  color: inherit !important;
+  opacity: 1 !important;
+}
+
+/* Arrow container that slides in on hover */
+.interactive-hover-button-arrow-wrap {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  z-index: 2 !important;
+  width: 0 !important;
+  opacity: 0 !important;
+  transform: translateX(-8px) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden !important;
+}
+
+.interactive-hover-button-arrow {
+  width: 16px !important;
+  height: 16px !important;
+  stroke-width: 2.5 !important;
+  color: #090D16 !important;
+  flex-shrink: 0 !important;
+}
+
+/* Hover States */
+.interactive-hover-button:hover {
+  border-color: var(--brand, #77D986) !important;
+  color: #090D16 !important; /* High contrast crisp black on green background */
+  box-shadow: 0 4px 16px rgba(119, 217, 134, 0.3) !important;
+}
+
+.interactive-hover-button:hover .interactive-hover-button-dot {
+  transform: scale(60) !important;
+  background-color: var(--brand, #77D986) !important;
+}
+
+.interactive-hover-button:hover .interactive-hover-button-text {
+  color: #090D16 !important;
+  transform: translateX(-2px) !important;
+}
+
+.interactive-hover-button:hover .interactive-hover-button-arrow-wrap {
+  width: 18px !important;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.interactive-hover-button:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}

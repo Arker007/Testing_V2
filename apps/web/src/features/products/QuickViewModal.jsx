@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronRight, CheckCircle2 } from "lucide-react";
+import { Icon } from "@iconify/react";
 import OptimizedImage from "../../shared/components/OptimizedImage";
 import QuoteButton from "../../shared/components/QuoteButton";
 import styles from "../../pages/Products.module.css";
@@ -64,7 +64,7 @@ export default function QuickViewModal({
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.92 }}
             >
-              <X size={18} />
+              <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
             </motion.button>
 
             <div className={styles.modalHeaderRow}>
@@ -111,11 +111,11 @@ export default function QuickViewModal({
             {/* Highlights List */}
             <div className={styles.modalHighlights}>
               <div className={styles.highlightItem}>
-                <CheckCircle2 size={14} className={styles.checkIcon} />
+                <Icon icon="solar:check-circle-linear" className={`${styles.checkIcon} w-4 h-4 text-emerald-500`} />
                 <span>Water, termite & rot proof section</span>
               </div>
               <div className={styles.highlightItem}>
-                <CheckCircle2 size={14} className={styles.checkIcon} />
+                <Icon icon="solar:check-circle-linear" className={`${styles.checkIcon} w-4 h-4 text-emerald-500`} />
                 <span>Can be sawn, drilled & screwed like wood</span>
               </div>
             </div>
@@ -134,7 +134,7 @@ export default function QuickViewModal({
                 className={styles.modalDetailsBtn}
               >
                 <span>Full Specs Page</span>
-                <ChevronRight size={16} />
+                <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4" />
               </Link>
             </div>
           </motion.div>

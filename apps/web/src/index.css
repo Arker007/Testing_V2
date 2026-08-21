@@ -20,7 +20,7 @@ p,
   justify-content: center;
   gap: 0.75rem;
   background: var(--brand);
-  color: var(--text-inverse) !important;
+  color: #020617 !important;
   font-size: var(--font-size-sm);
   font-weight: 800;
   text-transform: uppercase;
@@ -38,7 +38,7 @@ p,
 
 .exploreBtnGlobal:hover {
   background: var(--brand-dark) !important;
-  color: var(--text-inverse) !important;
+  color: #020617 !important;
   transform: translateY(-2px);
   box-shadow: none;
 }

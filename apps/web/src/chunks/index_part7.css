@@ -1,6 +1,6 @@
 
 .swipe-btn:hover .btn-arrow-icon {
-  transform: translateX(60%);
+  transform: none;
   stroke: var(--navy);
   color: var(--navy);
 }

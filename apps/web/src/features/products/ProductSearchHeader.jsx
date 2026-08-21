@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, X, Grid, List, SlidersHorizontal, RotateCcw } from "lucide-react";
+import { Icon } from "@iconify/react";
 import CustomSelect from "../../shared/components/ui/CustomSelect";
 import { sortByOptions } from "./products.constants";
 import styles from "../../pages/Products.module.css";
@@ -67,7 +67,7 @@ export default function ProductSearchHeader({
       {/* Search Input Row */}
       <div className={styles.searchRow}>
         <div className={styles.searchBoxWrapper}>
-          <Search className={styles.searchIcon} size={17} />
+          <Icon icon="solar:magnifer-linear" className={styles.searchIcon} />
           <input
             type="text"
             placeholder="Search products by title, SKU, dimensions, or load rating..."
@@ -88,7 +88,7 @@ export default function ProductSearchHeader({
                 exit={{ opacity: 0, scale: 0.8 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <X size={15} />
+                <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
               </motion.button>
             )}
           </AnimatePresence>
@@ -102,7 +102,7 @@ export default function ProductSearchHeader({
             onClick={() => setIsMobileFilterOpen(true)}
             whileTap={{ scale: 0.95 }}
           >
-            <SlidersHorizontal size={15} />
+            <Icon icon="solar:tuning-2-linear" className="w-4 h-4" />
             <span>Filters</span>
             {hasActiveFilters && <span className={styles.filterDotBadge} />}
           </motion.button>
@@ -127,7 +127,7 @@ export default function ProductSearchHeader({
               aria-label="Grid View"
               whileTap={{ scale: 0.9 }}
             >
-              <Grid size={16} />
+              <Icon icon="solar:widget-2-linear" className="w-4 h-4" />
             </motion.button>
             <motion.button
               type="button"
@@ -137,7 +137,7 @@ export default function ProductSearchHeader({
               aria-label="List View"
               whileTap={{ scale: 0.9 }}
             >
-              <List size={16} />
+              <Icon icon="solar:list-linear" className="w-4 h-4" />
             </motion.button>
           </div>
         </div>
@@ -194,7 +194,7 @@ export default function ProductSearchHeader({
                     aria-label="Remove filter"
                     whileTap={{ scale: 0.85 }}
                   >
-                    <X size={11} />
+                    <Icon icon="solar:close-circle-linear" className="w-3 h-3" />
                   </motion.button>
                 </motion.span>
               ))}
@@ -207,7 +207,7 @@ export default function ProductSearchHeader({
               title="Reset all filters"
               whileTap={{ scale: 0.95 }}
             >
-              <RotateCcw size={11} />
+              <Icon icon="solar:restart-linear" className="w-3 h-3" />
               <span>Clear All</span>
             </motion.button>
           </div>

@@ -2,7 +2,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Search, RotateCcw } from "lucide-react";
+import { Icon } from "@iconify/react";
 import useDocumentTitle from "../shared/hooks/useDocumentTitle";
 import { useProducts } from "../shared/hooks/useProducts";
 import ProductsHero from "../features/products/ProductsHero";
@@ -194,7 +194,7 @@ export default function Products() {
                 transition={{ duration: 0.25 }}
               >
                 <div className={styles.emptyIconCircle}>
-                  <Search size={32} />
+                  <Icon icon="solar:magnifer-linear" className="w-8 h-8 text-slate-400" />
                 </div>
                 <h3>No Matching Products</h3>
                 <p>
@@ -206,7 +206,7 @@ export default function Products() {
                   className={styles.emptyResetBtn}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <RotateCcw size={15} />
+                  <Icon icon="solar:restart-linear" className="w-4 h-4" />
                   <span>Clear All Filters</span>
                 </motion.button>
               </motion.div>

@@ -1,11 +1,12 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import styles from "../../../admin/components/AdminTable.module.css";
 
 export default function FaqsTab({ form, setForm }) {
   return (
     <div>
       <div className={styles.formSectionTitle} style={{ marginTop: 0 }}>
-        <i className="fa-solid fa-circle-question" /> Product FAQs
+        <Icon icon="solar:question-circle-linear" className="w-4 h-4 mr-1 inline" /> Product FAQs
       </div>
       <p
         style={{

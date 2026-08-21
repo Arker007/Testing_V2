@@ -1,5 +1,5 @@
 import React from "react";
-import { Truck, HardHat, FlaskConical, Sprout, Building2 } from "lucide-react";
+import { Icon } from "@iconify/react";
 import styles from "../../pages/Contact.module.css";
 
 export const ContactTrustedRow = React.memo(function ContactTrustedRow() {
@@ -10,23 +10,23 @@ export const ContactTrustedRow = React.memo(function ContactTrustedRow() {
       </h4>
       <div className={styles.companiesGrid}>
         <div className={styles.companyBadge}>
-          <Truck className="w-4 h-4 shrink-0" />
+          <Icon icon="solar:delivery-linear" className="w-4 h-4 shrink-0" />
           <span>APEX LOGISTICS</span>
         </div>
         <div className={styles.companyBadge}>
-          <HardHat className="w-4 h-4 shrink-0" />
+          <Icon icon="solar:shield-warning-linear" className="w-4 h-4 shrink-0" />
           <span>MATRIX BUILD</span>
         </div>
         <div className={styles.companyBadge}>
-          <FlaskConical className="w-4 h-4 shrink-0" />
+          <Icon icon="solar:test-tube-minimalistic-linear" className="w-4 h-4 shrink-0" />
           <span>BIOPHARMA LABS</span>
         </div>
         <div className={styles.companyBadge}>
-          <Sprout className="w-4 h-4 shrink-0" />
+          <Icon icon="solar:leaf-linear" className="w-4 h-4 shrink-0" />
           <span>ECOAGRO FARMS</span>
         </div>
         <div className={styles.companyBadge}>
-          <Building2 className="w-4 h-4 shrink-0" />
+          <Icon icon="solar:buildings-3-linear" className="w-4 h-4 shrink-0" />
           <span>CIVIC INFRA</span>
         </div>
       </div>
