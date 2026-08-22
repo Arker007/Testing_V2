@@ -42,7 +42,7 @@ export default function ContactFormSection() {
               <h2 className={`${styles.formTitle} text-[var(--heading)]`}>
                 Quick <span className="text-[var(--brand-text)]">Enquiry</span>
               </h2>
-              <p className={`${styles.formSubText} text-[var(--text-secondary)]`}>
+              <p className={styles.formSubText}>
                 Have a question or need a quote? Send us your details and we'll get back to you shortly.
               </p>
             </div>
@@ -199,7 +199,7 @@ export default function ContactFormSection() {
                 <div className={styles.actionArea}>
                   <button
                     type="submit"
-                    className={`${styles.submitBtn} swipe-btn magic-shimmer-btn bg-[var(--brand)] text-white font-semibold border-none`}
+                    className="swipe-btn magic-shimmer-btn"
                     disabled={status === "sending"}
                     id="submit-message-btn"
                   >
@@ -218,7 +218,7 @@ export default function ContactFormSection() {
                     )}
                   </button>
 
-                  <div className={`${styles.privacyNote} text-[var(--text-muted)]`}>
+                  <div className={styles.privacyNote}>
                     <Icon icon="solar:shield-check-linear" className={`${styles.privacyIcon} text-[var(--brand-text)] w-4 h-4`} />
                     <span>We respect your privacy. Your information is safe with us.</span>
                   </div>
@@ -337,11 +337,13 @@ export default function ContactFormSection() {
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[var(--navy)] text-white font-semibold text-xs px-4 py-2.5 rounded-[var(--radius-btn,8px)] shadow-sm hover:opacity-95 transition-all"
+              className="swipe-btn magic-shimmer-btn"
+              style={{ fontSize: "0.85rem", padding: "0.6rem 1.5rem" }}
             >
-              <Icon icon="solar:routing-2-linear" className="w-4 h-4" />
-              <span>Get Directions</span>
-              <Icon icon="solar:arrow-right-up-linear" className="w-3.5 h-3.5 opacity-70" />
+              <span className="btn-text">Get Directions</span>
+              <span className="btn-icon-bubble">
+                <Icon icon="solar:routing-2-linear" className="btn-arrow-icon w-4 h-4" />
+              </span>
             </a>
           </div>
           <div className="w-full h-96 rounded-[var(--radius-lg,12px)] overflow-hidden border border-[var(--border-card)] bg-white dark:bg-white mt-4">

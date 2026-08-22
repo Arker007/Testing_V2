@@ -7,7 +7,7 @@
   gap: 8px !important;
   height: 42px !important;
   padding: 0 22px !important;
-  border-radius: 9999px !important; /* Force pill shape */
+  border-radius: 8px !important;
   border: 1px solid var(--border-subtle, #DADADA) !important;
   background-color: var(--bg-card, #FFFFFF);
   color: var(--text-primary, #0B2F63);

@@ -1,16 +1,192 @@
 @import './shared/styles/index.css';
 
-/* Universal Typography Line-Height Rule (150% / 1.5) */
+/* ==========================================================================
+   DESKTOP TYPOGRAPHY SCALE & SYSTEM RULES
+   ========================================================================== */
+
+/* 1. Page / Hero Title (H1) - 2.25rem (36px) | Bold (700) | Line Height: 1.2 (44px) */
+h1,
+.page-title,
+.pageTitle,
+.hero-title,
+.heroTitle,
+.mainTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+/* 2. Section Header (H2) - 1.75rem (28px) | SemiBold (600) | Line Height: 1.25 (35px) */
+h2,
+.section-title,
+.sectionTitle,
+.sectionHeader,
+.sectionHeading,
+.heading-h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+/* 3. Card Title (H3) - 1.25rem (20px) | SemiBold (600) | Line Height: 1.3 (26px) */
+h3,
+.card-title,
+.cardTitle,
+.itemTitle,
+.featureTitle,
+.productCardTitle,
+.heading-h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+/* 4. Body Copy - 1.0rem (16px) | Regular (400) | Line Height: 1.6 (26px) */
+body,
 p,
+.body-copy,
+.bodyCopy,
 .section-desc,
 .section-subtitle,
+.sectionSubtitle,
+.sectionDesc,
 .description,
+.heroDescription,
+.banner-description,
 .ctaDescText,
 .indDesc,
 .catCardDesc,
 .projDetail,
+.cardDesc,
+.featureDesc,
+.stepDesc,
+.valuePropDesc,
+.listDescription,
+.modalDescription,
 .testimonialQuote {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* 5. Secondary / Subtext - 0.875rem (14px) | Regular (400) | Line Height: 1.5 (21px) */
+small,
+.subtext,
+.secondary-text,
+.secondaryText,
+.text-secondary-detail,
+.caption,
+.statSubtext,
+.footerNote,
+.hintText {
+  font-size: 0.875rem;
+  font-weight: 400;
   line-height: 1.5;
+}
+
+/* 6. Badges & Navigation - 0.875rem (14px) | Medium (500) | Line Height: 1.2 (17px) */
+.badge,
+.tag,
+.pill,
+.chip,
+.nav-link,
+.navLink,
+.navItem,
+nav a,
+.breadcrumbItem {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   MOBILE TYPOGRAPHY SCALE (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* 1. H1 Top Header - 1.25rem (20px) | Bold (700) | Line Height: 1.2 (24px) */
+  h1,
+  .page-title,
+  .pageTitle,
+  .hero-title,
+  .heroTitle,
+  .mainTitle {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
+
+  /* 2. Card Title - 1.125rem (18px) | SemiBold (600) | Line Height: 1.3 (24px) */
+  h2,
+  h3,
+  .section-title,
+  .sectionTitle,
+  .card-title,
+  .cardTitle,
+  .itemTitle,
+  .featureTitle,
+  .productCardTitle,
+  .heading-h2,
+  .heading-h3 {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+  }
+
+  /* 3. Body Copy - 0.875rem (14px) | Regular (400) | Line Height: 1.5 (21px) */
+  body,
+  p,
+  .body-copy,
+  .bodyCopy,
+  .section-desc,
+  .section-subtitle,
+  .sectionSubtitle,
+  .sectionDesc,
+  .description,
+  .heroDescription,
+  .banner-description,
+  .ctaDescText,
+  .indDesc,
+  .catCardDesc,
+  .projDetail,
+  .cardDesc,
+  .featureDesc,
+  .stepDesc,
+  .valuePropDesc,
+  .listDescription,
+  .modalDescription,
+  .testimonialQuote {
+    font-size: 0.875rem !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+  }
+
+  /* 4. Badges / Buttons - 0.75rem (12px) | Medium (500) | Line Height: 1.2 (14px) */
+  .badge,
+  .tag,
+  .pill,
+  .chip,
+  .section-eyebrow,
+  button:not([class*="mobileNav"]):not([class*="navItem"]),
+  .btn,
+  .button {
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+  }
+
+  /* 5. Bottom Navigation - 0.625rem (10px) | Medium (500) | Line Height: 1.2 (12px) */
+  .mobileNav a,
+  .mobileNav button,
+  .mobileNavItem,
+  [class*="MobileBottomNav_navItem"],
+  [class*="navItem"] {
+    font-size: 0.625rem !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+  }
 }
 
 
@@ -59,3 +235,42 @@ p,
     border-radius: 8px;
   }
 }
+
+/* Fix low contrast white text on bright green */
+.btn-whatsapp {
+  background-color: #25d366 !important;
+  color: #0b2211 !important; /* Dark green/charcoal instead of white */
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3) !important; /* Subtle vibrant drop shadow */
+}
+
+/* Slightly darken body text for crisp readability */
+.banner-description {
+  color: #334155 !important; /* Darker slate gray */
+}
+
+/* Darken input placeholder text color to hit the mandatory 4.5:1 contrast ratio in light mode */
+:root[data-theme="light"] #enquiry-card input::placeholder,
+:root[data-theme="light"] #enquiry-card textarea::placeholder,
+:root:not(.dark) #enquiry-card input::placeholder,
+:root:not(.dark) #enquiry-card textarea::placeholder,
+html:not(.dark) #enquiry-card input::placeholder,
+html:not(.dark) #enquiry-card textarea::placeholder,
+.customInput::placeholder,
+.customTextarea::placeholder {
+  color: #5C6975 !important;
+}
+
+/* Ensure bright, high-contrast placeholder in dark mode */
+:root[data-theme="dark"] #enquiry-card input::placeholder,
+:root[data-theme="dark"] #enquiry-card textarea::placeholder,
+:root.dark #enquiry-card input::placeholder,
+:root.dark #enquiry-card textarea::placeholder,
+html.dark #enquiry-card input::placeholder,
+html.dark #enquiry-card textarea::placeholder,
+html.dark .customInput::placeholder,
+html.dark .customTextarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+

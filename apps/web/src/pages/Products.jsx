@@ -131,7 +131,7 @@ export default function Products() {
       {/* Hero Header */}
       <ProductsHero activeCategory={selectedCategory} />
 
-      <div className="container py-8">
+      <div className="container pt-6 pb-12">
         {/* Mobile Horizontal Quick Category Bar */}
         <MobileCategoryBar
           categoryOptions={categoryOptions}

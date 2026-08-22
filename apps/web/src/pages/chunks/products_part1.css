@@ -10,9 +10,16 @@
 .productsHero {
   position: relative;
   background: var(--hero-gradient, linear-gradient(135deg, var(--navy) 0%, var(--navy) 100%));
-  padding: calc(var(--nav-h, 70px) + 2rem) 0 4.5rem;
+  padding: 3.75rem 0 4.25rem;
   color: #FFFFFF;
   overflow: hidden;
+  border-bottom: 4px solid var(--brand, #77D986);
+}
+
+@media (max-width: 768px) {
+  .productsHero {
+    padding: 2.5rem 0 3rem;
+  }
 }
 
 .heroBgPattern {
@@ -26,30 +33,34 @@
 .heroBreadcrumb {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.8125rem;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.85rem;
 }
 
 .heroBreadcrumb a {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
 }
 
 .heroBreadcrumb a:hover {
-  color: var(--brand);
+  color: var(--brand, #77D986);
 }
 
 .breadcrumbSep {
   color: rgba(255, 255, 255, 0.4);
+  vertical-align: middle;
 }
 
 .breadcrumbActive {
-  color: var(--brand);
-  font-weight: 700;
+  color: var(--brand, #77D986);
+  font-weight: 600;
 }
 
 /* Hero Content */
@@ -73,22 +84,24 @@
 
 .heroTitle {
   font-family: var(--font-display, inherit);
-  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
   font-weight: 800;
   color: var(--white);
   letter-spacing: -0.02em;
-  margin: 0.75rem 0;
+  margin: 0.45rem 0 0.6rem;
+  line-height: 1.2;
 }
 
 .heroTitleAccent {
-  color: #98d12a;
+  color: #4FC36D;
 }
 
 .heroDescription {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   max-width: 680px;
-  line-height: 1.75;
+  line-height: 1.65;
+  margin: 0;
 }
 
 /* Stats Box */

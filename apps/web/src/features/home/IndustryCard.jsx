@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import OptimizedImage from "../../shared/components/OptimizedImage";
 import styles from "../../pages/Home.module.css";
 import {
-  MotionArrowRight,
-  bentoArrowVariants,
   industryCardVariant,
 } from "./home.constants";
 
@@ -18,7 +16,6 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
     cardType,
     spanClass,
     badgeText,
-    badgeClass,
     IconComponent,
     iconVariants,
   } = item;
@@ -33,26 +30,31 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         viewport={{ once: true, margin: "-50px" }}
         whileHover="hover"
         transition={{ delay }}
-        className={`${styles.industryCard} ${styles.cardLargeDark} !p-3.5 sm:!p-4 flex flex-col justify-between relative`}
+        className={`group ${styles.industryCard} ${styles.cardLargeDark} !p-5 sm:!p-6 flex flex-col justify-between relative overflow-hidden rounded-2xl border border-slate-700/40 dark:border-white/15 bg-slate-950`}
       >
-        <div className={styles.cardBgWrapper}>
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-slate-950">
           <OptimizedImage
             src={image}
             alt={title}
-            className={styles.cardBgImage}
+            className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/15 pointer-events-none" />
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-12 h-12 rounded-lg bg-white/80 dark:bg-black/50 backdrop-blur-md border border-slate-200/80 dark:border-white/20 flex items-center justify-center text-[var(--brand-text)] dark:text-[var(--brand)] shrink-0 shadow-md">
-            <IconComponent className="w-6 h-6 text-current" variants={iconVariants} />
+          <div className="w-11 h-11 rounded-xl bg-[#77D986] text-slate-950 backdrop-blur-md border border-[#77D986] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+            <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
-          {badgeText && <span className={styles[badgeClass]}>{badgeText}</span>}
+          {badgeText && (
+            <span className="bg-[#77D986] text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow-md border border-[#77D986]">
+              {badgeText}
+            </span>
+          )}
         </div>
 
-        <div className="relative z-10 mt-auto bg-white/85 dark:bg-black/60 backdrop-blur-md p-3.5 sm:p-4 rounded-xl border border-slate-200/90 dark:border-white/20 text-slate-900 dark:text-white shadow-lg dark:shadow-xl">
-          <h4 className="text-slate-900 dark:text-white text-base sm:text-lg font-extrabold mb-1">{title}</h4>
-          <p className="text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-medium leading-relaxed">{desc}</p>
+        <div className="relative z-10 mt-auto pt-6">
+          <h4 className="text-[#FFFFFF] text-lg sm:text-xl font-black mb-1.5 drop-shadow-sm">{title}</h4>
+          <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
         </div>
       </motion.div>
     );
@@ -68,33 +70,31 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         viewport={{ once: true, margin: "-50px" }}
         whileHover="hover"
         transition={{ delay }}
-        className={`${styles.industryCard} ${spanClass ? styles[spanClass] : ""} !p-3.5 sm:!p-4 flex flex-col justify-between relative`}
+        className={`group ${styles.industryCard} ${spanClass ? styles[spanClass] : ""} !p-4 sm:!p-5 flex flex-col justify-between relative overflow-hidden rounded-2xl border border-slate-700/40 dark:border-white/15 bg-slate-950`}
       >
-        <div className={styles.cardBgWrapper}>
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-slate-950">
           <OptimizedImage
             src={image}
             alt={title}
-            className={styles.cardBgImageRightHalf}
+            className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-12 h-12 rounded-lg bg-white/80 dark:bg-black/50 backdrop-blur-md border border-slate-200/80 dark:border-white/20 flex items-center justify-center text-[var(--brand-text)] dark:text-[var(--brand)] shrink-0 shadow-md">
-            <IconComponent className="w-6 h-6 text-current" variants={iconVariants} />
+          <div className="w-10 h-10 rounded-xl bg-[#77D986] text-slate-950 backdrop-blur-md border border-[#77D986] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+            <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
-          {cardType === "wideRowHeader" && badgeText && <span className={styles[badgeClass]}>{badgeText}</span>}
+          {cardType === "wideRowHeader" && badgeText && (
+            <span className="bg-[#77D986] text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow-md border border-[#77D986]">
+              {badgeText}
+            </span>
+          )}
         </div>
 
-        <div className="relative z-10 mt-auto bg-white/85 dark:bg-black/60 backdrop-blur-md p-3.5 sm:p-4 rounded-xl border border-slate-200/90 dark:border-white/20 text-slate-900 dark:text-white shadow-lg dark:shadow-xl">
-          <div className="flex items-start justify-between gap-3">
-            <div>
-              <h4 className="text-slate-900 dark:text-white text-base sm:text-lg font-extrabold mb-1">{title}</h4>
-              <p className="text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-medium leading-relaxed">{desc}</p>
-            </div>
-            <div className="w-8 h-8 rounded-full bg-slate-900/10 dark:bg-white/10 border border-slate-900/15 dark:border-white/20 flex items-center justify-center text-slate-900 dark:text-white shrink-0 mt-0.5">
-              <MotionArrowRight className="w-4 h-4" variants={bentoArrowVariants} />
-            </div>
-          </div>
+        <div className="relative z-10 mt-auto pt-6">
+          <h4 className="text-[#FFFFFF] text-base sm:text-lg font-black mb-1 drop-shadow-sm">{title}</h4>
+          <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
         </div>
       </motion.div>
     );
@@ -110,33 +110,31 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         viewport={{ once: true, margin: "-50px" }}
         whileHover="hover"
         transition={{ delay }}
-        className={`${styles.industryCard} ${spanClass ? styles[spanClass] : ""} !p-3.5 sm:!p-4 flex flex-col justify-between relative`}
+        className={`group ${styles.industryCard} ${spanClass ? styles[spanClass] : ""} !p-4 sm:!p-5 flex flex-col justify-between relative overflow-hidden rounded-lg border border-slate-700/40 dark:border-white/15 bg-slate-950`}
       >
-        <div className={styles.cardBgWrapper}>
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-slate-950">
           <OptimizedImage
             src={image}
             alt={title}
-            className={styles.cardBgImageRightHalf}
+            className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-12 h-12 rounded-lg bg-white/80 dark:bg-black/50 backdrop-blur-md border border-slate-200/80 dark:border-white/20 flex items-center justify-center text-[var(--brand-text)] dark:text-[var(--brand)] shrink-0 shadow-md">
-            <IconComponent className="w-6 h-6 text-current" variants={iconVariants} />
+          <div className="w-10 h-10 rounded-lg bg-[#77D986] text-slate-950 backdrop-blur-md border border-[#77D986] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+            <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
-          {cardType === "wideHeader" && badgeText && <span className={styles[badgeClass]}>{badgeText}</span>}
+          {cardType === "wideHeader" && badgeText && (
+            <span className="bg-[#77D986] text-slate-950 font-bold text-xs px-3 py-1 rounded-lg shadow-md border border-[#77D986]">
+              {badgeText}
+            </span>
+          )}
         </div>
 
-        <div className="relative z-10 mt-auto bg-white/85 dark:bg-black/60 backdrop-blur-md p-3.5 sm:p-4 rounded-xl border border-slate-200/90 dark:border-white/20 text-slate-900 dark:text-white shadow-lg dark:shadow-xl">
-          <div className="flex items-start justify-between gap-3">
-            <div>
-              <h4 className="text-slate-900 dark:text-white text-base sm:text-lg font-extrabold mb-1">{title}</h4>
-              <p className="text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-medium leading-relaxed">{desc}</p>
-            </div>
-            <div className="w-8 h-8 rounded-full bg-slate-900/10 dark:bg-white/10 border border-slate-900/15 dark:border-white/20 flex items-center justify-center text-slate-900 dark:text-white shrink-0 mt-0.5">
-              <MotionArrowRight className="w-4 h-4" variants={bentoArrowVariants} />
-            </div>
-          </div>
+        <div className="relative z-10 mt-auto pt-6">
+          <h4 className="text-[#FFFFFF] text-base sm:text-lg font-black mb-1 drop-shadow-sm">{title}</h4>
+          <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
         </div>
       </motion.div>
     );
@@ -151,32 +149,26 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
       viewport={{ once: true, margin: "-50px" }}
       whileHover="hover"
       transition={{ delay }}
-      className={`${styles.industryCard} !p-3.5 sm:!p-4 flex flex-col justify-between relative`}
+      className={`group ${styles.industryCard} !p-4 sm:!p-5 flex flex-col justify-between relative overflow-hidden rounded-lg border border-slate-700/40 dark:border-white/15 bg-slate-950`}
     >
-      <div className={styles.cardBgWrapper}>
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-slate-950">
         <OptimizedImage
           src={image}
           alt={title}
-          className={styles.cardBgImageRight}
+          className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
       </div>
 
       <div className="relative z-10 flex items-center justify-between mb-4">
-        <div className="w-12 h-12 rounded-lg bg-white/80 dark:bg-black/50 backdrop-blur-md border border-slate-200/80 dark:border-white/20 flex items-center justify-center text-[var(--brand-text)] dark:text-[var(--brand)] shrink-0 shadow-md">
-          <IconComponent className="w-6 h-6 text-current" variants={iconVariants} />
+        <div className="w-10 h-10 rounded-lg bg-[#77D986] text-slate-950 backdrop-blur-md border border-[#77D986] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+          <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
         </div>
       </div>
 
-      <div className="relative z-10 mt-auto bg-white/85 dark:bg-black/60 backdrop-blur-md p-3.5 sm:p-4 rounded-xl border border-slate-200/90 dark:border-white/20 text-slate-900 dark:text-white shadow-lg dark:shadow-xl">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <h4 className="text-slate-900 dark:text-white text-base sm:text-lg font-extrabold mb-1">{title}</h4>
-            <p className="text-slate-700 dark:text-slate-200 text-xs sm:text-sm font-medium leading-relaxed">{desc}</p>
-          </div>
-          <div className="w-8 h-8 rounded-full bg-slate-900/10 dark:bg-white/10 border border-slate-900/15 dark:border-white/20 flex items-center justify-center text-slate-900 dark:text-white shrink-0 mt-0.5">
-            <MotionArrowRight className="w-4 h-4" variants={bentoArrowVariants} />
-          </div>
-        </div>
+      <div className="relative z-10 mt-auto pt-6">
+        <h4 className="text-[#FFFFFF] text-base sm:text-lg font-black mb-1 drop-shadow-sm">{title}</h4>
+        <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
       </div>
     </motion.div>
   );

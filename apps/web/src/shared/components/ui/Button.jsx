@@ -44,17 +44,17 @@ export default function Button({
 
   const variantClasses = {
     primary:
-      "bg-[var(--brand,#3FAE5A)] text-white hover:bg-[var(--brand-hover,#2F8F46)] active:bg-[var(--brand-dark,#26763A)] shadow-sm border-0",
+      "bg-[var(--brand)] text-[var(--text-primary)] hover:bg-[var(--brand-hover)] active:bg-[var(--brand-dark)] shadow-sm border-0",
     secondary:
-      "bg-[var(--navy,#0B2F63)] text-white hover:bg-[var(--navy-dark,#08244B)] active:bg-[var(--navy-darker,#061C3D)] shadow-sm border-0",
+      "bg-[var(--navy)] text-white hover:bg-[var(--navy-dark)] active:bg-[var(--navy-darker)] shadow-sm border-0",
     outline:
       "bg-transparent border border-[var(--border-card)] text-[var(--text-primary)] hover:border-[var(--brand)] hover:text-[var(--brand-text)] active:scale-98",
     ghost:
       "bg-transparent text-[var(--text-primary)] hover:bg-[var(--surface-hover)] hover:text-[var(--brand-text)] border-0",
     swipe:
-      "bg-[var(--brand,#3FAE5A)] text-white hover:bg-[var(--brand-hover,#2F8F46)] shadow-sm",
+      "bg-[var(--brand)] text-[var(--text-primary)] hover:bg-[var(--brand-hover)] shadow-sm",
     explore:
-      "bg-[var(--navy,#0B2F63)] text-white hover:bg-[var(--navy-dark,#08244B)] shadow-sm",
+      "bg-[var(--navy)] text-white hover:bg-[var(--navy-dark)] shadow-sm",
   };
 
   const selectedSizeClass = sizeClasses[size] || sizeClasses.md;

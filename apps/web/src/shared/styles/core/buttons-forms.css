@@ -42,7 +42,7 @@
   background-color: var(--brand-soft);
   border: 1px solid var(--brand-border);
   padding: 0.375rem 1rem;
-  border-radius: var(--radius-pill, 9999px);
+  border-radius: var(--radius-badge, 8px);
   margin-bottom: 1rem;
   line-height: 1;
   width: fit-content;
@@ -66,9 +66,9 @@
 [class*="cta"] .section-eyebrow,
 [class*="workflow"] .section-eyebrow,
 [class*="Workflow"] .section-eyebrow {
-  color: var(--brand-text);
-  background-color: var(--brand-soft);
-  border-color: var(--brand-border);
+  color: #72D682 !important;
+  background-color: rgba(114, 214, 130, 0.15) !important;
+  border-color: rgba(114, 214, 130, 0.3) !important;
 }
 
 [class*="hero"] .section-eyebrow::before,
@@ -79,7 +79,7 @@
 [class*="cta"] .section-eyebrow::before,
 [class*="workflow"] .section-eyebrow::before,
 [class*="Workflow"] .section-eyebrow::before {
-  background-color: var(--brand);
+  background-color: #72D682 !important;
 }
 
 .section-title {
@@ -157,7 +157,7 @@ input[type="reset"] {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
-  border-radius: var(--radius-pill, 9999px);
+  border-radius: var(--radius-btn, 8px);
   font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.2;

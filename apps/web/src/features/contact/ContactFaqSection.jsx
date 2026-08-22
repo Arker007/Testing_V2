@@ -1,7 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// eslint-disable-next-line no-unused-vars
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 import Card from "../../shared/components/ui/Card";
@@ -11,11 +11,18 @@ import { FAQ_ITEMS } from "./contact.constants";
 
 const ToggleIcon = ({ isOpen }) => (
   <motion.div
-    animate={{ rotate: isOpen ? 45 : 0 }}
-    transition={{ type: "spring", stiffness: 300, damping: 15 }}
-    className="shrink-0 ml-4"
+    animate={{
+      rotate: isOpen ? 135 : 0,
+      scale: isOpen ? 1.08 : 1,
+    }}
+    transition={{ type: "spring", stiffness: 350, damping: 22 }}
+    className={`shrink-0 ml-4 w-7 h-7 rounded-full flex items-center justify-center transition-colors duration-200 ${
+      isOpen
+        ? "bg-[var(--brand,#77D986)]/15 text-[var(--brand-dark,#4FC36D)] dark:text-[#77D986]"
+        : "bg-slate-200/60 dark:bg-white/5 text-slate-400 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200"
+    }`}
   >
-    <Icon icon="solar:add-circle-linear" className={`w-5 h-5 ${isOpen ? "text-[var(--brand)]" : "text-slate-400"}`} />
+    <Icon icon="solar:add-circle-linear" className="w-5 h-5" />
   </motion.div>
 );
 
@@ -49,7 +56,13 @@ export default function ContactFaqSection() {
     <>
       <section className={styles.faqSection}>
         <div className="container">
-          <div className={styles.sectionHeaderCenter}>
+          <motion.div
+            className={styles.sectionHeaderCenter}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.45 }}
+          >
             <div className="flex justify-center mb-3">
               <Badge variant="brand" size="sm">
                 Got Questions?
@@ -59,27 +72,63 @@ export default function ContactFaqSection() {
             <p className={styles.sectionDesc}>
               Clear answers regarding minimum orders, custom options, export compliance, and delivery.
             </p>
-          </div>
+          </motion.div>
 
           <div className={styles.faqList}>
             {FAQ_ITEMS.map((item, index) => {
               const isOpen = openFaq === index;
               return (
-                <div
+                <motion.div
                   key={index}
-                  className={`${styles.faqCard} ${isOpen ? styles.faqCardOpen : ""}`}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.35, delay: index * 0.05 }}
+                  whileHover={{ y: -2 }}
+                  className={`${styles.faqCard} group transition-shadow ${
+                    isOpen ? styles.faqCardOpen : ""
+                  }`}
                 >
-                  <button
+                  <motion.button
                     type="button"
                     className={styles.faqQuestion}
                     onClick={() => setOpenFaq(isOpen ? null : index)}
                     aria-expanded={isOpen}
+                    whileTap={{ scale: 0.995 }}
                   >
-                    <span>{item.q}</span>
+                    <span className="group-hover:text-[var(--brand-dark,#4FC36D)] dark:group-hover:text-[#77D986] transition-colors">
+                      {item.q}
+                    </span>
                     <ToggleIcon isOpen={isOpen} />
-                  </button>
-                  {isOpen && <p className={styles.faqAnswer}>{item.a}</p>}
-                </div>
+                  </motion.button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        key="faq-answer-content"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{
+                          opacity: 1,
+                          height: "auto",
+                          transition: {
+                            height: { duration: 0.32, ease: [0.04, 0.62, 0.23, 0.98] },
+                            opacity: { duration: 0.25, delay: 0.04 },
+                          },
+                        }}
+                        exit={{
+                          opacity: 0,
+                          height: 0,
+                          transition: {
+                            height: { duration: 0.25, ease: [0.04, 0.62, 0.23, 0.98] },
+                            opacity: { duration: 0.15 },
+                          },
+                        }}
+                        className="overflow-hidden"
+                      >
+                        <p className={styles.faqAnswer}>{item.a}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
               );
             })}
           </div>

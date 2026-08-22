@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import QuoteButton from "../../shared/components/QuoteButton";
 import { useSite } from "../../shared/context/SiteContext";
 import Card from "../../shared/components/ui/Card";
@@ -21,10 +22,11 @@ export default function AboutCtaSection() {
 
         <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
-            <div className="mb-3">
-              <Badge variant="brand" size="md">
-                {c("about_cta_eyebrow", "Ready to Upgrade Your Supply Chain?")}
-              </Badge>
+            <div className="mb-4">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#77D986]/10 dark:bg-[#77D986]/8 border border-[#77D986]/30 dark:border-[#77D986]/40 rounded-full text-[#54b862] dark:text-[#77D986] font-bold text-xs tracking-wider uppercase shadow-xs">
+                <Icon icon="solar:arrow-right-up-linear" className="w-4 h-4" />
+                <span>{c("about_cta_eyebrow", "Ready to Upgrade Your Supply Chain?")}</span>
+              </span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
               {c("about_cta_title", "Get Custom Quotes & Product Specs Today")}

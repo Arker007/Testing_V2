@@ -79,8 +79,8 @@
 
 :global([data-theme="dark"]) .industryCard:hover,
 :global(.dark) .industryCard:hover {
-  border-color: var(--brand, #88E31B) !important;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--brand, #88E31B) !important;
+  border-color: var(--brand, #77d986) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--brand, #77d986) !important;
 }
 
 .indCardHeader {
@@ -103,7 +103,7 @@
 .indIconBox {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: 8px;
   background: rgba(63, 174, 90, 0.12);
   color: #0B2F63;
   font-size: 1.25rem;

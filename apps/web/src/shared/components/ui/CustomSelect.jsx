@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Icon } from "@iconify/react";
 import styles from "./CustomSelect.module.css";
 
-export default function CustomSelect({ value, onChange, options = [], placeholder }) {
+export default function CustomSelect({ value, onChange, options = [], placeholder, className = "", style }) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const containerRef = useRef(null);
@@ -32,7 +32,11 @@ export default function CustomSelect({ value, onChange, options = [], placeholde
   );
 
   return (
-    <div className={`${styles.customSelectContainer} ${isOpen ? styles.customSelectContainerOpen : ""}`} ref={containerRef}>
+    <div
+      className={`${styles.customSelectContainer} ${isOpen ? styles.customSelectContainerOpen : ""} ${className}`}
+      style={{ borderRadius: "8px", ...style }}
+      ref={containerRef}
+    >
       <button
         type="button"
         className={styles.customSelectTrigger}

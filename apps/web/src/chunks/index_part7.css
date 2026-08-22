@@ -13,7 +13,7 @@
   justify-content: center !important;
   height: 44px !important;
   padding: 0 24px !important;
-  border-radius: 9999px !important; /* Force pill shape */
+  border-radius: 8px !important;
   border: 1px solid var(--border, var(--gray-200)) !important;
   background-color: var(--white) !important;
   color: var(--navy) !important;

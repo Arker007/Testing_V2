@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 
-export default function ProcessSection() {
+export default function ProcessSection({ className = "" }) {
   const { c } = useSite();
   const [activeStep, setActiveStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -231,10 +231,9 @@ export default function ProcessSection() {
   if (c("show_process", "1") === "0") return null;
 
   return (
-    <section className="py-20 bg-[var(--bg-page)] text-slate-800 dark:text-slate-200 relative overflow-hidden border-t border-slate-200/80 dark:border-white/10" id="manufacturing-process">
-      {/* Dynamic Background Mesh Grid */}
+    <section className={`mt-0 pt-6 sm:pt-8 md:pt-10 pb-16 md:pb-20 bg-[var(--bg-page)] text-slate-800 dark:text-slate-200 relative overflow-hidden border-t-0 ${className}`} id="manufacturing-process">
+      {/* Dynamic Background Soft Ambient Glows */}
       <div className="absolute inset-0 opacity-40 dark:opacity-20 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,var(--gray-200)_1px,transparent_1px),linear-gradient(to_bottom,var(--gray-200)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full filter blur-[100px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-[100px] pointer-events-none" />
       </div>
@@ -243,8 +242,8 @@ export default function ProcessSection() {
         
         {/* Section Title Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/60 dark:border-emerald-800/60 rounded-full text-[var(--brand-dark)] dark:text-emerald-400 font-bold text-xs tracking-wide uppercase mb-4 shadow-sm">
-            <Icon icon="solar:restart-circle-linear" className="w-3.5 h-3.5 animate-spin-slow" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#77D986]/10 dark:bg-[#77D986]/8 border border-[#77D986]/30 dark:border-[#77D986]/40 rounded-full text-[#54b862] dark:text-[#77D986] font-bold text-xs tracking-wider uppercase mb-4 shadow-sm">
+            <Icon icon="solar:restart-circle-linear" className="w-4 h-4 animate-spin-slow" />
             <span>Circular Supply Chain</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
@@ -538,9 +537,10 @@ export default function ProcessSection() {
             </div>
 
             {/* Column B: Center step text details */}
-            <div className="lg:col-span-5 flex flex-col justify-center">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-[var(--brand-dark)] dark:text-[var(--brand)] mb-2 block">
-                {steps[activeStep].subtitle}
+            <div className="lg:col-span-5 flex flex-col justify-center items-start">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#77D986]/10 dark:bg-[#77D986]/8 border border-[#77D986]/30 dark:border-[#77D986]/40 rounded-full text-[#54b862] dark:text-[#77D986] font-bold text-xs tracking-wider uppercase mb-3 shadow-xs">
+                <Icon icon="solar:info-circle-linear" className="w-3.5 h-3.5" />
+                <span>{steps[activeStep].subtitle}</span>
               </span>
               <h3 className="text-2xl md:text-3.5xl font-black text-slate-900 dark:text-white tracking-tight mb-4 flex items-center gap-2">
                 {steps[activeStep].title}

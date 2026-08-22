@@ -276,8 +276,8 @@ html.dark [class*="gridCard"] {
 
 :global([data-theme="dark"]) .gridCard:hover,
 :global(.dark) .gridCard:hover {
-  border-color: var(--brand, #88E31B) !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--brand, #88E31B) !important;
+  border-color: var(--brand, #77d986) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--brand, #77d986) !important;
 }
 
 :global([data-theme="dark"]) .gridCardThumb,
@@ -288,9 +288,9 @@ html.dark [class*="gridCard"] {
 
 :global([data-theme="dark"]) .catTag,
 :global(.dark) .catTag {
-  background: rgba(136, 227, 27, 0.15) !important;
-  color: #88E31B !important;
-  border: 1px solid rgba(136, 227, 27, 0.3) !important;
+  background: rgba(119, 217, 134, 0.15) !important;
+  color: #77d986 !important;
+  border: 1px solid rgba(119, 217, 134, 0.3) !important;
 }
 
 :global([data-theme="dark"]) .gridCardTitle a,
@@ -300,7 +300,7 @@ html.dark [class*="gridCard"] {
 
 :global([data-theme="dark"]) .gridCardTitle a:hover,
 :global(.dark) .gridCardTitle a:hover {
-  color: #88E31B !important;
+  color: #77d986 !important;
 }
 
 :global([data-theme="dark"]) .specsRow,
@@ -380,8 +380,8 @@ html.dark [class*="listCard"] {
 
 :global([data-theme="dark"]) .listCard:hover,
 :global(.dark) .listCard:hover {
-  border-color: var(--brand, #88E31B) !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--brand, #88E31B) !important;
+  border-color: var(--brand, #77d986) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--brand, #77d986) !important;
 }
 
 :global([data-theme="dark"]) .listCardThumb,
@@ -394,9 +394,9 @@ html.dark [class*="listCard"] {
 :global(.dark) .catTagDesktop,
 :global([data-theme="dark"]) .catTagMobile,
 :global(.dark) .catTagMobile {
-  background: rgba(136, 227, 27, 0.15) !important;
-  color: #88E31B !important;
-  border: 1px solid rgba(136, 227, 27, 0.3) !important;
+  background: rgba(119, 217, 134, 0.15) !important;
+  color: #77d986 !important;
+  border: 1px solid rgba(119, 217, 134, 0.3) !important;
 }
 
 :global([data-theme="dark"]) .skuBadge,
@@ -485,6 +485,19 @@ html.dark [class*="modalCard"] {
   border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
 }
 
+:global([data-theme="dark"]) .procurementCard:hover,
+:global(.dark) .procurementCard:hover {
+  border-color: rgba(119, 217, 134, 0.4) !important;
+  box-shadow: 0 20px 40px -4px rgba(0, 0, 0, 0.5), 0 0 20px -2px rgba(119, 217, 134, 0.15) !important;
+}
+
+:global([data-theme="dark"]) .procurementIcon,
+:global(.dark) .procurementIcon {
+  background: rgba(119, 217, 134, 0.1) !important;
+  border-color: rgba(119, 217, 134, 0.25) !important;
+  color: #77D986 !important;
+}
+
 :global([data-theme="dark"]) .procurementCard h3,
 :global(.dark) .procurementCard h3 {
   color: #FFFFFF !important;
@@ -496,12 +509,26 @@ html.dark [class*="modalCard"] {
 }
 
 /* Custom Select Dropdowns in Dark Mode */
+:global([data-theme="dark"]) .customSelectTrigger,
+:global(.dark) .customSelectTrigger {
+  background: var(--dark-card, #171E26) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .customSelectTrigger:hover,
+:global(.dark) .customSelectTrigger:hover {
+  border-color: rgba(119, 217, 134, 0.6) !important;
+  background: var(--dark-hover, #1D2630) !important;
+  box-shadow: 0 0 0 3px rgba(119, 217, 134, 0.2) !important;
+}
+
 :global([data-theme="dark"]) .customSelectDropdown,
 :global(.dark) .customSelectDropdown {
   background: var(--dark-elevated, #171E26) !important;
   border-color: rgba(255, 255, 255, 0.12) !important;
   color: #FFFFFF !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.7) !important;
 }
 
 :global([data-theme="dark"]) .customSelectOption,
@@ -511,14 +538,14 @@ html.dark [class*="modalCard"] {
 
 :global([data-theme="dark"]) .customSelectOption:hover,
 :global(.dark) .customSelectOption:hover {
-  background: var(--dark-hover, #1D2630) !important;
-  color: #FFFFFF !important;
+  background: rgba(119, 217, 134, 0.15) !important;
+  color: #77D986 !important;
 }
 
 :global([data-theme="dark"]) .customSelectOptionActive,
 :global(.dark) .customSelectOptionActive {
-  background: rgba(63, 174, 90, 0.18) !important;
-  color: #4FC36D !important;
+  background: rgba(119, 217, 134, 0.25) !important;
+  color: #77D986 !important;
 }
 
 /* ─── Products Catalog Hero Header Dark Mode Overrides ─── */
@@ -527,7 +554,7 @@ html.dark [class*="modalCard"] {
 :root[data-theme="dark"] [class*="productsHero"],
 html.dark [class*="productsHero"] {
   background: var(--dark-page, #0B0F14) !important;
-  border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+  border-bottom: 4px solid var(--brand, #77D986) !important;
 }
 
 :global([data-theme="dark"]) .heroBgPattern,
@@ -539,6 +566,8 @@ html.dark [class*="productsHero"] {
 :global([data-theme="dark"]) .heroBreadcrumb,
 :global(.dark) .heroBreadcrumb {
   color: #94A3B8 !important;
+  background: transparent !important;
+  border: none !important;
 }
 
 :global([data-theme="dark"]) .heroBreadcrumb a,
@@ -548,7 +577,7 @@ html.dark [class*="productsHero"] {
 
 :global([data-theme="dark"]) .heroBreadcrumb a:hover,
 :global(.dark) .heroBreadcrumb a:hover {
-  color: #FFFFFF !important;
+  color: var(--brand, #77D986) !important;
 }
 
 :global([data-theme="dark"]) .heroTitle,
@@ -558,7 +587,7 @@ html.dark [class*="productsHero"] {
 
 :global([data-theme="dark"]) .heroTitleAccent,
 :global(.dark) .heroTitleAccent {
-  color: var(--brand-text, #4FC36D) !important;
+  color: #4FC36D !important;
 }
 
 :global([data-theme="dark"]) .heroDescription,

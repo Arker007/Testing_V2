@@ -158,17 +158,24 @@
 :global([data-theme="dark"]) .slantBgDark,
 :global(.dark) .slantBgDark {
   background: linear-gradient(135deg, #0B131B 0%, #060B11 100%) !important;
-  display: block !important;
   opacity: 1 !important;
   z-index: 2 !important;
 }
 
 :global([data-theme="dark"]) .slantBgGreen,
 :global(.dark) .slantBgGreen {
-  background: #88E31B !important;
-  display: block !important;
+  background: #77d986 !important;
   opacity: 1 !important;
   z-index: 1 !important;
+}
+
+@media (max-width: 991px) {
+  :global([data-theme="dark"]) .slantBgDark,
+  :global(.dark) .slantBgDark,
+  :global([data-theme="dark"]) .slantBgGreen,
+  :global(.dark) .slantBgGreen {
+    display: none !important;
+  }
 }
 
 

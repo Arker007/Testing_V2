@@ -122,10 +122,10 @@ export default function NavbarSearch({
         <button
           type={isExpanded ? "submit" : "button"}
           onClick={handleIconClick}
-          className={`${styles.searchSubmitBtn} text-slate-500 dark:text-slate-300`}
+          className={styles.searchSubmitBtn}
           aria-label={isExpanded ? "Submit search" : "Open search bar"}
         >
-          <Icon icon="solar:magnifer-linear" className="w-4 h-4" />
+          <Icon icon="solar:magnifer-linear" className="w-5 h-5 shrink-0 text-slate-700 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white" width="20" height="20" />
         </button>
 
         <input
@@ -155,7 +155,7 @@ export default function NavbarSearch({
           <button
             type="button"
             onClick={clearSearch}
-            className={`${styles.searchClearBtn} text-slate-500 dark:text-slate-300`}
+            className={styles.searchClearBtn}
             title="Close"
             aria-label="Close search"
           >

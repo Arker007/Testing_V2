@@ -27,9 +27,10 @@ export default function TestimonialsSection() {
 
         <div className="max-w-3xl relative z-10">
           <div className="mb-4">
-            <Badge variant="brand" size="md">
-              Client Feedback
-            </Badge>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#77D986]/10 dark:bg-[#77D986]/8 border border-[#77D986]/30 dark:border-[#77D986]/40 rounded-full text-[#54b862] dark:text-[#77D986] font-bold text-xs tracking-wider uppercase shadow-xs">
+              <Icon icon="solar:chat-round-line-linear" className="w-4 h-4" />
+              <span>Client Feedback</span>
+            </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight mb-8">
             Trusted by Procurement & Logistics Leaders
@@ -53,7 +54,7 @@ export default function TestimonialsSection() {
                   <img
                     src={testimonials[currentSlide].avatar}
                     alt={testimonials[currentSlide].author}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-emerald-500 shadow-sm"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-[#77D986] shadow-sm"
                     referrerPolicy="no-referrer"
                   />
                   <div>

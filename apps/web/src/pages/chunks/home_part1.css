@@ -14,6 +14,7 @@
   min-height: 780px;
   display: flex;
   align-items: center;
+  border-bottom: 4px solid var(--brand, #77D986);
 }
 
 /* Diagonal Split Slices for Desktop */
@@ -248,8 +249,8 @@
 
 /* Description */
 .description {
-  font-size: 0.9375rem;
-  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.65;
   color: var(--text-inverse-secondary);
   margin-bottom: 1.75rem;
   max-width: 530px;

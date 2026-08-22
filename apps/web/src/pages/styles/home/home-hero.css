@@ -14,6 +14,7 @@
   min-height: 780px;
   display: flex;
   align-items: center;
+  border-bottom: 4px solid var(--brand, #77D986);
 }
 
 /* Diagonal Split Slices for Desktop */
@@ -105,7 +106,7 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  border-radius: 8px;
 }
 
 .chevronBtnLeft {
@@ -160,7 +161,7 @@
   background: var(--bg-glass-dark);
   border: 1.5px solid var(--brand-glow);
   padding: 0.35rem 1.1rem 0.35rem 0.5rem;
-  border-radius: 9999px;
+  border-radius: var(--radius-badge, 8px);
   margin-top: 0.25rem;
   margin-bottom: 1.25rem;
   backdrop-filter: blur(12px);
@@ -248,8 +249,8 @@
 
 /* Description */
 .description {
-  font-size: 0.9375rem;
-  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.65;
   color: var(--text-inverse-secondary);
   margin-bottom: 1.75rem;
   max-width: 530px;
@@ -286,7 +287,7 @@
 .featureIconRing {
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: 8px;
   border: 1.5px solid var(--brand);
   background: var(--brand-glow-subtle);
   display: flex;
@@ -548,7 +549,7 @@
 .assistanceIconCircle {
   width: 42px;
   height: 42px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%);
   display: flex;
   align-items: center;

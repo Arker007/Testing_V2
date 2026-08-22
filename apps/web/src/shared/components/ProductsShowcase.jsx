@@ -20,7 +20,7 @@ const DEFAULT_BENTO_PRODUCTS = [
     category_name: "Plastic Lumber",
     description: "Durable recycled plastic profiles for construction framing, decking, walkways and industrial applications.",
     image_url: "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
-    fallback_image: "https://images.unsplash.com/photo-1541888081254-20a2e374ff19?q=80&w=1200&auto=format&fit=crop",
+    fallback_image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
     features: DEFAULT_SPECIFICATIONS,
   },
   {
@@ -40,12 +40,12 @@ const DEFAULT_BENTO_PRODUCTS = [
     fallback_image: "https://images.unsplash.com/photo-1519974719765-e6559eac2575?q=80&w=1000&auto=format&fit=crop",
   },
   {
-    id: "plastic-tables",
-    name: "Plastic Tables",
-    category_name: "Plastic Tables",
-    description: "All-weather tables for cafeterias, picnic spots, and industrial breakrooms.",
-    image_url: "/uploads/products/categories/plastic-table-1770446441648-0.webp",
-    fallback_image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1000&auto=format&fit=crop",
+    id: "outdoor-furniture",
+    name: "Outdoor Furniture",
+    category_name: "Outdoor Furniture",
+    description: "Ergonomic and long-lasting furniture for resorts, parks and public spaces.",
+    image_url: "/uploads/products/garden-bench/gardenbench-1770441701366-1.webp",
+    fallback_image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=1200&auto=format&fit=crop",
   },
   {
     id: "garden-fences",
@@ -56,12 +56,12 @@ const DEFAULT_BENTO_PRODUCTS = [
     fallback_image: "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?q=80&w=1000&auto=format&fit=crop",
   },
   {
-    id: "outdoor-furniture",
-    name: "Outdoor Furniture",
-    category_name: "Outdoor Furniture",
-    description: "Ergonomic and long-lasting furniture for resorts, parks and public spaces.",
-    image_url: "/uploads/products/garden-bench/gardenbench-1770441701366-1.webp",
-    fallback_image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=1200&auto=format&fit=crop",
+    id: "plastic-tables",
+    name: "Plastic Tables",
+    category_name: "Plastic Tables",
+    description: "All-weather tables for cafeterias, picnic spots, and industrial breakrooms.",
+    image_url: "/uploads/products/categories/plastic-table-1770446441648-0.webp",
+    fallback_image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1000&auto=format&fit=crop",
   },
 ];
 
@@ -71,14 +71,14 @@ const renderFeatureIcon = (iconName, title = "") => {
 
   if (name.includes("drop") || name.includes("water") || titleLower.includes("water")) {
     return (
-      <svg className="w-3.5 h-3.5 text-[var(--brand)] shrink-0 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-3.5 h-3.5 text-[#77D986] shrink-0 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
       </svg>
     );
   }
   if (name.includes("sun") || name.includes("uv") || titleLower.includes("uv") || titleLower.includes("sun")) {
     return (
-      <svg className="w-3.5 h-3.5 text-[var(--brand)] shrink-0 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-3.5 h-3.5 text-[#77D986] shrink-0 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="4" />
         <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
       </svg>
@@ -86,7 +86,7 @@ const renderFeatureIcon = (iconName, title = "") => {
   }
   if (name.includes("shield") || name.includes("termite") || name.includes("check") || titleLower.includes("termite") || titleLower.includes("shield")) {
     return (
-      <svg className="w-3.5 h-3.5 text-[var(--brand)] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-3.5 h-3.5 text-[#77D986] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
         <path d="m9 12 2 2 4-4" />
       </svg>
@@ -94,13 +94,13 @@ const renderFeatureIcon = (iconName, title = "") => {
   }
   if (name.includes("wrench") || name.includes("maintenance") || name.includes("tool") || titleLower.includes("maintenance")) {
     return (
-      <svg className="w-3.5 h-3.5 text-[var(--brand)] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-3.5 h-3.5 text-[#77D986] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
       </svg>
     );
   }
 
-  return <Icon icon={iconName || "solar:check-circle-linear"} className="w-3.5 h-3.5 text-[var(--brand)] shrink-0" />;
+  return <Icon icon={iconName || "solar:check-circle-linear"} className="w-3.5 h-3.5 text-[#77D986] shrink-0" />;
 };
 
 const getCardFeatures = (prod) => {
@@ -143,8 +143,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.05,
+      staggerChildren: 0.08,
+      delayChildren: 0.04,
     },
   },
 };
@@ -161,7 +161,7 @@ const cardVariant = {
     },
   },
   hover: {
-    y: -8,
+    y: -6,
     scale: 1.01,
     transition: {
       type: "spring",
@@ -216,8 +216,8 @@ export default function ProductsShowcase() {
   const featuredFeatures = getCardFeatures(featuredProduct);
 
   return (
-    <div className="w-full py-4">
-      {/* Bento Grid matching image.png (3 columns on lg breakpoint) */}
+    <div className="w-full pt-4 pb-16 sm:pb-24">
+      {/* Bento Grid matching full card container layout */}
       <Motion.div
         variants={containerVariants}
         initial="hidden"
@@ -231,64 +231,65 @@ export default function ProductsShowcase() {
           variants={cardVariant}
           whileHover="hover"
           onClick={() => handleCardClick(featuredProduct)}
-          className="group relative lg:col-span-2 lg:row-span-2 min-h-[460px] lg:min-h-[520px] w-full rounded-2xl overflow-hidden border border-[var(--border-card)] flex flex-col justify-between p-4 sm:p-5 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
+          className="group relative lg:col-span-2 lg:row-span-2 min-h-[460px] lg:min-h-[520px] w-full rounded-lg overflow-hidden border border-slate-700/40 dark:border-white/15 flex flex-col justify-between p-5 sm:p-7 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 bg-slate-950"
         >
-          {/* Background Image Layer (Positioned behind content) */}
-          <div className="absolute inset-0 z-0 bg-slate-900 pointer-events-none overflow-hidden">
+          {/* Full Container Background Image */}
+          <div className="absolute inset-0 z-0 bg-slate-950 pointer-events-none overflow-hidden">
             <OptimizedImage
               src={getImgUrl(featuredProduct, 0)}
               fallbackSrc={DEFAULT_BENTO_PRODUCTS[0].fallback_image}
               alt={featuredProduct.name}
-              className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out opacity-100"
+              className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
             />
-            {/* Bottom Lightened Dark Gradient for Text Contrast while making product images brighter */}
+            {/* Seamless gradient overlay directly on image */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/10 pointer-events-none" />
           </div>
 
-          {/* TOP BAR: Badge '01 / 06' + Top Right Action Arrow */}
+          {/* TOP BAR: Badge '01 / 06' + Top Right Action Arrow with Dark Backdrops */}
           <div className="relative z-20 flex items-center justify-between w-full">
             <Motion.div
               variants={badgeHoverVariant}
-              className="flex items-center gap-2"
+              className="inline-flex items-center gap-2 bg-[#77D986] text-slate-950 border border-[#77D986] px-3.5 py-1.5 rounded-lg shadow-md font-extrabold"
             >
-              <span className="bg-[var(--brand)] text-slate-950 font-black text-xs px-3 py-1 rounded-md shadow-md">
+              <span className="text-slate-950 font-black text-xs tracking-wide">
                 01
               </span>
-              <span className="text-white font-extrabold text-xs tracking-wider drop-shadow-sm">
+              <span className="text-slate-950/70 font-semibold text-xs tracking-wider">
                 / 06
               </span>
             </Motion.div>
 
             <Motion.button
               type="button"
-              whileHover={{ scale: 1.12, rotate: 4 }}
+              whileHover={{ scale: 1.1, rotate: 4 }}
               whileTap={{ scale: 0.92 }}
               onClick={(e) => {
                 e.stopPropagation();
                 handleCardClick(featuredProduct);
               }}
               aria-label="View Collection"
-              className="relative z-30 w-11 h-11 rounded-xl bg-[var(--brand)] text-white flex items-center justify-center cursor-pointer border border-white/20 shrink-0 shadow-md"
+              className="relative z-30 w-11 h-11 rounded-lg bg-[#77D986] text-slate-950 flex items-center justify-center cursor-pointer border border-[#77D986] backdrop-blur-md shrink-0 shadow-md transition-colors duration-200"
             >
-              <Icon icon="solar:arrow-right-up-linear" className="w-5 h-5" />
+              <Icon icon="solar:arrow-right-up-linear" className="w-5 h-5 text-slate-950" />
             </Motion.button>
           </div>
 
-          {/* BOTTOM CONTENT AREA WITH BLURRED GLASS CONTAINER */}
-          <div className="relative z-20 mt-auto bg-white/85 dark:bg-black/50 backdrop-blur-md p-3 sm:p-4 rounded-2xl border border-slate-200/90 dark:border-white/20 shadow-lg dark:shadow-2xl">
+          {/* BOTTOM CONTENT AREA (Full-bleed direct overlay with high-contrast text) */}
+          <div className="relative z-20 mt-auto pt-8">
             <div className="max-w-2xl">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight mb-2">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#FFFFFF] tracking-tight leading-tight mb-2 drop-shadow-sm">
                 {featuredProduct.name || "Plastic Lumber"}
               </h3>
 
-              <p className="text-slate-700 dark:text-slate-100 text-xs sm:text-sm leading-relaxed font-semibold max-w-xl">
+              <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs sm:text-sm leading-relaxed font-medium max-w-xl drop-shadow-xs">
                 {featuredProduct.description ||
                   "Durable recycled plastic profiles for construction framing, decking, walkways and industrial applications."}
               </p>
             </div>
 
             {/* FEATURES / SPECIFICATIONS BAR + ACTION BUTTON */}
-            <div className="mt-4 pt-3 border-t border-slate-200/80 dark:border-white/20 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-bold">
+            <div className="mt-5 pt-4 border-t border-white/15 flex flex-wrap items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
                 {featuredFeatures.map((feat, idx) => {
                   const iconName = typeof feat.icon === "string" ? feat.icon : "solar:waterdrops-linear";
                   return (
@@ -296,10 +297,10 @@ export default function ProductsShowcase() {
                       key={idx}
                       whileHover={{ scale: 1.05, y: -2 }}
                       transition={{ duration: 0.2 }}
-                      className="flex items-center gap-1.5 bg-slate-100/90 dark:bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200/90 dark:border-white/20 shadow-xs"
+                      className="flex items-center gap-1.5 bg-black/55 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 shadow-xs"
                     >
                       {renderFeatureIcon(iconName, feat.title)}
-                      <span className="text-slate-900 dark:text-white text-[11px] sm:text-xs font-bold">{feat.title}</span>
+                      <span className="text-[#F1F5F9] text-[11px] sm:text-xs font-semibold">{feat.title}</span>
                     </Motion.div>
                   );
                 })}
@@ -307,17 +308,15 @@ export default function ProductsShowcase() {
 
               <Motion.button
                 type="button"
-                whileHover={{ scale: 1.06 }}
-                whileTap={{ scale: 0.94 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={(e) => {
                   e.stopPropagation();
                   handleCardClick(featuredProduct);
                 }}
-                className="relative z-30 bg-[var(--brand)] text-slate-950 font-black text-xs sm:text-sm px-5 py-2.5 rounded-xl flex items-center gap-2 cursor-pointer border border-white/20 shrink-0 opacity-100 shadow-md"
+                className="relative z-30 bg-[#77D986] hover:bg-[#68cb77] text-slate-950 font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-lg flex items-center gap-2 cursor-pointer border border-white/25 shrink-0 shadow-md transition-all"
               >
-                <span className="font-black">
-                  Explore Collection
-                </span>
+                <span>Explore Collection</span>
                 <Icon icon="solar:arrow-right-linear" className="w-4 h-4 text-slate-950" />
               </Motion.button>
             </div>
@@ -337,48 +336,50 @@ export default function ProductsShowcase() {
               variants={cardVariant}
               whileHover="hover"
               onClick={() => handleCardClick(prod)}
-              className="group relative aspect-square w-full rounded-2xl overflow-hidden border border-[var(--border-card)] flex flex-col justify-between p-3 sm:p-4 cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
+              className="group relative aspect-square w-full rounded-lg overflow-hidden border border-slate-700/40 dark:border-white/15 flex flex-col justify-between p-4 sm:p-5 cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 bg-slate-950"
             >
-              {/* Background Image Layer (Positioned behind content) */}
-              <div className="absolute inset-0 z-0 bg-slate-900 pointer-events-none overflow-hidden">
+              {/* Full Container Background Image */}
+              <div className="absolute inset-0 z-0 bg-slate-950 pointer-events-none overflow-hidden">
                 <OptimizedImage
                   src={img}
                   fallbackSrc={DEFAULT_BENTO_PRODUCTS[idx + 1]?.fallback_image}
                   alt={title}
-                  className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out opacity-100"
+                  className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
                 />
+                {/* Smooth gradient overlay directly on bottom 45% */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
               </div>
 
               {/* TOP BAR */}
               <div className="relative z-20 flex items-center justify-between w-full">
                 <Motion.span
                   variants={badgeHoverVariant}
-                  className="bg-[var(--brand)] text-slate-950 font-black text-xs px-3 py-1 rounded-md shadow-md"
+                  className="inline-flex items-center bg-[#77D986] text-slate-950 font-black text-xs px-3 py-1 rounded-lg shadow-md border border-[#77D986]"
                 >
                   {cardNum}
                 </Motion.span>
 
                 <Motion.button
                   type="button"
-                  whileHover={{ scale: 1.12, rotate: 4 }}
+                  whileHover={{ scale: 1.1, rotate: 4 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={(e) => {
                     e.stopPropagation();
                     handleCardClick(prod);
                   }}
                   aria-label="View Product"
-                  className="relative z-30 w-9 h-9 rounded-xl bg-[var(--brand)] text-slate-950 flex items-center justify-center cursor-pointer border border-white/20 shrink-0 shadow-md"
+                  className="relative z-30 w-9 h-9 rounded-lg bg-[#77D986] text-slate-950 flex items-center justify-center cursor-pointer border border-[#77D986] backdrop-blur-md shrink-0 shadow-md transition-colors duration-200"
                 >
                   <Icon icon="solar:arrow-right-up-linear" className="w-4 h-4 text-slate-950" />
                 </Motion.button>
               </div>
 
-              {/* BOTTOM TEXT WITH BLURRED GLASS CONTAINER */}
-              <div className="relative z-20 mt-auto bg-white/85 dark:bg-black/50 backdrop-blur-md p-3 rounded-xl border border-slate-200/90 dark:border-white/20 shadow-lg dark:shadow-xl">
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-1">
+              {/* BOTTOM DIRECT OVERLAY TEXT */}
+              <div className="relative z-20 mt-auto pt-6">
+                <h3 className="text-lg sm:text-xl font-black text-[#FFFFFF] tracking-tight mb-1 drop-shadow-sm">
                   {title}
                 </h3>
-                <p className="text-slate-700 dark:text-slate-100 text-xs leading-relaxed font-semibold line-clamp-2">
+                <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs leading-relaxed font-medium line-clamp-2 drop-shadow-xs">
                   {desc}
                 </p>
               </div>
@@ -399,48 +400,50 @@ export default function ProductsShowcase() {
               variants={cardVariant}
               whileHover="hover"
               onClick={() => handleCardClick(prod)}
-              className="group relative aspect-square w-full rounded-2xl overflow-hidden border border-[var(--border-card)] flex flex-col justify-between p-3 sm:p-4 cursor-pointer shadow-md hover:shadow-xl transition-all duration-300"
+              className="group relative aspect-square w-full rounded-lg overflow-hidden border border-slate-700/40 dark:border-white/15 flex flex-col justify-between p-4 sm:p-5 cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 bg-slate-950"
             >
-              {/* Background Image Layer (Positioned behind content) */}
-              <div className="absolute inset-0 z-0 bg-slate-900 pointer-events-none overflow-hidden">
+              {/* Full Container Background Image */}
+              <div className="absolute inset-0 z-0 bg-slate-950 pointer-events-none overflow-hidden">
                 <OptimizedImage
                   src={img}
                   fallbackSrc={DEFAULT_BENTO_PRODUCTS[idx + 3]?.fallback_image}
                   alt={title}
-                  className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out opacity-100"
+                  className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
                 />
+                {/* Smooth gradient overlay directly on bottom 45% */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
               </div>
 
               {/* TOP BAR */}
               <div className="relative z-20 flex items-center justify-between w-full">
                 <Motion.span
                   variants={badgeHoverVariant}
-                  className="bg-[var(--brand)] text-slate-950 font-black text-xs px-3 py-1 rounded-md shadow-md"
+                  className="inline-flex items-center bg-[#77D986] text-slate-950 font-black text-xs px-3 py-1 rounded-lg shadow-md border border-[#77D986]"
                 >
                   {cardNum}
                 </Motion.span>
 
                 <Motion.button
                   type="button"
-                  whileHover={{ scale: 1.12, rotate: 4 }}
+                  whileHover={{ scale: 1.1, rotate: 4 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={(e) => {
                     e.stopPropagation();
                     handleCardClick(prod);
                   }}
                   aria-label="View Product"
-                  className="relative z-30 w-9 h-9 rounded-xl bg-[var(--brand)] text-slate-950 flex items-center justify-center cursor-pointer border border-white/20 shrink-0 shadow-md"
+                  className="relative z-30 w-9 h-9 rounded-lg bg-[#77D986] text-slate-950 flex items-center justify-center cursor-pointer border border-[#77D986] backdrop-blur-md shrink-0 shadow-md transition-colors duration-200"
                 >
                   <Icon icon="solar:arrow-right-up-linear" className="w-4 h-4 text-slate-950" />
                 </Motion.button>
               </div>
 
-              {/* BOTTOM TEXT WITH BLURRED GLASS CONTAINER */}
-              <div className="relative z-20 mt-auto bg-white/85 dark:bg-black/50 backdrop-blur-md p-3 rounded-xl border border-slate-200/90 dark:border-white/20 shadow-lg dark:shadow-xl">
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-1">
+              {/* BOTTOM DIRECT OVERLAY TEXT */}
+              <div className="relative z-20 mt-auto pt-6">
+                <h3 className="text-lg sm:text-xl font-black text-[#FFFFFF] tracking-tight mb-1 drop-shadow-sm">
                   {title}
                 </h3>
-                <p className="text-slate-700 dark:text-slate-100 text-xs leading-relaxed font-semibold line-clamp-2">
+                <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs leading-relaxed font-medium line-clamp-2 drop-shadow-xs">
                   {desc}
                 </p>
               </div>

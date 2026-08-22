@@ -127,7 +127,7 @@
   right: 14px;
   width: 38px;
   height: 38px;
-  border-radius: 50%;
+  border-radius: 8px;
   border: 1px solid var(--border);
   background: var(--bg-card, var(--white));
   color: var(--navy);
@@ -183,7 +183,7 @@
 .thumbNav {
   width: 34px;
   height: 34px;
-  border-radius: 50%;
+  border-radius: 8px;
   border: 1px solid var(--border);
   background: var(--navy);
   color: var(--white);

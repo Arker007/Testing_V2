@@ -18,53 +18,54 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0.625rem 0.85rem;
+  padding: 0.65rem 0.95rem;
   background: #FFFFFF;
   color: var(--color-text-primary);
-  border: 1px solid #CBD5E1;
-  border-radius: var(--radius-xs);
-  font-size: 0.8125rem;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: left;
 }
 
 .customSelectTrigger:hover {
-  border-color: var(--color-text-primary);
+  border-color: #77D986;
   background: #F8FAFC;
+  box-shadow: 0 0 0 3px rgba(119, 217, 134, 0.15);
 }
 
 .customSelectTrigger[aria-expanded="true"] {
-  border-color: var(--color-surface-muted);
-  box-shadow: 0 0 0 3px rgba(63, 174, 90, 0.2);
+  border-color: #77D986;
+  box-shadow: 0 0 0 3px rgba(119, 217, 134, 0.22);
   outline: none;
 }
 
 .selectChevron {
   color: #64748B;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
   flex-shrink: 0;
   margin-left: 0.5rem;
 }
 
 .chevronRotate {
   transform: rotate(180deg);
-  color: var(--color-text-primary);
+  color: #77D986;
 }
 
 .customSelectDropdown {
   position: absolute;
-  top: calc(100% + 4px);
+  top: calc(100% + 6px);
   left: 0;
   right: 0;
   z-index: 100;
   background: #FFFFFF;
-  border: 1px solid #CBD5E1;
-  border-radius: var(--radius-xs);
-  box-shadow: 0 10px 25px -5px rgba(24, 48, 40, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-  padding: 0.35rem;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 0.875rem;
+  box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.12), 0 6px 12px -2px rgba(15, 23, 42, 0.04);
+  padding: 0.45rem;
   list-style: none;
   margin: 0;
   max-height: 240px;
@@ -75,8 +76,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--radius-xs);
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.5rem;
   font-size: 0.8125rem;
   font-weight: 500;
   color: #334155;
@@ -85,13 +86,13 @@
 }
 
 .customSelectOption:hover {
-  background: #F8FAFC;
-  color: var(--color-text-primary);
+  background: rgba(119, 217, 134, 0.12);
+  color: #3b9b4a;
 }
 
 .customSelectOptionActive {
-  background: rgba(63, 174, 90, 0.15) !important;
-  color: var(--color-text-primary) !important;
+  background: rgba(119, 217, 134, 0.18) !important;
+  color: #2e8b42 !important;
   font-weight: 700 !important;
 }
 

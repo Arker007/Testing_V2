@@ -24,9 +24,14 @@ export default function ProcurementAdvantage() {
   return (
     <section className={styles.procurementSection}>
       <div className={styles.procurementHead}>
-        <span className="section-eyebrow mx-auto">PROCUREMENT ADVANTAGE</span>
-        <h2 className="section-title">Built for Reliable B2B Sourcing</h2>
-        <p className="section-desc">
+        <div className="flex justify-center mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#77D986]/10 dark:bg-[#77D986]/8 border border-[#77D986]/30 dark:border-[#77D986]/40 rounded-full text-[#54b862] dark:text-[#77D986] font-bold text-xs tracking-wider uppercase shadow-xs">
+            <Icon icon="solar:verified-check-linear" className="w-4 h-4" />
+            <span>Procurement Advantage</span>
+          </span>
+        </div>
+        <h2 className="section-title text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">Built for Reliable B2B Sourcing</h2>
+        <p className="section-desc text-slate-600 dark:text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mt-3 leading-relaxed">
           Beyond structural performance, we ensure batch-to-batch consistency, tight tolerance control, and dependable dispatch schedules for industrial buyers.
         </p>
       </div>

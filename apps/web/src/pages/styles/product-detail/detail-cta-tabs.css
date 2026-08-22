@@ -39,7 +39,7 @@
 .checkCircle {
   width: 24px;
   height: 24px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: var(--color-success);
   color: var(--white);
   display: inline-flex;
@@ -52,7 +52,7 @@
 .crossCircle {
   width: 24px;
   height: 24px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: var(--gray-200);
   color: var(--white);
   display: inline-flex;

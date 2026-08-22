@@ -150,7 +150,9 @@
 }
 
 .sortSelectWrapper {
-  min-width: 180px;
+  min-width: 190px;
+  position: relative;
+  border-radius: 0.75rem;
 }
 
 .viewModeSwitcher {
@@ -160,7 +162,7 @@
   background: var(--bg-surface-elevated, #F8FAFC);
   border: 1px solid var(--border, #E2E8F0);
   padding: 3px;
-  border-radius: 8px;
+  border-radius: 0.75rem;
 }
 
 .viewToggleBtn {

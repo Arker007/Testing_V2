@@ -221,43 +221,9 @@
   flex-wrap: wrap;
 }
 
-.submitBtn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  background-color: var(--navy) !important;
-  color: var(--white) !important;
-  border: 1px solid var(--navy) !important;
-  border-radius: 9999px;
-  padding: 0.85rem 2rem;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out !important;
-  box-shadow: 0 4px 14px var(--navy-glow);
-}
-
-.submitBtn:hover:not(:disabled) {
-  background-color: var(--brand) !important;
-  border-color: var(--brand) !important;
-  color: var(--navy) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px var(--navy-glow);
-}
-
-.submitBtn:active:not(:disabled) {
-  transform: translateY(1px);
-}
-
-.submitBtn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
 .privacyNote {
   font-size: 0.8125rem;
-  color: var(--gray-500);
+  color: #5C6975;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -404,7 +370,7 @@
   height: 42px;
   background: var(--brand-light);
   color: var(--color-success);
-  border-radius: 50%;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -620,6 +586,18 @@ html.dark .enquiryCard {
   border-color: var(--dark-border) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
   color: var(--text-primary) !important;
+}
+
+:global([data-theme="dark"]) .privacyNote,
+:global(.dark) .privacyNote,
+html.dark .privacyNote {
+  color: #94A3B8 !important;
+}
+
+:global([data-theme="dark"]) .inputIcon,
+:global(.dark) .inputIcon,
+html.dark .inputIcon {
+  color: var(--brand-text) !important;
 }
 
 :global([data-theme="dark"]) .formTitle,

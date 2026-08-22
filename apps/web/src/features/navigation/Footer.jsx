@@ -119,7 +119,7 @@ export default function Footer() {
 
           <div className={styles.isoRow}>
             <Icon icon="solar:verified-check-linear" className="text-emerald-500 w-5 h-5 inline mr-1.5" />
-            <span>ISO 9001:2015 Certified</span>
+            <span>{co("gstin") ? `GSTIN: ${co("gstin")}` : c("cert_gst", "GST Registered")}</span>
           </div>
 
           <div className={styles.socials}>
@@ -271,7 +271,7 @@ export default function Footer() {
                   required
                 />
                 <button type="submit" className={styles.newsletterSubmit} aria-label="Subscribe">
-                  <Icon icon="solar:plain-3-linear" className="w-4 h-4 text-emerald-400" />
+                  <Icon icon="solar:plain-3-linear" className="w-4 h-4 text-slate-900" />
                 </button>
               </form>
             )}

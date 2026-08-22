@@ -210,9 +210,9 @@ export default function Navbar() {
                 title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
               >
                 {theme === "dark" ? (
-                  <Icon icon="solar:sun-2-linear" className="w-5 h-5 text-amber-400" />
+                  <Icon icon="solar:sun-2-linear" className="w-5 h-5" />
                 ) : (
-                  <Icon icon="solar:moon-linear" className="w-5 h-5 text-slate-700" />
+                  <Icon icon="solar:moon-linear" className="w-5 h-5" />
                 )}
               </button>
 

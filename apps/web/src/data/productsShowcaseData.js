@@ -8,7 +8,7 @@ export const PRODUCTS_SHOWCASE_DATA = [
       "Durable recycled plastic profiles for construction framing, decking, walkways and industrial applications.",
     image: "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
     fallbackImage:
-      "https://images.unsplash.com/photo-1541888081254-20a2e374ff19?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
     isLarge: true,
     features: [
       { key: "waterproof", label: "Waterproof" },
@@ -39,13 +39,13 @@ export const PRODUCTS_SHOWCASE_DATA = [
   },
   {
     id: "04",
-    title: "Plastic Tables",
-    category: "tables",
+    title: "Outdoor Furniture",
+    category: "furniture",
     description:
-      "All-weather tables for cafeterias, picnic spots, and industrial breakrooms.",
-    image: "/uploads/products/categories/plastic-table-1770446441648-0.webp",
+      "Ergonomic and long-lasting furniture for resorts, parks and public spaces.",
+    image: "/uploads/products/1778411473002-44958.webp",
     fallbackImage:
-      "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop",
   },
   {
     id: "05",
@@ -59,12 +59,12 @@ export const PRODUCTS_SHOWCASE_DATA = [
   },
   {
     id: "06",
-    title: "Outdoor Furniture",
-    category: "furniture",
+    title: "Plastic Tables",
+    category: "tables",
     description:
-      "Ergonomic and long-lasting furniture for resorts, parks and public spaces.",
-    image: "/uploads/products/1778411473002-44958.webp",
+      "All-weather tables for cafeterias, picnic spots, and industrial breakrooms.",
+    image: "/uploads/products/categories/plastic-table-1770446441648-0.webp",
     fallbackImage:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?q=80&w=1000&auto=format&fit=crop",
   },
 ];

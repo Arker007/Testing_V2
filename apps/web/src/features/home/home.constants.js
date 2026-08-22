@@ -27,7 +27,13 @@ function createMotionIcon(iconName) {
         className: `inline-flex items-center justify-center shrink-0 ${className || "w-5 h-5"}`,
         style,
       },
-      React.createElement(Icon, { icon: iconName, className: "w-full h-full", ...iconProps })
+      React.createElement(Icon, {
+        icon: iconName,
+        className: "w-full h-full text-current shrink-0",
+        width: "20",
+        height: "20",
+        ...iconProps,
+      })
     );
   });
   IconWrapper.displayName = `MotionIcon(${iconName})`;
@@ -36,20 +42,20 @@ function createMotionIcon(iconName) {
 
 export const MotionHardHat = createMotionIcon("solar:shield-warning-linear");
 export const MotionShieldCheck = createMotionIcon("solar:shield-check-linear");
-export const MotionRoute = createMotionIcon("solar:map-point-linear");
-export const MotionTrees = createMotionIcon("solar:leaf-linear");
+export const MotionRoute = createMotionIcon("solar:routing-2-linear");
+export const MotionTrees = createMotionIcon("solar:chair-2-linear");
 export const MotionSchool = createMotionIcon("solar:buildings-2-linear");
 export const MotionWarehouse = createMotionIcon("solar:box-minimalistic-linear");
 export const MotionSprout = createMotionIcon("solar:leaf-linear");
-export const MotionHomeIcon = createMotionIcon("solar:home-smile-linear");
+export const MotionHomeIcon = createMotionIcon("solar:home-2-linear");
 export const MotionBuilding2 = createMotionIcon("solar:buildings-3-linear");
 export const MotionArrowRight = createMotionIcon("solar:arrow-right-linear");
 
 export const hardHatVariants = {
   hover: {
-    y: [0, -4, 0],
+    y: [0, -3, 0],
     rotate: [0, -5, 5, -5, 0],
-    transition: { duration: 0.6, ease: "easeInOut" }
+    transition: { duration: 0.5, ease: "easeInOut" }
   }
 };
 
@@ -63,35 +69,37 @@ export const shieldCheckVariants = {
 export const routeVariants = {
   hover: {
     scale: 1.1,
-    rotate: [0, 10, -10, 0],
-    transition: { duration: 0.6, ease: "easeInOut" }
+    rotate: [0, 8, -8, 0],
+    transition: { duration: 0.5, ease: "easeInOut" }
   }
 };
 
 export const treesVariants = {
   hover: {
-    skewX: [0, 6, -6, 4, 0],
-    transition: { duration: 0.8, ease: "easeInOut" }
+    scale: 1.12,
+    y: -2,
+    transition: { duration: 0.4, ease: "easeInOut" }
   }
 };
 
 export const schoolVariants = {
   hover: {
-    y: [0, -4, 0],
-    transition: { duration: 0.5, ease: "easeInOut" }
+    y: [0, -3, 0],
+    scale: 1.08,
+    transition: { duration: 0.4, ease: "easeInOut" }
   }
 };
 
 export const warehouseVariants = {
   hover: {
-    scale: [1, 1.1, 1],
-    transition: { duration: 0.5, ease: "easeInOut" }
+    scale: [1, 1.12, 1],
+    transition: { duration: 0.4, ease: "easeInOut" }
   }
 };
 
 export const sproutVariants = {
   hover: {
-    scale: [1, 1.2, 1.05, 1.1],
+    scale: [1, 1.18, 1.08, 1.12],
     y: [0, -2, -1],
     transition: { duration: 0.5, ease: "easeOut" }
   }
@@ -128,8 +136,8 @@ export const industryCardVariant = {
   },
   hover: {
     y: -6,
-    borderColor: "var(--brand-border)",
-    boxShadow: "0 20px 40px -10px var(--navy-glow), 0 0 20px -5px var(--brand-glow-subtle)",
+    borderColor: "rgba(119, 217, 134, 0.4)",
+    boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(119, 217, 134, 0.2)",
     transition: { type: "spring", stiffness: 300, damping: 20 }
   }
 };

@@ -17,26 +17,28 @@ export default function SustainabilitySection() {
       >
         {/* Ambient radial glow blobs */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#77d986]/10 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[0.7fr_1.3fr] gap-8 lg:gap-12 items-center">
           {/* Left Graphic */}
           <div className="flex flex-col items-center justify-center gap-4 py-4">
-            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border-2 border-dashed border-emerald-400 dark:border-emerald-500/50 flex items-center justify-center text-emerald-600 dark:text-[#88e31b] shadow-sm animate-icon-pulse">
+            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-[#77d986]/10 dark:bg-[#77d986]/8 border-2 border-dashed border-[#77d986] dark:border-[#77d986]/50 flex items-center justify-center text-[#54b862] dark:text-[#77d986] shadow-sm animate-icon-pulse">
               <Icon icon="solar:leaf-linear" className="w-12 h-12 sm:w-16 sm:h-16" />
             </div>
-            <Badge variant="brand" size="md">
-              Circular Economy
-            </Badge>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#77D986]/10 dark:bg-[#77D986]/8 border border-[#77D986]/30 dark:border-[#77D986]/40 rounded-full text-[#54b862] dark:text-[#77D986] font-bold text-xs tracking-wider uppercase shadow-xs">
+              <Icon icon="solar:restart-circle-linear" className="w-4 h-4" />
+              <span>Circular Economy</span>
+            </span>
           </div>
 
           {/* Right Content */}
           <div className="flex flex-col gap-4">
             <div>
-              <div className="mb-2">
-                <Badge variant="brand" size="sm">
-                  {c("home_about_eyebrow", "Our Environmental Impact")}
-                </Badge>
+              <div className="mb-3">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#77D986]/10 dark:bg-[#77D986]/8 border border-[#77D986]/30 dark:border-[#77D986]/40 rounded-full text-[#54b862] dark:text-[#77D986] font-bold text-xs tracking-wider uppercase shadow-xs">
+                  <Icon icon="solar:leaf-linear" className="w-4 h-4" />
+                  <span>{c("home_about_eyebrow", "Our Environmental Impact")}</span>
+                </span>
               </div>
               <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
                 {c("home_about_title", "Replacing Wood. Saving Forests.")}
@@ -50,24 +52,24 @@ export default function SustainabilitySection() {
             </p>
 
             <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-2">
-              <div className="bg-slate-50 dark:bg-white/5 border border-slate-200/90 dark:border-white/10 p-3 sm:p-4 rounded-xl text-center shadow-xs">
-                <div className="text-xl sm:text-2xl font-black text-emerald-700 dark:text-[#88e31b]">
+              <div className="bg-[#77d986]/5 dark:bg-white/5 border border-[#77d986]/20 dark:border-white/10 p-3 sm:p-4 rounded-2xl text-center shadow-2xs transition-all duration-200 hover:border-[#77d986]/50 hover:bg-[#77d986]/10 hover:-translate-y-0.5">
+                <div className="text-xl sm:text-2xl font-black text-[#54b862] dark:text-[#77D986]">
                   {c("home_about_stat1_number", "20+")}
                 </div>
                 <div className="text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mt-1">
                   {c("home_about_stat1_label", "Years Experience")}
                 </div>
               </div>
-              <div className="bg-slate-50 dark:bg-white/5 border border-slate-200/90 dark:border-white/10 p-3 sm:p-4 rounded-xl text-center shadow-xs">
-                <div className="text-xl sm:text-2xl font-black text-emerald-700 dark:text-[#88e31b]">
+              <div className="bg-[#77d986]/5 dark:bg-white/5 border border-[#77d986]/20 dark:border-white/10 p-3 sm:p-4 rounded-2xl text-center shadow-2xs transition-all duration-200 hover:border-[#77d986]/50 hover:bg-[#77d986]/10 hover:-translate-y-0.5">
+                <div className="text-xl sm:text-2xl font-black text-[#54b862] dark:text-[#77D986]">
                   {c("home_about_stat2_number", "1000+")}
                 </div>
                 <div className="text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mt-1">
                   {c("home_about_stat2_label", "Satisfied Clients")}
                 </div>
               </div>
-              <div className="bg-slate-50 dark:bg-white/5 border border-slate-200/90 dark:border-white/10 p-3 sm:p-4 rounded-xl text-center shadow-xs">
-                <div className="text-xl sm:text-2xl font-black text-emerald-700 dark:text-[#88e31b]">
+              <div className="bg-[#77d986]/5 dark:bg-white/5 border border-[#77d986]/20 dark:border-white/10 p-3 sm:p-4 rounded-2xl text-center shadow-2xs transition-all duration-200 hover:border-[#77d986]/50 hover:bg-[#77d986]/10 hover:-translate-y-0.5">
+                <div className="text-xl sm:text-2xl font-black text-[#54b862] dark:text-[#77D986]">
                   {c("home_about_stat3_number", "1500+")}
                 </div>
                 <div className="text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mt-1">

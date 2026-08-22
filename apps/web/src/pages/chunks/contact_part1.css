@@ -4,6 +4,7 @@
   padding: calc(var(--nav-h, 70px) + 2rem) 0 4.5rem;
   overflow: hidden;
   background: var(--hero-gradient, linear-gradient(135deg, var(--navy) 0%, var(--navy) 100%));
+  border-bottom: 4px solid var(--brand, #77D986);
 }
 
 .heroBg {

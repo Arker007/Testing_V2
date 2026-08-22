@@ -20,7 +20,7 @@ html[data-theme="dark"] {
 
   /* Typography Colors */
   --text-primary: #f4f6f8;
-  --text-secondary: #919eab;
+  --text-secondary: #cbd5e1;
   --text-muted: #637381;
   --text-inverse: #0f141a;
 
@@ -343,10 +343,10 @@ html.dark .cta-section [class*="desc"] {
 /* ─── Badges, Eyebrows & Tags ───────────────────────────────────────────── */
 :root[data-theme="dark"] .section-eyebrow,
 html.dark .section-eyebrow {
-  background-color: var(--brand-soft) !important;
-  border: 1px solid var(--brand-border) !important;
-  color: var(--brand-text) !important;
-  border-radius: var(--radius-pill) !important;
+  background-color: rgba(114, 214, 130, 0.15) !important;
+  border: 1px solid rgba(114, 214, 130, 0.3) !important;
+  color: #72D682 !important;
+  border-radius: var(--radius-badge, 8px) !important;
 }
 
 :root[data-theme="dark"] .bentoBadgeBlue,
@@ -354,7 +354,7 @@ html.dark .bentoBadgeBlue {
   background: rgba(255, 255, 255, 0.08) !important;
   color: var(--text-primary) !important;
   border: 1px solid var(--border-subtle) !important;
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-badge, 8px) !important;
 }
 
 :root[data-theme="dark"] .bentoBadgeLime,
@@ -364,7 +364,7 @@ html.dark .bentoBadgeLimeDark {
   background: var(--brand-soft) !important;
   color: var(--brand-text) !important;
   border: 1px solid var(--brand-border) !important;
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-badge, 8px) !important;
 }
 
 /* ─── Buttons & Interactive Controls ────────────────────────────────────── */
@@ -380,7 +380,7 @@ html.dark .btn-primary {
   color: var(--text-primary) !important;
   border-color: var(--brand) !important;
   font-weight: 600 !important;
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-btn, 8px) !important;
   box-shadow: var(--shadow-sm) !important;
 }
 
@@ -443,7 +443,7 @@ html.dark .btn-outline {
   background: var(--surface) !important;
   border: 1px solid var(--border-default) !important;
   color: var(--text-primary) !important;
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-btn, 8px) !important;
 }
 
 :root[data-theme="dark"] .btn-secondary:hover,
@@ -471,7 +471,7 @@ html.dark .assistanceBtn {
   background: var(--surface-secondary) !important;
   border: 1px solid var(--brand-border) !important;
   color: var(--brand-text) !important;
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-btn, 8px) !important;
 }
 
 :root[data-theme="dark"] .assistanceBtn:hover,
@@ -724,7 +724,7 @@ html.dark [class*="mapIconCircle"] {
   background: var(--brand-soft) !important;
   border: 1px solid var(--brand-border) !important;
   color: var(--brand-text) !important;
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-md, 8px) !important;
 }
 
 :root[data-theme="dark"] .bannerBtn,
@@ -734,7 +734,7 @@ html.dark [class*="bannerBtn"] {
   background: var(--brand) !important;
   color: var(--text-inverse) !important;
   font-weight: 600 !important;
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-btn, 8px) !important;
 }
 
 :root[data-theme="dark"] .mapDirectionsBtn,
@@ -744,7 +744,7 @@ html.dark [class*="mapDirectionsBtn"] {
   background: var(--brand) !important;
   color: var(--text-inverse) !important;
   font-weight: 600 !important;
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-btn, 8px) !important;
 }
 
 :root[data-theme="dark"] .mapIframeFrame,
@@ -763,7 +763,7 @@ html.dark [class*="companyBadge"] {
   background: var(--bg-card) !important;
   border: 1px solid var(--border-subtle) !important;
   color: var(--text-secondary) !important;
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-badge, 8px) !important;
 }
 
 :root[data-theme="dark"] .workflowSection,
@@ -833,12 +833,34 @@ html.dark [class*="authorMeta"] {
 }
 
 /* ─── Hero Section Dark Mode Theme ───────────────────────────────────────── */
+:root[data-theme="dark"] #home-hero-redesign,
+:root[data-theme="dark"] header.hero,
+:root[data-theme="dark"] header[class*="hero"],
+:root[data-theme="dark"] header[class*="Hero"],
+:root[data-theme="dark"] header[class*="productsHero"],
+:root[data-theme="dark"] section.hero,
+:root[data-theme="dark"] section[class*="hero"],
+:root[data-theme="dark"] section[class*="Hero"],
+:root[data-theme="dark"] div[class*="productsHero"],
+:root[data-theme="dark"] .about-hero-section,
+html.dark #home-hero-redesign,
+html.dark header.hero,
+html.dark header[class*="hero"],
+html.dark header[class*="Hero"],
+html.dark header[class*="productsHero"],
+html.dark section.hero,
+html.dark section[class*="hero"],
+html.dark section[class*="Hero"],
+html.dark div[class*="productsHero"],
+html.dark .about-hero-section {
+  border-bottom: 4px solid var(--brand, #77D986) !important;
+}
+
 :root[data-theme="dark"] .slantBgDark,
 :root[data-theme="dark"] [class*="slantBgDark"],
 html.dark .slantBgDark,
 html.dark [class*="slantBgDark"] {
   background: var(--bg-hero) !important;
-  display: block !important;
   opacity: 1 !important;
   z-index: 2 !important;
 }
@@ -848,16 +870,28 @@ html.dark [class*="slantBgDark"] {
 html.dark .slantBgGreen,
 html.dark [class*="slantBgGreen"] {
   background: var(--primary) !important;
-  display: block !important;
   opacity: 1 !important;
   z-index: 1 !important;
+}
+
+@media (max-width: 991px) {
+  :root[data-theme="dark"] .slantBgDark,
+  :root[data-theme="dark"] [class*="slantBgDark"],
+  html.dark .slantBgDark,
+  html.dark [class*="slantBgDark"],
+  :root[data-theme="dark"] .slantBgGreen,
+  :root[data-theme="dark"] [class*="slantBgGreen"],
+  html.dark .slantBgGreen,
+  html.dark [class*="slantBgGreen"] {
+    display: none !important;
+  }
 }
 
 /* ─── Footer ────────────────────────────────────────────────────────────── */
 :root[data-theme="dark"] footer,
 html.dark footer {
   background-color: #000000 !important;
-  border-top: 1px solid var(--border-subtle) !important;
+  border-top: 4px solid var(--brand, #77D986) !important;
 }
 
 /* ─── Smooth Transition On Theme Toggle ─────────────────────────────────── */

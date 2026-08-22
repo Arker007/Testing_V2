@@ -112,7 +112,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 0.25rem 0.65rem;
-  border-radius: 9999px;
+  border-radius: var(--radius-badge, 8px);
   background: var(--brand-border);
   color: var(--brand);
   border: 1px solid var(--brand-border);
@@ -124,7 +124,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 0.25rem 0.65rem;
-  border-radius: 9999px;
+  border-radius: var(--radius-badge, 8px);
   background: var(--brand-glow-subtle);
   color: var(--brand);
   border: 1px solid var(--brand-border);
@@ -136,7 +136,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 0.25rem 0.65rem;
-  border-radius: 9999px;
+  border-radius: var(--radius-badge, 8px);
   background: var(--border-subtle);
   color: var(--gray-900);
   border: 1px solid var(--border-subtle);
@@ -158,7 +158,7 @@
   bottom: 1.75rem;
   width: 2.25rem;
   height: 2.25rem;
-  border-radius: 50%;
+  border-radius: 8px;
   background: var(--white);
   border: 1px solid var(--divider);
   color: var(--gray-900);

@@ -1,9 +1,22 @@
 /* ── Hero Section (MUST REMAIN UNCHANGED) ── */
 .hero {
   position: relative;
-  padding: calc(var(--nav-h, 70px) + 2rem) 0 4.5rem;
+  padding: 3.75rem 0 4.25rem;
   overflow: hidden;
   background: var(--hero-gradient, linear-gradient(135deg, var(--navy) 0%, var(--navy) 100%));
+  border-bottom: 4px solid var(--brand, #77D986);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 2.5rem 0 3rem;
+  }
+}
+
+.hero :global(.section-eyebrow) {
+  color: #72D682 !important;
+  background-color: rgba(114, 214, 130, 0.15) !important;
+  border-color: rgba(114, 214, 130, 0.3) !important;
 }
 
 .heroBg {
