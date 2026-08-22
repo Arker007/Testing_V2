@@ -19,9 +19,11 @@ html.dark [class*="searchBoxWrapper"] {
 
 :global([data-theme="dark"]) .searchInputField,
 :global(.dark) .searchInputField,
-:root[data-theme="dark"] [class*="searchInputField"],
-html.dark [class*="searchInputField"] {
+:root[data-theme="dark"] input[class*="searchInputField"],
+html.dark input[class*="searchInputField"] {
+  background-color: var(--dark-elevated, #171E26) !important;
   color: #FFFFFF !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
 }
 
 :global([data-theme="dark"]) .searchInputField::placeholder,
@@ -618,3 +620,33 @@ html.dark [class*="productsHero"] {
   color: #94A3B8 !important;
 }
 
+
+:global([data-theme="dark"]) .searchClearBtn:hover,
+:global(.dark) .searchClearBtn:hover {
+  color: #CBD5E1 !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+:global([data-theme="dark"]) .emptyState,
+:global(.dark) .emptyState,
+:root[data-theme="dark"] [class*="emptyState"],
+html.dark [class*="emptyState"] {
+  background: var(--dark-elevated, #171E26) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+:global([data-theme="dark"]) .emptyState h3,
+:global(.dark) .emptyState h3 {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .emptyState p,
+:global(.dark) .emptyState p {
+  color: #94A3B8 !important;
+}
+
+:global([data-theme="dark"]) .emptyIconCircle,
+:global(.dark) .emptyIconCircle {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #64748B !important;
+}

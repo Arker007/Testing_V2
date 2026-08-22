@@ -141,9 +141,9 @@
 }
 
 .emptyState {
-  background: #FFFFFF;
+  background: var(--surface);
   border-radius: var(--radius-xs);
-  border: 1px dashed #CBD5E1;
+  border: 1px dashed var(--border-default, var(--border, #CBD5E1));
   padding: 3.5rem 1.5rem;
   text-align: center;
   display: flex;
@@ -157,9 +157,9 @@
 .emptyIconCircle {
   width: 64px;
   height: 64px;
-  border-radius: var(--radius-sm-pill);
-  background: #F1F5F9;
-  color: #64748B;
+  border-radius: var(--radius-sm-pill, 50%);
+  background: var(--surface-secondary, #F1F5F9);
+  color: var(--text-muted, #64748B);
   display: grid;
   place-items: center;
 }
@@ -167,13 +167,13 @@
 .emptyState h3 {
   font-size: 1.25rem;
   font-weight: 800;
-  color: var(--color-text-primary);
+  color: var(--text-primary);
   margin: 0;
 }
 
 .emptyState p {
   font-size: 0.875rem;
-  color: #64748B;
+  color: var(--text-secondary, #64748B);
   max-width: 420px;
   margin: 0;
   line-height: 1.6;
@@ -183,8 +183,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--color-text-primary);
-  color: var(--color-surface-muted);
+  background: var(--text-primary);
+  color: var(--surface);
   font-size: 0.875rem;
   font-weight: 800;
   padding: 0.75rem 1.5rem;
@@ -192,6 +192,12 @@
   border: none;
   cursor: pointer;
   margin-top: 0.5rem;
+  transition: all var(--motion-fast) var(--ease-standard);
+}
+
+.emptyResetBtn:hover {
+  background: var(--brand, #77D986);
+  color: var(--text-primary, #0f172a);
 }
 
 /* ─── PROCUREMENT ADVANTAGE SECTION ─────────────────────── */
