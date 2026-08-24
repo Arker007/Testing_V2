@@ -6,28 +6,30 @@ html[data-theme="dark"] {
 
   /* === NEW DARK THEME TOKENS === */
   /* Base Surfaces & Backgrounds */
-  --bg-base: #0f141a;
-  --bg-surface: #161c24;
-  --bg-surface-elevated: #1e2530;
-  --bg-hero: linear-gradient(135deg, #0f141a 0%, #162232 100%);
-  --bg-grid-overlay: rgba(255, 255, 255, 0.04);
+  --bg-base: #151c24;
+  --bg-surface: #1b232e;
+  --bg-surface-elevated: #222b37;
+  --bg-hero: linear-gradient(135deg, #151c24 0%, #1e2a39 100%);
+  --bg-grid-overlay: rgba(255, 255, 255, 0.05);
 
   /* Brand & Accent Colors */
-  --primary: #77D986;
-  --primary-hover: #8ef79d;
-  --primary-muted: rgba(119, 217, 134, 0.15);
-  --primary-text: #77D986;
+  --primary: #5FBF50;
+  --primary-hover: #70CC62;
+  --primary-muted: rgba(95, 191, 80, 0.15);
+  --primary-text: #5FBF50;
 
-  /* Typography Colors */
-  --text-primary: #f4f6f8;
-  --text-secondary: #cbd5e1;
-  --text-muted: #637381;
-  --text-inverse: #0f141a;
+  /* Typography Colors - Premium Refined Scale */
+  --text-primary: #FFFFFF;
+  --text-important: #FFFFFF;
+  --text-secondary: #D7E0E8;
+  --text-muted: #9EAFBE;
+  --text-disabled: #667785;
+  --text-inverse: #011526;
 
   /* Borders & Dividers */
-  --border-subtle: #212b36;
-  --border-medium: #333f48;
-  --border-accent: rgba(119, 217, 134, 0.3);
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-medium: rgba(255, 255, 255, 0.20);
+  --border-accent: rgba(95, 191, 80, 0.55);
 
   /* === MAPPED LEGACY TOKENS === */
   --lvl1-bg: var(--bg-base);
@@ -43,20 +45,22 @@ html[data-theme="dark"] {
 
   --dark-page: var(--bg-base);
   --dark-section: var(--bg-surface);
-  --dark-card: var(--bg-surface-elevated);
+  --dark-card: var(--bg-surface);
   --dark-elevated: var(--bg-surface-elevated);
   --dark-hover: var(--bg-surface-elevated);
 
   --bg-page: var(--bg-base);
   --hero-gradient: var(--bg-hero);
   --bg-section: var(--bg-surface);
-  --bg-card: var(--bg-surface-elevated);
+  --bg-card: var(--bg-surface);
   --bg-card-hover: var(--bg-surface-elevated);
+  --bg-elevated: var(--bg-surface-elevated);
+  --bg-modal: var(--bg-surface-elevated);
   --bg-card-alt: var(--bg-surface);
-  --bg-interactive: var(--bg-surface-elevated);
+  --bg-interactive: var(--bg-surface);
   --bg-interactive-hover: var(--bg-surface-elevated);
   --bg-interactive-active: var(--bg-surface-elevated);
-  --bg-muted: var(--bg-surface-elevated);
+  --bg-muted: var(--bg-surface);
   --bg-light: var(--bg-surface);
 
   --surface: var(--bg-surface);
@@ -65,21 +69,21 @@ html[data-theme="dark"] {
   --surface-secondary: var(--bg-surface);
   --surface-tertiary: var(--bg-surface-elevated);
   --surface-elevated: var(--bg-surface-elevated);
-  --surface-card: var(--bg-surface-elevated);
+  --surface-card: var(--bg-surface);
   --surface-subtle: var(--bg-surface);
   --surface-hover: var(--bg-surface-elevated);
   --surface-selected: var(--primary-muted);
   --surface-nav: rgba(22, 28, 36, 0.90);
 
   /* Navy mapped to bg surfaces for coherence */
-  --navy: var(--bg-surface-elevated);
+  --navy: var(--bg-surface);
   --navy-dark: var(--bg-surface);
   --navy-darker: var(--bg-base);
   --navy-hover: var(--bg-surface-elevated);
   --navy-active: var(--bg-surface-elevated);
-  --navy-soft: var(--bg-surface-elevated);
+  --navy-soft: var(--bg-surface);
   --navy-surface: var(--bg-surface);
-  --navy-card: var(--bg-surface-elevated);
+  --navy-card: var(--bg-surface);
   --navy-glow: rgba(0, 0, 0, 0.30);
   --navy-subtle: rgba(255, 255, 255, 0.04);
   --navy-badge-bg: var(--bg-surface-elevated);
@@ -90,7 +94,7 @@ html[data-theme="dark"] {
 
   /* Brand mapped to primary */
   --brand: var(--primary);
-  --brand-rgb: 119, 217, 134;
+  --brand-rgb: 95, 191, 80;
   --brand-dark: var(--primary);
   --brand-hover: var(--primary-hover);
   --brand-active: var(--primary);
@@ -107,9 +111,9 @@ html[data-theme="dark"] {
 
   /* Typography mapped */
   --heading: var(--text-primary);
-  --text-disabled: #64748B;
-  --text-inverse-secondary: rgba(15, 20, 26, 0.85);
-  --text-inverse-muted: rgba(15, 20, 26, 0.65);
+  --text-disabled: #667785;
+  --text-inverse-secondary: #385064;
+  --text-inverse-muted: #667785;
   --body-text: var(--text-secondary);
   --light-text: var(--text-muted);
   --white-text: var(--text-primary);
@@ -160,11 +164,11 @@ html[data-theme="dark"] {
   --info-border: rgba(96, 165, 250, 0.30);
   --info-text: #60A5FA;
 
-  --bg-glass: rgba(22, 28, 36, 0.90);
-  --bg-glass-card: rgba(30, 37, 48, 0.95);
-  --bg-glass-dark: rgba(15, 20, 26, 0.90);
-  --bg-dark-overlay: rgba(15, 20, 26, 0.75);
-  --bg-modal-backdrop: rgba(15, 20, 26, 0.70);
+  --bg-glass: rgba(27, 35, 46, 0.92);
+  --bg-glass-card: rgba(34, 43, 55, 0.95);
+  --bg-glass-dark: rgba(21, 28, 36, 0.90);
+  --bg-dark-overlay: rgba(21, 28, 36, 0.75);
+  --bg-modal-backdrop: rgba(21, 28, 36, 0.70);
 }
 /* ─── Universal Pitch-Black Dark Mode Page Background Overrides ─────────── */
 :root[data-theme="dark"] body,
@@ -174,7 +178,78 @@ html.dark #main-content,
 :root[data-theme="dark"] main,
 html.dark main {
   background-color: var(--bg-page);
-  color: var(--text-secondary);
+  color: var(--text-secondary, #D8DEDA);
+}
+
+/* ─── Typography Contrast Hierarchy (#F4F7F5 / #D8DEE3 / #C2CBD2 / #8996A3 / #64717D) ─── */
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4,
+:root[data-theme="dark"] h5,
+:root[data-theme="dark"] h6,
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: var(--text-primary, #FFFFFF) !important;
+}
+
+:root[data-theme="dark"] .text-important,
+:root[data-theme="dark"] [class*="importantText"],
+html.dark .text-important,
+html.dark [class*="importantText"] {
+  color: var(--text-important, #FFFFFF) !important;
+}
+
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] li,
+:root[data-theme="dark"] td,
+:root[data-theme="dark"] label,
+html.dark p,
+html.dark li,
+html.dark td,
+html.dark label {
+  color: var(--text-secondary, #D7E0E8);
+}
+
+:root[data-theme="dark"] th,
+html.dark th {
+  color: var(--text-important, #FFFFFF);
+}
+
+:root[data-theme="dark"] .text-slate-400,
+:root[data-theme="dark"] .text-slate-500,
+:root[data-theme="dark"] .text-gray-400,
+:root[data-theme="dark"] .text-gray-500,
+:root[data-theme="dark"] .text-muted,
+:root[data-theme="dark"] [class*="muted"],
+html.dark .dark\:text-slate-400,
+html.dark .dark\:text-slate-500,
+html.dark .dark\:text-gray-400,
+html.dark .dark\:text-gray-500,
+html.dark .text-muted {
+  color: var(--text-muted, #9EAFBE) !important;
+}
+
+:root[data-theme="dark"] :disabled,
+:root[data-theme="dark"] .text-disabled,
+:root[data-theme="dark"] [class*="disabled"],
+html.dark :disabled,
+html.dark .text-disabled {
+  color: var(--text-disabled, #667785) !important;
+}
+html.dark .dark\:text-slate-500,
+html.dark .dark\:text-slate-600 {
+  color: #D8DEDA !important;
+}
+
+:root[data-theme="dark"] .text-slate-300,
+:root[data-theme="dark"] .text-gray-300,
+html.dark .dark\:text-slate-300 {
+  color: #E7EBE8 !important;
 }
 
 /* ─── Card Surfaces in Dark Mode ────────────────────────────────────────── */
@@ -198,10 +273,6 @@ html.dark main {
 :root[data-theme="dark"] .workflowCard,
 :root[data-theme="dark"] .assistanceCard,
 :root[data-theme="dark"] .ctaCard,
-:root[data-theme="dark"] .modal,
-:root[data-theme="dark"] .specsSheetModal,
-:root[data-theme="dark"] .mobileCardDrawer,
-:root[data-theme="dark"] .drawer,
 html.dark .card,
 html.dark .industryCard,
 html.dark .productCard,
@@ -220,15 +291,34 @@ html.dark .faqCard,
 html.dark .testimonialCard,
 html.dark .workflowCard,
 html.dark .assistanceCard,
-html.dark .ctaCard,
-html.dark .modal,
-html.dark .specsSheetModal,
-html.dark .mobileCardDrawer,
-html.dark .drawer {
+html.dark .ctaCard {
   background-color: var(--bg-card) !important;
   border: 1px solid var(--border-subtle) !important;
   box-shadow: var(--shadow-sm) !important;
   color: var(--text-secondary);
+}
+
+/* ─── Modal / Drawer Overlay Surfaces (#062342) ────────────────────────── */
+:root[data-theme="dark"] .modal,
+:root[data-theme="dark"] .specsSheetModal,
+:root[data-theme="dark"] .mobileCardDrawer,
+:root[data-theme="dark"] .drawer,
+:root[data-theme="dark"] [class*="modal"],
+:root[data-theme="dark"] [class*="Modal"],
+:root[data-theme="dark"] [class*="drawer"],
+:root[data-theme="dark"] [class*="Drawer"],
+html.dark .modal,
+html.dark .specsSheetModal,
+html.dark .mobileCardDrawer,
+html.dark .drawer,
+html.dark [class*="modal"],
+html.dark [class*="Modal"],
+html.dark [class*="drawer"],
+html.dark [class*="Drawer"] {
+  background-color: var(--bg-modal) !important;
+  border: 1px solid var(--border-medium) !important;
+  box-shadow: var(--shadow-lg) !important;
+  color: var(--text-primary);
 }
 
 /* ─── Zero Borders for All Inner Content & Sub-Containers ───────────────── */
@@ -280,9 +370,10 @@ html.dark .indIconBox {
   background-color: transparent !important;
 }
 
-/* ─── Hover State Highlights (Soft Glow) ────────────────────────────────── */
+/* ─── Hover State Highlights (Soft Glow + Surface Elevation) ───────────── */
 :root[data-theme="dark"] .card:hover,
 :root[data-theme="dark"] .industryCard:hover,
+:root[data-theme="dark"] [class*="industryCard"]:hover,
 :root[data-theme="dark"] .productCard:hover,
 :root[data-theme="dark"] .catCard:hover,
 :root[data-theme="dark"] .bentoGalleryCard:hover,
@@ -290,11 +381,13 @@ html.dark .indIconBox {
 :root[data-theme="dark"] .cardFrame:hover,
 html.dark .card:hover,
 html.dark .industryCard:hover,
+html.dark [class*="industryCard"]:hover,
 html.dark .productCard:hover,
 html.dark .catCard:hover,
 html.dark .bentoGalleryCard:hover,
 html.dark .bentoInfoCard:hover,
 html.dark .cardFrame:hover {
+  background-color: var(--bg-card-hover) !important;
   border-color: var(--brand-border) !important;
   box-shadow: var(--shadow-md) !important;
   transform: translateY(-3px);
@@ -377,7 +470,7 @@ html.dark .quote-btn-primary,
 html.dark .magic-shimmer-btn,
 html.dark .btn-primary {
   background: var(--brand) !important;
-  color: var(--text-primary) !important;
+  color: #021826 !important;
   border-color: var(--brand) !important;
   font-weight: 600 !important;
   border-radius: var(--radius-btn, 8px) !important;
@@ -394,7 +487,7 @@ html.dark .swipe-btn span,
 html.dark .quote-btn-primary span,
 html.dark .magic-shimmer-btn span,
 html.dark .btn-primary span {
-  color: var(--text-inverse) !important;
+  color: #021826 !important;
 }
 
 :root[data-theme="dark"] .swipe-btn .btn-icon-bubble::before,
@@ -411,14 +504,14 @@ html.dark .swipe-btn svg,
 html.dark .quote-btn-primary svg,
 html.dark .magic-shimmer-btn svg,
 html.dark .btn-primary svg {
-  stroke: var(--text-inverse) !important;
-  color: var(--text-inverse) !important;
+  stroke: #021826 !important;
+  color: #021826 !important;
 }
 
 :root[data-theme="dark"] .swipe-btn:hover .btn-arrow-icon,
 html.dark .swipe-btn:hover .btn-arrow-icon {
-  stroke: #0B2F63 !important;
-  color: #0B2F63 !important;
+  stroke: #021826 !important;
+  color: #021826 !important;
   transform: none !important;
 }
 
@@ -432,6 +525,7 @@ html.dark .magic-shimmer-btn:hover,
 html.dark .btn-primary:hover {
   background: var(--brand-hover) !important;
   border-color: var(--brand-hover) !important;
+  color: #021826 !important;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md) !important;
 }
@@ -853,7 +947,7 @@ html.dark section[class*="hero"],
 html.dark section[class*="Hero"],
 html.dark div[class*="productsHero"],
 html.dark .about-hero-section {
-  border-bottom: 4px solid var(--brand, #77D986) !important;
+  border-bottom: 4px solid var(--brand, #5FBF50) !important;
 }
 
 :root[data-theme="dark"] .slantBgDark,
@@ -891,7 +985,7 @@ html.dark [class*="slantBgGreen"] {
 :root[data-theme="dark"] footer,
 html.dark footer {
   background-color: #000000 !important;
-  border-top: 4px solid var(--brand, #77D986) !important;
+  border-top: 4px solid var(--brand, #5FBF50) !important;
 }
 
 /* ─── Smooth Transition On Theme Toggle ─────────────────────────────────── */
@@ -929,9 +1023,9 @@ html.dark textarea,
 :root[data-theme="dark"] .customInput,
 :root[data-theme="dark"] .customSelect,
 :root[data-theme="dark"] .customTextarea {
-  background-color: #ffffff !important;
-  color: #1e293b !important;
-  border-color: #cbd5e1 !important;
+  background-color: #062342 !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
 html.dark .customInput::placeholder,
@@ -941,12 +1035,12 @@ html.dark input::placeholder,
 html.dark textarea::placeholder,
 :root[data-theme="dark"] input::placeholder,
 :root[data-theme="dark"] textarea::placeholder {
-  color: #94a3b8 !important;
+  color: #9EAFBE !important;
 }
 
 html.dark .phonePrefixSelect,
 :root[data-theme="dark"] .phonePrefixSelect {
-  background-color: #f8fafc !important;
-  color: #1e293b !important;
-  border-color: #cbd5e1 !important;
+  background-color: #0A2C50 !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
 }

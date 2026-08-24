@@ -159,65 +159,96 @@ export default function NavbarSearch({
             title="Close"
             aria-label="Close search"
           >
-            <Icon icon="solar:close-circle-bold" className="w-4 h-4" />
+            <Icon icon="ix:cancel" className="w-4 h-4" />
           </button>
         )}
       </form>
 
-      {/* Simple Live Suggestions Dropdown */}
+      {/* Professional Live Suggestions Dropdown */}
       {showDropdown && (
         <div className={styles.suggestions}>
           {matchingProducts.length > 0 ? (
             <>
-              {matchingProducts.map((p) => {
-                const imgUrl =
-                  p.images?.[0] ||
-                  p.image ||
-                  p.primary_image ||
-                  "/uploads/products/pallets/pallets-1770374237161-67758.webp";
-                const catName = p.category_name || p.category || "";
+              <div className={styles.suggestionsHeader}>
+                <span className={styles.suggestionsHeaderTitle}>Products</span>
+                <span className={styles.suggestionsHeaderCount}>
+                  {matchingProducts.length} {matchingProducts.length === 1 ? "match" : "matches"}
+                </span>
+              </div>
 
-                return (
-                  <button
-                    key={p.id}
-                    type="button"
-                    className={styles.suggestionItem}
-                    onClick={() => handleSelectProduct(p.id)}
-                  >
-                    <img
-                      src={imgUrl}
-                      alt={p.name}
-                      className={styles.suggestionThumbImg}
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src =
-                          "/uploads/products/pallets/pallets-1770374237161-67758.webp";
-                      }}
-                    />
-                    <div className={styles.suggestionMeta}>
-                      <span className={styles.suggestionName}>
-                        {p.name || p.title}
-                      </span>
-                      {catName && (
-                        <span className={styles.suggestionSub}>{catName}</span>
-                      )}
-                    </div>
-                  </button>
-                );
-              })}
+              <div className={styles.suggestionsList}>
+                {matchingProducts.map((p) => {
+                  const imgUrl =
+                    p.images?.[0] ||
+                    p.image ||
+                    p.primary_image ||
+                    "/uploads/products/pallets/pallets-1770374237161-67758.webp";
+                  const catName = p.category_name || p.category || "";
+
+                  return (
+                    <button
+                      key={p.id}
+                      type="button"
+                      className={styles.suggestionItem}
+                      onClick={() => handleSelectProduct(p.id)}
+                    >
+                      <div className={styles.suggestionThumbWrap}>
+                        <img
+                          src={imgUrl}
+                          alt={p.name}
+                          className={styles.suggestionThumbImg}
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src =
+                              "/uploads/products/pallets/pallets-1770374237161-67758.webp";
+                          }}
+                        />
+                      </div>
+                      <div className={styles.suggestionMeta}>
+                        <span className={styles.suggestionName}>
+                          {p.name || p.title}
+                        </span>
+                        <div className={styles.suggestionSubRow}>
+                          {catName && (
+                            <span className={styles.suggestionCategoryBadge}>
+                              {catName}
+                            </span>
+                          )}
+                          {p.sku && (
+                            <span className={styles.suggestionSku}>
+                              SKU: {p.sku}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      <Icon
+                        icon="solar:alt-arrow-right-linear"
+                        className={styles.suggestionItemArrow}
+                      />
+                    </button>
+                  );
+                })}
+              </div>
 
               <button
                 type="button"
                 className={styles.suggestionAllBtn}
                 onClick={handleSubmit}
               >
-                <span>View all results for &ldquo;{query.trim()}&rdquo;</span>
-                <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
+                <div className={styles.suggestionAllLeft}>
+                  <Icon icon="solar:magnifer-linear" className={styles.suggestionAllIcon} />
+                  <span>View all results for <strong>&ldquo;{query.trim()}&rdquo;</strong></span>
+                </div>
+                <Icon icon="solar:arrow-right-linear" className={styles.suggestionAllArrow} />
               </button>
             </>
           ) : (
             <div className={styles.noSuggestion}>
-              <span>No products found for &ldquo;{query.trim()}&rdquo;</span>
+              <Icon icon="solar:minimalistic-magnifer-linear" className={styles.noSuggestionIcon} />
+              <p className={styles.noSuggestionText}>
+                No products found for <strong>&ldquo;{query.trim()}&rdquo;</strong>
+              </p>
+              <span className={styles.noSuggestionTip}>Try searching for pallets, lumber, benches, or dustbins</span>
             </div>
           )}
         </div>

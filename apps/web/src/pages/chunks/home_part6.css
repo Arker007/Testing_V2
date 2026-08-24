@@ -26,8 +26,8 @@
   grid-column: span 2;
   grid-row: span 2;
   background: var(--bg-card, #ffffff);
-  color: var(--text-primary, #0f172a);
-  border: 1px solid var(--border, #E2E8F0);
+  color: var(--text-primary, #011526);
+  border: 1px solid var(--border, #D8DEDA);
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   min-height: 584px;
@@ -42,7 +42,7 @@
 }
 
 .cardLargeDark .indName {
-  color: var(--heading, #0f172a);
+  color: var(--heading, #011526);
   font-size: 1.5rem;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .cardLargeDark .indDesc {
-  color: var(--text-secondary, #475569);
+  color: var(--text-secondary, #385064);
   font-size: 0.95rem;
   line-height: 1.65;
 }
@@ -66,8 +66,8 @@
   grid-column: span 2;
   grid-row: span 2;
   background: var(--bg-card, #ffffff);
-  color: var(--text-primary, #0f172a);
-  border: 1px solid var(--border, #E2E8F0);
+  color: var(--text-primary, #011526);
+  border: 1px solid var(--border, #D8DEDA);
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   min-height: 584px;
@@ -82,7 +82,7 @@
 }
 
 .cardLargeLight .indName {
-  color: var(--heading, #0f172a);
+  color: var(--heading, #011526);
   font-size: 1.5rem;
 }
 
@@ -92,34 +92,34 @@
 }
 
 .cardLargeLight .indDesc {
-  color: var(--text-secondary, #475569);
+  color: var(--text-secondary, #385064);
   font-size: 0.95rem;
   line-height: 1.65;
 }
 
 :global([data-theme="dark"]) .cardLargeLight .indDesc,
 :global(.dark) .cardLargeLight .indDesc {
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 .cardLight {
   background: var(--bg-card, #ffffff);
-  border: 1px solid var(--border, #E2E8F0);
+  border: 1px solid var(--border, #D8DEDA);
   border-radius: 12px;
-  color: var(--text-primary, #0f172a);
+  color: var(--text-primary, #011526);
 }
 
 :global([data-theme="dark"]) .cardLight,
 :global(.dark) .cardLight {
   background: var(--dark-card, #111111) !important;
   border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.12)) !important;
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 .cardDark {
   background: var(--bg-card, #ffffff);
-  color: var(--text-primary, #0f172a);
-  border: 1px solid var(--border, #E2E8F0);
+  color: var(--text-primary, #011526);
+  border: 1px solid var(--border, #D8DEDA);
   border-radius: 12px;
 }
 
@@ -127,11 +127,11 @@
 :global(.dark) .cardDark {
   background: var(--dark-card, #111111) !important;
   border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.12)) !important;
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 .cardDark .indName {
-  color: var(--heading, #0f172a);
+  color: var(--heading, #011526);
 }
 
 :global([data-theme="dark"]) .cardDark .indName,
@@ -140,7 +140,7 @@
 }
 
 .cardDark .indDesc {
-  color: var(--text-secondary, #475569);
+  color: var(--text-secondary, #385064);
 }
 
 :global([data-theme="dark"]) .cardDark .indDesc,
@@ -155,12 +155,12 @@
 }
 
 .iconBoxSlate {
-  background: var(--bg-light, #f1f5f9) !important;
-  color: var(--text-secondary, #475569) !important;
+  background: var(--bg-light, #E7EBE8) !important;
+  color: var(--text-secondary, #385064) !important;
 }
 
 .iconBoxNavy {
-  background: var(--bg-light, #f1f5f9) !important;
+  background: var(--bg-light, #E7EBE8) !important;
   color: var(--brand, #5cb31b) !important;
 }
 
@@ -194,8 +194,8 @@
   letter-spacing: 0.05em;
   padding: 0.25rem 0.625rem;
   border-radius: 9999px;
-  background: var(--bg-light, #f1f5f9);
-  color: var(--text-secondary, #475569);
+  background: var(--bg-light, #E7EBE8);
+  color: var(--text-secondary, #385064);
 }
 
 .bentoBadgeDark {
@@ -205,8 +205,8 @@
   letter-spacing: 0.05em;
   padding: 0.25rem 0.625rem;
   border-radius: 9999px;
-  background: var(--bg-light, #f1f5f9);
-  color: var(--heading, #0f172a);
+  background: var(--bg-light, #E7EBE8);
+  color: var(--heading, #011526);
 }
 
 :global([data-theme="dark"]) .bentoBadgeDark,

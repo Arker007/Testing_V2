@@ -37,7 +37,7 @@
 
 .trustItem span {
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   font-size: 0.875rem;
 }
 
@@ -65,7 +65,7 @@
   font-family: var(--font-display, inherit);
   font-size: 1.25rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   margin: 0;
 }
 
@@ -99,7 +99,7 @@
 
 .benefitCard:hover .benefitIcon {
   background: #98d12a;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
 }
 
 .benefitLabel {
@@ -134,7 +134,7 @@
   font-family: var(--font-display, inherit);
   font-size: 1.5rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   line-height: 1.3;
   margin: 0;
   max-width: 680px;
@@ -198,6 +198,6 @@
 .comparisonProductTitle {
   font-size: 0.95rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   margin: 0;
 }

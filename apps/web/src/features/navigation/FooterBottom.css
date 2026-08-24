@@ -42,9 +42,9 @@
 }
 
 .newsletterInput:focus {
-  border-color: var(--brand, #77D986);
+  border-color: var(--brand, #5FBF50);
   background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 0 3px rgba(119, 217, 134, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 0 3px rgba(95, 191, 80, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .newsletterSubmit {
@@ -52,7 +52,7 @@
   right: 0.375rem;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--brand, #77D986);
+  background: var(--brand, #5FBF50);
   color: var(--navy-dark, #071E40);
   border: none;
   width: 32px;
@@ -73,7 +73,7 @@
 
 .subscribedText {
   font-size: 0.875rem;
-  color: var(--brand, #77D986);
+  color: var(--brand, #5FBF50);
   font-weight: 600;
   display: flex;
   align-items: center;

@@ -91,7 +91,7 @@ export default function ProductDetail() {
 
   if (loading) {
     return (
-      <main className="pt-[var(--nav-h)] min-h-[80vh] bg-slate-50 dark:bg-slate-950">
+      <main className="pt-0 min-h-[80vh] bg-slate-50 dark:bg-[#151c24]">
         {/* Breadcrumb Skeleton */}
         <div className={`${styles.breadcrumb} border-b border-[var(--border-card)] py-4`}>
           <div className={`container ${styles.breadcrumbInner} flex gap-2.5 items-center`}>
@@ -139,7 +139,7 @@ export default function ProductDetail() {
 
   if (!product || product.error) {
     return (
-      <main className="pt-[var(--nav-h)] min-h-[60vh] flex flex-col items-center justify-center gap-4 text-center px-4">
+      <main className="pt-0 min-h-[60vh] flex flex-col items-center justify-center gap-4 text-center px-4">
         <Icon icon="solar:danger-triangle-linear" className="text-5xl text-amber-500 w-14 h-14" />
         <p className="text-slate-700 dark:text-slate-300 font-medium">Product not found.</p>
         <Link to="/products" className="btn btn--outline flex items-center gap-1.5">
@@ -181,23 +181,26 @@ export default function ProductDetail() {
   ].filter(Boolean);
 
   return (
-    <main className="pt-[var(--nav-h)] pb-16 bg-slate-50 dark:bg-slate-950">
-      {/* Breadcrumb */}
-      <div className={styles.breadcrumb}>
+    <main className="pt-0 pb-16 bg-slate-50 dark:bg-[#151c24]">
+      {/* Breadcrumb Navigation */}
+      <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
         <div className={`container ${styles.breadcrumbInner}`}>
-          <Link to="/">Home</Link>
-          <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-400" />
+          <Link to="/">
+            <Icon icon="solar:home-2-linear" className="w-3.5 h-3.5 shrink-0 opacity-80" />
+            <span>Home</span>
+          </Link>
+          <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-400 shrink-0" />
           <Link to="/products">Products</Link>
           {categoryObj && (
             <>
-              <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-400" />
+              <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-400 shrink-0" />
               <Link to={`/products?cat=${categoryObj.id}`}>{categoryObj.name}</Link>
             </>
           )}
-          <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-400" />
-          <span>{product.name}</span>
+          <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-400 shrink-0" />
+          <span className="truncate max-w-[280px] sm:max-w-none">{product.name}</span>
         </div>
-      </div>
+      </nav>
 
       <div className={`container ${styles.detailContainer}`}>
         <section className={styles.bentoHeroGrid}>
@@ -211,7 +214,7 @@ export default function ProductDetail() {
               handlePrevImage={handlePrevImage}
               handleNextImage={handleNextImage}
             />
-            <ProductBenefitsGrid />
+            <ProductBenefitsGrid categoryName={categoryName} />
           </div>
           <div className={styles.rightColStack}>
             <ProductHeaderSpecs
@@ -236,7 +239,7 @@ export default function ProductDetail() {
         <section className="my-8 cta-section">
           <Card
             variant="elevated"
-            className="p-8 sm:p-12 text-slate-900 dark:text-white shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[#171E26] border border-slate-200/90 dark:border-white/10 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+            className="p-8 sm:p-12 text-slate-900 dark:text-white shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[#1b232e] border border-slate-200/90 dark:border-white/10 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
           >
             {/* Ambient radial glow blobs */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />

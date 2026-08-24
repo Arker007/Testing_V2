@@ -3,8 +3,8 @@
   position: relative;
   padding: calc(var(--nav-h, 70px) + 2rem) 0 4.5rem;
   overflow: hidden;
-  background: var(--hero-gradient, linear-gradient(135deg, var(--navy) 0%, var(--navy) 100%));
-  border-bottom: 4px solid var(--brand, #77D986);
+  background: var(--hero-gradient, linear-gradient(135deg, #011526 0%, #011A38 55%, #062342 100%));
+  border-bottom: 4px solid var(--brand, #5FBF50);
 }
 
 .heroBg {

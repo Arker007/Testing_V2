@@ -646,7 +646,7 @@ html.dark .mapTitle {
 html.dark .formSubText,
 html.dark .bannerSub,
 html.dark .mapAddress {
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .customInput,
@@ -672,7 +672,7 @@ html.dark .phonePrefixSelect {
 :global(.dark) .customTextarea::placeholder,
 html.dark .customInput::placeholder,
 html.dark .customTextarea::placeholder {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .customInput:focus,
@@ -711,7 +711,7 @@ html.dark .infoCardAccent:hover {
 :global([data-theme="dark"]) .infoCardLabel,
 :global(.dark) .infoCardLabel,
 html.dark .infoCardLabel {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .infoCardValue,

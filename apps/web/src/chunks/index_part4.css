@@ -67,9 +67,9 @@
 [class*="cta"] .section-eyebrow,
 [class*="workflow"] .section-eyebrow,
 [class*="Workflow"] .section-eyebrow {
-  color: #72D682 !important;
-  background-color: rgba(114, 214, 130, 0.15) !important;
-  border-color: rgba(114, 214, 130, 0.3) !important;
+  color: #6BBF54 !important;
+  background-color: rgba(107, 191, 84, 0.15) !important;
+  border-color: rgba(107, 191, 84, 0.3) !important;
 }
 
 [class*="hero"] .section-eyebrow::before,
@@ -80,7 +80,7 @@
 [class*="cta"] .section-eyebrow::before,
 [class*="workflow"] .section-eyebrow::before,
 [class*="Workflow"] .section-eyebrow::before {
-  background-color: #72D682 !important;
+  background-color: #6BBF54 !important;
 }
 
 .section-title {

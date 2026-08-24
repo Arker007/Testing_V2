@@ -2,7 +2,7 @@
 .trustedCompanies {
   margin-top: 4rem;
   padding-top: 3rem;
-  border-top: 1px dashed #CBD5E1;
+  border-top: 1px dashed #D8DEDA;
   text-align: center;
 }
 
@@ -11,7 +11,7 @@
   font-size: 0.8125rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #64748B;
+  color: #667785;
   margin-bottom: 1.75rem;
   font-weight: 700;
 }
@@ -30,9 +30,9 @@
   gap: 0.65rem;
   padding: 0.625rem 1.25rem;
   background: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #D8DEDA;
   border-radius: 8px;
-  color: #334155;
+  color: #385064;
   font-weight: 700;
   font-size: 0.8125rem;
   letter-spacing: 0.04em;
@@ -45,12 +45,12 @@
   transform: translateY(-2px);
   background: #FFFFFF;
   border-color: #10B981;
-  color: var(--navy, #0B2F63);
+  color: var(--navy, var(--navy, #011A38));
   box-shadow: 0 6px 16px rgba(16, 185, 129, 0.12);
 }
 
 .companyBadge svg {
-  color: #94A3B8;
+  color: #9EAFBE;
   transition: color 0.25s ease;
 }
 
@@ -68,7 +68,7 @@ html.dark .trustedCompanies {
 :global([data-theme="dark"]) .companiesTitle,
 :global(.dark) .companiesTitle,
 html.dark .companiesTitle {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .companyBadge,
@@ -76,7 +76,7 @@ html.dark .companiesTitle {
 html.dark .companyBadge {
   background: var(--dark-card) !important;
   border-color: var(--dark-border) !important;
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .companyBadge:hover,
@@ -91,7 +91,7 @@ html.dark .companyBadge:hover {
 :global([data-theme="dark"]) .companyBadge svg,
 :global(.dark) .companyBadge svg,
 html.dark .companyBadge svg {
-  color: #64748B !important;
+  color: #667785 !important;
 }
 
 :global([data-theme="dark"]) .companyBadge:hover svg,

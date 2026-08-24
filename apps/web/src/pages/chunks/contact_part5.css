@@ -42,7 +42,7 @@
 }
 
 .faqCard {
-  background: #F8FAFC;
+  background: #F2F2F2;
   border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
@@ -63,7 +63,7 @@
   font-family: var(--font-display, inherit);
   font-size: 0.975rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   text-align: left;
   cursor: pointer;
   display: flex;
@@ -96,7 +96,7 @@
 /* ── Closing CTA ── */
 .cta {
   padding: 5rem 0;
-  background: #0B2F63;
+  background: var(--navy, #011A38);
   color: #ffffff;
 }
 
@@ -264,6 +264,6 @@ html.dark .faqQuestion:hover {
 :global([data-theme="dark"]) .faqAnswer,
 :global(.dark) .faqAnswer,
 html.dark .faqAnswer {
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
   border-top-color: var(--dark-border) !important;
 }

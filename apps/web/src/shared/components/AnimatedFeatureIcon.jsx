@@ -49,7 +49,7 @@ export const AnimatedFeatureIcon = React.memo(function AnimatedFeatureIcon({ typ
 
   return (
     <motion.span className="inline-flex items-center justify-center" variants={config.variants}>
-      <Icon icon={config.icon} className="w-4 h-4 text-[#98d12a]" />
+      <Icon icon={config.icon} className="w-4 h-4 text-[#6BBF54]" />
     </motion.span>
   );
 });

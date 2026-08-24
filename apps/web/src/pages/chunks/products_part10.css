@@ -28,12 +28,12 @@ html.dark input[class*="searchInputField"] {
 
 :global([data-theme="dark"]) .searchInputField::placeholder,
 :global(.dark) .searchInputField::placeholder {
-  color: #64748B !important;
+  color: #667785 !important;
 }
 
 :global([data-theme="dark"]) .searchIcon,
 :global(.dark) .searchIcon {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .suggestionChip,
@@ -42,7 +42,7 @@ html.dark input[class*="searchInputField"] {
 html.dark [class*="suggestionChip"] {
   background: var(--dark-elevated, #171E26) !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .suggestionChip:hover,
@@ -61,13 +61,20 @@ html.dark [class*="suggestionChip"] {
 
 :global([data-theme="dark"]) .viewToggleBtn,
 :global(.dark) .viewToggleBtn {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
+}
+
+:global([data-theme="dark"]) .viewToggleBtn:hover,
+:global(.dark) .viewToggleBtn:hover {
+  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.08) !important;
 }
 
 :global([data-theme="dark"]) .viewToggleBtnActive,
 :global(.dark) .viewToggleBtnActive {
-  background: var(--brand, #3FAE5A) !important;
-  color: #FFFFFF !important;
+  background: var(--brand, #5FBF50) !important;
+  color: var(--navy, #0B192C) !important;
+  box-shadow: 0 1px 4px rgba(95, 191, 80, 0.55) !important;
 }
 
 :global([data-theme="dark"]) .mobileFilterToggleBtn,
@@ -84,14 +91,14 @@ html.dark [class*="suggestionChip"] {
 
 :global([data-theme="dark"]) .quickSearchLabel,
 :global(.dark) .quickSearchLabel {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .quickSearchPillBtn,
 :global(.dark) .quickSearchPillBtn {
   background: var(--dark-elevated, #171E26) !important;
   border-color: rgba(255, 255, 255, 0.10) !important;
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .quickSearchPillBtn:hover,
@@ -108,12 +115,12 @@ html.dark [class*="suggestionChip"] {
 
 :global([data-theme="dark"]) .resultsText,
 :global(.dark) .resultsText {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .resultsText strong,
 :global(.dark) .resultsText strong {
-  color: #F8FAFC !important;
+  color: #F2F2F2 !important;
 }
 
 :global([data-theme="dark"]) .filterTagPill,
@@ -130,7 +137,7 @@ html.dark [class*="suggestionChip"] {
 
 :global([data-theme="dark"]) .resetAllLinkBtn,
 :global(.dark) .resetAllLinkBtn {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .resetAllLinkBtn:hover,
@@ -157,6 +164,30 @@ html.dark [class*="sidebarPanel"] {
 :global([data-theme="dark"]) .sidebarHeader,
 :global(.dark) .sidebarHeader {
   border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:global([data-theme="dark"]) .filterMainHeading,
+:global(.dark) .filterMainHeading {
+  color: var(--brand, #5FBF50) !important;
+}
+
+:global([data-theme="dark"]) .filterHeadingIcon,
+:global(.dark) .filterHeadingIcon {
+  color: var(--brand, #5FBF50) !important;
+}
+
+:global([data-theme="dark"]) .sidebarCollapseAllBtn,
+:global(.dark) .sidebarCollapseAllBtn {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #9EAFBE !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+:global([data-theme="dark"]) .sidebarCollapseAllBtn:hover,
+:global(.dark) .sidebarCollapseAllBtn:hover {
+  background: rgba(95, 191, 80, 0.15) !important;
+  color: var(--brand, #5FBF50) !important;
+  border-color: var(--brand, #5FBF50) !important;
 }
 
 :global([data-theme="dark"]) .sidebarHeaderTitle h3,
@@ -203,7 +234,7 @@ html.dark [class*="sidebarPanel"] {
 :global(.dark) .presetChip {
   background: var(--dark-elevated, #171E26) !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .presetChip:hover,
@@ -221,7 +252,7 @@ html.dark [class*="sidebarPanel"] {
 
 :global([data-theme="dark"]) .categoryNavItem,
 :global(.dark) .categoryNavItem {
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .categoryNavItem:hover,
@@ -240,7 +271,7 @@ html.dark [class*="sidebarPanel"] {
 :global([data-theme="dark"]) .catCountBadge,
 :global(.dark) .catCountBadge {
   background: rgba(255, 255, 255, 0.08) !important;
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .sidebarTrustBox,
@@ -256,7 +287,7 @@ html.dark [class*="sidebarPanel"] {
 
 :global([data-theme="dark"]) .sidebarTrustBox p,
 :global(.dark) .sidebarTrustBox p {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .trustPhoneBtn,
@@ -270,29 +301,103 @@ html.dark [class*="sidebarPanel"] {
 :global([data-theme="dark"]) .gridCard,
 :global(.dark) .gridCard,
 :root[data-theme="dark"] [class*="gridCard"],
-html.dark [class*="gridCard"] {
+html.dark [class*="gridCard"],
+:global([data-theme="dark"]) .listCard,
+:global(.dark) .listCard,
+:root[data-theme="dark"] [class*="listCard"],
+html.dark [class*="listCard"] {
   background: var(--dark-card, #111820) !important;
-  border-color: var(--dark-border, rgba(255, 255, 255, 0.12)) !important;
+  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
 }
 
 :global([data-theme="dark"]) .gridCard:hover,
-:global(.dark) .gridCard:hover {
-  border-color: var(--brand, #77d986) !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--brand, #77d986) !important;
+:global(.dark) .gridCard:hover,
+:global([data-theme="dark"]) .listCard:hover,
+:global(.dark) .listCard:hover {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6) !important;
+}
+
+:global([data-theme="dark"]) .gridCardThumbWrap,
+:global(.dark) .gridCardThumbWrap {
+  background: var(--dark-card, #111820) !important;
+  border-bottom-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
 }
 
 :global([data-theme="dark"]) .gridCardThumb,
 :global(.dark) .gridCardThumb {
-  background: #0B0F14 !important;
-  border-color: rgba(255, 255, 255, 0.10) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+:global([data-theme="dark"]) .gridCardImg,
+:global(.dark) .gridCardImg {
+  mix-blend-mode: normal !important;
 }
 
 :global([data-theme="dark"]) .catTag,
 :global(.dark) .catTag {
-  background: rgba(119, 217, 134, 0.15) !important;
-  color: #77d986 !important;
-  border: 1px solid rgba(119, 217, 134, 0.3) !important;
+  background: var(--brand, #5FBF50) !important;
+  color: #0F1720 !important;
+  border: 1px solid var(--brand, #5FBF50) !important;
+}
+
+:global([data-theme="dark"]) .gridCardDetails,
+:global(.dark) .gridCardDetails {
+  background: var(--dark-card, #111820) !important;
+}
+
+:global([data-theme="dark"]) .gridCardSkuTitle,
+:global([data-theme="dark"]) .gridCardSkuTitle a,
+:global(.dark) .gridCardSkuTitle,
+:global(.dark) .gridCardSkuTitle a {
+  color: #FFFFFF !important;
+}
+
+:global([data-theme="dark"]) .gridCardSkuTitle a:hover,
+:global(.dark) .gridCardSkuTitle a:hover {
+  color: #5FBF50 !important;
+}
+
+:global([data-theme="dark"]) .specRowLabel,
+:global(.dark) .specRowLabel {
+  color: #9EAFBE !important;
+}
+
+:global([data-theme="dark"]) .specRowVal,
+:global(.dark) .specRowVal {
+  color: #E7EBE8 !important;
+}
+
+:global([data-theme="dark"]) .viewProductBtn,
+:global(.dark) .viewProductBtn {
+  background: var(--brand, #5FBF50) !important;
+  color: #0B192C !important;
+  box-shadow: 0 2px 8px rgba(95, 191, 80, 0.55) !important;
+}
+
+:global([data-theme="dark"]) .viewProductBtn:hover,
+:global(.dark) .viewProductBtn:hover {
+  background: var(--brand-hover, #70CC62) !important;
+  color: #0B192C !important;
+  box-shadow: 0 4px 14px rgba(95, 191, 80, 0.45) !important;
+}
+
+:global([data-theme="dark"]) .datasheetLink,
+:global(.dark) .datasheetLink {
+  color: var(--brand, #5FBF50) !important;
+}
+
+:global([data-theme="dark"]) .datasheetLink:hover,
+:global(.dark) .datasheetLink:hover {
+  color: var(--brand-hover, #70CC62) !important;
+}
+
+:global([data-theme="dark"]) .datasheetIconBox,
+:global(.dark) .datasheetIconBox {
+  border-color: var(--brand, #5FBF50) !important;
+  color: var(--brand, #5FBF50) !important;
 }
 
 :global([data-theme="dark"]) .gridCardTitle a,
@@ -302,7 +407,7 @@ html.dark [class*="gridCard"] {
 
 :global([data-theme="dark"]) .gridCardTitle a:hover,
 :global(.dark) .gridCardTitle a:hover {
-  color: #77d986 !important;
+  color: #5FBF50 !important;
 }
 
 :global([data-theme="dark"]) .specsRow,
@@ -326,7 +431,7 @@ html.dark [class*="specItem"] {
 :global(.dark) .specLabel,
 :root[data-theme="dark"] [class*="specLabel"],
 html.dark [class*="specLabel"] {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .specValue,
@@ -359,9 +464,9 @@ html.dark [class*="specValue"] {
 
 :global([data-theme="dark"]) .quickSpecsBtn,
 :global(.dark) .quickSpecsBtn {
-  background: #1E293B !important;
+  background: #0A2C50 !important;
   border-color: rgba(255, 255, 255, 0.15) !important;
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .quickSpecsBtn:hover,
@@ -382,8 +487,8 @@ html.dark [class*="listCard"] {
 
 :global([data-theme="dark"]) .listCard:hover,
 :global(.dark) .listCard:hover {
-  border-color: var(--brand, #77d986) !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--brand, #77d986) !important;
+  border-color: var(--brand, #5FBF50) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--brand, #5FBF50) !important;
 }
 
 :global([data-theme="dark"]) .listCardThumb,
@@ -396,15 +501,15 @@ html.dark [class*="listCard"] {
 :global(.dark) .catTagDesktop,
 :global([data-theme="dark"]) .catTagMobile,
 :global(.dark) .catTagMobile {
-  background: rgba(119, 217, 134, 0.15) !important;
-  color: #77d986 !important;
-  border: 1px solid rgba(119, 217, 134, 0.3) !important;
+  background: var(--brand, #5FBF50) !important;
+  color: var(--navy, #011A38) !important;
+  border: 1px solid var(--brand, #5FBF50) !important;
 }
 
 :global([data-theme="dark"]) .skuBadge,
 :global(.dark) .skuBadge {
   background: rgba(255, 255, 255, 0.08) !important;
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .listCardTitle a,
@@ -414,13 +519,13 @@ html.dark [class*="listCard"] {
 
 :global([data-theme="dark"]) .listDescription,
 :global(.dark) .listDescription {
-  color: #E2E8F0 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .listSpecBadge,
 :global(.dark) .listSpecBadge {
   background: var(--dark-elevated, #171E26) !important;
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .listSpecBadge strong,
@@ -451,7 +556,7 @@ html.dark [class*="modalCard"] {
 
 :global([data-theme="dark"]) .modalDescription,
 :global(.dark) .modalDescription {
-  color: #E2E8F0 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .modalSpecCell,
@@ -462,7 +567,7 @@ html.dark [class*="modalCard"] {
 
 :global([data-theme="dark"]) .modalSpecLabel,
 :global(.dark) .modalSpecLabel {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .modalSpecValue,
@@ -472,7 +577,7 @@ html.dark [class*="modalCard"] {
 
 :global([data-theme="dark"]) .highlightItem,
 :global(.dark) .highlightItem {
-  color: #E2E8F0 !important;
+  color: #D8DEDA !important;
 }
 
 /* Procurement Cards */
@@ -489,15 +594,15 @@ html.dark [class*="modalCard"] {
 
 :global([data-theme="dark"]) .procurementCard:hover,
 :global(.dark) .procurementCard:hover {
-  border-color: rgba(119, 217, 134, 0.4) !important;
-  box-shadow: 0 20px 40px -4px rgba(0, 0, 0, 0.5), 0 0 20px -2px rgba(119, 217, 134, 0.15) !important;
+  border-color: rgba(95, 191, 80, 0.4) !important;
+  box-shadow: 0 20px 40px -4px rgba(0, 0, 0, 0.5), 0 0 20px -2px rgba(95, 191, 80, 0.15) !important;
 }
 
 :global([data-theme="dark"]) .procurementIcon,
 :global(.dark) .procurementIcon {
-  background: rgba(119, 217, 134, 0.1) !important;
-  border-color: rgba(119, 217, 134, 0.25) !important;
-  color: #77D986 !important;
+  background: rgba(95, 191, 80, 0.1) !important;
+  border-color: rgba(95, 191, 80, 0.25) !important;
+  color: #5FBF50 !important;
 }
 
 :global([data-theme="dark"]) .procurementCard h3,
@@ -507,7 +612,7 @@ html.dark [class*="modalCard"] {
 
 :global([data-theme="dark"]) .procurementCard p,
 :global(.dark) .procurementCard p {
-  color: #E2E8F0 !important;
+  color: #D8DEDA !important;
 }
 
 /* Custom Select Dropdowns in Dark Mode */
@@ -520,9 +625,9 @@ html.dark [class*="modalCard"] {
 
 :global([data-theme="dark"]) .customSelectTrigger:hover,
 :global(.dark) .customSelectTrigger:hover {
-  border-color: rgba(119, 217, 134, 0.6) !important;
+  border-color: rgba(95, 191, 80, 0.6) !important;
   background: var(--dark-hover, #1D2630) !important;
-  box-shadow: 0 0 0 3px rgba(119, 217, 134, 0.2) !important;
+  box-shadow: 0 0 0 3px rgba(95, 191, 80, 0.2) !important;
 }
 
 :global([data-theme="dark"]) .customSelectDropdown,
@@ -535,19 +640,19 @@ html.dark [class*="modalCard"] {
 
 :global([data-theme="dark"]) .customSelectOption,
 :global(.dark) .customSelectOption {
-  color: #E2E8F0 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .customSelectOption:hover,
 :global(.dark) .customSelectOption:hover {
-  background: rgba(119, 217, 134, 0.15) !important;
-  color: #77D986 !important;
+  background: rgba(95, 191, 80, 0.15) !important;
+  color: #5FBF50 !important;
 }
 
 :global([data-theme="dark"]) .customSelectOptionActive,
 :global(.dark) .customSelectOptionActive {
-  background: rgba(119, 217, 134, 0.25) !important;
-  color: #77D986 !important;
+  background: rgba(95, 191, 80, 0.25) !important;
+  color: #5FBF50 !important;
 }
 
 /* ─── Products Catalog Hero Header Dark Mode Overrides ─── */
@@ -556,7 +661,7 @@ html.dark [class*="modalCard"] {
 :root[data-theme="dark"] [class*="productsHero"],
 html.dark [class*="productsHero"] {
   background: var(--dark-page, #0B0F14) !important;
-  border-bottom: 4px solid var(--brand, #77D986) !important;
+  border-bottom: 4px solid var(--brand, #5FBF50) !important;
 }
 
 :global([data-theme="dark"]) .heroBgPattern,
@@ -567,19 +672,19 @@ html.dark [class*="productsHero"] {
 
 :global([data-theme="dark"]) .heroBreadcrumb,
 :global(.dark) .heroBreadcrumb {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
   background: transparent !important;
   border: none !important;
 }
 
 :global([data-theme="dark"]) .heroBreadcrumb a,
 :global(.dark) .heroBreadcrumb a {
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .heroBreadcrumb a:hover,
 :global(.dark) .heroBreadcrumb a:hover {
-  color: var(--brand, #77D986) !important;
+  color: var(--brand, #5FBF50) !important;
 }
 
 :global([data-theme="dark"]) .heroTitle,
@@ -594,7 +699,7 @@ html.dark [class*="productsHero"] {
 
 :global([data-theme="dark"]) .heroDescription,
 :global(.dark) .heroDescription {
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .heroStatsCol,
@@ -617,14 +722,22 @@ html.dark [class*="productsHero"] {
 
 :global([data-theme="dark"]) .statLabel,
 :global(.dark) .statLabel {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 
+:global([data-theme="dark"]) .searchClearBtn,
+:global(.dark) .searchClearBtn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #D8DEDA !important;
+}
+
 :global([data-theme="dark"]) .searchClearBtn:hover,
 :global(.dark) .searchClearBtn:hover {
-  color: #CBD5E1 !important;
-  background: rgba(255, 255, 255, 0.1) !important;
+  color: var(--brand, #5FBF50) !important;
+  background: rgba(95, 191, 80, 0.18) !important;
+  border-color: var(--brand, #5FBF50) !important;
 }
 
 :global([data-theme="dark"]) .emptyState,
@@ -642,11 +755,11 @@ html.dark [class*="emptyState"] {
 
 :global([data-theme="dark"]) .emptyState p,
 :global(.dark) .emptyState p {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .emptyIconCircle,
 :global(.dark) .emptyIconCircle {
   background: rgba(255, 255, 255, 0.05) !important;
-  color: #64748B !important;
+  color: #667785 !important;
 }

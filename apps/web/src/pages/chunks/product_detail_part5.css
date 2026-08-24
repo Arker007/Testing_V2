@@ -4,7 +4,7 @@
   height: 26px;
   border: none;
   background: transparent;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   font-size: 0.9rem;
   font-weight: 800;
   cursor: pointer;
@@ -25,7 +25,7 @@
   text-align: center;
   font-size: 0.825rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   outline: none;
 }
 
@@ -65,7 +65,7 @@
 .esgMetricValue {
   font-size: 0.8125rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   line-height: 1.1;
 }
 
@@ -145,7 +145,7 @@
   height: 42px;
   background: transparent;
   border: 1.5px solid rgba(5, 40, 63, 0.15);
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   border-radius: 8px;
   font-size: 0.785rem;
   font-weight: 700;
@@ -195,7 +195,7 @@
 }
 
 .quickFactValue {
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   font-size: 0.875rem;
   font-weight: 800;
   line-height: 1.2;

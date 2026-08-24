@@ -23,7 +23,7 @@ button.btn:hover i.fa-chevron-left {
 .btn-primary,
 .btn--primary {
   background-color: var(--brand, var(--brand)) !important;
-  color: var(--white) !important; /* High-contrast white text on emerald-green button */
+  color: #021826 !important; /* Proper contrast color on brand button */
   border: 1px solid var(--brand, var(--brand)) !important;
   box-shadow: 0 4px 14px var(--brand-border) !important;
 }
@@ -31,7 +31,7 @@ button.btn:hover i.fa-chevron-left {
 .btn-primary:hover,
 .btn--primary:hover {
   background-color: var(--brand-dark, var(--brand-dark)) !important;
-  color: var(--white) !important;
+  color: #021826 !important;
   border-color: var(--brand-dark, var(--brand-dark)) !important;
   box-shadow: 0 8px 24px var(--brand-border) !important;
   transform: translateY(-2px);

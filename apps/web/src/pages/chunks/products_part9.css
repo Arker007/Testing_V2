@@ -17,7 +17,7 @@
 }
 
 .procurementCard {
-  border-radius: 1rem;
+  border-radius: 8px;
   border: 1px solid rgba(226, 232, 240, 0.9);
   background: #FFFFFF;
   box-shadow: 0 4px 20px -2px rgba(11, 47, 99, 0.03), 0 2px 4px -1px rgba(11, 47, 99, 0.02);
@@ -27,18 +27,18 @@
 
 .procurementCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px -4px rgba(119, 217, 134, 0.12), 0 8px 16px -2px rgba(15, 23, 42, 0.04);
-  border-color: rgba(119, 217, 134, 0.5);
+  box-shadow: 0 20px 40px -4px rgba(95, 191, 80, 0.12), 0 8px 16px -2px rgba(15, 23, 42, 0.04);
+  border-color: rgba(95, 191, 80, 0.5);
 }
 
 .procurementIcon {
   width: 48px;
   height: 48px;
-  border-radius: 0.75rem;
+  border-radius: 8px;
   display: grid;
   place-items: center;
-  background: rgba(119, 217, 134, 0.12);
-  border: 1px solid rgba(119, 217, 134, 0.25);
+  background: rgba(95, 191, 80, 0.12);
+  border: 1px solid rgba(95, 191, 80, 0.25);
   color: #54b862;
   transition: transform 300ms ease;
 }
@@ -49,7 +49,7 @@
 
 .procurementCard h3 {
   margin-top: 1.25rem;
-  color: #0f172a;
+  color: #011526;
   font-size: 1.1rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
@@ -57,7 +57,7 @@
 }
 
 .procurementCard p {
-  color: #64748b;
+  color: #667785;
   font-size: 0.875rem;
   line-height: 1.6;
   margin: 0;
@@ -66,7 +66,7 @@
 /* ─── CTA BAND ───────────────────────────────────────────── */
 .ctaBand {
   margin-top: 4rem;
-  border-radius: var(--radius-xs);
+  border-radius: 8px;
   border: 1px solid var(--color-surface-muted);
   background: linear-gradient(135deg, rgba(63, 174, 90, 0.12) 0%, rgba(24, 48, 40, 0.04) 100%);
   padding: 2.25rem 2rem;
@@ -96,7 +96,7 @@
 
 .ctaTextCol p {
   margin-top: 0.45rem;
-  color: #475569;
+  color: #385064;
   font-size: 0.875rem;
   line-height: 1.6;
   margin-bottom: 0;
@@ -118,15 +118,15 @@
   font-size: 0.875rem;
   font-weight: 800;
   padding: 0.75rem 1.25rem;
-  border-radius: var(--radius-xs);
-  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  border: 1px solid #D8DEDA;
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .ctaPhoneBtn:hover {
   border-color: var(--color-text-primary);
-  background: #F8FAFC;
+  background: #F2F2F2;
 }
 
 /* ─── DARK MODE OVERRIDES ─── */
@@ -136,7 +136,7 @@
 :global(.dark) .main,
 html.dark .main {
   background-color: #0f141a;
-  color: #f8fafc;
+  color: #F2F2F2;
 }
 
 :root[data-theme="dark"] .topControlCard,

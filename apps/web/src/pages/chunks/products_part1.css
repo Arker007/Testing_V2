@@ -1,107 +1,9 @@
-/* ─── Products Page Complete Redesign CSS ─────────────────── */
+/* ─── Products Page Main Layout ───────────────────────────── */
 
 .main {
   min-height: 100vh;
   background-color: var(--color-surface-raised);
   padding-bottom: 4rem;
-}
-
-/* ─── HERO HEADER ────────────────────────────────────────── */
-.productsHero {
-  position: relative;
-  background: var(--hero-gradient, linear-gradient(135deg, var(--navy) 0%, var(--navy) 100%));
-  padding: 3.75rem 0 4.25rem;
-  color: #FFFFFF;
-  overflow: hidden;
-  border-bottom: 4px solid var(--brand, #77D986);
-}
-
-@media (max-width: 768px) {
-  .productsHero {
-    padding: 2.5rem 0 3rem;
-  }
-}
-
-.heroBgPattern {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 75% 50%, rgba(152, 209, 42, 0.1) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-/* Breadcrumbs */
-.heroBreadcrumb {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 0.85rem;
-}
-
-.heroBreadcrumb a {
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-}
-
-.heroBreadcrumb a:hover {
-  color: var(--brand, #77D986);
-}
-
-.breadcrumbSep {
-  color: rgba(255, 255, 255, 0.4);
-  vertical-align: middle;
-}
-
-.breadcrumbActive {
-  color: var(--brand, #77D986);
-  font-weight: 600;
-}
-
-/* Hero Content */
-.heroContent {
-  display: block;
-}
-
-.heroTextCol {
-  display: flex;
-  flex-direction: column;
-}
-
-.heroTagline {
-  display: inline-block;
-  color: var(--brand);
-  font-size: 0.8125rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 800;
-}
-
-.heroTitle {
-  font-family: var(--font-display, inherit);
-  font-size: clamp(1.85rem, 4vw, 2.75rem);
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: -0.02em;
-  margin: 0.45rem 0 0.6rem;
-  line-height: 1.2;
-}
-
-.heroTitleAccent {
-  color: #4FC36D;
-}
-
-.heroDescription {
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 1rem;
-  max-width: 680px;
-  line-height: 1.65;
-  margin: 0;
 }
 
 /* Stats Box */
@@ -113,7 +15,7 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-radius: var(--radius-xs);
+  border-radius: 8px;
   padding: 1.25rem;
 }
 
@@ -135,7 +37,7 @@
 .statIconWrapper {
   width: 40px;
   height: 40px;
-  border-radius: var(--radius-xs);
+  border-radius: 8px;
   background: rgba(152, 209, 42, 0.15);
   border: 1px solid rgba(152, 209, 42, 0.3);
   color: #98d12a;
@@ -189,12 +91,12 @@
   align-items: center;
   gap: 0.4rem;
   background: #FFFFFF;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   font-size: 0.8125rem;
   font-weight: 700;
   padding: 0.55rem 0.95rem;
-  border-radius: 9999px;
-  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  border: 1px solid #D8DEDA;
   white-space: nowrap;
   cursor: pointer;
   flex-shrink: 0;

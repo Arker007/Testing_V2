@@ -42,7 +42,7 @@ export default function ExperienceBanner() {
               </div>
             )}
             {c("cert_gmp", "Made in India") && (
-              <div className="px-4 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-[#77d986] text-xs font-bold uppercase tracking-wider border border-emerald-300 dark:border-emerald-500/40 shadow-xs">
+              <div className="px-4 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-[#5FBF50] text-xs font-bold uppercase tracking-wider border border-emerald-300 dark:border-emerald-500/40 shadow-xs">
                 {c("cert_gmp", "Made in India")}
               </div>
             )}

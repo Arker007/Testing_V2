@@ -23,12 +23,12 @@ export default function ContactHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <Link to="/" className="inline-flex items-center gap-1.5 text-white/90 hover:text-[#77D986] transition-colors">
+          <Link to="/" className="inline-flex items-center gap-1.5 text-white/90 hover:text-[#5FBF50] transition-colors">
             <Icon icon="solar:home-2-linear" className="w-3.5 h-3.5 opacity-80 shrink-0" />
             <span>Home</span>
           </Link>
           <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-white/40 shrink-0" />
-          <span className="text-[#77D986] font-semibold">Contact Us</span>
+          <span className="text-[#5FBF50] font-semibold">Contact Us</span>
         </motion.nav>
 
         <div className="flex flex-col">
@@ -39,7 +39,7 @@ export default function ContactHero() {
             transition={{ duration: 0.35, delay: 0.05 }}
           >
             <div className="mb-4">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#77D986]/15 dark:bg-[#77D986]/10 border border-[#77D986]/30 dark:border-[#77D986]/40 rounded-full text-[#77D986] font-bold text-xs tracking-wider uppercase shadow-xs">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#5FBF50]/15 dark:bg-[#5FBF50]/10 border border-[#5FBF50]/30 dark:border-[#5FBF50]/40 rounded-full text-[#5FBF50] font-bold text-xs tracking-wider uppercase shadow-xs">
                 <Icon icon="solar:bolt-linear" className="w-4 h-4" />
                 <span>{c("contact_hero_badge", "Get in Touch with Our Specialists")}</span>
               </span>

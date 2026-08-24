@@ -30,23 +30,130 @@ export default function ProductSearchHeader({
   setMinStaticLoad,
   selectedApplication,
   setSelectedApplication,
+  selectedCategories = [],
+  setSelectedCategories,
+  selectedAttributes = [],
+  setSelectedAttributes,
+  selectedDimensions = [],
+  setSelectedDimensions,
+  activeDynamicFilter,
+  setActiveDynamicFilter,
+  activeStaticFilter,
+  setActiveStaticFilter,
+  activeRackFilter,
+  setActiveRackFilter,
+  isCustom,
+  setIsCustom,
   setIsMobileFilterOpen,
 }) {
   const activeTags = [];
+
+  // 1. Search Query
+  if (searchQuery && searchQuery.trim()) {
+    activeTags.push({
+      key: "search",
+      label: `"${searchQuery}"`,
+      clear: () => setSearchQuery(""),
+    });
+  }
+
+  // 2. Top Category Bar Selection
   if (selectedCategory && selectedCategory !== "All") {
     activeTags.push({
-      key: "category",
+      key: `top-cat-${selectedCategory}`,
       label: `Category: ${selectedCategory}`,
       clear: () => setSelectedCategory("All"),
     });
   }
+
+  // 3. Sidebar Multi-Selected Categories
+  if (Array.isArray(selectedCategories) && selectedCategories.length > 0) {
+    selectedCategories.forEach((cat) => {
+      activeTags.push({
+        key: `cat-${cat}`,
+        label: `Category: ${cat}`,
+        clear: () => {
+          if (setSelectedCategories) {
+            setSelectedCategories(selectedCategories.filter((c) => c !== cat));
+          }
+        },
+      });
+    });
+  }
+
+  // 4. Multi-Selected Attributes
+  if (Array.isArray(selectedAttributes) && selectedAttributes.length > 0) {
+    selectedAttributes.forEach((attr) => {
+      activeTags.push({
+        key: `attr-${attr}`,
+        label: attr,
+        clear: () => {
+          if (setSelectedAttributes) {
+            setSelectedAttributes(selectedAttributes.filter((a) => a !== attr));
+          }
+        },
+      });
+    });
+  }
+
+  // 5. Multi-Selected Dimensions
+  if (Array.isArray(selectedDimensions) && selectedDimensions.length > 0) {
+    selectedDimensions.forEach((dim) => {
+      activeTags.push({
+        key: `dim-${dim}`,
+        label: dim,
+        clear: () => {
+          if (setSelectedDimensions) {
+            setSelectedDimensions(selectedDimensions.filter((d) => d !== dim));
+          }
+        },
+      });
+    });
+  }
+
+  // 6. Dynamic Load Range Filter
+  if (activeDynamicFilter && Array.isArray(activeDynamicFilter)) {
+    activeTags.push({
+      key: "dyn-load",
+      label: `Dynamic: ${activeDynamicFilter[0].toLocaleString()} - ${activeDynamicFilter[1].toLocaleString()} Kg`,
+      clear: () => {
+        if (setActiveDynamicFilter) setActiveDynamicFilter(null);
+      },
+    });
+  }
+
+  // 7. Static Load Range Filter
+  if (activeStaticFilter && Array.isArray(activeStaticFilter)) {
+    activeTags.push({
+      key: "stat-load",
+      label: `Static: ${activeStaticFilter[0].toLocaleString()} - ${activeStaticFilter[1].toLocaleString()} Kg`,
+      clear: () => {
+        if (setActiveStaticFilter) setActiveStaticFilter(null);
+      },
+    });
+  }
+
+  // 8. Rack Load Range Filter
+  if (activeRackFilter && Array.isArray(activeRackFilter)) {
+    activeTags.push({
+      key: "rack-load",
+      label: `Rack: ${activeRackFilter[0].toLocaleString()} - ${activeRackFilter[1].toLocaleString()} Kg`,
+      clear: () => {
+        if (setActiveRackFilter) setActiveRackFilter(null);
+      },
+    });
+  }
+
+  // 9. Legacy Min Static Load
   if (minStaticLoad > 0) {
     activeTags.push({
-      key: "load",
+      key: "min-load",
       label: `Min Load: ${minStaticLoad.toLocaleString()} kg`,
       clear: () => setMinStaticLoad(0),
     });
   }
+
+  // 10. Selected Application
   if (selectedApplication && selectedApplication !== "All") {
     activeTags.push({
       key: "app",
@@ -54,11 +161,15 @@ export default function ProductSearchHeader({
       clear: () => setSelectedApplication("All"),
     });
   }
-  if (searchQuery.trim()) {
+
+  // 11. Custom only checkbox
+  if (isCustom) {
     activeTags.push({
-      key: "search",
-      label: `Search: "${searchQuery}"`,
-      clear: () => setSearchQuery(""),
+      key: "custom",
+      label: "Custom Specification",
+      clear: () => {
+        if (setIsCustom) setIsCustom(false);
+      },
     });
   }
 
@@ -88,7 +199,7 @@ export default function ProductSearchHeader({
                 exit={{ opacity: 0, scale: 0.8 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                <Icon icon="ix:cancel" className="w-4 h-4" />
               </motion.button>
             )}
           </AnimatePresence>
@@ -164,7 +275,7 @@ export default function ProductSearchHeader({
         </div>
       )}
 
-      {/* Results Count & Active Filter Tags Bar */}
+      {/* Results Count & Active Multi-Filter Badges Bar */}
       <div className={styles.resultsBar}>
         <div className={styles.resultsText}>
           Showing <strong>{filteredCount}</strong> {filteredCount === 1 ? "Product" : "Products"}
@@ -180,21 +291,21 @@ export default function ProductSearchHeader({
                 <motion.span
                   key={tag.key}
                   className={styles.filterTagPill}
-                  initial={{ opacity: 0, scale: 0.85, x: -4 }}
-                  animate={{ opacity: 1, scale: 1, x: 0 }}
-                  exit={{ opacity: 0, scale: 0.85, x: -4 }}
-                  transition={{ duration: 0.18 }}
+                  initial={{ opacity: 0, scale: 0.85, y: -2 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.85, y: -2 }}
+                  transition={{ duration: 0.15 }}
                 >
-                  <span>{tag.label}</span>
+                  <span className={styles.filterTagText}>{tag.label}</span>
                   <motion.button
                     type="button"
                     onClick={tag.clear}
                     className={styles.tagRemoveBtn}
-                    title="Remove filter"
-                    aria-label="Remove filter"
-                    whileTap={{ scale: 0.85 }}
+                    title={`Remove ${tag.label}`}
+                    aria-label={`Remove ${tag.label}`}
+                    whileTap={{ scale: 0.8 }}
                   >
-                    <Icon icon="solar:close-circle-linear" className="w-3 h-3" />
+                    <Icon icon="solar:close-circle-bold" className="w-3.5 h-3.5" />
                   </motion.button>
                 </motion.span>
               ))}
@@ -204,10 +315,10 @@ export default function ProductSearchHeader({
               type="button"
               onClick={resetFilters}
               className={styles.resetAllLinkBtn}
-              title="Reset all filters"
+              title="Clear all active filters"
               whileTap={{ scale: 0.95 }}
             >
-              <Icon icon="solar:restart-linear" className="w-3 h-3" />
+              <Icon icon="solar:restart-linear" className="w-3.5 h-3.5" />
               <span>Clear All</span>
             </motion.button>
           </div>

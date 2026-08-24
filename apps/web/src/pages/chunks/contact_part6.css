@@ -3,7 +3,7 @@
 .trustedCompanies {
   margin-top: 4.5rem;
   padding-top: 3.5rem;
-  border-top: 1px dashed #E2E8F0;
+  border-top: 1px dashed #D8DEDA;
   text-align: center;
 }
 
@@ -12,7 +12,7 @@
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #64748B;
+  color: #667785;
   margin-bottom: 2rem;
   font-weight: 700;
 }
@@ -30,10 +30,10 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.625rem 1.25rem;
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
+  background: #F2F2F2;
+  border: 1px solid #D8DEDA;
   border-radius: 9999px;
-  color: #475569;
+  color: #385064;
   font-weight: 700;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
@@ -51,7 +51,7 @@
 }
 
 .companyBadge svg {
-  color: #94A3B8;
+  color: #9EAFBE;
   transition: color 0.3s ease;
 }
 

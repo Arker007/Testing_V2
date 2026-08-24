@@ -11,7 +11,7 @@
   font-family: var(--font-display, inherit);
   font-size: 1.2rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   margin: 0;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .closeBtn:hover {
-  color: #0B2F63;
+  color: var(--navy, #011A38);
 }
 
 .modalForm {
@@ -121,7 +121,7 @@
   align-items: center;
   padding: 1.15rem 1.35rem;
   border-bottom: 1.5px solid rgba(5, 40, 63, 0.08);
-  background: #F8FAFC;
+  background: #F2F2F2;
 }
 
 .specsSheetLogo {
@@ -142,7 +142,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #F8FAFC;
+  background: #F2F2F2;
 }
 
 /* ── Responsive Adaptations ── */

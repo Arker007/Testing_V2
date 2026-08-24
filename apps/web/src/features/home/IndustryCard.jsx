@@ -42,11 +42,11 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-11 h-11 rounded-xl bg-[#77D986] text-slate-950 backdrop-blur-md border border-[#77D986] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+          <div className="w-11 h-11 rounded-xl bg-[#5FBF50] text-slate-950 backdrop-blur-md border border-[#5FBF50] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
             <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
           {badgeText && (
-            <span className="bg-[#77D986] text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow-md border border-[#77D986]">
+            <span className="bg-[#5FBF50] text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow-md border border-[#5FBF50]">
               {badgeText}
             </span>
           )}
@@ -54,7 +54,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
 
         <div className="relative z-10 mt-auto pt-6">
           <h4 className="text-[#FFFFFF] text-lg sm:text-xl font-black mb-1.5 drop-shadow-sm">{title}</h4>
-          <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
+          <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
         </div>
       </motion.div>
     );
@@ -82,11 +82,11 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-10 h-10 rounded-xl bg-[#77D986] text-slate-950 backdrop-blur-md border border-[#77D986] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+          <div className="w-10 h-10 rounded-xl bg-[#5FBF50] text-slate-950 backdrop-blur-md border border-[#5FBF50] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
             <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
           {cardType === "wideRowHeader" && badgeText && (
-            <span className="bg-[#77D986] text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow-md border border-[#77D986]">
+            <span className="bg-[#5FBF50] text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow-md border border-[#5FBF50]">
               {badgeText}
             </span>
           )}
@@ -94,7 +94,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
 
         <div className="relative z-10 mt-auto pt-6">
           <h4 className="text-[#FFFFFF] text-base sm:text-lg font-black mb-1 drop-shadow-sm">{title}</h4>
-          <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
+          <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
         </div>
       </motion.div>
     );
@@ -122,11 +122,11 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-10 h-10 rounded-lg bg-[#77D986] text-slate-950 backdrop-blur-md border border-[#77D986] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+          <div className="w-10 h-10 rounded-lg bg-[#5FBF50] text-slate-950 backdrop-blur-md border border-[#5FBF50] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
             <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
           {cardType === "wideHeader" && badgeText && (
-            <span className="bg-[#77D986] text-slate-950 font-bold text-xs px-3 py-1 rounded-lg shadow-md border border-[#77D986]">
+            <span className="bg-[#5FBF50] text-slate-950 font-bold text-xs px-3 py-1 rounded-lg shadow-md border border-[#5FBF50]">
               {badgeText}
             </span>
           )}
@@ -134,7 +134,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
 
         <div className="relative z-10 mt-auto pt-6">
           <h4 className="text-[#FFFFFF] text-base sm:text-lg font-black mb-1 drop-shadow-sm">{title}</h4>
-          <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
+          <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
         </div>
       </motion.div>
     );
@@ -161,14 +161,14 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
       </div>
 
       <div className="relative z-10 flex items-center justify-between mb-4">
-        <div className="w-10 h-10 rounded-lg bg-[#77D986] text-slate-950 backdrop-blur-md border border-[#77D986] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+        <div className="w-10 h-10 rounded-lg bg-[#5FBF50] text-slate-950 backdrop-blur-md border border-[#5FBF50] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
           <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
         </div>
       </div>
 
       <div className="relative z-10 mt-auto pt-6">
         <h4 className="text-[#FFFFFF] text-base sm:text-lg font-black mb-1 drop-shadow-sm">{title}</h4>
-        <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
+        <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
       </div>
     </motion.div>
   );

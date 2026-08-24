@@ -12,8 +12,8 @@
   height: 180px;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid #E2E8F0;
-  background: #F8FAFC;
+  border: 1px solid #D8DEDA;
+  background: #F2F2F2;
   flex-shrink: 0;
 }
 
@@ -34,14 +34,15 @@
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
-  background: rgba(92, 179, 27, 0.12);
-  color: #2a6e0a;
+  background: var(--brand, #5FBF50);
+  color: var(--text-primary, #0F1720);
   font-size: 0.65rem;
   font-weight: 700;
-  padding: 0.2rem 0.55rem;
-  border-radius: 6px;
-  border: 1px solid rgba(92, 179, 27, 0.3);
-  backdrop-filter: blur(4px);
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--brand, #5FBF50);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  line-height: 1.2;
 }
 
 @media (min-width: 640px) {
@@ -64,13 +65,15 @@
 }
 
 .catTagDesktop {
-  background: rgba(92, 179, 27, 0.12);
-  color: #2a6e0a;
+  background: var(--brand, #5FBF50);
+  color: var(--text-primary, #0F1720);
   font-size: 0.7rem;
   font-weight: 700;
-  padding: 0.2rem 0.6rem;
-  border-radius: 6px;
-  border: 1px solid rgba(92, 179, 27, 0.25);
+  padding: 0.2rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid var(--brand, #5FBF50);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  line-height: 1.2;
 }
 
 @media (max-width: 639px) {
@@ -81,7 +84,7 @@
 
 .skuBadge {
   font-size: 0.7rem;
-  color: #64748B;
+  color: #667785;
   font-family: monospace;
 }
 
@@ -105,7 +108,7 @@
 
 .listDescription {
   font-size: 0.85rem;
-  color: #475569;
+  color: #385064;
   line-height: 1.5;
   margin: 0;
   display: -webkit-box;
@@ -122,12 +125,12 @@
 }
 
 .listSpecBadge {
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
+  background: #F2F2F2;
+  border: 1px solid #D8DEDA;
   padding: 0.35rem 0.65rem;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 0.75rem;
-  color: #64748B;
+  color: #667785;
   display: inline-flex;
   gap: 0.35rem;
 }
@@ -152,30 +155,32 @@
 .modalOverlay {
   position: fixed;
   inset: 0;
-  z-index: 10000;
-  background: rgba(24, 48, 40, 0.6);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  z-index: 99999;
+  background: rgba(11, 25, 44, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
+  overflow-y: auto;
 }
 
 .modalCard {
-  background: #FFFFFF;
-  border-radius: var(--radius-xs);
-  max-width: 540px;
+  background: var(--bg-card, #FFFFFF);
+  border-radius: var(--radius-card, 12px);
+  max-width: 560px;
   width: 100%;
   padding: 1.75rem;
   position: relative;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  border: 1px solid #E2E8F0;
+  box-shadow: 0 24px 48px -12px rgba(11, 25, 44, 0.28);
+  border: 1px solid var(--border, #D8DEDA);
   display: flex;
   flex-direction: column;
   gap: 1.15rem;
-  max-height: 90vh;
+  max-height: min(90vh, 820px);
   overflow-y: auto;
+  margin: auto;
 }
 
 .modalCloseBtn {
@@ -184,23 +189,27 @@
   right: 1.25rem;
   width: 36px;
   height: 36px;
-  border-radius: var(--radius-sm-pill);
-  background: #F1F5F9;
-  color: var(--color-text-primary);
-  border: none;
+  border-radius: var(--radius-btn, 8px);
+  background: var(--bg-surface-secondary, #E7EBE8);
+  color: var(--color-text-primary, #011526);
+  border: 1px solid var(--border, #D8DEDA);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
+  z-index: 2;
 }
 
 .modalCloseBtn:hover {
-  background: #E2E8F0;
+  background: var(--brand-soft, #E5F3E8);
+  color: var(--brand-text, #5AB860);
+  border-color: var(--brand, #5FBF50);
 }
 
 .modalHeaderRow {
   display: flex;
   align-items: center;
   gap: 0.65rem;
+  padding-right: 3rem;
 }

@@ -65,8 +65,8 @@ export default function FeaturesSection() {
     <section
       id="features-advantage"
       style={{
-        backgroundColor: "var(--bg-page, #ffffff)",
-        color: "var(--text-primary, #0f172a)",
+        backgroundColor: "var(--bg-page, #F7F8F7)",
+        color: "var(--text-primary, #011526)",
       }}
       className="py-10 md:py-16 transition-colors"
     >
@@ -250,19 +250,19 @@ export default function FeaturesSection() {
             {/* Headline Overlay */}
             <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-8 text-right z-10 pointer-events-none">
               <span
-                style={{ color: "var(--text-secondary, #64748b)" }}
+                style={{ color: "var(--text-secondary, #667785)" }}
                 className="block text-2xl sm:text-3xl md:text-4xl font-light tracking-tight leading-snug"
               >
                 Exporting
               </span>
               <h2
-                style={{ color: "var(--heading, #0f172a)" }}
+                style={{ color: "var(--heading, #011526)" }}
                 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-snug"
               >
                 Driving Economic Growth
               </h2>
               <h2
-                style={{ color: "var(--heading, #0f172a)" }}
+                style={{ color: "var(--heading, #011526)" }}
                 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-snug"
               >
                 & Global Expansion

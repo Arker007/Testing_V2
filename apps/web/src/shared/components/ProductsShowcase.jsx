@@ -71,14 +71,14 @@ const renderFeatureIcon = (iconName, title = "") => {
 
   if (name.includes("drop") || name.includes("water") || titleLower.includes("water")) {
     return (
-      <svg className="w-3.5 h-3.5 text-[#77D986] shrink-0 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-3.5 h-3.5 text-[#6BBF54] shrink-0 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
       </svg>
     );
   }
   if (name.includes("sun") || name.includes("uv") || titleLower.includes("uv") || titleLower.includes("sun")) {
     return (
-      <svg className="w-3.5 h-3.5 text-[#77D986] shrink-0 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-3.5 h-3.5 text-[#6BBF54] shrink-0 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="4" />
         <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
       </svg>
@@ -86,7 +86,7 @@ const renderFeatureIcon = (iconName, title = "") => {
   }
   if (name.includes("shield") || name.includes("termite") || name.includes("check") || titleLower.includes("termite") || titleLower.includes("shield")) {
     return (
-      <svg className="w-3.5 h-3.5 text-[#77D986] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-3.5 h-3.5 text-[#6BBF54] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
         <path d="m9 12 2 2 4-4" />
       </svg>
@@ -94,13 +94,13 @@ const renderFeatureIcon = (iconName, title = "") => {
   }
   if (name.includes("wrench") || name.includes("maintenance") || name.includes("tool") || titleLower.includes("maintenance")) {
     return (
-      <svg className="w-3.5 h-3.5 text-[#77D986] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-3.5 h-3.5 text-[#6BBF54] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
       </svg>
     );
   }
 
-  return <Icon icon={iconName || "solar:check-circle-linear"} className="w-3.5 h-3.5 text-[#77D986] shrink-0" />;
+  return <Icon icon={iconName || "solar:check-circle-linear"} className="w-3.5 h-3.5 text-[#6BBF54] shrink-0" />;
 };
 
 const getCardFeatures = (prod) => {
@@ -249,7 +249,7 @@ export default function ProductsShowcase() {
           <div className="relative z-20 flex items-center justify-between w-full">
             <Motion.div
               variants={badgeHoverVariant}
-              className="inline-flex items-center gap-2 bg-[#77D986] text-slate-950 border border-[#77D986] px-3.5 py-1.5 rounded-lg shadow-md font-extrabold"
+              className="inline-flex items-center gap-2 bg-[#6BBF54] text-slate-950 border border-[#6BBF54] px-3.5 py-1.5 rounded-lg shadow-md font-extrabold"
             >
               <span className="text-slate-950 font-black text-xs tracking-wide">
                 01
@@ -268,7 +268,7 @@ export default function ProductsShowcase() {
                 handleCardClick(featuredProduct);
               }}
               aria-label="View Collection"
-              className="relative z-30 w-11 h-11 rounded-lg bg-[#77D986] text-slate-950 flex items-center justify-center cursor-pointer border border-[#77D986] backdrop-blur-md shrink-0 shadow-md transition-colors duration-200"
+              className="relative z-30 w-11 h-11 rounded-lg bg-[#6BBF54] text-slate-950 flex items-center justify-center cursor-pointer border border-[#6BBF54] backdrop-blur-md shrink-0 shadow-md transition-colors duration-200"
             >
               <Icon icon="solar:arrow-right-up-linear" className="w-5 h-5 text-slate-950" />
             </Motion.button>
@@ -281,7 +281,7 @@ export default function ProductsShowcase() {
                 {featuredProduct.name || "Plastic Lumber"}
               </h3>
 
-              <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs sm:text-sm leading-relaxed font-medium max-w-xl drop-shadow-xs">
+              <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs sm:text-sm leading-relaxed font-medium max-w-xl drop-shadow-xs">
                 {featuredProduct.description ||
                   "Durable recycled plastic profiles for construction framing, decking, walkways and industrial applications."}
               </p>
@@ -300,7 +300,7 @@ export default function ProductsShowcase() {
                       className="flex items-center gap-1.5 bg-black/55 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 shadow-xs"
                     >
                       {renderFeatureIcon(iconName, feat.title)}
-                      <span className="text-[#F1F5F9] text-[11px] sm:text-xs font-semibold">{feat.title}</span>
+                      <span className="text-[#E7EBE8] text-[11px] sm:text-xs font-semibold">{feat.title}</span>
                     </Motion.div>
                   );
                 })}
@@ -314,7 +314,7 @@ export default function ProductsShowcase() {
                   e.stopPropagation();
                   handleCardClick(featuredProduct);
                 }}
-                className="relative z-30 bg-[#77D986] hover:bg-[#68cb77] text-slate-950 font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-lg flex items-center gap-2 cursor-pointer border border-white/25 shrink-0 shadow-md transition-all"
+                className="relative z-30 bg-[#6BBF54] hover:bg-[#6BBF54] text-slate-950 font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-lg flex items-center gap-2 cursor-pointer border border-white/25 shrink-0 shadow-md transition-all"
               >
                 <span>Explore Collection</span>
                 <Icon icon="solar:arrow-right-linear" className="w-4 h-4 text-slate-950" />
@@ -354,7 +354,7 @@ export default function ProductsShowcase() {
               <div className="relative z-20 flex items-center justify-between w-full">
                 <Motion.span
                   variants={badgeHoverVariant}
-                  className="inline-flex items-center bg-[#77D986] text-slate-950 font-black text-xs px-3 py-1 rounded-lg shadow-md border border-[#77D986]"
+                  className="inline-flex items-center bg-[#6BBF54] text-slate-950 font-black text-xs px-3 py-1 rounded-lg shadow-md border border-[#6BBF54]"
                 >
                   {cardNum}
                 </Motion.span>
@@ -368,7 +368,7 @@ export default function ProductsShowcase() {
                     handleCardClick(prod);
                   }}
                   aria-label="View Product"
-                  className="relative z-30 w-9 h-9 rounded-lg bg-[#77D986] text-slate-950 flex items-center justify-center cursor-pointer border border-[#77D986] backdrop-blur-md shrink-0 shadow-md transition-colors duration-200"
+                  className="relative z-30 w-9 h-9 rounded-lg bg-[#6BBF54] text-slate-950 flex items-center justify-center cursor-pointer border border-[#6BBF54] backdrop-blur-md shrink-0 shadow-md transition-colors duration-200"
                 >
                   <Icon icon="solar:arrow-right-up-linear" className="w-4 h-4 text-slate-950" />
                 </Motion.button>
@@ -379,7 +379,7 @@ export default function ProductsShowcase() {
                 <h3 className="text-lg sm:text-xl font-black text-[#FFFFFF] tracking-tight mb-1 drop-shadow-sm">
                   {title}
                 </h3>
-                <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs leading-relaxed font-medium line-clamp-2 drop-shadow-xs">
+                <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs leading-relaxed font-medium line-clamp-2 drop-shadow-xs">
                   {desc}
                 </p>
               </div>
@@ -418,7 +418,7 @@ export default function ProductsShowcase() {
               <div className="relative z-20 flex items-center justify-between w-full">
                 <Motion.span
                   variants={badgeHoverVariant}
-                  className="inline-flex items-center bg-[#77D986] text-slate-950 font-black text-xs px-3 py-1 rounded-lg shadow-md border border-[#77D986]"
+                  className="inline-flex items-center bg-[#6BBF54] text-slate-950 font-black text-xs px-3 py-1 rounded-lg shadow-md border border-[#6BBF54]"
                 >
                   {cardNum}
                 </Motion.span>
@@ -432,7 +432,7 @@ export default function ProductsShowcase() {
                     handleCardClick(prod);
                   }}
                   aria-label="View Product"
-                  className="relative z-30 w-9 h-9 rounded-lg bg-[#77D986] text-slate-950 flex items-center justify-center cursor-pointer border border-[#77D986] backdrop-blur-md shrink-0 shadow-md transition-colors duration-200"
+                  className="relative z-30 w-9 h-9 rounded-lg bg-[#6BBF54] text-slate-950 flex items-center justify-center cursor-pointer border border-[#6BBF54] backdrop-blur-md shrink-0 shadow-md transition-colors duration-200"
                 >
                   <Icon icon="solar:arrow-right-up-linear" className="w-4 h-4 text-slate-950" />
                 </Motion.button>
@@ -443,7 +443,7 @@ export default function ProductsShowcase() {
                 <h3 className="text-lg sm:text-xl font-black text-[#FFFFFF] tracking-tight mb-1 drop-shadow-sm">
                   {title}
                 </h3>
-                <p className="text-[#CBD5E1] dark:text-[#CBD5E1] !text-[#CBD5E1] text-xs leading-relaxed font-medium line-clamp-2 drop-shadow-xs">
+                <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs leading-relaxed font-medium line-clamp-2 drop-shadow-xs">
                   {desc}
                 </p>
               </div>

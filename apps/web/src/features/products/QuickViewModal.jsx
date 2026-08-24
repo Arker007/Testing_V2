@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
@@ -26,36 +27,39 @@ export default function QuickViewModal({
     };
 
     document.addEventListener("keydown", handleKeyDown);
-    const originalStyle = window.getComputedStyle(document.body).overflow;
+    const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = originalStyle;
+      document.body.style.overflow = originalOverflow;
     };
   }, [product, onClose]);
 
+  if (!product) return null;
+
   const categoryName = product?.category_name || product?.category || "Recycled Plastic";
   const title = product?.name || product?.title || "";
+  const skuId = product?.id ? String(product.id).slice(-6) : "PROD";
 
-  return (
+  const modalContent = (
     <AnimatePresence>
       {product && (
-        <motion.div
+        <div
           className={styles.modalOverlay}
           onClick={(e) => e.target === e.currentTarget && onClose()}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
         >
           <motion.div
             className={styles.modalCard}
             initial={{ opacity: 0, scale: 0.95, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
-            transition={{ type: "spring", damping: 26, stiffness: 360 }}
+            transition={{ type: "spring", damping: 28, stiffness: 380 }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="quick-view-title"
           >
+            {/* Close button */}
             <motion.button
               type="button"
               onClick={onClose}
@@ -67,15 +71,18 @@ export default function QuickViewModal({
               <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
             </motion.button>
 
+            {/* Header category and SKU row */}
             <div className={styles.modalHeaderRow}>
               <span className={styles.modalCategoryBadge}>{categoryName}</span>
               <span className={styles.modalSkuBadge}>
-                ID: #{String(product.id).slice(-6)}
+                ID: #{skuId}
               </span>
             </div>
 
-            <h2 className={styles.modalTitle}>{title}</h2>
+            {/* Modal Title */}
+            <h2 id="quick-view-title" className={styles.modalTitle}>{title}</h2>
 
+            {/* Product Image */}
             <div className={styles.modalImageContainer}>
               <OptimizedImage
                 src={img}
@@ -84,7 +91,8 @@ export default function QuickViewModal({
               />
             </div>
 
-            <p className={styles.modalDescription}>{headline}</p>
+            {/* Headline / Summary */}
+            {headline && <p className={styles.modalDescription}>{headline}</p>}
 
             {/* Specs Table Grid */}
             <div className={styles.modalSpecsGrid}>
@@ -111,16 +119,16 @@ export default function QuickViewModal({
             {/* Highlights List */}
             <div className={styles.modalHighlights}>
               <div className={styles.highlightItem}>
-                <Icon icon="solar:check-circle-linear" className={`${styles.checkIcon} w-4 h-4 text-emerald-500`} />
+                <Icon icon="solar:check-circle-linear" className={`${styles.checkIcon} w-4 h-4`} />
                 <span>Water, termite & rot proof section</span>
               </div>
               <div className={styles.highlightItem}>
-                <Icon icon="solar:check-circle-linear" className={`${styles.checkIcon} w-4 h-4 text-emerald-500`} />
+                <Icon icon="solar:check-circle-linear" className={`${styles.checkIcon} w-4 h-4`} />
                 <span>Can be sawn, drilled & screwed like wood</span>
               </div>
             </div>
 
-            {/* Actions */}
+            {/* Actions Row */}
             <div className={styles.modalActionsRow}>
               <QuoteButton
                 to={`/contact?product=${product.id}`}
@@ -138,8 +146,13 @@ export default function QuickViewModal({
               </Link>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );
+
+  return typeof document !== "undefined"
+    ? createPortal(modalContent, document.body)
+    : null;
 }
+

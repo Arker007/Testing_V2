@@ -95,8 +95,9 @@ export default function MobileNavDrawer({
 
           {/* Products Mobile Accordion */}
           <div className={styles.dAccordion}>
-            <button
-              type="button"
+            <div
+              role="button"
+              tabIndex={0}
               className={`${styles.mCardLink} ${styles.mCardAccordionBtn} ${
                 isProductsActive ? styles.mCardLinkActive : ""
               }`}
@@ -109,7 +110,7 @@ export default function MobileNavDrawer({
                   mobileProductsOpen ? "rotate-180" : ""
                 }`}
               />
-            </button>
+            </div>
             {mobileProductsOpen && (
               <div className={styles.dAccordionContent}>
                 {categories.map((cat) => {

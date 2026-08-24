@@ -125,7 +125,7 @@
 
 /* ── 11. Testimonials Section ── */
 .testimonialsSection {
-  background: var(--bg-surface, #F8FAFC);
+  background: var(--bg-surface, #F2F2F2);
   padding: 3.5rem 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -161,7 +161,7 @@ html.dark .testimonialSliderBox {
 :global([data-theme="dark"]) .testimonialQuote,
 :global(.dark) .testimonialQuote,
 html.dark .testimonialQuote {
-  color: #E2E8F0 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .authorName,
@@ -173,7 +173,7 @@ html.dark .authorName {
 :global([data-theme="dark"]) .authorMeta,
 :global(.dark) .authorMeta,
 html.dark .authorMeta {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 .testimonialSlide {

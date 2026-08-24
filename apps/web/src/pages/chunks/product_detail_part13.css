@@ -59,7 +59,7 @@
 :root.dark .customSelectOption,
 :global([data-theme="dark"]) .customSelectOption,
 :global(.dark) .customSelectOption {
-  color: #E2E8F0 !important;
+  color: #D8DEDA !important;
 }
 
 :root[data-theme="dark"] .customSelectOption:hover,
@@ -83,14 +83,14 @@
 :root.dark .ratingCount,
 :global([data-theme="dark"]) .ratingCount,
 :global(.dark) .ratingCount {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :root[data-theme="dark"] .relatedOldPrice,
 :root.dark .relatedOldPrice,
 :global([data-theme="dark"]) .relatedOldPrice,
 :global(.dark) .relatedOldPrice {
-  color: #64748B !important;
+  color: #667785 !important;
 }
 
 :root[data-theme="dark"] .cardTax,
@@ -98,7 +98,7 @@
 :global([data-theme="dark"]) .cardTax,
 :global(.dark) .cardTax {
   background: var(--dark-elevated, #171E26) !important;
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :root[data-theme="dark"] .wishBtn,
@@ -107,7 +107,7 @@
 :global(.dark) .wishBtn {
   background: var(--dark-elevated, #171E26) !important;
   border-color: rgba(255, 255, 255, 0.10) !important;
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :root[data-theme="dark"] .wishBtn:hover,
@@ -123,7 +123,7 @@
 :root.dark .cardMeta,
 :global([data-theme="dark"]) .cardMeta,
 :global(.dark) .cardMeta {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 /* ─── Complete Product Detail Dark Mode Overrides ─── */
@@ -133,12 +133,12 @@
 html.dark [class*="breadcrumb"] {
   background: var(--dark-page, #0B0F14) !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .breadcrumb a,
 :global(.dark) .breadcrumb a {
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .breadcrumb a:hover,
@@ -195,7 +195,7 @@ html.dark [class*="breadcrumb"] {
 
 :global([data-theme="dark"]) .oldPrice,
 :global(.dark) .oldPrice {
-  color: #64748B !important;
+  color: #667785 !important;
 }
 
 :global([data-theme="dark"]) .discountBadge,
@@ -212,7 +212,7 @@ html.dark [class*="breadcrumb"] {
 
 :global([data-theme="dark"]) .specCompactCell label,
 :global(.dark) .specCompactCell label {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .specCompactCell span,
@@ -228,7 +228,7 @@ html.dark [class*="breadcrumb"] {
 
 :global([data-theme="dark"]) .bigTab,
 :global(.dark) .bigTab {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .bigTab:hover,
@@ -249,7 +249,7 @@ html.dark [class*="breadcrumb"] {
 :global(.dark) .tabsContent {
   background: var(--dark-card, #111820) !important;
   border-color: rgba(255, 255, 255, 0.10) !important;
-  color: #E2E8F0 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .specRow,
@@ -264,7 +264,7 @@ html.dark [class*="breadcrumb"] {
 
 :global([data-theme="dark"]) .specKey,
 :global(.dark) .specKey {
-  color: #94A3B8 !important;
+  color: #9EAFBE !important;
 }
 
 :global([data-theme="dark"]) .specVal,
@@ -286,7 +286,7 @@ html.dark [class*="breadcrumb"] {
 
 :global([data-theme="dark"]) .benefitCard p,
 :global(.dark) .benefitCard p {
-  color: #E2E8F0 !important;
+  color: #D8DEDA !important;
 }
 
 :global([data-theme="dark"]) .relatedCard,

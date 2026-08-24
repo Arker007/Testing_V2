@@ -30,7 +30,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--dark, #0B2F63);
+  background: var(--dark, var(--navy, #011A38));
   color: #fff;
   font-size: 0.85rem;
   font-weight: 800;
@@ -62,7 +62,7 @@
 
 /* ── 6. Featured Products ── */
 .featuredSection {
-  background: #F8FAFC;
+  background: #F2F2F2;
   padding: 6rem 0;
   border-top: 1px solid var(--border);
 }

@@ -1,8 +1,8 @@
 
 .swipe-btn:hover .btn-arrow-icon {
   transform: none;
-  stroke: var(--navy);
-  color: var(--navy);
+  stroke: #021826;
+  color: #021826;
 }
 
 /* ─── Magic UI Interactive Hover Button ───────────────────── */

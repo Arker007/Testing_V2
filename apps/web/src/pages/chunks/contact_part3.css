@@ -32,14 +32,14 @@
 .statusText {
   font-size: 0.725rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
 }
 
 .formTitle {
   font-family: var(--font-display, inherit);
   font-size: 1.5rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   margin: 0 0 0.35rem 0;
 }
 
@@ -52,7 +52,7 @@
 
 /* Presets & Category Tabs */
 .presetBox {
-  background: #F8FAFC;
+  background: #F2F2F2;
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 0.85rem 1rem;
@@ -82,7 +82,7 @@
   padding: 0.35rem 0.65rem;
   font-size: 0.785rem;
   font-weight: 700;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -105,7 +105,7 @@
   padding: 0 0.85rem;
   border-radius: 8px;
   border: 1px solid var(--border);
-  background: #F8FAFC;
+  background: #F2F2F2;
   color: #5B6873;
   font-size: 0.785rem;
   font-weight: 700;
@@ -119,13 +119,13 @@
 .catTabBtn:hover {
   background: var(--bg-card, #ffffff);
   border-color: var(--brand);
-  color: #0B2F63;
+  color: var(--navy, #011A38);
 }
 
 .catTabActive {
-  background: #0B2F63 !important;
+  background: var(--navy, #011A38) !important;
   color: var(--brand) !important;
-  border-color: #0B2F63 !important;
+  border-color: var(--navy, #011A38) !important;
 }
 
 .contactForm {
@@ -149,7 +149,7 @@
 .fieldLabel {
   font-size: 0.785rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
 }
 
 .fieldInput,
@@ -159,9 +159,9 @@
   padding: 0.7rem 0.85rem;
   border: 1.5px solid rgba(5, 40, 63, 0.12);
   border-radius: 8px;
-  background: #F8FAFC;
+  background: #F2F2F2;
   font-size: 0.875rem;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   font-family: inherit;
   transition: all 0.2s ease;
 }
@@ -193,7 +193,7 @@
 
 .submitBtn {
   height: 48px;
-  background: #0B2F63;
+  background: var(--navy, #011A38);
   color: var(--brand);
   border: none;
   border-radius: 8px;

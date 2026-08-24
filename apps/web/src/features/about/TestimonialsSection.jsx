@@ -27,7 +27,7 @@ export default function TestimonialsSection() {
 
         <div className="max-w-3xl relative z-10">
           <div className="mb-4">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#77D986]/10 dark:bg-[#77D986]/8 border border-[#77D986]/30 dark:border-[#77D986]/40 rounded-full text-[#54b862] dark:text-[#77D986] font-bold text-xs tracking-wider uppercase shadow-xs">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#5FBF50]/10 dark:bg-[#5FBF50]/8 border border-[#5FBF50]/30 dark:border-[#5FBF50]/40 rounded-full text-[#54b862] dark:text-[#5FBF50] font-bold text-xs tracking-wider uppercase shadow-xs">
               <Icon icon="solar:chat-round-line-linear" className="w-4 h-4" />
               <span>Client Feedback</span>
             </span>
@@ -54,7 +54,7 @@ export default function TestimonialsSection() {
                   <img
                     src={testimonials[currentSlide].avatar}
                     alt={testimonials[currentSlide].author}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-[#77D986] shadow-sm"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-[#5FBF50] shadow-sm"
                     referrerPolicy="no-referrer"
                   />
                   <div>

@@ -14,7 +14,7 @@
   font-size: 0.6875rem;
   font-weight: 800;
   padding: 0.1rem 0.45rem;
-  border-radius: var(--radius-sm-pill);
+  border-radius: 8px;
   background: rgba(24, 48, 40, 0.08);
   color: #5B6873;
 }
@@ -27,10 +27,10 @@
 /* ─── TOP TOOLBAR & SEARCH HEADER ───────────────────────── */
 .topControlCard {
   background: var(--bg-card, #FFFFFF);
-  border-radius: 12px;
-  border: 1px solid var(--border, #E2E8F0);
+  border-radius: var(--radius-card, 8px);
+  border: 1px solid #D8DEDA;
   padding: 1.15rem 1.35rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 24px rgba(22, 42, 35, 0.05);
   margin-bottom: 1.75rem;
   display: flex;
   flex-direction: column;
@@ -55,58 +55,71 @@
 .searchBoxWrapper {
   position: relative;
   flex: 1;
+  display: flex;
+  align-items: center;
 }
 
 .searchIcon {
   position: absolute;
   left: 0.95rem;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
   width: 1.125rem;
   height: 1.125rem;
-  color: #94A3B8;
+  color: #667785;
   pointer-events: none;
 }
 
 .searchInputField {
   width: 100%;
   font-size: 0.875rem;
-  padding: 0.65rem 2.5rem 0.65rem 2.6rem;
-  border-radius: 8px;
-  border: 1px solid var(--border, #E2E8F0);
-  background: var(--bg-surface-elevated, #F8FAFC);
-  color: var(--text-primary, #0F172A);
+  padding: 0.65rem 2.75rem 0.65rem 2.6rem;
+  border-radius: var(--radius-btn, 8px);
+  border: 1px solid #D8DEDA;
+  background: #FFFFFF;
+  color: #011526;
   outline: none;
-  transition: all 0.2s ease;
+  box-shadow: none;
+  transition: border-color 0.15s ease;
   font-family: inherit;
+}
+
+.searchInputField::placeholder {
+  color: #667785;
 }
 
 .searchInputField:focus {
   background: #FFFFFF;
-  border-color: #10B981;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+  border-color: #D8DEDA;
+  box-shadow: none;
+  outline: none;
 }
 
 .searchClearBtn {
   position: absolute;
-  right: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: #94A3B8;
+  right: 0.65rem;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  background: #E7EBE8;
+  border: 1px solid #D8DEDA;
+  color: #385064;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.2rem;
-  border-radius: 4px;
-  transition: color 0.15s ease, background-color 0.15s ease;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm, 6px);
+  transition: all 0.15s ease;
+  z-index: 2;
 }
 
 .searchClearBtn:hover {
-  color: #475569;
-  background: #E2E8F0;
+  color: #011526;
+  background: #D8DEDA;
+  border-color: #D8DEDA;
 }
 
 .controlsRightGroup {
@@ -120,12 +133,12 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  background: #0F172A;
+  background: var(--navy, #0B192C);
   color: #FFFFFF;
   font-size: 0.8125rem;
   font-weight: 600;
   padding: 0.65rem 1rem;
-  border-radius: 8px;
+  border-radius: var(--radius-btn, 8px);
   border: none;
   cursor: pointer;
   position: relative;
@@ -133,7 +146,7 @@
 }
 
 .mobileFilterToggleBtn:hover {
-  background: #1E293B;
+  background: var(--navy-light, #0A2C50);
 }
 
 @media (min-width: 992px) {
@@ -146,31 +159,31 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #10B981;
+  background-color: var(--brand, #5FBF50);
 }
 
 .sortSelectWrapper {
   min-width: 190px;
   position: relative;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-btn, 8px);
 }
 
 .viewModeSwitcher {
   display: flex;
   align-items: center;
-  gap: 2px;
-  background: var(--bg-surface-elevated, #F8FAFC);
-  border: 1px solid var(--border, #E2E8F0);
+  gap: 3px;
+  background: var(--bg-surface-secondary, #E7EBE8);
+  border: 1px solid var(--border, #D8DEDA);
   padding: 3px;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-btn, 8px);
 }
 
 .viewToggleBtn {
   padding: 0.45rem 0.65rem;
-  border-radius: 6px;
+  border-radius: var(--radius-sm, 6px);
   border: none;
   background: transparent;
-  color: #64748B;
+  color: var(--color-text-secondary, #667785);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -179,13 +192,14 @@
 }
 
 .viewToggleBtn:hover {
-  color: #0F172A;
+  color: var(--color-text-primary, var(--navy, #0B192C));
+  background: var(--brand-glow-subtle, rgba(95, 191, 80, 0.08));
 }
 
 .viewToggleBtnActive {
-  background: #10B981;
-  color: #FFFFFF !important;
-  box-shadow: 0 1px 4px rgba(16, 185, 129, 0.3);
+  background: var(--brand, #5FBF50);
+  color: var(--navy, #0B192C) !important;
+  box-shadow: 0 1px 4px rgba(95, 191, 80, 0.55);
 }
 
 /* Quick Search Pills Row */
@@ -195,13 +209,13 @@
   gap: 0.5rem;
   flex-wrap: wrap;
   padding-top: 0.75rem;
-  border-top: 1px dashed var(--border, #E2E8F0);
+  border-top: 1px dashed var(--border, #D8DEDA);
 }
 
 .quickSearchLabel {
   font-size: 0.725rem;
   font-weight: 700;
-  color: #64748B;
+  color: #667785;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-right: 0.25rem;
@@ -209,12 +223,12 @@
 
 .quickSearchPillBtn {
   background: var(--bg-card, #FFFFFF);
-  color: var(--text-primary, #334155);
+  color: var(--text-primary, #385064);
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.3rem 0.85rem;
-  border-radius: 9999px;
-  border: 1px solid var(--border, #E2E8F0);
+  border-radius: 8px;
+  border: 1px solid var(--border, #D8DEDA);
   cursor: pointer;
   transition: all 0.2s ease;
   display: inline-flex;

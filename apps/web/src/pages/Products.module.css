@@ -1,3 +1,4 @@
+@import './styles/common/page-hero.css';
 @import './chunks/products_part1.css';
 @import './chunks/products_part2.css';
 @import './chunks/products_part3.css';

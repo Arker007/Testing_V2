@@ -9,10 +9,10 @@
 
 /* ── Breadcrumb Navigation ── */
 .breadcrumb {
-  padding: 1rem 0;
-  font-size: 0.8125rem;
-  color: #5B6873;
-  border-bottom: 1px solid rgba(5, 40, 63, 0.06);
+  padding: 0.85rem 0;
+  font-size: 0.875rem;
+  background: var(--bg-surface-elevated, #FFFFFF);
+  border-bottom: 1px solid var(--border, #D8DEDA);
   margin-bottom: 1.5rem;
 }
 
@@ -20,28 +20,26 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .breadcrumb a {
-  color: #0B2F63;
-  transition: color 0.2s ease;
+  color: var(--text-secondary, #385064);
+  transition: color 0.15s ease;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .breadcrumb a:hover {
-  color: var(--brand);
-}
-
-.breadcrumb i {
-  font-size: 0.55rem;
-  color: #8E9AA5;
+  color: var(--brand, #5FBF50);
 }
 
 .breadcrumb span {
-  color: #0B2F63;
-  font-weight: 700;
+  color: var(--brand-text, #5AB860);
+  font-weight: 600;
 }
 
 /* ── Container Spacer ── */

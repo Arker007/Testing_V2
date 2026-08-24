@@ -128,7 +128,7 @@
 .swipe-btn:hover {
   background-color: var(--brand, var(--brand)) !important;
   border-color: var(--brand, var(--brand)) !important;
-  color: var(--navy) !important;
+  color: #021826 !important;
   box-shadow: 0 8px 24px var(--navy-glow);
   transform: translateY(-2px);
 }
@@ -141,7 +141,7 @@
 }
 
 .swipe-btn:hover .btn-text {
-  color: var(--navy);
+  color: #021826;
 }
 
 /* The inner span holding the icon */

@@ -18,7 +18,7 @@ const ToggleIcon = ({ isOpen }) => (
     transition={{ type: "spring", stiffness: 350, damping: 22 }}
     className={`shrink-0 ml-4 w-7 h-7 rounded-full flex items-center justify-center transition-colors duration-200 ${
       isOpen
-        ? "bg-[var(--brand,#77D986)]/15 text-[var(--brand-dark,#4FC36D)] dark:text-[#77D986]"
+        ? "bg-[var(--brand,#5FBF50)]/15 text-[var(--brand-dark,#4FC36D)] dark:text-[#5FBF50]"
         : "bg-slate-200/60 dark:bg-white/5 text-slate-400 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200"
     }`}
   >
@@ -96,7 +96,7 @@ export default function ContactFaqSection() {
                     aria-expanded={isOpen}
                     whileTap={{ scale: 0.995 }}
                   >
-                    <span className="group-hover:text-[var(--brand-dark,#4FC36D)] dark:group-hover:text-[#77D986] transition-colors">
+                    <span className="group-hover:text-[var(--brand-dark,#4FC36D)] dark:group-hover:text-[#5FBF50] transition-colors">
                       {item.q}
                     </span>
                     <ToggleIcon isOpen={isOpen} />

@@ -43,7 +43,7 @@
 .pillarCard {
   background: var(--gray-50);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-card, 8px);
   padding: 1.75rem;
   display: flex;
   align-items: flex-start;
@@ -62,7 +62,7 @@
 .pillarIcon {
   width: 44px;
   height: 44px;
-  border-radius: 8px;
+  border-radius: var(--radius-md, 8px);
   background: var(--brand-glow-subtle);
   color: var(--navy);
   display: grid;
@@ -111,7 +111,7 @@
 .stepTabBtn {
   height: 40px;
   padding: 0 1.25rem;
-  border-radius: 16px;
+  border-radius: var(--radius-pill, 8px);
   border: 1px solid var(--border-dark);
   background: var(--border-dark);
   color: var(--text-inverse-secondary);
@@ -140,7 +140,7 @@
 .processHighlightCard {
   background: var(--border-dark);
   border: 1.5px solid var(--brand);
-  border-radius: 16px;
+  border-radius: var(--radius-card, 8px);
   padding: 2rem;
   margin-bottom: 2.5rem;
   display: flex;
@@ -164,7 +164,7 @@
 .processIconLarge {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: var(--radius-md, 8px);
   background: var(--brand);
   color: var(--navy);
   display: grid;
@@ -196,7 +196,7 @@
 .processCard {
   background: var(--border-dark);
   border: 1px solid var(--border-dark);
-  border-radius: 12px;
+  border-radius: var(--radius-card, 8px);
   padding: 1.5rem 1.15rem;
   display: flex;
   flex-direction: column;

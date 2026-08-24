@@ -34,12 +34,12 @@ export default function Manufacturing() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <Link to="/" className="inline-flex items-center gap-1.5 text-white/90 hover:text-[#77D986] transition-colors">
+            <Link to="/" className="inline-flex items-center gap-1.5 text-white/90 hover:text-[#5FBF50] transition-colors">
               <Icon icon="solar:home-2-linear" className="w-3.5 h-3.5 opacity-80 shrink-0" />
               <span>Home</span>
             </Link>
             <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-white/40 shrink-0" />
-            <span className="text-[#77D986] font-semibold">Manufacturing</span>
+            <span className="text-[#5FBF50] font-semibold">Manufacturing</span>
           </Motion.nav>
 
           <div className="flex flex-col">
@@ -76,7 +76,7 @@ export default function Manufacturing() {
       </div>
 
       {/* Manufacturing Advantages / Tech Stats */}
-      <section className="py-16 px-4 bg-white dark:bg-[#0F141A] border-t border-b border-slate-100 dark:border-white/10">
+      <section className="py-16 px-4 bg-[var(--bg-page)] dark:bg-[#151c24] border-t border-b border-slate-100 dark:border-white/10">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <div className="mb-4">
@@ -133,7 +133,7 @@ export default function Manufacturing() {
         >
           {/* Ambient radial glow blobs */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#77d986]/10 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#5FBF50]/10 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
           
           <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div>

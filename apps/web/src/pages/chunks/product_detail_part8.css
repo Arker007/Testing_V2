@@ -1,6 +1,6 @@
 
 .bigTabActive {
-  color: #0B2F63 !important;
+  color: var(--navy, #011A38) !important;
   border-bottom-color: var(--brand) !important;
   background: var(--bg-card, #ffffff);
 }
@@ -20,7 +20,7 @@
 .descTab h3 {
   font-family: var(--font-display, inherit);
   margin: 1.25rem 0 0.65rem;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   font-size: 1.1rem;
 }
 
@@ -33,7 +33,7 @@
 .richDesc p { margin-bottom: 1rem; }
 .richDesc ul, .richDesc ol { padding-left: 1.5rem; margin-bottom: 1rem; }
 .richDesc li { margin-bottom: 0.35rem; }
-.richDesc strong { font-weight: 700; color: #0B2F63; }
+.richDesc strong { font-weight: 700; color: var(--navy, #011A38); }
 
 /* Specs Table */
 .specsTable {
@@ -54,14 +54,14 @@
 }
 
 .specRow:nth-child(even) {
-  background: #F8FAFC;
+  background: #F2F2F2;
 }
 
 .specKey {
   padding: 0.85rem 1.25rem;
   font-size: 0.85rem;
   font-weight: 700;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   border-right: 1px solid rgba(5, 40, 63, 0.06);
 }
 
@@ -81,7 +81,7 @@
 .faqItem h4 {
   font-size: 0.95rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   margin-bottom: 0.4rem;
 }
 
@@ -94,7 +94,7 @@
   font-family: var(--font-display, inherit);
   font-size: 1.35rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   margin: 0 0 1.25rem;
 }
 
@@ -120,13 +120,13 @@
   display: grid;
   place-items: center;
   background: rgba(5, 40, 63, 0.04);
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   transition: all 0.25s ease;
 }
 
 .assuranceCard h3 {
   margin: 0.75rem 0 0.35rem;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   font-size: 0.925rem;
   font-weight: 800;
 }
@@ -145,7 +145,7 @@
 
 .assuranceCard:hover .assuranceIcon {
   background: #98d12a;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
 }
 
 /* ── Related Products Grid ── */
@@ -165,7 +165,7 @@
   font-family: var(--font-display, inherit);
   font-size: 1.35rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   margin: 0;
 }
 
@@ -178,7 +178,7 @@
 .relatedViewAll {
   border: 1.5px solid rgba(5, 40, 63, 0.12);
   background: var(--bg-card, #ffffff);
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   padding: 0.45rem 1rem;
   border-radius: 6px;
   font-size: 0.785rem;
@@ -189,7 +189,7 @@
 
 .relatedViewAll:hover {
   border-color: #98d12a;
-  background: #F8FAFC;
+  background: #F2F2F2;
 }
 
 .productGrid {

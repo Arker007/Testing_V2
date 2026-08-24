@@ -30,10 +30,10 @@
 
 /* ── 7. Industries We Serve (Bento Grid) ── */
 .industriesSection {
-  background: var(--bg-page, #f8fafc);
+  background: var(--bg-page, #F7F8F7);
   padding: 3.5rem 0;
-  border-top: 1px solid var(--border, #E2E8F0);
-  border-bottom: 1px solid var(--border, #E2E8F0);
+  border-top: 1px solid var(--border, #D8DEDA);
+  border-bottom: 1px solid var(--border, #D8DEDA);
 }
 
 :global([data-theme="dark"]) .industriesSection,
@@ -51,7 +51,7 @@
 
 .industryCard {
   background: var(--bg-card, #ffffff);
-  border: 1px solid var(--border, #E2E8F0);
+  border: 1px solid var(--border, #D8DEDA);
   border-radius: 12px;
   padding: 2.25rem 2rem;
   display: flex;
@@ -69,7 +69,7 @@
   background: var(--dark-card, #111111) !important;
   border: 1px solid var(--border-strong, rgba(255, 255, 255, 0.2)) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
 }
 
 .industryCard:hover {
@@ -79,8 +79,8 @@
 
 :global([data-theme="dark"]) .industryCard:hover,
 :global(.dark) .industryCard:hover {
-  border-color: var(--brand, #77d986) !important;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--brand, #77d986) !important;
+  border-color: var(--brand, #5FBF50) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--brand, #5FBF50) !important;
 }
 
 .indCardHeader {
@@ -105,7 +105,7 @@
   height: 48px;
   border-radius: 8px;
   background: rgba(63, 174, 90, 0.12);
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   font-size: 1.25rem;
   display: grid;
   place-items: center;
@@ -124,14 +124,14 @@
   font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 800;
-  color: var(--heading, #0F172A);
+  color: var(--heading, #011526);
   margin-bottom: 0.35rem;
 }
 
 .indDesc {
   font-size: 0.875rem;
   line-height: 1.6;
-  color: var(--body-text, #475569);
+  color: var(--body-text, #385064);
 }
 
 /* Card BG Wrappers & Images */

@@ -5,10 +5,10 @@
   justify-content: space-between;
   width: 100%;
   padding: 0.55rem 0.75rem;
-  border-radius: var(--radius-xs);
+  border-radius: 8px;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #334155;
+  color: #385064;
   background: transparent;
   border: 1px solid transparent;
   cursor: pointer;
@@ -17,7 +17,7 @@
 }
 
 .categoryNavItem:hover {
-  background: #F8FAFC;
+  background: #F2F2F2;
   color: var(--color-text-primary);
 }
 
@@ -42,9 +42,9 @@
   font-size: 0.6875rem;
   font-weight: 800;
   padding: 0.125rem 0.5rem;
-  border-radius: var(--radius-xs);
-  background: #F1F5F9;
-  color: #64748B;
+  border-radius: 8px;
+  background: #E7EBE8;
+  color: #667785;
 }
 
 .categoryNavItemActive .catCountBadge {
@@ -54,9 +54,9 @@
 
 /* Trust Card */
 .sidebarTrustBox {
-  background: #F8FAFC;
-  border-radius: var(--radius-xs);
-  border: 1px solid #E2E8F0;
+  background: #F2F2F2;
+  border-radius: 8px;
+  border: 1px solid #D8DEDA;
   padding: 1rem;
   margin-top: 0.5rem;
 }
@@ -81,7 +81,7 @@
 
 .sidebarTrustBox p {
   font-size: 0.775rem;
-  color: #64748B;
+  color: #667785;
   line-height: 1.5;
   margin: 0 0 0.75rem 0;
 }
@@ -95,7 +95,7 @@
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.5rem 0.85rem;
-  border-radius: var(--radius-xs);
+  border-radius: 8px;
   text-decoration: none;
   width: 100%;
   justify-content: center;
@@ -108,7 +108,7 @@
 
 .mobileDrawerFooter {
   padding: 1rem 1.25rem;
-  border-top: 1px solid #E2E8F0;
+  border-top: 1px solid #D8DEDA;
   background: #FFFFFF;
   display: flex;
   align-items: center;
@@ -120,8 +120,8 @@
   align-items: center;
   gap: 0.35rem;
   padding: 0.75rem 1rem;
-  border-radius: var(--radius-xs);
-  background: #F1F5F9;
+  border-radius: 8px;
+  background: #E7EBE8;
   color: var(--color-text-primary);
   font-size: 0.8125rem;
   font-weight: 700;
@@ -136,7 +136,7 @@
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1.25rem;
-  border-radius: var(--radius-xs);
+  border-radius: 8px;
   background: var(--color-text-primary);
   color: var(--color-surface-muted);
   font-size: 0.875rem;
@@ -175,35 +175,42 @@
 /* ─── GRID CARD ──────────────────────────────────────────── */
 .gridCard {
   background: var(--bg-card, #FFFFFF);
-  border-radius: 12px;
-  border: 1px solid var(--border, #E2E8F0);
-  padding: 1.15rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  border-radius: var(--radius-card, 8px);
+  border: 1px solid var(--border, #D8DEDA);
+  box-shadow: 0 8px 24px rgba(22, 42, 35, 0.05);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
   height: 100%;
 }
 
 .gridCard:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-  border-color: var(--brand, #5cb31b);
+  border-color: #D8DEDA;
 }
 
-.gridCardTop {
+.gridCardThumbWrap {
+  position: relative;
+  width: 100%;
+  height: 210px;
+  background: var(--bg-card, #FFFFFF);
+  padding: 0.75rem 1rem;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border, #D8DEDA);
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .gridCardThumb {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 8px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  margin-bottom: 0.85rem;
 }

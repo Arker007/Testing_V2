@@ -90,7 +90,7 @@
 
 .bentoSpecTile:hover .specIconBox {
   background: #98d12a;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   transform: scale(1.05);
 }
 
@@ -112,7 +112,7 @@
   font-weight: 700;
   outline: none;
   background: var(--bg-card, #ffffff);
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: left;
@@ -174,7 +174,7 @@
   padding: 0.65rem 0.85rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #334155;
+  color: #385064;
   border-radius: 6px;
   cursor: pointer;
   display: flex;
@@ -183,20 +183,20 @@
 }
 
 .customSelectOption:hover {
-  background: #f1f5f9;
-  color: #0B2F63;
+  background: #E7EBE8;
+  color: var(--navy, #011A38);
 }
 
 .customSelectOptionActive {
   background: rgba(152, 209, 42, 0.1);
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   font-weight: 700;
 }
 
 .darkInquiryBtn {
   flex: 1.4;
   height: 48px;
-  background: #0B2F63;
+  background: var(--navy, #011A38);
   color: #ffffff;
   border: none;
   border-radius: 8px;

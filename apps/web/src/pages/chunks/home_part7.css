@@ -31,11 +31,11 @@
 .bentoTag {
   font-size: 0.725rem;
   font-weight: 700;
-  background: var(--bg-light, #f1f5f9);
+  background: var(--bg-light, #E7EBE8);
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
-  color: var(--heading, #0f172a);
-  border: 1px solid var(--border, #e2e8f0);
+  color: var(--heading, #011526);
+  border: 1px solid var(--border, #D8DEDA);
 }
 
 :global([data-theme="dark"]) .bentoTag,
@@ -77,13 +77,13 @@
 .bentoBottomText h6 {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #011526;
   margin-bottom: 0.25rem;
 }
 
 .bentoBottomText p {
   font-size: 0.8rem;
-  color: #64748b;
+  color: #667785;
   line-height: 1.4;
 }
 
@@ -98,7 +98,7 @@
   grid-template-columns: 0.8fr 1.2fr;
   gap: 4rem;
   align-items: center;
-  background: var(--hero-gradient, linear-gradient(135deg, #0B2F63 0%, #0B2F63 100%));
+  background: var(--hero-gradient, linear-gradient(135deg, #011526 0%, #011A38 55%, #062342 100%));
   border-radius: var(--radius-xl);
   padding: 4rem;
   color: #ffffff;

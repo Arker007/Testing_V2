@@ -22,14 +22,14 @@ export default function ProcessSection({ className = "" }) {
       ],
       color: "emerald",
       icon: (
-        <div className="relative w-16 h-16 bg-emerald-50 rounded-lg flex items-center justify-center border border-emerald-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-emerald-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-emerald-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-emerald-100/30 to-transparent" />
           <Icon icon="solar:trash-bin-trash-linear" className="w-8 h-8 text-emerald-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-emerald-400 rounded-lg opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-emerald-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-emerald-500 rounded-lg flex items-center justify-center border-4 border-emerald-400/30 shadow-lg shadow-emerald-500/20">
+        <div className="relative w-28 h-28 bg-emerald-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-emerald-400/30 shadow-lg shadow-emerald-500/20">
           <Icon icon="solar:trash-bin-trash-linear" className="w-12 h-12 text-white" />
         </div>
       )
@@ -47,14 +47,14 @@ export default function ProcessSection({ className = "" }) {
       ],
       color: "blue",
       icon: (
-        <div className="relative w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center border border-blue-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-blue-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-blue-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-blue-100/30 to-transparent" />
           <Icon icon="solar:layers-linear" className="w-8 h-8 text-blue-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-blue-400 rounded-lg opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-blue-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-blue-500 rounded-lg flex items-center justify-center border-4 border-blue-400/30 shadow-lg shadow-blue-500/20">
+        <div className="relative w-28 h-28 bg-blue-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-blue-400/30 shadow-lg shadow-blue-500/20">
           <Icon icon="solar:layers-linear" className="w-12 h-12 text-white" />
         </div>
       )
@@ -72,14 +72,14 @@ export default function ProcessSection({ className = "" }) {
       ],
       color: "sky",
       icon: (
-        <div className="relative w-16 h-16 bg-sky-50 rounded-lg flex items-center justify-center border border-sky-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-sky-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-sky-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-sky-100/30 to-transparent" />
           <Icon icon="solar:sparkles-linear" className="w-8 h-8 text-sky-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-sky-400 rounded-lg opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-sky-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-sky-500 rounded-lg flex items-center justify-center border-4 border-sky-400/30 shadow-lg shadow-sky-500/20">
+        <div className="relative w-28 h-28 bg-sky-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-sky-400/30 shadow-lg shadow-sky-500/20">
           <Icon icon="solar:sparkles-linear" className="w-12 h-12 text-white" />
         </div>
       )
@@ -97,14 +97,14 @@ export default function ProcessSection({ className = "" }) {
       ],
       color: "indigo",
       icon: (
-        <div className="relative w-16 h-16 bg-indigo-50 rounded-lg flex items-center justify-center border border-indigo-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-indigo-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-indigo-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-indigo-100/30 to-transparent" />
           <Icon icon="solar:flame-linear" className="w-8 h-8 text-indigo-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-indigo-400 rounded-lg opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-indigo-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-indigo-500 rounded-lg flex items-center justify-center border-4 border-indigo-400/30 shadow-lg shadow-indigo-500/20">
+        <div className="relative w-28 h-28 bg-indigo-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-indigo-400/30 shadow-lg shadow-indigo-500/20">
           <Icon icon="solar:flame-linear" className="w-12 h-12 text-white" />
         </div>
       )
@@ -122,14 +122,14 @@ export default function ProcessSection({ className = "" }) {
       ],
       color: "teal",
       icon: (
-        <div className="relative w-16 h-16 bg-teal-50 rounded-lg flex items-center justify-center border border-teal-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-teal-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-teal-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-teal-100/30 to-transparent" />
           <Icon icon="solar:snowflake-linear" className="w-8 h-8 text-teal-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-teal-400 rounded-lg opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-teal-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-teal-500 rounded-lg flex items-center justify-center border-4 border-teal-400/30 shadow-lg shadow-teal-500/20">
+        <div className="relative w-28 h-28 bg-teal-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-teal-400/30 shadow-lg shadow-teal-500/20">
           <Icon icon="solar:snowflake-linear" className="w-12 h-12 text-white" />
         </div>
       )
@@ -147,14 +147,14 @@ export default function ProcessSection({ className = "" }) {
       ],
       color: "violet",
       icon: (
-        <div className="relative w-16 h-16 bg-violet-50 rounded-lg flex items-center justify-center border border-violet-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-violet-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-violet-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-violet-100/30 to-transparent" />
           <Icon icon="solar:shield-check-linear" className="w-8 h-8 text-violet-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-violet-400 rounded-lg opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-violet-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-violet-500 rounded-lg flex items-center justify-center border-4 border-violet-400/30 shadow-lg shadow-violet-500/20">
+        <div className="relative w-28 h-28 bg-violet-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-violet-400/30 shadow-lg shadow-violet-500/20">
           <Icon icon="solar:shield-check-linear" className="w-12 h-12 text-white" />
         </div>
       )
@@ -172,14 +172,14 @@ export default function ProcessSection({ className = "" }) {
       ],
       color: "emerald",
       icon: (
-        <div className="relative w-16 h-16 bg-emerald-50 rounded-lg flex items-center justify-center border border-emerald-100 overflow-hidden shadow-inner">
+        <div className="relative w-16 h-16 bg-emerald-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-emerald-100 overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-emerald-100/30 to-transparent" />
           <Icon icon="solar:check-circle-linear" className="w-8 h-8 text-emerald-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-emerald-400 rounded-lg opacity-20 filter blur-sm" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-emerald-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-emerald-500 rounded-lg flex items-center justify-center border-4 border-emerald-400/30 shadow-lg shadow-emerald-500/20">
+        <div className="relative w-28 h-28 bg-emerald-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-emerald-400/30 shadow-lg shadow-emerald-500/20">
           <Icon icon="solar:check-circle-linear" className="w-12 h-12 text-white" />
         </div>
       )
@@ -242,7 +242,7 @@ export default function ProcessSection({ className = "" }) {
         
         {/* Section Title Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#77D986]/10 dark:bg-[#77D986]/8 border border-[#77D986]/30 dark:border-[#77D986]/40 rounded-full text-[#54b862] dark:text-[#77D986] font-bold text-xs tracking-wider uppercase mb-4 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#5FBF50]/10 dark:bg-[#5FBF50]/8 border border-[#5FBF50]/30 dark:border-[#5FBF50]/40 rounded-[var(--radius-pill,8px)] text-[#54b862] dark:text-[#5FBF50] font-bold text-xs tracking-wider uppercase mb-4 shadow-sm">
             <Icon icon="solar:restart-circle-linear" className="w-4 h-4 animate-spin-slow" />
             <span>Circular Supply Chain</span>
           </div>
@@ -291,10 +291,10 @@ export default function ProcessSection({ className = "" }) {
               <button
                 type="button"
                 onClick={() => handleStepClick(0)}
-                className={`w-full p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(0, activeStep === 0)}`}
+                className={`w-full p-6 rounded-[var(--radius-card,8px)] border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(0, activeStep === 0)}`}
               >
                 {/* Step badge */}
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-[var(--radius-sm,4px)] bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   01
                 </div>
                 {steps[0].icon}
@@ -305,7 +305,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               {/* Connector to 02 */}
-              <div className="absolute top-1/2 -right-6 -translate-y-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
+              <div className="absolute top-1/2 -right-6 -translate-y-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <Icon icon="solar:alt-arrow-right-linear" className="w-2.5 h-2.5" />
               </div>
             </div>
@@ -315,9 +315,9 @@ export default function ProcessSection({ className = "" }) {
               <button
                 type="button"
                 onClick={() => handleStepClick(1)}
-                className={`w-full p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(1, activeStep === 1)}`}
+                className={`w-full p-6 rounded-[var(--radius-card,8px)] border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(1, activeStep === 1)}`}
               >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-[var(--radius-sm,4px)] bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   02
                 </div>
                 {steps[1].icon}
@@ -328,7 +328,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               {/* Connector to 03 */}
-              <div className="absolute top-1/2 -right-6 -translate-y-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
+              <div className="absolute top-1/2 -right-6 -translate-y-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <Icon icon="solar:alt-arrow-right-linear" className="w-2.5 h-2.5" />
               </div>
             </div>
@@ -338,9 +338,9 @@ export default function ProcessSection({ className = "" }) {
               <button
                 type="button"
                 onClick={() => handleStepClick(2)}
-                className={`w-full p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(2, activeStep === 2)}`}
+                className={`w-full p-6 rounded-[var(--radius-card,8px)] border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(2, activeStep === 2)}`}
               >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-[var(--radius-sm,4px)] bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   03
                 </div>
                 {steps[2].icon}
@@ -351,7 +351,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               {/* Downward Connector to 04 */}
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <Icon icon="solar:alt-arrow-down-linear" className="w-2.5 h-2.5" />
               </div>
             </div>
@@ -362,9 +362,9 @@ export default function ProcessSection({ className = "" }) {
               <button
                 type="button"
                 onClick={() => handleStepClick(6)}
-                className={`w-full p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(6, activeStep === 6)}`}
+                className={`w-full p-6 rounded-[var(--radius-card,8px)] border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(6, activeStep === 6)}`}
               >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-[var(--radius-sm,4px)] bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   07
                 </div>
                 {steps[6].icon}
@@ -375,7 +375,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               {/* Up Connector to 01 */}
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <Icon icon="solar:alt-arrow-up-linear" className="w-2.5 h-2.5" />
               </div>
             </div>
@@ -402,9 +402,9 @@ export default function ProcessSection({ className = "" }) {
               <button
                 type="button"
                 onClick={() => handleStepClick(3)}
-                className={`w-full p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(3, activeStep === 3)}`}
+                className={`w-full p-6 rounded-[var(--radius-card,8px)] border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(3, activeStep === 3)}`}
               >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-[var(--radius-sm,4px)] bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   04
                 </div>
                 {steps[3].icon}
@@ -415,7 +415,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               {/* Down Connector to 05 */}
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <Icon icon="solar:alt-arrow-down-linear" className="w-2.5 h-2.5" />
               </div>
             </div>
@@ -426,9 +426,9 @@ export default function ProcessSection({ className = "" }) {
               <button
                 type="button"
                 onClick={() => handleStepClick(5)}
-                className={`w-[320px] p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(5, activeStep === 5)}`}
+                className={`w-[320px] p-6 rounded-[var(--radius-card,8px)] border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(5, activeStep === 5)}`}
               >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-[var(--radius-sm,4px)] bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   06
                 </div>
                 {steps[5].icon}
@@ -439,7 +439,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               {/* Left Connector to 07 */}
-              <div className="absolute top-1/2 -left-6 -translate-y-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
+              <div className="absolute top-1/2 -left-6 -translate-y-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <Icon icon="solar:alt-arrow-left-linear" className="w-2.5 h-2.5" />
               </div>
             </div>
@@ -447,7 +447,7 @@ export default function ProcessSection({ className = "" }) {
             {/* Bottom Row Spacers & Alignments */}
             <div className="flex justify-center items-center pointer-events-none">
               {/* Flow connector between 05 and 06 */}
-              <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs z-20">
+              <div className="w-10 h-10 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs z-20">
                 <Icon icon="solar:alt-arrow-left-linear" className="w-3.5 h-3.5" />
               </div>
             </div>
@@ -457,9 +457,9 @@ export default function ProcessSection({ className = "" }) {
               <button
                 type="button"
                 onClick={() => handleStepClick(4)}
-                className={`w-[320px] p-6 rounded-xl border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(4, activeStep === 4)}`}
+                className={`w-[320px] p-6 rounded-[var(--radius-card,8px)] border text-left transition-all duration-300 relative flex items-center gap-4 ${getGlowStyles(4, activeStep === 4)}`}
               >
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-lg bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
+                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-[var(--radius-sm,4px)] bg-[var(--navy)] dark:bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-md border border-white/20">
                   05
                 </div>
                 {steps[4].icon}
@@ -470,7 +470,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               {/* Left Connector to 06 */}
-              <div className="absolute top-1/2 -left-6 -translate-y-1/2 w-4 h-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
+              <div className="absolute top-1/2 -left-6 -translate-y-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
                 <Icon icon="solar:alt-arrow-left-linear" className="w-2.5 h-2.5" />
               </div>
             </div>
@@ -495,13 +495,13 @@ export default function ProcessSection({ className = "" }) {
                     key={i}
                     type="button"
                     onClick={() => handleStepClick(i)}
-                    className={`flex-shrink-0 snap-center py-3 px-4 rounded-xl transition-all duration-300 flex items-center gap-3 border text-left min-w-[210px] ${
+                    className={`flex-shrink-0 snap-center py-3 px-4 rounded-[var(--radius-card,8px)] transition-all duration-300 flex items-center gap-3 border text-left min-w-[210px] ${
                       isActive
                         ? "bg-slate-900 dark:bg-emerald-950/80 text-white border-emerald-500 shadow-lg scale-[1.02]"
                         : "bg-white dark:bg-[#111820] text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#171E26] border-slate-200/90 dark:border-white/10 shadow-xs"
                     }`}
                   >
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-black text-xs transition-colors ${
+                    <div className={`w-8 h-8 rounded-[var(--radius-sm,4px)] flex items-center justify-center font-black text-xs transition-colors ${
                       isActive ? "bg-emerald-500 text-slate-950" : "bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/50"
                     }`}>
                       {st.num}
@@ -519,7 +519,7 @@ export default function ProcessSection({ className = "" }) {
         </div>
 
         {/* 2. Interactive Panel Details Section with CTA Container Styling */}
-        <div className="max-w-6xl mx-auto bg-white/95 dark:bg-[#0e1015] text-slate-900 dark:text-white rounded-2xl p-8 lg:p-12 shadow-xl backdrop-blur-sm relative overflow-hidden transition-all duration-500 border border-slate-200/90 dark:border-white/10">
+        <div className="max-w-6xl mx-auto bg-white/95 dark:bg-[#0e1015] text-slate-900 dark:text-white rounded-[var(--radius-card,8px)] p-8 lg:p-12 shadow-xl backdrop-blur-sm relative overflow-hidden transition-all duration-500 border border-slate-200/90 dark:border-white/10">
           {/* Ambient radial glow blobs */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/10 dark:bg-blue-500/5 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
@@ -528,9 +528,9 @@ export default function ProcessSection({ className = "" }) {
             
             {/* Column A: Left side 3D Icon Container */}
             <div className="lg:col-span-3 flex justify-center items-center">
-              <div className="relative p-6 bg-slate-100 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-white/10 shadow-inner">
+              <div className="relative p-6 bg-slate-100 dark:bg-slate-900/50 rounded-[var(--radius-md,8px)] border border-slate-200 dark:border-white/10 shadow-inner">
                 {steps[activeStep].activeIcon}
-                <div className="absolute -bottom-2 right-4 bg-[var(--brand)] text-slate-950 px-3 py-1 rounded-lg text-xs font-black tracking-tight shadow-md">
+                <div className="absolute -bottom-2 right-4 bg-[var(--brand)] text-slate-950 px-3 py-1 rounded-[var(--radius-badge,8px)] text-xs font-black tracking-tight shadow-md">
                   Step {steps[activeStep].num}
                 </div>
               </div>
@@ -538,7 +538,7 @@ export default function ProcessSection({ className = "" }) {
 
             {/* Column B: Center step text details */}
             <div className="lg:col-span-5 flex flex-col justify-center items-start">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#77D986]/10 dark:bg-[#77D986]/8 border border-[#77D986]/30 dark:border-[#77D986]/40 rounded-full text-[#54b862] dark:text-[#77D986] font-bold text-xs tracking-wider uppercase mb-3 shadow-xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#5FBF50]/10 dark:bg-[#5FBF50]/8 border border-[#5FBF50]/30 dark:border-[#5FBF50]/40 rounded-[var(--radius-pill,8px)] text-[#54b862] dark:text-[#5FBF50] font-bold text-xs tracking-wider uppercase mb-3 shadow-xs">
                 <Icon icon="solar:info-circle-linear" className="w-3.5 h-3.5" />
                 <span>{steps[activeStep].subtitle}</span>
               </span>
@@ -554,7 +554,7 @@ export default function ProcessSection({ className = "" }) {
             <div className="lg:col-span-4 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-white/15 pt-6 lg:pt-0 lg:pl-8 gap-4">
               {steps[activeStep].features.map((feature, idx) => (
                 <div key={idx} className="flex gap-3">
-                  <div className="w-5 h-5 rounded-lg bg-[var(--brand-light)] text-[var(--brand-dark)] dark:text-[var(--brand)] flex items-center justify-center flex-shrink-0 mt-0.5 border border-[var(--brand-border)]/30">
+                  <div className="w-5 h-5 rounded-[var(--radius-sm,4px)] bg-[var(--brand-light)] text-[var(--brand-dark)] dark:text-[var(--brand)] flex items-center justify-center flex-shrink-0 mt-0.5 border border-[var(--brand-border)]/30">
                     <Icon icon="solar:check-read-linear" className="w-3.5 h-3.5 font-bold" />
                   </div>
                   <div>
@@ -572,7 +572,7 @@ export default function ProcessSection({ className = "" }) {
             <button
               type="button"
               onClick={handlePrev}
-              className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-white/10 hover:bg-[var(--brand)] hover:text-slate-950 border border-[var(--border-card)] flex items-center justify-center transition text-slate-800 dark:text-white shadow-xs cursor-pointer"
+              className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-slate-100 dark:bg-white/10 hover:bg-[var(--brand)] hover:text-slate-950 border border-[var(--border-card)] flex items-center justify-center transition text-slate-800 dark:text-white shadow-xs cursor-pointer"
               title="Previous Step"
             >
               <Icon icon="solar:alt-arrow-left-linear" className="w-5 h-5" />
@@ -580,7 +580,7 @@ export default function ProcessSection({ className = "" }) {
             <button
               type="button"
               onClick={handleNext}
-              className="w-10 h-10 rounded-lg bg-[var(--brand)] text-slate-950 hover:brightness-110 flex items-center justify-center transition font-bold shadow-md cursor-pointer border-0"
+              className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand)] text-slate-950 hover:brightness-110 flex items-center justify-center transition font-bold shadow-md cursor-pointer border-0"
               title="Next Step"
             >
               <Icon icon="solar:alt-arrow-right-linear" className="w-5 h-5" />
@@ -589,7 +589,7 @@ export default function ProcessSection({ className = "" }) {
         </div>
 
         {/* 3. Bottom Key Values Grid Panel with Full CTA Container Styling */}
-        <div className="max-w-6xl mx-auto relative overflow-hidden bg-white/95 dark:bg-[#0e1015] border border-slate-200/90 dark:border-white/10 p-6 sm:p-8 rounded-2xl shadow-xl backdrop-blur-sm mt-12">
+        <div className="max-w-6xl mx-auto relative overflow-hidden bg-white/95 dark:bg-[#0e1015] border border-slate-200/90 dark:border-white/10 p-6 sm:p-8 rounded-[var(--radius-card,8px)] shadow-xl backdrop-blur-sm mt-12">
           {/* Ambient radial glow */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--brand)]/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
@@ -597,9 +597,9 @@ export default function ProcessSection({ className = "" }) {
           <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
             {/* Card 1 */}
-            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-xl p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
+            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
                 <Icon icon="solar:restart-circle-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
@@ -610,9 +610,9 @@ export default function ProcessSection({ className = "" }) {
             </div>
 
             {/* Card 2 */}
-            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-xl p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
+            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
                 <Icon icon="solar:shield-check-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
@@ -623,9 +623,9 @@ export default function ProcessSection({ className = "" }) {
             </div>
 
             {/* Card 3 */}
-            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-xl p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
+            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
                 <Icon icon="solar:cpu-bolt-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
@@ -636,9 +636,9 @@ export default function ProcessSection({ className = "" }) {
             </div>
 
             {/* Card 4 */}
-            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-xl p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
+            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
                 <Icon icon="solar:global-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">

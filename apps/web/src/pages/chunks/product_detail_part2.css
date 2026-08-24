@@ -15,7 +15,7 @@
   font-family: var(--font-display, inherit);
   font-size: 1.1rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   margin: 0;
   line-height: 1.2;
 }
@@ -52,7 +52,7 @@
 .factItem strong {
   display: block;
   font-size: 0.825rem;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   font-weight: 800;
 }
 
@@ -130,7 +130,7 @@
   border-radius: 50%;
   border: 1px solid var(--border);
   background: var(--bg-card, #ffffff);
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   display: grid;
   place-items: center;
   cursor: pointer;
@@ -185,7 +185,7 @@
   height: 34px;
   border-radius: 50%;
   border: 1px solid var(--border);
-  background: #0B2F63;
+  background: var(--navy, #011A38);
   color: #ffffff;
   display: grid;
   place-items: center;
@@ -196,5 +196,5 @@
 
 .thumbNav:hover {
   background: #98d12a;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
 }

@@ -164,7 +164,7 @@
 
 :global([data-theme="dark"]) .slantBgGreen,
 :global(.dark) .slantBgGreen {
-  background: #77d986 !important;
+  background: #5FBF50 !important;
   opacity: 1 !important;
   z-index: 1 !important;
 }
@@ -184,3 +184,16 @@
 
 
 
+
+@media (max-width: 576px) {
+  .catCardWide {
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+  .catCardWideTitle {
+    font-size: 1.25rem;
+  }
+  .catCardWideDesc {
+    font-size: 0.8rem;
+  }
+}

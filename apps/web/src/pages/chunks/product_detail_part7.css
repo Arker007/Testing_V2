@@ -14,7 +14,7 @@
   padding: 1rem 1.5rem;
   font-size: 0.8125rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   vertical-align: middle;
@@ -131,7 +131,7 @@
 }
 
 .detailCtaBand h3 {
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   font-size: 1.35rem;
   font-weight: 800;
   line-height: 1.25;
@@ -146,7 +146,7 @@
 }
 
 .detailCtaBand button {
-  background: #0B2F63;
+  background: var(--navy, #011A38);
   color: #ffffff;
   border: none;
   padding: 0.75rem 1.75rem;
@@ -161,7 +161,7 @@
 
 .detailCtaBand button:hover {
   background: #98d12a;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
 }
 
 /* ── Product Information Tabs ── */
@@ -177,7 +177,7 @@
 .tabsHeader {
   display: flex;
   border-bottom: 1px solid rgba(5, 40, 63, 0.08);
-  background: #F8FAFC;
+  background: #F2F2F2;
   overflow-x: auto;
 }
 
@@ -198,5 +198,5 @@
 }
 
 .bigTab:hover {
-  color: #0B2F63;
+  color: var(--navy, #011A38);
 }

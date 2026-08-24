@@ -224,16 +224,16 @@ export default function HomeHero() {
                   <defs>
                     {/* Radial Spotlight Gradient for Product Stage */}
                     <radialGradient id="stageSpotlight" cx="50%" cy="52%" r="50%">
-                      <stop offset="0%" stopColor="#3FAE5A" stopOpacity="0.14" />
-                      <stop offset="50%" stopColor="#0B2F63" stopOpacity="0.04" />
-                      <stop offset="100%" stopColor="#f8fafc" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#5FBF50" stopOpacity="0.14" />
+                      <stop offset="50%" stopColor="#011A38" stopOpacity="0.04" />
+                      <stop offset="100%" stopColor="#F2F2F2" stopOpacity="0" />
                     </radialGradient>
 
                     {/* Floor Perspective Pedestal Shadow */}
                     <radialGradient id="floorShadowGrad" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#071E40" stopOpacity="0.28" />
-                      <stop offset="60%" stopColor="#071E40" stopOpacity="0.08" />
-                      <stop offset="100%" stopColor="#071E40" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#011526" stopOpacity="0.28" />
+                      <stop offset="60%" stopColor="#011526" stopOpacity="0.08" />
+                      <stop offset="100%" stopColor="#011526" stopOpacity="0" />
                     </radialGradient>
 
                     <clipPath id="heroHexagonClip">
@@ -370,7 +370,7 @@ export default function HomeHero() {
                     href={`tel:${cleanedPhone}`}
                     className={styles.assistanceBtn}
                   >
-                    <Icon icon="solar:phone-calling-linear" className="w-3.5 h-3.5 text-[var(--brand-dark)]" />
+                    <Icon icon="solar:phone-calling-linear" className="w-3.5 h-3.5 text-inherit" />
                     <span>CONTACT US</span>
                   </a>
                 </div>

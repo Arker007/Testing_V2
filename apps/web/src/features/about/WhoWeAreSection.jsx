@@ -15,7 +15,7 @@ export default function WhoWeAreSection() {
         {/* Left Column: Heading & Paragraph */}
         <div className="lg:col-span-5 space-y-6">
           <div>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#77D986]/10 dark:bg-[#77D986]/8 border border-[#77D986]/30 dark:border-[#77D986]/40 rounded-full text-[#54b862] dark:text-[#77D986] font-bold text-xs tracking-wider uppercase shadow-xs">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#5FBF50]/10 dark:bg-[#5FBF50]/8 border border-[#5FBF50]/30 dark:border-[#5FBF50]/40 rounded-full text-[#54b862] dark:text-[#5FBF50] font-bold text-xs tracking-wider uppercase shadow-xs">
               <Icon icon="solar:buildings-3-linear" className="w-4 h-4" />
               <span>Who We Are</span>
             </span>
@@ -23,7 +23,7 @@ export default function WhoWeAreSection() {
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
             {c("about_who_title", "Pioneering Eco-Friendly Industrial Plastics Since 2008.")}
           </h2>
-          <div className="h-1 w-16 bg-[#77D986] rounded-full" />
+          <div className="h-1 w-16 bg-[#5FBF50] rounded-full" />
           <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed font-normal">
             {c(
               "about_who_text_1",
@@ -49,9 +49,9 @@ export default function WhoWeAreSection() {
           {/* Card 1: Mission */}
           <motion.div
             variants={itemVariants}
-            className="group flex items-start gap-5 p-6 bg-white dark:bg-[#171E26] rounded-2xl border border-slate-200/90 dark:border-white/10 hover:border-[#77d986]/50 dark:hover:border-[#77d986]/40 shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300"
+            className="group flex items-start gap-5 p-6 bg-white dark:bg-[#171E26] rounded-2xl border border-slate-200/90 dark:border-white/10 hover:border-[#5FBF50]/50 dark:hover:border-[#5FBF50]/40 shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300"
           >
-            <div className="w-12 h-12 rounded-xl bg-[#77d986]/10 dark:bg-[#77d986]/10 border border-[#77d986]/20 flex items-center justify-center text-[#54b862] dark:text-[#77D986] transition-transform duration-300 group-hover:scale-110 shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-[#5FBF50]/10 dark:bg-[#5FBF50]/10 border border-[#5FBF50]/20 flex items-center justify-center text-[#54b862] dark:text-[#5FBF50] transition-transform duration-300 group-hover:scale-110 shrink-0">
               <Icon icon="solar:target-linear" className="w-6 h-6" />
             </div>
             <div>
@@ -65,9 +65,9 @@ export default function WhoWeAreSection() {
           {/* Card 2: Vision */}
           <motion.div
             variants={itemVariants}
-            className="group flex items-start gap-5 p-6 bg-white dark:bg-[#171E26] rounded-2xl border border-slate-200/90 dark:border-white/10 hover:border-[#77d986]/50 dark:hover:border-[#77d986]/40 shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300"
+            className="group flex items-start gap-5 p-6 bg-white dark:bg-[#171E26] rounded-2xl border border-slate-200/90 dark:border-white/10 hover:border-[#5FBF50]/50 dark:hover:border-[#5FBF50]/40 shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300"
           >
-            <div className="w-12 h-12 rounded-xl bg-[#77d986]/10 dark:bg-[#77d986]/10 border border-[#77d986]/20 flex items-center justify-center text-[#54b862] dark:text-[#77D986] transition-transform duration-300 group-hover:scale-110 shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-[#5FBF50]/10 dark:bg-[#5FBF50]/10 border border-[#5FBF50]/20 flex items-center justify-center text-[#54b862] dark:text-[#5FBF50] transition-transform duration-300 group-hover:scale-110 shrink-0">
               <Icon icon="solar:eye-linear" className="w-6 h-6" />
             </div>
             <div>
@@ -81,9 +81,9 @@ export default function WhoWeAreSection() {
           {/* Card 3: Commitment */}
           <motion.div
             variants={itemVariants}
-            className="group flex items-start gap-5 p-6 bg-white dark:bg-[#171E26] rounded-2xl border border-slate-200/90 dark:border-white/10 hover:border-[#77d986]/50 dark:hover:border-[#77d986]/40 shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300"
+            className="group flex items-start gap-5 p-6 bg-white dark:bg-[#171E26] rounded-2xl border border-slate-200/90 dark:border-white/10 hover:border-[#5FBF50]/50 dark:hover:border-[#5FBF50]/40 shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300"
           >
-            <div className="w-12 h-12 rounded-xl bg-[#77d986]/10 dark:bg-[#77d986]/10 border border-[#77d986]/20 flex items-center justify-center text-[#54b862] dark:text-[#77D986] transition-transform duration-300 group-hover:scale-110 shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-[#5FBF50]/10 dark:bg-[#5FBF50]/10 border border-[#5FBF50]/20 flex items-center justify-center text-[#54b862] dark:text-[#5FBF50] transition-transform duration-300 group-hover:scale-110 shrink-0">
               <Icon icon="solar:medal-ribbons-star-linear" className="w-6 h-6" />
             </div>
             <div>

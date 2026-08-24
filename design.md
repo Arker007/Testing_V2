@@ -208,11 +208,11 @@ Do not turn entire sections green unless there is a deliberate marketing reason.
 | Navy Hover         | `#071E40` | `#113A72`              | `--navy-hover`   | Hover state                        |
 | Navy Active        | `#061C3D` | `#0E2A52`              | `--navy-active`  | Active state                       |
 | Navy Soft          | `#EEF4FB` | `rgba(11,47,99,.18)`   | `--navy-soft`    | Soft brand surfaces                |
-| Brand Green        | `#80CF23` | `#88E31B`              | `--brand`        | Primary accent                     |
-| Brand Green Hover  | `#73BE1D` | `#9BE835`              | `--brand-hover`  | Hover                              |
-| Brand Green Active | `#68AD17` | `#78BE16`              | `--brand-active` | Active                             |
-| Brand Green Soft   | `#F2FBE8` | `rgba(136,227,27,.12)` | `--brand-soft`   | Background / badge                 |
-| Brand Text         | `#2E6005` | `#88E31B`              | `--brand-text`   | Green-on-light text                |
+| Brand Green        | `#80CF23` | `#77D986`              | `--brand`        | Primary accent                     |
+| Brand Green Hover  | `#73BE1D` | `#8ef79d`              | `--brand-hover`  | Hover                              |
+| Brand Green Active | `#68AD17` | `#5cb86b`              | `--brand-active` | Active                             |
+| Brand Green Soft   | `#F2FBE8` | `rgba(119,217,134,.15)` | `--brand-soft`   | Background / badge                 |
+| Brand Text         | `#2E6005` | `#77D986`              | `--brand-text`   | Green-on-light text                |
 
 ---
 
@@ -222,11 +222,11 @@ The surface system must provide hierarchy without requiring heavy borders.
 
 | Token             | Light     | Dark      | Purpose             |
 | ----------------- | --------- | --------- | ------------------- |
-| Page              | `#FFFFFF` | `#000000` | Main page           |
-| Surface           | `#FFFFFF` | `#0B0B0B` | Main content        |
-| Surface Secondary | `#F7F8F6` | `#111111` | Section backgrounds |
-| Surface Tertiary  | `#EEF1EC` | `#171717` | Secondary blocks    |
-| Elevated          | `#FFFFFF` | `#141414` | Elevated cards      |
+| Page              | `#FFFFFF` | `#0f141a` | Main page           |
+| Surface           | `#FFFFFF` | `#161c24` | Main content        |
+| Surface Secondary | `#F7F8F6` | `#1e2530` | Section backgrounds |
+| Surface Tertiary  | `#EEF1EC` | `#2a3441` | Secondary blocks    |
+| Elevated          | `#FFFFFF` | `#1e2530` | Elevated cards      |
 | Modal             | `#FFFFFF` | `#141414` | Dialogs             |
 | Inverse           | `#0B0F14` | `#FFFFFF` | Inverse surfaces    |
 
@@ -241,7 +241,7 @@ The surface system must provide hierarchy without requiring heavy borders.
 | Muted     | `#69727D` | `#94A3B8` | Metadata            |
 | Disabled  | `#8A929B` | `#64748B` | Disabled UI         |
 | Inverse   | `#FFFFFF` | `#000000` | Inverse surfaces    |
-| Brand     | `#2E6005` | `#88E31B` | Brand-specific text |
+| Brand     | `#2E6005` | `#77D986` | Brand-specific text |
 
 Text must always use semantic tokens.
 
@@ -253,8 +253,8 @@ Raw colors must not be introduced directly into component styles.
 
 | Token           | Light     | Dark                    | Usage                       |
 | --------------- | --------- | ----------------------- | --------------------------- |
-| Success         | `#2F7D12` | `#88E31B`               | Verified / operational      |
-| Success Surface | `#F2FBE8` | `rgba(136,227,27,.12)`  | Success backgrounds         |
+| Success         | `#2F7D12` | `#77D986`               | Verified / operational      |
+| Success Surface | `#F2FBE8` | `rgba(119,217,134,.15)`  | Success backgrounds         |
 | Warning         | `#B56A00` | `#FBBF24`               | Pending / caution           |
 | Warning Surface | `#FFF7E6` | `rgba(251,191,36,.12)`  | Warning backgrounds         |
 | Danger          | `#C92A2A` | `#F87171`               | Errors / destructive action |
@@ -338,32 +338,36 @@ Dark mode should use reduced-opacity white/black elevation rather than copying l
 
 # 8. Radius System
 
-**The existing radius system must be retained.**
+**The radius system has been unified around 8px for consistency.**
 
-No global radius redesign is permitted.
+The global radius has been updated to a consistent 8px to enforce a modern structural feel.
 
 ```css
---radius-sm: 4px;
---radius-md: 8px;
---radius-card: 12px;
---radius-pill: 9999px;
+--radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 8px;
+  --radius-card: 8px;
+  --radius-btn: 8px;
+  --radius-pill: 8px;
+  --radius-full: 8px;
 ```
 
 Component guidance:
 
 | Component         | Radius          |
 | ----------------- | --------------- |
-| Small icon button | `--radius-md`   |
+| Small icon button | `--radius-sm`   |
 | Inputs            | `--radius-md`   |
 | Small controls    | `--radius-md`   |
-| Product card      | `--radius-card` |
-| Section card      | `--radius-card` |
-| Image container   | `--radius-card` |
-| Modal             | `--radius-card` |
-| Primary button    | `--radius-pill` |
-| Secondary button  | `--radius-pill` |
-| Badge             | `--radius-pill` |
-| Filter chips      | `--radius-pill` |
+| Product card      | `--radius-card` (8px) |
+| Section card      | `--radius-card` (8px) |
+| Image container   | `--radius-card` (8px) |
+| Modal             | `--radius-card` (8px) |
+| Primary button    | `--radius-btn` (8px) |
+| Secondary button  | `--radius-btn` (8px) |
+| Badge             | `--radius-badge` (8px) |
+| Filter chips      | `--radius-pill` (8px) |
 
 The visual softness must come primarily from:
 
@@ -945,6 +949,8 @@ background: var(--surface);
 border: 1px solid var(--border-default);
 ```
 
+**Note:** In dark mode, inputs must force light or explicitly themed dark backgrounds to ensure high contrast and readability against dark surfaces. Raw input fields should inherit the elevated dark surface `var(--surface-secondary, #1e2530)` with `var(--border-default)` borders, rather than relying on browser defaults.
+
 ### Hover
 
 Border may strengthen slightly.
@@ -1202,6 +1208,9 @@ Try changing your filters or search terms.
 ```
 
 Empty-state components must not occupy excessive vertical space.
+
+**Visual Styling:**
+Empty states should use `var(--surface)` as the background with a dashed `var(--border-default)` border to subtly separate them from the main page background without feeling heavy. In dark mode, they must adapt to elevated surfaces rather than remaining high-contrast white.
 
 ---
 
@@ -1590,11 +1599,15 @@ Mostly neutral surfaces with controlled brand accents
   --border-default: rgba(15, 23, 32, 0.12);
   --border-strong: rgba(15, 23, 32, 0.18);
 
-  /* Existing Radius System — MUST remain unchanged */
+  /* Unified Radius System (8px standard) */
+  --radius-xs: 2px;
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-card: 12px;
-  --radius-pill: 9999px;
+  --radius-lg: 8px;
+  --radius-card: 8px;
+  --radius-btn: 8px;
+  --radius-pill: 8px;
+  --radius-full: 8px;
 
   /* Spacing */
   --space-1: 4px;
@@ -1633,17 +1646,17 @@ Mostly neutral surfaces with controlled brand accents
 
 html[data-theme="dark"],
 html.dark {
-  --bg-page: #000000;
-  --surface: #0B0B0B;
-  --surface-secondary: #111111;
-  --surface-tertiary: #171717;
-  --surface-elevated: #141414;
+  --bg-page: #0f141a;
+  --surface: #161c24;
+  --surface-secondary: #1e2530;
+  --surface-tertiary: #2a3441;
+  --surface-elevated: #1e2530;
 
-  --brand: #88E31B;
-  --brand-hover: #9BE835;
-  --brand-active: #78BE16;
-  --brand-soft: rgba(136, 227, 27, 0.12);
-  --brand-text: #88E31B;
+  --brand: #77D986;
+  --brand-hover: #8ef79d;
+  --brand-active: #5cb86b;
+  --brand-soft: rgba(119, 217, 134, 0.15);
+  --brand-text: #77D986;
 
   --text-primary: #FFFFFF;
   --text-secondary: #CBD5E1;
@@ -1824,7 +1837,7 @@ Industrial
 + Premium technology aesthetic
 ```
 
-**The existing border-radius system remains unchanged and is the canonical radius system for the entire application.**
+**The border-radius system has been unified to 8px across the application for a more modern, cohesive, and structured technological aesthetic.**
 
 ---
 

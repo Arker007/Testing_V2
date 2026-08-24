@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.85rem;
-  background: #F8FAFC;
+  background: #F2F2F2;
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1rem;
@@ -45,7 +45,7 @@
 
 .matrixVal {
   font-size: 0.85rem;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   font-weight: 800;
   display: block;
 }
@@ -68,7 +68,7 @@
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
-  color: #64748b;
+  color: #667785;
   letter-spacing: 0.08em;
 }
 
@@ -85,7 +85,7 @@
   font-weight: 700;
   outline: none;
   background: var(--bg-card, #ffffff);
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -113,7 +113,7 @@
   background: var(--bg-card, #ffffff);
   font-size: 0.85rem;
   font-weight: 700;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
@@ -126,14 +126,14 @@
 .colorTagActive {
   border-color: #98d12a !important;
   background: #98d12a !important;
-  color: #0B2F63 !important;
+  color: var(--navy, #011A38) !important;
   font-weight: 800 !important;
   box-shadow: 0 4px 12px rgba(152, 209, 42, 0.2);
 }
 
 /* ── B2B ESG Estimator Card ── */
 .esgEstimatorCard {
-  background: #F8FAFC;
+  background: #F2F2F2;
   border: 1.5px dashed rgba(152, 209, 42, 0.4);
   border-radius: 12px;
   padding: 1.15rem;
@@ -163,7 +163,7 @@
   font-family: var(--font-display, inherit);
   font-size: 0.875rem;
   font-weight: 800;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -189,7 +189,7 @@
 .esgInputLabel {
   font-size: 0.785rem;
   font-weight: 700;
-  color: #0B2F63;
+  color: var(--navy, #011A38);
 }
 
 .esgQuantityControls {

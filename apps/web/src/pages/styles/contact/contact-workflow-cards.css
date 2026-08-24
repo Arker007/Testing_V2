@@ -8,7 +8,7 @@
   font-family: var(--font-display, inherit);
   font-size: clamp(1.6rem, 2.5vw, 2.1rem);
   font-weight: 800;
-  color: var(--navy, #0B2F63);
+  color: var(--navy, var(--navy, #011A38));
   margin: 0.5rem 0 0.5rem 0;
   letter-spacing: -0.015em;
 }
@@ -24,7 +24,7 @@
 
 .sectionDesc {
   font-size: 0.925rem;
-  color: #64748B;
+  color: #667785;
   max-width: 620px;
   margin: 0 auto;
   line-height: 1.6;
@@ -40,7 +40,7 @@
 
 /* ── Workflow Steps Section ── */
 .workflowSection {
-  background: var(--navy, #0B2F63);
+  background: var(--navy, var(--navy, #011A38));
   padding: 5rem 0;
   color: #ffffff;
 }
@@ -108,15 +108,15 @@
 }
 
 .faqCard {
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
+  background: #F2F2F2;
+  border: 1px solid #D8DEDA;
   border-radius: 8px;
   overflow: hidden;
   transition: all 0.25s ease;
 }
 
 .faqCard:hover {
-  border-color: #CBD5E1;
+  border-color: #D8DEDA;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
@@ -134,7 +134,7 @@
   font-family: var(--font-display, inherit);
   font-size: 1rem;
   font-weight: 700;
-  color: var(--navy, #0B2F63);
+  color: var(--navy, var(--navy, #011A38));
   text-align: left;
   cursor: pointer;
   display: flex;
@@ -151,17 +151,17 @@
 .faqAnswer {
   padding: 0 1.5rem 1.25rem 1.5rem;
   font-size: 0.9rem;
-  color: #475569;
+  color: #385064;
   line-height: 1.65;
   margin: 0;
-  border-top: 1px solid #F1F5F9;
+  border-top: 1px solid #E7EBE8;
   padding-top: 0.85rem;
 }
 
 /* ── Closing CTA ── */
 .cta {
   padding: 5rem 0;
-  background: linear-gradient(135deg, var(--navy, #0B2F63) 0%, #0d274c 50%, #113a72 100%);
+  background: linear-gradient(135deg, var(--navy, var(--navy, #011A38)) 0%, #0d274c 50%, #113a72 100%);
   color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -301,6 +301,6 @@ html.dark .faqQuestion:hover {
 :global([data-theme="dark"]) .faqAnswer,
 :global(.dark) .faqAnswer,
 html.dark .faqAnswer {
-  color: #CBD5E1 !important;
+  color: #D8DEDA !important;
   border-top-color: var(--dark-border) !important;
 }

@@ -1,46 +1,54 @@
 
 .modalCategoryBadge {
-  background: var(--color-surface-muted);
-  color: var(--color-text-primary);
+  background: var(--brand-soft, #E5F3E8);
+  color: var(--brand-text, #5AB860);
   font-size: 0.7rem;
   font-weight: 800;
-  padding: 0.2rem 0.65rem;
-  border-radius: var(--radius-xs);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-badge, 6px);
   text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--brand-border, rgba(95, 191, 80, 0.55));
 }
 
 .modalSkuBadge {
   font-size: 0.75rem;
-  color: #64748B;
+  color: var(--color-text-secondary, #667785);
   font-family: monospace;
+  font-weight: 600;
 }
 
 .modalTitle {
   font-family: var(--font-display, inherit);
   font-size: 1.35rem;
   font-weight: 800;
-  color: var(--color-text-primary);
+  color: var(--color-text-primary, #011526);
   margin: 0;
+  line-height: 1.25;
 }
 
 .modalImageContainer {
   width: 100%;
   height: 220px;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-md, 8px);
   overflow: hidden;
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
+  background: var(--bg-surface-secondary, #F2F2F2);
+  border: 1px solid var(--border, #D8DEDA);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modalImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .modalDescription {
   font-size: 0.875rem;
-  color: #475569;
+  color: var(--color-text-secondary, #385064);
   line-height: 1.6;
   margin: 0;
 }
@@ -49,47 +57,53 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
-  background: #F8FAFC;
+  background: var(--bg-surface-secondary, #F2F2F2);
   padding: 1rem;
-  border-radius: var(--radius-xs);
-  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--border, #D8DEDA);
 }
 
 .modalSpecCell {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  background: var(--bg-card, #FFFFFF);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm, 6px);
+  border: 1px solid var(--border, #D8DEDA);
 }
 
 .modalSpecLabel {
   font-size: 0.6875rem;
-  color: #64748B;
+  color: var(--color-text-secondary, #667785);
   text-transform: uppercase;
   font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 .modalSpecValue {
   font-size: 0.875rem;
-  color: var(--color-text-primary);
+  color: var(--color-text-primary, #011526);
   font-weight: 800;
 }
 
 .modalHighlights {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .highlightItem {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   font-size: 0.8125rem;
-  color: #334155;
+  font-weight: 600;
+  color: var(--color-text-primary, #385064);
 }
 
 .checkIcon {
-  color: var(--color-text-tertiary);
+  color: var(--brand, #5FBF50);
   flex-shrink: 0;
 }
 
@@ -97,27 +111,29 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding-top: 0.5rem;
+  padding-top: 0.35rem;
 }
 
 .modalDetailsBtn {
   flex: 1;
-  background: #F1F5F9;
-  color: var(--color-text-primary);
+  background: var(--bg-surface-secondary, #E7EBE8);
+  color: var(--color-text-primary, #011526);
   font-size: 0.875rem;
-  font-weight: 800;
-  padding: 0.75rem;
-  border-radius: var(--radius-xs);
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-btn, 8px);
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
+  border: 1px solid var(--border, #D8DEDA);
   transition: all 0.2s ease;
 }
 
 .modalDetailsBtn:hover {
-  background: #E2E8F0;
+  background: var(--border, #D8DEDA);
+  color: var(--navy, #0B192C);
 }
 
 /* ─── SKELETON & EMPTY STATES ────────────────────────────── */
@@ -129,8 +145,8 @@
 
 .skeletonCard {
   height: 340px;
-  border-radius: var(--radius-xs);
-  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  border-radius: 8px;
+  background: linear-gradient(90deg, #E7EBE8 25%, #D8DEDA 50%, #E7EBE8 75%);
   background-size: 200%;
   animation: shimmer 1.5s infinite;
 }
@@ -142,8 +158,8 @@
 
 .emptyState {
   background: var(--surface);
-  border-radius: var(--radius-xs);
-  border: 1px dashed var(--border-default, var(--border, #CBD5E1));
+  border-radius: 8px;
+  border: 1px dashed var(--border-default, var(--border, #D8DEDA));
   padding: 3.5rem 1.5rem;
   text-align: center;
   display: flex;
@@ -157,9 +173,9 @@
 .emptyIconCircle {
   width: 64px;
   height: 64px;
-  border-radius: var(--radius-sm-pill, 50%);
-  background: var(--surface-secondary, #F1F5F9);
-  color: var(--text-muted, #64748B);
+  border-radius: 8px;
+  background: var(--surface-secondary, #E7EBE8);
+  color: var(--text-muted, #667785);
   display: grid;
   place-items: center;
 }
@@ -173,7 +189,7 @@
 
 .emptyState p {
   font-size: 0.875rem;
-  color: var(--text-secondary, #64748B);
+  color: var(--text-secondary, #667785);
   max-width: 420px;
   margin: 0;
   line-height: 1.6;
@@ -188,7 +204,7 @@
   font-size: 0.875rem;
   font-weight: 800;
   padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-xs);
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   margin-top: 0.5rem;
@@ -196,8 +212,8 @@
 }
 
 .emptyResetBtn:hover {
-  background: var(--brand, #77D986);
-  color: var(--text-primary, #0f172a);
+  background: var(--brand, #5FBF50);
+  color: var(--text-primary, #011526);
 }
 
 /* ─── PROCUREMENT ADVANTAGE SECTION ─────────────────────── */

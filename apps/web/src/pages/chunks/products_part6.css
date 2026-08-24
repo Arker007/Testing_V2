@@ -2,28 +2,162 @@
 .gridCardImg {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: 0 auto;
+  mix-blend-mode: multiply;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gridCard:hover .gridCardImg {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .catTag {
   position: absolute;
-  top: 0.65rem;
-  left: 0.65rem;
-  background: rgba(92, 179, 27, 0.12);
-  color: #2a6e0a;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: var(--brand, #5FBF50);
+  color: var(--text-primary, #0F1720);
   font-size: 0.65rem;
   font-weight: 700;
-  padding: 0.25rem 0.6rem;
-  border-radius: 6px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 8px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  border: 1px solid rgba(92, 179, 27, 0.3);
-  backdrop-filter: blur(4px);
+  border: 1px solid var(--brand, #5FBF50);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  line-height: 1.2;
+  z-index: 2;
+}
+
+.gridCardDetails {
+  background: var(--bg-card, #FFFFFF);
+  padding: 1.25rem 1.25rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.gridCardSkuTitle {
+  font-family: var(--font-display, inherit);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #011526;
+  margin: 0 0 0.85rem 0;
+  line-height: 1.25;
+}
+
+.gridCardSkuTitle a {
+  color: #011526;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.gridCardSkuTitle a:hover {
+  color: #1B5E39;
+}
+
+.specList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.specRowItem {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.specRowLabel {
+  color: #0A2C50;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.specRowVal {
+  color: #011526;
+  font-weight: 700;
+  text-align: right;
+  word-break: break-word;
+}
+
+.gridCardBtnWrap {
+  margin-bottom: 0.75rem;
+}
+
+.viewProductBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--brand, #5FBF50);
+  color: var(--navy, #0B192C) !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.72rem 1rem;
+  border-radius: var(--radius-btn, 8px);
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(95, 191, 80, 0.25);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.viewProductBtn:hover {
+  background: var(--brand-hover, #70CC62);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(95, 191, 80, 0.55);
+  color: var(--navy, #0B192C) !important;
+}
+
+.datasheetLinkWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.datasheetLink {
+  background: none;
+  border: none;
+  padding: 0.2rem 0.5rem;
+  color: var(--brand-text, #5AB860);
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.datasheetLink:hover {
+  color: var(--brand-dark, #1B5E39);
+  text-decoration: underline;
+}
+
+.datasheetIconBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border: 1.5px solid var(--brand, #5FBF50);
+  border-radius: 3px;
+  color: var(--brand-text, #5AB860);
+  font-size: 0.7rem;
 }
 
 .gridCardBody {
@@ -57,13 +191,13 @@
 }
 
 .specsRow {
-  background: #F8FAFC;
+  background: #F2F2F2;
   padding: 0.65rem 0.85rem;
   border-radius: 8px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #D8DEDA;
 }
 
 .specItem {
@@ -80,7 +214,7 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-weight: 700;
-  color: #64748B;
+  color: #667785;
 }
 
 .specValue {
@@ -127,10 +261,10 @@
   width: 38px;
   height: 38px;
   flex-shrink: 0;
-  background: var(--bg-surface-elevated, #F8FAFC);
-  color: #475569;
+  background: var(--bg-surface-elevated, #F2F2F2);
+  color: #385064;
   border-radius: 8px;
-  border: 1px solid var(--border, #E2E8F0);
+  border: 1px solid var(--border, #D8DEDA);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -148,37 +282,32 @@
 /* Compact Mobile Tweaks */
 @media (max-width: 639px) {
   .gridCard {
-    padding: 0.75rem;
-    border-radius: var(--radius-xs);
+    padding: 0;
+    border-radius: 8px;
   }
-  .gridCardTitle {
+  .gridCardThumbWrap {
+    height: 160px;
+    padding: 0.75rem 1rem;
+  }
+  .gridCardDetails {
+    padding: 1rem;
+  }
+  .gridCardSkuTitle {
+    font-size: 1rem;
+    margin-bottom: 0.65rem;
+  }
+  .specRowItem {
+    font-size: 0.78rem;
+  }
+  .viewProductBtn {
+    padding: 0.6rem 0.85rem;
     font-size: 0.875rem;
-    height: 2.7em;
   }
   .catTag {
-    font-size: 0.55rem;
-    padding: 0.15rem 0.45rem;
-    top: 0.4rem;
-    left: 0.4rem;
-  }
-  .specsRow {
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
-    padding: 0.45rem 0.6rem;
-  }
-  .specLabel {
     font-size: 0.6rem;
-  }
-  .specValue {
-    font-size: 0.75rem;
-  }
-  .detailsBtn {
-    padding: 0.55rem 0.5rem;
-    font-size: 0.75rem;
-  }
-  .quickSpecsBtn {
-    width: 34px;
-    height: 34px;
+    padding: 0.2rem 0.5rem;
+    top: 0.5rem;
+    left: 0.5rem;
   }
 }
 
@@ -191,10 +320,10 @@
 
 .listCard {
   background: var(--bg-card, #FFFFFF);
-  border-radius: 12px;
-  border: 1px solid var(--border, #E2E8F0);
+  border-radius: var(--radius-card, 8px);
+  border: 1px solid var(--border, #D8DEDA);
   padding: 1.25rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 24px rgba(22, 42, 35, 0.05);
   display: flex;
   flex-direction: column;
   gap: 1.25rem;

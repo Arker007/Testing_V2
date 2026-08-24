@@ -140,7 +140,7 @@
 
   .timelineStep:last-child {
     grid-column: span 2;
-    background: linear-gradient(135deg, var(--dark, #0B2F63) 0%, #083350 100%);
+    background: linear-gradient(135deg, var(--dark, var(--navy, #011A38)) 0%, #083350 100%);
     border: 1px solid rgba(152, 209, 42, 0.4);
     color: #ffffff;
     flex-direction: row;
@@ -161,7 +161,7 @@
 
   .timelineStep:last-child .stepNum {
     background: var(--brand, #98d12a);
-    color: var(--dark, #0B2F63);
+    color: var(--dark, var(--navy, #011A38));
     border: none;
     font-weight: 800;
   }
@@ -176,7 +176,7 @@
 
   .whyCard:first-child {
     grid-column: span 2;
-    background: linear-gradient(135deg, var(--dark, #0B2F63) 0%, #083350 100%);
+    background: linear-gradient(135deg, var(--dark, var(--navy, #011A38)) 0%, #083350 100%);
     color: #ffffff;
     border-color: rgba(152, 209, 42, 0.35);
   }
@@ -192,7 +192,7 @@
 
   .whyCard:first-child .whyIconBox {
     background: var(--brand, #98d12a);
-    color: var(--dark, #0B2F63);
+    color: var(--dark, var(--navy, #011A38));
   }
 
   .whyCard:last-child {

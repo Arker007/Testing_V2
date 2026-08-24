@@ -50,7 +50,7 @@
 .tlCardNew {
   background: var(--bg-card, var(--white));
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-card, 8px);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -79,7 +79,7 @@
   font-size: 0.85rem;
   font-weight: 800;
   padding: 0.2rem 0.65rem;
-  border-radius: 6px;
+  border-radius: var(--radius-badge, 6px);
 }
 
 .tlHeader i {
@@ -117,7 +117,7 @@
 .certCardNew {
   background: var(--gray-50);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-card, 8px);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -142,7 +142,7 @@
 .certIconNew {
   width: 38px;
   height: 38px;
-  border-radius: 8px;
+  border-radius: var(--radius-md, 8px);
   background: var(--brand-glow-subtle);
   color: var(--navy);
   display: grid;
@@ -195,7 +195,7 @@
 .teamCardNew {
   background: var(--bg-card, var(--white));
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-card, 8px);
   padding: 1.75rem 1.25rem;
   display: flex;
   flex-direction: column;

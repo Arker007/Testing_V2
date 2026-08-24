@@ -43,7 +43,7 @@ export default function ScrollProgressBar() {
         style={{
           width: `${progress}%`,
           height: "100%",
-          backgroundColor: "var(--brand, #98d12a)", // brand emerald/green color
+          backgroundColor: "var(--brand, #6BBF54)", // brand emerald/green color
           transition: "width 0.1s ease-out",
         }}
       />
