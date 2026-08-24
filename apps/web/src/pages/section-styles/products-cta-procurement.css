@@ -183,8 +183,9 @@ html.dark .main {
 
 :root[data-theme="dark"] .searchInputField,
 :root.dark .searchInputField {
-  background-color: var(--bg-interactive);
-  border-color: var(--border);
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
   color: var(--text-primary);
 }
 

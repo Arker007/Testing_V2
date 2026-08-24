@@ -145,10 +145,10 @@ export default function NavbarSearch({
             outline: "none",
             border: "none",
             boxShadow: "none",
-            background: "transparent",
+            backgroundColor: "transparent",
             WebkitAppearance: "none",
           }}
-          className="w-full bg-transparent border-0 outline-none focus:outline-none focus:ring-0 focus:border-0 shadow-none text-sm font-medium text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-300"
+          className="w-full bg-transparent border-0 outline-none focus:outline-none focus:ring-0 focus:border-0 shadow-none text-sm font-medium text-slate-900 placeholder:text-slate-500"
         />
 
         {isExpanded && (

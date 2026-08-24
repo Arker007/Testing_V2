@@ -57,6 +57,10 @@
   flex: 1;
   display: flex;
   align-items: center;
+  background: #FFFFFF;
+  border: 1px solid #D8DEDA;
+  border-radius: var(--radius-btn, 8px);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .searchIcon {
@@ -75,13 +79,11 @@
   width: 100%;
   font-size: 0.875rem;
   padding: 0.65rem 2.75rem 0.65rem 2.6rem;
-  border-radius: var(--radius-btn, 8px);
-  border: 1px solid #D8DEDA;
-  background: #FFFFFF;
+  border: none !important;
+  background: transparent !important;
   color: #011526;
-  outline: none;
-  box-shadow: none;
-  transition: border-color 0.15s ease;
+  outline: none !important;
+  box-shadow: none !important;
   font-family: inherit;
 }
 
@@ -90,10 +92,25 @@
 }
 
 .searchInputField:focus {
-  background: #FFFFFF;
-  border-color: #D8DEDA;
-  box-shadow: none;
-  outline: none;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+:global(#product-search-input-field) {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+:global(html.dark #product-search-input-field),
+:global(:root[data-theme="dark"] #product-search-input-field) {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #FFFFFF !important;
 }
 
 .searchClearBtn {

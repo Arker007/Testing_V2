@@ -670,6 +670,19 @@
   appearance: none !important;
 }
 
+:global(#navbar-search-input),
+:global(#navbar-search-input:focus),
+:global(#navbar-search-input:active),
+:global(#navbar-search-input:focus-visible) {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #011526 !important;
+}
+
+:global(#navbar-search-input::placeholder) {
+  color: #667785 !important;
+}
+
 .searchCollapsed input {
   opacity: 0;
   width: 0;

@@ -180,6 +180,7 @@ export default function ProductSearchHeader({
         <div className={styles.searchBoxWrapper}>
           <Icon icon="solar:magnifer-linear" className={styles.searchIcon} />
           <input
+            id="product-search-input-field"
             type="text"
             placeholder="Search products by title, SKU, dimensions, or load rating..."
             value={searchQuery}

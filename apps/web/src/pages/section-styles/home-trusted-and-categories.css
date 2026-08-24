@@ -195,7 +195,7 @@
 
 /* ── 3. Categories Section ── */
 .categoriesSection {
-  background: var(--bg-card, #ffffff);
+  background: var(--bg-light, #F2F2F2);
   padding: 3.5rem 0;
 }
 

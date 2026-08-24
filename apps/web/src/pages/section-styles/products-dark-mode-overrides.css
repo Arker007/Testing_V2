@@ -20,10 +20,12 @@ html.dark [class*="searchBoxWrapper"] {
 :global([data-theme="dark"]) .searchInputField,
 :global(.dark) .searchInputField,
 :root[data-theme="dark"] input[class*="searchInputField"],
-html.dark input[class*="searchInputField"] {
-  background-color: var(--dark-elevated, #171E26) !important;
+html.dark input[class*="searchInputField"],
+:global(#product-search-input-field) {
+  background: transparent !important;
+  background-color: transparent !important;
   color: #FFFFFF !important;
-  border-color: var(--dark-border, rgba(255, 255, 255, 0.10)) !important;
+  border: none !important;
 }
 
 :global([data-theme="dark"]) .searchInputField::placeholder,
