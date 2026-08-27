@@ -1,0 +1,844 @@
+/* ─── Complete Industrial Dark Mode Overrides for Product Catalog ─── */
+
+:global([data-theme="dark"]) .main,
+:global(.dark) .main,
+:root[data-theme="dark"] [class*="main"],
+html.dark [class*="main"] {
+  background-color: var(--bg-canvas, var(--neutral-950)) !important;
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .topControlCard,
+:global(.dark) .topControlCard,
+:root[data-theme="dark"] [class*="topControlCard"],
+html.dark [class*="topControlCard"] {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.12)) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+:global([data-theme="dark"]) .searchBoxWrapper,
+:global(.dark) .searchBoxWrapper,
+:root[data-theme="dark"] [class*="searchBoxWrapper"],
+html.dark [class*="searchBoxWrapper"] {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.12)) !important;
+}
+
+:global([data-theme="dark"]) .searchInputField,
+:global(.dark) .searchInputField,
+:root[data-theme="dark"] input[class*="searchInputField"],
+html.dark input[class*="searchInputField"],
+:global(#product-search-input-field) {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--white) !important;
+  border: none !important;
+}
+
+:global([data-theme="dark"]) .searchInputField::placeholder,
+:global(.dark) .searchInputField::placeholder {
+  color: rgba(242, 242, 242, 0.5) !important;
+}
+
+:global([data-theme="dark"]) .searchIcon,
+:global(.dark) .searchIcon {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .suggestionChip,
+:global(.dark) .suggestionChip,
+:root[data-theme="dark"] [class*="suggestionChip"],
+html.dark [class*="suggestionChip"] {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.08)) !important;
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .suggestionChip:hover,
+:global(.dark) .suggestionChip:hover {
+  background: rgba(107, 191, 84, 0.2) !important;
+  color: var(--white) !important;
+  border-color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .viewModeSwitcher,
+:global(.dark) .viewModeSwitcher,
+:root[data-theme="dark"] [class*="viewModeSwitcher"] {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .viewToggleBtn,
+:global(.dark) .viewToggleBtn {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .viewToggleBtn:hover,
+:global(.dark) .viewToggleBtn:hover {
+  color: var(--white) !important;
+  background: rgba(242, 242, 242, 0.08) !important;
+}
+
+:global([data-theme="dark"]) .viewToggleBtnActive,
+:global(.dark) .viewToggleBtnActive {
+  background: var(--accent, var(--brand-500)) !important;
+  color: var(--navy, var(--text-inverse)) !important;
+  box-shadow: 0 1px 4px rgba(107, 191, 84, 0.55) !important;
+}
+
+:global([data-theme="dark"]) .mobileFilterToggleBtn,
+:global(.dark) .mobileFilterToggleBtn {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .quickSearchPillsRow,
+:global(.dark) .quickSearchPillsRow {
+  border-top-color: var(--border, rgba(242, 242, 242, 0.08)) !important;
+}
+
+:global([data-theme="dark"]) .quickSearchLabel,
+:global(.dark) .quickSearchLabel {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .quickSearchPillBtn,
+:global(.dark) .quickSearchPillBtn {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .quickSearchPillBtn:hover,
+:global(.dark) .quickSearchPillBtn:hover {
+  background: rgba(107, 191, 84, 0.20) !important;
+  border-color: var(--accent, var(--brand-500)) !important;
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .resultsBar,
+:global(.dark) .resultsBar {
+  border-top-color: var(--border, rgba(242, 242, 242, 0.08)) !important;
+}
+
+:global([data-theme="dark"]) .resultsText,
+:global(.dark) .resultsText {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .resultsText strong,
+:global(.dark) .resultsText strong {
+  color: var(--neutral-100) !important;
+}
+
+:global([data-theme="dark"]) .filterTagPill,
+:global(.dark) .filterTagPill {
+  background: rgba(107, 191, 84, 0.20) !important;
+  border-color: rgba(107, 191, 84, 0.35) !important;
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .tagRemoveBtn,
+:global(.dark) .tagRemoveBtn {
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .resetAllLinkBtn,
+:global(.dark) .resetAllLinkBtn {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .resetAllLinkBtn:hover,
+:global(.dark) .resetAllLinkBtn:hover {
+  color: var(--color-error) !important;
+  background: rgba(248, 113, 113, 0.15) !important;
+}
+
+/* Sidebar & Drawer */
+:global([data-theme="dark"]) .sidebarPanel,
+:global(.dark) .sidebarPanel,
+:root[data-theme="dark"] [class*="sidebarPanel"],
+html.dark [class*="sidebarPanel"] {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.12)) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+:global([data-theme="dark"]) .sidebarInner,
+:global(.dark) .sidebarInner {
+  background: transparent !important;
+}
+
+:global([data-theme="dark"]) .sidebarHeader,
+:global(.dark) .sidebarHeader {
+  border-bottom-color: var(--border, rgba(242, 242, 242, 0.08)) !important;
+}
+
+:global([data-theme="dark"]) .filterMainHeading,
+:global(.dark) .filterMainHeading {
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .filterHeadingIcon,
+:global(.dark) .filterHeadingIcon {
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .sidebarCollapseAllBtn,
+:global(.dark) .sidebarCollapseAllBtn {
+  background: rgba(242, 242, 242, 0.05) !important;
+  color: rgba(242, 242, 242, 0.7) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.12)) !important;
+}
+
+:global([data-theme="dark"]) .sidebarCollapseAllBtn:hover,
+:global(.dark) .sidebarCollapseAllBtn:hover {
+  background: rgba(107, 191, 84, 0.15) !important;
+  color: var(--accent, var(--brand-500)) !important;
+  border-color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .sidebarHeaderTitle h3,
+:global(.dark) .sidebarHeaderTitle h3 {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .headerIcon,
+:global(.dark) .headerIcon {
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .activeFilterSummaryBar,
+:global(.dark) .activeFilterSummaryBar {
+  background: rgba(107, 191, 84, 0.08) !important;
+  border-color: rgba(107, 191, 84, 0.20) !important;
+}
+
+:global([data-theme="dark"]) .activeTagChip,
+:global(.dark) .activeTagChip {
+  background: rgba(107, 191, 84, 0.18) !important;
+  color: var(--accent, var(--brand-500)) !important;
+  border-color: rgba(107, 191, 84, 0.3) !important;
+}
+
+:global([data-theme="dark"]) .filterSectionHeader,
+:global(.dark) .filterSectionHeader {
+  border-bottom-color: var(--border, rgba(242, 242, 242, 0.06)) !important;
+}
+
+:global([data-theme="dark"]) .filterSectionLabel,
+:global(.dark) .filterSectionLabel {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .categorySearchInput,
+:global(.dark) .categorySearchInput {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .presetChip,
+:global(.dark) .presetChip {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.08)) !important;
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .presetChip:hover,
+:global(.dark) .presetChip:hover {
+  background: rgba(107, 191, 84, 0.2) !important;
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .presetChipActive,
+:global(.dark) .presetChipActive {
+  background: rgba(107, 191, 84, 0.25) !important;
+  border-color: var(--accent, var(--brand-500)) !important;
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .categoryNavItem,
+:global(.dark) .categoryNavItem {
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .categoryNavItem:hover,
+:global(.dark) .categoryNavItem:hover {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .categoryNavItemActive,
+:global(.dark) .categoryNavItemActive {
+  background: rgba(107, 191, 84, 0.15) !important;
+  color: var(--accent, var(--brand-500)) !important;
+  font-weight: 700 !important;
+}
+
+:global([data-theme="dark"]) .catCountBadge,
+:global(.dark) .catCountBadge {
+  background: rgba(242, 242, 242, 0.08) !important;
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .sidebarTrustBox,
+:global(.dark) .sidebarTrustBox {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.08)) !important;
+}
+
+:global([data-theme="dark"]) .trustBoxHeader h4,
+:global(.dark) .trustBoxHeader h4 {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .sidebarTrustBox p,
+:global(.dark) .sidebarTrustBox p {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .trustPhoneBtn,
+:global(.dark) .trustPhoneBtn {
+  background: rgba(242, 242, 242, 0.06) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+  color: var(--white) !important;
+}
+
+/* Product Cards Grid & List */
+:global([data-theme="dark"]) .gridCard,
+:global(.dark) .gridCard,
+:root[data-theme="dark"] [class*="gridCard"],
+html.dark [class*="gridCard"],
+:global([data-theme="dark"]) .listCard,
+:global(.dark) .listCard,
+:root[data-theme="dark"] [class*="listCard"],
+html.dark [class*="listCard"] {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.12)) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+:global([data-theme="dark"]) .gridCard:hover,
+:global(.dark) .gridCard:hover,
+:global([data-theme="dark"]) .listCard:hover,
+:global(.dark) .listCard:hover {
+  border-color: rgba(107, 191, 84, 0.4) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6) !important;
+}
+
+:global([data-theme="dark"]) .gridCardThumbWrap,
+:global(.dark) .gridCardThumbWrap {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-bottom-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .gridCardThumb,
+:global(.dark) .gridCardThumb {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+:global([data-theme="dark"]) .gridCardImg,
+:global(.dark) .gridCardImg {
+  mix-blend-mode: normal !important;
+}
+
+:global([data-theme="dark"]) .catTag,
+:global(.dark) .catTag {
+  background: var(--accent, var(--brand-500)) !important;
+  color: var(--text-inverse) !important;
+  border: 1px solid var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .gridCardDetails,
+:global(.dark) .gridCardDetails {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+}
+
+:global([data-theme="dark"]) .gridCardSkuTitle,
+:global([data-theme="dark"]) .gridCardSkuTitle a,
+:global(.dark) .gridCardSkuTitle,
+:global(.dark) .gridCardSkuTitle a {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .gridCardSkuTitle a:hover,
+:global(.dark) .gridCardSkuTitle a:hover {
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .specRowLabel,
+:global(.dark) .specRowLabel {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .specRowVal,
+:global(.dark) .specRowVal {
+  color: var(--neutral-200) !important;
+}
+
+:global([data-theme="dark"]) .viewProductBtn,
+:global(.dark) .viewProductBtn {
+  background: var(--accent, var(--brand-500)) !important;
+  color: var(--text-inverse) !important;
+  box-shadow: 0 2px 8px rgba(107, 191, 84, 0.55) !important;
+}
+
+:global([data-theme="dark"]) .viewProductBtn:hover,
+:global(.dark) .viewProductBtn:hover {
+  background: var(--brand-400) !important;
+  color: var(--text-inverse) !important;
+  box-shadow: 0 4px 14px rgba(107, 191, 84, 0.45) !important;
+}
+
+:global([data-theme="dark"]) .datasheetLink,
+:global(.dark) .datasheetLink {
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .datasheetLink:hover,
+:global(.dark) .datasheetLink:hover {
+  color: var(--brand-400) !important;
+}
+
+:global([data-theme="dark"]) .datasheetIconBox,
+:global(.dark) .datasheetIconBox {
+  border-color: var(--accent, var(--brand-500)) !important;
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .gridCardTitle a,
+:global(.dark) .gridCardTitle a {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .gridCardTitle a:hover,
+:global(.dark) .gridCardTitle a:hover {
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .specsRow,
+:global(.dark) .specsRow,
+:root[data-theme="dark"] [class*="specsRow"],
+html.dark [class*="specsRow"] {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+  box-shadow: none !important;
+}
+
+:global([data-theme="dark"]) .specItem,
+:global(.dark) .specItem,
+:root[data-theme="dark"] [class*="specItem"],
+html.dark [class*="specItem"] {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+:global([data-theme="dark"]) .specLabel,
+:global(.dark) .specLabel,
+:root[data-theme="dark"] [class*="specLabel"],
+html.dark [class*="specLabel"] {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .specValue,
+:global(.dark) .specValue,
+:root[data-theme="dark"] [class*="specValue"],
+html.dark [class*="specValue"] {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .gridCardActions,
+:global(.dark) .gridCardActions {
+  border-top-color: var(--border, rgba(242, 242, 242, 0.08)) !important;
+}
+
+:global([data-theme="dark"]) .detailsBtn,
+:global(.dark) .detailsBtn {
+  background: var(--color-success-dark) !important;
+  color: var(--white) !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3) !important;
+}
+
+:global([data-theme="dark"]) .detailsBtn:hover,
+:global(.dark) .detailsBtn:hover {
+  background: var(--color-success-light) !important;
+  border-color: var(--color-success-light) !important;
+  color: var(--white) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4) !important;
+}
+
+:global([data-theme="dark"]) .quickSpecsBtn,
+:global(.dark) .quickSpecsBtn {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.15)) !important;
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .quickSpecsBtn:hover,
+:global(.dark) .quickSpecsBtn:hover {
+  background: rgba(107, 191, 84, 0.2) !important;
+  color: var(--accent, var(--brand-500)) !important;
+  border-color: var(--accent, var(--brand-500)) !important;
+}
+
+/* List View Card */
+:global([data-theme="dark"]) .listCard,
+:global(.dark) .listCard,
+:root[data-theme="dark"] [class*="listCard"],
+html.dark [class*="listCard"] {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.12)) !important;
+}
+
+:global([data-theme="dark"]) .listCard:hover,
+:global(.dark) .listCard:hover {
+  border-color: var(--accent, var(--brand-500)) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .listCardThumb,
+:global(.dark) .listCardThumb {
+  background: var(--bg-canvas, var(--neutral-950)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .catTagDesktop,
+:global(.dark) .catTagDesktop,
+:global([data-theme="dark"]) .catTagMobile,
+:global(.dark) .catTagMobile {
+  background: var(--accent, var(--brand-500)) !important;
+  color: var(--navy, var(--neutral-950)) !important;
+  border: 1px solid var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .skuBadge,
+:global(.dark) .skuBadge {
+  background: rgba(242, 242, 242, 0.08) !important;
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .listCardTitle a,
+:global(.dark) .listCardTitle a {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .listDescription,
+:global(.dark) .listDescription {
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .listSpecBadge,
+:global(.dark) .listSpecBadge {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .listSpecBadge strong,
+:global(.dark) .listSpecBadge strong {
+  color: var(--white) !important;
+}
+
+/* Quick View Modal (Level 3 Popovers & Modals) */
+:global([data-theme="dark"]) .modalOverlay,
+:global(.dark) .modalOverlay {
+  background: rgba(0, 0, 0, 0.75) !important;
+  backdrop-filter: blur(6px) !important;
+}
+
+:global([data-theme="dark"]) .modalCard,
+:global(.dark) .modalCard,
+:root[data-theme="dark"] [class*="modalCard"],
+html.dark [class*="modalCard"] {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.12)) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .modalCloseBtn,
+:global(.dark) .modalCloseBtn,
+:root[data-theme="dark"] .modalCloseBtn,
+html.dark .modalCloseBtn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--white) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+:global([data-theme="dark"]) .modalCloseBtn:hover,
+:global(.dark) .modalCloseBtn:hover,
+:root[data-theme="dark"] .modalCloseBtn:hover,
+html.dark .modalCloseBtn:hover {
+  background: rgba(95, 191, 80, 0.2) !important;
+  color: var(--brand-500) !important;
+  border-color: rgba(95, 191, 80, 0.4) !important;
+}
+
+:global([data-theme="dark"]) .modalTitle,
+:global(.dark) .modalTitle {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .modalDescription,
+:global(.dark) .modalDescription {
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .modalSpecsGrid,
+:global(.dark) .modalSpecsGrid,
+:root[data-theme="dark"] .modalSpecsGrid,
+html.dark .modalSpecsGrid {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+:global([data-theme="dark"]) .modalSpecCell,
+:global(.dark) .modalSpecCell,
+:root[data-theme="dark"] .modalSpecCell,
+html.dark .modalSpecCell {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+:global([data-theme="dark"]) .modalSpecLabel,
+:global(.dark) .modalSpecLabel {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .modalSpecValue,
+:global(.dark) .modalSpecValue {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .modalDetailsBtn,
+:global(.dark) .modalDetailsBtn,
+:root[data-theme="dark"] .modalDetailsBtn,
+html.dark .modalDetailsBtn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--white) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+:global([data-theme="dark"]) .modalDetailsBtn:hover,
+:global(.dark) .modalDetailsBtn:hover,
+:root[data-theme="dark"] .modalDetailsBtn:hover,
+html.dark .modalDetailsBtn:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: var(--white) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+:global([data-theme="dark"]) .highlightItem,
+:global(.dark) .highlightItem {
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+/* Procurement Cards */
+:global([data-theme="dark"]) .procurementSection,
+:global(.dark) .procurementSection {
+  background: var(--bg-canvas, var(--neutral-950)) !important;
+}
+
+:global([data-theme="dark"]) .procurementCard,
+:global(.dark) .procurementCard {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.12)) !important;
+}
+
+:global([data-theme="dark"]) .procurementCard:hover,
+:global(.dark) .procurementCard:hover {
+  border-color: rgba(107, 191, 84, 0.4) !important;
+  box-shadow: 0 20px 40px -4px rgba(0, 0, 0, 0.5), 0 0 20px -2px rgba(107, 191, 84, 0.15) !important;
+}
+
+:global([data-theme="dark"]) .procurementIcon,
+:global(.dark) .procurementIcon {
+  background: rgba(107, 191, 84, 0.1) !important;
+  border-color: rgba(107, 191, 84, 0.25) !important;
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .procurementCard h3,
+:global(.dark) .procurementCard h3 {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .procurementCard p,
+:global(.dark) .procurementCard p {
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+/* Custom Select Dropdowns in Dark Mode */
+:global([data-theme="dark"]) .customSelectTrigger,
+:global(.dark) .customSelectTrigger {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.12)) !important;
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .customSelectTrigger:hover,
+:global(.dark) .customSelectTrigger:hover {
+  border-color: var(--accent, var(--brand-500)) !important;
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  box-shadow: 0 0 0 3px rgba(107, 191, 84, 0.2) !important;
+}
+
+:global([data-theme="dark"]) .customSelectDropdown,
+:global(.dark) .customSelectDropdown {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.12)) !important;
+  color: var(--white) !important;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .customSelectOption,
+:global(.dark) .customSelectOption {
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .customSelectOption:hover,
+:global(.dark) .customSelectOption:hover {
+  background: rgba(107, 191, 84, 0.15) !important;
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .customSelectOptionActive,
+:global(.dark) .customSelectOptionActive {
+  background: rgba(107, 191, 84, 0.25) !important;
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+/* ─── Products Catalog Hero Header Dark Mode Overrides ─── */
+:global([data-theme="dark"]) .productsHero,
+:global(.dark) .productsHero,
+:root[data-theme="dark"] [class*="productsHero"],
+html.dark [class*="productsHero"] {
+  background: var(--bg-canvas, var(--neutral-950)) !important;
+  border-bottom: 4px solid var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .heroBgPattern,
+:global(.dark) .heroBgPattern {
+  background: radial-gradient(ellipse 65% 85% at 85% 40%, rgba(107, 191, 84, 0.12) 0%, transparent 70%),
+              radial-gradient(ellipse 40% 50% at 10% 90%, rgba(2, 35, 64, 0.8) 0%, transparent 60%) !important;
+}
+
+:global([data-theme="dark"]) .heroBreadcrumb,
+:global(.dark) .heroBreadcrumb {
+  color: rgba(242, 242, 242, 0.7) !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+:global([data-theme="dark"]) .heroBreadcrumb a,
+:global(.dark) .heroBreadcrumb a {
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .heroBreadcrumb a:hover,
+:global(.dark) .heroBreadcrumb a:hover {
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .heroTitle,
+:global(.dark) .heroTitle {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .heroTitleAccent,
+:global(.dark) .heroTitleAccent {
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .heroDescription,
+:global(.dark) .heroDescription {
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .heroStatsCol,
+:global(.dark) .heroStatsCol {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.12)) !important;
+}
+
+:global([data-theme="dark"]) .statIconWrapper,
+:global(.dark) .statIconWrapper {
+  background: rgba(107, 191, 84, 0.16) !important;
+  border-color: rgba(107, 191, 84, 0.3) !important;
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .statVal,
+:global(.dark) .statVal {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .statLabel,
+:global(.dark) .statLabel {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .searchClearBtn,
+:global(.dark) .searchClearBtn {
+  background: rgba(242, 242, 242, 0.08) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.15)) !important;
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .searchClearBtn:hover,
+:global(.dark) .searchClearBtn:hover {
+  color: var(--accent, var(--brand-500)) !important;
+  background: rgba(107, 191, 84, 0.18) !important;
+  border-color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .emptyState,
+:global(.dark) .emptyState,
+:root[data-theme="dark"] [class*="emptyState"],
+html.dark [class*="emptyState"] {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.1)) !important;
+}
+
+:global([data-theme="dark"]) .emptyState h3,
+:global(.dark) .emptyState h3 {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .emptyState p,
+:global(.dark) .emptyState p {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .emptyIconCircle,
+:global(.dark) .emptyIconCircle {
+  background: rgba(242, 242, 242, 0.05) !important;
+  color: rgba(242, 242, 242, 0.5) !important;
+}
+
+:global([data-theme="dark"]) .emptyResetBtn,
+:global(.dark) .emptyResetBtn,
+:root[data-theme="dark"] .emptyResetBtn,
+html.dark .emptyResetBtn {
+  background: var(--brand-500) !important;
+  color: var(--neutral-950) !important;
+  border: none !important;
+}
+
+:global([data-theme="dark"]) .emptyResetBtn *,
+:global(.dark) .emptyResetBtn *,
+:root[data-theme="dark"] .emptyResetBtn *,
+html.dark .emptyResetBtn * {
+  color: var(--neutral-950) !important;
+}
+
+:global([data-theme="dark"]) .emptyResetBtn:hover,
+:global(.dark) .emptyResetBtn:hover,
+:root[data-theme="dark"] .emptyResetBtn:hover,
+html.dark .emptyResetBtn:hover {
+  background: var(--brand-500) !important;
+  color: var(--neutral-950) !important;
+}

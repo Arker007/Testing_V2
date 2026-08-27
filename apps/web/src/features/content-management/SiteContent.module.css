@@ -15,7 +15,7 @@
 /* Left Panel: Section Tree Map navigation */
 .outlinePanel {
   flex: 0 0 280px;
-  background: var(--white);
+  background: var(--surface-card);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   padding: 16px;
@@ -124,7 +124,7 @@
 /* Right Panel: Focused Form Editor Sheet */
 .editorPanel {
   flex: 1;
-  background: var(--white);
+  background: var(--surface-card);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   padding: 28px;

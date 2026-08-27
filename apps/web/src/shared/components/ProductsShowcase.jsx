@@ -4,7 +4,7 @@ import { motion as Motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import OptimizedImage from "./OptimizedImage";
 import { useProducts } from "../hooks/useProducts";
-import { getImg } from "../../features/products/productUtils";
+import { getImg } from "../utils/productUtils";
 
 const DEFAULT_SPECIFICATIONS = [
   { title: "Waterproof", icon: "solar:waterdrops-linear" },
@@ -71,14 +71,14 @@ const renderFeatureIcon = (iconName, title = "") => {
 
   if (name.includes("drop") || name.includes("water") || titleLower.includes("water")) {
     return (
-      <svg className="w-3.5 h-3.5 text-[#6BBF54] shrink-0 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
       </svg>
     );
   }
   if (name.includes("sun") || name.includes("uv") || titleLower.includes("uv") || titleLower.includes("sun")) {
     return (
-      <svg className="w-3.5 h-3.5 text-[#6BBF54] shrink-0 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="4" />
         <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
       </svg>
@@ -86,7 +86,7 @@ const renderFeatureIcon = (iconName, title = "") => {
   }
   if (name.includes("shield") || name.includes("termite") || name.includes("check") || titleLower.includes("termite") || titleLower.includes("shield")) {
     return (
-      <svg className="w-3.5 h-3.5 text-[#6BBF54] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
         <path d="m9 12 2 2 4-4" />
       </svg>
@@ -94,13 +94,13 @@ const renderFeatureIcon = (iconName, title = "") => {
   }
   if (name.includes("wrench") || name.includes("maintenance") || name.includes("tool") || titleLower.includes("maintenance")) {
     return (
-      <svg className="w-3.5 h-3.5 text-[#6BBF54] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
       </svg>
     );
   }
 
-  return <Icon icon={iconName || "solar:check-circle-linear"} className="w-3.5 h-3.5 text-[#6BBF54] shrink-0" />;
+  return <Icon icon={iconName || "solar:check-circle-linear"} className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />;
 };
 
 const getCardFeatures = (prod) => {
@@ -150,23 +150,29 @@ const containerVariants = {
 };
 
 const cardVariant = {
-  hidden: { opacity: 0, y: 25, scale: 0.98 },
+  hidden: { 
+    opacity: 0, 
+    y: 20,
+    borderColor: "var(--border-card)"
+  },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
+    borderColor: "var(--border-card)",
     transition: {
-      duration: 0.5,
-      ease: [0.16, 1, 0.3, 1],
+      duration: 0.4,
+      ease: [0.25, 1, 0.5, 1],
     },
   },
   hover: {
     y: -6,
-    scale: 1.01,
+    scale: 1.015,
+    borderColor: "rgba(95, 191, 80, 0.4)",
+    boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(95, 191, 80, 0.2)",
     transition: {
       type: "spring",
-      stiffness: 320,
-      damping: 22,
+      stiffness: 400,
+      damping: 25,
     },
   },
 };
@@ -231,7 +237,7 @@ export default function ProductsShowcase() {
           variants={cardVariant}
           whileHover="hover"
           onClick={() => handleCardClick(featuredProduct)}
-          className="group relative lg:col-span-2 lg:row-span-2 min-h-[460px] lg:min-h-[520px] w-full rounded-lg overflow-hidden border border-slate-700/40 dark:border-white/15 flex flex-col justify-between p-5 sm:p-7 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 bg-slate-950"
+          className="group relative lg:col-span-2 lg:row-span-2 min-h-[460px] lg:min-h-[520px] w-full rounded-lg overflow-hidden border border-[var(--border-card)] flex flex-col justify-between p-5 sm:p-7 cursor-pointer shadow-lg bg-slate-950"
         >
           {/* Full Container Background Image */}
           <div className="absolute inset-0 z-0 bg-slate-950 pointer-events-none overflow-hidden">
@@ -239,7 +245,7 @@ export default function ProductsShowcase() {
               src={getImgUrl(featuredProduct, 0)}
               fallbackSrc={DEFAULT_BENTO_PRODUCTS[0].fallback_image}
               alt={featuredProduct.name}
-              className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
             />
             {/* Seamless gradient overlay directly on image */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/10 pointer-events-none" />
@@ -297,7 +303,7 @@ export default function ProductsShowcase() {
                       key={idx}
                       whileHover={{ scale: 1.05, y: -2 }}
                       transition={{ duration: 0.2 }}
-                      className="flex items-center gap-1.5 bg-black/55 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 shadow-xs"
+                      className="flex items-center gap-1.5 bg-black/55 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 shadow-xs text-[var(--brand-primary)]"
                     >
                       {renderFeatureIcon(iconName, feat.title)}
                       <span className="text-[#E7EBE8] text-[11px] sm:text-xs font-semibold">{feat.title}</span>
@@ -336,7 +342,7 @@ export default function ProductsShowcase() {
               variants={cardVariant}
               whileHover="hover"
               onClick={() => handleCardClick(prod)}
-              className="group relative aspect-square w-full rounded-lg overflow-hidden border border-slate-700/40 dark:border-white/15 flex flex-col justify-between p-4 sm:p-5 cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 bg-slate-950"
+              className="group relative aspect-square w-full rounded-lg overflow-hidden border border-[var(--border-card)] flex flex-col justify-between p-4 sm:p-5 cursor-pointer shadow-md bg-slate-950"
             >
               {/* Full Container Background Image */}
               <div className="absolute inset-0 z-0 bg-slate-950 pointer-events-none overflow-hidden">
@@ -344,7 +350,7 @@ export default function ProductsShowcase() {
                   src={img}
                   fallbackSrc={DEFAULT_BENTO_PRODUCTS[idx + 1]?.fallback_image}
                   alt={title}
-                  className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
                 {/* Smooth gradient overlay directly on bottom 45% */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
@@ -400,7 +406,7 @@ export default function ProductsShowcase() {
               variants={cardVariant}
               whileHover="hover"
               onClick={() => handleCardClick(prod)}
-              className="group relative aspect-square w-full rounded-lg overflow-hidden border border-slate-700/40 dark:border-white/15 flex flex-col justify-between p-4 sm:p-5 cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 bg-slate-950"
+              className="group relative aspect-square w-full rounded-lg overflow-hidden border border-[var(--border-card)] flex flex-col justify-between p-4 sm:p-5 cursor-pointer shadow-md bg-slate-950"
             >
               {/* Full Container Background Image */}
               <div className="absolute inset-0 z-0 bg-slate-950 pointer-events-none overflow-hidden">
@@ -408,7 +414,7 @@ export default function ProductsShowcase() {
                   src={img}
                   fallbackSrc={DEFAULT_BENTO_PRODUCTS[idx + 3]?.fallback_image}
                   alt={title}
-                  className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
                 {/* Smooth gradient overlay directly on bottom 45% */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />

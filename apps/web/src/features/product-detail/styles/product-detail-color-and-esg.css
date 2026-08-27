@@ -1,0 +1,203 @@
+
+.discountBadge {
+  background: var(--danger-bg);
+  color: var(--color-danger-dark);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Key B2B Parameters Matrix */
+.b2bMatrix {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  background: var(--neutral-100);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.b2bMatrixItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.b2bMatrixItem i {
+  font-size: 1.1rem;
+  color: var(--brand);
+  width: 24px;
+  text-align: center;
+}
+
+.matrixLabel {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.matrixVal {
+  font-size: 0.85rem;
+  color: var(--navy, var(--neutral-950));
+  font-weight: 800;
+  display: block;
+}
+
+/* Options Section */
+.optionsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.optionRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.optionLabel {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--neutral-500);
+  letter-spacing: 0.08em;
+}
+
+.selectField {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1.5px solid rgba(11, 47, 99, 0.15);
+  border-radius: 8px;
+  padding: 0.75rem 1.15rem;
+  padding-right: 2.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  outline: none;
+  background: var(--bg-card, var(--white));
+  color: var(--navy, var(--neutral-950));
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.selectField:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(63, 174, 90, 0.15);
+}
+
+.selectField:focus + .selectIcon {
+  transform: translateY(-50%) rotate(180deg);
+  color: var(--brand);
+}
+
+.colorSwatches {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.colorTag {
+  padding: 0.5rem 1.15rem;
+  border: 1.5px solid rgba(11, 47, 99, 0.12);
+  border-radius: 8px;
+  background: var(--bg-card, var(--white));
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--navy, var(--neutral-950));
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.colorTag:hover {
+  border-color: var(--brand-400);
+  background: rgba(152, 209, 42, 0.05);
+}
+
+.colorTagActive {
+  border-color: var(--brand-400) !important;
+  background: var(--brand-400) !important;
+  color: var(--navy, var(--neutral-950)) !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 12px rgba(152, 209, 42, 0.2);
+}
+
+/* ── B2B ESG Estimator Card ── */
+.esgEstimatorCard {
+  background: var(--neutral-100);
+  border: 1.5px dashed rgba(152, 209, 42, 0.4);
+  border-radius: 12px;
+  padding: 1.15rem;
+  margin-bottom: 1.25rem;
+}
+
+.esgHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.esgHeaderIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(152, 209, 42, 0.18);
+  color: var(--brand-600);
+  display: grid;
+  place-items: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.esgTitle {
+  font-family: var(--font-display, inherit);
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--navy, var(--neutral-950));
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.esgSubtitle {
+  font-size: 0.725rem;
+  color: var(--text-secondary);
+  margin: 2px 0 0 0;
+  font-weight: 500;
+}
+
+.esgInputRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(5, 40, 63, 0.06);
+  margin-bottom: 0.75rem;
+}
+
+.esgInputLabel {
+  font-size: 0.785rem;
+  font-weight: 700;
+  color: var(--navy, var(--neutral-950));
+}
+
+.esgQuantityControls {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-card, var(--white));
+  height: 32px;
+  padding-inline: 4px;
+}

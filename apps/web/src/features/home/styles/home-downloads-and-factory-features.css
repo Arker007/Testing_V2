@@ -1,0 +1,170 @@
+
+.metricLabel {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.15rem;
+}
+
+.factoryRight {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.factoryFeature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.factoryFeature:hover {
+  transform: translateX(4px);
+  border-color: rgba(63, 174, 90, 0.3);
+}
+
+.featureIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(63, 174, 90, 0.12);
+  color: var(--brand);
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.featureText {
+  display: flex;
+  flex-direction: column;
+}
+
+.featureTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.featureDesc {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+}
+
+/* ── 15. Download Center ── */
+.downloadSection {
+  background: var(--bg-light);
+  padding: 5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.downloadGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.downloadCard {
+  background: var(--bg-card, var(--white));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.downloadCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand);
+  box-shadow: var(--shadow-lg);
+}
+
+.dlIconBox {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(63, 174, 90, 0.1);
+  color: var(--brand);
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.downloadCard:hover .dlIconBox {
+  background: var(--brand);
+  color: var(--dark);
+  transform: scale(1.08);
+}
+
+.dlTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.dlDesc {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.dlBadge {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+  letter-spacing: 0.08em;
+  background: rgba(152, 209, 42, 0.1);
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+}
+
+/* ── Responsive adjustments ── */
+@media (max-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    text-align: center;
+  }
+
+  .heroLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroDescription {
+    margin-inline: auto;
+  }
+
+  .heroActions {
+    justify-content: center;
+  }
+
+  .trustBadges {
+    justify-content: center;
+  }
+
+  .heroRight {
+    margin-top: 1rem;
+  }
+
+  .whyGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

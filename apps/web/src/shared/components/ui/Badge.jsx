@@ -29,19 +29,19 @@ export default function Badge({
   };
 
   const baseClasses =
-    "inline-flex items-center font-bold tracking-wider uppercase rounded-[var(--radius-badge,6px)] transition-colors select-none";
+    "inline-flex items-center font-bold tracking-wider uppercase rounded-[var(--radius-badge)] transition-colors select-none";
 
   const variantClasses = {
     eyebrow:
       "section-eyebrow",
     brand:
-      "bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)] font-bold",
+      "bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] font-bold",
     status:
-      "bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)] font-bold",
+      "bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] font-bold",
     outline:
-      "bg-transparent text-[var(--text-primary)] border border-[var(--border-card)] font-bold",
+      "bg-transparent text-[var(--text-primary)] border border-[var(--border-default)] font-bold",
     subtle:
-      "bg-[var(--surface-subtle)] text-[var(--text-primary)] border border-[var(--border-subtle)] font-bold",
+      "bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] border border-[var(--border-subtle)] font-bold",
   };
 
   const selectedSizeClass = variant === "eyebrow" ? "" : (sizeClasses[size] || sizeClasses.md);

@@ -115,7 +115,7 @@
 .formWrap {
   width: 100%;
   max-width: 400px;
-  background: var(--white);
+  background: var(--surface-card);
   padding: 40px;
   border-radius: 8px;
   border: 1px solid var(--gray-200);

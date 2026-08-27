@@ -2,7 +2,7 @@ import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
-import styles from "../../pages/Contact.module.css";
+import styles from "./contact.module.css";
 
 export const ContactInfoItem = React.memo(function ContactInfoItem({
   icon: IconComponent,
@@ -63,3 +63,5 @@ export const ContactInfoItem = React.memo(function ContactInfoItem({
     </div>
   );
 });
+
+export default ContactInfoItem;

@@ -23,7 +23,7 @@
 }
 
 .card {
-  background: var(--white);
+  background: var(--surface-card);
   border: 1px solid var(--gray-200);
   border-radius: 16px;
   overflow: hidden;
@@ -118,7 +118,7 @@
 
 .folderTree {
   flex: 0 0 240px;
-  background: var(--white);
+  background: var(--surface-card);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   padding: 16px;

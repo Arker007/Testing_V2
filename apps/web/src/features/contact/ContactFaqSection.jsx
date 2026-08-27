@@ -6,7 +6,7 @@ import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 import Card from "../../shared/components/ui/Card";
 import Badge from "../../shared/components/ui/Badge";
-import styles from "../../pages/Contact.module.css";
+import styles from "./contact.module.css";
 import { FAQ_ITEMS } from "./contact.constants";
 
 const ToggleIcon = ({ isOpen }) => (
@@ -139,11 +139,11 @@ export default function ContactFaqSection() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12 cta-section">
           <Card
             variant="elevated"
-            className="p-8 sm:p-12 text-slate-900 dark:text-white shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[#171E26] border border-slate-200/90 dark:border-white/10 rounded-2xl"
+            className="p-8 sm:p-12 text-[var(--text-primary)] shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[var(--bg-surface)] border border-slate-200/90 dark:border-[var(--border-subtle)] rounded-card"
           >
             {/* Ambient radial glow blobs */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--brand)]/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--brand-primary)]/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
 
             <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div>
@@ -152,10 +152,10 @@ export default function ContactFaqSection() {
                     Direct Connect
                   </Badge>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight">
                   Need Urgent Price Quotes or Product Advice?
                 </h2>
-                <p className="text-slate-600 dark:text-slate-300 text-sm mt-2 max-w-xl font-medium leading-relaxed">
+                <p className="text-[var(--text-secondary)] text-sm mt-2 max-w-xl font-medium leading-relaxed">
                   Talk directly with our factory sales desk on WhatsApp or explore our full industrial product catalog.
                 </p>
               </div>
@@ -172,7 +172,7 @@ export default function ContactFaqSection() {
                 </a>
                 <Link
                   to="/products"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl border border-slate-200/90 dark:border-white/15 bg-slate-100/80 dark:bg-white/5 hover:bg-slate-200/80 dark:hover:bg-white/10 text-slate-800 dark:text-slate-200 font-bold text-sm transition-colors shadow-2xs"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl border border-slate-200/90 dark:border-[var(--border-subtle)] bg-slate-100/80 dark:bg-white/5 hover:bg-slate-200/80 dark:hover:bg-white/10 text-slate-800 dark:text-slate-200 font-bold text-sm transition-colors shadow-2xs"
                 >
                   <AnimatedCatalogIcon />
                   <span>Explore Catalog</span>

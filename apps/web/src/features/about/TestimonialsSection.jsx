@@ -19,7 +19,7 @@ export default function TestimonialsSection() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <Card variant="elevated" className="p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+      <Card variant="elevated" className="p-8 sm:p-12 lg:p-16 relative overflow-hidden border border-slate-200 dark:border-subtle">
         {/* Background accent icon */}
         <div className="absolute -bottom-10 -right-10 opacity-5 pointer-events-none text-slate-900 dark:text-white">
           <Icon icon="solar:restart-circle-linear" className="w-96 h-96" />
@@ -27,12 +27,12 @@ export default function TestimonialsSection() {
 
         <div className="max-w-3xl relative z-10">
           <div className="mb-4">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#5FBF50]/10 dark:bg-[#5FBF50]/8 border border-[#5FBF50]/30 dark:border-[#5FBF50]/40 rounded-full text-[#54b862] dark:text-[#5FBF50] font-bold text-xs tracking-wider uppercase shadow-xs">
-              <Icon icon="solar:chat-round-line-linear" className="w-4 h-4" />
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[var(--brand-soft)] border border-[var(--brand-border)] rounded-pill text-[var(--text-brand)] font-bold text-xs tracking-wider uppercase shadow-xs">
+              <Icon icon="solar:chat-round-line-linear" className="w-4 h-4 text-[var(--text-brand)]" />
               <span>Client Feedback</span>
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight mb-8">
+          <h2 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight mb-8">
             Trusted by Procurement & Logistics Leaders
           </h2>
 
@@ -54,7 +54,7 @@ export default function TestimonialsSection() {
                   <img
                     src={testimonials[currentSlide].avatar}
                     alt={testimonials[currentSlide].author}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-[#5FBF50] shadow-sm"
+                    className="w-12 h-12 rounded-avatar object-cover border-2 border-[var(--brand-primary)] shadow-sm"
                     referrerPolicy="no-referrer"
                   />
                   <div>
@@ -75,7 +75,7 @@ export default function TestimonialsSection() {
             <button
               onClick={prevSlide}
               aria-label="Previous testimonial"
-              className="w-10 h-10 rounded-lg border border-slate-200 dark:border-white/15 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 flex items-center justify-center transition-colors shadow-xs active:scale-95"
+              className="w-10 h-10 rounded-btn border border-slate-200 dark:border-subtle bg-white dark:bg-surface-secondary hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center transition-colors shadow-xs active:scale-95 cursor-pointer"
             >
               <Icon icon="solar:arrow-left-linear" className="w-4 h-4" />
             </button>
@@ -85,7 +85,7 @@ export default function TestimonialsSection() {
             <button
               onClick={nextSlide}
               aria-label="Next testimonial"
-              className="w-10 h-10 rounded-lg border border-slate-200 dark:border-white/15 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 flex items-center justify-center transition-colors shadow-xs active:scale-95"
+              className="w-10 h-10 rounded-btn border border-slate-200 dark:border-subtle bg-white dark:bg-surface-secondary hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-white flex items-center justify-center transition-colors shadow-xs active:scale-95 cursor-pointer"
             >
               <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
             </button>

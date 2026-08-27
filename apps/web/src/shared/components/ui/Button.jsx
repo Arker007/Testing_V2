@@ -34,9 +34,9 @@ export default function Button({
   ...props
 }) {
   const sizeClasses = {
-    sm: "px-3.5 py-1.5 text-xs rounded-[var(--radius-btn,8px)] gap-1.5 font-semibold",
-    md: "px-5 py-2.5 text-sm rounded-[var(--radius-btn,8px)] gap-2 font-semibold",
-    lg: "px-6 py-3 text-base rounded-[var(--radius-btn,8px)] gap-2.5 font-semibold",
+    sm: "px-3.5 py-1.5 text-xs rounded-[var(--radius-btn)] gap-1.5 font-semibold",
+    md: "px-5 py-2.5 text-sm rounded-[var(--radius-btn)] gap-2 font-semibold",
+    lg: "px-6 py-3 text-base rounded-[var(--radius-btn)] gap-2.5 font-semibold",
   };
 
   const baseClasses =
@@ -44,17 +44,17 @@ export default function Button({
 
   const variantClasses = {
     primary:
-      "bg-[var(--brand)] text-[var(--text-primary)] hover:bg-[var(--brand-hover)] active:bg-[var(--brand-dark)] shadow-sm border-0",
+      "bg-[var(--brand-primary)] text-[var(--brand-btn-text)] hover:bg-[var(--brand-hover)] active:bg-[var(--brand-active)] shadow-[var(--shadow-sm)] border-0",
     secondary:
-      "bg-[var(--navy)] text-white hover:bg-[var(--navy-dark)] active:bg-[var(--navy-darker)] shadow-sm border-0",
+      "bg-[var(--navy)] text-[var(--text-inverse)] hover:bg-[var(--navy-hover)] active:bg-[var(--navy-active)] shadow-[var(--shadow-sm)] border-0",
     outline:
-      "bg-transparent border border-[var(--border-card)] text-[var(--text-primary)] hover:border-[var(--brand)] hover:text-[var(--brand-text)] active:scale-98",
+      "bg-transparent border border-[var(--border-default)] text-[var(--text-primary)] hover:border-[var(--brand-primary)] hover:text-[var(--text-brand)] active:scale-98",
     ghost:
-      "bg-transparent text-[var(--text-primary)] hover:bg-[var(--surface-hover)] hover:text-[var(--brand-text)] border-0",
+      "bg-transparent text-[var(--text-primary)] hover:bg-[var(--bg-surface-secondary)] hover:text-[var(--text-brand)] border-0",
     swipe:
-      "bg-[var(--brand)] text-[var(--text-primary)] hover:bg-[var(--brand-hover)] shadow-sm",
+      "bg-[var(--brand-primary)] text-[var(--brand-btn-text)] hover:bg-[var(--brand-hover)] shadow-[var(--shadow-sm)]",
     explore:
-      "bg-[var(--navy)] text-white hover:bg-[var(--navy-dark)] shadow-sm",
+      "bg-[var(--navy)] text-[var(--text-inverse)] hover:bg-[var(--navy-hover)] shadow-[var(--shadow-sm)]",
   };
 
   const selectedSizeClass = sizeClasses[size] || sizeClasses.md;

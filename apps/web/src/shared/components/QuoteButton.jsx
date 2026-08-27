@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import { motion as Motion } from "framer-motion";
 
 export default function QuoteButton({
   to = "/contact?quote=1",
@@ -24,33 +25,43 @@ export default function QuoteButton({
 
   if (type === "button") {
     return (
-      <button
+      <Motion.button
         type="button"
         onClick={onClick}
         className={combinedClasses}
         style={style}
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
       >
         {content}
-      </button>
+      </Motion.button>
     );
   }
 
   if (type === "a" || href) {
     return (
-      <a
+      <Motion.a
         href={href || to}
         onClick={onClick}
         className={combinedClasses}
         style={style}
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
       >
         {content}
-      </a>
+      </Motion.a>
     );
   }
 
   return (
-    <Link to={to} onClick={onClick} className={combinedClasses} style={style}>
-      {content}
-    </Link>
+    <Motion.div
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      className="inline-block"
+    >
+      <Link to={to} onClick={onClick} className={combinedClasses} style={style}>
+        {content}
+      </Link>
+    </Motion.div>
   );
 }

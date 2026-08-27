@@ -40,7 +40,7 @@ export default function SectionHeader({
       {title && (
         <h2
           className={`text-2xl sm:text-3.5xl md:text-4xl font-extrabold tracking-tight leading-tight mb-3 ${
-            light ? "text-white" : "text-slate-900 dark:text-white"
+            light ? "text-[var(--white)]" : "text-[var(--text-primary)]"
           }`}
         >
           {title}
@@ -50,7 +50,7 @@ export default function SectionHeader({
       {subtitle && (
         <p
           className={`text-sm sm:text-base leading-relaxed font-normal ${
-            light ? "text-slate-200" : "text-slate-600 dark:text-slate-300"
+            light ? "text-[var(--neutral-200)]" : "text-[var(--text-secondary)]"
           }`}
         >
           {subtitle}

@@ -13,7 +13,7 @@
 /* Sidebar Controls */
 .controlsSidebar {
   width: 320px;
-  background: var(--white);
+  background: var(--surface-card);
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -79,7 +79,7 @@
   border: 1px solid var(--border-strong);
   font-size: 0.875rem;
   outline: none;
-  background: var(--white);
+  background: var(--surface-card);
   color: var(--text-primary);
 }
 
@@ -133,7 +133,7 @@
 
 .toolbar {
   height: 56px;
-  background: var(--white);
+  background: var(--surface-card);
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -159,7 +159,7 @@
   padding: 0.5rem 1rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-strong);
-  background: var(--white);
+  background: var(--surface-card);
   color: var(--text-primary);
   font-size: 0.8125rem;
   font-weight: 700;
@@ -237,7 +237,7 @@
 .catalog {
   width: 1684px;
   height: 1191px;
-  background: var(--white);
+  background: var(--surface-card);
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -250,7 +250,7 @@
 
 .page {
   position: relative;
-  background: var(--white);
+  background: var(--surface-card);
   height: 100%;
 }
 
@@ -558,7 +558,7 @@
   height: 1191px;
   position: relative;
   box-shadow: 0 30px 70px var(--shadow-md);
-  background: var(--white);
+  background: var(--surface-card);
 }
 
 .templateImage {
@@ -782,7 +782,7 @@
 
 .indexRowEven {
   composes: indexRow;
-  background: var(--white);
+  background: var(--surface-card);
 }
 
 .indexRowOdd {
@@ -882,7 +882,7 @@
 }
 
 .userGuideIcons i {
-  background: var(--white);
+  background: var(--surface-card);
   width: 24px;
   height: 24px;
   border-radius: 50%;

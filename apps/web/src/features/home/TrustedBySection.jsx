@@ -1,6 +1,6 @@
 import React from "react";
 import { useSite } from "../../shared/context/SiteContext";
-import styles from "../../pages/Home.module.css";
+import styles from "./home.module.css";
 
 function CatLogo() {
   return (

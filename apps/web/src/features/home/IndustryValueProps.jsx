@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import styles from "../../pages/Home.module.css";
+import styles from "./home.module.css";
 
 export default function IndustryValueProps() {
   return (

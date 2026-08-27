@@ -1,149 +1,6 @@
-/* ─── Utility & Layout ───────────────────────────────────────── */
-.container {
-  width: min(100% - 32px, var(--container-xl, 1280px));
-  margin-inline: auto;
-}
-
-@media (min-width: 1024px) {
-  .container {
-    width: min(100% - 64px, var(--container-xl, 1280px));
-  }
-}
-
-.section {
-  padding: var(--section-py, 4rem) 0;
-  scroll-margin-top: var(--nav-h, 72px);
-  position: relative;
-}
-
-.section--dark {
-  background: var(--navy);
-  color: var(--white);
-}
-
-.section--light {
-  background: var(--bg-section);
-}
-
-.section--brand {
-  background: var(--navy);
-  color: var(--white);
-}
-
-.section-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--brand-text);
-  background-color: var(--brand-soft);
-  border: 1px solid var(--brand-border);
-  padding: 0.375rem 1rem;
-  border-radius: var(--radius-badge, 8px);
-  margin-bottom: 1rem;
-  line-height: 1;
-  width: fit-content;
-}
-
-.section-eyebrow::before {
-  content: "";
-  display: inline-block;
-  width: 0.375rem;
-  height: 0.375rem;
-  border-radius: 50%;
-  background-color: var(--brand);
-}
-
-/* Visibility on dark/hero backgrounds or dark mode */
-[class*="hero"] .section-eyebrow,
-[class*="Hero"] .section-eyebrow,
-.section--brand .section-eyebrow,
-[class*="dark"] .section-eyebrow,
-:root[data-theme="dark"] .section-eyebrow,
-[class*="cta"] .section-eyebrow,
-[class*="workflow"] .section-eyebrow,
-[class*="Workflow"] .section-eyebrow {
-  color: #72D682 !important;
-  background-color: rgba(114, 214, 130, 0.15) !important;
-  border-color: rgba(114, 214, 130, 0.3) !important;
-}
-
-[class*="hero"] .section-eyebrow::before,
-[class*="Hero"] .section-eyebrow::before,
-.section--brand .section-eyebrow::before,
-[class*="dark"] .section-eyebrow::before,
-:root[data-theme="dark"] .section-eyebrow::before,
-[class*="cta"] .section-eyebrow::before,
-[class*="workflow"] .section-eyebrow::before,
-[class*="Workflow"] .section-eyebrow::before {
-  background-color: #72D682 !important;
-}
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 4.5vw, 52px);
-  font-weight: 700;
-  color: var(--heading);
-  letter-spacing: var(--tracking-heading, -0.035em);
-  line-height: 1.08;
-}
-
-.section-title--light {
-  color: var(--white);
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-.section-desc,
-.section-subtitle {
-  font-size: 1.0625rem;
-  color: var(--text-secondary);
-  margin-top: 0.875rem;
-  max-width: 680px;
-  margin-inline: auto;
-  line-height: 1.5;
-}
-
-.section-desc--light {
-  color: var(--text-inverse-secondary);
-}
-
-/* Grid System */
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-}
-
-.grid-auto {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.grid-auto-sm {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
+/* ==========================================================================
+   BUTTONS & FORM CONTROLS
+   ========================================================================== */
 
 /* ─── Buttons ────────────────────────────────────────────── */
 .btn,
@@ -171,7 +28,7 @@ input[type="reset"] {
   isolation: isolate;
 }
 
-/* Restrained Arrow Animation in Standard Buttons */
+/* Arrow Animation in Standard Buttons */
 .btn i,
 a.btn i,
 button.btn i,
@@ -182,4 +39,374 @@ button.btn svg:not(.btn-arrow-icon) {
   vertical-align: middle;
   transition: transform var(--motion-fast) var(--ease-standard), stroke var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard);
   pointer-events: none;
+}
+
+/* Forward Arrow Slide on Hover */
+.btn:hover i,
+a.btn:hover i,
+button.btn:hover i,
+.btn:hover svg,
+a.btn:hover svg,
+button.btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Left Arrow Slide Backward on Hover */
+.btn:hover i.fa-arrow-left,
+.btn:hover i.fa-chevron-left,
+a.btn:hover i.fa-arrow-left,
+a.btn:hover i.fa-chevron-left,
+button.btn:hover i.fa-arrow-left,
+button.btn:hover i.fa-chevron-left {
+  transform: translateX(-3px);
+}
+
+/* Primary CTA Button */
+.btn-primary,
+.btn--primary,
+.btn-shared-brand {
+  background-color: var(--brand-primary);
+  color: var(--brand-btn-text);
+  border: 1px solid var(--brand-primary);
+  border-radius: var(--radius-btn);
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--motion-fast) var(--ease-standard);
+}
+
+.btn-primary *,
+.btn--primary *,
+.btn-shared-brand * {
+  color: var(--brand-btn-text);
+}
+
+.btn-primary svg,
+.btn--primary svg,
+.btn-shared-brand svg {
+  stroke: var(--brand-btn-text);
+  color: var(--brand-btn-text);
+}
+
+.btn-primary:hover,
+.btn--primary:hover,
+.btn-shared-brand:hover:not(:disabled) {
+  background-color: var(--brand-hover);
+  color: var(--brand-btn-text);
+  border-color: var(--brand-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active,
+.btn--primary:active {
+  background-color: var(--brand-active);
+  color: var(--brand-btn-text);
+  transform: translateY(0);
+}
+
+/* Secondary CTA Button */
+.btn-secondary,
+.btn--secondary,
+.btn-shared-navy {
+  background-color: var(--text-primary);
+  color: var(--text-inverse);
+  border: 1px solid var(--navy);
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--motion-fast) var(--ease-standard);
+}
+
+.btn-secondary:hover,
+.btn--secondary:hover,
+.btn-shared-navy:hover:not(:disabled) {
+  background-color: var(--navy-hover);
+  border-color: var(--navy-hover);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+/* Outline Button */
+.btn-outline,
+.btn--outline {
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+}
+
+.btn-outline:hover,
+.btn--outline:hover {
+  background-color: var(--bg-surface-secondary);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+/* Outline Light Button */
+.btn-outline-light,
+.btn--outline-light {
+  border: 1px solid var(--border-dark) !important;
+  color: var(--white) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-btn, 8px) !important;
+}
+
+.btn-outline-light:hover,
+.btn--outline-light:hover {
+  border-color: var(--border-dark-strong) !important;
+  background-color: rgba(255, 255, 255, 0.16) !important;
+  color: var(--white) !important;
+  transform: translateY(-1px);
+}
+
+.btn-dark,
+.btn--dark {
+  background-color: var(--text-primary) !important;
+  color: var(--white) !important;
+  border-radius: var(--radius-btn, 8px) !important;
+}
+
+.btn-dark:hover,
+.btn--dark:hover {
+  background-color: var(--navy-hover) !important;
+  color: var(--white) !important;
+  transform: translateY(-1px);
+}
+
+.btn-ghost,
+.btn--ghost {
+  background: transparent !important;
+  color: var(--brand-btn-text) !important;
+  padding: 0.5rem 0 !important;
+  border: none !important;
+  font-weight: 600 !important;
+}
+
+.btn-ghost:hover,
+.btn--ghost:hover {
+  color: var(--brand-active) !important;
+}
+
+.btn-lg,
+.btn--lg {
+  padding: 0.875rem 2.25rem !important;
+  font-size: 1rem !important;
+}
+
+.btn-sm,
+.btn--sm {
+  padding: 0.5rem 1.25rem !important;
+  font-size: 0.8125rem !important;
+}
+
+/* Shimmer Sweep (.magic-shimmer-btn) */
+.magic-shimmer-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.magic-shimmer-btn::after,
+.btn::after,
+a.btn::after,
+button.btn::after {
+  display: none !important;
+}
+
+/* Interactive Swipe Button (.swipe-btn) */
+.swipe-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1.85rem;
+  background-color: var(--brand, var(--accent)) !important;
+  color: var(--brand-btn-text) !important;
+  border: 1px solid var(--brand, var(--accent)) !important;
+  border-radius: var(--radius-btn, 8px);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease !important;
+}
+
+.swipe-btn:hover {
+  background-color: var(--brand-hover) !important;
+  border-color: var(--brand-hover) !important;
+  color: var(--brand-btn-text) !important;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.swipe-btn .btn-text,
+.swipe-btn span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease-in-out;
+  pointer-events: none;
+  font-weight: 700;
+  color: var(--brand-btn-text) !important;
+}
+
+.swipe-btn:hover .btn-text,
+.swipe-btn:hover span {
+  color: var(--brand-btn-text) !important;
+}
+
+.swipe-btn .btn-icon-bubble {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-md, 8px);
+  z-index: 1;
+  flex-shrink: 0;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.swipe-btn:hover .btn-icon-bubble {
+  transform: translateX(2px);
+}
+
+.swipe-btn .btn-icon-bubble::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  border-radius: var(--radius-md, 8px);
+  transform: translateX(-300%);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 0;
+  pointer-events: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.swipe-btn:hover .btn-icon-bubble::before {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.swipe-btn .btn-arrow-icon,
+.swipe-btn svg {
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  display: block;
+  margin: auto;
+  stroke: var(--brand-btn-text) !important;
+  color: var(--brand-btn-text) !important;
+  transform: none;
+  transition: stroke 0.3s ease, color 0.3s ease;
+  pointer-events: none;
+}
+
+.swipe-btn:hover .btn-arrow-icon,
+.swipe-btn:hover svg {
+  transform: none;
+  stroke: var(--brand-btn-text) !important;
+  color: var(--brand-btn-text) !important;
+}
+
+/* ─── Forms ──────────────────────────────────────────────── */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.375rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md, 8px);
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-surface-secondary);
+  transition: border-color var(--motion-fast) var(--ease-standard),
+              box-shadow var(--motion-fast) var(--ease-standard);
+  outline: none;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--brand-primary);
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+/* ─── Data Tables ────────────────────────────────────────── */
+table thead th,
+table th,
+.table thead th {
+  background-color: var(--bg-surface-elevated) !important;
+  color: var(--text-inverse) !important;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  background-color: var(--surface);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F5965' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.25em;
+  padding-right: 2.75rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.65rem 1.4rem;
+    font-size: 0.875rem;
+  }
+
+  .form-group {
+    gap: 0.375rem;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 0.875rem;
+    padding: 0.625rem 0.875rem;
+  }
+
+  .form-textarea {
+    min-height: 100px;
+  }
 }

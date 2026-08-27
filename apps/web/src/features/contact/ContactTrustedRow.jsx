@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import styles from "../../pages/Contact.module.css";
+import styles from "./contact.module.css";
 
 export const ContactTrustedRow = React.memo(function ContactTrustedRow() {
   return (
@@ -33,3 +33,5 @@ export const ContactTrustedRow = React.memo(function ContactTrustedRow() {
     </div>
   );
 });
+
+export default ContactTrustedRow;

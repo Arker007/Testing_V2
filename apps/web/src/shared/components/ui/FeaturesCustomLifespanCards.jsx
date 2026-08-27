@@ -26,6 +26,7 @@ export default function FeaturesCustomLifespanCards({ cardVariant }) {
             src={customManufacturingBg}
             alt="Custom Manufacturing Grid"
             className="absolute right-0 top-0 h-full w-1/2 object-cover opacity-70 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--navy-dark)] via-[var(--navy-dark)]/80 to-transparent" />
         </div>
@@ -60,6 +61,7 @@ export default function FeaturesCustomLifespanCards({ cardVariant }) {
             src={fiftyYearsBadge}
             alt="50+ Years Lifespan Badge"
             className="absolute right-6 top-1/2 -translate-y-1/2 h-[90%] w-auto object-contain transition-transform duration-700 ease-out group-hover:scale-[1.08] mix-blend-lighten opacity-100"
+            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--navy-dark)] via-[var(--navy-dark)]/80 to-transparent" />
         </div>

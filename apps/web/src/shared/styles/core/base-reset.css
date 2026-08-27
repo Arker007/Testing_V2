@@ -1,4 +1,11 @@
 
+/* ─── Phase 4: Light Mode Contrast Audit & Transitions ─── */
+/* Ensure all icons and SVGs adapt properly using currentColor on light surfaces */
+:root[data-theme="light"] svg:not([fill="none"]),
+.light svg:not([fill="none"]) {
+  color: currentColor;
+}
+
 .aboutHeroMotion {
 }
 

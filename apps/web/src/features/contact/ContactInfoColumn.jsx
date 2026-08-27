@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { ContactInfoItem } from "./ContactInfoItem";
-import styles from "../../pages/Contact.module.css";
+import styles from "./contact.module.css";
 
 const WhatsAppIcon = () => (
   <motion.div

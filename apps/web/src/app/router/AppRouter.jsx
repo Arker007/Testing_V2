@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import { Icon } from "@iconify/react";
 import PublicLayout from "../layouts/PublicLayout";
 import Home from "../../pages/Home";
 
@@ -53,18 +54,36 @@ import AdminSettings from "../../features/admin/AdminSettings";
 import NotFound from "../../pages/NotFound";
 
 const PageFallback = () => (
-  <div
-    style={{
-      minHeight: "60vh",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    }}
-  >
-    <i
-      className="fa-solid fa-spinner fa-spin"
-      style={{ fontSize: "2rem", color: "var(--primary)" }}
-    />
+  <div className="min-h-[60vh] flex flex-col items-center justify-center bg-transparent px-4 select-none">
+    <div className="relative flex items-center justify-center w-24 h-24 mb-5">
+      {/* Outer spinning ring with brand styling */}
+      <div className="absolute inset-0 rounded-full border-4 border-slate-100 dark:border-slate-800/40" />
+      <div className="absolute inset-0 rounded-full border-4 border-t-emerald-600 dark:border-t-[#6BBF54] border-r-transparent border-b-transparent border-l-transparent animate-spin" />
+      
+      {/* Reverse-rotating dashed ring */}
+      <div className="absolute inset-2 rounded-full border border-dashed border-slate-200 dark:border-[rgba(242,242,242,0.08)] animate-[spin_4s_linear_infinite_reverse]" />
+
+      {/* Inner pulsing container with custom eco / circular-plastic loop icon */}
+      <div className="absolute flex items-center justify-center bg-emerald-50/50 dark:bg-[rgba(107,191,84,0.08)] w-14 h-14 rounded-full shadow-xs animate-pulse">
+        <Icon
+          icon="solar:refresh-circle-bold-duotone"
+          className="w-8 h-8 text-emerald-600 dark:text-[#6BBF54]"
+        />
+      </div>
+    </div>
+
+    {/* Elegant Brand Title and loading caption */}
+    <div className="text-center animate-pulse">
+      <h2 className="text-xs font-black tracking-[0.3em] text-slate-800 dark:text-white uppercase">
+        Vishal Enterprise
+      </h2>
+      <div className="flex items-center justify-center gap-1.5 mt-1.5">
+        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
+        <p className="text-[10px] font-bold tracking-widest text-slate-400 dark:text-[rgba(242,242,242,0.45)] uppercase">
+          Circular Plastics
+        </p>
+      </div>
+    </div>
   </div>
 );
 

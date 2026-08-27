@@ -2,7 +2,7 @@ import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import OptimizedImage from "../../shared/components/OptimizedImage";
-import styles from "../../pages/Home.module.css";
+import styles from "./home.module.css";
 import {
   industryCardVariant,
 } from "./home.constants";
@@ -25,18 +25,18 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
     return (
       <motion.div
         variants={industryCardVariant}
+        custom={delay}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
         whileHover="hover"
-        transition={{ delay }}
-        className={`group ${styles.industryCard} ${styles.cardLargeDark} !p-5 sm:!p-6 flex flex-col justify-between relative overflow-hidden rounded-2xl border border-slate-700/40 dark:border-white/15 bg-slate-950`}
+        className={`group ${styles.industryCard} ${styles.cardLargeDark} !p-5 sm:!p-6 flex flex-col justify-between relative overflow-hidden rounded-2xl border border-[var(--border-card)] bg-slate-950`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-slate-950">
           <OptimizedImage
             src={image}
             alt={title}
-            className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/15 pointer-events-none" />
         </div>
@@ -65,18 +65,18 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
     return (
       <motion.div
         variants={industryCardVariant}
+        custom={delay}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
         whileHover="hover"
-        transition={{ delay }}
-        className={`group ${styles.industryCard} ${spanClass ? styles[spanClass] : ""} !p-4 sm:!p-5 flex flex-col justify-between relative overflow-hidden rounded-2xl border border-slate-700/40 dark:border-white/15 bg-slate-950`}
+        className={`group ${styles.industryCard} ${spanClass ? styles[spanClass] : ""} !p-4 sm:!p-5 flex flex-col justify-between relative overflow-hidden rounded-2xl border border-[var(--border-card)] bg-slate-950`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-slate-950">
           <OptimizedImage
             src={image}
             alt={title}
-            className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
         </div>
@@ -105,18 +105,18 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
     return (
       <motion.div
         variants={industryCardVariant}
+        custom={delay}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
         whileHover="hover"
-        transition={{ delay }}
-        className={`group ${styles.industryCard} ${spanClass ? styles[spanClass] : ""} !p-4 sm:!p-5 flex flex-col justify-between relative overflow-hidden rounded-lg border border-slate-700/40 dark:border-white/15 bg-slate-950`}
+        className={`group ${styles.industryCard} ${spanClass ? styles[spanClass] : ""} !p-4 sm:!p-5 flex flex-col justify-between relative overflow-hidden rounded-lg border border-[var(--border-card)] bg-slate-950`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-slate-950">
           <OptimizedImage
             src={image}
             alt={title}
-            className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
         </div>
@@ -144,18 +144,18 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
   return (
     <motion.div
       variants={industryCardVariant}
+      custom={delay}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
       whileHover="hover"
-      transition={{ delay }}
-      className={`group ${styles.industryCard} !p-4 sm:!p-5 flex flex-col justify-between relative overflow-hidden rounded-lg border border-slate-700/40 dark:border-white/15 bg-slate-950`}
+      className={`group ${styles.industryCard} !p-4 sm:!p-5 flex flex-col justify-between relative overflow-hidden rounded-lg border border-[var(--border-card)] bg-slate-950`}
     >
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-slate-950">
         <OptimizedImage
           src={image}
           alt={title}
-          className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
       </div>
@@ -173,3 +173,5 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
     </motion.div>
   );
 });
+
+export default IndustryCard;

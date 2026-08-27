@@ -23,8 +23,8 @@ export default function WhyChooseUsSection() {
           <div className="lg:col-span-4 bg-white/[0.04] border border-white/10 rounded-2xl p-8 sm:p-10 flex flex-col justify-between backdrop-blur-sm shadow-xl min-h-[440px] lg:min-h-[540px]">
             <div>
               <div className="mb-4">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#5FBF50]/15 dark:bg-[#5FBF50]/10 border border-[#5FBF50]/30 dark:border-[#5FBF50]/40 rounded-full text-[#5FBF50] font-bold text-xs tracking-wider uppercase shadow-xs">
-                  <Icon icon="solar:shield-check-linear" className="w-4 h-4" />
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[var(--brand-soft)] border border-[var(--brand-border)] rounded-pill text-[var(--text-brand)] font-bold text-xs tracking-wider uppercase shadow-xs">
+                  <Icon icon="solar:shield-check-linear" className="w-4 h-4 text-[var(--text-brand)]" />
                   <span>Why Industries Choose Us</span>
                 </span>
               </div>

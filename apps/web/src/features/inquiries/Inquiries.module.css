@@ -159,7 +159,7 @@
 }
 
 .messageBox {
-  background: var(--white);
+  background: var(--surface-card);
   border: 1px solid var(--gray-200);
   border-radius: 12px;
   padding: 20px;

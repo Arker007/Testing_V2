@@ -1,11 +1,13 @@
 import React from "react";
 import useDocumentTitle from "../shared/hooks/useDocumentTitle";
-import AboutHero from "../features/about/AboutHero";
-import WhoWeAreSection from "../features/about/WhoWeAreSection";
-import WhyChooseUsSection from "../features/about/WhyChooseUsSection";
-import ExperienceBanner from "../features/about/ExperienceBanner";
-import TestimonialsSection from "../features/about/TestimonialsSection";
-import AboutCtaSection from "../features/about/AboutCtaSection";
+import {
+  AboutHero,
+  WhoWeAreSection,
+  WhyChooseUsSection,
+  ExperienceBanner,
+  TestimonialsSection,
+  AboutCtaSection,
+} from "../features/about";
 
 export default function About() {
   useDocumentTitle(
@@ -14,7 +16,7 @@ export default function About() {
   );
 
   return (
-    <main className="bg-[var(--bg-page)] text-slate-800 dark:text-slate-200 min-h-screen pb-16 overflow-x-hidden">
+    <main className="bg-[var(--bg-canvas,#F2F2F2)] dark:bg-[var(--bg-canvas,#0f141a)] text-slate-800 dark:text-[#F2F2F2] min-h-screen pb-16 overflow-x-hidden">
       <AboutHero />
       <WhoWeAreSection />
       <WhyChooseUsSection />
@@ -24,3 +26,4 @@ export default function About() {
     </main>
   );
 }
+

@@ -9,8 +9,8 @@
   padding: 0 22px !important;
   border-radius: 8px !important;
   border: 1px solid var(--border-subtle, #DADADA) !important;
-  background-color: var(--bg-card, #FFFFFF);
-  color: var(--text-primary, #011A38);
+  background-color: var(--bg-card, var(--white));
+  color: var(--text-primary, var(--neutral-950));
   font-family: var(--font-family-primary, 'Noto Sans', sans-serif) !important;
   font-weight: 700 !important;
   font-size: 0.875rem !important;
@@ -31,7 +31,7 @@
   width: 8px !important;
   height: 8px !important;
   border-radius: 50% !important;
-  background-color: var(--brand, #6BBF54) !important;
+  background-color: var(--brand, var(--brand-500)) !important;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease !important;
   transform: scale(1) !important;
   transform-origin: center !important;
@@ -69,24 +69,24 @@
   width: 16px !important;
   height: 16px !important;
   stroke-width: 2.5 !important;
-  color: #090D16 !important;
+  color: var(--neutral-950) !important;
   flex-shrink: 0 !important;
 }
 
 /* Hover States */
 .interactive-hover-button:hover {
-  border-color: var(--brand, #6BBF54) !important;
-  color: #090D16 !important; /* High contrast crisp black on green background */
+  border-color: var(--brand, var(--brand-500)) !important;
+  color: var(--neutral-950) !important; /* High contrast crisp black on green background */
   box-shadow: 0 4px 16px rgba(107, 191, 84, 0.3) !important;
 }
 
 .interactive-hover-button:hover .interactive-hover-button-dot {
   transform: scale(60) !important;
-  background-color: var(--brand, #6BBF54) !important;
+  background-color: var(--brand, var(--brand-500)) !important;
 }
 
 .interactive-hover-button:hover .interactive-hover-button-text {
-  color: #090D16 !important;
+  color: var(--neutral-950) !important;
   transform: translateX(-2px) !important;
 }
 

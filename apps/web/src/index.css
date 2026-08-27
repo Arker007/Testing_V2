@@ -417,8 +417,8 @@ nav a,
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  background: var(--brand);
-  color: #020617 !important;
+  background: var(--brand, var(--brand-500)) !important;
+  color: var(--brand-btn-text, var(--neutral-950)) !important;
   font-size: var(--font-size-sm);
   font-weight: 800;
   text-transform: uppercase;
@@ -434,21 +434,35 @@ nav a,
   cursor: pointer;
 }
 
+.exploreBtnGlobal *,
+.exploreBtnGlobal span {
+  color: var(--brand-btn-text, var(--neutral-950)) !important;
+}
+
 .exploreBtnGlobal:hover {
-  background: var(--brand-dark) !important;
-  color: #020617 !important;
+  background: var(--brand-hover, var(--brand-400)) !important;
+  color: var(--brand-btn-text, var(--neutral-950)) !important;
   transform: translateY(-2px);
   box-shadow: none;
+}
+
+.exploreBtnGlobal:hover *,
+.exploreBtnGlobal:hover span {
+  color: var(--brand-btn-text, var(--neutral-950)) !important;
 }
 
 .exploreBtnGlobal .exploreBtnArrowGlobal {
   width: 1.1rem;
   height: 1.1rem;
+  stroke: var(--brand-btn-text, var(--neutral-950)) !important;
+  color: var(--brand-btn-text, var(--neutral-950)) !important;
   transition: transform 0.25s ease;
 }
 
 .exploreBtnGlobal:hover .exploreBtnArrowGlobal {
   transform: translateX(5px);
+  stroke: var(--brand-btn-text, var(--neutral-950)) !important;
+  color: var(--brand-btn-text, var(--neutral-950)) !important;
 }
 
 @media (max-width: 640px) {
@@ -460,15 +474,15 @@ nav a,
 
 /* Fix low contrast white text on bright green */
 .btn-whatsapp {
-  background-color: #25d366 !important;
-  color: #0b2211 !important; /* Dark green/charcoal instead of white */
+  background-color: var(--color-whatsapp, var(--color-whatsapp, #25D366)) !important;
+  color: var(--neutral-950) !important; /* Dark green/charcoal instead of white */
   font-weight: 700 !important;
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3) !important; /* Subtle vibrant drop shadow */
 }
 
 /* Slightly darken body text for crisp readability */
 .banner-description {
-  color: #385064 !important; /* Darker slate gray */
+  color: var(--neutral-700) !important; /* Darker slate gray */
 }
 
 /* Darken input placeholder text color to hit the mandatory 4.5:1 contrast ratio in light mode */
@@ -480,7 +494,7 @@ html:not(.dark) #enquiry-card input::placeholder,
 html:not(.dark) #enquiry-card textarea::placeholder,
 .customInput::placeholder,
 .customTextarea::placeholder {
-  color: #5C6975 !important;
+  color: var(--neutral-500) !important;
 }
 
 /* Ensure bright, high-contrast placeholder in dark mode */
@@ -492,7 +506,7 @@ html.dark #enquiry-card input::placeholder,
 html.dark #enquiry-card textarea::placeholder,
 html.dark .customInput::placeholder,
 html.dark .customTextarea::placeholder {
-  color: #9EAFBE !important;
+  color: var(--text-muted) !important;
 }
 
 

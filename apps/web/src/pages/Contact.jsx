@@ -1,10 +1,12 @@
 import React from "react";
 import useDocumentTitle from "../shared/hooks/useDocumentTitle";
 import { useSite } from "../shared/context/SiteContext";
-import ContactHero from "../features/contact/ContactHero";
-import ContactFormSection from "../features/contact/ContactFormSection";
-import ContactWorkflowSection from "../features/contact/ContactWorkflowSection";
-import ContactFaqSection from "../features/contact/ContactFaqSection";
+import {
+  ContactHero,
+  ContactFormSection,
+  ContactWorkflowSection,
+  ContactFaqSection,
+} from "../features/contact";
 
 export default function Contact() {
   const { co } = useSite();

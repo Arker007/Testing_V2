@@ -20,13 +20,13 @@ export default function Card({
 
   const variantClassMap = {
     default:
-      "bg-[var(--surface-card)] border border-[var(--border-card)] text-[var(--text-primary)] rounded-[var(--radius-card,12px)] shadow-[var(--shadow-sm)]",
+      "bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] rounded-[var(--radius-card)] shadow-[var(--shadow-sm)]",
     feature:
-      "bg-[var(--surface-card)] border border-[var(--border-card)] text-[var(--text-primary)] rounded-[var(--radius-xl,16px)] shadow-[var(--shadow-md)]",
+      "bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] rounded-[var(--radius-xl)] shadow-[var(--shadow-md)]",
     elevated:
-      "bg-[var(--surface-card)] border border-[var(--border-card)] text-[var(--text-primary)] rounded-[var(--radius-xl,16px)] shadow-[var(--shadow-lg)]",
+      "bg-[var(--bg-surface-elevated)] border border-[var(--border-subtle)] text-[var(--text-primary)] rounded-[var(--radius-xl)] shadow-[var(--shadow-lg)]",
     interactive:
-      "bg-[var(--surface-card)] border border-[var(--border-card)] text-[var(--text-primary)] rounded-[var(--radius-card,12px)] shadow-[var(--shadow-sm)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)] transition-all duration-200",
+      "bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] rounded-[var(--radius-card)] shadow-[var(--shadow-sm)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)] hover:border-[var(--border-default)] transition-all duration-200",
   };
 
   const selectedVariantClass = variantClassMap[variant] || variantClassMap.default;

@@ -4,58 +4,85 @@
 @custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
 
 @theme {
-  --color-brand: var(--brand);
-  --color-brand-dark: var(--brand-dark);
-  --color-brand-hover: var(--brand-hover);
-  --color-brand-light: var(--brand-light);
-  --color-brand-text: var(--brand-text);
-  --color-brand-soft: var(--brand-soft);
+  /* Surfaces */
+  --color-canvas: var(--bg-canvas);
+  --color-surface: var(--bg-surface);
+  --color-surface-secondary: var(--bg-surface-secondary);
+  --color-surface-tertiary: var(--bg-surface-tertiary);
+  --color-surface-elevated: var(--bg-surface-elevated);
+  --color-surface-nav: var(--bg-nav);
 
-  --color-navy: var(--navy);
-  --color-navy-dark: var(--navy-dark);
-  --color-navy-darker: var(--navy-darker);
-  --color-navy-light: var(--navy-light);
-  --color-navy-surface: var(--navy-surface);
-  --color-navy-card: var(--navy-card);
-  --color-navy-soft: var(--navy-soft);
-
-  --radius-xs: 2px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 8px;
-  --radius-xl: 8px;
-  --radius-2xl: 8px;
-  --radius-3xl: 8px;
-  --radius-card: 8px;
-  --radius-btn: 8px;
-  --radius-badge: 8px;
-  --radius-pill: 8px;
-  --radius-full: 8px;
-
-  --color-bg-page: var(--bg-page);
-  --color-bg-section: var(--bg-section);
-  --color-bg-card: var(--bg-card);
+  /* Legacy surface bridges */
+  --color-bg-canvas: var(--bg-canvas);
   --color-bg-surface: var(--bg-surface);
-  --color-surface-secondary: var(--surface-secondary);
-  --color-surface-tertiary: var(--surface-tertiary);
+  --color-bg-page: var(--bg-canvas);
+  --color-bg-section: var(--bg-surface-secondary);
+  --color-bg-card: var(--bg-surface);
+  --color-surface-page: var(--bg-canvas);
+  --color-surface-card: var(--bg-surface);
 
+  /* Typography Colors */
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
   --color-text-disabled: var(--text-disabled);
   --color-text-inverse: var(--text-inverse);
+  --color-text-brand: var(--text-brand);
+  --color-text-main: var(--text-primary);
 
-  --color-border: var(--border);
-  --color-border-card: var(--border-card);
+  /* Brand Colors */
+  --color-brand: var(--brand-primary);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-active: var(--brand-active);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-dark: var(--brand-primary);
+  --color-brand-light: var(--brand-soft);
+  --color-brand-text: var(--text-brand);
+  --color-brand-btn-text: var(--navy-950);
+  --color-accent: var(--brand-primary);
+
+  /* Navy Primitives */
+  --color-navy: var(--navy-900);
+  --color-navy-dark: var(--navy-950);
+  --color-navy-darker: var(--navy-950);
+  --color-navy-light: var(--navy-800);
+  --color-navy-surface: var(--neutral-900);
+  --color-navy-card: var(--neutral-800);
+  --color-navy-soft: var(--navy-50);
+
+  /* Borders */
+  --color-border: var(--border-default);
   --color-border-subtle: var(--border-subtle);
-  --color-border-strong: var(--border-strong);
   --color-border-default: var(--border-default);
+  --color-border-strong: var(--border-strong);
+  --color-border-brand: var(--border-brand);
+  --color-border-card: var(--border-subtle);
 
-  --color-surface-page: var(--surface-page);
-  --color-surface-card: var(--surface-card);
-  --color-surface-elevated: var(--surface-elevated);
-  --color-surface-nav: var(--surface-nav);
-  --shadow-card: var(--shadow-card);
+  /* Badges */
+  --color-badge-bg: var(--brand-soft);
+  --color-badge-border: var(--border-brand);
+  --color-badge-text: var(--text-brand);
+
+  /* Radii Scale */
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-full: var(--radius-full);
+  --radius-card: var(--radius-card);
+  --radius-btn: var(--radius-btn);
+  --radius-input: var(--radius-input);
+  --radius-badge: var(--radius-badge);
+  --radius-pill: var(--radius-pill);
+
+  /* Shadows */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-card: var(--shadow-sm);
 }
 
 @layer base {
@@ -72,72 +99,60 @@ html {
 
 @layer base {
   body {
-    font-family: var(--font-family-primary);
+    font-family: var(--font-sans);
     color: var(--text-primary);
     font-size: 1rem; /* 16px */
     font-weight: 400;
-    line-height: 1.6; /* 26px */
-    background: var(--bg-page);
+    line-height: 1.6;
+    background-color: var(--bg-canvas);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
   h1, .text-page-title, .hero-title {
-    color: var(--heading);
-    font-size: 2.25rem; /* 36px */
+    color: var(--text-primary);
+    font-size: 2.25rem;
     font-weight: 500;
-    line-height: 1.2; /* 44px */
-    letter-spacing: var(--tracking-tight);
+    line-height: 1.2;
+    letter-spacing: var(--tracking-heading);
   }
 
   h2, .text-section-header {
-    color: var(--heading);
-    font-size: 1.75rem; /* 28px */
+    color: var(--text-primary);
+    font-size: 1.75rem;
     font-weight: 500;
-    line-height: 1.25; /* 35px */
-    letter-spacing: var(--tracking-tight);
+    line-height: 1.25;
+    letter-spacing: var(--tracking-heading);
   }
 
   h3, .text-card-title {
-    color: var(--heading);
-    font-size: 1.25rem; /* 20px */
+    color: var(--text-primary);
+    font-size: 1.25rem;
     font-weight: 500;
-    line-height: 1.3; /* 26px */
+    line-height: 1.3;
     letter-spacing: var(--tracking-tight);
   }
 
   h4, h5, h6 {
-    color: var(--heading);
+    color: var(--text-primary);
     font-weight: 500;
     letter-spacing: var(--tracking-tight);
   }
 
   p, .body-copy {
-    color: var(--body-text);
-    font-size: 1rem; /* 16px */
+    color: var(--text-secondary);
+    font-size: 1rem;
     font-weight: 400;
-    line-height: 1.6; /* 26px */
+    line-height: 1.6;
   }
 
   small, .subtext, .secondary-text, .text-secondary-detail {
-    font-size: 0.875rem; /* 14px */
+    font-size: 0.875rem;
     font-weight: 400;
-    line-height: 1.5; /* 21px */
+    line-height: 1.5;
   }
-}
 
-#main-content {
-  overflow-x: hidden;
-}
-
-@media (max-width: 768px) {
-  #main-content {
-    padding-bottom: 64px;
-  }
-}
-
-@layer base {
   img {
     max-width: 100%;
     display: block;
@@ -146,40 +161,40 @@ html {
   a {
     text-decoration: none;
     color: inherit;
-    transition: color var(--motion-duration-fast) var(--ease-standard);
+    transition: color var(--motion-fast) var(--ease-standard);
   }
-}
 
-@layer base {
   button {
     cursor: pointer;
     font-family: inherit;
     border: none;
     background: none;
-    border-radius: var(--radius-md, 8px);
-    transition: background-color var(--motion-duration-fast) var(--ease-standard),
-                border-color var(--motion-duration-fast) var(--ease-standard),
-                transform var(--motion-duration-instant) var(--ease-standard),
-                box-shadow var(--motion-duration-fast) var(--ease-standard);
+    border-radius: var(--radius-btn);
+    transition: background-color var(--motion-fast) var(--ease-standard),
+                border-color var(--motion-fast) var(--ease-standard),
+                transform var(--motion-instant) var(--ease-standard),
+                box-shadow var(--motion-fast) var(--ease-standard);
   }
 }
 
-.btn,
-a.btn,
-input[type="button"],
-input[type="submit"],
-input[type="reset"] {
-  border-radius: var(--radius-pill, 9999px);
+#main-content {
+  overflow-x: hidden;
+  isolation: isolate;
+}
+
+@media (max-width: 768px) {
+  #main-content {
+    padding-bottom: 64px;
+  }
 }
 
 /* ─── Accessibility & Focus-Visible Rules (WCAG 2.2 AA) ────────────────── */
 :focus-visible {
-  outline: 2px solid var(--brand, #5FBF50);
+  outline: 2px solid var(--brand-primary);
   outline-offset: 2px;
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--radius-btn, 8px);
 }
 
-/* Remove focus ring for mouse users */
 :focus:not(:focus-visible) {
   outline: none;
 }
@@ -189,255 +204,93 @@ ol {
   list-style: none;
 }
 
-/* ─── CSS Variables & Design Tokens (Modern Industrial Tech) ───────────── */
+/* ─── Unified Design Token Architecture (One Source of Truth) ────────── */
 :root {
-  /* 🏷️ Typography Tokens */
-  --font-family-primary: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family-admin: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family-stack: "DM Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: "DM Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: "DM Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* ========================================================================
+     TIER 1: PRIMITIVE TOKENS (Static raw color scale)
+     ======================================================================== */
 
-  --font-size-base: 16px;
-  --font-weight-base: 400;
-  --line-height-base: 1.6;
+  /* ⚪ Neutral Primitive Scale */
+  --neutral-50:  #FFFFFF;
+  --neutral-100: #F2F2F2;
+  --neutral-200: #E7EBE8;
+  --neutral-300: #D8DEDA;
+  --neutral-400: #9EAFBE;
+  --neutral-500: #667785;
+  --neutral-600: #4F5965;
+  --neutral-700: #385064;
+  --neutral-800: #1e2530;
+  --neutral-900: #161c24;
+  --neutral-950: #0f141a;
 
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-md: 16px;
-  --font-size-lg: 18px;
-  --font-size-xl: 22px;
-  --font-size-2xl: 28px;
-  --font-size-3xl: 40px;
-  --font-size-4xl: 64px;
+  /* 🏛️ Navy Primitive Scale */
+  --navy-50:  #F0F4F8;
+  --navy-100: #D9E2EC;
+  --navy-200: #BCCCDC;
+  --navy-300: #9FB3C8;
+  --navy-400: #829AB1;
+  --navy-500: #627D98;
+  --navy-600: #486581;
+  --navy-700: #334E68;
+  --navy-800: #222a36;
+  --navy-900: #161c24;
+  --navy-950: #0f141a;
 
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+  /* 🌿 Brand Eco-Green Scale */
+  --brand-50:  #F2FBE8;
+  --brand-100: #E5F3E8;
+  --brand-200: #C3E6B8;
+  --brand-300: #9FD792;
+  --brand-400: #7ACC63;
+  --brand-500: #6BBF54; /* Canonical Brand Green */
+  --brand-600: #5DA849;
+  --brand-700: #468235;
+  --brand-800: #2F6005;
+  --brand-900: #1B3803;
 
-  --line-height-tight: 1.1;
-  --line-height-heading: 1.25;
-  --line-height-body: 1.6;
+  /* 🟢 Success Primitives */
+  --success-50:  #F2FBE8;
+  --success-100: #E5F3E8;
+  --success-500: #2F7D12;
+  --success-600: #2E6005;
+  --success-700: #1B3803;
 
-  /* Letter Spacing Tracking Tokens */
-  --tracking-display: -0.03em;
-  --tracking-h1: -0.025em;
-  --tracking-h2: -0.02em;
-  --tracking-h3: -0.015em;
-  --tracking-h4: -0.01em;
-  --tracking-normal: 0;
-  --tracking-wide: 0.05em;
+  /* 🟡 Warning Primitives */
+  --warning-50:  #FFF7E6;
+  --warning-100: #FFEAA7;
+  --warning-500: #B56A00;
+  --warning-600: #925400;
+  --warning-700: #6B3B00;
 
-  /* 🤍 Neutrals System */
+  /* 🔴 Danger Primitives */
+  --danger-50:  #FFF0F0;
+  --danger-100: #FFC9C9;
+  --danger-500: #C92A2A;
+  --danger-600: #A61E1E;
+  --danger-700: #7A1414;
+
+  /* 🔵 Info Primitives */
+  --info-50:  #EFF6FF;
+  --info-100: #DBEAFE;
+  --info-500: #2563A8;
+  --info-600: #1D4ED8;
+  --info-700: #1E40AF;
+
   --white: #FFFFFF;
   --black: #000000;
   --transparent: transparent;
 
-  /* 🔘 Slate & Gray Master System */
-  --color-neutral-50: #F2F2F2;
-  --color-neutral-100: #E7EBE8;
-  --color-neutral-200: #D8DEDA;
-  --color-neutral-300: #9EAFBE;
-  --color-neutral-400: #9EAFBE;
-  --color-neutral-500: #667785;
-  --color-neutral-600: #385064;
-  --color-neutral-700: #385064;
-  --color-neutral-800: #062342;
-  --color-neutral-900: #011A38;
-  --color-neutral-950: #011526;
+  /* Status Primitives (Shorthand Aliases) */
+  --color-success-light: var(--success-500);
+  --color-success-dark:  var(--brand-500);
+  --color-warning-light: var(--warning-500);
+  --color-warning-dark:  #FBBF24;
+  --color-danger-light:  var(--danger-500);
+  --color-danger-dark:   #F87171;
+  --color-info-light:    var(--info-500);
+  --color-info-dark:     #60A5FA;
 
-  --gray-50: var(--color-neutral-50);
-  --gray-100: var(--color-neutral-100);
-  --gray-200: var(--color-neutral-200);
-  --gray-300: var(--color-neutral-300);
-  --gray-400: var(--color-neutral-400);
-  --gray-500: var(--color-neutral-500);
-  --gray-600: var(--color-neutral-600);
-  --gray-700: var(--color-neutral-700);
-  --gray-800: var(--color-neutral-800);
-  --gray-900: var(--color-neutral-900);
-  --gray-950: var(--color-neutral-950);
-
-  /* 🎨 Master Brand Palette - Industrial Navy */
-  --navy: #011A38;
-  --navy-dark: #011526;
-  --navy-darker: #011526;
-  --navy-hover: #062342;
-  --navy-active: #011526;
-  --navy-soft: #F2F2F2;
-  --navy-light: #062342;
-  --navy-surface: #062342;
-  --navy-card: #0A2C50;
-  --navy-rgb: 1, 26, 56;
-  --navy-glow: rgba(21, 53, 83, 0.16);
-  --navy-subtle: rgba(21, 53, 83, 0.04);
-  --navy-badge-bg: rgba(21, 53, 83, 0.08);
-
-  --dark: var(--navy);
-  --dark-navy: var(--navy);
-  --dark2: var(--navy-dark);
-  --dark3: var(--navy-card);
-  --primary-color: var(--navy);
-  --primary-navy: var(--navy);
-  --secondary-color: var(--navy);
-  --secondary-navy: var(--navy);
-  --color-primary: var(--navy);
-  --color-secondary: var(--navy);
-
-  /* 🌟 Master Brand Palette - Eco-Engineered Green Accent */
-  --brand: #5FBF50;
-  --brand-rgb: 95, 191, 80;
-  --brand-hover: #70CC62;
-  --brand-active: #4EAD41;
-  --brand-dark: #5FBF50;
-  --brand-soft: #E7EBE8;
-  --brand-light: #E7EBE8;
-  --brand-light-2: #E7EBE8;
-  --brand-text: #5FBF50;
-  --brand-glow: rgba(95, 191, 80, 0.20);
-  --brand-glow-subtle: rgba(95, 191, 80, 0.08);
-  --brand-badge-bg: rgba(95, 191, 80, 0.15);
-  --brand-border: rgba(95, 191, 80, 0.55);
-
-  --accent: var(--brand);
-  --accent-dark: var(--brand-dark);
-  --color-surface-strong: var(--brand);
-  --color-surface-muted: #E7EBE8;
-  --color-surface-base: #000000;
-
-  /* 🎨 4-Level Light Mode Surface Hierarchy */
-  --lvl1-bg: #F2F2F2;                  /* Level 1: Base Page Background */
-  --lvl2-bg: #E7EBE8;                  /* Level 2: Section Container Surface */
-  --lvl3-bg: #FFFFFF;                  /* Level 3: Card / Elevation Surface */
-  --lvl3-border: rgba(15, 23, 32, 0.08); /* Level 3: Card Border */
-  --lvl3-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
-
-  --lvl4-navy: #011A38;                /* Level 4: Primary Brand Dark Accent */
-  --lvl4-brand: #5FBF50;               /* Level 4: Eco Accent Green */
-  --lvl4-brand-text: #5FBF50;          /* Level 4: Readable Green Text */
-  --lvl4-text-primary: #011526;        /* Level 4: Primary Text */
-  --lvl4-text-secondary: #385064;      /* Level 4: Secondary Body Text */
-
-  /* 🎨 Soft Surface System (Spacious, Neutral, Soft Elevation) */
-  --bg-page: var(--lvl1-bg);
-  --bg-surface: var(--lvl1-bg);
-  --bg-section: var(--lvl2-bg);
-  --bg-surface-elevated: var(--lvl3-bg);
-  --bg-card: var(--lvl3-bg);
-  --bg-card-hover: var(--lvl3-bg);
-  --bg-card-alt: var(--lvl2-bg);
-  
-  --surface: var(--lvl1-bg);
-  --surface-page: var(--lvl1-bg);
-  --surface-secondary: var(--lvl2-bg);
-  --surface-tertiary: #E7EBE8;
-  --surface-elevated: var(--lvl3-bg);
-  --surface-card: var(--lvl3-bg);
-  --surface-subtle: var(--lvl2-bg);
-  --surface-hover: #FFFFFF;
-  --surface-selected: #E5F3E8;
-  --surface-nav: #F2F2F2;
-
-  --bg-interactive: #F2F2F2;
-  --bg-interactive-hover: #FFFFFF;
-  --bg-interactive-active: #E7EBE8;
-  --bg-muted: #E7EBE8;
-  --bg-light: #F2F2F2;
-  --background: var(--bg-page);
-  --bg-dark: var(--navy);
-  --bg-dark-navy: var(--navy-dark);
-  --bg-dark-surface: var(--navy-surface);
-  --bg-dark-card: var(--navy-card);
-
-  --hero-bg: #011A38;
-  --hero-gradient: linear-gradient(135deg, #011526 0%, #011A38 55%, #062342 100%);
-  --bg-hero: linear-gradient(135deg, #011526 0%, #011A38 55%, #062342 100%);
-
-  --bg-glass: rgba(255, 255, 255, 0.90);
-  --bg-glass-card: rgba(255, 255, 255, 0.95);
-  --bg-glass-dark: rgba(11, 47, 99, 0.90);
-  --bg-dark-overlay: rgba(15, 23, 32, 0.60);
-  --bg-modal-backdrop: rgba(15, 23, 32, 0.45);
-  --bg-shimmer: rgba(226, 232, 240, 0.6);
-
-  /* 🧠 Text System */
-  --text-primary: #011526;
-  --text-secondary: #385064;
-  --text-muted: #667785;
-  --text-disabled: #8A929B;
-  --text-inverse: #FFFFFF;
-  --text-inverse-secondary: #D7E0E8;
-  --text-inverse-muted: #9EAFBE;
-  --text-tertiary: #062342;
-
-  --heading: #011526;
-  --body-text: #385064;
-  --light-text: #667785;
-  --white-text: var(--white);
-  --color-text-primary: #011526;
-  --color-text-secondary: #385064;
-  --color-text-tertiary: #062342;
-  --color-text-inverse: #FFFFFF;
-
-  /* 🔲 Restrained Border Architecture */
-  --border-subtle: #D8DEDA;
-  --border-default: #D8DEDA;
-  --border-strong: rgba(15, 23, 32, 0.18);
-  --border-card: #D8DEDA;
-  --border: var(--border-default);
-  --border-interactive: var(--brand);
-  --border-dark: rgba(255, 255, 255, 0.12);
-  --border-dark-strong: rgba(255, 255, 255, 0.20);
-  --divider: rgba(15, 23, 32, 0.08);
-
-  /* 🟢 Semantic Feedback System */
-  --color-success: #2F7D12;
-  --color-warning: #B56A00;
-  --color-error: #C92A2A;
-  --color-danger: #C92A2A;
-  --color-info: #2563A8;
-
-  --success: var(--color-success);
-  --success-bg: #E5F3E8;
-  --success-border: rgba(47, 125, 18, 0.25);
-  --success-text: #2E6005;
-
-  --warning: var(--color-warning);
-  --warning-bg: #FFF7E6;
-  --warning-border: rgba(181, 106, 0, 0.25);
-  --warning-text: #925400;
-
-  --danger: var(--color-danger);
-  --danger-bg: #FFF0F0;
-  --danger-border: rgba(201, 42, 42, 0.25);
-  --danger-text: #A61E1E;
-
-  --info: var(--color-info);
-  --info-bg: #EFF6FF;
-  --info-border: rgba(37, 99, 168, 0.25);
-  --info-text: #1D4ED8;
-
-  /* 🎯 Icon Themes */
-  --icon-primary: var(--navy);
-  --icon-accent: var(--brand);
-  --icon-inactive: #8A929B;
-
-  /* ✨ Soft Multi-Layer Shadow System (Low-Opacity Elevation) */
-  --shadow-none: none;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.04), 0 12px 28px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.04), 0 24px 60px rgba(0, 0, 0, 0.08);
-  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.05), 0 32px 80px rgba(0, 0, 0, 0.10);
-
-  --shadow-depth-1: var(--shadow-sm);
-  --shadow-depth-card: var(--shadow-sm);
-  --shadow-depth-hover: var(--shadow-md);
-  --shadow-card: var(--shadow-sm);
-
-  /* 💎 Spacing Scale Tokens */
+  /* 📐 Spacing Scale */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -449,47 +302,216 @@ ol {
   --space-9: 96px;
   --space-10: 128px;
 
-  /* 🔘 EXACT CANONICAL BORDER RADIUS SYSTEM (CRITICAL - UNIFIED DESIGN TOKENS) */
+  /* Semantic Spacing Tier Mappings */
+  --space-control-gap:  var(--space-2);  /* 8px - Icon/Label inline gap */
+  --space-control-px:   var(--space-4);  /* 16px - Control horizontal padding */
+  --space-control-py:   var(--space-2);  /* 8px - Control vertical padding */
+  --space-card-p:       var(--space-5);  /* 24px - Standard card inner padding */
+  --space-card-p-lg:    var(--space-6);  /* 32px - Large container inner padding */
+  --space-section-py:   var(--space-8);  /* 64px - Section vertical padding */
+  --space-section-gap:  var(--space-7);  /* 48px - Gap between section elements */
+  --space-grid-gap:     var(--space-5);  /* 24px - Standard grid item gap */
+
+  /* 🔘 Master Semantic Radius Tiers */
   --radius-none: 0px;
-  --radius-xs: 2px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 8px;
-  --radius-xl: 8px;
-  --radius-2xl: 8px;
-  --radius-3xl: 8px;
-  --radius-card: 8px;
-  --radius-btn: 8px;
-  --radius-input: 8px;
-  --radius-badge: 8px;
-  --radius-modal: 8px;
-  --radius-pill: 8px;
-  --radius-full: 8px;
-  --radius-sm-pill: 8px;
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-pill: 9999px;
+  --radius-full: 50%;
 
-  /* ⏱️ Motion & Easing Tokens (Calm, Premium) */
+  /* Semantic Component Tier Mappings */
+  --radius-control:  var(--radius-sm);  /* 4px - Inputs, Checkboxes, Micro-controls */
+  --radius-btn:      var(--radius-md);  /* 6px - Primary & Secondary Buttons */
+  --radius-input:    var(--radius-md);  /* 6px - Form Inputs, Selects */
+  --radius-badge:    var(--radius-sm);  /* 4px - Badges, Status Tags */
+  --radius-tab:      var(--radius-sm);  /* 4px - Tab items */
+  --radius-card:     var(--radius-lg);  /* 12px - Cards, Containers, Bento boxes */
+  --radius-modal:    var(--radius-xl);  /* 16px - Dialogs, Popovers, Modals */
+  --radius-media:    var(--radius-xl);  /* 16px - Product Thumbnails, Gallery Tiles */
+  --radius-hero:     var(--radius-2xl); /* 24px - Large Product Hero & Showcase Banners */
+  --radius-avatar:   var(--radius-full);/* 50% - Circular Avatars & Step Counters */
+
+  /* 🏷️ Typography */
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-admin: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-primary: var(--font-sans);
+  --font-family-admin: var(--font-admin);
+  --font-family-stack: var(--font-sans);
+  --font-heading: var(--font-sans);
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
+
+  --tracking-display: -0.045em;
+  --tracking-heading: -0.035em;
+  --tracking-tight:   -0.02em;
+  --tracking-normal:  0;
+  --tracking-label:   0.01em;
+  --tracking-caps:    0.06em;
+  --tracking-wide:    0.05em;
+
+  /* ⏱️ Motion & Easing */
   --motion-instant: 150ms;
-  --motion-fast: 200ms;
-  --motion-base: 300ms;
-  --motion-slow: 500ms;
+  --motion-fast:    200ms;
+  --motion-base:    300ms;
+  --motion-slow:    500ms;
+  --motion-duration-instant: var(--motion-instant);
+  --motion-duration-fast:    var(--motion-fast);
+  --motion-duration-normal:  var(--motion-base);
+  --motion-duration-slow:    var(--motion-slow);
 
-  --motion-duration-instant: 150ms;
-  --motion-duration-fast: 200ms;
-  --motion-duration-normal: 300ms;
-  --motion-duration-slow: 500ms;
-
-  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-standard:   cubic-bezier(0.2, 0.8, 0.2, 1);
   --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* ⚡ Layout Containers */
+  /* ⚡ Containers & Heights */
   --container-xl: 1280px;
   --container-lg: 1120px;
   --container-md: 1024px;
   --container-sm: 768px;
-
   --nav-h: 72px;
   --section-py: 4rem;
 
-  /* Focus Ring */
-  --focus-ring: var(--brand);
+  /* ========================================================================
+     TIER 2: LIGHT MODE SEMANTIC TOKENS (Default)
+     ======================================================================== */
+
+  /* 🎨 Surfaces */
+  --bg-canvas:            var(--neutral-50);
+  --bg-surface:           var(--neutral-50);
+  --bg-surface-secondary: var(--neutral-200);
+  --bg-surface-tertiary:  var(--neutral-300);
+  --bg-surface-elevated:  var(--neutral-50);
+  --bg-nav:               rgba(255, 255, 255, 0.90);
+  --surface:              var(--bg-surface);
+
+  /* 🧠 Text */
+  --text-primary:         var(--navy-950);
+  --text-secondary:       var(--neutral-700);
+  --text-muted:           var(--neutral-500);
+  --text-disabled:        var(--neutral-400);
+  --text-inverse:         var(--neutral-50);
+  --text-brand:           var(--brand-500);
+
+  /* 🌿 Brand Semantics */
+  --brand-primary:        var(--brand-500);
+  --brand-hover:          var(--brand-400);
+  --brand-active:         var(--brand-600);
+  --brand-soft:           var(--brand-100);
+  --brand-border:         rgba(107, 191, 84, 0.55);
+  --brand-glow:           rgba(107, 191, 84, 0.20);
+  --brand-glow-subtle:    rgba(107, 191, 84, 0.08);
+
+  /* 🔲 Borders */
+  --border-subtle:        rgba(15, 20, 26, 0.08);
+  --border-default:       rgba(15, 20, 26, 0.12);
+  --border-strong:        rgba(15, 20, 26, 0.18);
+  --border-brand:         rgba(107, 191, 84, 0.55);
+  --divider:              var(--border-subtle);
+
+  /* ✨ Elevation & Shadows (Light Mode Authoritative Scale) */
+  --shadow-none: none;
+  --shadow-sm:   0 1px 3px rgba(15, 20, 26, 0.05), 0 1px 2px rgba(15, 20, 26, 0.03);
+  --shadow-md:   0 4px 12px rgba(15, 20, 26, 0.06), 0 2px 4px rgba(15, 20, 26, 0.04);
+  --shadow-lg:   0 12px 28px rgba(15, 20, 26, 0.08), 0 4px 8px rgba(15, 20, 26, 0.04);
+  --shadow-xl:   0 24px 48px rgba(15, 20, 26, 0.12), 0 8px 16px rgba(15, 20, 26, 0.06);
+
+  /* Component Elevation Bridges */
+  --shadow-card:       var(--shadow-sm);
+  --shadow-card-hover: var(--shadow-md);
+  --shadow-dropdown:   var(--shadow-lg);
+  --shadow-popover:    var(--shadow-lg);
+  --shadow-modal:      var(--shadow-xl);
+
+  /* 🟢 Status Feedback Semantics (Light Mode) */
+  --color-success: var(--success-500);
+  --color-warning: var(--warning-500);
+  --color-danger:  var(--danger-500);
+  --color-error:   var(--danger-500);
+  --color-info:    var(--info-500);
+
+  --success-bg:     var(--success-100);
+  --success-border: rgba(47, 125, 18, 0.25);
+  --success-text:   var(--success-600);
+
+  --warning-bg:     var(--warning-50);
+  --warning-border: rgba(181, 106, 0, 0.25);
+  --warning-text:   var(--warning-600);
+
+  --danger-bg:      var(--danger-50);
+  --danger-border:  rgba(201, 42, 42, 0.25);
+  --danger-text:    var(--danger-600);
+
+  --info-bg:        var(--info-50);
+  --info-border:    rgba(37, 99, 168, 0.25);
+  --info-text:      var(--info-600);
+
+  /* Overlays & Special */
+  --hero-bg: var(--neutral-950);
+  --hero-gradient: linear-gradient(135deg, var(--neutral-950) 0%, var(--neutral-950) 55%, #222a36 100%);
+  --bg-hero: var(--hero-gradient);
+  --hero-badge-bg: rgba(107, 191, 84, 0.15);
+  --hero-badge-border: rgba(107, 191, 84, 0.35);
+  --hero-badge-text: #6BBF54;
+  --bg-glass: rgba(255, 255, 255, 0.90);
+  --bg-glass-card: rgba(255, 255, 255, 0.95);
+  --bg-dark-overlay: rgba(15, 20, 26, 0.60);
+  --bg-modal-backdrop: rgba(15, 20, 26, 0.45);
+  --bg-shimmer: rgba(226, 232, 240, 0.6);
+  --focus-ring: var(--brand-primary);
+
+  /* ========================================================================
+     COMPATIBILITY BRIDGES (Clean, non-duplicative aliases for legacy code)
+     ======================================================================== */
+  --brand: var(--brand-primary);
+  --brand-btn-text: var(--navy-950);
+  --brand-dark: var(--brand-primary);
+  --brand-soft: var(--brand-100);
+  --brand-light: var(--brand-100);
+  --brand-text: var(--text-brand);
+  --accent: var(--brand-primary);
+  --accent-dark: var(--brand-primary);
+
+  --navy: var(--navy-900);
+  --navy-dark: var(--navy-950);
+  --navy-darker: var(--navy-950);
+  --navy-hover: var(--navy-800);
+  --navy-active: var(--navy-950);
+  --navy-soft: var(--navy-50);
+  --navy-light: var(--navy-800);
+  --navy-surface: var(--neutral-900);
+  --navy-card: var(--neutral-800);
+
+  --bg-page: var(--bg-canvas);
+  --bg-section: var(--bg-surface-secondary);
+  --bg-card: var(--bg-surface);
+  --bg-card-hover: var(--bg-surface);
+  --surface: var(--bg-surface);
+  --surface-page: var(--bg-canvas);
+  --surface-secondary: var(--bg-surface-secondary);
+  --surface-tertiary: var(--bg-surface-tertiary);
+  --surface-elevated: var(--bg-surface-elevated);
+  --surface-card: var(--bg-surface);
+  --surface-nav: var(--bg-nav);
+
+  --text-main: var(--text-primary);
+  --heading: var(--text-primary);
+  --body-text: var(--text-secondary);
+  --light-text: var(--text-muted);
+  --white-text: var(--white);
+  --color-text-main: var(--text-primary);
+
+  --border: var(--border-default);
+  --border-card: rgba(255, 255, 255, 0.15);
+
+  --badge-bg: var(--brand-soft);
+  --badge-border: var(--border-brand);
+  --badge-text: var(--text-brand);
+
+  --icon-primary: var(--navy-900);
+  --icon-accent: var(--brand-primary);
+  --icon-inactive: var(--neutral-400);
 }
+

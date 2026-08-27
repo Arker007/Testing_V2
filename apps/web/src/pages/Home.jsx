@@ -1,14 +1,16 @@
 import React from "react";
 import useDocumentTitle from "../shared/hooks/useDocumentTitle";
 import { useSite } from "../shared/context/SiteContext";
-import styles from "./Home.module.css";
+import styles from "../features/home/home.module.css";
 import ProductsShowcase from "../shared/components/ProductsShowcase";
 import FeaturesSection from "../shared/components/ui/FeaturesSection";
 import SectionHeader from "../shared/components/ui/SectionHeader";
-import HomeHero from "../features/home/HomeHero";
-import TrustedBySection from "../features/home/TrustedBySection";
-import IndustriesGrid from "../features/home/IndustriesGrid";
-import HomeCtaSection from "../features/home/HomeCtaSection";
+import {
+  HomeHero,
+  TrustedBySection,
+  IndustriesGrid,
+  HomeCtaSection,
+} from "../features/home";
 
 export default function Home() {
   const { c, co } = useSite();

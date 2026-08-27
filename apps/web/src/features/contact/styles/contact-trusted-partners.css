@@ -1,0 +1,101 @@
+/* ── Trusted Companies Logos Section ── */
+.trustedCompanies {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px dashed var(--neutral-300);
+  text-align: center;
+}
+
+.companiesTitle {
+  font-family: var(--font-display, inherit);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--neutral-500);
+  margin-bottom: 1.75rem;
+  font-weight: 700;
+}
+
+.companiesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 1.75rem;
+}
+
+.companyBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--surface-card);
+  border: 1px solid var(--neutral-300);
+  border-radius: 8px;
+  color: var(--neutral-700);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  cursor: default;
+}
+
+.companyBadge:hover {
+  transform: translateY(-2px);
+  background: var(--surface-card);
+  border-color: var(--color-success-dark);
+  color: var(--navy, var(--navy, var(--neutral-950)));
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.12);
+}
+
+.companyBadge svg {
+  color: var(--neutral-400);
+  transition: color 0.25s ease;
+}
+
+.companyBadge:hover svg {
+  color: var(--color-success-dark);
+}
+
+/* Dark Mode Adaptation */
+:global([data-theme="dark"]) .trustedCompanies,
+:global(.dark) .trustedCompanies,
+html.dark .trustedCompanies {
+  border-top-color: var(--border-default) !important;
+}
+
+:global([data-theme="dark"]) .companiesTitle,
+:global(.dark) .companiesTitle,
+html.dark .companiesTitle {
+  color: var(--neutral-400) !important;
+}
+
+:global([data-theme="dark"]) .companyBadge,
+:global(.dark) .companyBadge,
+html.dark .companyBadge {
+  background: var(--surface-card) !important;
+  border-color: var(--border-default) !important;
+  color: var(--neutral-300) !important;
+}
+
+:global([data-theme="dark"]) .companyBadge:hover,
+:global(.dark) .companyBadge:hover,
+html.dark .companyBadge:hover {
+  background: var(--dark-hover) !important;
+  border-color: var(--brand) !important;
+  color: var(--white) !important;
+  box-shadow: 0 6px 16px rgba(63, 174, 90, 0.16) !important;
+}
+
+:global([data-theme="dark"]) .companyBadge svg,
+:global(.dark) .companyBadge svg,
+html.dark .companyBadge svg {
+  color: var(--neutral-500) !important;
+}
+
+:global([data-theme="dark"]) .companyBadge:hover svg,
+:global(.dark) .companyBadge:hover svg,
+html.dark .companyBadge:hover svg {
+  color: var(--brand-text) !important;
+}

@@ -12,6 +12,24 @@
   <meta name="theme-color" content="#9EC037" />
   <meta name="robots" content="index, follow" />
 
+  <!-- Theme Initialization Script (Prevents FOUC) -->
+  <script>
+    (function () {
+      try {
+        var storedTheme = localStorage.getItem('theme');
+        var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = storedTheme === 'dark' || (!storedTheme && systemPrefersDark);
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

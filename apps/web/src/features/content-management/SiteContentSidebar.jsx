@@ -1,9 +1,9 @@
 import React from "react";
 import cStyles from "./SiteContent.module.css";
-import { ALL_SECTIONS_LIST } from "./allSectionsList";
-import { TAB_SECTIONS } from "./siteContent.constants";
-import QuickJumpSelector from "./QuickJumpSelector";
-import { SidebarFilterTabs } from "./SidebarFilterTabs";
+import { ALL_SECTIONS_LIST } from "./constants/allSectionsList";
+import { TAB_SECTIONS } from "./constants/siteContent.constants";
+import QuickJumpSelector from "./components/QuickJumpSelector";
+import { SidebarFilterTabs } from "./components/SidebarFilterTabs";
 
 export default function SiteContentSidebar({
   tab,

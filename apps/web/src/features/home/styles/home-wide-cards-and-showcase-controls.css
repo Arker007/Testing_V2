@@ -1,0 +1,199 @@
+
+.catCardWideLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.catCardWideEyebrow {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--brand);
+  letter-spacing: 0.12em;
+}
+
+.catCardWideTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.catCardWideDesc {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+}
+
+/* Responsive category grid wide card adjustments */
+@media (max-width: 991px) {
+  .catCardWide {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .catCardWide button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 991px) {
+}
+
+@media (max-width: 768px) {
+  .floatingOverlayBadge {
+    display: none; /* Hide floating overlays on mobile */
+  }
+}
+
+/* Showcase Slideshow Controls */
+.showcaseDots {
+  display: flex;
+  gap: 0.35rem;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.showcaseDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(5, 40, 63, 0.15);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.showcaseDot:hover {
+  background: var(--brand-dark);
+}
+
+.showcaseDotActive {
+  background: var(--brand) !important;
+  transform: scale(1.25);
+}
+
+.showcaseNavBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  z-index: 15;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease, background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.heroVisualWrapper:hover .showcaseNavBtn {
+  opacity: 1; /* Fade in on hover of the visual wrapper */
+}
+
+.showcaseNavBtn:hover {
+  background: var(--brand);
+  color: var(--dark);
+  border-color: var(--brand);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.scBtnLeft {
+  left: -19px;
+}
+
+.scBtnRight {
+  right: -19px;
+}
+
+@media (max-width: 576px) {
+  .showcaseNavBtn {
+    display: none; /* Hide arrows on small mobile screens */
+  }
+}
+
+/* ─── DARK MODE OVERRIDES ─── */
+:root[data-theme="dark"] .sustainabilitySection,
+:root[data-theme="dark"] .projectsSection,
+:root.dark .sustainabilitySection,
+:root.dark .projectsSection {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .bentoBottomText h6,
+:root.dark .bentoBottomText h6 {
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .bentoBottomText p,
+:root.dark .bentoBottomText p {
+  color: var(--text-secondary);
+}
+
+:root[data-theme="dark"] .projCard,
+:root.dark .projCard {
+  background: var(--bg-card);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+/* ─── Hero Section Dark Theme Overrides ─── */
+:global([data-theme="dark"]) .slantBgDark,
+:global(.dark) .slantBgDark {
+  background: linear-gradient(135deg, #0B131B 0%, #060B11 100%) !important;
+  opacity: 1 !important;
+  z-index: 2 !important;
+}
+
+:global([data-theme="dark"]) .slantBgGreen,
+:global(.dark) .slantBgGreen {
+  background: var(--brand-500) !important;
+  opacity: 1 !important;
+  z-index: 1 !important;
+}
+
+@media (max-width: 991px) {
+  :global([data-theme="dark"]) .slantBgDark,
+  :global(.dark) .slantBgDark,
+  :global([data-theme="dark"]) .slantBgGreen,
+  :global(.dark) .slantBgGreen {
+    display: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 576px) {
+  .catCardWide {
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+  .catCardWideTitle {
+    font-size: 1.25rem;
+  }
+  .catCardWideDesc {
+    font-size: 0.8rem;
+  }
+}

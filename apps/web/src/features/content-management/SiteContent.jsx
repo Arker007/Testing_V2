@@ -8,18 +8,18 @@ import CompanyForm from "./CompanyForm";
 import SectionEditor from "./SectionEditor";
 import TimelineEditor from "./TimelineEditor";
 import TeamEditor from "./TeamEditor";
-import ModalEditor from "./ModalEditor";
+import ModalEditor from "./components/ModalEditor";
 import SiteContentSidebar from "./SiteContentSidebar";
-import SiteContentToast from "./SiteContentToast";
+import SiteContentToast from "./components/SiteContentToast";
 
 // Hooks, Constants & Utilities
-import { useSiteContent } from "./useSiteContent";
+import { useSiteContent } from "./hooks/useSiteContent";
 import {
   COMPANY_FIELDS,
   CMS_FIELDS,
   SECTION_DISPLAY_NAMES,
-} from "./siteContent.constants";
-import { ALL_SECTIONS_LIST as allSectionsList } from "./allSectionsList";
+} from "./constants/siteContent.constants";
+import { ALL_SECTIONS_LIST as allSectionsList } from "./constants/allSectionsList";
 
 function getSectionDisplayName(sec) {
   return SECTION_DISPLAY_NAMES[sec] || sec;

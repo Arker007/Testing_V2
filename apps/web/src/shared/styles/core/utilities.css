@@ -1,0 +1,65 @@
+/* ==========================================================================
+   GENERIC UTILITY CLASSES
+   ========================================================================== */
+
+/* ─── Badges, Tags & Highlights ────────────────────────────── */
+.badge,
+.eco-badge,
+.highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  background-color: var(--brand-glow);
+  border: 1px solid var(--brand-border);
+  padding: 0.375rem 0.875rem;
+  border-radius: var(--radius-badge);
+}
+
+.badge::before,
+.eco-badge::before,
+.highlight-badge::before {
+  content: "";
+  display: inline-block;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  background-color: var(--brand-primary);
+}
+
+/* ─── Scrollbars ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: var(--radius-sm, 4px);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand);
+}
+
+/* ─── Screen Reader Only ─────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

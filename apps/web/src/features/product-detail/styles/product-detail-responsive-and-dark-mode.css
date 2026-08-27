@@ -1,0 +1,135 @@
+@media (max-width: 640px) {
+  .specRow {
+    grid-template-columns: 1fr;
+  }
+
+  .specKey {
+    border-right: none;
+    border-bottom: 1px solid rgba(5, 40, 63, 0.06);
+    background: var(--neutral-100);
+  }
+
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+
+  .relatedCard {
+    padding: 0.6rem;
+    border-radius: 10px;
+  }
+
+  .relatedCardThumb {
+    height: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .productGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .bentoSpecsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .bentoInfoCard {
+    padding: 1.25rem 1rem;
+  }
+
+  .bentoGalleryCard {
+    padding: 1rem;
+  }
+}
+
+/* ─── DARK MODE OVERRIDES ─── */
+:root[data-theme="dark"] .bentoGalleryCard,
+:root[data-theme="dark"] .bentoInfoCard,
+:root[data-theme="dark"] .bentoOptionsCard,
+:root[data-theme="dark"] .bentoActionsCard,
+:root[data-theme="dark"] .bentoHighlightCard,
+:root[data-theme="dark"] .bentoSpecTile,
+:root[data-theme="dark"] .b2bMatrix,
+:root[data-theme="dark"] .esgEstimatorCard,
+:root[data-theme="dark"] .quickFact,
+:root[data-theme="dark"] .trustItem,
+:root[data-theme="dark"] .benefitIcon,
+:root[data-theme="dark"] .comparisonTableWrapper,
+:root[data-theme="dark"] .tabsContainer,
+:root[data-theme="dark"] .specsTable,
+:root[data-theme="dark"] .assuranceCard,
+:root[data-theme="dark"] .cardFrame,
+:root[data-theme="dark"] .modal,
+:root[data-theme="dark"] .specsSheetModal,
+:root.dark .bentoGalleryCard,
+:root.dark .bentoInfoCard,
+:root.dark .bentoOptionsCard,
+:root.dark .bentoActionsCard,
+:root.dark .bentoHighlightCard,
+:root.dark .bentoSpecTile,
+:root.dark .b2bMatrix,
+:root.dark .esgEstimatorCard,
+:root.dark .quickFact,
+:root.dark .trustItem,
+:root.dark .benefitIcon,
+:root.dark .comparisonTableWrapper,
+:root.dark .tabsContainer,
+:root.dark .specsTable,
+:root.dark .assuranceCard,
+:root.dark .cardFrame,
+:root.dark .modal,
+:root.dark .specsSheetModal {
+  background: var(--bg-card);
+  border-color: var(--border);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-md);
+}
+
+:root[data-theme="dark"] .tabsHeader,
+:root[data-theme="dark"] .specsSheetHead,
+:root[data-theme="dark"] .specsSheetFooter,
+:root.dark .tabsHeader,
+:root.dark .specsSheetHead,
+:root.dark .specsSheetFooter {
+  background: var(--bg-card);
+  border-color: var(--border);
+}
+
+:root[data-theme="dark"] .bigTab,
+:root.dark .bigTab {
+  color: var(--text-secondary);
+}
+
+:root[data-theme="dark"] .bigTabActive,
+:root.dark .bigTabActive {
+  background: var(--bg-card);
+  color: var(--brand) !important;
+  border-bottom-color: var(--brand) !important;
+}
+
+:root[data-theme="dark"] .specRow:nth-child(even),
+:root.dark .specRow:nth-child(even) {
+  background: var(--border-subtle);
+}
+
+:root[data-theme="dark"] .comparisonThFeature,
+:root[data-theme="dark"] .comparisonTdTimber,
+:root.dark .comparisonThFeature,
+:root.dark .comparisonTdTimber {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .comparisonThProduct,
+:root[data-theme="dark"] .comparisonTdProduct,
+:root.dark .comparisonThProduct,
+:root.dark .comparisonTdProduct {
+  background: var(--brand-light);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}

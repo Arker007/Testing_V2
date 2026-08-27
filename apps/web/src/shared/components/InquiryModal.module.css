@@ -22,9 +22,9 @@
 }
 
 .modalCard {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
   box-shadow: var(--shadow-xl);
   width: 100%;
   max-width: 520px;
@@ -32,7 +32,7 @@
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
-  animation: modalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: modalSlideUp var(--motion-fast) var(--ease-standard);
 }
 
 @keyframes modalSlideUp {
@@ -52,7 +52,7 @@
   right: 1.25rem;
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,13 +60,13 @@
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--motion-fast) ease;
 }
 
 .modalCloseBtn:hover {
-  background-color: var(--bg-interactive);
+  background-color: var(--bg-surface-secondary);
   color: var(--text-primary);
-  border-color: var(--border);
+  border-color: var(--border-default);
 }
 
 .catTag {
@@ -76,9 +76,9 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.25rem 0.65rem;
-  background-color: var(--brand-glow-subtle);
-  color: var(--brand-dark);
-  border-radius: 4px;
+  background-color: var(--brand-soft);
+  color: var(--text-brand);
+  border-radius: var(--radius-badge);
 }
 
 .gridCardTitle {
@@ -120,7 +120,7 @@
 .formLabel {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -129,20 +129,20 @@
 .formTextarea {
   width: 100%;
   padding: 0.65rem 0.85rem;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background-color: var(--bg-card);
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--border-default);
+  background-color: var(--bg-surface-secondary);
   color: var(--text-primary);
   font-size: 0.875rem;
   font-family: inherit;
   outline: none;
-  transition: all 0.2s ease;
+  transition: all var(--motion-fast) ease;
   box-sizing: border-box;
 }
 
 .formInput:focus,
 .formTextarea:focus {
-  border-color: var(--brand);
+  border-color: var(--brand-primary);
   box-shadow: 0 0 0 3px var(--brand-glow-subtle);
 }
 
@@ -160,7 +160,7 @@
   font-weight: 500;
   padding: 0.5rem 0.75rem;
   background-color: var(--danger-bg);
-  border-radius: 6px;
+  border-radius: var(--radius-badge);
   border: 1px solid var(--danger-border);
 }
 
@@ -176,13 +176,13 @@
 }
 
 .successIcon {
-  color: var(--brand);
+  color: var(--brand-primary);
   margin: 0 auto 1rem;
 }
 
 .successTitle {
   font-size: 1.125rem;
-  color: var(--navy);
+  color: var(--text-primary);
   font-weight: 700;
 }
 

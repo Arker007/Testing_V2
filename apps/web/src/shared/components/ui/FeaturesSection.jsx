@@ -65,8 +65,8 @@ export default function FeaturesSection() {
     <section
       id="features-advantage"
       style={{
-        backgroundColor: "var(--bg-page, #F7F8F7)",
-        color: "var(--text-primary, #011526)",
+        backgroundColor: "var(--bg-canvas)",
+        color: "var(--text-primary)",
       }}
       className="py-10 md:py-16 transition-colors"
     >
@@ -74,7 +74,7 @@ export default function FeaturesSection() {
         {/* Top 4 Features Panel */}
         <Card
           variant="default"
-          className="py-10 px-6 md:px-12 mb-12 md:mb-16 shadow-sm border border-slate-200/80 dark:border-white/10"
+          className="py-10 px-6 md:px-12 mb-12 md:mb-16 shadow-[var(--shadow-sm)] border border-[var(--border-subtle)]"
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-8 text-center">
             {features.map((item, idx) => (
@@ -82,16 +82,16 @@ export default function FeaturesSection() {
                 key={idx}
                 className="group flex flex-col items-center text-center px-2"
               >
-                <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300">
+                <div className="w-14 h-14 rounded-2xl bg-[var(--brand-soft)] flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-300">
                   {item.icon}
                 </div>
                 <h3
-                  className="text-sm md:text-base font-bold tracking-tight uppercase mb-2.5 text-slate-900 dark:text-white"
+                  className="text-sm md:text-base font-bold tracking-tight uppercase mb-2.5 text-[var(--text-primary)]"
                 >
                   {item.title}
                 </h3>
                 <p
-                  className="text-xs sm:text-[13px] leading-relaxed font-normal text-slate-600 dark:text-slate-300 max-w-[270px] mx-auto"
+                  className="text-xs sm:text-[13px] leading-relaxed font-normal text-[var(--text-secondary)] max-w-[270px] mx-auto"
                 >
                   {item.desc}
                 </p>
@@ -256,13 +256,13 @@ export default function FeaturesSection() {
                 Exporting
               </span>
               <h2
-                style={{ color: "var(--heading, #011526)" }}
+                style={{ color: "var(--heading, #0f141a)" }}
                 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-snug"
               >
                 Driving Economic Growth
               </h2>
               <h2
-                style={{ color: "var(--heading, #011526)" }}
+                style={{ color: "var(--heading, #0f141a)" }}
                 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-snug"
               >
                 & Global Expansion

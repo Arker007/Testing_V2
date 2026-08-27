@@ -1,8 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Navbar from "../../features/navigation/Navbar";
-import MobileBottomNav from "../../features/navigation/MobileBottomNav";
-import Footer from "../../features/navigation/Footer";
+import { Navbar, MobileBottomNav, Footer } from "../../features/navigation";
 import ScrollProgressBar from "../../shared/components/ScrollProgressBar";
 
 export default function PublicLayout() {

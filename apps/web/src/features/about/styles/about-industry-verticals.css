@@ -1,0 +1,219 @@
+
+.verticalCardNew:hover {
+  border-color: var(--brand);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.verticalIconNew {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md, 8px);
+  background: var(--brand-glow-subtle);
+  color: var(--text-primary);
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  transition: transform 0.25s ease;
+}
+
+.verticalCardNew:hover .verticalIconNew {
+  transform: scale(1.15);
+}
+
+.verticalTitleNew {
+  font-family: var(--font-display, inherit);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.verticalDescNew {
+  font-size: 0.8125rem;
+  color: var(--gray-500);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Values ── */
+.valuesSection {
+  padding: 4.5rem 0;
+  background: var(--gray-50);
+  border-top: 1px solid var(--navy-subtle);
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.valueCardNew {
+  background: var(--bg-card, var(--white));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card, 8px);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.valueCardNew:hover {
+  border-color: var(--brand);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.valueIconNew {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md, 8px);
+  background: var(--navy);
+  color: var(--brand);
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  transition: transform 0.25s ease;
+}
+
+.valueCardNew:hover .valueIconNew {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+.valueTitleNew {
+  font-family: var(--font-display, inherit);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.valueDescNew {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Closing Call-To-Action (CTA) ── */
+.cta {
+  padding: 5rem 0;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.ctaEyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand);
+  margin-bottom: 0.5rem;
+}
+
+.ctaTitle {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--white);
+  margin: 0 0 0.75rem 0;
+}
+
+.ctaSub {
+  font-size: 0.95rem;
+  color: var(--text-inverse-secondary);
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+.ctaBtnGroup {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaPrimaryBtn {
+  height: 48px;
+  padding: 0 1.75rem;
+  background: var(--brand);
+  color: var(--text-primary);
+  border-radius: var(--radius-btn, 8px);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px var(--navy-glow);
+}
+
+.ctaPrimaryBtn:hover {
+  background: var(--brand);
+  transform: translateY(-2px);
+}
+
+.ctaSecondaryBtn {
+  height: 48px;
+  padding: 0 1.75rem;
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid var(--border-dark);
+  border-radius: var(--radius-btn, 8px);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.ctaSecondaryBtn:hover {
+  background: var(--border-dark);
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ── Responsive Adaptations ── */
+@media (max-width: 1024px) {
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .narrativeGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .processGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timelineRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .certGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .verticalsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+}

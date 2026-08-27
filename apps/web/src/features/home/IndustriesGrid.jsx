@@ -1,7 +1,7 @@
 import React from "react";
 import { IndustryCard } from "./IndustryCard";
 import { INDUSTRIES_DATA } from "./industriesData";
-import styles from "../../pages/Home.module.css";
+import styles from "./home.module.css";
 import { useSite } from "../../shared/context/SiteContext";
 
 export default function IndustriesGrid() {

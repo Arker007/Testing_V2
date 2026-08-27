@@ -12,7 +12,7 @@ export default function ExperienceBanner() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <Card
         variant="elevated"
-        className="p-8 sm:p-10 text-slate-900 dark:text-white shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[#171E26] border border-slate-200/90 dark:border-white/10 rounded-2xl"
+        className="p-8 sm:p-10 text-slate-900 dark:text-white shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[#161c24] border border-slate-200/90 dark:border-[rgba(242,242,242,0.12)] rounded-2xl"
       >
         {/* Ambient radial glow blobs */}
         <div className="absolute top-0 right-0 w-80 h-80 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />

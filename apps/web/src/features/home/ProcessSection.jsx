@@ -215,16 +215,16 @@ export default function ProcessSection({ className = "" }) {
 
   // Border and glow mapping
   const getGlowStyles = (stepIndex, isCurrentActive) => {
-    if (!isCurrentActive) return "border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#111820] hover:border-emerald-400/80 dark:hover:border-emerald-500/60 hover:shadow-md hover:-translate-y-0.5 shadow-2xs";
+    if (!isCurrentActive) return "border-slate-200/90 dark:border-white/16 bg-white dark:bg-[#161c24] hover:border-emerald-400/80 dark:hover:border-[#6BBF54]/60 hover:shadow-md hover:-translate-y-0.5 shadow-2xs";
     switch (stepIndex) {
-      case 0: return "border-emerald-500 ring-2 ring-emerald-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
-      case 1: return "border-blue-500 ring-2 ring-blue-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
-      case 2: return "border-sky-500 ring-2 ring-sky-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
-      case 3: return "border-indigo-500 ring-2 ring-indigo-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
-      case 4: return "border-teal-500 ring-2 ring-teal-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
-      case 5: return "border-violet-500 ring-2 ring-violet-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
-      case 6: return "border-emerald-500 ring-2 ring-emerald-500/25 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
-      default: return "border-emerald-500 bg-white dark:bg-[#171E26] shadow-md -translate-y-0.5";
+      case 0: return "border-emerald-500 ring-2 ring-emerald-500/25 bg-white dark:bg-[#1e2530] shadow-md -translate-y-0.5";
+      case 1: return "border-blue-500 ring-2 ring-blue-500/25 bg-white dark:bg-[#1e2530] shadow-md -translate-y-0.5";
+      case 2: return "border-sky-500 ring-2 ring-sky-500/25 bg-white dark:bg-[#1e2530] shadow-md -translate-y-0.5";
+      case 3: return "border-indigo-500 ring-2 ring-indigo-500/25 bg-white dark:bg-[#1e2530] shadow-md -translate-y-0.5";
+      case 4: return "border-teal-500 ring-2 ring-teal-500/25 bg-white dark:bg-[#1e2530] shadow-md -translate-y-0.5";
+      case 5: return "border-violet-500 ring-2 ring-violet-500/25 bg-white dark:bg-[#1e2530] shadow-md -translate-y-0.5";
+      case 6: return "border-emerald-500 ring-2 ring-emerald-500/25 bg-white dark:bg-[#1e2530] shadow-md -translate-y-0.5";
+      default: return "border-emerald-500 bg-white dark:bg-[#1e2530] shadow-md -translate-y-0.5";
     }
   };
 
@@ -388,7 +388,7 @@ export default function ProcessSection({ className = "" }) {
               
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-emerald-500/20 to-blue-500/20 flex items-center justify-center border border-emerald-200 dark:border-emerald-800 shadow-lg mb-4 p-1.5 animate-pulse-slow">
-                  <div className="w-full h-full rounded-full bg-white dark:bg-[#111820] flex items-center justify-center shadow-inner">
+                  <div className="w-full h-full rounded-full bg-white dark:bg-[#161c24] flex items-center justify-center shadow-inner">
                     <Icon icon="solar:restart-circle-linear" className="w-12 h-12 text-emerald-600 dark:text-emerald-400" />
                   </div>
                 </div>
@@ -497,8 +497,8 @@ export default function ProcessSection({ className = "" }) {
                     onClick={() => handleStepClick(i)}
                     className={`flex-shrink-0 snap-center py-3 px-4 rounded-[var(--radius-card,8px)] transition-all duration-300 flex items-center gap-3 border text-left min-w-[210px] ${
                       isActive
-                        ? "bg-slate-900 dark:bg-emerald-950/80 text-white border-emerald-500 shadow-lg scale-[1.02]"
-                        : "bg-white dark:bg-[#111820] text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#171E26] border-slate-200/90 dark:border-white/10 shadow-xs"
+                        ? "bg-slate-900 dark:bg-[#1e2530] text-white border-emerald-500 shadow-lg scale-[1.02]"
+                        : "bg-white dark:bg-[#161c24] text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#1e2530] border-slate-200/90 dark:border-[rgba(242,242,242,0.1)] shadow-xs"
                     }`}
                   >
                     <div className={`w-8 h-8 rounded-[var(--radius-sm,4px)] flex items-center justify-center font-black text-xs transition-colors ${
@@ -519,18 +519,18 @@ export default function ProcessSection({ className = "" }) {
         </div>
 
         {/* 2. Interactive Panel Details Section with CTA Container Styling */}
-        <div className="max-w-6xl mx-auto bg-white/95 dark:bg-[#0e1015] text-slate-900 dark:text-white rounded-[var(--radius-card,8px)] p-8 lg:p-12 shadow-xl backdrop-blur-sm relative overflow-hidden transition-all duration-500 border border-slate-200/90 dark:border-white/10">
+        <div className="max-w-6xl mx-auto bg-white/95 dark:bg-surface text-slate-900 dark:text-white rounded-card p-8 lg:p-12 shadow-xl backdrop-blur-sm relative overflow-hidden transition-all duration-500 border border-slate-200/90 dark:border-subtle">
           {/* Ambient radial glow blobs */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/10 dark:bg-blue-500/5 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/10 dark:bg-[var(--brand-primary)]/5 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
             
             {/* Column A: Left side 3D Icon Container */}
             <div className="lg:col-span-3 flex justify-center items-center">
-              <div className="relative p-6 bg-slate-100 dark:bg-slate-900/50 rounded-[var(--radius-md,8px)] border border-slate-200 dark:border-white/10 shadow-inner">
+              <div className="relative p-6 bg-slate-100 dark:bg-surface-secondary rounded-btn border border-slate-200 dark:border-subtle shadow-inner">
                 {steps[activeStep].activeIcon}
-                <div className="absolute -bottom-2 right-4 bg-[var(--brand)] text-slate-950 px-3 py-1 rounded-[var(--radius-badge,8px)] text-xs font-black tracking-tight shadow-md">
+                <div className="absolute -bottom-2 right-4 bg-[var(--brand-primary)] text-slate-950 px-3 py-1 rounded-badge text-xs font-black tracking-tight shadow-md">
                   Step {steps[activeStep].num}
                 </div>
               </div>
@@ -538,7 +538,7 @@ export default function ProcessSection({ className = "" }) {
 
             {/* Column B: Center step text details */}
             <div className="lg:col-span-5 flex flex-col justify-center items-start">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#5FBF50]/10 dark:bg-[#5FBF50]/8 border border-[#5FBF50]/30 dark:border-[#5FBF50]/40 rounded-[var(--radius-pill,8px)] text-[#54b862] dark:text-[#5FBF50] font-bold text-xs tracking-wider uppercase mb-3 shadow-xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[var(--brand-soft)] border border-[var(--brand-border)] rounded-pill text-[var(--text-brand)] font-bold text-xs tracking-wider uppercase mb-3 shadow-xs">
                 <Icon icon="solar:info-circle-linear" className="w-3.5 h-3.5" />
                 <span>{steps[activeStep].subtitle}</span>
               </span>
@@ -554,7 +554,7 @@ export default function ProcessSection({ className = "" }) {
             <div className="lg:col-span-4 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-white/15 pt-6 lg:pt-0 lg:pl-8 gap-4">
               {steps[activeStep].features.map((feature, idx) => (
                 <div key={idx} className="flex gap-3">
-                  <div className="w-5 h-5 rounded-[var(--radius-sm,4px)] bg-[var(--brand-light)] text-[var(--brand-dark)] dark:text-[var(--brand)] flex items-center justify-center flex-shrink-0 mt-0.5 border border-[var(--brand-border)]/30">
+                  <div className="w-5 h-5 rounded-control bg-[var(--brand-soft)] text-[var(--text-brand)] flex items-center justify-center flex-shrink-0 mt-0.5 border border-[var(--brand-border)]/30">
                     <Icon icon="solar:check-read-linear" className="w-3.5 h-3.5 font-bold" />
                   </div>
                   <div>
@@ -572,7 +572,7 @@ export default function ProcessSection({ className = "" }) {
             <button
               type="button"
               onClick={handlePrev}
-              className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-slate-100 dark:bg-white/10 hover:bg-[var(--brand)] hover:text-slate-950 border border-[var(--border-card)] flex items-center justify-center transition text-slate-800 dark:text-white shadow-xs cursor-pointer"
+              className="w-10 h-10 rounded-btn bg-slate-100 dark:bg-white/10 hover:bg-[var(--brand-primary)] hover:text-slate-950 border border-slate-200 dark:border-subtle flex items-center justify-center transition text-slate-800 dark:text-white shadow-xs cursor-pointer"
               title="Previous Step"
             >
               <Icon icon="solar:alt-arrow-left-linear" className="w-5 h-5" />
@@ -580,7 +580,7 @@ export default function ProcessSection({ className = "" }) {
             <button
               type="button"
               onClick={handleNext}
-              className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand)] text-slate-950 hover:brightness-110 flex items-center justify-center transition font-bold shadow-md cursor-pointer border-0"
+              className="w-10 h-10 rounded-btn bg-[var(--brand-primary)] text-slate-950 hover:brightness-110 flex items-center justify-center transition font-bold shadow-md cursor-pointer border-0"
               title="Next Step"
             >
               <Icon icon="solar:alt-arrow-right-linear" className="w-5 h-5" />
@@ -589,17 +589,17 @@ export default function ProcessSection({ className = "" }) {
         </div>
 
         {/* 3. Bottom Key Values Grid Panel with Full CTA Container Styling */}
-        <div className="max-w-6xl mx-auto relative overflow-hidden bg-white/95 dark:bg-[#0e1015] border border-slate-200/90 dark:border-white/10 p-6 sm:p-8 rounded-[var(--radius-card,8px)] shadow-xl backdrop-blur-sm mt-12">
+        <div className="max-w-6xl mx-auto relative overflow-hidden bg-white/95 dark:bg-surface border border-slate-200/90 dark:border-subtle p-6 sm:p-8 rounded-card shadow-xl backdrop-blur-sm mt-12">
           {/* Ambient radial glow */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--brand)]/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[var(--brand)]/10 dark:bg-[#6BBF54]/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--brand)]/5 dark:bg-[#6BBF54]/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
 
           <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
             {/* Card 1 */}
-            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
+            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#1e2530]/70 hover:bg-white dark:hover:bg-[#1e2530] border border-slate-200/80 dark:border-[rgba(242,242,242,0.1)] hover:border-emerald-400/80 dark:hover:border-[#6BBF54]/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-[rgba(107,191,84,0.15)] text-emerald-600 dark:text-[#6BBF54] flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-[rgba(107,191,84,0.3)] shadow-2xs">
                 <Icon icon="solar:restart-circle-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
@@ -610,9 +610,9 @@ export default function ProcessSection({ className = "" }) {
             </div>
 
             {/* Card 2 */}
-            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
+            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#1e2530]/70 hover:bg-white dark:hover:bg-[#1e2530] border border-slate-200/80 dark:border-[rgba(242,242,242,0.1)] hover:border-emerald-400/80 dark:hover:border-[#6BBF54]/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-[rgba(107,191,84,0.15)] text-emerald-600 dark:text-[#6BBF54] flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-[rgba(107,191,84,0.3)] shadow-2xs">
                 <Icon icon="solar:shield-check-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
@@ -623,9 +623,9 @@ export default function ProcessSection({ className = "" }) {
             </div>
 
             {/* Card 3 */}
-            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
+            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#1e2530]/70 hover:bg-white dark:hover:bg-[#1e2530] border border-slate-200/80 dark:border-[rgba(242,242,242,0.1)] hover:border-emerald-400/80 dark:hover:border-[#6BBF54]/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-[rgba(107,191,84,0.15)] text-emerald-600 dark:text-[#6BBF54] flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-[rgba(107,191,84,0.3)] shadow-2xs">
                 <Icon icon="solar:cpu-bolt-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
@@ -636,9 +636,9 @@ export default function ProcessSection({ className = "" }) {
             </div>
 
             {/* Card 4 */}
-            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#111820] hover:bg-white dark:hover:bg-[#171E26] border border-slate-200/80 dark:border-white/10 hover:border-emerald-400/80 dark:hover:border-emerald-500/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
+            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#1e2530]/70 hover:bg-white dark:hover:bg-[#1e2530] border border-slate-200/80 dark:border-[rgba(242,242,242,0.1)] hover:border-emerald-400/80 dark:hover:border-[#6BBF54]/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-[rgba(107,191,84,0.15)] text-emerald-600 dark:text-[#6BBF54] flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-[rgba(107,191,84,0.3)] shadow-2xs">
                 <Icon icon="solar:global-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">

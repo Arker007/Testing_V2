@@ -1,0 +1,212 @@
+
+:root[data-theme="dark"] .detailCtaBand,
+:root.dark .detailCtaBand {
+  background: var(--brand-light);
+  border-color: var(--border-strong);
+}
+
+:root[data-theme="dark"] .selectField,
+:root[data-theme="dark"] .colorTag,
+:root[data-theme="dark"] .datasheetBtn,
+:root.dark .selectField,
+:root.dark .colorTag,
+:root.dark .datasheetBtn {
+  background: var(--bg-interactive);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+:root[data-theme="dark"] .selectIcon,
+:root.dark .selectIcon {
+  color: var(--text-muted);
+}
+
+:root[data-theme="dark"] .esgQuantityControls,
+:root[data-theme="dark"] .esgMetric,
+:root.dark .esgQuantityControls,
+:root.dark .esgMetric {
+  background: var(--bg-interactive);
+  border-color: var(--border);
+}
+
+:root[data-theme="dark"] .esgQtyInput,
+:root[data-theme="dark"] .esgQtyBtn,
+:root.dark .esgQtyInput,
+:root.dark .esgQtyBtn {
+  color: var(--text-primary);
+}
+
+/* ── Custom Redesign Styles ── */
+.leftColStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rightColStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.priceDivider {
+  height: 1px;
+  background: rgba(5, 40, 63, 0.08);
+  margin: 1rem 0 1.25rem 0;
+  width: 100%;
+}
+
+.bentoSpecsGridCard {
+  background: var(--bg-card, var(--white));
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 30px rgba(16, 24, 40, 0.03), 0 1px 3px rgba(16, 24, 40, 0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bentoSpecsGridCard:hover {
+  box-shadow: 0 12px 36px rgba(16, 24, 40, 0.05), 0 2px 6px rgba(16, 24, 40, 0.03);
+}
+
+.bentoSpecsGridInner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.specIconBox {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--brand-50);
+  color: var(--brand-600);
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.bentoSpecTile:hover .specIconBox {
+  background: var(--brand-400);
+  color: var(--navy, var(--neutral-950));
+  transform: scale(1.05);
+}
+
+.selectWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.customSelectTrigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1.5px solid rgba(11, 47, 99, 0.15);
+  border-radius: 8px;
+  padding: 0.75rem 1.15rem;
+  padding-right: 2.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  outline: none;
+  background: var(--bg-card, var(--white));
+  color: var(--navy, var(--neutral-950));
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  position: relative;
+}
+
+.customSelectTrigger:focus,
+.customSelectTriggerActive {
+  border-color: var(--brand-400);
+  box-shadow: 0 0 0 3px rgba(152, 209, 42, 0.15);
+}
+
+.selectIcon {
+  position: absolute;
+  right: 1.15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  color: var(--neutral-800);
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.selectIconRotated {
+  transform: translateY(-50%) rotate(180deg) !important;
+  color: var(--brand-400) !important;
+}
+
+.customSelectDropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: var(--bg-card, var(--white));
+  border: 1px solid var(--border, rgba(11, 47, 99, 0.15));
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(16, 24, 40, 0.08), 0 2px 6px rgba(16, 24, 40, 0.04);
+  z-index: 50;
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 0.35rem;
+  margin: 0;
+  list-style: none;
+  animation: dropdownFadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.customSelectOption {
+  padding: 0.65rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--neutral-700);
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.15s ease;
+}
+
+.customSelectOption:hover {
+  background: var(--neutral-200);
+  color: var(--navy, var(--neutral-950));
+}
+
+.customSelectOptionActive {
+  background: rgba(152, 209, 42, 0.1);
+  color: var(--navy, var(--neutral-950));
+  font-weight: 700;
+}
+
+.darkInquiryBtn {
+  flex: 1.4;
+  height: 48px;
+  background: var(--navy, var(--neutral-950));
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  box-shadow: 0 4px 12px rgba(11, 47, 99, 0.15);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}

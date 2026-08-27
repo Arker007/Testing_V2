@@ -1,9 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 import { useSite } from "../../shared/context/SiteContext";
 import OptimizedImage from "../../shared/components/OptimizedImage";
-import styles from "../../pages/Home.module.css";
+import styles from "./home.module.css";
+
+import recycledPlasticProfiles from "../../assets/images/recycled_plastic_profiles_1785866736886.jpg";
+import highLoadCapacity from "../../assets/images/high_load_capacity_1785866759510.jpg";
+import weatherResistantBg from "../../assets/images/weather_resistant_bg_1785866780021.jpg";
 
 // Slide-specific linear icons map from @iconify/react
 const iconMap = {
@@ -26,6 +31,7 @@ const slides = [
     titleWhite: "PLASTIC LUMBER",
     desc: "Premium grade recycled polymer profiles engineered to replace wood and metal. Zero rot, zero splinter, and maintenance-free durability built for fifty-plus years of structural performance.",
     image: "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
+    fallbackSrc: recycledPlasticProfiles,
     features: [
       { icon: "ShieldCheck", title: "DURABLE", text: "Built for long lasting structural performance" },
       { icon: "Droplets", title: "WEATHERPROOF", text: "Zero rot, zero splinter, moisture resistant" },
@@ -40,6 +46,7 @@ const slides = [
     titleWhite: "PLASTIC PALLETS",
     desc: "High-capacity, injection-molded and extruded plastic pallets designed for seamless warehousing, industrial logistics, and hassle-free international sea freight shipping.",
     image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
+    fallbackSrc: highLoadCapacity,
     features: [
       { icon: "ShieldCheck", title: "HEAVY DUTY", text: "Withstands heavy static & dynamic loads" },
       { icon: "Droplets", title: "CHEMICAL RESIST", text: "Resistant to acids, alkalis, and oils" },
@@ -54,6 +61,7 @@ const slides = [
     titleWhite: "GARDEN BENCHES",
     desc: "Robust, heavy-duty outdoor seating systems perfect for garden, commercial, and public spaces. Built to withstand all weather conditions and last for years.",
     image: "/uploads/products/categories/garden-bench-1770446422580-0.webp",
+    fallbackSrc: weatherResistantBg,
     features: [
       { icon: "ShieldCheck", title: "WEATHERPROOF", text: "Engineered to perform in all weather conditions" },
       { icon: "Link2", title: "RUSTPROOF", text: "Corrosion-resistant for enhanced durability" },
@@ -133,76 +141,119 @@ export default function HomeHero() {
       <div className={styles.dotsPatternRightBottom} />
 
       {/* Navigation Chevron Buttons shifted to entire Hero Section */}
-      <button
+      <Motion.button
         onClick={handlePrev}
         className={`${styles.chevronBtn} ${styles.chevronBtnLeft}`}
         style={{ top: centerY }}
         aria-label="Previous Slide"
       >
         <Icon icon="solar:alt-arrow-left-linear" className="w-5 h-5 text-white" />
-      </button>
-      <button
+      </Motion.button>
+      <Motion.button
         onClick={handleNext}
         className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
         style={{ top: centerY }}
         aria-label="Next Slide"
       >
         <Icon icon="solar:alt-arrow-right-linear" className="w-5 h-5 text-white" />
-      </button>
+      </Motion.button>
 
       <div className="container relative z-10">
         <div className={styles.heroGrid}>
           {/* Left Content Column */}
           <div className={styles.heroLeft}>
-            <div className={styles.heroLeftTopGroup}>
-              {/* Manufacturer Badge */}
-              <div className={styles.badge}>
-                <div className={styles.badgeIconWrapper}>
-                  <Icon icon="solar:buildings-3-linear" className={styles.badgeIcon} />
+            <AnimatePresence mode="wait">
+              <Motion.div
+                key={current}
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 12 }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                className={styles.heroLeftTopGroup}
+              >
+                {/* Manufacturer Badge */}
+                <div className={styles.badge}>
+                  <div className={styles.badgeIconWrapper}>
+                    <Icon icon="solar:buildings-3-linear" className={styles.badgeIcon} />
+                  </div>
+                  <span className={styles.badgeText}>{activeSlide.badge}</span>
                 </div>
-                <span className={styles.badgeText}>{activeSlide.badge}</span>
-              </div>
 
-              {/* Headline */}
-              <h1 className={styles.headline}>
-                <span className={styles.titleLime}>{activeSlide.titleLime}</span>
-                <span className={styles.titleWhite}>{activeSlide.titleWhite}</span>
-              </h1>
+                {/* Headline */}
+                <h1 className={styles.headline}>
+                  <span className={styles.titleLime}>{activeSlide.titleLime}</span>
+                  <span className={styles.titleWhite}>{activeSlide.titleWhite}</span>
+                </h1>
 
-              {/* Headline Underline Accent */}
-              <div className={styles.underlineAccent}>
-                <span className={styles.underlineLine} />
-                <span className={styles.underlineDot} />
-              </div>
+                {/* Headline Underline Accent */}
+                <div className={styles.underlineAccent}>
+                  <span className={styles.underlineLine} />
+                  <span className={styles.underlineDot} />
+                </div>
 
-              {/* Description */}
-              <p className={styles.description}>
-                {activeSlide.desc}
-              </p>
-            </div>
+                {/* Description */}
+                <p className={styles.description}>
+                  {activeSlide.desc}
+                </p>
+              </Motion.div>
+            </AnimatePresence>
 
             {/* Feature Panel */}
-            <div className={styles.featurePanel}>
-              {activeSlide.features.map((feat, idx) => {
-                const iconName = iconMap[feat.icon] || "solar:shield-check-linear";
-                return (
-                  <div key={idx} className={styles.featureColumn}>
-                    <div className={styles.featureIconRing}>
-                      <Icon icon={iconName} className={styles.featureIcon} />
-                    </div>
-                    <h4 className={styles.featureTitle}>{feat.title}</h4>
-                    <p className={styles.featureDesc}>{feat.text}</p>
-                  </div>
-                );
-              })}
-            </div>
+            <AnimatePresence mode="wait">
+              <Motion.div
+                key={`features-${current}`}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.06,
+                    },
+                  },
+                }}
+                className={styles.featurePanel}
+              >
+                {activeSlide.features.map((feat, idx) => {
+                  const iconName = iconMap[feat.icon] || "solar:shield-check-linear";
+                  return (
+                    <Motion.div
+                      key={idx}
+                      variants={{
+                        hidden: { opacity: 0, y: 12 },
+                        visible: {
+                          opacity: 1,
+                          y: 0,
+                          transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+                        },
+                      }}
+                      className={styles.featureColumn}
+                    >
+                      <div className={styles.featureIconRing}>
+                        <Icon icon={iconName} className={styles.featureIcon} />
+                      </div>
+                      <h4 className={styles.featureTitle}>{feat.title}</h4>
+                      <p className={styles.featureDesc}>{feat.text}</p>
+                    </Motion.div>
+                  );
+                })}
+              </Motion.div>
+            </AnimatePresence>
 
             {/* CTA Row & Decorative Slashes */}
             <div className={styles.ctaRow}>
-              <Link to="/products" className="exploreBtnGlobal">
-                <span>EXPLORE PRODUCTS</span>
-                <Icon icon="solar:arrow-right-linear" className="exploreBtnArrowGlobal" />
-              </Link>
+              <Motion.div
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-block"
+              >
+                <Link to="/products" className="exploreBtnGlobal">
+                  <span>EXPLORE PRODUCTS</span>
+                  <Icon icon="solar:arrow-right-linear" className="exploreBtnArrowGlobal" />
+                </Link>
+              </Motion.div>
               <div className={styles.decorativeSlashes} aria-hidden="true">
                 <span>/</span><span>/</span><span>/</span><span>/</span>
                 <span>/</span><span>/</span><span>/</span><span>/</span>
@@ -231,9 +282,9 @@ export default function HomeHero() {
 
                     {/* Floor Perspective Pedestal Shadow */}
                     <radialGradient id="floorShadowGrad" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#011526" stopOpacity="0.28" />
-                      <stop offset="60%" stopColor="#011526" stopOpacity="0.08" />
-                      <stop offset="100%" stopColor="#011526" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#0f141a" stopOpacity="0.28" />
+                      <stop offset="60%" stopColor="#0f141a" stopOpacity="0.08" />
+                      <stop offset="100%" stopColor="#0f141a" stopOpacity="0" />
                     </radialGradient>
 
                     <clipPath id="heroHexagonClip">
@@ -274,7 +325,7 @@ export default function HomeHero() {
                   {/* Full-Screen Product Image Clipped to Hexagon */}
                   <g clipPath="url(#heroHexagonClip)">
                     <foreignObject x="0" y="0" width="500" height="520">
-                      <div style={{ width: "100%", height: "100%", backgroundColor: "var(--gray-50)", position: "relative", overflow: "hidden" }}>
+                      <div style={{ width: "100%", height: "100%", backgroundColor: "var(--white)", position: "relative", overflow: "hidden" }}>
                         {/* 3D Pedestal Spotlight Backdrop */}
                         <div
                           style={{
@@ -304,6 +355,7 @@ export default function HomeHero() {
                           >
                             <OptimizedImage
                               src={slide.image}
+                              fallbackSrc={slide.fallbackSrc}
                               alt={slide.titleWhite}
                               loading="eager"
                               style={{
@@ -342,9 +394,11 @@ export default function HomeHero() {
                 <div className={styles.paginationDots}>
                   <div className={styles.paginationTrack}>
                     {slides.map((slide, idx) => (
-                      <button
+                      <Motion.button
                         key={idx}
                         onClick={() => setCurrent(idx)}
+                        whileHover={{ scale: 1.3 }}
+                        whileTap={{ scale: 0.8 }}
                         className={`${styles.paginationDot} ${
                           idx === current ? styles.paginationDotActive : ""
                         }`}
@@ -356,7 +410,11 @@ export default function HomeHero() {
                 </div>
 
                 {/* Floating Assistance Card */}
-                <div className={styles.assistanceCard}>
+                <Motion.div
+                  className={styles.assistanceCard}
+                  whileHover={{ y: -3, boxShadow: "var(--shadow-lg)" }}
+                  transition={{ type: "spring", stiffness: 350, damping: 20 }}
+                >
                   <div className={styles.assistanceIconCircle}>
                     <Icon icon="solar:headphones-round-linear" className="w-5 h-5 text-white" />
                   </div>
@@ -366,14 +424,16 @@ export default function HomeHero() {
                       Our team is ready to help you find the right solution.
                     </span>
                   </div>
-                  <a
+                  <Motion.a
                     href={`tel:${cleanedPhone}`}
                     className={styles.assistanceBtn}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     <Icon icon="solar:phone-calling-linear" className="w-3.5 h-3.5 text-inherit" />
                     <span>CONTACT US</span>
-                  </a>
-                </div>
+                  </Motion.a>
+                </Motion.div>
               </div>
             </div>
           </div>

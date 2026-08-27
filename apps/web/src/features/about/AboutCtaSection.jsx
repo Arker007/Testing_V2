@@ -14,24 +14,24 @@ export default function AboutCtaSection() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 cta-section">
       <Card
         variant="elevated"
-        className="p-8 sm:p-12 text-slate-900 dark:text-white shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[#171E26] border border-slate-200/90 dark:border-white/10 rounded-2xl"
+        className="p-8 sm:p-12 text-[var(--text-primary)] shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-surface border border-slate-200/90 dark:border-subtle rounded-card"
       >
         {/* Ambient radial glow blobs */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--brand)]/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--brand-primary)]/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
 
         <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
             <div className="mb-4">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#5FBF50]/10 dark:bg-[#5FBF50]/8 border border-[#5FBF50]/30 dark:border-[#5FBF50]/40 rounded-full text-[#54b862] dark:text-[#5FBF50] font-bold text-xs tracking-wider uppercase shadow-xs">
-                <Icon icon="solar:arrow-right-up-linear" className="w-4 h-4" />
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[var(--brand-soft)] border border-[var(--brand-border)] rounded-pill text-[var(--text-brand)] font-bold text-xs tracking-wider uppercase shadow-xs">
+                <Icon icon="solar:arrow-right-up-linear" className="w-4 h-4 text-[var(--text-brand)]" />
                 <span>{c("about_cta_eyebrow", "Ready to Upgrade Your Supply Chain?")}</span>
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight">
               {c("about_cta_title", "Get Custom Quotes & Product Specs Today")}
             </h2>
-            <p className="text-slate-600 dark:text-slate-300 text-sm mt-2 max-w-xl font-medium leading-relaxed">
+            <p className="text-[var(--text-secondary)] text-sm mt-2 max-w-xl font-medium leading-relaxed">
               {c(
                 "about_cta_text",
                 "Talk directly with our technical team in Ankleshwar for custom bulk orders, pallet dimensions, or granule specifications."

@@ -68,6 +68,7 @@ export default function OptimizedImage({
         style={style}
         loading="lazy"
         decoding="async"
+        referrerPolicy="no-referrer"
         onError={handleError}
         {...props}
       />
@@ -82,6 +83,7 @@ export default function OptimizedImage({
       style={style}
       loading="lazy"
       decoding="async"
+      referrerPolicy="no-referrer"
       onError={handleError}
       {...props}
     />

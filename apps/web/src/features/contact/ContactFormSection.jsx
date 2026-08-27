@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 import { ContactTrustedRow } from "./ContactTrustedRow";
 import { useContactForm } from "./useContactForm";
-import styles from "../../pages/Contact.module.css";
+import styles from "./contact.module.css";
 
 export default function ContactFormSection() {
   const { c, co } = useSite();
@@ -33,13 +33,13 @@ export default function ContactFormSection() {
       <div className="container relative z-10">
         <div className={styles.grid}>
           {/* Left Column: Interactive Enquiry Form */}
-          <div className={`${styles.enquiryCard} bg-[var(--surface-card)] border border-[var(--border-card)] shadow-[var(--shadow-lg)] text-[var(--text-primary)]`} id="enquiry-card">
+          <div className={`${styles.enquiryCard} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-[var(--shadow-lg)] text-[var(--text-primary)]`} id="enquiry-card">
             <div className={styles.formHeader}>
               <div className={styles.formEyebrowContainer}>
                 <span className={`${styles.formEyebrow} text-[var(--brand-text)]`}>We're Here to Help</span>
-                <div className={`${styles.formEyebrowLine} bg-[var(--brand)]`} />
+                <div className={`${styles.formEyebrowLine} bg-[var(--brand-primary)]`} />
               </div>
-              <h2 className={`${styles.formTitle} text-[var(--heading)]`}>
+              <h2 className={`${styles.formTitle} text-[var(--text-primary)]`}>
                 Quick <span className="text-[var(--brand-text)]">Enquiry</span>
               </h2>
               <p className={styles.formSubText}>
@@ -50,10 +50,10 @@ export default function ContactFormSection() {
             {status === "sent" ? (
               <div className={styles.successBox}>
                 <Icon icon="solar:check-circle-linear" className="w-16 h-16 text-[var(--color-success)]" />
-                <h3 className="text-[var(--heading)] font-bold text-xl">Inquiry Sent Successfully!</h3>
+                <h3 className="text-[var(--text-primary)] font-bold text-xl">Inquiry Sent Successfully!</h3>
                 <p className="text-[var(--text-secondary)]">
                   Thank you for contacting us. Our sales team will get back to you within{" "}
-                  <strong className="text-[var(--heading)]">2 business hours</strong> with pricing and spec sheets.
+                  <strong className="text-[var(--text-primary)]">2 business hours</strong> with pricing and spec sheets.
                 </p>
                 <button
                   type="button"
@@ -74,7 +74,7 @@ export default function ContactFormSection() {
                     <input
                       id="productService"
                       required
-                      className={`${styles.customInput} bg-white dark:bg-white border-[var(--border-card)] text-slate-800 placeholder:text-slate-400 dark:text-slate-800 dark:placeholder:text-slate-400 focus:border-[var(--brand)]`}
+                      className={`${styles.customInput} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-primary)]`}
                       value={form.productService || ""}
                       onChange={f("productService")}
                       placeholder="Product / Service Looking for"
@@ -88,7 +88,7 @@ export default function ContactFormSection() {
                     <input
                       id="fullName"
                       required
-                      className={`${styles.customInput} bg-white dark:bg-white border-[var(--border-card)] text-slate-800 placeholder:text-slate-400 dark:text-slate-800 dark:placeholder:text-slate-400 focus:border-[var(--brand)]`}
+                      className={`${styles.customInput} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-primary)]`}
                       value={form.fullName || ""}
                       onChange={f("fullName")}
                       placeholder="Your Name"
@@ -106,7 +106,7 @@ export default function ContactFormSection() {
                       id="email"
                       type="email"
                       required
-                      className={`${styles.customInput} bg-white dark:bg-white border-[var(--border-card)] text-slate-800 placeholder:text-slate-400 dark:text-slate-800 dark:placeholder:text-slate-400 focus:border-[var(--brand)]`}
+                      className={`${styles.customInput} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-primary)]`}
                       value={form.email || ""}
                       onChange={f("email")}
                       placeholder="Email"
@@ -120,19 +120,19 @@ export default function ContactFormSection() {
                     <select
                       id="country"
                       required
-                      className={`${styles.customSelect} bg-white dark:bg-white border-[var(--border-card)] text-[var(--text-primary)] focus:border-[var(--brand)]`}
+                      className={`${styles.customSelect} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] focus:border-[var(--brand-primary)]`}
                       value={form.country || "India"}
                       onChange={f("country")}
                     >
-                      <option value="India" className="bg-[var(--surface-card)] text-[var(--text-primary)]">India</option>
-                      <option value="United States" className="bg-[var(--surface-card)] text-[var(--text-primary)]">United States</option>
-                      <option value="United Kingdom" className="bg-[var(--surface-card)] text-[var(--text-primary)]">United Kingdom</option>
-                      <option value="United Arab Emirates" className="bg-[var(--surface-card)] text-[var(--text-primary)]">United Arab Emirates</option>
-                      <option value="Saudi Arabia" className="bg-[var(--surface-card)] text-[var(--text-primary)]">Saudi Arabia</option>
-                      <option value="Singapore" className="bg-[var(--surface-card)] text-[var(--text-primary)]">Singapore</option>
-                      <option value="Germany" className="bg-[var(--surface-card)] text-[var(--text-primary)]">Germany</option>
-                      <option value="Canada" className="bg-[var(--surface-card)] text-[var(--text-primary)]">Canada</option>
-                      <option value="Australia" className="bg-[var(--surface-card)] text-[var(--text-primary)]">Australia</option>
+                      <option value="India" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">India</option>
+                      <option value="United States" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">United States</option>
+                      <option value="United Kingdom" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">United Kingdom</option>
+                      <option value="United Arab Emirates" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">United Arab Emirates</option>
+                      <option value="Saudi Arabia" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">Saudi Arabia</option>
+                      <option value="Singapore" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">Singapore</option>
+                      <option value="Germany" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">Germany</option>
+                      <option value="Canada" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">Canada</option>
+                      <option value="Australia" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">Australia</option>
                     </select>
                   </div>
                 </div>
@@ -142,18 +142,18 @@ export default function ContactFormSection() {
                   <div>
                     <select
                       id="phonePrefix"
-                      className={`${styles.phonePrefixSelect} bg-white dark:bg-white border-[var(--border-card)] text-[var(--text-primary)] focus:border-[var(--brand)]`}
+                      className={`${styles.phonePrefixSelect} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] focus:border-[var(--brand-primary)]`}
                       value={form.phonePrefix || "+91"}
                       onChange={f("phonePrefix")}
                     >
-                      <option value="+91" className="bg-[var(--surface-card)] text-[var(--text-primary)]">+91</option>
-                      <option value="+1" className="bg-[var(--surface-card)] text-[var(--text-primary)]">+1</option>
-                      <option value="+44" className="bg-[var(--surface-card)] text-[var(--text-primary)]">+44</option>
-                      <option value="+971" className="bg-[var(--surface-card)] text-[var(--text-primary)]">+971</option>
-                      <option value="+966" className="bg-[var(--surface-card)] text-[var(--text-primary)]">+966</option>
-                      <option value="+65" className="bg-[var(--surface-card)] text-[var(--text-primary)]">+65</option>
-                      <option value="+49" className="bg-[var(--surface-card)] text-[var(--text-primary)]">+49</option>
-                      <option value="+61" className="bg-[var(--surface-card)] text-[var(--text-primary)]">+61</option>
+                      <option value="+91" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+91</option>
+                      <option value="+1" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+1</option>
+                      <option value="+44" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+44</option>
+                      <option value="+971" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+971</option>
+                      <option value="+966" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+966</option>
+                      <option value="+65" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+65</option>
+                      <option value="+49" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+49</option>
+                      <option value="+61" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+61</option>
                     </select>
                   </div>
                   <div className={styles.inputFieldWrapper}>
@@ -164,7 +164,7 @@ export default function ContactFormSection() {
                       id="phone"
                       type="tel"
                       required
-                      className={`${styles.customInput} bg-white dark:bg-white border-[var(--border-card)] text-slate-800 placeholder:text-slate-400 dark:text-slate-800 dark:placeholder:text-slate-400 focus:border-[var(--brand)]`}
+                      className={`${styles.customInput} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-primary)]`}
                       value={form.phone || ""}
                       onChange={f("phone")}
                       placeholder="Phone / Mobile"
@@ -180,7 +180,7 @@ export default function ContactFormSection() {
                   <textarea
                     id="message"
                     required
-                    className={`${styles.customTextarea} bg-white dark:bg-white border-[var(--border-card)] text-slate-800 placeholder:text-slate-400 dark:text-slate-800 dark:placeholder:text-slate-400 focus:border-[var(--brand)]`}
+                    className={`${styles.customTextarea} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-primary)]`}
                     style={{ paddingLeft: "2.75rem" }}
                     rows={4}
                     value={form.message || ""}
@@ -240,7 +240,7 @@ export default function ContactFormSection() {
             {/* Info Cards List */}
             <div className={styles.infoCardsGrid}>
               {/* Card 1: Contact Person */}
-              <div className={`${styles.infoCardAccent} bg-[var(--surface-card)] border border-[var(--border-card)] shadow-sm text-[var(--text-primary)]`} id="info-card-person">
+              <div className={`${styles.infoCardAccent} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm text-[var(--text-primary)]`} id="info-card-person">
                 <div className={`${styles.infoCardIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
                   <Icon icon="solar:user-linear" className="w-5 h-5" />
                 </div>
@@ -251,7 +251,7 @@ export default function ContactFormSection() {
               </div>
 
               {/* Card 2: Address */}
-              <div className={`${styles.infoCardAccent} bg-[var(--surface-card)] border border-[var(--border-card)] shadow-sm text-[var(--text-primary)]`} id="info-card-address">
+              <div className={`${styles.infoCardAccent} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm text-[var(--text-primary)]`} id="info-card-address">
                 <div className={`${styles.infoCardIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
                   <Icon icon="solar:map-point-linear" className="w-5 h-5" />
                 </div>
@@ -262,7 +262,7 @@ export default function ContactFormSection() {
               </div>
 
               {/* Card 3: Mobile */}
-              <div className={`${styles.infoCardAccent} bg-[var(--surface-card)] border border-[var(--border-card)] shadow-sm text-[var(--text-primary)]`} id="info-card-mobile">
+              <div className={`${styles.infoCardAccent} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm text-[var(--text-primary)]`} id="info-card-mobile">
                 <div className={`${styles.infoCardIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
                   <Icon icon="solar:phone-calling-linear" className="w-5 h-5" />
                 </div>
@@ -287,7 +287,7 @@ export default function ContactFormSection() {
               </div>
 
               {/* Card 4: Email */}
-              <div className={`${styles.infoCardAccent} bg-[var(--surface-card)] border border-[var(--border-card)] shadow-sm text-[var(--text-primary)]`} id="info-card-email">
+              <div className={`${styles.infoCardAccent} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm text-[var(--text-primary)]`} id="info-card-email">
                 <div className={`${styles.infoCardIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
                   <Icon icon="solar:letter-linear" className="w-5 h-5" />
                 </div>
@@ -303,13 +303,13 @@ export default function ContactFormSection() {
             </div>
 
             {/* Immediate Assistance Banner */}
-            <div className={`${styles.assistanceBanner} bg-white dark:bg-white border border-[var(--border-card)] shadow-sm text-[var(--text-primary)]`} id="assistance-banner">
+            <div className={`${styles.assistanceBanner} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm text-[var(--text-primary)]`} id="assistance-banner">
               <div className={styles.bannerLeft}>
                 <div className={`${styles.bannerIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)]`}>
                   <Icon icon="solar:headphones-round-linear" className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-[var(--heading)] text-sm">Need Immediate Assistance?</h4>
+                  <h4 className="font-bold text-[var(--text-primary)] text-sm">Need Immediate Assistance?</h4>
                   <p className="text-xs text-[var(--text-secondary)] mt-0.5">Our team is ready to help you with your requirements.</p>
                 </div>
               </div>
@@ -322,14 +322,14 @@ export default function ContactFormSection() {
         </div>
 
         {/* Embedded Map Section */}
-        <div className={`${styles.mapSectionWrapper} bg-[var(--surface-card)] border border-[var(--border-card)] shadow-md text-[var(--text-primary)] mt-10 p-6 rounded-[var(--radius-xl,16px)]`} id="embedded-map-container">
+        <div className={`${styles.mapSectionWrapper} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-md text-[var(--text-primary)] mt-10 p-6 rounded-[var(--radius-xl,16px)]`} id="embedded-map-container">
           <div className={styles.mapHeader}>
             <div className={styles.mapTitleGroup}>
               <div className={`${styles.mapIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
                 <Icon icon="solar:map-point-linear" className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold text-[var(--heading)] text-base">Find Our Manufacturing Facility</h3>
+                <h3 className="font-bold text-[var(--text-primary)] text-base">Find Our Manufacturing Facility</h3>
                 <p className="text-xs text-[var(--text-muted)] mt-0.5">{address}</p>
               </div>
             </div>
@@ -346,7 +346,7 @@ export default function ContactFormSection() {
               </span>
             </a>
           </div>
-          <div className="w-full h-96 rounded-[var(--radius-lg,12px)] overflow-hidden border border-[var(--border-card)] bg-white dark:bg-white mt-4">
+          <div className="w-full h-96 rounded-[var(--radius-lg,12px)] overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] mt-4">
             <iframe
               title="Factory Location Map"
               src={`https://maps.google.com/maps?q=${encodeURIComponent(address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}

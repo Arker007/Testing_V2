@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../pages/Contact.module.css";
+import styles from "./contact.module.css";
 import { WORKFLOW_STEPS } from "./contact.constants";
 import Badge from "../../shared/components/ui/Badge";
 

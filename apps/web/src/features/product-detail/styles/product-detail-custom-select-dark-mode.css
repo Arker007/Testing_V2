@@ -1,0 +1,307 @@
+.darkInquiryBtn:hover {
+  background: var(--bg-surface-elevated);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(11, 47, 99, 0.25);
+}
+
+.darkInquiryBtn i {
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.darkInquiryBtn:hover i {
+  transform: translateX(4px);
+}
+
+/* Guarantee row borders */
+.galleryGuaranteeItem:not(:first-child) {
+  border-left: 1px solid rgba(5, 40, 63, 0.1);
+}
+
+@media (max-width: 768px) {
+  .bentoSpecsGridInner {
+    grid-template-columns: 1fr;
+  }
+  .galleryGuarantees {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .galleryGuaranteeItem:not(:first-child) {
+    border-left: none;
+    border-top: 1px solid rgba(5, 40, 63, 0.1);
+    padding-top: 0.75rem;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* ── Custom Dropdown Dark Mode Overrides ── */
+:root[data-theme="dark"] .customSelectTrigger,
+:root.dark .customSelectTrigger,
+:global([data-theme="dark"]) .customSelectTrigger,
+:global(.dark) .customSelectTrigger {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:root[data-theme="dark"] .customSelectDropdown,
+:root.dark .customSelectDropdown,
+:global([data-theme="dark"]) .customSelectDropdown,
+:global(.dark) .customSelectDropdown {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.12)) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+:root[data-theme="dark"] .customSelectOption,
+:root.dark .customSelectOption,
+:global([data-theme="dark"]) .customSelectOption,
+:global(.dark) .customSelectOption {
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:root[data-theme="dark"] .customSelectOption:hover,
+:root.dark .customSelectOption:hover,
+:global([data-theme="dark"]) .customSelectOption:hover,
+:global(.dark) .customSelectOption:hover {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  color: var(--white) !important;
+}
+
+:root[data-theme="dark"] .customSelectOptionActive,
+:root.dark .customSelectOptionActive,
+:global([data-theme="dark"]) .customSelectOptionActive,
+:global(.dark) .customSelectOptionActive {
+  background: rgba(107, 191, 84, 0.18) !important;
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+/* ── Related Card Dark Mode Overrides ── */
+:root[data-theme="dark"] .ratingCount,
+:root.dark .ratingCount,
+:global([data-theme="dark"]) .ratingCount,
+:global(.dark) .ratingCount {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:root[data-theme="dark"] .relatedOldPrice,
+:root.dark .relatedOldPrice,
+:global([data-theme="dark"]) .relatedOldPrice,
+:global(.dark) .relatedOldPrice {
+  color: rgba(242, 242, 242, 0.5) !important;
+}
+
+:root[data-theme="dark"] .cardTax,
+:root.dark .cardTax,
+:global([data-theme="dark"]) .cardTax,
+:global(.dark) .cardTax {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:root[data-theme="dark"] .wishBtn,
+:root.dark .wishBtn,
+:global([data-theme="dark"]) .wishBtn,
+:global(.dark) .wishBtn {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:root[data-theme="dark"] .wishBtn:hover,
+:root.dark .wishBtn:hover,
+:global([data-theme="dark"]) .wishBtn:hover,
+:global(.dark) .wishBtn:hover {
+  background: rgba(248, 113, 113, 0.15) !important;
+  border-color: var(--color-danger-dark) !important;
+  color: var(--color-danger-dark) !important;
+}
+
+:root[data-theme="dark"] .cardMeta,
+:root.dark .cardMeta,
+:global([data-theme="dark"]) .cardMeta,
+:global(.dark) .cardMeta {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+/* ─── Complete Product Detail Dark Mode Overrides ─── */
+:global([data-theme="dark"]) .breadcrumb,
+:global(.dark) .breadcrumb,
+:root[data-theme="dark"] [class*="breadcrumb"],
+html.dark [class*="breadcrumb"] {
+  background: var(--bg-canvas, var(--neutral-950)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.08)) !important;
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .breadcrumb a,
+:global(.dark) .breadcrumb a {
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .breadcrumb a:hover,
+:global(.dark) .breadcrumb a:hover {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .breadcrumb .breadcrumbActive,
+:global(.dark) .breadcrumb .breadcrumbActive {
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .galleryMain,
+:global(.dark) .galleryMain,
+:global([data-theme="dark"]) .productGalleryBox,
+:global(.dark) .productGalleryBox {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .galleryThumb,
+:global(.dark) .galleryThumb {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .galleryThumbActive,
+:global(.dark) .galleryThumbActive {
+  border-color: var(--accent, var(--brand-500)) !important;
+  box-shadow: 0 0 10px rgba(107, 191, 84, 0.4) !important;
+}
+
+:global([data-theme="dark"]) .headerSpecsBox,
+:global(.dark) .headerSpecsBox,
+:root[data-theme="dark"] [class*="headerSpecsBox"] {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .productCategory,
+:global(.dark) .productCategory {
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .productTitle,
+:global(.dark) .productTitle {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .productPrice,
+:global(.dark) .productPrice {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .oldPrice,
+:global(.dark) .oldPrice {
+  color: rgba(242, 242, 242, 0.5) !important;
+}
+
+:global([data-theme="dark"]) .discountBadge,
+:global(.dark) .discountBadge {
+  background: rgba(107, 191, 84, 0.18) !important;
+  color: var(--accent, var(--brand-500)) !important;
+}
+
+:global([data-theme="dark"]) .specCompactCell,
+:global(.dark) .specCompactCell {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.08)) !important;
+}
+
+:global([data-theme="dark"]) .specCompactCell label,
+:global(.dark) .specCompactCell label {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .specCompactCell span,
+:global(.dark) .specCompactCell span {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .tabsHeader,
+:global(.dark) .tabsHeader {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .bigTab,
+:global(.dark) .bigTab {
+  color: var(--neutral-400) !important;
+}
+
+:global([data-theme="dark"]) .bigTab:hover,
+:global(.dark) .bigTab:hover {
+  color: var(--white) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+:global([data-theme="dark"]) .bigTabActive,
+:global(.dark) .bigTabActive {
+  color: var(--accent, var(--brand-500)) !important;
+  background: rgba(242, 242, 242, 0.08) !important;
+  border-bottom-color: var(--accent, var(--brand-500)) !important;
+  font-weight: 700 !important;
+}
+
+:global([data-theme="dark"]) .tabsContent,
+:global(.dark) .tabsContent {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .specRow,
+:global(.dark) .specRow {
+  border-bottom-color: var(--border, rgba(242, 242, 242, 0.06)) !important;
+}
+
+:global([data-theme="dark"]) .specRow:nth-child(even),
+:global(.dark) .specRow:nth-child(even) {
+  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
+}
+
+:global([data-theme="dark"]) .specKey,
+:global(.dark) .specKey {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+:global([data-theme="dark"]) .specVal,
+:global(.dark) .specVal {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .benefitCard,
+:global(.dark) .benefitCard,
+:root[data-theme="dark"] [class*="benefitCard"] {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .benefitCard h4,
+:global(.dark) .benefitCard h4 {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .benefitCard p,
+:global(.dark) .benefitCard p {
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .relatedCard,
+:global(.dark) .relatedCard,
+:root[data-theme="dark"] [class*="relatedCard"] {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .relatedTitle a,
+:global(.dark) .relatedTitle a {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .relatedPrice,
+:global(.dark) .relatedPrice {
+  color: var(--white) !important;
+}
