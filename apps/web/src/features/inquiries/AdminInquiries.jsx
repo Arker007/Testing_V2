@@ -4,11 +4,17 @@ import { Icon } from '@iconify/react';
 import styles from '../admin/components/AdminTable.module.css';
 import iStyles from './Inquiries.module.css';
 import { normalizeInquiry } from '../../shared/utils/parsers';
+import SearchInput from '../../shared/components/ui/SearchInput';
+import EmptyState from '../../shared/components/ui/EmptyState';
+import ConfirmDialog from '../../shared/components/ui/ConfirmDialog';
+import WhatsAppButton from '../../shared/components/ui/WhatsAppButton';
+import Spinner from '../../shared/components/ui/Spinner';
 
 export default function AdminInquiries() {
     const [inquiries, setInquiries] = useState([]);
     const [loading, setLoading] = useState(true);
     const [deleting, setDeleting] = useState(null);
+    const [itemToDelete, setItemToDelete] = useState(null);
     const [search, setSearch] = useState('');
     const [sourceFilter, setSourceFilter] = useState('all');
     const [activeItem, setActiveItem] = useState(null);
@@ -36,15 +42,19 @@ export default function AdminInquiries() {
 
     useEffect(() => { load(); }, [load]);
 
-    const handleDelete = async (id, source) => {
-        if (!window.confirm('Delete this inquiry permanently?')) return;
+    const confirmDelete = async () => {
+        if (!itemToDelete) return;
+        const { id, source } = itemToDelete;
         setDeleting(id);
         try {
             const headers = { Authorization: `Bearer ${localStorage.getItem('admin_token')}` };
             await fetch(`/api/inquiries/${source}/${id}`, { method: 'DELETE', headers });
             load();
         } catch { alert('Delete failed'); }
-        finally { setDeleting(null); }
+        finally {
+            setDeleting(null);
+            setItemToDelete(null);
+        }
     };
 
     const filteredInquiries = inquiries.filter((inq) => {
@@ -59,14 +69,13 @@ export default function AdminInquiries() {
     return (
         <div>
             <div className={styles.toolbar}>
-                <div style={{ display: 'flex', gap: '12px', flex: 1, flexWrap: 'wrap' }}>
-                    <div className={styles.searchWrap}>
-                        <Icon icon="solar:magnifer-linear" className={styles.searchIcon} />
-                        <input
-                            className={styles.searchInput}
+                <div style={{ display: 'flex', gap: '12px', flex: 1, flexWrap: 'wrap', alignItems: 'center' }}>
+                    <div style={{ minWidth: '240px', flex: '1 1 300px' }}>
+                        <SearchInput
                             placeholder="Search client inquiries..."
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
+                            onClear={() => setSearch('')}
                         />
                     </div>
                     <div className={styles.customSelectContainer} ref={dropdownRef}>
@@ -116,10 +125,12 @@ export default function AdminInquiries() {
 
                 {loading ? [1, 2, 3, 4].map(i => <div key={i} className={styles.skeleRow} />) :
                     filteredInquiries.length === 0 ? (
-                        <div className={styles.empty}>
-                            <Icon icon="solar:inbox-linear" className="w-8 h-8 text-slate-400" />
-                            <p>No matching inquiries found</p>
-                        </div>
+                        <EmptyState
+                            icon="solar:inbox-linear"
+                            title="No matching inquiries found"
+                            description="Try adjusting your search terms or filter selection."
+                            size="sm"
+                        />
                     ) : filteredInquiries.map(inq => (
                         <div 
                             key={inq.id} 
@@ -160,13 +171,24 @@ export default function AdminInquiries() {
                                 <Link className={styles.editBtn} to={`/admin/inquiries/${inq.source}/${inq.id}`} title="View Inquiry">
                                     <Icon icon="solar:eye-linear" className="w-4 h-4" />
                                 </Link>
-                                <button className={styles.delBtn} onClick={() => handleDelete(inq.id, inq.source)} disabled={deleting === inq.id}>
-                                    {deleting === inq.id ? <Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin" /> : <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />}
+                                <button className={styles.delBtn} onClick={() => setItemToDelete({ id: inq.id, source: inq.source })} disabled={deleting === inq.id}>
+                                    {deleting === inq.id ? <Spinner size="sm" /> : <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />}
                                 </button>
                             </div>
                         </div>
                     ))}
             </div>
+
+            {/* Delete Confirmation Modal */}
+            <ConfirmDialog
+                isOpen={!!itemToDelete}
+                onClose={() => setItemToDelete(null)}
+                onConfirm={confirmDelete}
+                title="Delete Inquiry?"
+                message="Are you sure you want to delete this inquiry permanently? This action cannot be undone."
+                confirmText="Delete"
+                loading={!!deleting}
+            />
 
             {/* Right Slide Preview Drawer */}
             <div className={`${styles.previewDrawer} ${activeItem ? styles.previewDrawerActive : ''}`}>
@@ -234,15 +256,13 @@ export default function AdminInquiries() {
                         </div>
                         <div style={{ marginTop: 'auto', paddingTop: 16, borderTop: '1px solid var(--border)', display: 'flex', gap: 12 }}>
                             {activeItem.phone && (
-                                <a 
-                                    href={`https://wa.me/${activeItem.phone.replace(/\D/g, '')}`} 
-                                    target="_blank" 
-                                    rel="noreferrer" 
-                                    className={styles.actionBtnPrimary} 
-                                    style={{ flex: 1, justifyContent: 'center', textDecoration: 'none', background: 'var(--whatsapp)', color: 'var(--white)' }}
-                                >
-                                    <Icon icon="solar:chat-round-line-linear" className="w-4 h-4 mr-1" /> WhatsApp
-                                </a>
+                                <WhatsAppButton
+                                    phone={activeItem.phone}
+                                    label="WhatsApp"
+                                    variant="solid"
+                                    size="sm"
+                                    className="flex-1"
+                                />
                             )}
                             <button type="button" className={styles.actionBtnSecondary} style={{ flex: 1, justifyContent: 'center' }} onClick={() => setActiveItem(null)}>
                                 Close

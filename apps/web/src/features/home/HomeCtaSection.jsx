@@ -1,8 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import QuoteButton from "../../shared/components/QuoteButton";
-import Card from "../../shared/components/ui/Card";
-import Badge from "../../shared/components/ui/Badge";
+import CtaCard from "../../shared/components/ui/CtaCard";
 import { useSite } from "../../shared/context/SiteContext";
 import styles from "./home.module.css";
 
@@ -53,36 +52,17 @@ export default function HomeCtaSection() {
 
       {c("show_home_cta", "1") !== "0" && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 cta-section">
-          <Card
-            variant="elevated"
-            className="p-8 sm:p-12 text-slate-900 dark:text-white shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[#161c24] border border-slate-200/90 dark:border-[rgba(242,242,242,0.12)] rounded-2xl"
+          <CtaCard
+            badge={c("home_cta_eyebrow", "Direct Factory Supply")}
+            badgeVariant="brand"
+            title={c("home_cta_title", "Looking for Durable Recycled Plastic Products?")}
+            subtitle={c(
+              "home_cta_subtitle",
+              "Contact our team today for custom sizing, product specifications, and bulk pricing details."
+            )}
           >
-            {/* Ambient radial glow blobs */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand)]/10 dark:bg-[#6BBF54]/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--brand)]/5 dark:bg-[#6BBF54]/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
-
-            <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-              <div>
-                <div className="mb-3">
-                  <Badge variant="brand" size="md">
-                    {c("home_cta_eyebrow", "Direct Factory Supply")}
-                  </Badge>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
-                  {c("home_cta_title", "Looking for Durable Recycled Plastic Products?")}
-                </h2>
-                <p className="text-slate-700 dark:text-slate-200 text-sm md:text-base mt-2 max-w-xl font-medium leading-relaxed">
-                  {c(
-                    "home_cta_subtitle",
-                    "Contact our team today for custom sizing, product specifications, and bulk pricing details."
-                  )}
-                </p>
-              </div>
-              <div className="shrink-0 self-start sm:self-auto">
-                <QuoteButton to="/contact" text={c("home_cta_btn", "Get Quote")} size="large" className="shadow-md" />
-              </div>
-            </div>
-          </Card>
+            <QuoteButton to="/contact" text={c("home_cta_btn", "Get Quote")} size="large" className="shadow-md" />
+          </CtaCard>
         </section>
       )}
     </>

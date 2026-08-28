@@ -25,20 +25,24 @@ export default function SustainabilitySection() {
             <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/8 border-2 border-dashed border-[var(--brand-primary)] dark:border-[var(--brand-primary)]/50 flex items-center justify-center text-[var(--brand-primary)] shadow-sm animate-icon-pulse">
               <Icon icon="solar:leaf-linear" className="w-12 h-12 sm:w-16 sm:h-16" />
             </div>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[var(--brand-soft)] border border-[var(--brand-border)] rounded-pill text-[var(--text-brand)] font-bold text-xs tracking-wider uppercase shadow-xs">
-              <Icon icon="solar:restart-circle-linear" className="w-4 h-4 text-[var(--text-brand)]" />
-              <span>Circular Economy</span>
-            </span>
+            <Badge
+              variant="eyebrow"
+              icon="solar:restart-circle-linear"
+            >
+              Circular Economy
+            </Badge>
           </div>
 
           {/* Right Content */}
           <div className="flex flex-col gap-4">
             <div>
               <div className="mb-3">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[var(--brand-soft)] border border-[var(--brand-border)] rounded-pill text-[var(--text-brand)] font-bold text-xs tracking-wider uppercase shadow-xs">
-                  <Icon icon="solar:leaf-linear" className="w-4 h-4 text-[var(--text-brand)]" />
-                  <span>{c("home_about_eyebrow", "Our Environmental Impact")}</span>
-                </span>
+                <Badge
+                  variant="eyebrow"
+                  icon="solar:leaf-linear"
+                >
+                  {c("home_about_eyebrow", "Our Environmental Impact")}
+                </Badge>
               </div>
               <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
                 {c("home_about_title", "Replacing Wood. Saving Forests.")}

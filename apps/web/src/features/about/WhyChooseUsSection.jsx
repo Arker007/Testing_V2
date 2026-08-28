@@ -1,6 +1,8 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import QuoteButton from "../../shared/components/QuoteButton";
+import Badge from "../../shared/components/ui/Badge";
+import IconBox from "../../shared/components/ui/IconBox";
 
 export default function WhyChooseUsSection() {
   return (
@@ -23,17 +25,19 @@ export default function WhyChooseUsSection() {
           <div className="lg:col-span-4 bg-white/[0.04] border border-white/10 rounded-2xl p-8 sm:p-10 flex flex-col justify-between backdrop-blur-sm shadow-xl min-h-[440px] lg:min-h-[540px]">
             <div>
               <div className="mb-4">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[var(--brand-soft)] border border-[var(--brand-border)] rounded-pill text-[var(--text-brand)] font-bold text-xs tracking-wider uppercase shadow-xs">
-                  <Icon icon="solar:shield-check-linear" className="w-4 h-4 text-[var(--text-brand)]" />
-                  <span>Why Industries Choose Us</span>
-                </span>
+                <Badge
+                  variant="hero"
+                  icon="solar:shield-check-linear"
+                >
+                  Why Industries Choose Us
+                </Badge>
               </div>
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
                 Engineered for Strength. Built for Generations.
               </h2>
 
-              <div className="h-[2px] w-12 bg-[#5FBF50] my-6" />
+              <div className="h-[2px] w-12 bg-[var(--brand)] my-6" />
 
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
                 Our recycled plastic products are designed to withstand harsh conditions, heavy loads and continuous use — without compromising on quality.
@@ -51,18 +55,18 @@ export default function WhyChooseUsSection() {
           {/* Column 3: 4 Feature cards in a grid */}
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
             {/* Feature 1 */}
-            <div className="group bg-white/[0.04] border border-white/10 hover:border-[#5FBF50]/40 hover:bg-white/[0.07] rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
+            <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/40 hover:bg-white/[0.07] rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#5FBF50]/10 border border-[#5FBF50]/20 flex items-center justify-center text-[#5FBF50] mb-5 shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-6 h-6 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    <path d="m9 12 2 2 4-4" />
-                  </svg>
-                </div>
+                <IconBox
+                  icon="solar:shield-check-linear"
+                  variant="brand"
+                  size="lg"
+                  className="mb-5 group-hover:scale-110"
+                />
                 <h3 className="text-base sm:text-lg font-black text-white mb-2 leading-snug">
                   Heavy-Duty & Durable
                 </h3>
-                <div className="h-[2px] w-8 bg-[#5FBF50] mb-4" />
+                <div className="h-[2px] w-8 bg-[var(--brand)] mb-4" />
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                   Built to handle extreme conditions and maximum load.
                 </p>
@@ -70,18 +74,18 @@ export default function WhyChooseUsSection() {
             </div>
 
             {/* Feature 2 */}
-            <div className="group bg-white/[0.04] border border-white/10 hover:border-[#5FBF50]/40 hover:bg-white/[0.07] rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
+            <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/40 hover:bg-white/[0.07] rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#5FBF50]/10 border border-[#5FBF50]/20 flex items-center justify-center text-[#5FBF50] mb-5 shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-6 h-6 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="4" />
-                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-                  </svg>
-                </div>
+                <IconBox
+                  icon="solar:sun-fog-linear"
+                  variant="brand"
+                  size="lg"
+                  className="mb-5 group-hover:scale-110"
+                />
                 <h3 className="text-base sm:text-lg font-black text-white mb-2 leading-snug">
                   Weather & Corrosion Resistant
                 </h3>
-                <div className="h-[2px] w-8 bg-[#5FBF50] mb-4" />
+                <div className="h-[2px] w-8 bg-[var(--brand)] mb-4" />
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                   Performance that stays strong in every climate.
                 </p>
@@ -89,17 +93,18 @@ export default function WhyChooseUsSection() {
             </div>
 
             {/* Feature 3 */}
-            <div className="group bg-white/[0.04] border border-white/10 hover:border-[#5FBF50]/40 hover:bg-white/[0.07] rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
+            <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/40 hover:bg-white/[0.07] rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#5FBF50]/10 border border-[#5FBF50]/20 flex items-center justify-center text-[#5FBF50] mb-5 shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-6 h-6 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                  </svg>
-                </div>
+                <IconBox
+                  icon="solar:settings-minimalistic-linear"
+                  variant="brand"
+                  size="lg"
+                  className="mb-5 group-hover:scale-110"
+                />
                 <h3 className="text-base sm:text-lg font-black text-white mb-2 leading-snug">
                   Zero Maintenance
                 </h3>
-                <div className="h-[2px] w-8 bg-[#5FBF50] mb-4" />
+                <div className="h-[2px] w-8 bg-[var(--brand)] mb-4" />
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                   Designed for long life with no painting, no treatment, no worries.
                 </p>
@@ -107,18 +112,18 @@ export default function WhyChooseUsSection() {
             </div>
 
             {/* Feature 4 */}
-            <div className="group bg-white/[0.04] border border-white/10 hover:border-[#5FBF50]/40 hover:bg-white/[0.07] rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
+            <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/40 hover:bg-white/[0.07] rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#5FBF50]/10 border border-[#5FBF50]/20 flex items-center justify-center text-[#5FBF50] mb-5 shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-6 h-6 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11 20A9 9 0 0 1 2 11 9 9 0 0 1 11 2c5 0 9 4 9 9 0 5-4 9-9 9z" />
-                    <path d="M2 21c0-6 4-10 10-10" />
-                  </svg>
-                </div>
+                <IconBox
+                  icon="solar:leaf-linear"
+                  variant="brand"
+                  size="lg"
+                  className="mb-5 group-hover:scale-110"
+                />
                 <h3 className="text-base sm:text-lg font-black text-white mb-2 leading-snug">
                   Sustainable Solution
                 </h3>
-                <div className="h-[2px] w-8 bg-[#5FBF50] mb-4" />
+                <div className="h-[2px] w-8 bg-[var(--brand)] mb-4" />
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                   Made from 100% recycled plastic for a cleaner tomorrow.
                 </p>

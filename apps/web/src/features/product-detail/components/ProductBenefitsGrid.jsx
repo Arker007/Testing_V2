@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Icon } from "@iconify/react";
+import { IconBox, Tabs } from "../../../shared/components/ui";
 
 const closedLoopBenefits = [
   {
@@ -73,39 +73,24 @@ export const ProductBenefitsGrid = React.memo(function ProductBenefitsGrid({ cat
         </p>
 
         {/* Tab Toggle Pills */}
-        <div className="mt-6 inline-flex p-1 bg-[#1E4D2B] dark:bg-[#14351C] rounded-full shadow-inner border border-emerald-900/30">
-          <button
-            type="button"
-            onClick={() => setActiveTab("closed-loop")}
-            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 ${
-              activeTab === "closed-loop"
-                ? "bg-[#277D38] text-white shadow-md scale-[1.02]"
-                : "text-emerald-100/80 hover:text-white hover:bg-white/5"
-            }`}
-          >
-            Closed-Loop Pallets
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab("lightweight")}
-            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 ${
-              activeTab === "lightweight"
-                ? "bg-[#277D38] text-white shadow-md scale-[1.02]"
-                : "text-emerald-100/80 hover:text-white hover:bg-white/5"
-            }`}
-          >
-            Lightweight and Export Pallets
-          </button>
+        <div className="mt-6 flex justify-center">
+          <Tabs
+            tabs={[
+              { id: "closed-loop", label: "Closed-Loop Pallets" },
+              { id: "lightweight", label: "Lightweight and Export Pallets" },
+            ]}
+            activeTab={activeTab}
+            onChange={setActiveTab}
+            variant="pills"
+          />
         </div>
       </div>
 
       {/* Benefits 2-Column Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 max-w-4xl mx-auto pt-2">
         {currentBenefits.map((item, idx) => (
-          <div key={idx} className="flex items-start gap-4 p-2 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-white/5">
-            <div className="shrink-0 p-2.5 rounded-xl bg-slate-100 dark:bg-white/10 text-slate-800 dark:text-slate-200">
-              <Icon icon={item.icon} className="w-5 h-5 sm:w-6 sm:h-6" />
-            </div>
+          <div key={idx} className="flex items-start gap-4 p-2.5 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-white/5">
+            <IconBox icon={item.icon} variant="neutral" size="md" />
             <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 leading-snug pt-1">
               {item.text}
             </p>

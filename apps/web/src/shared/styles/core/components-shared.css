@@ -190,9 +190,9 @@
 }
 
 .badge-shared-brand {
-  background-color: var(--brand-soft);
-  color: var(--brand-text);
-  border: 1px solid var(--brand-border);
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  border: 1px solid var(--badge-border);
 }
 
 .badge-shared-navy {
@@ -495,10 +495,10 @@ html.dark .feature-icon-wrapper {
   align-items: center;
   gap: 0.5rem;
   padding: 0.375rem 1rem;
-  background-color: rgba(107, 191, 84, 0.1);
-  border: 1px solid rgba(107, 191, 84, 0.3);
-  border-radius: var(--radius-pill, 8px);
-  color: var(--text-brand);
+  background-color: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  border-radius: var(--radius-badge, 8px);
+  color: var(--badge-text);
   font-weight: 700;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
@@ -509,9 +509,9 @@ html.dark .feature-icon-wrapper {
 :root[data-theme="dark"] .badge-pill-accent,
 :root.dark .badge-pill-accent,
 html.dark .badge-pill-accent {
-  background-color: rgba(107, 191, 84, 0.15);
-  border-color: rgba(107, 191, 84, 0.35);
-  color: var(--text-brand);
+  background-color: var(--badge-bg);
+  border-color: var(--badge-border);
+  color: var(--badge-text);
 }
 
 .cta-banner-card {

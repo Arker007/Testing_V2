@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import Badge from "../../../shared/components/ui/Badge";
 import styles from "../products.module.css";
 
 const procurementItems = [
@@ -25,10 +26,9 @@ export default function ProcurementAdvantage() {
     <section className={styles.procurementSection}>
       <div className={styles.procurementHead}>
         <div className="flex justify-center mb-4">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[var(--brand-soft)] border border-[var(--brand-border)] rounded-pill text-[var(--text-brand)] font-bold text-xs tracking-wider uppercase shadow-xs">
-            <Icon icon="solar:verified-check-linear" className="w-4 h-4 text-[var(--text-brand)]" />
-            <span>Procurement Advantage</span>
-          </span>
+          <Badge variant="eyebrow" icon="solar:verified-check-linear">
+            Procurement Advantage
+          </Badge>
         </div>
         <h2 className="section-title text-3xl sm:text-4xl font-black text-[var(--text-primary)] tracking-tight">Built for Reliable B2B Sourcing</h2>
         <p className="section-desc text-[var(--text-secondary)] text-sm sm:text-base max-w-2xl mx-auto mt-3 leading-relaxed">

@@ -2,6 +2,7 @@ import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import OptimizedImage from "../../shared/components/OptimizedImage";
+import Badge from "../../shared/components/ui/Badge";
 import styles from "./home.module.css";
 import {
   industryCardVariant,
@@ -46,9 +47,9 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
             <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
           {badgeText && (
-            <span className="bg-[#5FBF50] text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow-md border border-[#5FBF50]">
+            <Badge variant="dark" size="sm">
               {badgeText}
-            </span>
+            </Badge>
           )}
         </div>
 
@@ -86,9 +87,9 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
             <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
           {cardType === "wideRowHeader" && badgeText && (
-            <span className="bg-[#5FBF50] text-slate-950 font-bold text-xs px-3 py-1 rounded-full shadow-md border border-[#5FBF50]">
+            <Badge variant="dark" size="sm">
               {badgeText}
-            </span>
+            </Badge>
           )}
         </div>
 
@@ -126,9 +127,9 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
             <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
           {cardType === "wideHeader" && badgeText && (
-            <span className="bg-[#5FBF50] text-slate-950 font-bold text-xs px-3 py-1 rounded-lg shadow-md border border-[#5FBF50]">
+            <Badge variant="dark" size="sm">
               {badgeText}
-            </span>
+            </Badge>
           )}
         </div>
 

@@ -3,6 +3,7 @@ import useDocumentTitle from "../shared/hooks/useDocumentTitle";
 import { useSite } from "../shared/context/SiteContext";
 import ProcessSection from "../features/home/ProcessSection";
 import { Icon } from "@iconify/react";
+import CtaCard from "../shared/components/ui/CtaCard";
 import Card from "../shared/components/ui/Card";
 import QuoteButton from "../shared/components/QuoteButton";
 import PageHero from "../shared/components/PageHero";
@@ -92,7 +93,7 @@ export default function Manufacturing() {
 
           {/* Plant & Quality Control Image Showcase */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="group relative rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg min-h-[260px] flex flex-col justify-end p-6">
+            <Card variant="dark" className="group relative overflow-hidden min-h-[260px] flex flex-col justify-end p-6 border-0">
               <img
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop"
                 alt="High-precision polymer extrusion line"
@@ -105,9 +106,9 @@ export default function Manufacturing() {
                 <h4 className="text-lg font-extrabold text-white">Automated Extrusion Lines</h4>
                 <p className="text-xs text-slate-300 mt-1">High-pressure extrusion shaping dense, void-free recycled plastic profiles.</p>
               </div>
-            </div>
+            </Card>
 
-            <div className="group relative rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg min-h-[260px] flex flex-col justify-end p-6">
+            <Card variant="dark" className="group relative overflow-hidden min-h-[260px] flex flex-col justify-end p-6 border-0">
               <img
                 src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop"
                 alt="Polymer testing and quality control laboratory"
@@ -120,9 +121,9 @@ export default function Manufacturing() {
                 <h4 className="text-lg font-extrabold text-white">Tensile & Load Testing Lab</h4>
                 <p className="text-xs text-slate-300 mt-1">Batch testing for flexural modulus, impact resistance, and thermal tolerance.</p>
               </div>
-            </div>
+            </Card>
 
-            <div className="group relative rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg min-h-[260px] flex flex-col justify-end p-6">
+            <Card variant="dark" className="group relative overflow-hidden min-h-[260px] flex flex-col justify-end p-6 border-0">
               <img
                 src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop"
                 alt="Finished industrial pallet warehouse storage"
@@ -135,45 +136,26 @@ export default function Manufacturing() {
                 <h4 className="text-lg font-extrabold text-white">Dispatch & Inventory Storage</h4>
                 <p className="text-xs text-slate-300 mt-1">Ready-to-ship pallet inventory engineered for heavy industrial supply chains.</p>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Bottom CTA Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 cta-section">
-        <Card
-          variant="elevated"
-          className="cta-banner-card"
+        <CtaCard
+          badge="Government Certified Plant"
+          badgeVariant="eyebrow"
+          badgeIcon="solar:verified-check-linear"
+          title="Schedule a Facility Inspection or Request Batch Specs"
+          subtitle="Connect with our Ankleshwar plant engineers for detailed polymer test certificates, custom extrusion capabilities, or factory audits."
         >
-          {/* Ambient radial glow blobs */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#5FBF50]/10 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
-          
-          <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div>
-              <div className="mb-4">
-                <span className="badge-pill-accent">
-                  <Icon icon="solar:verified-check-linear" className="w-4 h-4" />
-                  <span>Government Certified Plant</span>
-                </span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight">
-                Schedule a Facility Inspection or Request Batch Specs
-              </h2>
-              <p className="text-[var(--text-secondary)] text-sm mt-2 max-w-xl font-medium leading-relaxed">
-                Connect with our Ankleshwar plant engineers for detailed polymer test certificates, custom extrusion capabilities, or factory audits.
-              </p>
-            </div>
-            <div className="shrink-0 self-start sm:self-auto flex items-center gap-3">
-              <QuoteButton
-                to="/contact?source=manufacturing"
-                text="Request Facility Tour"
-                className="shadow-md"
-              />
-            </div>
-          </div>
-        </Card>
+          <QuoteButton
+            to="/contact?source=manufacturing"
+            text="Request Facility Tour"
+            className="shadow-md"
+          />
+        </CtaCard>
       </section>
     </main>
   );

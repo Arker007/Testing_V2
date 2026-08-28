@@ -35,6 +35,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
   <!-- Open Graph (improves social-share + perceived trust) -->
+  <link rel="canonical" href="https://vishalenterprise.com" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="VISHAL ENTERPRISE | Recycled Plastic Manufacturer India" />
   <meta property="og:description"
@@ -50,19 +51,42 @@
   <meta name="twitter:title" content="VISHAL ENTERPRISE | Recycled Plastic Manufacturer India" />
   <meta name="twitter:description"
     content="India's leading manufacturer of recycled plastic pallets, HDPE granules & industrial containers. ISO 9001:2015 certified." />
-  <meta name="twitter:image" content="https://vishalenterprise.in/og-image.jpg" />
+  <meta name="twitter:image" content="https://vishalenterprise.com/og-image.jpg" />
 
-  <!-- DNS prefetch for every external origin (faster than cold TCP) -->
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "VISHAL ENTERPRISE",
+    "url": "https://vishalenterprise.com",
+    "logo": "https://vishalenterprise.com/favicon.png",
+    "description": "Leading Indian manufacturer of sustainable plastic lumber, heavy-duty recycled plastic pallets, and industrial polymer solutions.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-9898686379",
+      "contactType": "sales",
+      "areaServed": "IN",
+      "availableLanguage": ["English", "Hindi", "Gujarati"]
+    }
+  }
+  </script>
+
+  <!-- DNS prefetch for external origins -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
 
-  <!-- Preconnect for origins we'll open sockets to -->
+  <!-- Preconnect for origins we open sockets to -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 
-  <!-- Google Fonts — non-blocking: preload CSS, swap to stylesheet on load -->
+  <!-- Google Fonts — non-blocking -->
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
     as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -71,8 +95,11 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap">
   </noscript>
 
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Font Awesome Icons — Non-blocking load -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </noscript>
 </head>
 
 <body>

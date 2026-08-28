@@ -2,16 +2,19 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../context/SiteContext";
 import Card from "./Card";
+import SectionHeader from "./SectionHeader";
 
 export default function FeaturesSection() {
   const { c } = useSite();
+
+  if (c("show_why_us", "1") === "0") return null;
 
   const features = [
     {
       icon: (
         <Icon
           icon="solar:verified-check-linear"
-          className="w-7 h-7 text-emerald-600 dark:text-emerald-400"
+          className="w-7 h-7 text-[var(--brand)]"
         />
       ),
       title: c("why_us_f1_title", "Quality Control Process"),
@@ -24,7 +27,7 @@ export default function FeaturesSection() {
       icon: (
         <Icon
           icon="solar:settings-minimalistic-linear"
-          className="w-7 h-7 text-emerald-600 dark:text-emerald-400"
+          className="w-7 h-7 text-[var(--brand)]"
         />
       ),
       title: c("why_us_f2_title", "Custom Solution Design"),
@@ -37,7 +40,7 @@ export default function FeaturesSection() {
       icon: (
         <Icon
           icon="solar:leaf-linear"
-          className="w-7 h-7 text-emerald-600 dark:text-emerald-400"
+          className="w-7 h-7 text-[var(--brand)]"
         />
       ),
       title: c("why_us_f3_title", "Eco-Friendly Recycled Plastic"),
@@ -50,7 +53,7 @@ export default function FeaturesSection() {
       icon: (
         <Icon
           icon="solar:graph-up-linear"
-          className="w-7 h-7 text-emerald-600 dark:text-emerald-400"
+          className="w-7 h-7 text-[var(--brand)]"
         />
       ),
       title: c("why_us_f4_title", "Cost Savings & ROI"),
@@ -71,6 +74,15 @@ export default function FeaturesSection() {
       className="py-10 md:py-16 transition-colors"
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          eyebrow={c("why_us_eyebrow", "Enterprise Advantage")}
+          title={c("why_us_title", "Engineered for Strength. Delivered with Trust.")}
+          subtitle={c(
+            "why_us_subtitle",
+            "Sustainable polymer engineering designed for high load capacities, extreme weather resistance, and long-term cost efficiency."
+          )}
+        />
+
         {/* Top 4 Features Panel */}
         <Card
           variant="default"

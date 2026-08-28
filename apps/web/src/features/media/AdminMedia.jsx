@@ -2,6 +2,8 @@ import { useEffect, useState, useCallback } from 'react';
 import { Icon } from '@iconify/react';
 import styles from '../admin/components/AdminTable.module.css';
 import mStyles from './Media.module.css';
+import EmptyState from '../../shared/components/ui/EmptyState';
+import Skeleton from '../../shared/components/ui/Skeleton';
 
 const getFileCategory = (url) => {
     if (!url) return 'general';
@@ -116,18 +118,21 @@ export default function AdminMedia() {
                 <main className={mStyles.canvas}>
                     {loading ? (
                         <div className={mStyles.grid}>
-                            {[1, 2, 3, 4, 5, 6].map(i => <div key={i} className={mStyles.skele} />)}
+                            {[1, 2, 3, 4, 5, 6].map(i => <Skeleton key={i} className="h-44 rounded-xl" />)}
                         </div>
                     ) : filteredMedia.length === 0 ? (
                         <div className={styles.card} style={{ width: '100%' }}>
-                            <div className={styles.empty}>
-                                <Icon icon="solar:gallery-linear" className="w-12 h-12 text-slate-300 mx-auto mb-2" />
-                                <p>No media files found in this directory folder.</p>
-                                <label className={styles.actionBtnPrimary} style={{ cursor: 'pointer', marginTop: '12px' }}>
-                                    <input type="file" accept="image/*" multiple onChange={handleUpload} style={{ display: 'none' }} />
-                                    <Icon icon="solar:upload-track-2-linear" className="w-4 h-4 mr-1 inline" /> Upload Files
-                                </label>
-                            </div>
+                            <EmptyState
+                                icon="solar:gallery-linear"
+                                title="No media files found"
+                                description="No media files found in this directory folder."
+                                action={
+                                    <label className={styles.actionBtnPrimary} style={{ cursor: 'pointer' }}>
+                                        <input type="file" accept="image/*" multiple onChange={handleUpload} style={{ display: 'none' }} />
+                                        <Icon icon="solar:upload-track-2-linear" className="w-4 h-4 mr-1 inline" /> Upload Files
+                                    </label>
+                                }
+                            />
                         </div>
                     ) : (
                         <div className={mStyles.grid}>

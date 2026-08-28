@@ -9,7 +9,7 @@ export default function ContactWorkflowSection() {
       <div className="container">
         <div className={styles.sectionHeaderCenter}>
           <div className="flex justify-center mb-3">
-            <Badge variant="brand" size="sm">
+            <Badge variant="dark" size="sm">
               Easy Ordering Process
             </Badge>
           </div>

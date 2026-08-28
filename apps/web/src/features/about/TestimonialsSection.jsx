@@ -2,11 +2,13 @@ import React, { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
+import { useSite } from "../../shared/context/SiteContext";
 import { testimonials } from "./about.constants";
 import Card from "../../shared/components/ui/Card";
-import Badge from "../../shared/components/ui/Badge";
+import SectionHeader from "../../shared/components/ui/SectionHeader";
 
 export default function TestimonialsSection() {
+  const { c } = useSite();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const nextSlide = () => {
@@ -18,7 +20,16 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <SectionHeader
+        eyebrow={c("about_testimonials_eyebrow", "Client Feedback")}
+        title={c("about_testimonials_title", "Trusted by Procurement & Logistics Leaders")}
+        subtitle={c(
+          "about_testimonials_subtitle",
+          "What our enterprise partners across India say about our recycled plastic products and service reliability."
+        )}
+      />
+
       <Card variant="elevated" className="p-8 sm:p-12 lg:p-16 relative overflow-hidden border border-slate-200 dark:border-subtle">
         {/* Background accent icon */}
         <div className="absolute -bottom-10 -right-10 opacity-5 pointer-events-none text-slate-900 dark:text-white">
@@ -26,16 +37,6 @@ export default function TestimonialsSection() {
         </div>
 
         <div className="max-w-3xl relative z-10">
-          <div className="mb-4">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[var(--brand-soft)] border border-[var(--brand-border)] rounded-pill text-[var(--text-brand)] font-bold text-xs tracking-wider uppercase shadow-xs">
-              <Icon icon="solar:chat-round-line-linear" className="w-4 h-4 text-[var(--text-brand)]" />
-              <span>Client Feedback</span>
-            </span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight mb-8">
-            Trusted by Procurement & Logistics Leaders
-          </h2>
-
           <div className="min-h-[160px] flex flex-col justify-between">
             <AnimatePresence mode="wait">
               <motion.div

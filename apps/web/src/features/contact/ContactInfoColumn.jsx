@@ -2,6 +2,7 @@ import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
+import Badge from "../../shared/components/ui/Badge";
 import { ContactInfoItem } from "./ContactInfoItem";
 import styles from "./contact.module.css";
 
@@ -29,7 +30,7 @@ export default function ContactInfoColumn({
 
   return (
     <div className={styles.infoCol}>
-      <span className="section-eyebrow">Factory &amp; Sales Desk</span>
+      <Badge variant="eyebrow" className="mb-3">Factory &amp; Sales Desk</Badge>
       <h2 className={styles.infoTitle}>
         {c("contact_info_title", "Reach Our Sales Team")}
       </h2>

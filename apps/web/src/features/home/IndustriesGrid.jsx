@@ -3,6 +3,7 @@ import { IndustryCard } from "./IndustryCard";
 import { INDUSTRIES_DATA } from "./industriesData";
 import styles from "./home.module.css";
 import { useSite } from "../../shared/context/SiteContext";
+import Badge from "../../shared/components/ui/Badge";
 
 export default function IndustriesGrid() {
   const { c } = useSite();
@@ -13,9 +14,11 @@ export default function IndustriesGrid() {
     <section className={styles.industriesSection}>
       <div className="container">
         <div className={styles.sectionHeader}>
-          <span className="section-eyebrow mx-auto">
-            {c("industries_eyebrow", "Applications")}
-          </span>
+          <div className="flex justify-center mb-3">
+            <Badge variant="eyebrow">
+              {c("industries_eyebrow", "Applications")}
+            </Badge>
+          </div>
           <h2 className="section-title">
             {c("industries_title", "Industries We Serve")}
           </h2>

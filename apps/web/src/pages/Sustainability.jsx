@@ -3,6 +3,7 @@ import useDocumentTitle from "../shared/hooks/useDocumentTitle";
 import { useSite } from "../shared/context/SiteContext";
 import SustainabilitySection from "../features/home/SustainabilitySection";
 import { Icon } from "@iconify/react";
+import CtaCard from "../shared/components/ui/CtaCard";
 import Card from "../shared/components/ui/Card";
 import QuoteButton from "../shared/components/QuoteButton";
 import PageHero from "../shared/components/PageHero";
@@ -94,7 +95,7 @@ export default function Sustainability() {
 
           {/* Sustainability and Eco-Advantage Showcase */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="group relative rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg min-h-[260px] flex flex-col justify-end p-6">
+            <Card variant="dark" className="group relative overflow-hidden min-h-[260px] flex flex-col justify-end p-6 border-0">
               <img
                 src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1200&auto=format&fit=crop"
                 alt="Conserving forestry and nature reserves"
@@ -107,9 +108,9 @@ export default function Sustainability() {
                 <h4 className="text-lg font-extrabold text-white">Forestry Conservation</h4>
                 <p className="text-xs text-slate-300 mt-1">Replacing natural timber with robust polymer profiles to directly prevent deforestation.</p>
               </div>
-            </div>
+            </Card>
 
-            <div className="group relative rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg min-h-[260px] flex flex-col justify-end p-6">
+            <Card variant="dark" className="group relative overflow-hidden min-h-[260px] flex flex-col justify-end p-6 border-0">
               <img
                 src="https://images.unsplash.com/photo-1595225476474-87563907a212?q=80&w=1200&auto=format&fit=crop"
                 alt="Recycled plastic polymers ready for manufacturing"
@@ -122,9 +123,9 @@ export default function Sustainability() {
                 <h4 className="text-lg font-extrabold text-white">Circular Upcycling</h4>
                 <p className="text-xs text-slate-300 mt-1">Cleaning and processing HDPE polymers to ensure strict structural compliance.</p>
               </div>
-            </div>
+            </Card>
 
-            <div className="group relative rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-lg min-h-[260px] flex flex-col justify-end p-6">
+            <Card variant="dark" className="group relative overflow-hidden min-h-[260px] flex flex-col justify-end p-6 border-0">
               <img
                 src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?q=80&w=1200&auto=format&fit=crop"
                 alt="Green logistics and smart circular economy"
@@ -137,45 +138,26 @@ export default function Sustainability() {
                 <h4 className="text-lg font-extrabold text-white">Resource Loop Closure</h4>
                 <p className="text-xs text-slate-300 mt-1">Delivering highly reusable, circular shipping assets that satisfy international regulations.</p>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
 
       {/* Corporate ESG Partnership CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 cta-section">
-        <Card
-          variant="elevated"
-          className="cta-banner-card"
+        <CtaCard
+          badge="ESG Partnership"
+          badgeVariant="eyebrow"
+          badgeIcon="solar:handshake-linear"
+          title="Partner on Circular Economy & Net-Zero Commitments"
+          subtitle="Help your enterprise transition from conventional single-use packaging to circular, carbon-negative closed-loop recycled pallets and containers."
         >
-          {/* Ambient radial glow blobs */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#5FBF50]/10 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
-
-          <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div>
-              <div className="mb-4">
-                <span className="badge-pill-accent">
-                  <Icon icon="solar:handshake-linear" className="w-4 h-4" />
-                  <span>ESG Partnership</span>
-                </span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight">
-                Partner on Circular Economy & Net-Zero Commitments
-              </h2>
-              <p className="text-[var(--text-secondary)] text-sm mt-2 max-w-xl font-medium leading-relaxed">
-                Help your enterprise transition from conventional single-use packaging to circular, carbon-negative closed-loop recycled pallets and containers.
-              </p>
-            </div>
-            <div className="shrink-0 self-start sm:self-auto flex items-center gap-3">
-              <QuoteButton
-                to="/contact?source=sustainability"
-                text="Explore ESG Solutions"
-                className="shadow-md"
-              />
-            </div>
-          </div>
-        </Card>
+          <QuoteButton
+            to="/contact?source=sustainability"
+            text="Explore ESG Solutions"
+            className="shadow-md"
+          />
+        </CtaCard>
       </section>
     </main>
   );

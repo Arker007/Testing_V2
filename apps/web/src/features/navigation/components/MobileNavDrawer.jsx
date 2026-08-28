@@ -77,6 +77,7 @@ export default function MobileNavDrawer({
             placeholder="Search products..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label="Search products"
           />
         </form>
 
@@ -98,10 +99,18 @@ export default function MobileNavDrawer({
             <div
               role="button"
               tabIndex={0}
+              aria-expanded={mobileProductsOpen}
+              aria-label="Toggle Products Submenu"
               className={`${styles.mCardLink} ${styles.mCardAccordionBtn} ${
                 isProductsActive ? styles.mCardLinkActive : ""
               }`}
               onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setMobileProductsOpen(!mobileProductsOpen);
+                }
+              }}
             >
               <span>Products</span>
               <Icon

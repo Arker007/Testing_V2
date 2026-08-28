@@ -15,10 +15,9 @@ export default function WhoWeAreSection() {
         {/* Left Column: Heading & Paragraph */}
         <div className="lg:col-span-5 space-y-6">
           <div>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[var(--brand-soft)] border border-[var(--brand-border)] rounded-pill text-[var(--text-brand)] font-bold text-xs tracking-wider uppercase shadow-xs">
-              <Icon icon="solar:buildings-3-linear" className="w-4 h-4 text-[var(--text-brand)]" />
-              <span>Who We Are</span>
-            </span>
+            <Badge variant="eyebrow" icon="solar:buildings-3-linear">
+              Who We Are
+            </Badge>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-primary)] tracking-tight leading-tight">
             {c("about_who_title", "Pioneering Eco-Friendly Industrial Plastics Since 2008.")}

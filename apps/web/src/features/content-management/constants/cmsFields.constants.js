@@ -77,6 +77,7 @@ export const CMS_FIELDS = [
     section: "Homepage Why Us",
     fields: [
       { key: "show_why_us", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Why Choose Us" },
+      { key: "why_us_eyebrow", label: "Eyebrow Tag", type: "text", placeholder: "Enterprise Advantage" },
       { key: "why_us_title", label: "Title", type: "text", placeholder: "Engineered for Strength. Delivered with Trust." },
       { key: "why_us_subtitle", label: "Subtitle", type: "textarea", placeholder: "Sustainable engineering with industrial-grade strength…" },
       { key: "why_us_f1_title", label: "Feature 1 Title", type: "text", placeholder: "100% Recycled" },
@@ -178,6 +179,14 @@ export const CMS_FIELDS = [
       { key: "experience_banner_desc", label: "Banner Description", type: "textarea", placeholder: "Equipped with high-capacity extrusion lines at our Ankleshwar plant…" },
       { key: "cert_gst", label: "GST Number", type: "text", placeholder: "GST Registered" },
       { key: "cert_gmp", label: "Quality Compliance", type: "text", placeholder: "Made in India" },
+    ],
+  },
+  {
+    section: "About Testimonials",
+    fields: [
+      { key: "about_testimonials_eyebrow", label: "Eyebrow Tag", type: "text", placeholder: "Client Feedback" },
+      { key: "about_testimonials_title", label: "Title", type: "text", placeholder: "Trusted by Procurement & Logistics Leaders" },
+      { key: "about_testimonials_subtitle", label: "Subtitle", type: "textarea", placeholder: "What our enterprise partners across India say about our recycled plastic products and service reliability." },
     ],
   },
   {

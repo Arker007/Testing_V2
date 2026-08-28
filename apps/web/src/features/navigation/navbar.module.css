@@ -449,10 +449,17 @@ html.dark .mobileMenuBtn:hover {
   text-decoration: none;
 }
 
-.dropdownBtn:hover,
-.dropdownOpen .dropdownBtn {
+.dropdownBtn:hover {
   color: var(--text-primary, var(--neutral-950));
   background: var(--surface-hover, rgba(0, 0, 0, 0.04));
+}
+
+.dropdownOpen .dropdownBtn {
+  color: var(--brand-800);
+  font-weight: 600;
+  background: rgba(107, 191, 84, 0.14);
+  border: 1px solid rgba(107, 191, 84, 0.35);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 :root[data-theme="dark"] .dropdownBtn,
@@ -462,13 +469,18 @@ html.dark .dropdownBtn {
 }
 
 :root[data-theme="dark"] .dropdownBtn:hover,
-:root[data-theme="dark"] .dropdownOpen .dropdownBtn,
 :root.dark .dropdownBtn:hover,
-:root.dark .dropdownOpen .dropdownBtn,
-html.dark .dropdownBtn:hover,
-html.dark .dropdownOpen .dropdownBtn {
+html.dark .dropdownBtn:hover {
   color: var(--white);
   background: rgba(242, 242, 242, 0.08);
+}
+
+:root[data-theme="dark"] .dropdownOpen .dropdownBtn,
+:root.dark .dropdownOpen .dropdownBtn,
+html.dark .dropdownOpen .dropdownBtn {
+  color: var(--brand-500);
+  background: rgba(107, 191, 84, 0.16);
+  border-color: rgba(107, 191, 84, 0.45);
 }
 
 .dropdownBtnActive {
@@ -505,6 +517,34 @@ html.dark .dropdownBtnActive {
   justify-content: center;
 }
 
+.dropdownMenuPanel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-xl);
+  border-radius: 8px;
+  width: 100%;
+  max-height: var(--mega-menu-max-h, calc(100dvh - 100px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transition: all var(--motion-base) var(--ease-standard);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+.dropdownMenuPanel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdownMenuPanel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dropdownMenuPanel::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+
 .dropdown:hover .dropdownMenu,
 .dropdownOpen .dropdownMenu {
   display: flex;
@@ -520,6 +560,54 @@ html.dark .dropdownBtnActive {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.megaMenuGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--mega-menu-gap, 1.25rem);
+  align-items: stretch;
+}
+
+@media (min-width: 640px) {
+  .megaMenuGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .megaMenuGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .megaMenuGrid {
+    grid-template-columns: var(--mega-menu-grid, 210px repeat(5, minmax(130px, 1fr)));
+    gap: var(--mega-menu-gap, 1.25rem);
+  }
+}
+
+.megaMenuCol {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+@media (min-width: 1024px) {
+  .megaMenuColDivided {
+    border-right: 1px solid var(--mega-menu-col-divider, var(--border-subtle));
+    padding-right: var(--mega-menu-col-px, 0.875rem);
+  }
+}
+
+.megaMenuBanner {
+  margin-top: 1.5rem;
+  padding: var(--mega-menu-banner-py, 12px) var(--mega-menu-banner-px, 20px);
+  background: var(--mega-menu-banner-bg);
+  border: 1px solid var(--mega-menu-banner-border);
+  border-radius: var(--mega-menu-radius, 8px);
 }
 
 .megaMenuContainer {

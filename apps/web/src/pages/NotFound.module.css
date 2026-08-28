@@ -16,9 +16,10 @@
 .badge {
   display: inline-flex;
   padding: 6px 14px;
-  background: var(--brand-light);
-  color: var(--brand-dark);
-  border-radius: 4px;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  border: 1px solid var(--badge-border);
+  border-radius: var(--radius-badge, 8px);
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;

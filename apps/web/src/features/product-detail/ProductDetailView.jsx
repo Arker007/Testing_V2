@@ -3,6 +3,11 @@ import { useParams, Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import QuoteButton from "../../shared/components/QuoteButton";
 import InquiryModal from "../../shared/components/InquiryModal";
+import Badge from "../../shared/components/ui/Badge";
+import CtaCard from "../../shared/components/ui/CtaCard";
+import Card from "../../shared/components/ui/Card";
+import Skeleton from "../../shared/components/ui/Skeleton";
+import EmptyState from "../../shared/components/ui/EmptyState";
 import { useSite } from "../../shared/context/SiteContext";
 import useDocumentTitle from "../../shared/hooks/useDocumentTitle";
 import ProductGallery from "./components/ProductGallery";
@@ -92,38 +97,37 @@ export default function ProductDetailView() {
         {/* Breadcrumb Skeleton */}
         <div className="border-b border-slate-200 dark:border-slate-800 py-4 bg-white dark:bg-[#161c24]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-2.5 items-center">
-            <div className="w-10 h-4 bg-slate-200 dark:bg-white/10 rounded animate-pulse" />
-            <div className="w-2.5 h-4 bg-slate-200 dark:bg-white/10 rounded animate-pulse" />
-            <div className="w-16 h-4 bg-slate-200 dark:bg-white/10 rounded animate-pulse" />
+            <Skeleton width="40px" height="16px" />
+            <Skeleton width="10px" height="16px" />
+            <Skeleton width="64px" height="16px" />
           </div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7 flex flex-col gap-8">
-               <div className="w-full aspect-4/3 bg-slate-200 dark:bg-white/10 rounded-2xl animate-pulse" />
+               <Skeleton variant="card" className="aspect-4/3 h-auto" />
                <div className="flex gap-4 justify-center">
                  {[1, 2, 3].map((_, i) => (
-                   <div key={i} className="w-16 h-16 bg-slate-200 dark:bg-white/10 rounded-lg animate-pulse" />
+                   <Skeleton key={i} width="64px" height="64px" className="rounded-lg" />
                  ))}
                </div>
             </div>
-            <div className="lg:col-span-5 flex flex-col gap-6 bg-white dark:bg-[#161c24] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8">
-              <div className="w-4/5 h-8 bg-slate-200 dark:bg-white/10 rounded animate-pulse" />
-              <div className="w-full h-4 bg-slate-200 dark:bg-white/10 rounded animate-pulse" />
-              <div className="w-[90%] h-4 bg-slate-200 dark:bg-white/10 rounded animate-pulse" />
+            <Card variant="elevated" className="lg:col-span-5 flex flex-col gap-6 p-6 sm:p-8">
+              <Skeleton width="80%" height="32px" />
+              <Skeleton lines={2} variant="text" />
               
               <div className="grid grid-cols-2 gap-4 mt-4">
                  {[1, 2, 3, 4].map((_, i) => (
-                   <div key={i} className="h-14 bg-slate-200 dark:bg-white/10 rounded-lg animate-pulse" />
+                   <Skeleton key={i} height="56px" className="rounded-lg" />
                  ))}
               </div>
 
               <div className="flex gap-4 mt-6">
-                <div className="w-1/2 h-12 bg-slate-200 dark:bg-white/10 rounded-lg animate-pulse" />
-                <div className="w-1/2 h-12 bg-slate-200 dark:bg-white/10 rounded-lg animate-pulse" />
+                <Skeleton width="50%" height="48px" className="rounded-lg" />
+                <Skeleton width="50%" height="48px" className="rounded-lg" />
               </div>
-            </div>
+            </Card>
           </div>
         </div>
       </main>
@@ -132,13 +136,21 @@ export default function ProductDetailView() {
 
   if (!product || product.error) {
     return (
-      <main className="pt-0 min-h-[60vh] flex flex-col items-center justify-center gap-4 text-center px-4 bg-[var(--bg-canvas,#F2F2F2)] dark:bg-[var(--bg-canvas,#0f141a)]">
-        <Icon icon="solar:danger-triangle-linear" className="text-5xl text-amber-500 w-14 h-14" />
-        <p className="text-slate-700 dark:text-slate-300 font-bold">Product not found.</p>
-        <Link to="/products" className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-bold text-sm transition-all shadow-2xs">
-          <Icon icon="solar:arrow-left-linear" className="w-4 h-4" />
-          <span>Back to Products</span>
-        </Link>
+      <main className="pt-0 min-h-[60vh] flex flex-col items-center justify-center p-6 bg-[var(--bg-canvas,#F2F2F2)] dark:bg-[var(--bg-canvas,#0f141a)]">
+        <EmptyState
+          icon="solar:danger-triangle-linear"
+          title="Product not found"
+          description="The product you are looking for does not exist or has been removed."
+          action={
+            <Link
+              to="/products"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-bold text-sm transition-all shadow-2xs hover:border-[var(--brand-border)]"
+            >
+              <Icon icon="solar:arrow-left-linear" className="w-4 h-4" />
+              <span>Back to Products</span>
+            </Link>
+          }
+        />
       </main>
     );
   }
@@ -252,37 +264,26 @@ export default function ProductDetailView() {
 
         {/* Premium Call to Action */}
         <section className="my-12">
-          <div className="p-8 sm:p-10 text-slate-900 dark:text-white bg-white dark:bg-[#161c24] border border-slate-200 dark:border-slate-800 rounded-2xl relative overflow-hidden shadow-xs">
-            <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-              <div className="space-y-3">
-                <span className="inline-flex px-3 py-1 rounded-full text-xs font-bold uppercase bg-emerald-50 dark:bg-emerald-950/20 text-[#277D38] dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/30">
-                  Custom Sizing & Solutions
-                </span>
-                <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-                  Interested in custom requirements or bulk lot orders?
-                </h2>
-                <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm max-w-xl font-medium leading-relaxed">
-                  Call our sales desk at {co("phone", "+91 98986 86379")} or request a direct factory quote.
-                </p>
-              </div>
-              
-              <div className="flex flex-wrap items-center gap-3 w-full md:w-auto shrink-0">
-                <QuoteButton 
-                  type="button" 
-                  text="Get Quote" 
-                  onClick={() => setShowInquiry(true)} 
-                  className="px-5 py-3 rounded-xl bg-[#277D38] hover:bg-[#1E622A] text-white font-bold text-sm transition-all shadow-2xs" 
-                />
-                <a
-                  href={`tel:${co("phone", "+919898686379").replace(/\s+/g, "")}`}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-sm transition-all shadow-2xs decoration-none"
-                >
-                  <Icon icon="solar:phone-calling-linear" className="w-4 h-4 text-[#277D38] dark:text-emerald-400" />
-                  <span>Call Sales Desk</span>
-                </a>
-              </div>
-            </div>
-          </div>
+          <CtaCard
+            badge="Custom Sizing & Solutions"
+            badgeVariant="success"
+            title="Interested in custom requirements or bulk lot orders?"
+            subtitle={`Call our sales desk at ${co("phone", "+91 98986 86379")} or request a direct factory quote.`}
+          >
+            <QuoteButton 
+              type="button" 
+              text="Get Quote" 
+              onClick={() => setShowInquiry(true)} 
+              className="px-5 py-3 rounded-xl bg-[#277D38] hover:bg-[#1E622A] text-white font-bold text-sm transition-all shadow-2xs" 
+            />
+            <a
+              href={`tel:${co("phone", "+919898686379").replace(/\s+/g, "")}`}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-sm transition-all shadow-2xs decoration-none"
+            >
+              <Icon icon="solar:phone-calling-linear" className="w-4 h-4 text-[#277D38] dark:text-emerald-400" />
+              <span>Call Sales Desk</span>
+            </a>
+          </CtaCard>
         </section>
 
         {/* Related Products Carousel */}

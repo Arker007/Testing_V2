@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
+import Badge from "../../shared/components/ui/Badge";
 
 export default function ProcessSection({ className = "" }) {
   const { c } = useSite();
@@ -242,10 +243,13 @@ export default function ProcessSection({ className = "" }) {
         
         {/* Section Title Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#5FBF50]/10 dark:bg-[#5FBF50]/8 border border-[#5FBF50]/30 dark:border-[#5FBF50]/40 rounded-[var(--radius-pill,8px)] text-[#54b862] dark:text-[#5FBF50] font-bold text-xs tracking-wider uppercase mb-4 shadow-sm">
-            <Icon icon="solar:restart-circle-linear" className="w-4 h-4 animate-spin-slow" />
-            <span>Circular Supply Chain</span>
-          </div>
+          <Badge
+            variant="eyebrow"
+            icon={<Icon icon="solar:restart-circle-linear" className="w-4 h-4 animate-spin-slow" />}
+            className="mb-4"
+          >
+            Circular Supply Chain
+          </Badge>
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
             Our Manufacturing <span className="text-[var(--brand-dark)] dark:text-emerald-400">Process</span>
           </h2>
@@ -538,10 +542,14 @@ export default function ProcessSection({ className = "" }) {
 
             {/* Column B: Center step text details */}
             <div className="lg:col-span-5 flex flex-col justify-center items-start">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[var(--brand-soft)] border border-[var(--brand-border)] rounded-pill text-[var(--text-brand)] font-bold text-xs tracking-wider uppercase mb-3 shadow-xs">
-                <Icon icon="solar:info-circle-linear" className="w-3.5 h-3.5" />
-                <span>{steps[activeStep].subtitle}</span>
-              </span>
+              <Badge
+                variant="eyebrow"
+                size="sm"
+                icon="solar:info-circle-linear"
+                className="mb-3"
+              >
+                {steps[activeStep].subtitle}
+              </Badge>
               <h3 className="text-2xl md:text-3.5xl font-black text-slate-900 dark:text-white tracking-tight mb-4 flex items-center gap-2">
                 {steps[activeStep].title}
               </h3>

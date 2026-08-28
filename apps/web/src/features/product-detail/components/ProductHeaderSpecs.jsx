@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
+import Badge from "../../../shared/components/ui/Badge";
+import WhatsAppButton from "../../../shared/components/ui/WhatsAppButton";
 
 export default function ProductHeaderSpecs({
   product,
@@ -25,17 +27,15 @@ export default function ProductHeaderSpecs({
       {/* 1. Header Metadata Row */}
       <div className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-50 dark:bg-emerald-950/20 text-[#277D38] dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/30">
-            <Icon icon="solar:leaf-linear" className="w-3.5 h-3.5" />
+          <Badge variant="success" size="sm" icon="solar:leaf-linear">
             {categoryName}
-          </span>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-sky-50 dark:bg-sky-950/20 text-sky-700 dark:text-sky-400 border border-sky-100 dark:border-sky-900/30">
-            <Icon icon="solar:verified-check-linear" className="w-3.5 h-3.5 text-emerald-500" />
+          </Badge>
+          <Badge variant="sky" size="sm" icon="solar:verified-check-linear">
             Production Ready
-          </span>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-slate-50 dark:bg-slate-900 text-slate-500 dark:text-slate-400 border border-slate-150 dark:border-slate-800">
+          </Badge>
+          <Badge variant="neutral" size="sm" className="font-mono">
             SKU: {sku}
-          </span>
+          </Badge>
         </div>
 
         <div>
@@ -72,9 +72,9 @@ export default function ProductHeaderSpecs({
                 </span>
               )}
               {discount && (
-                <span className="inline-flex px-2 py-0.5 rounded text-[10px] font-extrabold bg-rose-50 dark:bg-rose-950/20 text-rose-600 dark:text-rose-400 border border-rose-100 dark:border-rose-900/30 uppercase">
+                <Badge variant="danger" size="xs">
                   {discount}% OFF
-                </span>
+                </Badge>
               )}
             </div>
             <span className="text-[11px] font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase">Excl. GST & Delivery</span>
@@ -197,15 +197,13 @@ export default function ProductHeaderSpecs({
             <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
           </button>
 
-          <a
-            href={waLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 h-12 bg-[#25D366] hover:bg-[#20ba56] text-white rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all shadow-2xs cursor-pointer decoration-0"
-          >
-            <Icon icon="logos:whatsapp-icon" className="w-4 h-4 filter brightness-0 invert" />
-            <span>WhatsApp Us</span>
-          </a>
+          <WhatsAppButton
+            label="WhatsApp Us"
+            variant="solid"
+            size="lg"
+            text={`Hi, I'm interested in ${product?.name || 'this product'}`}
+            className="flex-1 h-12 rounded-xl text-sm sm:text-base font-bold shadow-2xs"
+          />
         </div>
 
         <button

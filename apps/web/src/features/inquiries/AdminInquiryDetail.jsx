@@ -4,6 +4,10 @@ import { Icon } from '@iconify/react';
 import styles from '../admin/components/AdminTable.module.css';
 import iStyles from './Inquiries.module.css';
 import { normalizeInquiry } from '../../shared/utils/parsers';
+import Spinner from '../../shared/components/ui/Spinner';
+import EmptyState from '../../shared/components/ui/EmptyState';
+import WhatsAppButton from '../../shared/components/ui/WhatsAppButton';
+import BackHeader from '../../shared/components/ui/BackHeader';
 
 export default function AdminInquiryDetail() {
     const { source, id } = useParams();
@@ -32,21 +36,24 @@ export default function AdminInquiryDetail() {
 
     if (loading) {
         return (
-            <div className={styles.loadingState}>
-                <Icon icon="solar:restart-linear" className="w-5 h-5 animate-spin inline mr-2" /> Loading inquiry details...
+            <div className="py-12 flex items-center justify-center">
+                <Spinner label="Loading inquiry details..." size="lg" />
             </div>
         );
     }
 
     if (!current) {
         return (
-            <div className={`${styles.card} ${styles.notFoundCard}`}>
-                <h2 className={styles.notFoundTitle}>Inquiry Not Found</h2>
-                <p className={styles.muted} style={{ marginBottom: '16px' }}>The requested inquiry does not exist or has been deleted.</p>
-                <Link to="/admin/inquiries" className={styles.actionBtnSecondary}>
-                    <Icon icon="solar:arrow-left-linear" className="w-4 h-4 mr-1 inline" /> Return to Inquiries
-                </Link>
-            </div>
+            <EmptyState
+                icon="solar:inbox-line-linear"
+                title="Inquiry Not Found"
+                description="The requested inquiry does not exist or has been deleted."
+                action={
+                    <Link to="/admin/inquiries" className={styles.actionBtnSecondary}>
+                        <Icon icon="solar:arrow-left-linear" className="w-4 h-4 mr-1 inline" /> Return to Inquiries
+                    </Link>
+                }
+            />
         );
     }
 
@@ -54,41 +61,40 @@ export default function AdminInquiryDetail() {
 
     return (
         <div>
-            <div className={iStyles.headRow}>
-                <button className={styles.actionBtnSecondary} style={{ padding: '8px 16px' }} onClick={() => navigate('/admin/inquiries')}>
-                    <Icon icon="solar:arrow-left-linear" className="w-4 h-4 mr-1 inline" /> Back
-                </button>
-                <div className={iStyles.navCluster}>
-                    <Link
-                        to={previous ? `/admin/inquiries/${previous.source}/${previous.id}` : '#'}
-                        className={`${styles.actionBtnSecondary} ${!previous ? iStyles.disabledNav : ''}`}
-                        style={{ padding: '8px 14px' }}
-                        onClick={(e) => !previous && e.preventDefault()}
-                    >
-                        <Icon icon="solar:alt-arrow-left-linear" className="w-4 h-4 mr-1 inline" /> Prev
-                    </Link>
-                    <Link
-                        to={next ? `/admin/inquiries/${next.source}/${next.id}` : '#'}
-                        className={`${styles.actionBtnSecondary} ${!next ? iStyles.disabledNav : ''}`}
-                        style={{ padding: '8px 14px' }}
-                        onClick={(e) => !next && e.preventDefault()}
-                    >
-                        Next <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 ml-1 inline" />
-                    </Link>
-                </div>
-            </div>
+            <BackHeader
+                to="/admin/inquiries"
+                backLabel="Back to Inquiries"
+                title={current.name || 'Anonymous Inquiry'}
+                subtitle={`Date Received: ${current.created_at ? new Date(current.created_at).toLocaleString('en-IN') : 'N/A'}`}
+                actions={
+                    <div className={iStyles.navCluster}>
+                        <Link
+                            to={previous ? `/admin/inquiries/${previous.source}/${previous.id}` : '#'}
+                            className={`${styles.actionBtnSecondary} ${!previous ? iStyles.disabledNav : ''}`}
+                            style={{ padding: '8px 14px' }}
+                            onClick={(e) => !previous && e.preventDefault()}
+                        >
+                            <Icon icon="solar:alt-arrow-left-linear" className="w-4 h-4 mr-1 inline" /> Prev
+                        </Link>
+                        <Link
+                            to={next ? `/admin/inquiries/${next.source}/${next.id}` : '#'}
+                            className={`${styles.actionBtnSecondary} ${!next ? iStyles.disabledNav : ''}`}
+                            style={{ padding: '8px 14px' }}
+                            onClick={(e) => !next && e.preventDefault()}
+                        >
+                            Next <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 ml-1 inline" />
+                        </Link>
+                    </div>
+                }
+            />
 
             <div className={`${styles.card} ${styles.detailCard}`}>
                 <div className={iStyles.detailHeader}>
                     <div>
-                        <h2 className={iStyles.detailTitle}>{current.name || 'Anonymous Inquiry'}</h2>
-                        <p className={iStyles.detailMeta}>
-                            Date Received: {current.created_at ? new Date(current.created_at).toLocaleString('en-IN') : 'N/A'}
-                        </p>
+                        <span className={iStyles.sourceBadge}>
+                            <Icon icon="solar:inbox-linear" className="w-4 h-4 mr-1 inline text-emerald-500" /> {sourceLabel}
+                        </span>
                     </div>
-                    <span className={iStyles.sourceBadge}>
-                        <Icon icon="solar:inbox-linear" className="w-4 h-4 mr-1 inline text-emerald-500" /> {sourceLabel}
-                    </span>
                 </div>
 
                 <div className={iStyles.blocks}>
@@ -123,14 +129,13 @@ export default function AdminInquiryDetail() {
                         </a>
                     )}
                     {current.phone && (
-                        <a
-                            href={`https://wa.me/${current.phone.replace(/\D/g, '')}?text=Hi ${current.name}, thank you for reaching out to us...`}
-                            className={`${styles.actionBtnSecondary} ${styles.whatsappBtn}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Icon icon="logos:whatsapp-icon" className="w-4 h-4 mr-1.5 inline" /> WhatsApp
-                        </a>
+                        <WhatsAppButton
+                            phone={current.phone}
+                            text={`Hi ${current.name}, thank you for reaching out to us...`}
+                            label="WhatsApp"
+                            variant="subtle"
+                            size="md"
+                        />
                     )}
                 </div>
             </div>

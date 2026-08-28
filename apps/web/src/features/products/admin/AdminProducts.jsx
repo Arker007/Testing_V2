@@ -4,6 +4,10 @@ import { Icon } from "@iconify/react";
 import styles from "../../admin/components/AdminTable.module.css";
 import { toPlainPreview } from "../../../shared/utils/parsers";
 import { InteractiveHoverButton } from "../../../registry/magicui/interactive-hover-button";
+import SearchInput from "../../../shared/components/ui/SearchInput";
+import EmptyState from "../../../shared/components/ui/EmptyState";
+import ConfirmDialog from "../../../shared/components/ui/ConfirmDialog";
+import Spinner from "../../../shared/components/ui/Spinner";
 
 export default function AdminProducts() {
   const navigate = useNavigate();
@@ -76,14 +80,13 @@ export default function AdminProducts() {
     <div className={styles.dashboard}>
       {/* Ventixe Clean Control Toolbar */}
       <div className={styles.toolbar}>
-        <div style={{ display: "flex", gap: "12px", flex: 1, flexWrap: "wrap" }}>
-          <div className={styles.searchWrap}>
-            <Icon icon="solar:magnifer-linear" className={styles.searchIcon} />
-            <input
-              className={styles.searchInput}
+        <div style={{ display: "flex", gap: "12px", flex: 1, flexWrap: "wrap", alignItems: "center" }}>
+          <div style={{ minWidth: "240px", flex: "1 1 300px" }}>
+            <SearchInput
               placeholder="Search catalog products..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
+              onClear={() => setSearch("")}
             />
           </div>
           <div className={styles.customSelectContainer} ref={dropdownRef}>
@@ -148,15 +151,19 @@ export default function AdminProducts() {
         {loading ? (
           [1, 2, 3, 4, 5].map((i) => <div key={i} className={styles.skeleRow} />)
         ) : filtered.length === 0 ? (
-          <div className={styles.empty}>
-            <Icon icon="solar:box-open-linear" className="w-8 h-8 text-slate-400 mb-2" />
-            <p>{search || catFilter !== "all" ? "No products match your search filters." : "No products found."}</p>
-            {!search && (
-              <InteractiveHoverButton onClick={() => navigate("/admin/products/new")} className="font-bold shadow-sm" style={{ marginTop: "12px" }}>
-                Add First Product
-              </InteractiveHoverButton>
-            )}
-          </div>
+          <EmptyState
+            icon="solar:box-open-linear"
+            title={search || catFilter !== "all" ? "No products match your search filters." : "No products found."}
+            description={!search && catFilter === "all" ? "Start by adding your first product to the enterprise catalog." : "Try clearing your search query or selecting a different category."}
+            action={
+              !search && catFilter === "all" ? (
+                <InteractiveHoverButton onClick={() => navigate("/admin/products/new")} className="font-bold shadow-sm">
+                  Add First Product
+                </InteractiveHoverButton>
+              ) : undefined
+            }
+            size="sm"
+          />
         ) : (
           filtered.map((p) => {
             let img = null;
@@ -204,25 +211,25 @@ export default function AdminProducts() {
                   <Link to={`/admin/products/${p.id}`} className={styles.editBtn} title="Edit Product">
                     <Icon icon="solar:pen-linear" className="w-4 h-4" />
                   </Link>
-                  {confirmDelete === p.id ? (
-                    <div className={styles.confirmRow}>
-                      <span className={styles.confirmText}>Confirm?</span>
-                      <button className={styles.confirmYes} onClick={() => handleDelete(p.id)} disabled={deleting === p.id}>
-                        {deleting === p.id ? <Icon icon="solar:restart-linear" className="w-3.5 h-3.5 animate-spin" /> : "Yes"}
-                      </button>
-                      <button className={styles.confirmNo} onClick={() => setConfirmDelete(null)}>No</button>
-                    </div>
-                  ) : (
-                    <button className={styles.delBtn} onClick={() => setConfirmDelete(p.id)} title="Delete Product">
-                      <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />
-                    </button>
-                  )}
+                  <button className={styles.delBtn} onClick={() => setConfirmDelete(p.id)} title="Delete Product">
+                    {deleting === p.id ? <Spinner size="sm" /> : <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />}
+                  </button>
                 </div>
               </div>
             );
           })
         )}
       </div>
+
+      <ConfirmDialog
+        isOpen={!!confirmDelete}
+        onClose={() => setConfirmDelete(null)}
+        onConfirm={() => handleDelete(confirmDelete)}
+        title="Delete Product?"
+        message="Are you sure you want to delete this product from your catalog? This action cannot be undone."
+        confirmText="Delete Product"
+        loading={!!deleting}
+      />
 
       {/* Right Slide Preview Drawer */}
       <div className={`${styles.previewDrawer} ${activeItem ? styles.previewDrawerActive : ""}`}>

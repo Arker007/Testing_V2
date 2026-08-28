@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import styles from "../../admin/components/AdminTable.module.css";
 import { InteractiveHoverButton } from "../../../registry/magicui/interactive-hover-button";
+import EmptyState from "../../../shared/components/ui/EmptyState";
+import ConfirmDialog from "../../../shared/components/ui/ConfirmDialog";
+import Spinner from "../../../shared/components/ui/Spinner";
 
 export default function AdminCategories() {
   const navigate = useNavigate();
@@ -43,13 +46,17 @@ export default function AdminCategories() {
         </div>
         {loading ? [1, 2, 3].map((i) => <div key={i} className={styles.skeleRow} />) :
           cats.length === 0 ? (
-            <div className={styles.empty}>
-              <Icon icon="solar:tag-linear" className="w-8 h-8 text-slate-400 mb-2" />
-              <p>No categorisation parameters defined</p>
-              <InteractiveHoverButton onClick={() => navigate("/admin/categories/new")} className="font-bold shadow-sm" style={{ marginTop: "12px" }}>
-                Inject Root Group
-              </InteractiveHoverButton>
-            </div>
+            <EmptyState
+              icon="solar:tag-linear"
+              title="No categorisation parameters defined"
+              description="Create root categories to organize your product catalog."
+              action={
+                <InteractiveHoverButton onClick={() => navigate("/admin/categories/new")} className="font-bold shadow-sm">
+                  Add Category
+                </InteractiveHoverButton>
+              }
+              size="sm"
+            />
           ) : cats.map((c) => (
             <div key={c.id} className={styles.trow} style={{ gridTemplateColumns: "2fr 2fr 1fr 100px" }}>
               <div className={styles.prodCell}>
@@ -66,23 +73,23 @@ export default function AdminCategories() {
                 <button className={styles.editBtn} onClick={() => navigate(`/admin/categories/${c.id}`)}>
                   <Icon icon="solar:pen-linear" className="w-4 h-4" />
                 </button>
-                {confirmDelete === c.id ? (
-                  <div className={styles.confirmRow}>
-                    <span className={styles.confirmText}>Purge?</span>
-                    <button className={styles.confirmYes} onClick={() => handleDelete(c.id)} disabled={deleting === c.id}>
-                      {deleting === c.id ? <Icon icon="solar:restart-linear" className="w-3.5 h-3.5 animate-spin" /> : "Yes"}
-                    </button>
-                    <button className={styles.confirmNo} onClick={() => setConfirmDelete(null)}>No</button>
-                  </div>
-                ) : (
-                  <button className={styles.delBtn} onClick={() => setConfirmDelete(c.id)}>
-                    <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />
-                  </button>
-                )}
+                <button className={styles.delBtn} onClick={() => setConfirmDelete(c.id)}>
+                  {deleting === c.id ? <Spinner size="sm" /> : <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />}
+                </button>
               </div>
             </div>
           ))}
       </div>
+
+      <ConfirmDialog
+        isOpen={!!confirmDelete}
+        onClose={() => setConfirmDelete(null)}
+        onConfirm={() => handleDelete(confirmDelete)}
+        title="Delete Category?"
+        message="Are you sure you want to delete this category? Associated products may become uncategorized."
+        confirmText="Delete Category"
+        loading={!!deleting}
+      />
     </div>
   );
 }

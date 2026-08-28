@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
+import Card from "../../shared/components/ui/Card";
+import IconBox from "../../shared/components/ui/IconBox";
 import { ContactTrustedRow } from "./ContactTrustedRow";
 import { useContactForm } from "./useContactForm";
 import styles from "./contact.module.css";
@@ -240,80 +242,70 @@ export default function ContactFormSection() {
             {/* Info Cards List */}
             <div className={styles.infoCardsGrid}>
               {/* Card 1: Contact Person */}
-              <div className={`${styles.infoCardAccent} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm text-[var(--text-primary)]`} id="info-card-person">
-                <div className={`${styles.infoCardIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
-                  <Icon icon="solar:user-linear" className="w-5 h-5" />
-                </div>
+              <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-person">
+                <IconBox icon="solar:user-linear" variant="brand" size="md" />
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Contact Person</span>
-                  <p className={`${styles.infoCardValue} text-[var(--text-primary)]`}>{contactPerson}</p>
+                  <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-bold`}>{contactPerson}</p>
                 </div>
-              </div>
+              </Card>
 
               {/* Card 2: Address */}
-              <div className={`${styles.infoCardAccent} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm text-[var(--text-primary)]`} id="info-card-address">
-                <div className={`${styles.infoCardIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
-                  <Icon icon="solar:map-point-linear" className="w-5 h-5" />
-                </div>
+              <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-address">
+                <IconBox icon="solar:map-point-linear" variant="brand" size="md" />
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Address</span>
-                  <p className={`${styles.infoCardValue} text-[var(--text-primary)]`}>{address}</p>
+                  <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-semibold leading-snug`}>{address}</p>
                 </div>
-              </div>
+              </Card>
 
               {/* Card 3: Mobile */}
-              <div className={`${styles.infoCardAccent} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm text-[var(--text-primary)]`} id="info-card-mobile">
-                <div className={`${styles.infoCardIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
-                  <Icon icon="solar:phone-calling-linear" className="w-5 h-5" />
-                </div>
+              <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-mobile">
+                <IconBox icon="solar:phone-calling-linear" variant="brand" size="md" />
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Mobile</span>
                   {showMobile ? (
                     <p className={`${styles.infoCardValue} text-[var(--text-primary)]`}>
-                      <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="hover:underline text-[var(--brand-text)] font-semibold">
+                      <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="hover:underline text-[#1E622A] dark:text-[#6BBF54] font-bold">
                         {phoneVal}
                       </a>
                     </p>
                   ) : (
                     <button
                       type="button"
-                      className="text-[var(--brand-text)] font-semibold hover:underline bg-transparent border-none p-0 text-sm cursor-pointer"
+                      className="text-[#1E622A] dark:text-[#6BBF54] font-bold hover:underline bg-transparent border-none p-0 text-sm cursor-pointer"
                       onClick={() => setShowMobile(true)}
                     >
                       View Mobile Number
                     </button>
                   )}
                 </div>
-              </div>
+              </Card>
 
               {/* Card 4: Email */}
-              <div className={`${styles.infoCardAccent} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm text-[var(--text-primary)]`} id="info-card-email">
-                <div className={`${styles.infoCardIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
-                  <Icon icon="solar:letter-linear" className="w-5 h-5" />
-                </div>
+              <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-email">
+                <IconBox icon="solar:letter-linear" variant="brand" size="md" />
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Email</span>
                   <p className={`${styles.infoCardValue} text-[var(--text-primary)]`}>
-                    <a href={`mailto:${emailVal}`} className="hover:underline text-[var(--brand-text)] font-semibold">
+                    <a href={`mailto:${emailVal}`} className="hover:underline text-[#1E622A] dark:text-[#6BBF54] font-bold">
                       {emailVal}
                     </a>
                   </p>
                 </div>
-              </div>
+              </Card>
             </div>
 
             {/* Immediate Assistance Banner */}
-            <div className={`${styles.assistanceBanner} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm text-[var(--text-primary)]`} id="assistance-banner">
-              <div className={styles.bannerLeft}>
-                <div className={`${styles.bannerIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)]`}>
-                  <Icon icon="solar:headphones-round-linear" className="w-5 h-5" />
-                </div>
+            <div className={`${styles.assistanceBanner} mt-6 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-[var(--brand-border)]/50 rounded-2xl`} id="assistance-banner">
+              <div className="flex items-center gap-3.5">
+                <IconBox icon="solar:headphones-round-linear" variant="brand" size="lg" />
                 <div>
-                  <h4 className="font-bold text-[var(--text-primary)] text-sm">Need Immediate Assistance?</h4>
+                  <h4 className="font-bold text-[var(--text-primary)] text-sm sm:text-base">Need Immediate Assistance?</h4>
                   <p className="text-xs text-[var(--text-secondary)] mt-0.5">Our team is ready to help you with your requirements.</p>
                 </div>
               </div>
-              <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="inline-flex items-center gap-2 bg-[var(--brand)] text-slate-950 font-semibold text-xs px-4 py-2.5 rounded-[var(--radius-btn,8px)] shadow-sm hover:opacity-95 transition-all">
+              <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="inline-flex items-center gap-2 bg-[#6BBF54] hover:bg-[#5fbf50] text-slate-950 font-bold text-xs px-4 py-2.5 rounded-xl shadow-xs transition-all shrink-0 no-underline">
                 <Icon icon="solar:phone-calling-linear" className="w-4 h-4 text-slate-950" />
                 Call Now
               </a>
@@ -322,12 +314,10 @@ export default function ContactFormSection() {
         </div>
 
         {/* Embedded Map Section */}
-        <div className={`${styles.mapSectionWrapper} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-md text-[var(--text-primary)] mt-10 p-6 rounded-[var(--radius-xl,16px)]`} id="embedded-map-container">
+        <Card variant="default" className="mt-10 p-6" id="embedded-map-container">
           <div className={styles.mapHeader}>
             <div className={styles.mapTitleGroup}>
-              <div className={`${styles.mapIconCircle} bg-[var(--brand-light)] text-[var(--brand-text)] border border-[var(--brand-border)]`}>
-                <Icon icon="solar:map-point-linear" className="w-5 h-5" />
-              </div>
+              <IconBox icon="solar:map-point-linear" variant="brand" size="md" />
               <div>
                 <h3 className="font-bold text-[var(--text-primary)] text-base">Find Our Manufacturing Facility</h3>
                 <p className="text-xs text-[var(--text-muted)] mt-0.5">{address}</p>
@@ -356,7 +346,7 @@ export default function ContactFormSection() {
               referrerPolicy="no-referrer"
             />
           </div>
-        </div>
+        </Card>
 
         {/* Dynamic Trusted Row below form if needed */}
         <ContactTrustedRow />

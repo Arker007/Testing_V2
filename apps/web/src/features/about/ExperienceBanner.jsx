@@ -1,7 +1,8 @@
 import React from "react";
-import { Icon } from "@iconify/react";
 import { useSite } from "../../shared/context/SiteContext";
 import Card from "../../shared/components/ui/Card";
+import IconBox from "../../shared/components/ui/IconBox";
+import Badge from "../../shared/components/ui/Badge";
 
 export default function ExperienceBanner() {
   const { c } = useSite();
@@ -20,9 +21,7 @@ export default function ExperienceBanner() {
 
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div className="flex items-center gap-6">
-            <div className="w-16 h-16 rounded-xl bg-[var(--brand)] text-slate-950 flex items-center justify-center shrink-0 font-black text-2xl shadow-lg shadow-emerald-500/20 border border-[var(--brand)]">
-              <Icon icon="solar:medal-ribbons-star-linear" className="w-8 h-8" />
-            </div>
+            <IconBox icon="solar:medal-ribbons-star-linear" variant="brand" size="xl" />
             <div>
               <h3 className="text-xl sm:text-2xl font-black tracking-tight text-slate-950 dark:text-white">
                 {c("experience_banner_title", "Over 15 Years of Industrial Excellence")}
@@ -37,14 +36,14 @@ export default function ExperienceBanner() {
           </div>
           <div className="flex items-center gap-3 shrink-0 self-start md:self-auto flex-wrap">
             {c("cert_gst", "GST Registered") && (
-              <div className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-white/10 text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-white border border-slate-200 dark:border-white/15 shadow-xs">
+              <Badge variant="neutral" size="md">
                 {c("cert_gst", "GST Registered")}
-              </div>
+              </Badge>
             )}
             {c("cert_gmp", "Made in India") && (
-              <div className="px-4 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-[#5FBF50] text-xs font-bold uppercase tracking-wider border border-emerald-300 dark:border-emerald-500/40 shadow-xs">
+              <Badge variant="success" size="md">
                 {c("cert_gmp", "Made in India")}
-              </div>
+              </Badge>
             )}
           </div>
         </div>

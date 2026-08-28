@@ -372,6 +372,21 @@ ol {
   --container-md: 1024px;
   --container-sm: 768px;
   --nav-h: 72px;
+  --header-offset: 84px;
+  --mega-menu-max-h: calc(100dvh - var(--header-offset, 84px) - 1.5rem);
+  --navbar-radius: 8px;
+  --mega-menu-radius: var(--navbar-radius, 8px);
+  --mega-menu-promo-bg: var(--brand-50, #edf6ed);
+  --mega-menu-promo-border: var(--brand-200, #d8edd6);
+  --mega-menu-banner-bg: var(--navy-50, #f8fafc);
+  --mega-menu-banner-border: var(--border-subtle);
+  --mega-menu-banner-hover: var(--neutral-100, #f1f5f9);
+  --mega-menu-banner-py: 12px;
+  --mega-menu-banner-px: 20px;
+  --mega-menu-grid: 210px repeat(5, minmax(130px, 1fr));
+  --mega-menu-gap: 1.25rem;
+  --mega-menu-col-divider: var(--border-subtle);
+  --mega-menu-col-px: 0.875rem;
   --section-py: 4rem;
 
   /* ========================================================================
