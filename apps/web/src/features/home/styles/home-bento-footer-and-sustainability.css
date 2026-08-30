@@ -74,7 +74,9 @@
   border: 1px solid rgba(63, 174, 90, 0.15);
 }
 
-.bentoBottomText h6 {
+.bentoBottomText h6,
+.bentoBottomTitle {
+  display: block;
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--neutral-950);

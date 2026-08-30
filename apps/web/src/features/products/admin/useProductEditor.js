@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "../../../shared/components/ui";
 
 export const EMPTY_PRODUCT = {
   name: "",
@@ -27,6 +28,7 @@ export const EMPTY_PRODUCT = {
 
 export function useProductEditor(id, isNew) {
   const navigate = useNavigate();
+  const toast = useToast();
   const [form, setForm] = useState(EMPTY_PRODUCT);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(!isNew);
@@ -47,7 +49,7 @@ export function useProductEditor(id, isNew) {
         .then((r) => r.json())
         .then((p) => {
           if (p.error) {
-            alert("Product not found.");
+            toast.error("Product not found.");
             navigate("/admin/products");
             return;
           }
@@ -114,7 +116,7 @@ export function useProductEditor(id, isNew) {
         })
         .finally(() => setLoading(false));
     }
-  }, [id, isNew, navigate]);
+  }, [id, isNew, navigate, toast]);
 
   const handleSave = async (e) => {
     e.preventDefault();
@@ -146,13 +148,15 @@ export function useProductEditor(id, isNew) {
         headers,
         body: JSON.stringify(payload),
       });
-      if (res.ok) navigate("/admin/products");
-      else {
+      if (res.ok) {
+        toast.success(isNew ? "Product created successfully" : "Product saved successfully");
+        navigate("/admin/products");
+      } else {
         const d = await res.json();
-        alert(d.error || "Failed to save product.");
+        toast.error(d.error || "Failed to save product.");
       }
     } catch {
-      alert("A network error occurred. Please try again.");
+      toast.error("A network error occurred. Please try again.");
     } finally {
       setSaving(false);
     }
@@ -174,9 +178,10 @@ export function useProductEditor(id, isNew) {
       if (data.images) {
         const mapped = data.images.map((imgStr) => ({ local: imgStr, url: "" }));
         setForm((prev) => ({ ...prev, images: [...prev.images, ...mapped] }));
+        toast.success("Images uploaded successfully");
       }
     } catch {
-      alert("Image upload failed.");
+      toast.error("Image upload failed.");
     } finally {
       setUploading(false);
     }
@@ -201,9 +206,10 @@ export function useProductEditor(id, isNew) {
           imgs[index] = { ...imgs[index], local: data.images[0] };
           return { ...prev, images: imgs };
         });
+        toast.success("Image replaced successfully");
       }
     } catch {
-      alert("Replacement image upload failed.");
+      toast.error("Replacement image upload failed.");
     } finally {
       setUploading(false);
     }

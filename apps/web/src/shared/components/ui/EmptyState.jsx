@@ -45,9 +45,9 @@ export default function EmptyState({
         size={iconBoxSizes[size] || "lg"}
         className="mb-4"
       />
-      <h3 className="text-base sm:text-lg font-bold text-[var(--text-primary)]">
+      <span className="block text-base sm:text-lg font-bold text-[var(--text-primary)]">
         {title}
-      </h3>
+      </span>
       {description && (
         <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1.5 max-w-md mx-auto leading-relaxed">
           {description}

@@ -267,18 +267,18 @@ export default function FeaturesSection() {
               >
                 Exporting
               </span>
-              <h2
+              <p
                 style={{ color: "var(--heading, #0f141a)" }}
-                className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-snug"
+                className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-snug m-0"
               >
                 Driving Economic Growth
-              </h2>
-              <h2
+              </p>
+              <p
                 style={{ color: "var(--heading, #0f141a)" }}
-                className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-snug"
+                className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-snug m-0"
               >
                 & Global Expansion
-              </h2>
+              </p>
             </div>
           </div>
         </div>

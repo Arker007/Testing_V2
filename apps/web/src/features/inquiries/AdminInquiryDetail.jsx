@@ -99,7 +99,7 @@ export default function AdminInquiryDetail() {
 
                 <div className={iStyles.blocks}>
                     <section className={iStyles.block}>
-                        <h3 className={iStyles.blockTitle}>Contact Details</h3>
+                        <h2 className={iStyles.blockTitle}>Contact Details</h2>
                         <div className={iStyles.detailGrid}>
                             <div className={iStyles.detailRow}><span className={iStyles.detailKey}>Email Address</span><span className={iStyles.detailVal}>{current.email || '—'}</span></div>
                             <div className={iStyles.detailRow}><span className={iStyles.detailKey}>Phone Number</span><span className={iStyles.detailVal}>{current.phone || '—'}</span></div>
@@ -108,7 +108,7 @@ export default function AdminInquiryDetail() {
                     </section>
 
                     <section className={iStyles.block}>
-                        <h3 className={iStyles.blockTitle}>Inquiry Details</h3>
+                        <h2 className={iStyles.blockTitle}>Inquiry Details</h2>
                         <div className={iStyles.detailGrid}>
                             <div className={iStyles.detailRow}><span className={iStyles.detailKey}>Product</span><span className={iStyles.detailVal}>{current.productName || current.product_name || '—'}</span></div>
                             <div className={iStyles.detailRow}><span className={iStyles.detailKey}>Inquiry Type</span><span className={iStyles.detailVal}>{current.inquiryType || current.inquiry_type || 'General Info'}</span></div>

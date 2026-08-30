@@ -15,59 +15,56 @@ export default function ProductHeaderSpecs({
   displaySwatches,
   currentImgIdx,
   setImg,
-  waLink,
   setShowInquiry,
   setShowSpecsSheet,
 }) {
   const [selectedSize, setSelectedSize] = useState(sizeOptions[0] || "");
 
   return (
-    <div id="product-detail-panel" className="bg-white dark:bg-[#161c24] border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xs flex flex-col gap-6">
-      
+    <div
+      id="product-detail-panel"
+      className="bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--surface,#161c24)] border border-[var(--border-subtle,rgba(242,242,242,0.12))] rounded-[var(--radius-card,12px)] p-6 sm:p-7 shadow-[var(--shadow-sm)] flex flex-col gap-5 transition-all duration-200"
+    >
       {/* 1. Header Metadata Row */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2.5">
         <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="success" size="sm" icon="solar:leaf-linear">
-            {categoryName}
-          </Badge>
-          <Badge variant="sky" size="sm" icon="solar:verified-check-linear">
-            Production Ready
-          </Badge>
-          <Badge variant="neutral" size="sm" className="font-mono">
+          <Badge variant="neutral" size="sm" className="font-mono text-[11px]">
             SKU: {sku}
           </Badge>
         </div>
 
         <div>
-          <span className="text-xs font-bold tracking-widest text-slate-400 uppercase">{brand}</span>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1 leading-snug">
+          <span className="text-[11px] font-bold tracking-wider text-[var(--text-muted)] uppercase">
+            {brand}
+          </span>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight mt-0.5 leading-snug">
             {product.name}
           </h1>
         </div>
 
         {product.technical_blurb ? (
-          <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
             {product.technical_blurb}
           </p>
         ) : (
-          <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
             High-durability recycled composite material. Engineered for maximum load-bearing efficiency, environmental sustainability, and rot resistance.
           </p>
         )}
       </div>
 
-      <hr className="border-slate-100 dark:border-slate-800/60" />
+      <hr className="border-[var(--border-subtle)]" />
 
       {/* 2. Pricing Section */}
       <div className="flex flex-col gap-1">
         {currentPrice && currentPrice !== "0" ? (
           <div className="flex flex-col gap-1">
             <div className="flex items-baseline gap-2.5 flex-wrap">
-              <span className="text-3xl sm:text-4xl font-black text-slate-950 dark:text-white tracking-tight">
+              <span className="text-3xl sm:text-4xl font-black text-[var(--text-primary)] tracking-tight">
                 ₹{currentPrice}
               </span>
               {oldPrice && (
-                <span className="text-base sm:text-lg text-slate-400 line-through font-medium">
+                <span className="text-base sm:text-lg text-[var(--text-muted)] line-through font-medium">
                   ₹{oldPrice}
                 </span>
               )}
@@ -77,120 +74,150 @@ export default function ProductHeaderSpecs({
                 </Badge>
               )}
             </div>
-            <span className="text-[11px] font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase">Excl. GST & Delivery</span>
+            <span className="text-[11px] font-bold tracking-wider text-[var(--text-muted)] uppercase">
+              Excl. GST & Freight
+            </span>
           </div>
         ) : (
-          <div className="flex flex-col gap-1">
-            <span className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
+          <div className="flex flex-col gap-0.5">
+            <span className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight">
               Enquire for Volume Quote
             </span>
-            <span className="text-xs font-semibold text-[#277D38] dark:text-emerald-400">Best wholesale rates guaranteed</span>
+            <span className="text-xs font-semibold text-[var(--brand-primary)]">
+              Best wholesale rates guaranteed
+            </span>
           </div>
         )}
       </div>
 
-      <hr className="border-slate-100 dark:border-slate-800/60" />
+      <hr className="border-[var(--border-subtle)]" />
 
-      {/* 3. Core Specifications Matrix (Clean grid) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
-        <div className="flex items-start gap-3">
-          <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/50 text-[#277D38] dark:text-emerald-400 border border-slate-100 dark:border-slate-800">
-            <Icon icon="solar:box-minimalistic-linear" className="w-5 h-5 shrink-0" />
+      {/* 3. Core Specifications Matrix (Clean 2x2 grid) */}
+      <div className="grid grid-cols-2 gap-3 sm:gap-4">
+        <div className="p-3 rounded-[var(--radius-md,6px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex items-start gap-2.5">
+          <div className="p-1.5 rounded-[var(--radius-sm,4px)] bg-[var(--bg-surface)] text-[var(--brand-primary)] shadow-2xs shrink-0">
+            <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4" />
           </div>
-          <div>
-            <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">Minimum Order</span>
-            <span className="text-sm font-extrabold text-slate-800 dark:text-slate-200 mt-0.5 block">{product.moq || "100 Units"}</span>
+          <div className="min-w-0">
+            <span className="block text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+              Min. Order
+            </span>
+            <span className="text-xs sm:text-sm font-extrabold text-[var(--text-primary)] truncate block mt-0.5">
+              {product.moq || "100 Units"}
+            </span>
           </div>
         </div>
 
-        <div className="flex items-start gap-3">
-          <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/50 text-[#277D38] dark:text-emerald-400 border border-slate-100 dark:border-slate-800">
-            <Icon icon="solar:delivery-linear" className="w-5 h-5 shrink-0" />
+        <div className="p-3 rounded-[var(--radius-md,6px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex items-start gap-2.5">
+          <div className="p-1.5 rounded-[var(--radius-sm,4px)] bg-[var(--bg-surface)] text-[var(--brand-primary)] shadow-2xs shrink-0">
+            <Icon icon="solar:delivery-linear" className="w-4 h-4" />
           </div>
-          <div>
-            <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">Dispatch</span>
-            <span className="text-sm font-extrabold text-slate-800 dark:text-slate-200 mt-0.5 block">{product.dispatch || "Immediate Available"}</span>
-          </div>
-        </div>
-
-        <div className="flex items-start gap-3">
-          <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/50 text-[#277D38] dark:text-emerald-400 border border-slate-100 dark:border-slate-800">
-            <Icon icon="solar:wrench-linear" className="w-5 h-5 shrink-0" />
-          </div>
-          <div>
-            <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">Customization</span>
-            <span className="text-sm font-extrabold text-slate-800 dark:text-slate-200 mt-0.5 block">{product.customization || "RFID slots available"}</span>
+          <div className="min-w-0">
+            <span className="block text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+              Dispatch
+            </span>
+            <span className="text-xs sm:text-sm font-extrabold text-[var(--text-primary)] truncate block mt-0.5">
+              {product.dispatch || "In Stock"}
+            </span>
           </div>
         </div>
 
-        <div className="flex items-start gap-3">
-          <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/50 text-[#277D38] dark:text-emerald-400 border border-slate-100 dark:border-slate-800">
-            <Icon icon="solar:scale-linear" className="w-5 h-5 shrink-0" />
+        <div className="p-3 rounded-[var(--radius-md,6px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex items-start gap-2.5">
+          <div className="p-1.5 rounded-[var(--radius-sm,4px)] bg-[var(--bg-surface)] text-[var(--brand-primary)] shadow-2xs shrink-0">
+            <Icon icon="solar:wrench-linear" className="w-4 h-4" />
           </div>
-          <div>
-            <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest">Load Capacity</span>
-            <span className="text-sm font-extrabold text-slate-800 dark:text-slate-200 mt-0.5 block">{product.capacity || "Static 5T / Dynamic 1.5T"}</span>
+          <div className="min-w-0">
+            <span className="block text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+              Custom Profile
+            </span>
+            <span className="text-xs sm:text-sm font-extrabold text-[var(--text-primary)] truncate block mt-0.5">
+              {product.customization || "Available"}
+            </span>
+          </div>
+        </div>
+
+        <div className="p-3 rounded-[var(--radius-md,6px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex items-start gap-2.5">
+          <div className="p-1.5 rounded-[var(--radius-sm,4px)] bg-[var(--bg-surface)] text-[var(--brand-primary)] shadow-2xs shrink-0">
+            <Icon icon="solar:scale-linear" className="w-4 h-4" />
+          </div>
+          <div className="min-w-0">
+            <span className="block text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+              Load Rating
+            </span>
+            <span className="text-xs sm:text-sm font-extrabold text-[var(--text-primary)] truncate block mt-0.5">
+              {product.capacity || "Heavy Duty"}
+            </span>
           </div>
         </div>
       </div>
 
-      <hr className="border-slate-100 dark:border-slate-800/60" />
+      <hr className="border-[var(--border-subtle)]" />
 
       {/* 4. Configuration Option Selectors */}
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-4">
         {/* Sizes */}
-        <div className="flex flex-col gap-2.5">
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Configuration / Size</span>
+        <div className="flex flex-col gap-2">
+          <span className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+            Configuration / Size
+          </span>
           <div className="flex flex-wrap gap-2">
-            {sizeOptions.map((option) => (
-              <button
-                key={option}
-                type="button"
-                onClick={() => setSelectedSize(option)}
-                className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border transition-all ${
-                  selectedSize === option
-                    ? "bg-[#277D38] border-[#277D38] text-white shadow-2xs"
-                    : "bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800"
-                }`}
-              >
-                {option}
-              </button>
-            ))}
+            {sizeOptions.map((option) => {
+              const isSelected = selectedSize === option;
+              return (
+                <button
+                  key={option}
+                  type="button"
+                  onClick={() => setSelectedSize(option)}
+                  className={`px-3.5 py-2 rounded-[var(--radius-btn,6px)] text-xs font-bold border transition-all cursor-pointer ${
+                    isSelected
+                      ? "bg-[var(--brand-primary)] border-[var(--brand-primary)] text-[var(--brand-btn-text,#0f141a)] shadow-[var(--shadow-sm)]"
+                      : "bg-[var(--bg-surface)] dark:bg-white/5 text-[var(--text-secondary)] border-[var(--border-default)] hover:bg-[var(--bg-surface-secondary)]"
+                  }`}
+                >
+                  {option}
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Swatches */}
         {displaySwatches.length > 0 && (
-          <div className="flex flex-col gap-2.5">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Color Options</span>
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+              Color Options
+            </span>
             <div className="flex flex-wrap gap-2">
-              {displaySwatches.map((swatch, i) => (
-                <button
-                  key={`${swatch}-${i}`}
-                  type="button"
-                  onClick={() => setImg(i)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold border transition-all ${
-                    i === currentImgIdx
-                      ? "bg-slate-900 dark:bg-white text-white dark:text-slate-950 border-slate-900 dark:border-white shadow-2xs"
-                      : "bg-slate-50 dark:bg-slate-900 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800"
-                  }`}
-                >
-                  Option {i + 1}
-                </button>
-              ))}
+              {displaySwatches.map((swatch, i) => {
+                const isSelected = i === currentImgIdx;
+                return (
+                  <button
+                    key={`${swatch}-${i}`}
+                    type="button"
+                    onClick={() => setImg(i)}
+                    className={`px-3 py-1.5 rounded-[var(--radius-btn,6px)] text-xs font-bold border transition-all cursor-pointer ${
+                      isSelected
+                        ? "bg-[var(--navy-900,#0f141a)] dark:bg-white text-white dark:text-slate-950 border-[var(--navy-900,#0f141a)] dark:border-white shadow-2xs"
+                        : "bg-[var(--bg-surface)] dark:bg-white/5 text-[var(--text-secondary)] border-[var(--border-default)] hover:bg-[var(--bg-surface-secondary)]"
+                    }`}
+                  >
+                    Option {i + 1}
+                  </button>
+                );
+              })}
             </div>
           </div>
         )}
       </div>
 
-      <hr className="border-slate-100 dark:border-slate-800/60" />
+      <hr className="border-[var(--border-subtle)]" />
 
       {/* 5. Actions Row */}
-      <div className="flex flex-col gap-3">
-        <div className="flex flex-col sm:flex-row gap-3">
+      <div className="flex flex-col gap-2.5">
+        <div className="flex flex-col sm:flex-row gap-2.5">
           <button
             type="button"
-            className="flex-1 h-12 bg-[#277D38] hover:bg-[#1E622A] text-white rounded-xl font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all shadow-2xs border-0 cursor-pointer"
+            className="flex-1 h-12 bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] active:bg-[var(--brand-active)] text-[var(--brand-btn-text,#0f141a)] rounded-[var(--radius-btn,6px)] font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-[var(--shadow-sm)] border-0 cursor-pointer"
             onClick={() => setShowInquiry(true)}
           >
             <span>Request Quote</span>
@@ -201,19 +228,32 @@ export default function ProductHeaderSpecs({
             label="WhatsApp Us"
             variant="solid"
             size="lg"
-            text={`Hi, I'm interested in ${product?.name || 'this product'}`}
-            className="flex-1 h-12 rounded-xl text-sm sm:text-base font-bold shadow-2xs"
+            text={`Hi, I'm interested in ${product?.name || "this product"}`}
+            className="flex-1 h-12 rounded-[var(--radius-btn,6px)] text-sm font-bold shadow-[var(--shadow-sm)]"
           />
         </div>
 
         <button
           type="button"
           onClick={() => setShowSpecsSheet(true)}
-          className="w-full h-12 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
+          className="w-full h-11 rounded-[var(--radius-btn,6px)] border border-[var(--border-default)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
         >
-          <Icon icon="solar:document-text-linear" className="w-4 h-4 text-[#277D38] dark:text-emerald-400" />
+          <Icon icon="solar:document-text-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
           <span>View Technical Sheet</span>
         </button>
+      </div>
+
+      {/* Micro Trust Indicators */}
+      <div className="flex items-center justify-between text-[11px] font-semibold text-[var(--text-muted)] pt-2 border-t border-[var(--border-subtle)]">
+        <span className="flex items-center gap-1">
+          <Icon icon="solar:verified-check-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" /> Factory Direct
+        </span>
+        <span className="flex items-center gap-1">
+          <Icon icon="solar:box-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" /> Pan-India Dispatch
+        </span>
+        <span className="flex items-center gap-1">
+          <Icon icon="solar:shield-check-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" /> ISO Certified
+        </span>
       </div>
     </div>
   );

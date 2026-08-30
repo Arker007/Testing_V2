@@ -74,9 +74,9 @@ const PageFallback = () => (
 
     {/* Elegant Brand Title and loading caption */}
     <div className="text-center animate-pulse">
-      <h2 className="text-xs font-black tracking-[0.3em] text-slate-800 dark:text-white uppercase">
+      <span className="block text-xs font-black tracking-[0.3em] text-slate-800 dark:text-white uppercase">
         Vishal Enterprise
-      </h2>
+      </span>
       <div className="flex items-center justify-center gap-1.5 mt-1.5">
         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
         <p className="text-[10px] font-bold tracking-widest text-slate-400 dark:text-[rgba(242,242,242,0.45)] uppercase">

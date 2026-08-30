@@ -234,7 +234,7 @@ export default function HomeHero() {
                       <div className={styles.featureIconRing}>
                         <Icon icon={iconName} className={styles.featureIcon} />
                       </div>
-                      <h4 className={styles.featureTitle}>{feat.title}</h4>
+                      <span className={styles.featureTitle}>{feat.title}</span>
                       <p className={styles.featureDesc}>{feat.text}</p>
                     </Motion.div>
                   );

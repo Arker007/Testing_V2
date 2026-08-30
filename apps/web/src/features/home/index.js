@@ -1,4 +1,5 @@
 export { default as HomeHero } from "./HomeHero";
+export { default as HomeHeroMobile } from "./HomeHeroMobile";
 export { default as HomeCtaSection } from "./HomeCtaSection";
 export { default as IndustriesGrid } from "./IndustriesGrid";
 export { default as IndustryCard } from "./IndustryCard";

@@ -11,6 +11,8 @@ export default function TestimonialsSection() {
   const { c } = useSite();
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  if (c("about_testimonials_enabled", "1") === "0") return null;
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % testimonials.length);
   };
@@ -59,9 +61,9 @@ export default function TestimonialsSection() {
                     referrerPolicy="no-referrer"
                   />
                   <div>
-                    <h3 className="font-bold text-slate-900 dark:text-white text-base">
+                    <span className="block font-bold text-slate-900 dark:text-white text-base">
                       {testimonials[currentSlide].author}
-                    </h3>
+                    </span>
                     <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
                       {testimonials[currentSlide].role}
                     </p>

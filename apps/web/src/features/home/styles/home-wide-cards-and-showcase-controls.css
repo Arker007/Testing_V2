@@ -164,7 +164,7 @@
 
 :global([data-theme="dark"]) .slantBgGreen,
 :global(.dark) .slantBgGreen {
-  background: var(--brand-500) !important;
+background: var(--brand-500) !important;
   opacity: 1 !important;
   z-index: 1 !important;
 }

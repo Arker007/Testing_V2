@@ -283,11 +283,11 @@ export default function ProductsShowcase() {
           {/* BOTTOM CONTENT AREA (Full-bleed direct overlay with high-contrast text) */}
           <div className="relative z-20 mt-auto pt-8">
             <div className="max-w-2xl">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#FFFFFF] tracking-tight leading-tight mb-2 drop-shadow-sm">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black !text-white tracking-tight leading-tight mb-2 drop-shadow-sm">
                 {featuredProduct.name || "Plastic Lumber"}
               </h3>
 
-              <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs sm:text-sm leading-relaxed font-medium max-w-xl drop-shadow-xs">
+              <p className="!text-[#D8DEDA] text-xs sm:text-sm leading-relaxed font-medium max-w-xl drop-shadow-xs">
                 {featuredProduct.description ||
                   "Durable recycled plastic profiles for construction framing, decking, walkways and industrial applications."}
               </p>
@@ -306,7 +306,7 @@ export default function ProductsShowcase() {
                       className="flex items-center gap-1.5 bg-black/55 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/20 shadow-xs text-[var(--brand-primary)]"
                     >
                       {renderFeatureIcon(iconName, feat.title)}
-                      <span className="text-[#E7EBE8] text-[11px] sm:text-xs font-semibold">{feat.title}</span>
+                      <span className="!text-[#E7EBE8] text-[11px] sm:text-xs font-semibold">{feat.title}</span>
                     </Motion.div>
                   );
                 })}
@@ -382,10 +382,10 @@ export default function ProductsShowcase() {
 
               {/* BOTTOM DIRECT OVERLAY TEXT */}
               <div className="relative z-20 mt-auto pt-6">
-                <h3 className="text-lg sm:text-xl font-black text-[#FFFFFF] tracking-tight mb-1 drop-shadow-sm">
+                <h3 className="text-lg sm:text-xl font-black !text-white tracking-tight mb-1 drop-shadow-sm">
                   {title}
                 </h3>
-                <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs leading-relaxed font-medium line-clamp-2 drop-shadow-xs">
+                <p className="!text-[#D8DEDA] text-xs leading-relaxed font-medium line-clamp-2 drop-shadow-xs">
                   {desc}
                 </p>
               </div>
@@ -446,10 +446,10 @@ export default function ProductsShowcase() {
 
               {/* BOTTOM DIRECT OVERLAY TEXT */}
               <div className="relative z-20 mt-auto pt-6">
-                <h3 className="text-lg sm:text-xl font-black text-[#FFFFFF] tracking-tight mb-1 drop-shadow-sm">
+                <h3 className="text-lg sm:text-xl font-black !text-white tracking-tight mb-1 drop-shadow-sm">
                   {title}
                 </h3>
-                <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs leading-relaxed font-medium line-clamp-2 drop-shadow-xs">
+                <p className="!text-[#D8DEDA] text-xs leading-relaxed font-medium line-clamp-2 drop-shadow-xs">
                   {desc}
                 </p>
               </div>

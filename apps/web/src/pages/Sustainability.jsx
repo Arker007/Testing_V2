@@ -105,7 +105,7 @@ export default function Sustainability() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
               <div className="relative z-10">
                 <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1 block">Preservation</span>
-                <h4 className="text-lg font-extrabold text-white">Forestry Conservation</h4>
+                <span className="block text-lg font-extrabold text-white">Forestry Conservation</span>
                 <p className="text-xs text-slate-300 mt-1">Replacing natural timber with robust polymer profiles to directly prevent deforestation.</p>
               </div>
             </Card>
@@ -120,7 +120,7 @@ export default function Sustainability() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
               <div className="relative z-10">
                 <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1 block">Recycling Process</span>
-                <h4 className="text-lg font-extrabold text-white">Circular Upcycling</h4>
+                <span className="block text-lg font-extrabold text-white">Circular Upcycling</span>
                 <p className="text-xs text-slate-300 mt-1">Cleaning and processing HDPE polymers to ensure strict structural compliance.</p>
               </div>
             </Card>
@@ -135,7 +135,7 @@ export default function Sustainability() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
               <div className="relative z-10">
                 <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1 block">ESG Supply Chain</span>
-                <h4 className="text-lg font-extrabold text-white">Resource Loop Closure</h4>
+                <span className="block text-lg font-extrabold text-white">Resource Loop Closure</span>
                 <p className="text-xs text-slate-300 mt-1">Delivering highly reusable, circular shipping assets that satisfy international regulations.</p>
               </div>
             </Card>

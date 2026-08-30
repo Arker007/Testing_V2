@@ -1,18 +1,31 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import styles from "./components/AdminTable.module.css";
+import Spinner from "../../shared/components/ui/Spinner";
+import { useToast } from "../../shared/components/ui";
 
 export default function AdminSettings() {
   const [form, setForm] = useState({ current: "", next: "", confirm: "" });
   const [status, setStatus] = useState(null); 
   const [errorMsg, setErrorMsg] = useState("");
+  const toast = useToast();
 
   const f = (k) => (e) => setForm((p) => ({ ...p, [k]: e.target.value }));
 
   const handleSubmit = async (e) => {
     e.preventDefault(); setErrorMsg("");
-    if (form.next.length < 6) { setErrorMsg("New password must be at least 6 characters long."); return; }
-    if (form.next !== form.confirm) { setErrorMsg("Passwords do not match."); return; }
+    if (form.next.length < 6) { 
+      const err = "New password must be at least 6 characters long.";
+      setErrorMsg(err); 
+      toast.warning(err);
+      return; 
+    }
+    if (form.next !== form.confirm) { 
+      const err = "Passwords do not match.";
+      setErrorMsg(err); 
+      toast.warning(err);
+      return; 
+    }
 
     setStatus("saving");
     try {
@@ -21,9 +34,24 @@ export default function AdminSettings() {
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("admin_token")}` },
         body: JSON.stringify({ currentPassword: form.current, newPassword: form.next }),
       });
-      if (res.ok) { setStatus("success"); setForm({ current: "", next: "", confirm: "" }); } 
-      else { const data = await res.json(); setErrorMsg(data.error || "Failed to update password. Please check your current password."); setStatus("error"); }
-    } catch { setErrorMsg("A network error occurred. Please try again."); setStatus("error"); }
+      if (res.ok) { 
+        setStatus("success"); 
+        setForm({ current: "", next: "", confirm: "" });
+        toast.success("Password updated successfully");
+      } 
+      else { 
+        const data = await res.json(); 
+        const err = data.error || "Failed to update password. Please check your current password.";
+        setErrorMsg(err); 
+        setStatus("error"); 
+        toast.error(err);
+      }
+    } catch { 
+      const err = "A network error occurred. Please try again.";
+      setErrorMsg(err); 
+      setStatus("error"); 
+      toast.error(err);
+    }
   };
 
   return (

@@ -1,6 +1,6 @@
 const path = require("path");
 const sqlite3 = require("sqlite3");
-const { ensureSpecifications, normalizeSpecifications } = require("../utils/specificationSeeder");
+const { ensureSpecifications, normalizeSpecifications } = require("../src/shared/utils/specificationSeeder");
 
 const dbPath = path.join(__dirname, "../../../data/vishal_enterprise.db");
 const db = new sqlite3.Database(dbPath);

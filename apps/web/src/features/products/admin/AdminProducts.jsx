@@ -234,7 +234,7 @@ export default function AdminProducts() {
       {/* Right Slide Preview Drawer */}
       <div className={`${styles.previewDrawer} ${activeItem ? styles.previewDrawerActive : ""}`}>
         <div className={styles.drawerHeader}>
-          <h4 className={styles.drawerTitle}>Product Preview</h4>
+          <h2 className={styles.drawerTitle}>Product Preview</h2>
           <button className={styles.drawerCloseBtn} onClick={() => setActiveItem(null)}>
             <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
           </button>

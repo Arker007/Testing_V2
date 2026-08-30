@@ -30,7 +30,7 @@
   border-color: rgba(63, 174, 90, 0.3);
 }
 
-.featureIcon {
+.factoryFeatureIcon {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -42,18 +42,18 @@
   flex-shrink: 0;
 }
 
-.featureText {
+.factoryFeatureText {
   display: flex;
   flex-direction: column;
 }
 
-.featureTitle {
+.factoryFeatureTitle {
   font-size: 0.9375rem;
   font-weight: 700;
   color: var(--white);
 }
 
-.featureDesc {
+.factoryFeatureDesc {
   font-size: 0.8125rem;
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.5;

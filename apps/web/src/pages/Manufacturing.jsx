@@ -103,7 +103,7 @@ export default function Manufacturing() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
               <div className="relative z-10">
                 <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1 block">Extrusion Plant</span>
-                <h4 className="text-lg font-extrabold text-white">Automated Extrusion Lines</h4>
+                <span className="block text-lg font-extrabold text-white">Automated Extrusion Lines</span>
                 <p className="text-xs text-slate-300 mt-1">High-pressure extrusion shaping dense, void-free recycled plastic profiles.</p>
               </div>
             </Card>
@@ -118,7 +118,7 @@ export default function Manufacturing() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
               <div className="relative z-10">
                 <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1 block">QA & Testing</span>
-                <h4 className="text-lg font-extrabold text-white">Tensile & Load Testing Lab</h4>
+                <span className="block text-lg font-extrabold text-white">Tensile & Load Testing Lab</span>
                 <p className="text-xs text-slate-300 mt-1">Batch testing for flexural modulus, impact resistance, and thermal tolerance.</p>
               </div>
             </Card>
@@ -133,7 +133,7 @@ export default function Manufacturing() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
               <div className="relative z-10">
                 <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1 block">Logistics Hub</span>
-                <h4 className="text-lg font-extrabold text-white">Dispatch & Inventory Storage</h4>
+                <span className="block text-lg font-extrabold text-white">Dispatch & Inventory Storage</span>
                 <p className="text-xs text-slate-300 mt-1">Ready-to-ship pallet inventory engineered for heavy industrial supply chains.</p>
               </div>
             </Card>

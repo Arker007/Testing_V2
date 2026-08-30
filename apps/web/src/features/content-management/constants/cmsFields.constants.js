@@ -145,10 +145,15 @@ export const CMS_FIELDS = [
     section: "About Mission & History",
     fields: [
       { key: "about_bento_enabled", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Mission & Vision" },
+      { key: "about_who_title", label: "Who We Are Title", type: "text", placeholder: "Pioneering Eco-Friendly Industrial Plastics Since 2008." },
+      { key: "about_who_text_1", label: "Who We Are Paragraph 1", type: "textarea", placeholder: "Founded in Gujarat, Vishal Enterprise has grown..." },
+      { key: "about_who_text_2", label: "Who We Are Paragraph 2", type: "textarea", placeholder: "By merging rigorous quality control..." },
       { key: "about_mission_title", label: "Mission Title", type: "text", placeholder: "Our Mission" },
       { key: "about_mission_text", label: "Mission Text", type: "textarea", placeholder: "To deliver high-grade…" },
       { key: "about_vision_title", label: "Vision Title", type: "text", placeholder: "Our Vision" },
       { key: "about_vision_text", label: "Vision Text", type: "textarea", placeholder: "To be the leading supplier…" },
+      { key: "about_commitment_title", label: "Commitment Title", type: "text", placeholder: "Our Commitment" },
+      { key: "about_commitment_text", label: "Commitment Text", type: "textarea", placeholder: "Every product is checked..." },
     ],
   },
   {
@@ -184,6 +189,7 @@ export const CMS_FIELDS = [
   {
     section: "About Testimonials",
     fields: [
+      { key: "about_testimonials_enabled", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Testimonials Section" },
       { key: "about_testimonials_eyebrow", label: "Eyebrow Tag", type: "text", placeholder: "Client Feedback" },
       { key: "about_testimonials_title", label: "Title", type: "text", placeholder: "Trusted by Procurement & Logistics Leaders" },
       { key: "about_testimonials_subtitle", label: "Subtitle", type: "textarea", placeholder: "What our enterprise partners across India say about our recycled plastic products and service reliability." },

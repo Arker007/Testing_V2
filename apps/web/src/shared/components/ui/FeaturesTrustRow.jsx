@@ -13,9 +13,9 @@ export default function FeaturesTrustRow() {
           <Icon icon="solar:leaf-linear" className="w-5 h-5" />
         </div>
         <div>
-          <h4 className="font-bold text-[var(--text-primary)] text-sm mb-1">
+          <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">
             {c("why_us_t1_title", "Sustainable Choice")}
-          </h4>
+          </span>
           <p className="text-[var(--text-muted)] text-xs leading-relaxed">
             {c("why_us_t1_desc", "Low carbon footprint and environmentally responsible.")}
           </p>
@@ -28,9 +28,9 @@ export default function FeaturesTrustRow() {
           <Icon icon="solar:shield-check-linear" className="w-5 h-5" />
         </div>
         <div>
-          <h4 className="font-bold text-[var(--text-primary)] text-sm mb-1">
+          <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">
             {c("why_us_t2_title", "Corrosion Proof")}
-          </h4>
+          </span>
           <p className="text-[var(--text-muted)] text-xs leading-relaxed">
             {c("why_us_t2_desc", "Resistant to chemicals, salt, and corrosion.")}
           </p>
@@ -43,9 +43,9 @@ export default function FeaturesTrustRow() {
           <Icon icon="solar:wrench-linear" className="w-5 h-5" />
         </div>
         <div>
-          <h4 className="font-bold text-[var(--text-primary)] text-sm mb-1">
+          <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">
             {c("why_us_t3_title", "Low Maintenance")}
-          </h4>
+          </span>
           <p className="text-[var(--text-muted)] text-xs leading-relaxed">
             {c("why_us_t3_desc", "No painting, no sealing, just long-lasting performance.")}
           </p>
@@ -58,9 +58,9 @@ export default function FeaturesTrustRow() {
           <Icon icon="solar:headphones-round-linear" className="w-5 h-5" />
         </div>
         <div>
-          <h4 className="font-bold text-[var(--text-primary)] text-sm mb-1">
+          <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">
             {c("why_us_t4_title", "Reliable Support")}
-          </h4>
+          </span>
           <p className="text-[var(--text-muted)] text-xs leading-relaxed">
             {c("why_us_t4_desc", "Expert guidance and dedicated customer support.")}
           </p>

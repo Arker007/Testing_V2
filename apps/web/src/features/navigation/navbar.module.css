@@ -278,7 +278,8 @@ html.dark .linkActive {
   width: 100% !important;
   min-width: 260px;
   max-width: 600px;
-  padding: 0.45rem 0.75rem;
+  height: 2.5rem !important;
+  padding: 0 0.75rem !important;
   background: var(--surface-card) !important;
   border: 1px solid var(--border, var(--neutral-300)) !important;
   box-shadow: none !important;
@@ -583,8 +584,8 @@ html.dark .dropdownBtnActive {
 
 @media (min-width: 1024px) {
   .megaMenuGrid {
-    grid-template-columns: var(--mega-menu-grid, 210px repeat(5, minmax(130px, 1fr)));
-    gap: var(--mega-menu-gap, 1.25rem);
+    grid-template-columns: 210px repeat(5, minmax(130px, 1fr));
+    gap: 1.25rem;
   }
 }
 
@@ -595,19 +596,65 @@ html.dark .dropdownBtnActive {
   justify-content: space-between;
 }
 
+.megaMenuHeading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+  font-size: var(--font-size-sm, 13px) !important;
+  font-weight: var(--font-weight-bold, 700) !important;
+  letter-spacing: var(--tracking-caps, 0.05em) !important;
+  text-transform: uppercase !important;
+  color: var(--heading, var(--text-primary)) !important;
+  margin-bottom: var(--space-3, 0.75rem) !important;
+}
+
+.megaMenuItemLink {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0.35rem 0 !important;
+  font-size: var(--font-size-sm, 13px) !important;
+  font-weight: var(--font-weight-regular, 400) !important;
+  line-height: var(--line-height-body, 1.45) !important;
+  color: var(--text-secondary) !important;
+  white-space: nowrap !important;
+  transition: color var(--motion-fast, 0.15s) ease, transform var(--motion-fast, 0.15s) ease !important;
+}
+
+.megaMenuItemLink:hover {
+  color: var(--brand, var(--brand-500)) !important;
+}
+
+.megaMenuViewAll {
+  margin-top: auto !important;
+  padding-top: var(--space-4, 1rem) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: var(--space-1, 0.25rem) !important;
+  font-size: var(--font-size-xs, 12px) !important;
+  font-weight: var(--font-weight-bold, 700) !important;
+  color: var(--brand, var(--brand-500)) !important;
+  white-space: nowrap !important;
+  transition: color var(--motion-fast, 0.15s) ease !important;
+}
+
+.megaMenuViewAll:hover {
+  color: var(--brand-hover, var(--brand-400)) !important;
+}
+
 @media (min-width: 1024px) {
   .megaMenuColDivided {
-    border-right: 1px solid var(--mega-menu-col-divider, var(--border-subtle));
-    padding-right: var(--mega-menu-col-px, 0.875rem);
+    border-right: 1px solid var(--border-subtle, #e2e8f0);
+    padding-right: 1rem;
   }
 }
 
 .megaMenuBanner {
   margin-top: 1.5rem;
-  padding: var(--mega-menu-banner-py, 12px) var(--mega-menu-banner-px, 20px);
-  background: var(--mega-menu-banner-bg);
-  border: 1px solid var(--mega-menu-banner-border);
-  border-radius: var(--mega-menu-radius, 8px);
+  padding: 12px 20px;
+  background: var(--mega-menu-banner-bg, #f8fafc);
+  border: 1px solid var(--mega-menu-banner-border, #e2e8f0);
+  border-radius: var(--mega-menu-radius, 12px);
 }
 
 .megaMenuContainer {
@@ -1474,15 +1521,24 @@ html.dark .suggestionAllBtn:hover {
   }
   .mobileMenuBtn {
     display: flex;
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .themeToggle {
+    width: 36px !important;
+    height: 36px !important;
   }
   .search {
     height: 36px;
   }
   .searchCollapsed {
     width: 36px;
+    height: 36px !important;
   }
   .searchExpanded {
     width: 180px;
+    height: 36px !important;
+    padding: 0 0.75rem !important;
   }
   .searchWrapperExpanded {
     position: absolute;
@@ -1494,6 +1550,8 @@ html.dark .suggestionAllBtn:hover {
   }
   .searchWrapperExpanded .searchExpanded {
     width: 100% !important;
+    height: 36px !important;
+    padding: 0 0.75rem !important;
     background: var(--surface-card) !important;
     border: 1px solid var(--border, var(--neutral-300)) !important;
     box-shadow: none !important;

@@ -5,9 +5,9 @@ import styles from "./contact.module.css";
 export const ContactTrustedRow = React.memo(function ContactTrustedRow() {
   return (
     <div className={styles.trustedCompanies}>
-      <h4 className={styles.companiesTitle}>
+      <p className={styles.companiesTitle}>
         Trusted by Procurement Managers at Leading Industries
-      </h4>
+      </p>
       <div className={styles.companiesGrid}>
         <div className={styles.companyBadge}>
           <Icon icon="solar:delivery-linear" className="w-4 h-4 shrink-0" />

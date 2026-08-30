@@ -23,6 +23,7 @@ export const TAB_SECTIONS = {
     "About Timeline Entries",
     "About Certifications",
     "About Team",
+    "About Testimonials",
     "About CTA"
   ],
   "Products Page": ["Products Page"],
@@ -45,6 +46,7 @@ export const SECTION_TOGGLE_KEYS = {
   "About Timeline": "about_timeline_enabled",
   "About Certifications": "about_cert_enabled",
   "About Team": "about_team_enabled",
+  "About Testimonials": "about_testimonials_enabled",
   "Products Page": "show_product_hero",
   "Contact Hero": "show_contact_hero",
   "Contact Info & Map": "show_contact_info",
@@ -72,6 +74,7 @@ export const SECTION_DISPLAY_NAMES = {
   "About Timeline Entries": "Timeline Milestones",
   "About Certifications": "Quality Standards & Certifications",
   "About Team": "Executive Team",
+  "About Testimonials": "Client Testimonials",
   "About CTA": "About Page Bottom CTA",
   "Products Page": "Products Catalog Hero Banner",
   "Contact Hero": "Hero Header",

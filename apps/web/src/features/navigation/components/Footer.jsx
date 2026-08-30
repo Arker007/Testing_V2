@@ -253,7 +253,7 @@ export default function Footer() {
           <div className={styles.newsletterDivider} />
 
           <div className={styles.newsletter}>
-            <h4 className={styles.heading}>Stay Updated</h4>
+            <p className={styles.heading}>Stay Updated</p>
             <div className={styles.headingLine} />
             {subscribed ? (
               <p className={styles.subscribedText}>

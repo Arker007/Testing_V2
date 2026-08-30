@@ -9,6 +9,8 @@ import { containerVariants, itemVariants } from "./about.constants";
 export default function WhoWeAreSection() {
   const { c } = useSite();
 
+  if (c("about_bento_enabled", "1") === "0") return null;
+
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -54,9 +56,9 @@ export default function WhoWeAreSection() {
               <Icon icon="solar:target-linear" className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-black text-[var(--text-primary)]">Our Mission</h3>
+              <h3 className="text-lg font-black text-[var(--text-primary)]">{c("about_mission_title", "Our Mission")}</h3>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal mt-1">
-                To deliver top-quality recycled plastic products that add value, reduce waste and create a better world.
+                {c("about_mission_text", "To deliver top-quality recycled plastic products that add value, reduce waste and create a better world.")}
               </p>
             </div>
           </motion.div>
@@ -70,9 +72,9 @@ export default function WhoWeAreSection() {
               <Icon icon="solar:eye-linear" className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-black text-[var(--text-primary)]">Our Vision</h3>
+              <h3 className="text-lg font-black text-[var(--text-primary)]">{c("about_vision_title", "Our Vision")}</h3>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal mt-1">
-                To be India's most trusted and preferred manufacturer of sustainable plastic solutions.
+                {c("about_vision_text", "To be India's most trusted and preferred manufacturer of sustainable plastic solutions.")}
               </p>
             </div>
           </motion.div>
@@ -86,9 +88,9 @@ export default function WhoWeAreSection() {
               <Icon icon="solar:medal-ribbons-star-linear" className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-black text-[var(--text-primary)]">Our Commitment</h3>
+              <h3 className="text-lg font-black text-[var(--text-primary)]">{c("about_commitment_title", "Our Commitment")}</h3>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal mt-1">
-                Every product is checked, tested and delivered with a promise of quality you can rely on.
+                {c("about_commitment_text", "Every product is checked, tested and delivered with a promise of quality you can rely on.")}
               </p>
             </div>
           </motion.div>

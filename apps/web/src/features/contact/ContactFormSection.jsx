@@ -52,7 +52,7 @@ export default function ContactFormSection() {
             {status === "sent" ? (
               <div className={styles.successBox}>
                 <Icon icon="solar:check-circle-linear" className="w-16 h-16 text-[var(--color-success)]" />
-                <h3 className="text-[var(--text-primary)] font-bold text-xl">Inquiry Sent Successfully!</h3>
+                <p className="text-[var(--text-primary)] font-bold text-xl">Inquiry Sent Successfully!</p>
                 <p className="text-[var(--text-secondary)]">
                   Thank you for contacting us. Our sales team will get back to you within{" "}
                   <strong className="text-[var(--text-primary)]">2 business hours</strong> with pricing and spec sheets.
@@ -301,7 +301,7 @@ export default function ContactFormSection() {
               <div className="flex items-center gap-3.5">
                 <IconBox icon="solar:headphones-round-linear" variant="brand" size="lg" />
                 <div>
-                  <h4 className="font-bold text-[var(--text-primary)] text-sm sm:text-base">Need Immediate Assistance?</h4>
+                  <span className="block font-bold text-[var(--text-primary)] text-sm sm:text-base">Need Immediate Assistance?</span>
                   <p className="text-xs text-[var(--text-secondary)] mt-0.5">Our team is ready to help you with your requirements.</p>
                 </div>
               </div>
@@ -319,7 +319,7 @@ export default function ContactFormSection() {
             <div className={styles.mapTitleGroup}>
               <IconBox icon="solar:map-point-linear" variant="brand" size="md" />
               <div>
-                <h3 className="font-bold text-[var(--text-primary)] text-base">Find Our Manufacturing Facility</h3>
+                <span className="block font-bold text-[var(--text-primary)] text-base">Find Our Manufacturing Facility</span>
                 <p className="text-xs text-[var(--text-muted)] mt-0.5">{address}</p>
               </div>
             </div>

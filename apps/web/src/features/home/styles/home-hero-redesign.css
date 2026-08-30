@@ -303,15 +303,15 @@ html.dark .dotsPatternRightBottom,
 .featurePanel {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4, 1rem);
   background: transparent;
   border: none;
   border-radius: 0;
-  padding: 0.5rem 0;
-  margin-bottom: 2rem;
+  padding: var(--space-2, 0.5rem) 0;
+  margin-bottom: var(--space-6, 2rem);
   backdrop-filter: none;
   box-shadow: none;
   max-width: 100%;
-  min-height: 125px;
 }
 
 .featureColumn {
@@ -319,60 +319,61 @@ html.dark .dotsPatternRightBottom,
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0 0.5rem;
+  padding: 0;
 }
 
 .featureColumn:not(:last-child) {
-  border-right: 1px solid var(--border-dark);
+  border-right: none;
 }
 
 .featureIconRing {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  border: 1.5px solid var(--brand);
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-full, 50%);
+  border: 1.5px solid var(--brand, var(--brand-500, #4ade80));
   background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--brand);
-  margin-bottom: 0.75rem;
-  transition: all 0.25s ease;
+  color: var(--brand, var(--brand-500, #4ade80));
+  margin-bottom: var(--space-3, 0.75rem);
+  transition: all var(--motion-fast, 0.2s) var(--ease-standard, ease);
   flex-shrink: 0;
 }
 
 .featureColumn:hover .featureIconRing {
-  background: transparent;
-  border-color: var(--brand);
-  box-shadow: none;
+  background: var(--brand-soft, rgba(74, 222, 128, 0.08));
+  border-color: var(--brand-hover, var(--brand, #4ade80));
   transform: translateY(-2px);
 }
 
 .featureIcon {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .featureTitle {
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: var(--white);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.35rem;
-  line-height: 1.2;
-  min-height: 1.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: var(--font-family-primary, var(--font-sans));
+  font-size: var(--font-size-sm, 13px) !important;
+  font-weight: var(--font-weight-extrabold, 800) !important;
+  color: var(--text-inverse, #ffffff) !important;
+  text-transform: uppercase !important;
+  letter-spacing: var(--tracking-caps, 0.05em) !important;
+  margin-bottom: var(--space-1, 0.25rem) !important;
+  line-height: var(--line-height-tight, 1.25) !important;
+  display: block;
+  text-align: center;
 }
 
 .featureDesc {
-  font-size: 0.71875rem;
-  color: var(--text-inverse-secondary);
-  line-height: 1.35;
-  max-width: 125px;
-  min-height: 3.1rem;
+  font-family: var(--font-family-primary, var(--font-sans));
+  font-size: var(--font-size-xs, 12px) !important;
+  font-weight: var(--font-weight-regular, 400) !important;
+  color: var(--text-inverse-secondary, rgba(255, 255, 255, 0.85)) !important;
+  line-height: var(--line-height-body, 1.45) !important;
+  max-width: 140px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* CTA Row & Decorative Slashes */
@@ -747,15 +748,15 @@ html.dark .assistanceBtn:hover *,
     color: var(--text-inverse-secondary);
   }
   .featureTitle {
-    color: var(--neutral-950);
+    color: var(--text-inverse);
   }
   :root[data-theme="dark"] .featureTitle,
   html.dark .featureTitle,
   .dark .featureTitle {
-    color: var(--white);
+    color: var(--text-inverse);
   }
   .featureDesc {
-    color: var(--neutral-600);
+    color: var(--text-inverse-secondary);
   }
   :root[data-theme="dark"] .featureDesc,
   html.dark .featureDesc,
@@ -840,73 +841,6 @@ html.dark .assistanceBtn:hover *,
   }
 }
 
-@media (max-width: 576px) {
-  .hero {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-  .titleLime, .titleWhite {
-    font-size: 1.85rem;
-  }
-  .ctaRow {
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-  }
-  .exploreBtn {
-    width: 100%;
-    clip-path: none;
-    border-radius: 8px;
-  }
-  .decorativeSlashes {
-    display: none;
-  }
-  .assistanceCard {
-    flex-direction: column;
-    text-align: center;
-    padding: 1rem;
-  }
-  .assistanceSub {
-    max-width: 100%;
-  }
-  .assistanceBtn {
-    margin-left: 0;
-    width: 100%;
-    justify-content: center;
-  }
-}
-@media (max-width: 576px) {
-  .chevronBtn {
-    width: 28px;
-    height: 52px;
-  }
-  .chevronBtnLeft {
-    left: 0;
-    border-radius: 0 12px 12px 0;
-  }
-  .chevronBtnRight {
-    right: 0;
-    border-radius: 12px 0 0 12px;
-  }
-}
-@media (max-width: 576px) {
-  .badge {
-    padding: 0.25rem 0.8rem 0.25rem 0.35rem;
-    margin-bottom: 0.75rem;
-  }
-  .badgeIconWrapper {
-    padding:  0; padding-right: 0.5rem;
-  }
-  .badgeIcon {
-    width:  20px;
-    height:  20px;
-  }
-  .badgeText {
-    font-size: 0.75rem;
-  }
-}
-
-/* Vertical layout distribution for hero Left column items */
 @media (min-width: 992px) {
   .heroGrid {
     align-items: stretch !important;
@@ -929,61 +863,3 @@ html.dark .assistanceBtn:hover *,
   }
 }
 
-
-@media (max-width: 576px) {
-  .featurePanel {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1.25rem 0.5rem !important;
-    width: 100% !important;
-    max-width: 580px !important;
-    padding: 1rem 0.5rem !important;
-  }
-  .featureColumn {
-    padding: 0.5rem !important;
-    height: 195px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-  }
-  .featureColumn:nth-child(1),
-  .featureColumn:nth-child(2) {
-    border-bottom: 1px solid var(--border-dark) !important;
-    padding-bottom: 1rem !important;
-  }
-  .featureColumn:nth-child(3),
-  .featureColumn:nth-child(4) {
-    border-bottom: none !important;
-    padding-top: 0.5rem !important;
-  }
-  .featureColumn:nth-child(odd) {
-    border-right: 1px solid var(--border-dark) !important;
-  }
-  .featureColumn:nth-child(even) {
-    border-right: none !important;
-  }
-  .featureIconRing {
-    width: 50px !important;
-    height: 50px !important;
-    margin-bottom: 0.5rem !important;
-  }
-  .featureTitle {
-    font-size: 0.85rem !important;
-    min-height: 2.4rem !important;
-    margin-bottom: 0.25rem !important;
-  }
-  .featureDesc {
-    font-size: 0.75rem !important;
-    max-width: 100% !important;
-    min-height: 4.2rem !important;
-  }
-  .heroTitle {
-    font-size: 1.85rem;
-  }
-  .description {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-}

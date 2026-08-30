@@ -40,7 +40,7 @@ export default function HomeCtaSection() {
                     {c("home_testimonial_initials", "PM")}
                   </div>
                   <div>
-                    <h5 className={styles.authorName}>{c("home_testimonial_name", "Procurement Manager")}</h5>
+                    <div className={styles.authorName}>{c("home_testimonial_name", "Procurement Manager")}</div>
                     <p className={styles.authorMeta}>{c("home_testimonial_company", "National Logistics Hub")}</p>
                   </div>
                 </div>

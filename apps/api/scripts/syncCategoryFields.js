@@ -1,4 +1,4 @@
-const dbModule = require("../config/database");
+const dbModule = require("../src/shared/database/database");
 
 function capitalize(s) {
   if (!s) return "";

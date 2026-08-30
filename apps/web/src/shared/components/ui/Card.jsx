@@ -100,7 +100,7 @@ export default function Card({
     subtle:
       "bg-slate-50/80 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 text-[var(--text-primary)] rounded-xl",
     cta:
-      "p-8 sm:p-12 text-[var(--text-primary)] shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[var(--surface,#161c24)] border border-slate-200/90 dark:border-[var(--border-subtle,rgba(242,242,242,0.12))] rounded-2xl",
+      "p-8 sm:p-12 text-[var(--text-primary)] shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[var(--surface,#161c24)] border border-slate-200/90 dark:border-[var(--border-subtle,rgba(242,242,242,0.12))] rounded-lg",
   };
 
   const selectedVariantClass = variantClassMap[variant] || variantClassMap.default;

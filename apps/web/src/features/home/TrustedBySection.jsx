@@ -125,9 +125,9 @@ export default function TrustedBySection() {
   return (
     <section className={styles.trustedBy}>
       <div className="container">
-        <h6 className={styles.trustedHeading}>
+        <p className={styles.trustedHeading}>
           {c("trusted_title", "Trusted by Leading Brands & Industries")}
-        </h6>
+        </p>
         <div className={styles.logoRow}>
           {companyLogos.map((item) => {
             const Logo = item.Component;

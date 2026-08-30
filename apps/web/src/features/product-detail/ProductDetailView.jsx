@@ -5,7 +5,6 @@ import QuoteButton from "../../shared/components/QuoteButton";
 import InquiryModal from "../../shared/components/InquiryModal";
 import Badge from "../../shared/components/ui/Badge";
 import CtaCard from "../../shared/components/ui/CtaCard";
-import Card from "../../shared/components/ui/Card";
 import Skeleton from "../../shared/components/ui/Skeleton";
 import EmptyState from "../../shared/components/ui/EmptyState";
 import { useSite } from "../../shared/context/SiteContext";
@@ -113,21 +112,21 @@ export default function ProductDetailView() {
                  ))}
                </div>
             </div>
-            <Card variant="elevated" className="lg:col-span-5 flex flex-col gap-6 p-6 sm:p-8">
+            <div className="lg:col-span-5 flex flex-col gap-6 p-6 sm:p-8 bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--surface,#161c24)] border border-[var(--border-subtle,rgba(242,242,242,0.12))] rounded-[var(--radius-card,12px)] shadow-[var(--shadow-sm)]">
               <Skeleton width="80%" height="32px" />
               <Skeleton lines={2} variant="text" />
               
               <div className="grid grid-cols-2 gap-4 mt-4">
                  {[1, 2, 3, 4].map((_, i) => (
-                   <Skeleton key={i} height="56px" className="rounded-lg" />
+                   <Skeleton key={i} height="56px" className="rounded-[var(--radius-md,6px)]" />
                  ))}
               </div>
 
               <div className="flex gap-4 mt-6">
-                <Skeleton width="50%" height="48px" className="rounded-lg" />
-                <Skeleton width="50%" height="48px" className="rounded-lg" />
+                <Skeleton width="50%" height="48px" className="rounded-[var(--radius-btn,6px)]" />
+                <Skeleton width="50%" height="48px" className="rounded-[var(--radius-btn,6px)]" />
               </div>
-            </Card>
+            </div>
           </div>
         </div>
       </main>
@@ -209,12 +208,12 @@ export default function ProductDetailView() {
       </nav>
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-8 space-y-10 sm:space-y-12">
         
         {/* Core Layout Grid */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
-          {/* Left Column Stack */}
+          {/* Left Column Stack: Gallery + Detailed Tabs + Benefits */}
           <div className="lg:col-span-7 flex flex-col gap-8">
             <ProductGallery
               images={images}
@@ -225,12 +224,25 @@ export default function ProductDetailView() {
               handlePrevImage={handlePrevImage}
               handleNextImage={handleNextImage}
             />
-            
+
+            {/* Dynamic Specifications and Details Tabs Section */}
+            <ProductTabsSection
+              product={product}
+              categoryObj={categoryObj}
+              specs={specs}
+              hasSpecs={hasSpecs}
+              features={features}
+              tab={tab}
+              setTab={setTab}
+              tabs={tabs}
+            />
+
+            {/* Benefits Matrix */}
             <ProductBenefitsGrid categoryName={categoryName} />
           </div>
 
-          {/* Right Column Stack */}
-          <div className="lg:col-span-5 flex flex-col gap-8">
+          {/* Right Column Stack: Sticky Commercial & Configuration Card */}
+          <div className="lg:col-span-5 lg:sticky lg:top-24 flex flex-col gap-6">
             <ProductHeaderSpecs
               product={product}
               categoryName={categoryName}
@@ -250,35 +262,23 @@ export default function ProductDetailView() {
           </div>
         </section>
 
-        {/* Dynamic Specifications and Details Tabs Section */}
-        <ProductTabsSection
-          product={product}
-          categoryObj={categoryObj}
-          specs={specs}
-          hasSpecs={hasSpecs}
-          features={features}
-          tab={tab}
-          setTab={setTab}
-          tabs={tabs}
-        />
-
         {/* Premium Call to Action */}
-        <section className="my-12">
+        <section className="pt-2">
           <CtaCard
             badge="Custom Sizing & Solutions"
             badgeVariant="success"
-            title="Interested in custom requirements or bulk lot orders?"
-            subtitle={`Call our sales desk at ${co("phone", "+91 98986 86379")} or request a direct factory quote.`}
+            title="Need custom profiles, specific lengths, or bulk lot orders?"
+            subtitle={`Call our direct technical desk at ${co("phone", "+91 98986 86379")} or request an instant factory quotation.`}
           >
             <QuoteButton 
               type="button" 
               text="Get Quote" 
               onClick={() => setShowInquiry(true)} 
-              className="px-5 py-3 rounded-xl bg-[#277D38] hover:bg-[#1E622A] text-white font-bold text-sm transition-all shadow-2xs" 
+              className="px-5 py-3 rounded-xl font-bold text-sm shadow-md" 
             />
             <a
               href={`tel:${co("phone", "+919898686379").replace(/\s+/g, "")}`}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-sm transition-all shadow-2xs decoration-none"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-sm transition-all shadow-xs decoration-none"
             >
               <Icon icon="solar:phone-calling-linear" className="w-4 h-4 text-[#277D38] dark:text-emerald-400" />
               <span>Call Sales Desk</span>

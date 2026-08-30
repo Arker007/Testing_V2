@@ -10,7 +10,7 @@ export default function IndustryValueProps() {
           <Icon icon="solar:shield-check-linear" className="w-5 h-5 text-brand" />
         </div>
         <div className={styles.bentoBottomText}>
-          <h6>Engineered Strength</h6>
+          <span className={styles.bentoBottomTitle}>Engineered Strength</span>
           <p>Built for extreme loads and harsh environments.</p>
         </div>
       </div>
@@ -20,7 +20,7 @@ export default function IndustryValueProps() {
           <Icon icon="solar:leaf-linear" className="w-5 h-5 text-brand" />
         </div>
         <div className={styles.bentoBottomText}>
-          <h6>Eco-Conscious</h6>
+          <span className={styles.bentoBottomTitle}>Eco-Conscious</span>
           <p>Made from recycled materials for a sustainable future.</p>
         </div>
       </div>
@@ -30,7 +30,7 @@ export default function IndustryValueProps() {
           <Icon icon="solar:wrench-linear" className="w-5 h-5 text-brand" />
         </div>
         <div className={styles.bentoBottomText}>
-          <h6>Zero Maintenance</h6>
+          <span className={styles.bentoBottomTitle}>Zero Maintenance</span>
           <p>No rot, rust, or corrosion — ever.</p>
         </div>
       </div>
@@ -40,7 +40,7 @@ export default function IndustryValueProps() {
           <Icon icon="solar:clock-circle-linear" className="w-5 h-5 text-brand" />
         </div>
         <div className={styles.bentoBottomText}>
-          <h6>Long Service Life</h6>
+          <span className={styles.bentoBottomTitle}>Long Service Life</span>
           <p>Lasts decades with minimal maintenance.</p>
         </div>
       </div>

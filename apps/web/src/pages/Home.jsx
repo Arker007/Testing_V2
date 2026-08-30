@@ -7,6 +7,7 @@ import FeaturesSection from "../shared/components/ui/FeaturesSection";
 import SectionHeader from "../shared/components/ui/SectionHeader";
 import {
   HomeHero,
+  HomeHeroMobile,
   TrustedBySection,
   IndustriesGrid,
   HomeCtaSection,
@@ -25,7 +26,12 @@ export default function Home() {
 
   return (
     <div className={styles.main}>
-      <HomeHero />
+      <div className="hidden md:block">
+        <HomeHero />
+      </div>
+      <div className="block md:hidden">
+        <HomeHeroMobile />
+      </div>
       <TrustedBySection />
 
       {/* Product Categories Grid */}

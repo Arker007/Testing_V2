@@ -54,8 +54,8 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 mt-auto pt-6">
-          <h4 className="text-[#FFFFFF] text-lg sm:text-xl font-black mb-1.5 drop-shadow-sm">{title}</h4>
-          <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
+          <h3 className="!text-white text-lg sm:text-xl font-black mb-1.5 drop-shadow-sm">{title}</h3>
+          <p className="!text-[#D8DEDA] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
         </div>
       </motion.div>
     );
@@ -94,8 +94,8 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 mt-auto pt-6">
-          <h4 className="text-[#FFFFFF] text-base sm:text-lg font-black mb-1 drop-shadow-sm">{title}</h4>
-          <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
+          <h3 className="!text-white text-base sm:text-lg font-black mb-1 drop-shadow-sm">{title}</h3>
+          <p className="!text-[#D8DEDA] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
         </div>
       </motion.div>
     );
@@ -134,8 +134,8 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 mt-auto pt-6">
-          <h4 className="text-[#FFFFFF] text-base sm:text-lg font-black mb-1 drop-shadow-sm">{title}</h4>
-          <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
+          <h3 className="!text-white text-base sm:text-lg font-black mb-1 drop-shadow-sm">{title}</h3>
+          <p className="!text-[#D8DEDA] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
         </div>
       </motion.div>
     );
@@ -168,8 +168,8 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
       </div>
 
       <div className="relative z-10 mt-auto pt-6">
-        <h4 className="text-[#FFFFFF] text-base sm:text-lg font-black mb-1 drop-shadow-sm">{title}</h4>
-        <p className="text-[#D8DEDA] dark:text-[#D8DEDA] !text-[#D8DEDA] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
+        <h3 className="!text-white text-base sm:text-lg font-black mb-1 drop-shadow-sm">{title}</h3>
+        <p className="!text-[#D8DEDA] text-xs sm:text-sm font-medium leading-relaxed drop-shadow-xs">{desc}</p>
       </div>
     </motion.div>
   );

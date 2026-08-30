@@ -37,7 +37,11 @@ html[data-theme="dark"] {
   --text-primary: #f4f6f8;
   --text-secondary: #cbd5e1;
   --text-muted: #94a3b8;
-  --text-inverse: var(--neutral-950);
+  --text-inverse: #FFFFFF;
+  --text-inverse-secondary: rgba(255, 255, 255, 0.85);
+  --text-inverse-muted: rgba(255, 255, 255, 0.65);
+  --text-on-dark: #FFFFFF;
+  --text-on-dark-secondary: #D8DEDA;
   --text-disabled: #64748B;
   --text-brand: var(--brand-500);
 
@@ -107,7 +111,7 @@ html[data-theme="dark"] {
 
   /* === COMPATIBILITY BRIDGES === */
   --brand: var(--brand-500);
-  --brand-btn-text: var(--text-inverse);
+  --brand-btn-text: var(--navy-950);
   --brand-dark: var(--brand-500);
   --brand-light: var(--brand-soft);
   --brand-text: var(--text-brand);

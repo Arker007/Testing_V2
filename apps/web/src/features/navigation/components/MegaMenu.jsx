@@ -62,20 +62,20 @@ export default function MegaMenu({
       </Link>
 
       <div className={styles.dropdownMenu}>
-        <div className={`${styles.dropdownMenuPanel} p-5 lg:p-6 transition-all`}>
+        <div className={`${styles.dropdownMenuPanel} p-5 transition-all`}>
           {/* Main 6-Column Category Grid */}
           <div className={styles.megaMenuGrid}>
             {/* Left Featured Promo Card */}
-            <div className="bg-[var(--mega-menu-promo-bg)] border border-[var(--mega-menu-promo-border)] rounded-[var(--mega-menu-radius,8px)] p-4 lg:p-5 flex flex-col justify-between shadow-xs h-full">
+            <div className="bg-[var(--mega-menu-promo-bg)] border border-[var(--mega-menu-promo-border)] rounded-xl p-4 flex flex-col justify-between shadow-xs h-full">
               <div>
-                <h3 className="text-[15px] lg:text-[16px] font-bold text-[var(--heading)] tracking-tight leading-[1.3]">
-                  Premium Recycled<br className="hidden lg:inline" /> Plastic Solutions
-                </h3>
-                <div className="h-[2px] w-8 bg-[var(--brand)] my-2.5 rounded-full" />
+                <span className="block text-[14px] font-bold text-[var(--heading)] tracking-tight leading-[1.3]">
+                  Premium Recycled<br />Plastic Solutions
+                </span>
+                <div className="h-[2.5px] w-6 bg-[var(--brand)] my-2.5 rounded-full" />
                 <p className="text-[12px] text-[var(--text-secondary)] leading-relaxed mb-3">
                   Explore our wide range of durable, eco-friendly products built for every industry.
                 </p>
-                <div className="rounded-[var(--radius-md,6px)] overflow-hidden my-2 flex items-center justify-center bg-white/40 dark:bg-white/[0.02]">
+                <div className="rounded-lg overflow-hidden my-2 flex items-center justify-center bg-white/40 dark:bg-white/[0.02]">
                   <img
                     src={profilesImg}
                     alt="Recycled Plastic Solutions"
@@ -88,7 +88,7 @@ export default function MegaMenu({
               <Link
                 to="/products"
                 onClick={handleLinkClick}
-                className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 bg-[var(--brand)] hover:bg-[var(--brand-hover)] text-white font-bold text-[12px] rounded-[var(--navbar-radius,8px)] shadow-xs transition-colors duration-200"
+                className="mt-3 w-full inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-[var(--brand)] hover:bg-[var(--brand-hover)] text-white font-bold text-[12px] rounded-lg shadow-xs transition-colors duration-200"
               >
                 <span>View All Products</span>
                 <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5" />
@@ -98,11 +98,11 @@ export default function MegaMenu({
             {/* Column 1: Furniture */}
             <div className={`${styles.megaMenuCol} ${styles.megaMenuColDivided}`}>
               <div>
-                <div className="flex items-center gap-2 pb-2.5 mb-1">
-                  <Icon icon="solar:chair-2-bold" className="w-4 h-4 text-[var(--brand)] shrink-0" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--heading)]">Furniture</span>
+                <div className={styles.megaMenuHeading}>
+                  <Icon icon="solar:chair-2-outline" className="w-4 h-4 text-[var(--brand)] shrink-0" />
+                  <span>FURNITURE</span>
                 </div>
-                <div className="flex flex-col gap-0.5">
+                <div className="flex flex-col">
                   {[
                     { name: "Cafeteria Collection", term: "Cafeteria" },
                     { name: "Comfort Collection", term: "Comfort" },
@@ -117,10 +117,10 @@ export default function MegaMenu({
                       key={item.name}
                       to={`/products?search=${encodeURIComponent(item.term)}`}
                       onClick={handleLinkClick}
-                      className="group flex items-center justify-between py-1 text-[13px] text-[var(--text-secondary)] hover:text-[var(--heading)] transition-colors duration-150 whitespace-nowrap"
+                      className={`group ${styles.megaMenuItemLink}`}
                     >
                       <span className="transition-transform duration-150 group-hover:translate-x-0.5">{item.name}</span>
-                      <Icon icon="solar:alt-arrow-right-linear" className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-1.5" />
+                      <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-300 dark:text-slate-600 group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
                     </Link>
                   ))}
                 </div>
@@ -128,21 +128,21 @@ export default function MegaMenu({
               <Link
                 to="/products?cat=outdoor-furniture"
                 onClick={handleLinkClick}
-                className="mt-auto pt-3.5 inline-flex items-center gap-1 text-[12px] font-bold text-[var(--brand-text)] hover:text-[var(--brand-hover)] transition-colors whitespace-nowrap"
+                className={styles.megaMenuViewAll}
               >
                 <span>View All Furniture</span>
-                <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5" />
+                <Icon icon="solar:arrow-right-linear" className="w-3 h-3" />
               </Link>
             </div>
 
             {/* Column 2: Coolers */}
             <div className={`${styles.megaMenuCol} ${styles.megaMenuColDivided}`}>
               <div>
-                <div className="flex items-center gap-2 pb-2.5 mb-1">
-                  <Icon icon="solar:snowflake-bold" className="w-4 h-4 text-[var(--brand)] shrink-0" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--heading)]">Coolers</span>
+                <div className={styles.megaMenuHeading}>
+                  <Icon icon="solar:snowflake-linear" className="w-4 h-4 text-[var(--brand)] shrink-0" />
+                  <span>COOLERS</span>
                 </div>
-                <div className="flex flex-col gap-0.5">
+                <div className="flex flex-col">
                   {[
                     { name: "Commercial Coolers", term: "Commercial Cooler" },
                     { name: "Desert Coolers", term: "Desert Cooler" },
@@ -154,10 +154,10 @@ export default function MegaMenu({
                       key={item.name}
                       to={`/products?search=${encodeURIComponent(item.term)}`}
                       onClick={handleLinkClick}
-                      className="group flex items-center justify-between py-1 text-[13px] text-[var(--text-secondary)] hover:text-[var(--heading)] transition-colors duration-150 whitespace-nowrap"
+                      className={`group ${styles.megaMenuItemLink}`}
                     >
                       <span className="transition-transform duration-150 group-hover:translate-x-0.5">{item.name}</span>
-                      <Icon icon="solar:alt-arrow-right-linear" className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-1.5" />
+                      <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-300 dark:text-slate-600 group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
                     </Link>
                   ))}
                 </div>
@@ -165,21 +165,21 @@ export default function MegaMenu({
               <Link
                 to="/products?search=Cooler"
                 onClick={handleLinkClick}
-                className="mt-auto pt-3.5 inline-flex items-center gap-1 text-[12px] font-bold text-[var(--brand-text)] hover:text-[var(--brand-hover)] transition-colors whitespace-nowrap"
+                className={styles.megaMenuViewAll}
               >
                 <span>View All Coolers</span>
-                <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5" />
+                <Icon icon="solar:arrow-right-linear" className="w-3 h-3" />
               </Link>
             </div>
 
             {/* Column 3: Building Solutions */}
             <div className={`${styles.megaMenuCol} ${styles.megaMenuColDivided}`}>
               <div>
-                <div className="flex items-center gap-2 pb-2.5 mb-1">
-                  <Icon icon="solar:shield-check-bold" className="w-4 h-4 text-[var(--brand)] shrink-0" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--heading)]">Building Solutions</span>
+                <div className={styles.megaMenuHeading}>
+                  <Icon icon="solar:shield-check-outline" className="w-4 h-4 text-[var(--brand)] shrink-0" />
+                  <span>BUILDING SOLUTIONS</span>
                 </div>
-                <div className="flex flex-col gap-0.5">
+                <div className="flex flex-col">
                   {[
                     { name: "Bubble Guard", term: "Bubble Guard" },
                     { name: "Door Panel / Partition", term: "Door Panel" },
@@ -195,10 +195,10 @@ export default function MegaMenu({
                       key={item.name}
                       to={`/products?search=${encodeURIComponent(item.term)}`}
                       onClick={handleLinkClick}
-                      className="group flex items-center justify-between py-1 text-[13px] text-[var(--text-secondary)] hover:text-[var(--heading)] transition-colors duration-150 whitespace-nowrap"
+                      className={`group ${styles.megaMenuItemLink}`}
                     >
                       <span className="transition-transform duration-150 group-hover:translate-x-0.5">{item.name}</span>
-                      <Icon icon="solar:alt-arrow-right-linear" className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-1.5" />
+                      <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-300 dark:text-slate-600 group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
                     </Link>
                   ))}
                 </div>
@@ -206,21 +206,21 @@ export default function MegaMenu({
               <Link
                 to="/products?search=Bubble+Guard"
                 onClick={handleLinkClick}
-                className="mt-auto pt-3.5 inline-flex items-center gap-1 text-[12px] font-bold text-[var(--brand-text)] hover:text-[var(--brand-hover)] transition-colors whitespace-nowrap"
+                className={styles.megaMenuViewAll}
               >
                 <span>View All Solutions</span>
-                <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5" />
+                <Icon icon="solar:arrow-right-linear" className="w-3 h-3" />
               </Link>
             </div>
 
             {/* Column 4: Pallets */}
             <div className={`${styles.megaMenuCol} ${styles.megaMenuColDivided}`}>
               <div>
-                <div className="flex items-center gap-2 pb-2.5 mb-1">
-                  <Icon icon="solar:widget-bold" className="w-4 h-4 text-[var(--brand)] shrink-0" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--heading)]">Pallets</span>
+                <div className={styles.megaMenuHeading}>
+                  <Icon icon="solar:widget-2-outline" className="w-4 h-4 text-[var(--brand)] shrink-0" />
+                  <span>PALLETS</span>
                 </div>
-                <div className="flex flex-col gap-0.5">
+                <div className="flex flex-col">
                   {[
                     { name: "Heavy Duty Racking Pallets", term: "Racking Pallet" },
                     { name: "Medium Duty Pallets", term: "Medium Duty Pallet" },
@@ -233,10 +233,10 @@ export default function MegaMenu({
                       key={item.name}
                       to={`/products?search=${encodeURIComponent(item.term)}`}
                       onClick={handleLinkClick}
-                      className="group flex items-center justify-between py-1 text-[13px] text-[var(--text-secondary)] hover:text-[var(--heading)] transition-colors duration-150 whitespace-nowrap"
+                      className={`group ${styles.megaMenuItemLink}`}
                     >
                       <span className="transition-transform duration-150 group-hover:translate-x-0.5">{item.name}</span>
-                      <Icon icon="solar:alt-arrow-right-linear" className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-1.5" />
+                      <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-300 dark:text-slate-600 group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
                     </Link>
                   ))}
                 </div>
@@ -244,21 +244,21 @@ export default function MegaMenu({
               <Link
                 to="/products?search=Pallet"
                 onClick={handleLinkClick}
-                className="mt-auto pt-3.5 inline-flex items-center gap-1 text-[12px] font-bold text-[var(--brand-text)] hover:text-[var(--brand-hover)] transition-colors whitespace-nowrap"
+                className={styles.megaMenuViewAll}
               >
                 <span>View All Pallets</span>
-                <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5" />
+                <Icon icon="solar:arrow-right-linear" className="w-3 h-3" />
               </Link>
             </div>
 
             {/* Column 5: Utility Products */}
             <div className={styles.megaMenuCol}>
               <div>
-                <div className="flex items-center gap-2 pb-2.5 mb-1">
-                  <Icon icon="solar:cube-bold" className="w-4 h-4 text-[var(--brand)] shrink-0" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--heading)]">Utility Products</span>
+                <div className={styles.megaMenuHeading}>
+                  <Icon icon="solar:box-outline" className="w-4 h-4 text-[var(--brand)] shrink-0" />
+                  <span>UTILITY PRODUCTS</span>
                 </div>
-                <div className="flex flex-col gap-0.5">
+                <div className="flex flex-col">
                   {[
                     { name: "Multipurpose Crates", term: "Crates" },
                     { name: "Waste Management Bins", term: "Bins" },
@@ -270,10 +270,10 @@ export default function MegaMenu({
                       key={item.name}
                       to={`/products?search=${encodeURIComponent(item.term)}`}
                       onClick={handleLinkClick}
-                      className="group flex items-center justify-between py-1 text-[13px] text-[var(--text-secondary)] hover:text-[var(--heading)] transition-colors duration-150 whitespace-nowrap"
+                      className={`group ${styles.megaMenuItemLink}`}
                     >
                       <span className="transition-transform duration-150 group-hover:translate-x-0.5">{item.name}</span>
-                      <Icon icon="solar:alt-arrow-right-linear" className="w-3.5 h-3.5 text-[var(--text-muted)] group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-1.5" />
+                      <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-slate-300 dark:text-slate-600 group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
                     </Link>
                   ))}
                 </div>
@@ -281,10 +281,10 @@ export default function MegaMenu({
               <Link
                 to="/products?search=Utility"
                 onClick={handleLinkClick}
-                className="mt-auto pt-3.5 inline-flex items-center gap-1 text-[12px] font-bold text-[var(--brand-text)] hover:text-[var(--brand-hover)] transition-colors whitespace-nowrap"
+                className={styles.megaMenuViewAll}
               >
                 <span>View All Utility Products</span>
-                <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5" />
+                <Icon icon="solar:arrow-right-linear" className="w-3 h-3" />
               </Link>
             </div>
           </div>
@@ -295,75 +295,81 @@ export default function MegaMenu({
             <Link
               to="/products?search=Warranty"
               onClick={handleLinkClick}
-              className="group p-2 sm:px-3 flex items-center justify-between hover:bg-[var(--mega-menu-banner-hover)] transition-all duration-200 rounded-[var(--mega-menu-radius,8px)] md:rounded-none first:rounded-l-[var(--mega-menu-radius,8px)] last:rounded-r-[var(--mega-menu-radius,8px)]"
+              className="group p-3 flex items-center justify-between hover:bg-[var(--mega-menu-banner-hover)] transition-all duration-200 rounded-lg md:rounded-none first:rounded-l-lg last:rounded-r-lg"
             >
               <div className="flex items-center gap-3">
-                <Icon icon="solar:shield-check-bold" className="w-7 h-7 text-[var(--brand)] shrink-0 group-hover:scale-105 transition-transform duration-200" />
+                <div className="w-9 h-9 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
+                  <Icon icon="solar:shield-check-outline" className="w-5 h-5 text-[var(--brand)] group-hover:scale-105 transition-transform duration-200" />
+                </div>
                 <div>
-                  <h4 className="text-[13px] font-bold text-[var(--heading)] group-hover:text-[var(--brand-text)] transition-colors leading-tight">
+                  <span className="block text-[13px] font-bold text-[var(--heading)] group-hover:text-[var(--brand-text)] transition-colors leading-tight">
                     Warranty Information
-                  </h4>
-                  <p className="text-[11px] text-[var(--text-muted)] mt-0.5 leading-tight">
+                  </span>
+                  <p className="text-[11.5px] text-[var(--text-secondary)] mt-0.5 leading-tight">
                     View warranty details for our products
                   </p>
                 </div>
               </div>
-              <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
+              <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 text-slate-400 group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
             </Link>
 
             {/* 2. Custom Solutions */}
             <Link
               to="/contact?quote=1"
               onClick={handleLinkClick}
-              className="group p-2 sm:px-3 flex items-center justify-between hover:bg-[var(--mega-menu-banner-hover)] transition-all duration-200 rounded-[var(--mega-menu-radius,8px)] md:rounded-none"
+              className="group p-3 flex items-center justify-between hover:bg-[var(--mega-menu-banner-hover)] transition-all duration-200 rounded-lg md:rounded-none"
             >
               <div className="flex items-center gap-3">
-                <Icon icon="solar:ruler-angular-bold" className="w-7 h-7 text-[var(--brand)] shrink-0 group-hover:scale-105 transition-transform duration-200" />
+                <div className="w-9 h-9 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
+                  <Icon icon="solar:ruler-angular-outline" className="w-5 h-5 text-[var(--brand)] group-hover:scale-105 transition-transform duration-200" />
+                </div>
                 <div>
-                  <h4 className="text-[13px] font-bold text-[var(--heading)] group-hover:text-[var(--brand-text)] transition-colors leading-tight">
+                  <span className="block text-[13px] font-bold text-[var(--heading)] group-hover:text-[var(--brand-text)] transition-colors leading-tight">
                     Custom Solutions
-                  </h4>
-                  <p className="text-[11px] text-[var(--text-muted)] mt-0.5 leading-tight">
+                  </span>
+                  <p className="text-[11.5px] text-[var(--text-secondary)] mt-0.5 leading-tight">
                     Need custom sizes or bulk orders?
                   </p>
                 </div>
               </div>
-              <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
+              <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 text-slate-400 group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
             </Link>
 
             {/* 3. Need Help? */}
             <Link
               to="/contact"
               onClick={handleLinkClick}
-              className="group p-2 sm:px-3 flex items-center justify-between hover:bg-[var(--mega-menu-banner-hover)] transition-all duration-200 rounded-[var(--mega-menu-radius,8px)] md:rounded-none first:rounded-l-[var(--mega-menu-radius,8px)] last:rounded-r-[var(--mega-menu-radius,8px)]"
+              className="group p-3 flex items-center justify-between hover:bg-[var(--mega-menu-banner-hover)] transition-all duration-200 rounded-lg md:rounded-none first:rounded-l-lg last:rounded-r-lg"
             >
               <div className="flex items-center gap-3">
-                <Icon icon="solar:headphones-round-bold" className="w-7 h-7 text-[var(--brand)] shrink-0 group-hover:scale-105 transition-transform duration-200" />
+                <div className="w-9 h-9 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
+                  <Icon icon="solar:headphones-round-outline" className="w-5 h-5 text-[var(--brand)] group-hover:scale-105 transition-transform duration-200" />
+                </div>
                 <div>
-                  <h4 className="text-[13px] font-bold text-[var(--heading)] group-hover:text-[var(--brand-text)] transition-colors leading-tight">
+                  <span className="block text-[13px] font-bold text-[var(--heading)] group-hover:text-[var(--brand-text)] transition-colors leading-tight">
                     Need Help?
-                  </h4>
-                  <p className="text-[11px] text-[var(--text-muted)] mt-0.5 leading-tight">
+                  </span>
+                  <p className="text-[11.5px] text-[var(--text-secondary)] mt-0.5 leading-tight">
                     Talk to our product specialists
                   </p>
                 </div>
               </div>
-              <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
+              <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 text-slate-400 group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
             </Link>
           </div>
 
           {/* Bottom Footer Strip */}
-          <div className="mt-4 pt-3.5 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
             <div className="flex items-center gap-2 text-[var(--text-secondary)]">
               <Icon icon="solar:leaf-linear" className="w-4 h-4 text-[var(--brand)] shrink-0" />
-              <span className="font-bold text-[var(--heading)] text-[12.5px]">Sustainable. Durable. Reliable.</span>
-              <span className="text-[var(--text-muted)] text-[12.5px] hidden sm:inline ml-1">High-quality recycled plastic products for a better tomorrow.</span>
+              <span className="font-bold text-[var(--heading)] text-[12px]">Sustainable. Durable. Reliable.</span>
+              <span className="text-[var(--text-secondary)] text-[11.5px] hidden sm:inline ml-1">High-quality recycled plastic products for a better tomorrow.</span>
             </div>
 
             <Link
               to="/contact?quote=1"
               onClick={handleLinkClick}
-              className="inline-flex items-center gap-1 text-[12.5px] font-bold text-[var(--brand-text)] hover:text-[var(--brand-hover)] transition-colors duration-150"
+              className="inline-flex items-center gap-1.5 text-[12px] font-bold text-[var(--brand-text)] hover:text-[var(--brand-hover)] transition-colors duration-150"
             >
               <span>Request Fast Quote</span>
               <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5" />

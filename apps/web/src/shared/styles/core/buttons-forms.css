@@ -254,12 +254,12 @@ button.btn::after {
   transition: color 0.3s ease-in-out;
   pointer-events: none;
   font-weight: 700;
-  color: var(--brand-btn-text) !important;
+  color: var(--navy-950, #05283F) !important;
 }
 
 .swipe-btn:hover .btn-text,
 .swipe-btn:hover span {
-  color: var(--brand-btn-text) !important;
+  color: var(--navy-950, #05283F) !important;
 }
 
 .swipe-btn .btn-icon-bubble {
@@ -310,8 +310,8 @@ button.btn::after {
   height: 16px;
   display: block;
   margin: auto;
-  stroke: var(--brand-btn-text) !important;
-  color: var(--brand-btn-text) !important;
+  stroke: var(--navy-950, #05283F) !important;
+  color: var(--navy-950, #05283F) !important;
   transform: none;
   transition: stroke 0.3s ease, color 0.3s ease;
   pointer-events: none;
@@ -320,8 +320,8 @@ button.btn::after {
 .swipe-btn:hover .btn-arrow-icon,
 .swipe-btn:hover svg {
   transform: none;
-  stroke: var(--brand-btn-text) !important;
-  color: var(--brand-btn-text) !important;
+  stroke: var(--navy-950, #05283F) !important;
+  color: var(--navy-950, #05283F) !important;
 }
 
 /* ─── Forms ──────────────────────────────────────────────── */

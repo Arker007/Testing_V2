@@ -3,7 +3,15 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { motion as Motion, AnimatePresence } from "framer-motion";
 import { useSite } from "../../../shared/context/SiteContext";
-import { STATIC_CATEGORIES } from "../../../data/home";
+const DEFAULT_CATEGORIES = [
+  { id: "lumber", name: "Plastic Lumber" },
+  { id: "pallets", name: "Plastic Pallets" },
+  { id: "benches", name: "Garden Benches" },
+  { id: "furniture", name: "Outdoor Furniture" },
+  { id: "fences", name: "Garden Fences" },
+  { id: "tables", name: "Plastic Tables" }
+];
+
 import QuoteButton from "../../../shared/components/QuoteButton";
 import MegaMenu from "./MegaMenu";
 import MobileNavDrawer from "./MobileNavDrawer";
@@ -16,7 +24,7 @@ export default function Navbar() {
   const [logoError, setLogoError] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
-  const [categories, setCategories] = useState(STATIC_CATEGORIES);
+  const [categories, setCategories] = useState(DEFAULT_CATEGORIES);
   const [products, setProducts] = useState([]);
   const { pathname } = useLocation();
   const navigate = useNavigate();

@@ -4,52 +4,48 @@
    DESKTOP TYPOGRAPHY SCALE & SYSTEM RULES
    ========================================================================== */
 
-/* ==========================================================================
-   GLOBAL DM SANS TYPOGRAPHY & WEIGHT HIERARCHY
-   ========================================================================== */
-
 /* Base font family for the entire document */
 html, body, #root {
   font-family: var(--font-family-primary);
   font-weight: var(--font-weight-base);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base, 16px);
   color: var(--text-primary);
   line-height: var(--line-height-body);
 }
 
-/* Semantic Typography Classes */
+/* Semantic Typography Utility Classes */
 .text-display {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-extrabold, 800);
   line-height: var(--line-height-tight);
   letter-spacing: var(--tracking-display);
 }
 .text-h1 {
   font-family: var(--font-family-primary);
-  font-size: 48px;
-  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold, 700);
   line-height: var(--line-height-tight);
   letter-spacing: var(--tracking-h1);
 }
 .text-h2 {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold, 700);
   line-height: var(--line-height-heading);
   letter-spacing: var(--tracking-h2);
 }
 .text-h3 {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold, 600);
   line-height: var(--line-height-heading);
   letter-spacing: var(--tracking-h3);
 }
 .text-h4 {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold, 600);
   line-height: var(--line-height-heading);
   letter-spacing: var(--tracking-h4);
 }
@@ -79,337 +75,129 @@ html, body, #root {
 }
 .text-micro {
   font-family: var(--font-family-primary);
-  font-size: 12px;
-  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-caps);
 }
 
-/* H1: Display / Hero */
-h1,
-.page-title,
-.pageTitle,
-.hero-title,
-.heroTitle,
-.hero-heading,
-.heroHeading,
-.mainTitle,
-[class*="heroTitle"],
-[class*="heroHeading"] {
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-tight);
-  letter-spacing: var(--tracking-display);
-}
-
-/* H2: Section */
-h2,
-.section-title,
-.sectionTitle,
-.sectionHeader,
-.sectionHeading,
-.section-heading,
-.heading-h2,
-[class*="sectionTitle"],
-[class*="sectionHeading"] {
+/* Base Heading Tags mapped to 7-Tier Scale */
+h1 {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-heading);
-  letter-spacing: var(--tracking-h2);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--tracking-h1);
+  color: var(--heading);
 }
 
-/* H3: Subheading */
-h3,
-.heading-h3,
-[class*="h3Title"] {
+h2 {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold, 700);
   line-height: var(--line-height-heading);
-  letter-spacing: var(--tracking-h3);
+  letter-spacing: var(--tracking-h2);
+  color: var(--heading);
 }
 
-/* H4: Card Title */
-h4,
-h5,
-.card-title,
-.cardTitle,
-.card-heading,
-.cardHeading,
-.itemTitle,
-.featureTitle,
-.productCardTitle,
-[class*="cardTitle"],
-[class*="cardHeading"] {
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-heading);
-  letter-spacing: var(--tracking-h4);
-}
-
-/* Body Large */
-.body-l,
-.bodyL,
-.text-lg,
-.heroDescription,
-.section-subtitle,
-.sectionSubtitle,
-.lead-text,
-.lead {
+h3 {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--tracking-h3);
+  color: var(--heading);
 }
 
-/* Body Content */
-body,
+h4 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--tracking-h4);
+  color: var(--heading);
+}
+
+h5 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--line-height-heading);
+  color: var(--heading);
+}
+
+h6 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--line-height-heading);
+  color: var(--heading);
+}
+
+/* Base Body Elements */
 p,
 li,
-td,
-input,
-textarea,
-select,
-.body-copy,
-.bodyCopy,
-.section-desc,
-.sectionDesc,
-.description,
-.banner-description,
-.ctaDescText,
-.indDesc,
-.catCardDesc,
-.projDetail,
-.cardDesc,
-.featureDesc,
-.stepDesc,
-.valuePropDesc,
-.listDescription,
-.modalDescription,
-.testimonialQuote {
+td {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-body);
+  color: var(--text-secondary);
 }
 
-/* Small / Label */
+/* Small / Label / Micro text */
 small,
-label,
-.badge,
-.tag,
-.pill,
-.chip,
-.caption,
-.statSubtext,
-.footerNote,
-.hintText,
-.small-label,
-.small,
-.subtext,
-.secondary-text,
-.secondaryText,
-.text-secondary-detail,
-[class*="badge"],
-[class*="label"],
-[class*="tag"],
-[class*="eyebrow"] {
+label {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-body);
 }
 
-/* Button */
-button,
-.btn,
-.button,
-.exploreBtnGlobal,
-[class*="btn"],
-[class*="Button"],
-[class*="button"] {
+/* Form controls */
+input,
+textarea,
+select {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-md);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-regular);
 }
 
-/* Nav */
-nav,
-nav a,
-.nav-link,
-.navLink,
-.navItem,
-.breadcrumbItem,
-[class*="navLink"],
-[class*="dropdownBtn"],
-[class*="menuItem"],
-[class*="nav_item"] {
+/* Buttons */
+button {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-md);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold);
 }
 
 /* ==========================================================================
-   MOBILE TYPOGRAPHY SCALE (max-width: 768px)
+   MOBILE RESPONSIVE SCALE (max-width: 768px)
    ========================================================================== */
 @media (max-width: 768px) {
-  /* 1. Display / Hero Title - 32px (2rem) */
-  h1,
-  .hero-title,
-  .heroTitle,
-  .hero-heading,
-  .heroHeading,
-  .mainTitle,
-  [class*="heroTitle"],
-  [class*="heroHeading"] {
-    font-size: 32px;
-    font-weight: var(--font-weight-medium);
+  h1 {
+    font-size: var(--font-size-3xl);
     line-height: var(--line-height-tight);
   }
 
-  /* 2. Page Title / H1 - 28px (1.75rem) */
-  .page-title,
-  .pageTitle {
-    font-size: 28px;
-    font-weight: var(--font-weight-medium);
+  h2 {
+    font-size: var(--font-size-2xl);
     line-height: var(--line-height-heading);
   }
 
-  /* 3. Section Title / H2 - 24px (1.5rem) */
-  h2,
-  .section-title,
-  .sectionTitle,
-  .sectionHeader,
-  .sectionHeading,
-  .section-heading,
-  .heading-h2,
-  [class*="sectionTitle"],
-  [class*="sectionHeading"] {
-    font-size: 24px;
-    font-weight: var(--font-weight-medium);
+  h3 {
+    font-size: var(--font-size-xl);
     line-height: var(--line-height-heading);
   }
 
-  /* 4. Subheading / H3 - 20px (1.25rem) */
-  h3,
-  .heading-h3,
-  [class*="h3Title"] {
-    font-size: 20px;
-    font-weight: var(--font-weight-medium);
+  h4 {
+    font-size: var(--font-size-lg);
     line-height: var(--line-height-heading);
   }
 
-  /* 5. Card Title / H4 - 18px (1.125rem) */
-  h4,
-  h5,
-  .card-title,
-  .cardTitle,
-  .card-heading,
-  .cardHeading,
-  .itemTitle,
-  .featureTitle,
-  .productCardTitle,
-  [class*="cardTitle"],
-  [class*="cardHeading"] {
-    font-size: 18px;
-    font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-heading);
-  }
-
-  /* 6. Body Large - 16px (1rem) */
-  .body-l,
-  .bodyL,
-  .text-lg,
-  .heroDescription,
-  .section-subtitle,
-  .sectionSubtitle,
-  .lead-text,
-  .lead {
-    font-size: 16px;
-    font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-body);
-  }
-
-  /* 7. Body Content - 15px (0.9375rem) */
-  body,
   p,
   li,
-  td,
-  input,
-  textarea,
-  select,
-  .body-copy,
-  .bodyCopy,
-  .section-desc,
-  .sectionDesc,
-  .description,
-  .banner-description,
-  .ctaDescText,
-  .indDesc,
-  .catCardDesc,
-  .projDetail,
-  .cardDesc,
-  .featureDesc,
-  .stepDesc,
-  .valuePropDesc,
-  .listDescription,
-  .modalDescription,
-  .testimonialQuote {
-    font-size: 15px;
-    font-weight: var(--font-weight-regular);
+  td {
+    font-size: var(--font-size-sm);
     line-height: var(--line-height-body);
-  }
-
-  /* 8. Small / Label - 13px (0.8125rem) */
-  small,
-  label,
-  .badge,
-  .tag,
-  .pill,
-  .chip,
-  .caption,
-  .statSubtext,
-  .footerNote,
-  .hintText,
-  .small-label,
-  .small,
-  .subtext,
-  .secondary-text,
-  .secondaryText,
-  .text-secondary-detail,
-  [class*="badge"],
-  [class*="label"],
-  [class*="tag"],
-  [class*="eyebrow"] {
-    font-size: 13px;
-    font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-body);
-  }
-
-  /* 9. Button - 15px */
-  button,
-  .btn,
-  .button,
-  .exploreBtnGlobal,
-  [class*="btn"],
-  [class*="Button"],
-  [class*="button"] {
-    font-size: 15px;
-  }
-
-  /* 10. Nav - 15px */
-  nav,
-  nav a,
-  .nav-link,
-  .navLink,
-  .navItem,
-  .breadcrumbItem,
-  [class*="navLink"],
-  [class*="dropdownBtn"],
-  [class*="menuItem"],
-  [class*="nav_item"] {
-    font-size: 15px;
   }
 }
 .exploreBtnGlobal {

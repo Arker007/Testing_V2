@@ -303,7 +303,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
                 {steps[0].icon}
                 <div>
-                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[0].title}</h4>
+                  <span className="block font-extrabold text-slate-900 dark:text-white text-base">{steps[0].title}</span>
                   <span className="text-emerald-600 dark:text-emerald-400 font-bold text-xs block mt-0.5">{steps[0].subtitle}</span>
                   <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[0].brief}</p>
                 </div>
@@ -326,7 +326,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
                 {steps[1].icon}
                 <div>
-                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[1].title}</h4>
+                  <span className="block font-extrabold text-slate-900 dark:text-white text-base">{steps[1].title}</span>
                   <span className="text-blue-600 dark:text-blue-400 font-bold text-xs block mt-0.5">{steps[1].subtitle}</span>
                   <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[1].brief}</p>
                 </div>
@@ -349,7 +349,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
                 {steps[2].icon}
                 <div>
-                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[2].title}</h4>
+                  <span className="block font-extrabold text-slate-900 dark:text-white text-base">{steps[2].title}</span>
                   <span className="text-sky-600 dark:text-sky-400 font-bold text-xs block mt-0.5">{steps[2].subtitle}</span>
                   <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[2].brief}</p>
                 </div>
@@ -373,7 +373,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
                 {steps[6].icon}
                 <div>
-                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[6].title}</h4>
+                  <span className="block font-extrabold text-slate-900 dark:text-white text-base">{steps[6].title}</span>
                   <span className="text-emerald-600 dark:text-emerald-400 font-bold text-xs block mt-0.5">{steps[6].subtitle}</span>
                   <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[6].brief}</p>
                 </div>
@@ -396,7 +396,7 @@ export default function ProcessSection({ className = "" }) {
                     <Icon icon="solar:restart-circle-linear" className="w-12 h-12 text-emerald-600 dark:text-emerald-400" />
                   </div>
                 </div>
-                <h5 className="font-extrabold text-slate-900 dark:text-white text-sm tracking-tight">Zero Waste. Infinite Value.</h5>
+                <span className="block font-extrabold text-slate-900 dark:text-white text-sm tracking-tight">Zero Waste. Infinite Value.</span>
                 <p className="text-slate-600 dark:text-slate-300 text-xs font-normal max-w-xs mt-1">We don't just recycle, we recreate value.</p>
               </div>
             </div>
@@ -413,7 +413,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
                 {steps[3].icon}
                 <div>
-                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[3].title}</h4>
+                  <span className="block font-extrabold text-slate-900 dark:text-white text-base">{steps[3].title}</span>
                   <span className="text-indigo-600 dark:text-indigo-400 font-bold text-xs block mt-0.5">{steps[3].subtitle}</span>
                   <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[3].brief}</p>
                 </div>
@@ -437,7 +437,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
                 {steps[5].icon}
                 <div>
-                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[5].title}</h4>
+                  <span className="block font-extrabold text-slate-900 dark:text-white text-base">{steps[5].title}</span>
                   <span className="text-violet-600 dark:text-violet-400 font-bold text-xs block mt-0.5">{steps[5].subtitle}</span>
                   <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[5].brief}</p>
                 </div>
@@ -468,7 +468,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
                 {steps[4].icon}
                 <div>
-                  <h4 className="font-extrabold text-slate-900 dark:text-white text-base">{steps[4].title}</h4>
+                  <span className="block font-extrabold text-slate-900 dark:text-white text-base">{steps[4].title}</span>
                   <span className="text-teal-600 dark:text-teal-400 font-bold text-xs block mt-0.5">{steps[4].subtitle}</span>
                   <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mt-1 font-normal">{steps[4].brief}</p>
                 </div>
@@ -511,7 +511,7 @@ export default function ProcessSection({ className = "" }) {
                       {st.num}
                     </div>
                     <div>
-                      <h4 className={`font-extrabold text-xs leading-none ${isActive ? "text-white" : "text-slate-800 dark:text-white"}`}>{st.title}</h4>
+                      <span className={`block font-extrabold text-xs leading-none ${isActive ? "text-white" : "text-slate-800 dark:text-white"}`}>{st.title}</span>
                       <span className={`text-[10px] font-bold mt-1 block leading-none ${isActive ? "text-emerald-400" : "text-emerald-600 dark:text-emerald-400"}`}>{st.subtitle}</span>
                     </div>
                   </button>
@@ -566,7 +566,7 @@ export default function ProcessSection({ className = "" }) {
                     <Icon icon="solar:check-read-linear" className="w-3.5 h-3.5 font-bold" />
                   </div>
                   <div>
-                    <h5 className="font-extrabold text-sm text-slate-900 dark:text-white">{feature.label}</h5>
+                    <span className="block font-extrabold text-sm text-slate-900 dark:text-white">{feature.label}</span>
                     <p className="text-slate-600 dark:text-slate-300 text-xs mt-0.5 leading-relaxed font-normal">{feature.desc}</p>
                   </div>
                 </div>
@@ -611,7 +611,7 @@ export default function ProcessSection({ className = "" }) {
                 <Icon icon="solar:restart-circle-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
-                <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Sustainable</h4>
+                <span className="block font-bold text-slate-900 dark:text-white text-sm mb-1">Sustainable</span>
                 <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed font-normal">Turning waste into long-lasting solutions.</p>
                 <div className="w-6 h-0.5 bg-[var(--brand)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
               </div>
@@ -624,7 +624,7 @@ export default function ProcessSection({ className = "" }) {
                 <Icon icon="solar:shield-check-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
-                <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Quality Assured</h4>
+                <span className="block font-bold text-slate-900 dark:text-white text-sm mb-1">Quality Assured</span>
                 <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed font-normal">Each step is tested for performance and safety.</p>
                 <div className="w-6 h-0.5 bg-[var(--brand)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
               </div>
@@ -637,7 +637,7 @@ export default function ProcessSection({ className = "" }) {
                 <Icon icon="solar:cpu-bolt-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
-                <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Advanced Tech</h4>
+                <span className="block font-bold text-slate-900 dark:text-white text-sm mb-1">Advanced Tech</span>
                 <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed font-normal">Modern machines for precision and consistent quality.</p>
                 <div className="w-6 h-0.5 bg-[var(--brand)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
               </div>
@@ -650,7 +650,7 @@ export default function ProcessSection({ className = "" }) {
                 <Icon icon="solar:global-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
-                <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Better for Planet</h4>
+                <span className="block font-bold text-slate-900 dark:text-white text-sm mb-1">Better for Planet</span>
                 <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed font-normal">Reducing landfill waste and building a circular future.</p>
                 <div className="w-6 h-0.5 bg-[var(--brand)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
               </div>

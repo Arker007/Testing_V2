@@ -20,6 +20,7 @@ export const ALL_SECTIONS_LIST = [
   { key: "About Timeline Entries", label: "Timeline Milestones", group: "About", icon: "fa-clock-rotate-left", tab: "About Page" },
   { key: "About Certifications", label: "Quality Standards & Certifications", group: "About", icon: "fa-award", tab: "About Page", hasToggle: true },
   { key: "About Team", label: "Executive Team", group: "About", icon: "fa-users-gear", tab: "About Page", hasToggle: true },
+  { key: "About Testimonials", label: "Client Testimonials", group: "About", icon: "fa-comment-dots", tab: "About Page", hasToggle: true },
   { key: "About CTA", label: "About Page Bottom CTA", group: "About", icon: "fa-circle-exclamation", tab: "About Page", hasToggle: true },
 
   { key: "Products Page", label: "Products Catalog Hero Banner", group: "Products", icon: "fa-box", tab: "Products Page", hasToggle: true },

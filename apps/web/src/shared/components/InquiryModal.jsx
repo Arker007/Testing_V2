@@ -60,7 +60,7 @@ export default function InquiryModal({ product, onClose }) {
         {success ? (
           <div className={styles.successState}>
             <Icon icon="solar:check-circle-linear" className={`${styles.successIcon} w-12 h-12 text-emerald-500`} />
-            <h3 className={styles.successTitle}>Inquiry Submitted!</h3>
+            <p className={styles.successTitle}>Inquiry Submitted!</p>
             <p className={styles.successSub}>
               Our sales team will contact you with pricing and product specifications within 2 hours.
             </p>

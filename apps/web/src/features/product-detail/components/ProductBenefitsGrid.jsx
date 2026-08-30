@@ -62,22 +62,25 @@ export const ProductBenefitsGrid = React.memo(function ProductBenefitsGrid({ cat
   const displayCategory = categoryName || "plastic pallets";
 
   return (
-    <div className="w-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-card p-6 sm:p-10 shadow-sm transition-all duration-200 my-4">
+    <div className="w-full bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--surface,#161c24)] border border-[var(--border-subtle,rgba(242,242,242,0.12))] rounded-[var(--radius-card,12px)] p-6 sm:p-8 shadow-[var(--shadow-sm)] transition-all duration-200">
       {/* Centered Header */}
-      <div className="text-center max-w-3xl mx-auto mb-8">
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight leading-snug">
-          Learn more about the benefits of {displayCategory.toLowerCase()}
+      <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+        <span className="text-[10px] font-bold text-[var(--brand-primary)] uppercase tracking-widest bg-[var(--brand-soft)] px-3 py-1 rounded-[var(--radius-badge,4px)] border border-[var(--brand-border)] inline-block mb-2">
+          Engineering & Lifecycle Advantages
+        </span>
+        <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-snug">
+          Key Industrial Benefits of {displayCategory}
         </h2>
-        <p className="mt-4 text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
-          Products designed and manufactured to optimize efficiency and ensure the protection of your goods throughout their lifecycle. We offer a diverse range of sizes, shapes, and load capacities to meet your product and logistics requirements.
+        <p className="mt-2 text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+          Engineered to optimize logistics efficiency and safeguard heavy industrial cargo throughout the supply chain.
         </p>
 
         {/* Tab Toggle Pills */}
-        <div className="mt-6 flex justify-center">
+        <div className="mt-5 flex justify-center">
           <Tabs
             tabs={[
               { id: "closed-loop", label: "Closed-Loop Pallets" },
-              { id: "lightweight", label: "Lightweight and Export Pallets" },
+              { id: "lightweight", label: "Lightweight & Export" },
             ]}
             activeTab={activeTab}
             onChange={setActiveTab}
@@ -87,11 +90,16 @@ export const ProductBenefitsGrid = React.memo(function ProductBenefitsGrid({ cat
       </div>
 
       {/* Benefits 2-Column Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 max-w-4xl mx-auto pt-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4 max-w-4xl mx-auto">
         {currentBenefits.map((item, idx) => (
-          <div key={idx} className="flex items-start gap-4 p-2.5 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-white/5">
-            <IconBox icon={item.icon} variant="neutral" size="md" />
-            <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 leading-snug pt-1">
+          <div
+            key={idx}
+            className="flex items-start gap-3.5 p-3.5 rounded-[var(--radius-md,6px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] transition-colors hover:border-[var(--brand-primary)]/40"
+          >
+            <div className="p-2 rounded-[var(--radius-sm,4px)] bg-[var(--bg-surface)] text-[var(--brand-primary)] shadow-2xs shrink-0 mt-0.5">
+              <IconBox icon={item.icon} variant="neutral" size="sm" />
+            </div>
+            <p className="text-xs sm:text-sm font-medium text-[var(--text-secondary)] leading-snug pt-0.5">
               {item.text}
             </p>
           </div>
