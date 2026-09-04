@@ -260,22 +260,22 @@ export default function FeaturesSection() {
             </svg>
 
             {/* Headline Overlay */}
-            <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-8 text-right z-10 pointer-events-none">
+            <div className="absolute bottom-3 right-3 sm:bottom-6 sm:right-8 md:bottom-10 md:right-12 text-right z-10 pointer-events-none">
               <span
-                style={{ color: "var(--text-secondary, #667785)" }}
-                className="block text-2xl sm:text-3xl md:text-4xl font-light tracking-tight leading-snug"
+                style={{ color: "var(--brand-primary, #0284c7)" }}
+                className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight leading-tight mb-1 sm:mb-2"
               >
                 Exporting
               </span>
               <p
-                style={{ color: "var(--heading, #0f141a)" }}
-                className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-snug m-0"
+                style={{ color: "var(--text-primary, #0f141a)" }}
+                className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-tight m-0"
               >
                 Driving Economic Growth
               </p>
               <p
-                style={{ color: "var(--heading, #0f141a)" }}
-                className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight leading-snug m-0"
+                style={{ color: "var(--text-primary, #0f141a)" }}
+                className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-tight m-0"
               >
                 & Global Expansion
               </p>

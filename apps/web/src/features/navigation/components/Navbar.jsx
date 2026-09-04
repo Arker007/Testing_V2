@@ -92,11 +92,6 @@ export default function Navbar() {
     };
   }, [open]);
 
-  const waLink = `https://wa.me/${co("whatsapp", "919898686379").replace(
-    /\D/g,
-    ""
-  )}`;
-
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -281,17 +276,6 @@ export default function Navbar() {
         categories={categories}
         products={products}
       />
-
-      <a
-        href={waLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.floatingWa}
-        aria-label="Chat on WhatsApp"
-      >
-        <Icon icon="logos:whatsapp-icon" className="text-xl" />
-        <span>WhatsApp</span>
-      </a>
     </>
   );
 }

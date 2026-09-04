@@ -268,17 +268,17 @@ export default function MegaMenu({
                       <div>
                         {/* Category Heading with Icon & Count */}
                         <div className={styles.megaMenuHeading}>
-                          <div className="w-6 h-6 rounded-md bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center shrink-0 border border-emerald-200 dark:border-emerald-800/40">
+                          <div className="w-6 h-6 rounded-md bg-[var(--brand-soft)] flex items-center justify-center shrink-0 border border-[var(--border-subtle)]">
                             <Icon
                               icon={icon}
-                              className="w-3.5 h-3.5 text-[var(--brand)]"
+                              className="w-3.5 h-3.5 text-[var(--brand-primary)]"
                             />
                           </div>
-                          <span className="font-bold tracking-wider text-[12.5px] truncate">
+                          <span className="font-bold tracking-wider text-[12.5px] truncate text-[var(--text-primary)]">
                             {label}
                           </span>
                           {catItems.length > 0 && (
-                            <span className="ml-auto text-[10.5px] font-semibold px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+                            <span className="ml-auto text-[10.5px] font-semibold px-1.5 py-0.5 rounded-full bg-[var(--bg-surface-secondary)] text-[var(--text-muted)] border border-[var(--border-subtle)]">
                               {catItems.length}
                             </span>
                           )}
@@ -300,24 +300,24 @@ export default function MegaMenu({
                                   title={item.name}
                                 >
                                   <div className="flex flex-col min-w-0 pr-1">
-                                    <span className="truncate text-[13px] font-medium transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-[var(--brand)]">
+                                    <span className="truncate text-[13px] font-medium text-[var(--text-secondary)] transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-[var(--brand-primary)]">
                                       {cleanTitle}
                                     </span>
                                     {sizeBadge && (
-                                      <span className="text-[10.5px] text-slate-400 dark:text-slate-400 font-mono tracking-tight mt-0.5">
+                                      <span className="text-[10.5px] text-[var(--text-muted)] font-mono tracking-tight mt-0.5">
                                         {sizeBadge}
                                       </span>
                                     )}
                                   </div>
                                   <Icon
                                     icon="solar:alt-arrow-right-linear"
-                                    className="w-3 h-3 text-slate-300 dark:text-slate-600 group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-1.5"
+                                    className="w-3 h-3 text-[var(--text-muted)] group-hover:text-[var(--brand-primary)] group-hover:translate-x-0.5 transition-all shrink-0 ml-1.5"
                                   />
                                 </Link>
                               );
                             })
                           ) : (
-                            <div className="py-3 text-xs text-slate-400 dark:text-slate-400 italic">
+                            <div className="py-3 text-xs text-[var(--text-muted)] italic">
                               Browse {cat.name || "catalog"}
                             </div>
                           )}
@@ -330,7 +330,7 @@ export default function MegaMenu({
                         onClick={handleLinkClick}
                         className={styles.megaMenuViewAll}
                       >
-                        <span>View All {cat.name || label}</span>
+                        <span className="text-[var(--brand-primary)] group-hover:text-[var(--brand-hover)]">View All {cat.name || label}</span>
                         <Icon
                           icon="solar:arrow-right-linear"
                           className="w-3 h-3 transition-transform duration-150 group-hover:translate-x-0.5"
@@ -349,17 +349,17 @@ export default function MegaMenu({
                 <Link
                   to="/sustainability"
                   onClick={handleLinkClick}
-                  className="group p-3.5 sm:p-4 flex items-center justify-between hover:bg-[var(--mega-menu-banner-hover)] transition-all duration-200 rounded-lg md:rounded-none first:rounded-l-lg last:rounded-r-lg"
+                  className="group p-3.5 sm:p-4 flex items-center justify-between hover:bg-[var(--bg-surface-secondary)] transition-all duration-200 rounded-lg md:rounded-none first:rounded-l-lg last:rounded-r-lg"
                 >
                   <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-[var(--brand-soft)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
                       <Icon
                         icon="solar:shield-check-outline"
-                        className="w-5 h-5 text-[var(--brand)] group-hover:scale-105 transition-transform duration-200"
+                        className="w-5 h-5 text-[var(--brand-primary)] group-hover:scale-105 transition-transform duration-200"
                       />
                     </div>
                     <div>
-                      <span className="block text-[13px] font-bold text-[var(--heading)] group-hover:text-[var(--brand-text)] transition-colors leading-tight">
+                      <span className="block text-[13px] font-bold text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors leading-tight">
                         ISPM-15 Exempt & ISO Certified
                       </span>
                       <p className="text-[12px] text-[var(--text-secondary)] mt-0.5 leading-tight">
@@ -369,7 +369,7 @@ export default function MegaMenu({
                   </div>
                   <Icon
                     icon="solar:alt-arrow-right-linear"
-                    className="w-4 h-4 text-slate-400 group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2"
+                    className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--brand-primary)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2"
                   />
                 </Link>
 
@@ -377,17 +377,17 @@ export default function MegaMenu({
                 <Link
                   to="/contact?quote=1"
                   onClick={handleLinkClick}
-                  className="group p-3.5 sm:p-4 flex items-center justify-between hover:bg-[var(--mega-menu-banner-hover)] transition-all duration-200 rounded-lg md:rounded-none"
+                  className="group p-3.5 sm:p-4 flex items-center justify-between hover:bg-[var(--bg-surface-secondary)] transition-all duration-200 rounded-lg md:rounded-none"
                 >
                   <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-[var(--brand-soft)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
                       <Icon
                         icon="solar:ruler-angular-outline"
-                        className="w-5 h-5 text-[var(--brand)] group-hover:scale-105 transition-transform duration-200"
+                        className="w-5 h-5 text-[var(--brand-primary)] group-hover:scale-105 transition-transform duration-200"
                       />
                     </div>
                     <div>
-                      <span className="block text-[13px] font-bold text-[var(--heading)] group-hover:text-[var(--brand-text)] transition-colors leading-tight">
+                      <span className="block text-[13px] font-bold text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors leading-tight">
                         Custom Sizes & Moldings
                       </span>
                       <p className="text-[12px] text-[var(--text-secondary)] mt-0.5 leading-tight">
@@ -397,7 +397,7 @@ export default function MegaMenu({
                   </div>
                   <Icon
                     icon="solar:alt-arrow-right-linear"
-                    className="w-4 h-4 text-slate-400 group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2"
+                    className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--brand-primary)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2"
                   />
                 </Link>
 
@@ -405,17 +405,17 @@ export default function MegaMenu({
                 <Link
                   to="/contact"
                   onClick={handleLinkClick}
-                  className="group p-3.5 sm:p-4 flex items-center justify-between hover:bg-[var(--mega-menu-banner-hover)] transition-all duration-200 rounded-lg md:rounded-none first:rounded-l-lg last:rounded-r-lg"
+                  className="group p-3.5 sm:p-4 flex items-center justify-between hover:bg-[var(--bg-surface-secondary)] transition-all duration-200 rounded-lg md:rounded-none first:rounded-l-lg last:rounded-r-lg"
                 >
                   <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-[var(--brand-soft)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
                       <Icon
                         icon="solar:headphones-round-outline"
-                        className="w-5 h-5 text-[var(--brand)] group-hover:scale-105 transition-transform duration-200"
+                        className="w-5 h-5 text-[var(--brand-primary)] group-hover:scale-105 transition-transform duration-200"
                       />
                     </div>
                     <div>
-                      <span className="block text-[13px] font-bold text-[var(--heading)] group-hover:text-[var(--brand-text)] transition-colors leading-tight">
+                      <span className="block text-[13px] font-bold text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors leading-tight">
                         Factory-Direct Pricing
                       </span>
                       <p className="text-[12px] text-[var(--text-secondary)] mt-0.5 leading-tight">
@@ -425,7 +425,7 @@ export default function MegaMenu({
                   </div>
                   <Icon
                     icon="solar:alt-arrow-right-linear"
-                    className="w-4 h-4 text-slate-400 group-hover:text-[var(--brand)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2"
+                    className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--brand-primary)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2"
                   />
                 </Link>
               </div>
@@ -435,9 +435,9 @@ export default function MegaMenu({
                 <div className="flex items-center gap-2 text-[var(--text-secondary)]">
                   <Icon
                     icon="solar:leaf-linear"
-                    className="w-4 h-4 text-[var(--brand)] shrink-0"
+                    className="w-4 h-4 text-[var(--brand-primary)] shrink-0"
                   />
-                  <span className="font-bold text-[var(--heading)] text-[12.5px]">
+                  <span className="font-bold text-[var(--text-primary)] text-[12.5px]">
                     Circular Polymers. 50+ Year Durability.
                   </span>
                   <span className="text-[var(--text-secondary)] text-[12px] hidden sm:inline ml-1">
@@ -448,7 +448,7 @@ export default function MegaMenu({
                 <Link
                   to="/contact?quote=1"
                   onClick={handleLinkClick}
-                  className="inline-flex items-center gap-1.5 text-[12.5px] font-bold text-[var(--brand-text)] hover:text-[var(--brand-hover)] transition-colors duration-150"
+                  className="inline-flex items-center gap-1.5 text-[12.5px] font-bold text-[var(--brand-primary)] hover:text-[var(--brand-hover)] transition-colors duration-150"
                 >
                   <span>Request B2B Quote</span>
                   <Icon
