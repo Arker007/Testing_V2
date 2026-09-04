@@ -5,7 +5,7 @@
 const express = require("express");
 const rateLimit = require("express-rate-limit");
 const router = express.Router();
-const { requireAuth } = require("../shared/middleware/auth");
+const { requireAuth } = require("../middleware/auth");
 
 function getClientIp(req) {
   const forwarded = req.headers["forwarded"];
@@ -85,15 +85,15 @@ router.use((req, res, next) => {
 });
 
 // Import route modules from feature folders
-const productsRouter = require("../modules/products/routes/products");
-const categoriesRouter = require("../modules/products/routes/categories");
-const authRouter = require("../modules/auth/routes/auth");
-const contentRouter = require("../modules/content/routes/content");
-const companyRouter = require("../modules/company/routes/company");
-const inquiriesRouter = require("../modules/inquiries/routes/inquiries");
-const uploadRouter = require("../modules/upload/routes/upload");
-const mediaRouter = require("../modules/media/routes/media");
-const statsRouter = require("../modules/stats/routes/stats");
+const productsRouter = require("../modules/products/product.routes");
+const categoriesRouter = require("../modules/categories/category.routes");
+const authRouter = require("../modules/auth/auth.routes");
+const contentRouter = require("../modules/content/content.routes");
+const companyRouter = require("../modules/company/company.routes");
+const inquiriesRouter = require("../modules/inquiries/inquiry.routes");
+const uploadRouter = require("../modules/uploads/upload.routes");
+const mediaRouter = require("../modules/media/media.routes");
+const statsRouter = require("../modules/stats/stats.routes");
 
 // Mount routes
 router.use("/products", productsRouter);

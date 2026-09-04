@@ -1,11 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import styles from "../../admin/components/AdminTable.module.css";
+import styles from "../../admin/styles/AdminTable.module.css";
 import { InteractiveHoverButton } from "../../../registry/magicui/interactive-hover-button";
-import EmptyState from "../../../shared/components/ui/EmptyState";
-import ConfirmDialog from "../../../shared/components/ui/ConfirmDialog";
-import Spinner from "../../../shared/components/ui/Spinner";
+import { EmptyState, ConfirmDialog, Spinner } from "@/shared/ui";
 
 export default function AdminCategories() {
   const navigate = useNavigate();

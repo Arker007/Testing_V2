@@ -51,7 +51,7 @@ if (IS_VERCEL) {
 const express     = require('express');
 const cors        = require('cors');
 const compression = require('compression');
-const { initDatabase } = require('../apps/api/src/shared/database/database');
+const { initDatabase } = require('../apps/api/src/database/database');
 
 const IS_PROD = process.env.NODE_ENV === 'production';
 const app = express();
@@ -133,7 +133,7 @@ async function ensureInitialised() {
 }
 
 // Global error handler (must be last)
-const errorHandler = require('../apps/api/src/shared/middleware/errorHandler');
+const errorHandler = require('../apps/api/src/middleware/errorHandler');
 app.use(errorHandler);
 
 /* ─── Vercel handler export ──────────────────────────────────────────────── */

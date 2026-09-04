@@ -11,7 +11,7 @@
   overflow: hidden;
   background: var(--hero-gradient);
   border-bottom: 4px solid var(--brand-primary);
-  color: #ffffff;
+  color: var(--text-inverse);
 }
 
 @media (max-width: 768px) {
@@ -26,7 +26,7 @@
 .heroBgPattern {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 75% 50%, rgba(107, 191, 84, 0.12) 0%, transparent 60%);
+  background: radial-gradient(ellipse 60% 80% at 75% 50%, var(--brand-glow-subtle, rgba(107, 191, 84, 0.12)) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -43,14 +43,14 @@
   gap: 0.45rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-on-dark-secondary, rgba(255, 255, 255, 0.75));
   margin-bottom: 0.85rem;
 }
 
 .heroBreadcrumb a {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-on-dark, rgba(255, 255, 255, 0.9));
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all var(--motion-fast) var(--ease-standard);
   display: inline-flex;
   align-items: center;
 }
@@ -60,7 +60,7 @@
 }
 
 .breadcrumbSep {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-on-dark-secondary, rgba(255, 255, 255, 0.85));
   vertical-align: middle;
 }
 
@@ -83,7 +83,7 @@
   font-family: var(--font-display, inherit);
   font-size: clamp(2rem, 5vw, 3.25rem);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-inverse);
   letter-spacing: -0.02em;
   margin: 0.75rem 0;
   line-height: 1.2;
@@ -95,7 +95,7 @@
 
 .heroSub,
 .heroDescription {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-on-dark-secondary, rgba(255, 255, 255, 0.85));
   font-size: 1.0625rem;
   max-width: 720px;
   line-height: 1.7;
@@ -114,9 +114,9 @@
 
 .hero :global(.section-eyebrow),
 .productsHero :global(.section-eyebrow) {
-  color: var(--text-brand) !important;
-  background-color: rgba(114, 214, 130, 0.15) !important;
-  border-color: rgba(114, 214, 130, 0.3) !important;
+  color: var(--hero-badge-text, var(--brand-400)) !important;
+  background-color: var(--hero-badge-bg, rgba(107, 191, 84, 0.15)) !important;
+  border-color: var(--hero-badge-border, rgba(107, 191, 84, 0.35)) !important;
 }
 
 .about-hero-section {
@@ -158,7 +158,7 @@
   font-family: var(--font-display, inherit);
   font-size: clamp(1.6rem, 2.5vw, 2.1rem);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-inverse);
   margin: 0 0 0.5rem 0;
   letter-spacing: -0.015em;
 }
@@ -173,7 +173,7 @@
 
 .sectionDescLight {
   font-size: 0.925rem;
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--text-on-dark-secondary, rgba(255, 255, 255, 0.88));
   max-width: 620px;
   margin: 0 auto;
   line-height: 1.6;

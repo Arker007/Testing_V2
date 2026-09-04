@@ -33,8 +33,8 @@ const Sustainability = lazyRetry(() => import("../../pages/Sustainability"));
 
 // Admin pages — separate chunk, never loaded on public pages
 const AdminLayout = lazyRetry(() => import("../layouts/AdminLayout"));
-const AdminLogin = lazyRetry(() => import("../../features/auth/Login"));
-const Dashboard = lazyRetry(() => import("../../features/admin/Dashboard"));
+const AdminLogin = lazyRetry(() => import("../../features/auth/components/Login"));
+const Dashboard = lazyRetry(() => import("../../features/admin/components/Dashboard"));
 const AdminProducts = lazyRetry(() => import("../../features/products/admin/AdminProducts"));
 const AdminProductEditor = lazyRetry(
   () => import("../../features/products/admin/AdminProductEditor")
@@ -43,15 +43,19 @@ const AdminCategories = lazyRetry(() => import("../../features/products/categori
 const AdminCategoryEditor = lazyRetry(
   () => import("../../features/products/categories/AdminCategoryEditor")
 );
-const AdminInquiries = lazyRetry(() => import("../../features/inquiries/AdminInquiries"));
+const AdminInquiries = lazyRetry(() => import("../../features/inquiries/components/AdminInquiries"));
 const AdminInquiryDetail = lazyRetry(
-  () => import("../../features/inquiries/AdminInquiryDetail")
+  () => import("../../features/inquiries/components/AdminInquiryDetail")
 );
-const AdminMedia = lazyRetry(() => import("../../features/media/AdminMedia"));
-const AdminCatalog = lazyRetry(() => import("../../features/catalog/AdminCatalog"));
-import SiteContent from "../../features/content-management/SiteContent";
-import AdminSettings from "../../features/admin/AdminSettings";
-import NotFound from "../../pages/NotFound";
+const AdminMedia = lazyRetry(() => import("../../features/media/components/AdminMedia"));
+const AdminCatalog = lazyRetry(() => import("../../features/catalog/components/AdminCatalog"));
+const SiteContent = lazyRetry(
+  () => import("../../features/content-management/components/SiteContent")
+);
+const AdminSettings = lazyRetry(
+  () => import("../../features/admin/components/AdminSettings")
+);
+const NotFound = lazyRetry(() => import("../../pages/NotFound"));
 
 const PageFallback = () => (
   <div className="min-h-[60vh] flex flex-col items-center justify-center bg-transparent px-4 select-none">
@@ -79,7 +83,7 @@ const PageFallback = () => (
       </span>
       <div className="flex items-center justify-center gap-1.5 mt-1.5">
         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
-        <p className="text-[10px] font-bold tracking-widest text-slate-400 dark:text-[rgba(242,242,242,0.45)] uppercase">
+        <p className="text-[10px] font-bold tracking-widest text-slate-600 dark:text-slate-300 uppercase">
           Circular Plastics
         </p>
       </div>

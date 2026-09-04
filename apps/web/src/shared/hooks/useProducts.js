@@ -1,28 +1,57 @@
-import { useState, useEffect } from 'react';
-import { ProductsService } from '../services/products.service';
+import { useState, useEffect } from "react";
+import { ProductService } from "@/features/products/services/product.service";
+
+// In-memory client cache with TTL
+const CACHE_TTL_MS = 60 * 1000; // 1 minute
+let cachedData = {
+  products: null,
+  categories: null,
+  timestamp: 0,
+};
 
 export function useProducts() {
-  const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const isCacheValid =
+    cachedData.products &&
+    cachedData.categories &&
+    Date.now() - cachedData.timestamp < CACHE_TTL_MS;
+
+  const [products, setProducts] = useState(cachedData.products || []);
+  const [categories, setCategories] = useState(cachedData.categories || []);
+  const [loading, setLoading] = useState(!isCacheValid);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
+
+    // If cache is fresh, do not show loading state and return immediately
+    if (isCacheValid) {
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
 
     Promise.all([
-      ProductsService.getProducts().catch(() => ({ products: [] })),
-      ProductsService.getCategories().catch(() => ({ categories: [] }))
+      ProductService.getProducts().catch(() => ({ products: [] })),
+      ProductService.getCategories().catch(() => ({ categories: [] })),
     ])
       .then(([productsRes, categoriesRes]) => {
         if (!isMounted) return;
-        setProducts(productsRes.products || []);
-        setCategories(categoriesRes.categories || []);
+        const pList = productsRes.products || [];
+        const cList = categoriesRes.categories || [];
+        
+        cachedData = {
+          products: pList,
+          categories: cList,
+          timestamp: Date.now(),
+        };
+
+        setProducts(pList);
+        setCategories(cList);
       })
       .catch((err) => {
         if (!isMounted) return;
-        setError(err.message || 'Failed to load products');
+        setError(err.message || "Failed to load products");
       })
       .finally(() => {
         if (isMounted) setLoading(false);
@@ -31,7 +60,9 @@ export function useProducts() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [isCacheValid]);
 
   return { products, categories, loading, error };
 }
+
+export default useProducts;

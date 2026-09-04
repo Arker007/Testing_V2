@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import { InquiryService } from '../services/inquiry.service';
+import { useState, useCallback } from "react";
+import api from "../utils/api";
 
 export function useInquiry() {
   const [submitting, setSubmitting] = useState(false);
@@ -12,11 +12,11 @@ export function useInquiry() {
     setSuccess(false);
 
     try {
-      const res = await InquiryService.submitInquiry(formData);
+      const res = await api.post("/inquiries", formData);
       setSuccess(true);
       return res;
     } catch (err) {
-      setError(err.message || 'Failed to send message. Please try again.');
+      setError(err.message || "Failed to send message. Please try again.");
       throw err;
     } finally {
       setSubmitting(false);
@@ -31,3 +31,5 @@ export function useInquiry() {
 
   return { submitInquiry, submitting, success, error, resetState };
 }
+
+export default useInquiry;

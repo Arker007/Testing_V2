@@ -14,6 +14,7 @@ html[data-theme="dark"] {
   --bg-surface-secondary: var(--neutral-800);
   --bg-surface-tertiary: #26303d;
   --bg-surface-elevated: var(--neutral-800);
+  --bg-dark-container: var(--neutral-900);
   --bg-hero: linear-gradient(135deg, var(--neutral-950) 0%, #162232 100%);
   --bg-grid-overlay: rgba(255, 255, 255, 0.04);
   --bg-nav: rgba(22, 28, 36, 0.90);
@@ -52,6 +53,7 @@ html[data-theme="dark"] {
   --border-strong: rgba(255, 255, 255, 0.36);
   --border-brand: rgba(107, 191, 84, 0.35);
   --border-accent: rgba(107, 191, 84, 0.35);
+  --border-on-dark: rgba(255, 255, 255, 0.16);
   --divider: var(--border-subtle);
 
   /* ✨ Elevation & Shadows (Dark Mode Authoritative Scale) */
@@ -95,7 +97,7 @@ html[data-theme="dark"] {
   --hero-gradient: linear-gradient(135deg, var(--bg-base) 0%, var(--bg-surface) 100%);
   --hero-badge-bg: rgba(107, 191, 84, 0.15);
   --hero-badge-border: rgba(107, 191, 84, 0.35);
-  --hero-badge-text: var(--brand-500);
+  --hero-badge-text: var(--brand-400);
   --bg-glass: rgba(22, 28, 36, 0.90);
   --bg-glass-card: rgba(30, 37, 48, 0.95);
   --bg-dark-overlay: rgba(15, 20, 26, 0.70);
@@ -160,6 +162,16 @@ html[data-theme="dark"] {
   --icon-primary: var(--text-primary);
   --icon-accent: var(--brand-500);
   --icon-inactive: var(--text-disabled);
+}
+
+/* ─── Dark Context Invariant Scope Helpers ───────────────────────────────── */
+.dark-context,
+.dark-section,
+.bg-navy {
+  --text-primary: var(--text-on-dark, #FFFFFF);
+  --text-secondary: var(--text-on-dark-secondary, #D8DEDA);
+  --text-muted: var(--text-inverse-muted, rgba(255, 255, 255, 0.65));
+  --border-subtle: var(--border-on-dark, rgba(255, 255, 255, 0.12));
 }
 
 /* ─── Global Theme Switch Transitions ──────────────────────────────────── */

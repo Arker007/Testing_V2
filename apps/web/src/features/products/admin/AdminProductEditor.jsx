@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, useOutletContext } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import styles from "../../admin/components/AdminTable.module.css";
+import styles from "../../admin/styles/AdminTable.module.css";
 import GeneralTab from "./editor/GeneralTab";
 import ImagesTab from "./editor/ImagesTab";
 import SpecsTab from "./editor/SpecsTab";
 import FaqsTab from "./editor/FaqsTab";
-import { useProductEditor } from "./useProductEditor";
+import { useProductEditor } from "./hooks/useProductEditor";
 
 export default function AdminProductEditor() {
   const { id } = useParams();

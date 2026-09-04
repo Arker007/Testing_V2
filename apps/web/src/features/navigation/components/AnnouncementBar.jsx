@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import styles from "../navbar.module.css";
+import styles from "../styles/navbar.module.css";
 
 export default function AnnouncementBar() {
   return (

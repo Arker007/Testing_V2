@@ -1,0 +1,265 @@
+/* ==========================================================================
+   VENTIXE STYLE: ADMIN AUTHORIZATION PORTAL
+   ========================================================================== */
+
+.page {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--gray-100);
+}
+
+/* Brand left split panel layout */
+.brand {
+  flex: 0 0 42%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+.brandBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, var(--brand-glow-subtle) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.brandContent {
+  position: relative;
+  max-width: 400px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md, 8px);
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  font-size: 1.1rem;
+  box-shadow: var(--shadow-md), var(--brand-glow);
+}
+
+.logoName {
+  font-family: var(--font-admin, var(--font-sans));
+  font-weight: 700;
+  color: var(--white);
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.logoSub {
+  font-size: 0.7rem;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.brandTitle {
+  font-family: var(--font-admin, var(--font-sans));
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.brandDesc {
+  font-size: 0.95rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.875rem;
+  color: var(--bg-glass);
+}
+
+.feature i {
+  color: var(--brand);
+}
+
+/* Verification form right workspace panel */
+.formPanel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+  padding: 48px 32px;
+}
+
+.formWrap {
+  width: 100%;
+  max-width: 400px;
+  background: var(--surface-card);
+  padding: 40px;
+  border-radius: var(--radius-lg, 12px);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-card);
+}
+
+.formTitle {
+  font-family: var(--font-admin, var(--font-sans));
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 6px;
+}
+
+.formSub {
+  font-size: 0.875rem;
+  color: var(--gray-400);
+  margin-bottom: 32px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputWrap {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  font-size: 0.875rem;
+}
+
+.paddedInput {
+  width: 100%;
+  padding: 12px 16px 12px 44px !important;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-input, 8px);
+  font-size: 0.875rem;
+  outline: none;
+  background-color: var(--white);
+  transition: border-color var(--motion-fast) var(--ease-standard);
+}
+
+.paddedInput:focus {
+  border-color: var(--brand);
+}
+
+.eye {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  font-size: 0.875rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.eye:hover {
+  color: var(--brand-dark);
+}
+
+.errorBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md, 8px);
+  background: var(--color-error);
+  border: 1px solid var(--color-error-bg);
+  color: var(--color-error);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.submitBtn {
+  background-color: var(--brand);
+  color: var(--ink);
+  border: none;
+  padding: 12px;
+  border-radius: var(--radius-btn, 8px);
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color var(--motion-fast) var(--ease-standard);
+  margin-top: 8px;
+}
+
+.submitBtn:hover {
+  background-color: var(--brand-dark);
+}
+
+.back {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.back a {
+  color: var(--gray-400);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--motion-fast) var(--ease-standard);
+}
+
+.back a:hover {
+  color: var(--brand-dark);
+}
+
+@media (max-width: 768px) {
+  .page {
+    flex-direction: column;
+  }
+  .brand {
+    flex: 0 0 auto;
+    padding: 32px 24px;
+  }
+  .features {
+    display: none;
+  }
+  .brandTitle {
+    font-size: 1.75rem;
+  }
+  .formPanel {
+    padding: 24px 16px;
+  }
+  .formWrap {
+    border: none;
+    box-shadow: none;
+    padding: 24px 16px;
+  }
+}

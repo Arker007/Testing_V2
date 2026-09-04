@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import AdminNotificationsDropdown from "./AdminNotificationsDropdown";
-import styles from "./AdminLayout.module.css";
+import styles from "../styles/AdminLayout.module.css";
 
 export default function AdminTopBar({
   sidebarOpen,

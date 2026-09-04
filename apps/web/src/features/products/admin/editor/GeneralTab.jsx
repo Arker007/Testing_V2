@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import RichTextEditor from "../../../admin/components/RichTextEditor";
-import styles from "../../../admin/components/AdminTable.module.css";
+import styles from "../../../admin/styles/AdminTable.module.css";
 
 export default function GeneralTab({
   form,

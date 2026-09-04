@@ -9,7 +9,7 @@ const path = require("path");
 const fs = require("fs");
 
 // Database
-const { initDatabase } = require("./src/shared/database/database");
+const { initDatabase } = require("./src/database/database");
 
 const app = express();
 const PORT = 3000;
@@ -140,7 +140,7 @@ async function setupFrontend(app) {
 }
 
 // Global error handler - MUST be defined after all other middleware and routes
-const errorHandler = require("./src/shared/middleware/errorHandler");
+const errorHandler = require("./src/middleware/errorHandler");
 
 // Start Server
 async function start() {

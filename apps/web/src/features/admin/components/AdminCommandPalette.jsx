@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import { NAV_ITEMS } from "./adminNav.constants";
+import { NAV_ITEMS } from "../constants/adminNav.constants";
 
 export default function AdminCommandPalette({
   showSearchCmd,

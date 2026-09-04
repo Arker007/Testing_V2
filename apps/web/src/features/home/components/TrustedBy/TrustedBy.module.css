@@ -1,0 +1,65 @@
+/* ── Trusted By Section ── */
+.trustedBy {
+  background: var(--bg-card, var(--white));
+  padding: 2.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.trustedHeading {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.logoRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem 2rem;
+}
+
+.logoBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-light, rgba(0, 0, 0, 0.02));
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--border);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.85;
+  cursor: default;
+}
+
+.logoBadge:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  border-color: var(--brand-primary, var(--brand-500));
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.logoSvg {
+  height: 26px;
+  width: auto;
+  max-width: 140px;
+  display: block;
+}
+
+/* ── Dark Mode Adaptations ── */
+:global([data-theme="dark"]) .trustedBy,
+:global(.dark) .trustedBy {
+  background: var(--bg-canvas, var(--neutral-950)) !important;
+  border-bottom-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .logoBadge,
+:global(.dark) .logoBadge {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+  color: var(--text-main, var(--neutral-100)) !important;
+}

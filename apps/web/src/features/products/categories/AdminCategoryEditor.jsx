@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, useOutletContext } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import styles from "../../admin/components/AdminTable.module.css";
+import styles from "../../admin/styles/AdminTable.module.css";
 
 const EMPTY = { name: "", description: "", image: "", fields: [] };
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, Outlet, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../../shared/context/SiteContext";
-import styles from "./AdminLayout.module.css";
+import styles from "../styles/AdminLayout.module.css";
 import AdminSidebar from "./AdminSidebar";
 import AdminTopBar from "./AdminTopBar";
 import AdminCommandPalette from "./AdminCommandPalette";

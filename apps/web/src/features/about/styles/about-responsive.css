@@ -1,6 +1,0 @@
-/* About Responsive Media Queries */
-@media (max-width: 768px) {
-  .about-hero-section {
-    padding: 1rem 0;
-  }
-}

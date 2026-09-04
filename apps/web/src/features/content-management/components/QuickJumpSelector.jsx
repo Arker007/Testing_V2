@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import { ALL_SECTIONS_LIST } from "../constants/allSectionsList";
 
 export default function QuickJumpSelector({
@@ -14,6 +15,8 @@ export default function QuickJumpSelector({
   setSelectSearchQuery,
   activeFilterTab,
 }) {
+  const currentSection = ALL_SECTIONS_LIST.find((s) => s.key === activeSub);
+
   return (
     <div style={{ position: "relative", marginBottom: "12px" }}>
       <button
@@ -24,38 +27,35 @@ export default function QuickJumpSelector({
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          background: "var(--white)",
-          border: "1px solid var(--navy-subtle)",
+          background: "var(--surface-card)",
+          border: "1px solid var(--border)",
           borderRadius: "10px",
           padding: "8px 12px",
           cursor: "pointer",
           boxShadow: "0 2px 6px var(--shadow-sm)",
           transition: "all 0.2s",
         }}
-        className="hover:border-[var(--brand)]"
       >
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <i
-            className={`fa-solid ${
-              ALL_SECTIONS_LIST.find((s) => s.key === activeSub)?.icon ||
-              "fa-file-pen"
-            } text-[var(--brand)]`}
+          <Icon
+            icon={currentSection?.icon || "solar:document-text-linear"}
+            className="w-4 h-4 text-emerald-600 flex-shrink-0"
           />
           <span
             style={{
               fontSize: "0.82rem",
               fontWeight: 750,
-              color: "var(--ink)",
+              color: "var(--text-primary)",
             }}
           >
             {getSectionDisplayName(activeSub)}
           </span>
         </div>
-        <i
-          className={`fa-solid fa-chevron-down text-slate-400 transition-transform ${
+        <Icon
+          icon="solar:alt-arrow-down-linear"
+          className={`w-4 h-4 text-slate-400 transition-transform ${
             showDropdownSelect ? "rotate-180" : ""
           }`}
-          style={{ fontSize: "0.75rem" }}
         />
       </button>
 
@@ -66,10 +66,10 @@ export default function QuickJumpSelector({
             top: "calc(100% + 6px)",
             left: 0,
             right: 0,
-            background: "var(--white)",
+            background: "var(--surface-card)",
             borderRadius: "12px",
-            border: "1px solid var(--navy-subtle)",
-            boxShadow: "0 12px 28px var(--shadow-sm)",
+            border: "1px solid var(--border)",
+            boxShadow: "0 12px 28px var(--shadow-md)",
             zIndex: 100,
             overflow: "hidden",
             padding: "8px",
@@ -80,13 +80,13 @@ export default function QuickJumpSelector({
               display: "flex",
               alignItems: "center",
               padding: "8px 10px",
-              borderBottom: "1px solid var(--gray-100)",
+              borderBottom: "1px solid var(--border-subtle)",
               marginBottom: "6px",
             }}
           >
-            <i
-              className="fa-solid fa-magnifying-glass text-slate-400"
-              style={{ marginRight: "8px", fontSize: "0.8rem" }}
+            <Icon
+              icon="solar:magnifer-linear"
+              className="w-4 h-4 text-slate-400 mr-2 flex-shrink-0"
             />
             <input
               type="text"
@@ -100,6 +100,8 @@ export default function QuickJumpSelector({
                 fontSize: "0.8rem",
                 width: "100%",
                 fontWeight: 500,
+                background: "transparent",
+                color: "var(--text-primary)",
               }}
             />
             {selectSearchQuery && (
@@ -112,7 +114,7 @@ export default function QuickJumpSelector({
                 style={{
                   border: "none",
                   background: "none",
-                  color: "var(--muted)",
+                  color: "var(--text-muted)",
                   cursor: "pointer",
                   fontSize: "0.7rem",
                 }}
@@ -162,7 +164,7 @@ export default function QuickJumpSelector({
                     border: "none",
                     background:
                       activeSub === sec.key
-                        ? "var(--brand-light)"
+                        ? "var(--brand-glow-subtle)"
                         : "transparent",
                     cursor: "pointer",
                     display: "flex",
@@ -170,7 +172,6 @@ export default function QuickJumpSelector({
                     justifyContent: "space-between",
                     transition: "all 0.15s",
                   }}
-                  className="hover:bg-slate-50"
                 >
                   <div
                     style={{
@@ -183,8 +184,8 @@ export default function QuickJumpSelector({
                       style={{
                         fontSize: "0.62rem",
                         textTransform: "uppercase",
-                        background: "var(--gray-100)",
-                        color: "var(--gray-600)",
+                        background: "var(--bg-surface)",
+                        color: "var(--text-muted)",
                         padding: "1px 4px",
                         borderRadius: "3px",
                         fontWeight: 700,
@@ -196,7 +197,7 @@ export default function QuickJumpSelector({
                       style={{
                         fontSize: "0.78rem",
                         fontWeight: activeSub === sec.key ? 750 : 500,
-                        color: "var(--ink)",
+                        color: "var(--text-primary)",
                       }}
                     >
                       {sec.label}
@@ -211,8 +212,8 @@ export default function QuickJumpSelector({
                         borderRadius: "4px",
                         background: isOn
                           ? "var(--brand-glow-subtle)"
-                          : "var(--gray-100)",
-                        color: isOn ? "var(--brand-dark)" : "var(--muted)",
+                          : "var(--bg-surface)",
+                        color: isOn ? "var(--brand-primary)" : "var(--text-muted)",
                       }}
                     >
                       {isOn ? "ON" : "OFF"}

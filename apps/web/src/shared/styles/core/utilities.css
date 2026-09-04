@@ -2,6 +2,168 @@
    GENERIC UTILITY CLASSES
    ========================================================================== */
 
+/* ─── Semantic Typography Utility Classes ───────────────────── */
+.text-display {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold, 800);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--tracking-display);
+}
+.text-h1 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--tracking-h1);
+}
+.text-h2 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--tracking-h2);
+}
+.text-h3 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--tracking-h3);
+}
+.text-h4 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--tracking-h4);
+}
+.text-body-lg {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+}
+.text-body {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+}
+.text-label {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-body);
+}
+.text-caption {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-body);
+}
+.text-micro {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-caps);
+}
+
+/* ─── Global Button Utilities ────────────────────────────── */
+.exploreBtnGlobal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: var(--brand, var(--brand-500)) !important;
+  color: var(--brand-btn-text, var(--neutral-950)) !important;
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.85rem 2.2rem 0.85rem 1.6rem;
+  border-radius: var(--radius-sm);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
+  text-decoration: none;
+  transition: all var(--motion-duration-instant) cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: none;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+}
+
+.exploreBtnGlobal *,
+.exploreBtnGlobal span {
+  color: var(--brand-btn-text, var(--neutral-950)) !important;
+}
+
+.exploreBtnGlobal:hover {
+  background: var(--brand-hover, var(--brand-400)) !important;
+  color: var(--brand-btn-text, var(--neutral-950)) !important;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.exploreBtnGlobal:hover *,
+.exploreBtnGlobal:hover span {
+  color: var(--brand-btn-text, var(--neutral-950)) !important;
+}
+
+.exploreBtnGlobal .exploreBtnArrowGlobal {
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke: var(--brand-btn-text, var(--neutral-950)) !important;
+  color: var(--brand-btn-text, var(--neutral-950)) !important;
+  transition: transform 0.25s ease;
+}
+
+.exploreBtnGlobal:hover .exploreBtnArrowGlobal {
+  transform: translateX(5px);
+  stroke: var(--brand-btn-text, var(--neutral-950)) !important;
+  color: var(--brand-btn-text, var(--neutral-950)) !important;
+}
+
+@media (max-width: 640px) {
+  .exploreBtnGlobal {
+    clip-path: none;
+    border-radius: 8px;
+  }
+}
+
+.btn-whatsapp {
+  background-color: var(--color-whatsapp) !important;
+  color: var(--neutral-950) !important;
+  font-weight: 700 !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.banner-description {
+  color: var(--neutral-700) !important;
+}
+
+/* ─── Input Placeholder Contrast ──────────────────────────── */
+:root[data-theme="light"] #enquiry-card input::placeholder,
+:root[data-theme="light"] #enquiry-card textarea::placeholder,
+:root:not(.dark) #enquiry-card input::placeholder,
+:root:not(.dark) #enquiry-card textarea::placeholder,
+html:not(.dark) #enquiry-card input::placeholder,
+html:not(.dark) #enquiry-card textarea::placeholder,
+.customInput::placeholder,
+.customTextarea::placeholder {
+  color: var(--neutral-500) !important;
+}
+
+:root[data-theme="dark"] #enquiry-card input::placeholder,
+:root[data-theme="dark"] #enquiry-card textarea::placeholder,
+:root.dark #enquiry-card input::placeholder,
+:root.dark #enquiry-card textarea::placeholder,
+html.dark #enquiry-card input::placeholder,
+html.dark #enquiry-card textarea::placeholder,
+html.dark .customInput::placeholder,
+html.dark .customTextarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
 /* ─── Badges, Tags & Highlights ────────────────────────────── */
 .badge,
 .eco-badge,
@@ -63,3 +225,9 @@
   white-space: nowrap;
   border-width: 0;
 }
+
+/* ─── Button Radius Helper ────────────────────────────────── */
+.rounded-btn {
+  border-radius: var(--radius-btn, 8px) !important;
+}
+

@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState, useMemo, useCallback } from 'react'
 
 const SiteContext = createContext({})
 
@@ -28,12 +28,22 @@ export function SiteProvider({ children }) {
     }, [])
 
     // Helper: get CMS value with fallback
-    const c = (key, fallback = '') => cms[key] || fallback
+    const c = useCallback((key, fallback = '') => cms[key] || fallback, [cms])
     // Helper: get company value with fallback
-    const co = (key, fallback = '') => company[key] || fallback
+    const co = useCallback((key, fallback = '') => company[key] || fallback, [company])
+
+    const value = useMemo(() => ({
+        company,
+        cms,
+        c,
+        co,
+        ready,
+        mobileMenuOpen,
+        setMobileMenuOpen
+    }), [company, cms, c, co, ready, mobileMenuOpen])
 
     return (
-        <SiteContext.Provider value={{ company, cms, c, co, ready, mobileMenuOpen, setMobileMenuOpen }}>
+        <SiteContext.Provider value={value}>
             {children}
         </SiteContext.Provider>
     )

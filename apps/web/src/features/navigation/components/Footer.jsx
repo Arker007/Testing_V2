@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../../shared/context/SiteContext";
-import styles from "../footer.module.css";
+import styles from "../styles/footer.module.css";
 
 const QUICK_LINKS = [
   { label: "Home", path: "/" },

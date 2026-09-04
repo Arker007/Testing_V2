@@ -1920,5 +1920,22 @@ Industrial
 
 ---
 
+# 54. Global Styling Architecture & Refactoring Summary (August 2026 Refactor)
+
+The global styling system has been consolidated and deduplicated into modular core style files under `apps/web/src/shared/styles/core/`:
+
+| FILE | ROLE & CONTENTS | CONSOLIDATED UTILITIES & TOKENS |
+| :--- | :--- | :--- |
+| `shared/styles/core/tokens.css` | **Master Design System Tokens** | Single source of truth for Tailwind `@theme` configuration, color primitives (Brand Green, Industrial Navy, Neutrals), 7-tier typography scale tokens, 4px/8px spacing, radii, shadows, motion tokens, and semantic token bridges. Removed duplicate document resets. |
+| `shared/styles/core/dark-theme.css` | **Dark Mode Theme Overrides** | Unified dark mode theme mappings (`:root[data-theme="dark"]`, `.dark`, `html.dark`) overriding semantic surface, text, border, shadow, and status variables for high contrast. |
+| `shared/styles/core/base-reset.css` | **Base Document Resets & Typography** | Global box-sizing, smooth scroll, document element baselines (`html`, `body`, `#root`, `#main-content`, `img`, `a`, `button`, `ul`, `ol`), focus-visible WCAG rules, 7-tier HTML element typography mapping (`h1`-`h6`, `p`, `li`, `td`, `small`, `label`, `input`, `textarea`, `select`, `button`), mobile typography media queries, and global reveal animations. |
+| `shared/styles/core/utilities.css` | **Global Shared Utilities** | Semantic typography utility classes (`.text-display`, `.text-h1`..`.text-h4`, `.text-body-lg`, `.text-body`, `.text-label`, `.text-caption`, `.text-micro`), badge/tag primitives (`.badge`, `.eco-badge`, `.highlight-badge`), global button utilities (`.exploreBtnGlobal`, `.btn-whatsapp`), contrast helpers, placeholder accessibility fixes, custom scrollbars (`::-webkit-scrollbar`), and screen reader helpers (`.sr-only`). |
+| `shared/styles/core/buttons-forms.css` | **Button & Form Controls** | Standard button classes (`.btn`, `.btn-primary`, `.btn-secondary`, `.btn-outline`, `.btn-outline-light`, `.btn-dark`, `.btn-ghost`, `.btn-lg`, `.btn-sm`, `.swipe-btn`, `.magic-shimmer-btn`), form control classes (`.form-group`, `.form-label`, `.form-input`, `.form-select`, `.form-textarea`), and base table header styling. |
+| `shared/styles/core/surfaces-cards.css` | **Surfaces, Cards & Layout Grids** | Structural containers (`.container`, `.section`, `.section-eyebrow`, `.section-title`, `.section-desc`, `.section-header`), responsive grid system (`.grid-2`, `.grid-3`, `.grid-4`, `.grid-auto`, `.grid-auto-sm`), card/panel/dropdown surface primitives. |
+| `shared/styles/core/components-shared.css` | **Shared Component UI System** | Reusable composed UI classes (`.btn-shared-*`, `.form-*-shared`, `.badge-shared-*`, `.card-shared-*`, `.modal-*-shared`, `.breadcrumb-shared`, `.tabs-shared`, `.stat-card-shared`, `.alert-shared-*`, `.feature-card-item`, `.cta-banner-card`). |
+| `index.css` | **Main Global Import Shell** | Streamlined entry point importing `shared/styles/index.css`. All duplicate typography overrides, button overrides, and element resets removed. |
+
+---
+
 *End of Design System Documentation (`design.md`)*
 

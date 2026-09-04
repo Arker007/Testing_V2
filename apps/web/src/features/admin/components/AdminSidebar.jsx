@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./AdminLayout.module.css";
+import styles from "../styles/AdminLayout.module.css";
 import { Icon } from "@iconify/react";
-import { NAV_ITEMS } from "./adminNav.constants";
+import { NAV_ITEMS } from "../constants/adminNav.constants";
 
 export default function AdminSidebar({
   sidebarOpen,

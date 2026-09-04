@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import styles from "../navbar.module.css";
+import { motion, AnimatePresence } from "framer-motion";
+import styles from "../styles/navbar.module.css";
 
 export default function NavbarSearch({
   products = [],
@@ -125,7 +127,7 @@ export default function NavbarSearch({
           className={styles.searchSubmitBtn}
           aria-label={isExpanded ? "Submit search" : "Open search bar"}
         >
-          <Icon icon="solar:magnifer-linear" className="w-5 h-5 shrink-0 text-slate-700 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-white" width="20" height="20" />
+          <Icon icon="solar:magnifer-linear" className="w-5 h-5 shrink-0" width="20" height="20" />
         </button>
 
         <input
@@ -148,7 +150,7 @@ export default function NavbarSearch({
             backgroundColor: "transparent",
             WebkitAppearance: "none",
           }}
-          className="w-full bg-transparent border-0 outline-none focus:outline-none focus:ring-0 focus:border-0 shadow-none text-sm font-medium text-slate-900 placeholder:text-slate-500"
+          className="w-full bg-transparent border-0 outline-none focus:outline-none focus:ring-0 focus:border-0 shadow-none text-sm font-medium"
         />
 
         {isExpanded && (
@@ -165,94 +167,131 @@ export default function NavbarSearch({
       </form>
 
       {/* Professional Live Suggestions Dropdown */}
-      {showDropdown && (
-        <div className={styles.suggestions}>
-          {matchingProducts.length > 0 ? (
-            <>
-              <div className={styles.suggestionsHeader}>
-                <span className={styles.suggestionsHeaderTitle}>Products</span>
-                <span className={styles.suggestionsHeaderCount}>
-                  {matchingProducts.length} {matchingProducts.length === 1 ? "match" : "matches"}
-                </span>
-              </div>
+      <AnimatePresence>
+        {showDropdown && (
+          <motion.div
+            className={styles.suggestions}
+            initial={{ opacity: 0, y: -10, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -5, scale: 0.98 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
+          >
+            {matchingProducts.length > 0 ? (
+              <>
+                <motion.div
+                  className={styles.suggestionsHeader}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.05 }}
+                >
+                  <span className={styles.suggestionsHeaderTitle}>Products</span>
+                  <span className={styles.suggestionsHeaderCount}>
+                    {matchingProducts.length} {matchingProducts.length === 1 ? "match" : "matches"}
+                  </span>
+                </motion.div>
 
-              <div className={styles.suggestionsList}>
-                {matchingProducts.map((p) => {
-                  const imgUrl =
-                    p.images?.[0] ||
-                    p.image ||
-                    p.primary_image ||
-                    "/uploads/products/pallets/pallets-1770374237161-67758.webp";
-                  const catName = p.category_name || p.category || "";
+                <motion.div
+                  className={styles.suggestionsList}
+                  initial="hidden"
+                  animate="visible"
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                      opacity: 1,
+                      transition: {
+                        staggerChildren: 0.05,
+                      },
+                    },
+                  }}
+                >
+                  {matchingProducts.map((p) => {
+                    const imgUrl =
+                      p.images?.[0] ||
+                      p.image ||
+                      p.primary_image ||
+                      "/uploads/products/pallets/pallets-1770374237161-67758.webp";
+                    const catName = p.category_name || p.category || "";
 
-                  return (
-                    <button
-                      key={p.id}
-                      type="button"
-                      className={styles.suggestionItem}
-                      onClick={() => handleSelectProduct(p.id)}
-                    >
-                      <div className={styles.suggestionThumbWrap}>
-                        <img
-                          src={imgUrl}
-                          alt={p.name}
-                          className={styles.suggestionThumbImg}
-                          onError={(e) => {
-                            e.target.onerror = null;
-                            e.target.src =
-                              "/uploads/products/pallets/pallets-1770374237161-67758.webp";
-                          }}
-                        />
-                      </div>
-                      <div className={styles.suggestionMeta}>
-                        <span className={styles.suggestionName}>
-                          {p.name || p.title}
-                        </span>
-                        <div className={styles.suggestionSubRow}>
-                          {catName && (
-                            <span className={styles.suggestionCategoryBadge}>
-                              {catName}
-                            </span>
-                          )}
-                          {p.sku && (
-                            <span className={styles.suggestionSku}>
-                              SKU: {p.sku}
-                            </span>
-                          )}
+                    return (
+                      <motion.button
+                        key={p.id}
+                        type="button"
+                        className={styles.suggestionItem}
+                        onClick={() => handleSelectProduct(p.id)}
+                        variants={{
+                          hidden: { opacity: 0, y: 10 },
+                          visible: { opacity: 1, y: 0 },
+                        }}
+                      >
+                        <div className={styles.suggestionThumbWrap}>
+                          <img
+                            src={imgUrl}
+                            alt={p.name}
+                            className={styles.suggestionThumbImg}
+                            onError={(e) => {
+                              e.target.onerror = null;
+                              e.target.src =
+                                "/uploads/products/pallets/pallets-1770374237161-67758.webp";
+                            }}
+                          />
                         </div>
-                      </div>
-                      <Icon
-                        icon="solar:alt-arrow-right-linear"
-                        className={styles.suggestionItemArrow}
-                      />
-                    </button>
-                  );
-                })}
-              </div>
+                        <div className={styles.suggestionMeta}>
+                          <span className={styles.suggestionName}>
+                            {p.name || p.title}
+                          </span>
+                          <div className={styles.suggestionSubRow}>
+                            {catName && (
+                              <span className={styles.suggestionCategoryBadge}>
+                                {catName}
+                              </span>
+                            )}
+                            {p.sku && (
+                              <span className={styles.suggestionSku}>
+                                SKU: {p.sku}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        <Icon
+                          icon="solar:alt-arrow-right-linear"
+                          className={styles.suggestionItemArrow}
+                        />
+                      </motion.button>
+                    );
+                  })}
+                </motion.div>
 
-              <button
-                type="button"
-                className={styles.suggestionAllBtn}
-                onClick={handleSubmit}
+                <motion.button
+                  type="button"
+                  className={styles.suggestionAllBtn}
+                  onClick={handleSubmit}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <div className={styles.suggestionAllLeft}>
+                    <Icon icon="solar:magnifer-linear" className={styles.suggestionAllIcon} />
+                    <span>View all results for <strong>&ldquo;{query.trim()}&rdquo;</strong></span>
+                  </div>
+                  <Icon icon="solar:arrow-right-linear" className={styles.suggestionAllArrow} />
+                </motion.button>
+              </>
+            ) : (
+              <motion.div
+                className={styles.noSuggestion}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
               >
-                <div className={styles.suggestionAllLeft}>
-                  <Icon icon="solar:magnifer-linear" className={styles.suggestionAllIcon} />
-                  <span>View all results for <strong>&ldquo;{query.trim()}&rdquo;</strong></span>
-                </div>
-                <Icon icon="solar:arrow-right-linear" className={styles.suggestionAllArrow} />
-              </button>
-            </>
-          ) : (
-            <div className={styles.noSuggestion}>
-              <Icon icon="solar:minimalistic-magnifer-linear" className={styles.noSuggestionIcon} />
-              <p className={styles.noSuggestionText}>
-                No products found for <strong>&ldquo;{query.trim()}&rdquo;</strong>
-              </p>
-              <span className={styles.noSuggestionTip}>Try searching for pallets, lumber, benches, or dustbins</span>
-            </div>
-          )}
-        </div>
-      )}
+                <Icon icon="solar:minimalistic-magnifer-linear" className={styles.noSuggestionIcon} />
+                <p className={styles.noSuggestionText}>
+                  No products found for <strong>&ldquo;{query.trim()}&rdquo;</strong>
+                </p>
+                <span className={styles.noSuggestionTip}>Try searching for pallets, lumber, benches, or dustbins</span>
+              </motion.div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

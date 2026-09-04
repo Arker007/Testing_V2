@@ -5,19 +5,19 @@
   align-items: center !important;
   justify-content: center !important;
   gap: 8px !important;
-  height: 42px !important;
-  padding: 0 22px !important;
-  border-radius: 8px !important;
-  border: 1px solid var(--border-subtle, #DADADA) !important;
+  min-height: var(--btn-h-md, 42px) !important;
+  padding: 0 var(--btn-px-md, 1.375rem) !important;
+  border-radius: var(--radius-btn, 8px) !important;
+  border: 1px solid var(--border-subtle) !important;
   background-color: var(--bg-card, var(--white));
   color: var(--text-primary, var(--neutral-950));
-  font-family: var(--font-family-primary, 'Noto Sans', sans-serif) !important;
+  font-family: var(--font-sans, inherit) !important;
   font-weight: 700 !important;
-  font-size: 0.875rem !important;
+  font-size: var(--btn-font-md, 0.875rem) !important;
   cursor: pointer !important;
   overflow: hidden !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  box-shadow: 0 1px 3px var(--shadow-sm, rgba(0, 0, 0, 0.05)) !important;
+  box-shadow: var(--shadow-sm) !important;
   user-select: none !important;
   white-space: nowrap !important;
   line-height: 1 !important;
@@ -75,18 +75,18 @@
 
 /* Hover States */
 .interactive-hover-button:hover {
-  border-color: var(--brand, var(--brand-500)) !important;
-  color: var(--neutral-950) !important; /* High contrast crisp black on green background */
-  box-shadow: 0 4px 16px rgba(107, 191, 84, 0.3) !important;
+  border-color: var(--brand-primary) !important;
+  color: var(--brand-btn-text) !important;
+  box-shadow: var(--shadow-md), var(--brand-glow) !important;
 }
 
 .interactive-hover-button:hover .interactive-hover-button-dot {
   transform: scale(60) !important;
-  background-color: var(--brand, var(--brand-500)) !important;
+  background-color: var(--brand-primary) !important;
 }
 
 .interactive-hover-button:hover .interactive-hover-button-text {
-  color: var(--neutral-950) !important;
+  color: var(--brand-btn-text) !important;
   transform: translateX(-2px) !important;
 }
 
@@ -96,8 +96,20 @@
   transform: translateX(0) !important;
 }
 
+/* Focus, Active, and Disabled States */
+.interactive-hover-button:focus-visible {
+  outline: 2px solid var(--brand-primary) !important;
+  outline-offset: 2px !important;
+}
+
+.interactive-hover-button:active:not(:disabled) {
+  transform: translateY(1px) scale(0.99) !important;
+}
+
 .interactive-hover-button:disabled {
-  opacity: 0.6 !important;
+  opacity: 0.55 !important;
   cursor: not-allowed !important;
   pointer-events: none !important;
+  transform: none !important;
+  box-shadow: none !important;
 }

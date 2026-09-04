@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
-import styles from "../../admin/components/AdminTable.module.css";
+import { Icon } from "@iconify/react";
+import styles from "../../admin/styles/AdminTable.module.css";
 import { TimelineModalFields } from "./TimelineModalFields";
 import { TeamModalFields } from "./TeamModalFields";
 
@@ -35,9 +36,9 @@ export default function ModalEditor({ modalItem, setModalItem, handleModalSave }
     >
       <div
         style={{
-          background: "var(--white)",
+          background: "var(--surface-card)",
           borderRadius: "16px",
-          border: "1px solid rgba(5, 40, 63, 0.1)",
+          border: "1px solid var(--border)",
           width: "100%",
           maxWidth: "480px",
           boxShadow: "0 20px 40px var(--shadow-md)",
@@ -48,9 +49,9 @@ export default function ModalEditor({ modalItem, setModalItem, handleModalSave }
           <div
             style={{
               padding: "20px 24px",
-              borderBottom: "1px solid var(--navy-subtle)",
+              borderBottom: "1px solid var(--border)",
               display: "flex",
-              justifyItems: "center",
+              alignItems: "center",
               justifyContent: "space-between",
             }}
           >
@@ -59,7 +60,7 @@ export default function ModalEditor({ modalItem, setModalItem, handleModalSave }
                 margin: 0,
                 fontSize: "1rem",
                 fontWeight: 800,
-                color: "var(--ink)",
+                color: "var(--text-primary)",
               }}
             >
               {modalItem.type === "timeline"
@@ -72,11 +73,13 @@ export default function ModalEditor({ modalItem, setModalItem, handleModalSave }
               style={{
                 border: "none",
                 background: "none",
-                color: "var(--muted)",
+                color: "var(--text-muted)",
                 cursor: "pointer",
+                padding: "4px",
+                display: "flex",
               }}
             >
-              <i className="fa-solid fa-xmark" />
+              <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
             </button>
           </div>
 

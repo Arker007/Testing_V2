@@ -1,0 +1,105 @@
+.hero {
+  position: relative;
+  padding: 3.75rem 0 4.25rem;
+  overflow: hidden;
+  background: var(--hero-gradient, linear-gradient(135deg, var(--neutral-950) 0%, var(--neutral-900) 100%));
+  border-bottom: 4px solid var(--accent, var(--brand-500));
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 2.5rem 0 3rem;
+  }
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 75% 50%, var(--brand-glow-subtle, rgba(107, 191, 84, 0.12)) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-on-dark-secondary, rgba(255, 255, 255, 0.75));
+  margin-bottom: 1.25rem;
+}
+
+.breadcrumbLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--text-on-dark, rgba(255, 255, 255, 0.9));
+  text-decoration: none;
+  transition: color var(--motion-fast) var(--ease-standard);
+}
+
+.breadcrumbLink:hover {
+  color: var(--brand, var(--brand-500));
+}
+
+.breadcrumbSep {
+  color: var(--text-on-dark-secondary, rgba(255, 255, 255, 0.85));
+  flex-shrink: 0;
+}
+
+.breadcrumbActive {
+  color: var(--brand, var(--brand-500));
+  font-weight: 600;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 1.25rem;
+  background-color: var(--hero-badge-bg, rgba(107, 191, 84, 0.15));
+  border: 1px solid var(--hero-badge-border, rgba(107, 191, 84, 0.35));
+  border-radius: var(--radius-pill, 9999px);
+  color: var(--hero-badge-text, var(--brand-400));
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-2xs);
+  backdrop-filter: blur(4px);
+}
+
+.heroBadgeIcon {
+  color: var(--hero-badge-text, var(--brand-400));
+}
+
+.heroTitle {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-top: 0.875rem;
+  margin-bottom: 0.875rem;
+  line-height: 1.2;
+}
+
+.heroTitleAccent {
+  color: var(--brand-400);
+}
+
+.heroDescription {
+  color: var(--text-on-dark-secondary, rgba(255, 255, 255, 0.85));
+  font-size: 1rem;
+  max-width: 720px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .heroDescription {
+    font-size: 1.125rem;
+  }
+}

@@ -1,0 +1,115 @@
+/* ── Testimonials Section ── */
+.testimonialsSection {
+  background: var(--bg-surface, var(--neutral-100));
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.testimonialSliderBox {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg-card, var(--white));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem 4rem;
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Dark Mode Adaptations for Testimonials ── */
+:global([data-theme="dark"]) .testimonialsSection,
+:global(.dark) .testimonialsSection,
+html.dark .testimonialsSection {
+  background: var(--bg-canvas, var(--neutral-950)) !important;
+  border-color: var(--border, rgba(242, 242, 242, 0.10)) !important;
+}
+
+:global([data-theme="dark"]) .testimonialSliderBox,
+:global(.dark) .testimonialSliderBox,
+html.dark .testimonialSliderBox {
+  background: var(--bg-surface, var(--neutral-900)) !important;
+  border: 1px solid var(--border, rgba(242, 242, 242, 0.12)) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35) !important;
+}
+
+:global([data-theme="dark"]) .testimonialQuote,
+:global(.dark) .testimonialQuote,
+html.dark .testimonialQuote {
+  color: var(--text-main, var(--neutral-100)) !important;
+}
+
+:global([data-theme="dark"]) .authorName,
+:global(.dark) .authorName,
+html.dark .authorName {
+  color: var(--white) !important;
+}
+
+:global([data-theme="dark"]) .authorMeta,
+:global(.dark) .authorMeta,
+html.dark .authorMeta {
+  color: rgba(242, 242, 242, 0.7) !important;
+}
+
+.testimonialSlide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.starsRow {
+  display: flex;
+  gap: 0.25rem;
+  color: var(--color-warning);
+  font-size: 1rem;
+}
+
+.testimonialQuote {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.testimonialAuthorBox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.authorAvatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--brand);
+}
+
+.authorName {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.authorMeta {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .testimonialSliderBox {
+    padding: 2rem 1.5rem;
+  }
+}

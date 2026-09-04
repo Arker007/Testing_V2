@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../../shared/context/SiteContext";
-import styles from "../mobile-bottom-nav.module.css";
+import styles from "../styles/mobile-bottom-nav.module.css";
 
 export default function MobileBottomNav() {
   const { pathname } = useLocation();

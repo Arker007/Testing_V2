@@ -1,0 +1,41 @@
+import React from "react";
+import { IndustryCard } from "./IndustryCard";
+import { INDUSTRIES_DATA } from "../../data/industriesData";
+import styles from "./Industries.module.css";
+import { useSite } from "../../../../shared/context/SiteContext";
+import { Badge } from "@/shared/ui";
+
+export default function IndustriesGrid() {
+  const { c } = useSite();
+
+  if (c("show_industries", "1") === "0") return null;
+
+  return (
+    <section className={styles.industriesSection}>
+      <div className="container">
+        <div className={styles.sectionHeader}>
+          <div className="flex justify-center mb-3">
+            <Badge variant="eyebrow">
+              {c("industries_eyebrow", "Applications")}
+            </Badge>
+          </div>
+          <h2 className="section-title">
+            {c("industries_title", "Industries We Serve")}
+          </h2>
+          <p className="section-subtitle">
+            {c(
+              "industries_subtitle",
+              "Our products are built to meet high safety, durability, and load standards across different sectors."
+            )}
+          </p>
+        </div>
+
+        <div className={styles.industriesGrid}>
+          {INDUSTRIES_DATA.map((item) => (
+            <IndustryCard key={item.id} item={item} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

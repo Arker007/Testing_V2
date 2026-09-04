@@ -1,13 +1,10 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import styles from "../../admin/components/AdminTable.module.css";
+import styles from "../../admin/styles/AdminTable.module.css";
 import { toPlainPreview } from "../../../shared/utils/parsers";
 import { InteractiveHoverButton } from "../../../registry/magicui/interactive-hover-button";
-import SearchInput from "../../../shared/components/ui/SearchInput";
-import EmptyState from "../../../shared/components/ui/EmptyState";
-import ConfirmDialog from "../../../shared/components/ui/ConfirmDialog";
-import Spinner from "../../../shared/components/ui/Spinner";
+import { SearchInput, EmptyState, ConfirmDialog, Spinner } from "@/shared/ui";
 
 export default function AdminProducts() {
   const navigate = useNavigate();

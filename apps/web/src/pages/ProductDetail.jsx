@@ -1,6 +1,5 @@
-import React from "react";
-import { ProductDetailView } from "../features/product-detail";
+import { ProductDetailPage } from "../features/products";
 
 export default function ProductDetail() {
-  return <ProductDetailView />;
+  return <ProductDetailPage />;
 }

@@ -1,12 +1,11 @@
-export { default as MobileCategoryBar } from "./components/MobileCategoryBar";
-export { default as ProductFilterSidebar } from "./components/ProductFilterSidebar";
-export { default as ProductGridCard } from "./components/ProductGridCard";
-export { default as ProductListItemCard } from "./components/ProductListItemCard";
-export { default as ProductSearchHeader } from "./components/ProductSearchHeader";
-export { default as ProductsHero } from "./components/ProductsHero";
-export { default as QuickViewModal } from "./components/QuickViewModal";
-export { default as ProcurementAdvantage } from "./components/ProcurementAdvantage";
-export { default as ProcurementCtaBand } from "./components/ProcurementCtaBand";
-export * from "./products.constants";
-export * from "./productUtils";
-export { default as ProductCatalog } from "./ProductCatalog";
+export * from "./components";
+export * from "./constants";
+export * from "./utils";
+export * from "./services";
+export * from "./hooks";
+export * from "./admin";
+export * from "./categories";
+export * from "./detail";
+
+export { default as ProductsPage } from "./components/ProductsPage";
+export { default as ProductDetailPage } from "./components/ProductDetailPage";

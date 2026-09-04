@@ -1,4 +1,200 @@
 
+/* ==========================================================================
+   BASE DOCUMENT RESETS & ACCESSIBILITY
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  font-size: var(--font-size-base, 16px);
+  font-weight: var(--font-weight-regular, 400);
+  line-height: var(--line-height-body, 1.5);
+  background-color: var(--bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html, body, #root {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-base);
+  font-size: var(--font-size-base, 16px);
+  color: var(--text-primary);
+  line-height: var(--line-height-body);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--motion-fast) var(--ease-standard);
+}
+
+@layer base {
+  button {
+    cursor: pointer;
+    font-family: inherit;
+    border-style: solid;
+    border-width: 0;
+    background: none;
+    border-radius: var(--radius-btn);
+    transition: background-color var(--motion-fast) var(--ease-standard),
+                border-color var(--motion-fast) var(--ease-standard),
+                transform var(--motion-instant) var(--ease-standard),
+                box-shadow var(--motion-fast) var(--ease-standard);
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+#main-content {
+  overflow-x: hidden;
+  isolation: isolate;
+}
+
+@media (max-width: 768px) {
+  #main-content {
+    padding-bottom: 64px;
+  }
+}
+
+/* Focus-Visible Rules (WCAG 2.2 AA) */
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-btn, 8px);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ==========================================================================
+   BASE HEADING & ELEMENT TYPOGRAPHY (7-Tier Scale)
+   ========================================================================== */
+h1 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--tracking-h1);
+  color: var(--heading);
+}
+
+h2 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--tracking-h2);
+  color: var(--heading);
+}
+
+h3 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--tracking-h3);
+  color: var(--heading);
+}
+
+h4 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--tracking-h4);
+  color: var(--heading);
+}
+
+h5 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--line-height-heading);
+  color: var(--heading);
+}
+
+h6 {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--line-height-heading);
+  color: var(--heading);
+}
+
+p,
+li,
+td {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--text-secondary);
+}
+
+small,
+label {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-body);
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--font-size-3xl);
+    line-height: var(--line-height-tight);
+  }
+
+  h2 {
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-heading);
+  }
+
+  h3 {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-heading);
+  }
+
+  h4 {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-heading);
+  }
+
+  p,
+  li,
+  td {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-body);
+  }
+}
+
 /* ─── Phase 4: Light Mode Contrast Audit & Transitions ─── */
 /* Ensure all icons and SVGs adapt properly using currentColor on light surfaces */
 :root[data-theme="light"] svg:not([fill="none"]),

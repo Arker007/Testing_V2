@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Navbar, MobileBottomNav, Footer } from "../../features/navigation";
-import ScrollProgressBar from "../../shared/components/ScrollProgressBar";
+import { ScrollProgressBar, TimedInquiryModal } from "@/shared/ui";
 
 export default function PublicLayout() {
   const { pathname } = useLocation();
@@ -89,6 +89,7 @@ export default function PublicLayout() {
       </div>
       <Footer />
       <MobileBottomNav />
+      <TimedInquiryModal />
     </>
   );
 }

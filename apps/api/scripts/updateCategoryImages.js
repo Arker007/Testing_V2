@@ -1,4 +1,4 @@
-const dbModule = require("../src/shared/database/database");
+const dbModule = require("../src/database/database");
 
 async function run() {
   console.log("🚀 Starting Category Images Synchronization with Database Seeds...");

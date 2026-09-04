@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { motion as Motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "motion/react";
 import { useSite } from "../../../shared/context/SiteContext";
 const DEFAULT_CATEGORIES = [
-  { id: "lumber", name: "Plastic Lumber" },
-  { id: "pallets", name: "Plastic Pallets" },
-  { id: "benches", name: "Garden Benches" },
-  { id: "furniture", name: "Outdoor Furniture" },
-  { id: "fences", name: "Garden Fences" },
-  { id: "tables", name: "Plastic Tables" }
+  { id: "plastic-pallets", name: "Plastic Pallets", slug: "plastic-pallets" },
+  { id: "plastic-lumber", name: "Plastic Lumber", slug: "plastic-lumber" },
+  { id: "garden-bench", name: "Garden Benches", slug: "garden-bench" },
+  { id: "plastic-table", name: "Recycled Plastic Tables", slug: "plastic-table" },
+  { id: "custom-products", name: "Custom & Fencing", slug: "custom-products" },
 ];
 
-import QuoteButton from "../../../shared/components/QuoteButton";
+import { QuoteButton } from "@/shared/ui";
 import MegaMenu from "./MegaMenu";
 import MobileNavDrawer from "./MobileNavDrawer";
 import NavbarSearch from "./NavbarSearch";
-import styles from "../navbar.module.css";
+import styles from "../styles/navbar.module.css";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

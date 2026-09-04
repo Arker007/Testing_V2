@@ -13,9 +13,10 @@
   --color-surface-secondary: var(--bg-surface-secondary);
   --color-surface-tertiary: var(--bg-surface-tertiary);
   --color-surface-elevated: var(--bg-surface-elevated);
+  --color-bg-dark-container: var(--bg-dark-container);
   --color-surface-nav: var(--bg-nav);
 
-  /* Surface bridges */
+  /* Surface Bridges */
   --color-bg-canvas: var(--bg-canvas);
   --color-bg-surface: var(--bg-surface);
   --color-bg-page: var(--bg-canvas);
@@ -80,6 +81,7 @@
   --radius-full: var(--radius-full);
   --radius-card: var(--radius-card);
   --radius-btn: var(--radius-btn);
+  --radius-icon: var(--radius-icon);
   --radius-input: var(--radius-input);
   --radius-badge: var(--radius-badge);
   --radius-pill: var(--radius-pill);
@@ -93,92 +95,14 @@
 }
 
 /* ==========================================================================
-   BASE DOCUMENT RESETS & ACCESSIBILITY
-   ========================================================================== */
-@layer base {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-@layer base {
-  body {
-    font-family: var(--font-sans);
-    color: var(--text-primary);
-    font-size: var(--font-size-base, 16px);
-    font-weight: var(--font-weight-regular, 400);
-    line-height: var(--line-height-body, 1.5);
-    background-color: var(--bg-canvas);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-  }
-
-  img {
-    max-width: 100%;
-    display: block;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-    transition: color var(--motion-fast) var(--ease-standard);
-  }
-
-  button {
-    cursor: pointer;
-    font-family: inherit;
-    border: none;
-    background: none;
-    border-radius: var(--radius-btn);
-    transition: background-color var(--motion-fast) var(--ease-standard),
-                border-color var(--motion-fast) var(--ease-standard),
-                transform var(--motion-instant) var(--ease-standard),
-                box-shadow var(--motion-fast) var(--ease-standard);
-  }
-}
-
-#main-content {
-  overflow-x: hidden;
-  isolation: isolate;
-}
-
-@media (max-width: 768px) {
-  #main-content {
-    padding-bottom: 64px;
-  }
-}
-
-/* Focus-Visible Rules (WCAG 2.2 AA) */
-:focus-visible {
-  outline: 2px solid var(--brand-primary);
-  outline-offset: 2px;
-  border-radius: var(--radius-btn, 8px);
-}
-
-:focus:not(:focus-visible) {
-  outline: none;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-/* ==========================================================================
-   MASTER DESIGN SYSTEM TOKENS (One Source of Truth)
+   MASTER DESIGN SYSTEM TOKENS (Single Source of Truth)
    ========================================================================== */
 :root {
-  /* ------------------------------------------------------------------------
-     1. PRIMITIVE PALETTE (Consolidated Core Palette)
-     ------------------------------------------------------------------------ */
-  /* Core Neutrals & Slate */
+  /* ========================================================================
+     1. COLOR SYSTEM
+     ======================================================================== */
+  
+  /* 1.1 Primitive Palette - Core Neutrals & Slate */
   --neutral-50:  #FFFFFF;
   --neutral-100: #F8FAFC;
   --neutral-200: #E7EBE8;
@@ -191,7 +115,7 @@ ol {
   --neutral-900: #161C24;
   --neutral-950: #0F141A;
 
-  /* Industrial Navy (Mapped to Core Neutrals) */
+  /* 1.2 Industrial Navy Scale */
   --navy-50:  var(--neutral-100);
   --navy-100: var(--neutral-100);
   --navy-200: var(--neutral-200);
@@ -204,7 +128,7 @@ ol {
   --navy-900: var(--neutral-900);
   --navy-950: var(--neutral-950);
 
-  /* Brand Eco-Green (Core 3-Tone Scale) */
+  /* 1.3 Brand Eco-Green (Core 3-Tone Scale) */
   --brand-50:  #F2FBE8;
   --brand-100: #E5F3E8;
   --brand-200: var(--brand-100);
@@ -216,7 +140,7 @@ ol {
   --brand-800: var(--brand-600);
   --brand-900: var(--brand-600);
 
-  /* Status Colors (Core 2-Step Pairs) */
+  /* 1.4 Status & Feedback Color Primitives */
   --success-50:  #F2FBE8;
   --success-100: #E5F3E8;
   --success-500: #2E6005;
@@ -255,166 +179,17 @@ ol {
   --color-info-light:    var(--info-600);
   --color-info-dark:     #60A5FA;
 
-  /* ------------------------------------------------------------------------
-     2. STANDARDIZED 7-TIER TYPOGRAPHY SCALE
-     ------------------------------------------------------------------------ */
-  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-admin: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family-primary: var(--font-sans);
-  --font-family-admin: var(--font-admin);
-  --font-family-stack: var(--font-sans);
-  --font-heading: var(--font-sans);
-  --font-display: var(--font-sans);
-  --font-body: var(--font-sans);
-
-  /* 7 Standardized Font Size Tiers */
-  --font-size-xs: 0.75rem;      /* Tier 1: 12px - Badges, captions, legal, meta */
-  --font-size-sm: 0.8125rem;    /* Tier 2: 13px - Subtext, labels, menu items, table data */
-  --font-size-base: 1rem;       /* Tier 3: 16px - Base body text, inputs, buttons, primary UI */
-  --font-size-md: var(--font-size-base); /* Compatibility alias */
-  --font-size-lg: 1.25rem;      /* Tier 4: 20px - Subheadings, card titles, category headers */
-  --font-size-xl: var(--font-size-lg);  /* Compatibility alias */
-  --font-size-2xl: 1.625rem;    /* Tier 5: 26px - Section titles (H2) */
-  --font-size-3xl: 2.25rem;     /* Tier 6: 36px - Page titles (H1) */
-  --font-size-4xl: 3rem;        /* Tier 7: 48px - Hero display headlines */
-
-  /* Font Weights */
-  --font-weight-regular: 400;
-  --font-weight-base: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extrabold: 800;
-  --font-weight-black: 900;
-
-  /* Line Heights */
-  --line-height-tight: 1.2;
-  --line-height-heading: 1.3;
-  --line-height-body: 1.5;
-  --line-height-relaxed: 1.65;
-
-  /* Letter Spacing */
-  --tracking-display: -0.045em;
-  --tracking-heading: -0.035em;
-  --tracking-tight:   -0.02em;
-  --tracking-normal:  0;
-  --tracking-label:   0.01em;
-  --tracking-caps:    0.06em;
-  --tracking-wide:    0.05em;
-
-  /* ------------------------------------------------------------------------
-     3. 4PX/8PX SPACING SCALE
-     ------------------------------------------------------------------------ */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 48px;
-  --space-8: 64px;
-  --space-9: 96px;
-  --space-10: 128px;
-
-  /* Semantic Spacing Tiers */
-  --space-control-gap:  var(--space-2);  /* 8px - Icon/Label inline gap */
-  --space-control-px:   var(--space-4);  /* 16px - Control horizontal padding */
-  --space-control-py:   var(--space-2);  /* 8px - Control vertical padding */
-  --space-card-p:       var(--space-5);  /* 24px - Standard card inner padding */
-  --space-card-p-lg:    var(--space-6);  /* 32px - Large container inner padding */
-  --space-section-py:   var(--space-8);  /* 64px - Section vertical padding */
-  --space-section-gap:  var(--space-7);  /* 48px - Gap between section elements */
-  --space-grid-gap:     var(--space-5);  /* 24px - Standard grid item gap */
-
-  /* ------------------------------------------------------------------------
-     4. RADIUS, ELEVATION & MOTION
-     ------------------------------------------------------------------------ */
-  --radius-none: 0px;
-  --radius-xs:   2px;
-  --radius-sm:   4px;
-  --radius-md:   6px;
-  --radius-lg:   12px;
-  --radius-xl:   16px;
-  --radius-2xl:  24px;
-  --radius-pill: 9999px;
-  --radius-full: 50%;
-
-  /* Semantic Component Radii */
-  --radius-control:  var(--radius-sm);
-  --radius-btn:      var(--radius-md);
-  --radius-input:    var(--radius-md);
-  --radius-badge:    var(--radius-sm);
-  --radius-tab:      var(--radius-sm);
-  --radius-card:     var(--radius-lg);
-  --radius-modal:    var(--radius-xl);
-  --radius-media:    var(--radius-xl);
-  --radius-hero:     var(--radius-2xl);
-  --radius-avatar:   var(--radius-full);
-
-  /* Shadows (Light Mode Authoritative Scale) */
-  --shadow-none: none;
-  --shadow-sm:   0 1px 3px rgba(15, 20, 26, 0.05), 0 1px 2px rgba(15, 20, 26, 0.03);
-  --shadow-md:   0 4px 12px rgba(15, 20, 26, 0.06), 0 2px 4px rgba(15, 20, 26, 0.04);
-  --shadow-lg:   0 12px 28px rgba(15, 20, 26, 0.08), 0 4px 8px rgba(15, 20, 26, 0.04);
-  --shadow-xl:   0 24px 48px rgba(15, 20, 26, 0.12), 0 8px 16px rgba(15, 20, 26, 0.06);
-
-  --shadow-card:       var(--shadow-sm);
-  --shadow-card-hover: var(--shadow-md);
-  --shadow-dropdown:   var(--shadow-lg);
-  --shadow-popover:    var(--shadow-lg);
-  --shadow-modal:      var(--shadow-xl);
-
-  /* Motion & Easing */
-  --motion-instant: 150ms;
-  --motion-fast:    200ms;
-  --motion-base:    300ms;
-  --motion-slow:    500ms;
-  --motion-duration-instant: var(--motion-instant);
-  --motion-duration-fast:    var(--motion-fast);
-  --motion-duration-normal:  var(--motion-base);
-  --motion-duration-slow:    var(--motion-slow);
-
-  --ease-standard:   cubic-bezier(0.2, 0.8, 0.2, 1);
-  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* ------------------------------------------------------------------------
-     5. CONTAINERS & LAYOUT
-     ------------------------------------------------------------------------ */
-  --container-xl: 1280px;
-  --container-lg: 1120px;
-  --container-md: 1024px;
-  --container-sm: 768px;
-  --nav-h: 72px;
-  --header-offset: 84px;
-  --mega-menu-max-h: calc(100dvh - var(--header-offset, 84px) - 1.5rem);
-  --navbar-radius: 8px;
-  --mega-menu-radius: var(--navbar-radius, 8px);
-  --mega-menu-promo-bg: var(--brand-50);
-  --mega-menu-promo-border: var(--brand-border);
-  --mega-menu-banner-bg: var(--neutral-100);
-  --mega-menu-banner-border: var(--border-subtle);
-  --mega-menu-banner-hover: var(--neutral-200);
-  --mega-menu-banner-py: 12px;
-  --mega-menu-banner-px: 20px;
-  --mega-menu-grid: 210px repeat(5, minmax(130px, 1fr));
-  --mega-menu-gap: 1.25rem;
-  --mega-menu-col-divider: var(--border-subtle);
-  --mega-menu-col-px: 0.875rem;
-  --section-py: 4rem;
-
-  /* ------------------------------------------------------------------------
-     6. SEMANTIC SYSTEM TOKENS (Light Mode Defaults)
-     ------------------------------------------------------------------------ */
-  /* Surfaces */
+  /* 1.5 Semantic Surface Colors */
   --bg-canvas:            var(--neutral-50);
   --bg-surface:           var(--neutral-50);
   --bg-surface-secondary: var(--neutral-200);
   --bg-surface-tertiary:  var(--neutral-200);
   --bg-surface-elevated:  var(--neutral-50);
+  --bg-dark-container:    var(--neutral-900);
   --bg-nav:               rgba(255, 255, 255, 0.90);
   --surface:              var(--bg-surface);
 
-  /* Typography */
+  /* 1.6 Semantic Typography Colors */
   --text-primary:           var(--neutral-950);
   --text-secondary:         var(--neutral-700);
   --text-muted:             var(--neutral-500);
@@ -424,9 +199,9 @@ ol {
   --text-inverse-muted:     rgba(255, 255, 255, 0.65);
   --text-on-dark:           #FFFFFF;
   --text-on-dark-secondary: #D8DEDA;
-  --text-brand:             var(--brand-500);
+  --text-brand:             #1E622A;
 
-  /* Brand Semantics */
+  /* 1.7 Semantic Brand Tokens */
   --brand-primary:        var(--brand-500);
   --brand-hover:          var(--brand-400);
   --brand-active:         var(--brand-600);
@@ -435,14 +210,15 @@ ol {
   --brand-glow:           rgba(107, 191, 84, 0.20);
   --brand-glow-subtle:    rgba(107, 191, 84, 0.08);
 
-  /* Borders */
+  /* 1.8 Semantic Borders & Dividers */
   --border-subtle:        rgba(15, 20, 26, 0.08);
   --border-default:       rgba(15, 20, 26, 0.12);
   --border-strong:        rgba(15, 20, 26, 0.18);
   --border-brand:         rgba(107, 191, 84, 0.55);
+  --border-on-dark:       rgba(255, 255, 255, 0.12);
   --divider:              var(--border-subtle);
 
-  /* Status Feedback */
+  /* 1.9 Semantic Feedback States */
   --color-success: var(--success-500);
   --color-warning: var(--warning-500);
   --color-danger:  var(--danger-500);
@@ -465,13 +241,13 @@ ol {
   --info-border:    rgba(37, 99, 168, 0.25);
   --info-text:      var(--info-600);
 
-  /* Overlays & Special */
+  /* 1.10 Overlays & Special Surfaces */
   --hero-bg: var(--neutral-950);
-  --hero-gradient: linear-gradient(135deg, var(--neutral-950) 0%, var(--neutral-950) 55%, #222a36 100%);
+  --hero-gradient: linear-gradient(135deg, var(--neutral-950) 0%, var(--neutral-950) 55%, var(--neutral-800) 100%);
   --bg-hero: var(--hero-gradient);
   --hero-badge-bg: rgba(107, 191, 84, 0.15);
   --hero-badge-border: rgba(107, 191, 84, 0.35);
-  --hero-badge-text: #6BBF54;
+  --hero-badge-text: var(--brand-400);
   --bg-glass: rgba(255, 255, 255, 0.90);
   --bg-glass-card: rgba(255, 255, 255, 0.95);
   --bg-dark-overlay: rgba(15, 20, 26, 0.60);
@@ -479,9 +255,176 @@ ol {
   --bg-shimmer: rgba(226, 232, 240, 0.6);
   --focus-ring: var(--brand-primary);
 
-  /* ------------------------------------------------------------------------
-     7. COMPATIBILITY BRIDGES (Aliases for legacy code references)
-     ------------------------------------------------------------------------ */
+  /* ========================================================================
+     2. SPACING SYSTEM
+     ======================================================================== */
+  /* 2.1 4px / 8px Primitive Spacing Scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* 2.2 Semantic Spacing Tiers */
+  --space-control-gap:  var(--space-2);  /* 8px - Icon/Label inline gap */
+  --space-control-px:   var(--space-4);  /* 16px - Control horizontal padding */
+  --space-control-py:   var(--space-2);  /* 8px - Control vertical padding */
+  --space-card-p:       var(--space-5);  /* 24px - Standard card inner padding */
+  --space-card-p-lg:    var(--space-6);  /* 32px - Large container inner padding */
+  --space-section-py:   var(--space-8);  /* 64px - Section vertical padding */
+  --space-section-gap:  var(--space-7);  /* 48px - Gap between section elements */
+  --space-grid-gap:     var(--space-5);  /* 24px - Standard grid item gap */
+
+  /* ========================================================================
+     3. TYPOGRAPHY SYSTEM
+     ======================================================================== */
+  /* 3.1 Font Families */
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-admin: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-primary: var(--font-sans);
+  --font-family-admin: var(--font-admin);
+  --font-family-stack: var(--font-sans);
+  --font-heading: var(--font-sans);
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
+
+  /* 3.2 Standardized 7-Tier Font Size Scale */
+  --font-size-xs: 0.75rem;      /* Tier 1: 12px - Badges, captions, legal, meta */
+  --font-size-sm: 0.8125rem;    /* Tier 2: 13px - Subtext, labels, menu items, table data */
+  --font-size-base: 1rem;       /* Tier 3: 16px - Base body text, inputs, buttons, primary UI */
+  --font-size-md: var(--font-size-base); /* Compatibility alias */
+  --font-size-lg: 1.25rem;      /* Tier 4: 20px - Subheadings, card titles, category headers */
+  --font-size-xl: var(--font-size-lg);  /* Compatibility alias */
+  --font-size-2xl: 1.625rem;    /* Tier 5: 26px - Section titles (H2) */
+  --font-size-3xl: 2.25rem;     /* Tier 6: 36px - Page titles (H1) */
+  --font-size-4xl: 3rem;        /* Tier 7: 48px - Hero display headlines */
+
+  /* 3.3 Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-base: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* 3.4 Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-heading: 1.3;
+  --line-height-body: 1.5;
+  --line-height-relaxed: 1.65;
+
+  /* 3.5 Letter Spacing (Tracking) */
+  --tracking-display: -0.045em;
+  --tracking-heading: -0.035em;
+  --tracking-tight:   -0.02em;
+  --tracking-normal:  0;
+  --tracking-label:   0.01em;
+  --tracking-caps:    0.06em;
+  --tracking-wide:    0.05em;
+
+  /* ========================================================================
+     4. SHADOW & ELEVATION SYSTEM
+     ======================================================================== */
+  /* 4.1 Shadow Scale (Light Mode Authoritative) */
+  --shadow-none: none;
+  --shadow-sm:   0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-md:   0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg:   0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+  --shadow-xl:   0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+
+  /* 4.2 Component Shadows */
+  --shadow-card:       var(--shadow-sm);
+  --shadow-card-hover: var(--shadow-md);
+  --shadow-dropdown:   var(--shadow-lg);
+  --shadow-popover:    var(--shadow-lg);
+  --shadow-modal:      var(--shadow-xl);
+
+  /* ========================================================================
+     5. RADIUS, MOTION & LAYOUT SYSTEM
+     ======================================================================== */
+  /* 5.1 Radii Scale */
+  --radius-none: 0px;
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-pill: 9999px;
+  --radius-full: 50%;
+
+  /* 5.2 Component Radii */
+  --radius-control:  var(--radius-sm);
+  --radius-btn:      8px;
+  --radius-icon:     8px;
+  --radius-input:    var(--radius-md);
+  --radius-badge:    var(--radius-sm);
+  --radius-tab:      var(--radius-sm);
+  --radius-card:     8px;
+  --radius-modal:    var(--radius-xl);
+  --radius-media:    var(--radius-xl);
+  --radius-hero:     var(--radius-2xl);
+  --radius-avatar:   var(--radius-full);
+
+  /* 5.3 Motion & Easing */
+  --motion-instant: 100ms;
+  --motion-fast:    150ms;
+  --motion-base:    250ms;
+  --motion-slow:    400ms;
+  --motion-duration-instant: var(--motion-instant);
+  --motion-duration-fast:    var(--motion-fast);
+  --motion-duration-normal:  var(--motion-base);
+  --motion-duration-slow:    var(--motion-slow);
+
+  --ease-standard:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* 5.4 Containers & Layout Dimensions */
+  --container-xl: 1280px;
+  --container-lg: 1120px;
+  --container-md: 1024px;
+  --container-sm: 768px;
+  --nav-h: 72px;
+  --header-offset: 84px;
+  --mega-menu-max-h: calc(100dvh - var(--header-offset, 84px) - 1.5rem);
+  --navbar-radius: 8px;
+  --mega-menu-radius: var(--navbar-radius, 8px);
+  --mega-menu-promo-bg: var(--brand-50);
+  --mega-menu-promo-border: var(--brand-border);
+  --mega-menu-banner-bg: var(--neutral-100);
+  --mega-menu-banner-border: var(--border-subtle);
+  --mega-menu-banner-hover: var(--neutral-200);
+  --mega-menu-banner-py: 12px;
+  --mega-menu-banner-px: 20px;
+  --mega-menu-grid: 210px repeat(5, minmax(130px, 1fr));
+  --mega-menu-gap: 1.25rem;
+  --mega-menu-col-divider: var(--border-subtle);
+  --mega-menu-col-px: 0.875rem;
+  --section-py: 4rem;
+
+  /* 5.5 Button Sizing Scale */
+  --btn-h-sm: 34px;
+  --btn-h-md: 42px;
+  --btn-h-lg: 48px;
+  --btn-px-sm: 0.875rem;
+  --btn-py-sm: 0.375rem;
+  --btn-px-md: 1.375rem;
+  --btn-py-md: 0.625rem;
+  --btn-px-lg: 1.75rem;
+  --btn-py-lg: 0.75rem;
+  --btn-font-sm: 0.8125rem;
+  --btn-font-md: 0.875rem;
+  --btn-font-lg: 1rem;
+
+  /* ========================================================================
+     6. COMPATIBILITY BRIDGES (Legacy Aliases)
+     ======================================================================== */
   --brand: var(--brand-primary);
   --brand-btn-text: var(--navy-950);
   --brand-dark: var(--brand-primary);
