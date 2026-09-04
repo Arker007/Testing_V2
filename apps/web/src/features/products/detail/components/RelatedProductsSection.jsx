@@ -8,26 +8,26 @@ export default function RelatedProductsSection({ relatedProducts }) {
   if (!relatedProducts || relatedProducts.length === 0) return null;
 
   return (
-    <section className="mt-12 sm:mt-16 flex flex-col gap-6">
-      <div className="flex items-center justify-between">
+    <section className="flex flex-col gap-6">
+      <div className="flex items-center justify-between pb-2 border-b border-[var(--border-subtle)]">
         <div>
           <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight">
-            Similar Products
+            Complementary Industrial Products
           </h2>
-          <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-0.5">
-            Essential industrial picks for your requirements
+          <p className="text-xs sm:text-sm text-[var(--text-muted)] mt-0.5">
+            Heavy-duty polymer composites and logistics units manufactured at Ankleshwar
           </p>
         </div>
         <Link
           to="/products"
-          className="text-xs sm:text-sm font-bold text-[var(--brand-primary)] hover:underline flex items-center gap-1"
+          className="text-xs sm:text-sm font-bold text-[var(--brand-primary)] hover:underline flex items-center gap-1.5"
         >
-          <span>View all</span>
+          <span>View Full Catalog</span>
           <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {relatedProducts.map((p) => {
           const pImages = parseProductImages(p.image);
           const meta = generateRelatedProductMeta(p);
@@ -36,18 +36,18 @@ export default function RelatedProductsSection({ relatedProducts }) {
             <Link
               to={`/products/${p.id}`}
               key={p.id}
-              className="group flex flex-col bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--surface,#161c24)] border border-[var(--border-subtle,rgba(242,242,242,0.12))] rounded-[var(--radius-card,12px)] overflow-hidden shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:border-[var(--brand-primary)]/50 transition-all duration-300 decoration-none"
+              className="group flex flex-col bg-[var(--bg-surface)] border border-[var(--border-default)] rounded-[var(--radius-card,8px)] overflow-hidden shadow-xs hover:shadow-md hover:border-[var(--brand-primary)] transition-all duration-300 decoration-none"
             >
               <div className="relative aspect-4/3 bg-[var(--bg-surface-secondary)] p-4 flex items-center justify-center overflow-hidden border-b border-[var(--border-subtle)]">
                 {meta.verified && (
-                  <div className="absolute top-2.5 left-2.5 z-10">
+                  <div className="absolute top-3 left-3 z-10">
                     <Badge variant="success" size="xs" icon="solar:verified-check-linear">
-                      Verified
+                      Verified Spec
                     </Badge>
                   </div>
                 )}
 
-                <div className="w-full h-full flex items-center justify-center">
+                <div className="w-full h-full flex items-center justify-center p-2">
                   {pImages[0] ? (
                     <OptimizedImage
                       src={pImages[0]}
@@ -60,45 +60,32 @@ export default function RelatedProductsSection({ relatedProducts }) {
                 </div>
               </div>
 
-              <div className="p-4 sm:p-5 flex flex-col flex-1 gap-2">
+              <div className="p-5 flex flex-col flex-1 gap-2.5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-muted)]">
+                  {p.category || "Industrial Polymer"}
+                </span>
+
                 <h3 className="text-sm sm:text-base font-bold text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors line-clamp-1">
                   {p.name}
                 </h3>
-                <p className="text-xs text-[var(--text-secondary)] line-clamp-1">
+
+                <p className="text-xs text-[var(--text-secondary)] line-clamp-2 leading-relaxed">
                   {meta.subtitle}
                 </p>
 
-                <div className="flex items-center gap-1.5 mt-auto pt-2">
-                  <div className="flex items-center">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Icon
-                        key={i}
-                        icon="solar:star-linear"
-                        className="w-3.5 h-3.5 text-amber-500 fill-amber-500 mr-0.5"
-                      />
-                    ))}
-                  </div>
-                  <span className="text-[11px] font-semibold text-[var(--text-muted)]">
-                    ({meta.ratingCount})
-                  </span>
-                </div>
-
-                <div className="flex items-baseline justify-between gap-2 pt-1 border-t border-[var(--border-subtle)] mt-1">
-                  <div className="flex items-baseline gap-1.5 flex-wrap">
-                    <span className="text-base sm:text-lg font-extrabold text-[var(--text-primary)]">
+                <div className="flex items-center justify-between gap-2 pt-3 border-t border-[var(--border-subtle)] mt-auto">
+                  <div className="flex flex-col">
+                    <span className="text-xs font-bold text-[var(--text-primary)]">
                       {meta.currentPriceLabel}
                     </span>
-                    {meta.hasOldPrice && (
-                      <span className="text-xs text-[var(--text-muted)] line-through">
-                        {meta.oldPriceLabel}
-                      </span>
-                    )}
-                  </div>
-                  {meta.hasNumericPrice && (
-                    <span className="text-[10px] font-bold text-[var(--text-muted)] uppercase">
-                      EX GST
+                    <span className="text-[10px] text-[var(--text-muted)]">
+                      {meta.hasNumericPrice ? "Ex-factory Ankleshwar" : "Tiered wholesale"}
                     </span>
-                  )}
+                  </div>
+
+                  <span className="p-1.5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] group-hover:bg-[var(--brand-primary)] group-hover:text-white transition-colors">
+                    <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
+                  </span>
                 </div>
               </div>
             </Link>
