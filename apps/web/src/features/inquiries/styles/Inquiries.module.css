@@ -106,7 +106,7 @@
   align-items: center;
   gap: 6px;
   padding: 6px 14px;
-  border-radius: 16px;
+  border-radius: var(--radius-admin, 8px);
   background: var(--brand-glow-subtle);
   color: var(--brand-primary);
   font-size: 0.75rem;
@@ -123,7 +123,7 @@
 .block {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+  border-radius: var(--radius-admin, 8px);
   padding: 20px;
 }
 
@@ -162,7 +162,7 @@
 .messageBox {
   background: var(--surface-card);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-admin, 8px);
   padding: 20px;
   margin-bottom: 24px;
 }

@@ -47,7 +47,7 @@ export default function ImagesTab({
                 gap: "16px",
                 padding: "16px",
                 border: "1px solid var(--border)",
-                borderRadius: "12px",
+                borderRadius: "var(--radius-admin, 8px)",
                 backgroundColor: "var(--bg-card)",
                 alignItems: "center",
                 position: "relative",
@@ -58,7 +58,7 @@ export default function ImagesTab({
                 style={{
                   width: "80px",
                   height: "80px",
-                  borderRadius: "8px",
+                  borderRadius: "var(--radius-admin, 8px)",
                   overflow: "hidden",
                   backgroundColor: "var(--bg-surface)",
                   border: "1px solid var(--border)",
@@ -149,7 +149,7 @@ export default function ImagesTab({
                       cursor: "pointer",
                       padding: "4px 8px",
                       border: "1px solid var(--brand-border)",
-                      borderRadius: "6px",
+                      borderRadius: "var(--radius-admin, 8px)",
                       backgroundColor: "var(--brand-glow-subtle)",
                       marginLeft: "auto",
                     }}

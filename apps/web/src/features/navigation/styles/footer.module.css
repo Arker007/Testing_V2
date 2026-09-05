@@ -38,45 +38,31 @@
 .logoRow {
   display: flex;
   align-items: center;
-  gap: 1.125rem;
-  margin-bottom: 1.5rem;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+  text-decoration: none;
+  color: inherit;
 }
 
-.customLogo {
-  width: 60px;
-  height: 60px;
-  background: var(--surface-card);
-  border-radius: var(--radius-md, 8px);
+.logoImg {
+  height: 2.85rem;
+  width: auto;
+  object-fit: cover;
+  border-radius: 8px !important;
+}
+
+.logoIcon {
+  width: 2.85rem;
+  height: 2.85rem;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 8px !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
-  box-shadow: var(--shadow-md);
+  font-weight: 700;
+  font-size: 1.25rem;
   flex-shrink: 0;
-}
-
-.customLogo img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.fallbackLogoInner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 1.75rem;
-  font-family: var(--font-display, inherit);
-  letter-spacing: -1px;
-}
-
-.logoV {
-  color: var(--navy-dark, var(--navy-900));
-}
-
-.logoE {
-  color: var(--brand, var(--brand-500));
 }
 
 .logoTitles {

@@ -40,27 +40,27 @@ export const WORKFLOW_STEPS = [
 
 export const FAQ_ITEMS = [
   {
-    tag: "moq",
+    id: "faq-moq",
     q: "What is the Minimum Order Quantity (MOQ)?",
     a: "For plastic pallets, our standard MOQ is 50 units. For plastic lumber, the MOQ is 100 running feet. For outdoor benches, tables, and fences, we can accommodate custom orders starting from single units for commercial or civic installations.",
   },
   {
-    tag: "custom",
+    id: "faq-custom",
     q: "Can you customize colors and dimensions?",
     a: "Yes! Our plastic lumber can be extruded in custom lengths to minimize waste, and we offer standard color masterbatches (including Terracotta, Forest Green, Slate Gray, and Premium Black) to match your design or architectural requirements.",
   },
   {
-    tag: "export",
+    id: "faq-export",
     q: "Are plastic pallets allowed for export shipping?",
     a: "Yes. Plastic pallets do not require wooden pest treatments (ISPM-15) and can be shipped internationally without extra customs delays.",
   },
   {
-    tag: "speed",
+    id: "faq-speed",
     q: "How fast will I get a response to my quote request?",
     a: "Our sales desk responds within 2 business hours during working days with pricing and product spec sheets.",
   },
   {
-    tag: "payment",
+    id: "faq-payment",
     q: "What payment options do you accept?",
     a: "We accept Bank Transfer (NEFT/RTGS), Letter of Credit (LC), and structured business credit terms for regular enterprise clients.",
   },

@@ -85,7 +85,7 @@
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: 16px;
+  border-radius: var(--radius-admin, 8px);
   overflow: hidden;
   box-shadow: 0 1px 3px var(--shadow-sm), 0 1px 2px var(--shadow-sm);
 }
@@ -135,7 +135,7 @@
 .catIcon {
   width: 46px;
   height: 46px;
-  border-radius: 8px;
+  border-radius: var(--radius-admin, 8px);
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -210,7 +210,7 @@
 .delBtn {
   width: 36px;
   height: 36px;
-  border-radius: 8px;
+  border-radius: var(--radius-admin, 8px);
   border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
@@ -233,12 +233,13 @@
 }
 
 .delBtn {
-  color: var(--color-error);
+  color: var(--danger-text);
 }
 
 .delBtn:hover {
-  background: var(--color-error);
-  border-color: var(--color-error);
+  background: var(--danger-bg);
+  border-color: var(--danger-border);
+  color: var(--danger-text);
   transform: scale(1.05);
 }
 
@@ -251,7 +252,7 @@
 
 .confirmText {
   font-size: 0.75rem;
-  color: var(--color-error);
+  color: var(--danger-text);
   font-weight: 700;
   white-space: nowrap;
 }
@@ -259,7 +260,7 @@
 .confirmYes,
 .confirmNo {
   padding: 4px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-admin, 8px);
   border: none;
   font-size: 0.75rem;
   font-weight: 700;
@@ -267,12 +268,13 @@
 }
 
 .confirmYes {
-  background: var(--color-error);
-  color: var(--text-inverse);
+  background: var(--danger-text);
+  color: var(--white);
 }
 
 .confirmYes:hover {
-  background: var(--color-error);
+  background: var(--color-danger);
+  color: var(--white);
 }
 
 .confirmNo {
@@ -304,9 +306,9 @@
 .settingsIcon {
   width: 40px;
   height: 40px;
-  border-radius: 8px;
-  background: var(--brand-light);
-  color: var(--brand-dark);
+  border-radius: var(--radius-admin, 8px);
+  background: var(--brand-soft);
+  color: var(--text-brand);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -333,7 +335,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  border-radius: 8px;
+  border-radius: var(--radius-admin, 8px);
   padding: 12px 18px;
   margin-bottom: 24px;
   font-size: 0.875rem;
@@ -341,15 +343,15 @@
 }
 
 .alertSuccess {
-  background: var(--brand-light);
-  color: var(--color-success);
-  border: 1px solid var(--color-success-bg);
+  background: var(--success-bg);
+  color: var(--success-text);
+  border: 1px solid var(--success-border);
 }
 
 .alertError {
-  background: var(--color-error);
-  color: var(--color-error);
-  border: 1px solid var(--color-error-bg);
+  background: var(--danger-bg);
+  color: var(--danger-text);
+  border: 1px solid var(--danger-border);
 }
 
 .settingsFormTail {
@@ -376,7 +378,7 @@
   width: 110px;
   height: 110px;
   position: relative;
-  border-radius: 12px;
+  border-radius: var(--radius-admin, 8px);
   border: 1px solid var(--border-subtle);
   background: var(--bg-page);
   overflow: hidden;
@@ -416,7 +418,7 @@
   bottom: 6px;
   left: 6px;
   padding: 3px 8px;
-  border-radius: 6px;
+  border-radius: var(--radius-admin, 8px);
   background: var(--brand);
   color: var(--text-primary);
   font-size: 0.6875rem;
@@ -426,7 +428,7 @@
 .imgAdd {
   width: 110px;
   height: 110px;
-  border-radius: 12px;
+  border-radius: var(--radius-admin, 8px);
   border: 1.5px dashed var(--border);
   background: var(--bg-card);
   color: var(--text-muted);
@@ -499,7 +501,7 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: var(--border-subtle);
+  background: var(--bg-modal-backdrop, rgba(15, 20, 26, 0.6));
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
@@ -511,7 +513,7 @@
   width: min(940px, 100%);
   max-height: min(90vh, 900px);
   overflow-y: auto;
-  border-radius: 16px;
+  border-radius: var(--radius-admin, 8px);
   border: 1px solid var(--border-subtle);
   background: var(--bg-card);
   box-shadow: 0 24px 48px -12px var(--shadow-md);
@@ -641,7 +643,7 @@
   line-height: 1.55;
   background: var(--bg-page);
   padding: 14px;
-  border-radius: 8px;
+  border-radius: var(--radius-admin, 8px);
   color: var(--text-secondary);
   white-space: pre-line;
   border: 1px solid var(--border-subtle);
@@ -655,7 +657,7 @@
   transform: translateX(-50%) translateY(120%);
   background: var(--text-primary);
   color: var(--text-inverse);
-  border-radius: 12px;
+  border-radius: var(--radius-admin, 8px);
   padding: 12px 24px;
   display: flex;
   align-items: center;
@@ -721,7 +723,7 @@
   right: 0;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
+  border-radius: var(--radius-admin, 8px);
   box-shadow: 0 10px 30px var(--shadow-sm);
   z-index: 300;
   padding: 6px;
@@ -750,7 +752,7 @@
   font-weight: 700;
   color: var(--text-secondary);
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: var(--radius-admin, 8px);
   transition: all 0.15s ease;
   display: flex;
   align-items: center;
@@ -759,13 +761,13 @@
 }
 
 .customSelectOption:hover {
-  background: var(--bg-page);
-  color: var(--brand-dark);
+  background: var(--bg-surface-secondary);
+  color: var(--text-brand);
 }
 
 .customSelectOptionActive {
-  background: var(--brand-light) !important;
-  color: var(--brand-dark) !important;
+  background: var(--brand-soft) !important;
+  color: var(--text-brand) !important;
   font-weight: 700;
 }
 
@@ -777,25 +779,25 @@
   justify-content: center;
   gap: 8px;
   padding: 0 20px;
-  border-radius: var(--radius-btn, 8px);
-  background: var(--brand);
-  color: var(--text-primary);
-  border: 1px solid var(--brand);
+  border-radius: var(--radius-admin, 8px);
+  background: var(--brand-primary);
+  color: var(--brand-btn-text);
+  border: 1px solid var(--brand-primary);
   font-size: 0.875rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
   white-space: nowrap;
-  box-shadow: 0 1px 2px var(--shadow-sm);
+  box-shadow: var(--shadow-sm);
 }
 
 .actionBtnPrimary:hover {
-  background: var(--brand-dark);
-  border-color: var(--brand-dark);
-  color: var(--text-inverse);
+  background: var(--brand-hover);
+  border-color: var(--brand-hover);
+  color: var(--brand-btn-text);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px var(--brand-border);
+  box-shadow: var(--shadow-md);
 }
 
 .actionBtnPrimary:disabled {
@@ -813,22 +815,22 @@
   justify-content: center;
   gap: 8px;
   padding: 0 20px;
-  border-radius: var(--radius-btn, 8px);
-  background: var(--bg-card);
+  border-radius: var(--radius-admin, 8px);
+  background: var(--bg-surface);
   color: var(--text-secondary);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-default);
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
   white-space: nowrap;
-  box-shadow: 0 1px 2px var(--shadow-sm);
+  box-shadow: var(--shadow-sm);
 }
 
 .actionBtnSecondary:hover {
-  background: var(--bg-page);
-  border-color: var(--text-muted);
+  background: var(--bg-surface-secondary);
+  border-color: var(--border-strong);
   color: var(--text-primary);
 }
 
@@ -860,10 +862,10 @@
 .formSelect {
   width: 100%;
   padding: 10px 14px;
-  background-color: var(--text-inverse);
+  background-color: var(--bg-surface);
   color: var(--text-primary);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-admin, 8px);
   font-size: 0.875rem;
   font-family: inherit;
   outline: none;
@@ -874,7 +876,7 @@
 .formInput:focus,
 .formTextarea:focus,
 .formSelect:focus {
-  border-color: var(--brand);
+  border-color: var(--brand-primary);
   box-shadow: 0 0 0 3px var(--brand-glow-subtle);
 }
 
@@ -886,7 +888,7 @@
 .formInput:disabled,
 .formTextarea:disabled,
 .formSelect:disabled {
-  background-color: var(--bg-page);
+  background-color: var(--bg-surface-secondary);
   color: var(--text-muted);
   cursor: not-allowed;
 }
@@ -970,7 +972,7 @@
   justify-content: center;
   gap: 8px;
   padding: 0 20px;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-admin, 8px);
   font-size: 0.875rem;
   font-weight: 700;
   cursor: pointer;
@@ -1021,7 +1023,7 @@
     gap: 12px;
     margin: 12px;
     border: 1px solid var(--border-subtle);
-    border-radius: 12px;
+    border-radius: var(--radius-admin, 8px);
     padding: 16px;
   }
   .trow > span,
@@ -1035,7 +1037,7 @@
     white-space: normal;
   }
   .card {
-    border-radius: 12px;
+    border-radius: var(--radius-admin, 8px);
     overflow: visible;
     border: none;
     background: transparent;

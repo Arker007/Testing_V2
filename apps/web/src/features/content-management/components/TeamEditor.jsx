@@ -69,7 +69,7 @@ export default function TeamEditor({
                   <label className="form-label" style={{ fontWeight: 600, fontSize: "13px", display: "block", marginBottom: "6px" }}>{f.label}</label>
                   <input 
                     className="form-input" 
-                    style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)" }} 
+                    style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)" }} 
                     type="text" 
                     value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
                     onChange={setM(f.key)} 

@@ -193,16 +193,16 @@
   gap: 10px;
   padding: 12px 16px;
   border-radius: var(--radius-md, 8px);
-  background: var(--color-error);
-  border: 1px solid var(--color-error-bg);
-  color: var(--color-error);
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  color: var(--danger-text);
   font-size: 0.875rem;
   font-weight: 500;
 }
 
 .submitBtn {
-  background-color: var(--brand);
-  color: var(--ink);
+  background-color: var(--brand-primary);
+  color: var(--brand-btn-text);
   border: none;
   padding: 12px;
   border-radius: var(--radius-btn, 8px);
@@ -218,7 +218,8 @@
 }
 
 .submitBtn:hover {
-  background-color: var(--brand-dark);
+  background-color: var(--brand-hover);
+  color: var(--brand-btn-text);
 }
 
 .back {

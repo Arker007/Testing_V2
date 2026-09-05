@@ -35,9 +35,10 @@ export default function SustainabilitySection() {
           {/* Right Content */}
           <div className="flex flex-col gap-4">
             <div>
-              <div className="mb-3">
+              <div className="mb-4">
                 <Badge
                   variant="eyebrow"
+                  size="lg"
                   icon="solar:leaf-linear"
                 >
                   {c("home_about_eyebrow", "Our Environmental Impact")}

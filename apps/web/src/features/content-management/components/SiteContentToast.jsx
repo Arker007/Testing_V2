@@ -16,7 +16,7 @@ export default function SiteContentToast({
         background: "var(--gray-800)",
         color: "var(--white)",
         padding: "12px 20px",
-        borderRadius: "12px",
+        borderRadius: "var(--radius-admin, 8px)",
         boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
         display: "flex",
         alignItems: "center",

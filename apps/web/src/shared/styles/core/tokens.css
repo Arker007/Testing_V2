@@ -85,6 +85,7 @@
   --radius-input: var(--radius-input);
   --radius-badge: var(--radius-badge);
   --radius-pill: var(--radius-pill);
+  --radius-admin: var(--radius-admin);
 
   /* Shadows */
   --shadow-sm: var(--shadow-sm);
@@ -223,6 +224,10 @@
   --color-warning: var(--warning-500);
   --color-danger:  var(--danger-500);
   --color-error:   var(--danger-500);
+  --color-error-bg: var(--danger-bg);
+  --color-success-bg: var(--success-bg);
+  --color-warning-bg: var(--warning-bg);
+  --color-info-bg: var(--info-bg);
   --color-info:    var(--info-500);
 
   --success-bg:     var(--success-100);
@@ -333,8 +338,8 @@
      ======================================================================== */
   /* 4.1 Shadow Scale (Light Mode Authoritative) */
   --shadow-none: none;
-  --shadow-sm:   0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.08);
-  --shadow-md:   0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-sm:   0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md:   0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
   --shadow-lg:   0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
   --shadow-xl:   0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
 
@@ -348,28 +353,31 @@
   /* ========================================================================
      5. RADIUS, MOTION & LAYOUT SYSTEM
      ======================================================================== */
-  /* 5.1 Radii Scale */
+  /* 5.1 Radii Scale (Standardized Industrial Scale) */
   --radius-none: 0px;
   --radius-xs:   2px;
   --radius-sm:   4px;
   --radius-md:   6px;
-  --radius-lg:   12px;
-  --radius-xl:   16px;
-  --radius-2xl:  24px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
+  --radius-2xl:  16px;
   --radius-pill: 9999px;
   --radius-full: 50%;
 
+  /* Admin Unified Component Radius */
+  --radius-admin: var(--radius-lg, 8px);
+
   /* 5.2 Component Radii */
   --radius-control:  var(--radius-sm);
-  --radius-btn:      8px;
-  --radius-icon:     8px;
+  --radius-btn:      var(--radius-md);
+  --radius-icon:     var(--radius-md);
   --radius-input:    var(--radius-md);
   --radius-badge:    var(--radius-sm);
   --radius-tab:      var(--radius-sm);
-  --radius-card:     8px;
-  --radius-modal:    var(--radius-xl);
-  --radius-media:    var(--radius-xl);
-  --radius-hero:     var(--radius-2xl);
+  --radius-card:     var(--radius-lg);
+  --radius-modal:    var(--radius-lg);
+  --radius-media:    var(--radius-lg);
+  --radius-hero:     var(--radius-lg);
   --radius-avatar:   var(--radius-full);
 
   /* 5.3 Motion & Easing */
@@ -464,6 +472,27 @@
 
   --border: var(--border-default);
   --border-card: rgba(255, 255, 255, 0.15);
+
+  --ink: var(--text-primary);
+  --muted: var(--text-muted);
+  --line: var(--border-default);
+  --panel: var(--bg-card);
+  --shell-bg: var(--bg-page);
+  --surface: var(--bg-surface);
+  --navy-subtle: var(--border-subtle);
+  --navy-glow: var(--brand-glow);
+  --whatsapp: #25D366;
+
+  --gray-50: var(--neutral-50);
+  --gray-100: var(--neutral-100);
+  --gray-200: var(--neutral-200);
+  --gray-300: var(--neutral-300);
+  --gray-400: var(--neutral-400);
+  --gray-500: var(--neutral-500);
+  --gray-600: var(--neutral-600);
+  --gray-700: var(--neutral-700);
+  --gray-800: var(--neutral-800);
+  --gray-900: var(--neutral-900);
 
   --badge-bg: var(--brand-soft);
   --badge-border: var(--border-brand);

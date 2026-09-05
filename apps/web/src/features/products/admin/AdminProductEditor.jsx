@@ -156,7 +156,7 @@ export default function AdminProductEditor() {
                   alignItems: "center",
                   gap: "8px",
                   padding: "8px 16px",
-                  borderRadius: "8px",
+                  borderRadius: "var(--radius-admin, 8px)",
                   border: "none",
                   fontSize: "0.85rem",
                   fontWeight: 700,

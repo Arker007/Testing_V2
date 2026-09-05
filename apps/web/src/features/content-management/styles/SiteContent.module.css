@@ -16,7 +16,7 @@
 .outlinePanel {
   flex: 0 0 280px;
   background: var(--surface-card);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-admin, 8px);
   border: 1px solid var(--border);
   padding: 16px;
   display: flex;
@@ -62,7 +62,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 14px;
-  border-radius: 8px;
+  border-radius: var(--radius-admin, 8px);
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--ink);
@@ -90,7 +90,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px 12px 8px 24px;
-  border-radius: 8px;
+  border-radius: var(--radius-admin, 8px);
   font-size: 0.8rem;
   color: var(--muted);
   cursor: pointer;
@@ -125,7 +125,7 @@
 .editorPanel {
   flex: 1;
   background: var(--surface-card);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-admin, 8px);
   border: 1px solid var(--border);
   padding: 28px;
   box-shadow: var(--shadow-sm);
@@ -211,7 +211,7 @@
 .repeaterCard {
   background: var(--gray-50);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-admin, 8px);
   padding: 16px;
   display: flex;
   align-items: center;
@@ -266,7 +266,7 @@
 .repeaterDelBtn {
   width: 28px;
   height: 28px;
-  border-radius: 6px;
+  border-radius: var(--radius-admin, 8px);
   border: none;
   display: flex;
   align-items: center;
@@ -277,28 +277,28 @@
 }
 
 .repeaterEditBtn {
-  background: var(--brand-light);
-  color: var(--brand-dark);
+  background: var(--brand-soft);
+  color: var(--text-brand);
 }
 
 .repeaterEditBtn:hover {
-  background: var(--brand);
-  color: var(--ink);
+  background: var(--brand-primary);
+  color: var(--brand-btn-text);
 }
 
 .repeaterDelBtn {
-  background: var(--color-error);
-  color: var(--color-error);
+  background: var(--danger-bg);
+  color: var(--danger-text);
 }
 
 .repeaterDelBtn:hover {
-  background: var(--color-error);
+  background: var(--danger-text);
   color: var(--white);
 }
 
 .repeaterAddCard {
   border: 1.5px dashed rgba(5, 40, 63, 0.12);
-  border-radius: 12px;
+  border-radius: var(--radius-admin, 8px);
   background: transparent;
   display: flex;
   flex-direction: column;

@@ -20,9 +20,9 @@ export default function AdminNotificationsDropdown({
         right: 0,
         width: "340px",
         background: "var(--bg-card)",
-        borderRadius: "16px",
+        borderRadius: "var(--radius-admin, 8px)",
         border: "1px solid var(--line)",
-        boxShadow: "0 10px 30px var(--border-subtle)",
+        boxShadow: "var(--shadow-dropdown)",
         zIndex: 300,
         overflow: "hidden",
         fontFamily: "inherit",
@@ -39,7 +39,7 @@ export default function AdminNotificationsDropdown({
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Icon icon="solar:bell-bing-linear" className="w-4 h-4 text-[var(--brand)]" />
+          <Icon icon="solar:bell-bing-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
           <span
             style={{ fontWeight: 800, fontSize: "0.85rem", color: "var(--ink)" }}
           >
@@ -57,7 +57,7 @@ export default function AdminNotificationsDropdown({
             style={{
               fontSize: "0.75rem",
               fontWeight: 700,
-              color: "var(--brand-dark)",
+              color: "var(--text-brand)",
               background: "none",
               border: "none",
               cursor: "pointer",
@@ -109,9 +109,9 @@ export default function AdminNotificationsDropdown({
               }}
               style={{
                 padding: "12px 18px",
-                borderBottom: "1px solid var(--bg-surface)",
+                borderBottom: "1px solid var(--border-subtle)",
                 cursor: "pointer",
-                background: n.read ? "transparent" : "var(--brand-light)",
+                background: n.read ? "transparent" : "var(--brand-soft)",
                 transition: "background 0.2s",
                 display: "flex",
                 gap: "10px",
@@ -123,7 +123,7 @@ export default function AdminNotificationsDropdown({
                   width: "8px",
                   height: "8px",
                   borderRadius: "50%",
-                  background: n.read ? "transparent" : "var(--brand)",
+                  background: n.read ? "transparent" : "var(--brand-primary)",
                   marginTop: "6px",
                   flexShrink: 0,
                 }}

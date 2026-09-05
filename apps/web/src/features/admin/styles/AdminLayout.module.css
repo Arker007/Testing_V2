@@ -7,14 +7,17 @@
 }
 
 .shell {
+  --radius-admin: var(--radius-lg, 8px);
+  --radius-card: var(--radius-admin);
+  --radius-btn: var(--radius-admin);
+  --radius-input: var(--radius-admin);
+  --radius-modal: var(--radius-admin);
+  --radius-control: var(--radius-admin);
   --shell-bg: var(--bg-page);
   --panel: var(--bg-card);
   --ink: var(--text-primary);
   --muted: var(--text-secondary);
-  --line: var(--border);
-  --brand: var(--brand); /* Crisp Lime */
-  --brand-dark: var(--brand-dark);
-  --brand-light: var(--brand-light); /* Super soft lime green highlight */
+  --line: var(--border-default);
   --sidebar-width: 260px; /* Slightly wider sidebar for modern breathing room */
   
   display: flex;
@@ -29,7 +32,7 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  background: var(--border-subtle);
+  background: var(--bg-modal-backdrop, rgba(15, 20, 26, 0.5));
   backdrop-filter: blur(8px);
   z-index: 210;
   border: none;
@@ -92,7 +95,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   padding: 6px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-admin, 8px);
   white-space: nowrap;
   opacity: 0;
   transition: opacity 0.15s ease;
@@ -130,7 +133,7 @@
   background: linear-gradient(135deg, var(--brand), var(--brand-dark));
   width: 36px;
   height: 36px;
-  border-radius: 8px;
+  border-radius: var(--radius-admin, 8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,7 +151,7 @@
   flex-shrink: 0;
   background: var(--bg-page);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-admin, 8px);
   padding: 4px;
 }
 
@@ -197,7 +200,7 @@
   gap: 12px;
   width: 100%;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-admin, 8px);
   padding: 10px 14px;
   font-size: 0.875rem;
   font-weight: 600;
@@ -215,8 +218,8 @@
 }
 
 .navActive {
-  color: var(--brand-dark, var(--brand-dark)) !important;
-  background-color: var(--brand-light) !important;
+  color: var(--text-brand) !important;
+  background-color: var(--brand-soft) !important;
   font-weight: 700;
 }
 
@@ -227,13 +230,13 @@
   top: 15%;
   bottom: 15%;
   width: 3.5px;
-  background-color: var(--brand);
+  background-color: var(--brand-primary);
   border-radius: 0 4px 4px 0;
 }
 
 .logout:hover {
-  color: var(--color-error) !important;
-  background-color: var(--color-error) !important;
+  color: var(--danger-text) !important;
+  background-color: var(--danger-bg) !important;
 }
 
 .main {
@@ -284,7 +287,7 @@
 .toggleBtn {
   width: 40px;
   height: 40px;
-  border-radius: 8px;
+  border-radius: var(--radius-admin, 8px);
   border: 1px solid var(--line);
   background: var(--panel);
   color: var(--text-secondary);
@@ -340,7 +343,7 @@
 .headerSearch input {
   width: 100%;
   border: 1px solid var(--line);
-  border-radius: 9999px;
+  border-radius: var(--radius-admin, 8px);
   background: var(--bg-card);
   color: var(--ink);
   padding: 9px 16px 9px 38px;

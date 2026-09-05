@@ -122,7 +122,7 @@ export default function SiteContent() {
       <main className={cStyles.editorPanel}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(5, 40, 63, 0.06)", paddingBottom: "16px", marginBottom: "24px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "var(--brand-light)", display: "flex", alignItems: "center", justifyItems: "center", justifyContent: "center" }}>
+            <div style={{ width: "40px", height: "40px", borderRadius: "var(--radius-admin, 8px)", background: "var(--brand-light)", display: "flex", alignItems: "center", justifyItems: "center", justifyContent: "center" }}>
               <i className={`fa-solid ${allSectionsList.find(s => s.key === activeSub)?.icon || "fa-file-pen"} text-[var(--brand-dark)]`} style={{ fontSize: "1.1rem" }} />
             </div>
             <div>
@@ -133,7 +133,7 @@ export default function SiteContent() {
 
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             {selectedCmsGroup && getSectionToggleKey(activeSub) && (
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "var(--gray-50)", padding: "6px 12px", borderRadius: "8px", border: "1px solid var(--gray-200)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", background: "var(--gray-50)", padding: "6px 12px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)" }}>
                 <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--gray-600)" }}>Enable section:</span>
                 {renderToggle(activeSub)}
               </div>
@@ -149,7 +149,7 @@ export default function SiteContent() {
                 style={{ 
                   background: "var(--gray-50)", 
                   border: "1px solid var(--gray-200)", 
-                  borderRadius: "8px", 
+                  borderRadius: "var(--radius-admin, 8px)", 
                   padding: "6px 12px 6px 30px", 
                   fontSize: "0.8rem", 
                   fontWeight: 500,

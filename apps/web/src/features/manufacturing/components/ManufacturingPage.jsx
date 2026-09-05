@@ -3,7 +3,7 @@ import useDocumentTitle from "../../../shared/hooks/useDocumentTitle";
 import { useSite } from "../../../shared/context/SiteContext";
 import { ProcessSection } from "../../home";
 import { Icon } from "@iconify/react";
-import { CtaCard, Card, QuoteButton, PageHero } from "@/shared/ui";
+import { CtaCard, Card, QuoteButton, PageHero, Badge } from "@/shared/ui";
 
 export default function ManufacturingPage() {
   const { c, co } = useSite();
@@ -45,10 +45,9 @@ export default function ManufacturingPage() {
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <div className="mb-4">
-              <span className="badge-pill-accent">
-                <Icon icon="solar:star-linear" className="w-4 h-4" />
-                <span>Quality Standards</span>
-              </span>
+              <Badge variant="eyebrow" size="lg" icon="solar:star-linear">
+                Quality Standards
+              </Badge>
             </div>
             <h2 className="text-3xl font-black text-[var(--text-primary)] tracking-tight">Precision & Performance Engineering</h2>
             <p className="text-[var(--text-secondary)] text-sm max-w-lg mx-auto mt-2">

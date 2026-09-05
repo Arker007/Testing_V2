@@ -105,7 +105,7 @@ export default function AdminMedia() {
                                     <Icon icon={f.icon} className="w-4 h-4" style={{ color: activeCategory === f.id ? 'var(--brand-dark)' : 'var(--gray-300)' }} />
                                     {f.label}
                                 </span>
-                                <span style={{ fontSize: '0.72rem', color: 'var(--muted)', background: 'rgba(5, 40, 63, 0.04)', padding: '2px 6px', borderRadius: 10, fontWeight: 700 }}>
+                                <span style={{ fontSize: '0.72rem', color: 'var(--muted)', background: 'rgba(5, 40, 63, 0.04)', padding: '2px 6px', borderRadius: 'var(--radius-admin, 8px)', fontWeight: 700 }}>
                                     {count}
                                 </span>
                             </div>
@@ -117,7 +117,7 @@ export default function AdminMedia() {
                 <main className={mStyles.canvas}>
                     {loading ? (
                         <div className={mStyles.grid}>
-                            {[1, 2, 3, 4, 5, 6].map(i => <Skeleton key={i} className="h-44 rounded-xl" />)}
+                            {[1, 2, 3, 4, 5, 6].map(i => <Skeleton key={i} className="h-44 rounded-[var(--radius-admin,8px)]" />)}
                         </div>
                     ) : filteredMedia.length === 0 ? (
                         <div className={styles.card} style={{ width: '100%' }}>

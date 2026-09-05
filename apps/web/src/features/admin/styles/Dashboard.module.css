@@ -39,7 +39,7 @@
   color: var(--brand-btn-text);
   border: 1px solid var(--brand-primary);
   padding: 10px 18px;
-  border-radius: var(--radius-btn);
+  border-radius: var(--radius-admin, 8px);
   cursor: pointer;
   font-weight: 700;
   font-size: 0.875rem;
@@ -63,7 +63,7 @@
   border: 1px solid var(--border-default);
   color: var(--text-secondary);
   padding: 10px 18px;
-  border-radius: var(--radius-btn);
+  border-radius: var(--radius-admin, 8px);
   cursor: pointer;
   font-weight: 700;
   font-size: 0.875rem;
@@ -89,7 +89,7 @@
   background: var(--danger-bg);
   color: var(--danger-text);
   border: 1px solid var(--danger-border);
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-admin, 8px);
   padding: 14px 20px;
   font-size: 0.875rem;
   font-weight: 600;
@@ -109,7 +109,7 @@
 
 .stat {
   padding: 24px;
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-admin, 8px);
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   display: flex;
@@ -128,7 +128,7 @@
 .statIcon {
   width: 52px;
   height: 52px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-admin, 8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,7 +177,7 @@
 
 .panel {
   background: var(--bg-surface);
-  border-radius: var(--radius-card);
+  border-radius: var(--radius-admin, 8px);
   border: 1px solid var(--border-subtle);
   padding: 28px;
   box-shadow: var(--shadow-sm);
@@ -236,7 +236,7 @@
   align-items: center;
   gap: 16px;
   padding: 12px 16px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-admin, 8px);
   background: var(--bg-surface-secondary);
   border: 1px solid var(--border-subtle);
   margin-bottom: 12px;
@@ -261,7 +261,7 @@
   min-height: 48px;
   max-width: 48px;
   max-height: 48px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-admin, 8px);
   overflow: hidden;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
@@ -306,7 +306,7 @@
 .miniBtn {
   width: 32px;
   height: 32px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-admin, 8px);
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
@@ -366,7 +366,7 @@
   flex: 1;
   background: var(--bg-surface-secondary);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-admin, 8px);
   padding: 12px 16px;
   min-width: 0;
   transition: all var(--motion-fast) ease;
@@ -424,7 +424,7 @@
   font-weight: 600;
   background: var(--bg-surface-secondary);
   padding: 4px 12px;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-admin, 8px);
   border: 1px solid var(--border-subtle);
 }
 
@@ -439,7 +439,7 @@
   align-items: center;
   gap: 12px;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-admin, 8px);
   padding: 8px 18px;
   background: var(--bg-surface);
   box-shadow: var(--shadow-sm);
@@ -479,11 +479,11 @@
 
 .stateOk {
   border-color: var(--success-border);
-  background: var(--brand-soft);
+  background: var(--success-bg);
 }
 .stateOk .statusIconMini { color: var(--success-text); }
 .stateOk .statusBadgeMini { color: var(--success-text); }
-.stateOk .statusLabelMini { color: var(--success-text); }
+.stateOk .statusLabelMini { color: var(--text-primary); }
 
 .stateDown {
   border-color: var(--danger-border);
@@ -491,7 +491,7 @@
 }
 .stateDown .statusIconMini { color: var(--danger-text); }
 .stateDown .statusBadgeMini { color: var(--danger-text); }
-.stateDown .statusLabelMini { color: var(--danger-text); }
+.stateDown .statusLabelMini { color: var(--text-primary); }
 
 .stateLoading {
   border-color: var(--info-border);
@@ -499,6 +499,7 @@
 }
 .stateLoading .statusIconMini { color: var(--info-text); }
 .stateLoading .statusBadgeMini { color: var(--info-text); }
+.stateLoading .statusLabelMini { color: var(--text-primary); }
 
 .skelWrap {
   display: flex;
@@ -508,7 +509,7 @@
 
 .skelRow {
   height: 44px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-admin, 8px);
   background: linear-gradient(90deg, var(--bg-surface) 25%, var(--border-subtle) 50%, var(--bg-surface) 75%);
   background-size: 200%;
   animation: shimmer 1.5s infinite;

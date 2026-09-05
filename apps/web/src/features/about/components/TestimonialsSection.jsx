@@ -73,12 +73,12 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Controls */}
-          <div className="flex items-center gap-4 mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
+          <div className="flex items-center gap-4 mt-8 pt-6 border-t border-slate-200 dark:border-[var(--border-subtle)]">
             <button
               type="button"
               onClick={prevSlide}
               aria-label="Previous testimonial"
-              className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-slate-300 hover:border-slate-400 dark:border-slate-600 dark:hover:border-slate-400 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white flex items-center justify-center transition-all shadow-xs active:scale-95 cursor-pointer"
+              className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-slate-200 dark:border-[var(--border-default)] hover:border-[var(--brand-primary)] dark:hover:border-[var(--brand-primary)] bg-white dark:bg-[var(--bg-surface-secondary)] hover:bg-[var(--brand-primary)] dark:hover:bg-[var(--brand-primary)] text-slate-700 dark:text-slate-200 hover:text-white dark:hover:text-[var(--navy-950)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
               <Icon icon="solar:arrow-left-linear" className="w-4 h-4" />
             </button>
@@ -89,7 +89,7 @@ export default function TestimonialsSection() {
               type="button"
               onClick={nextSlide}
               aria-label="Next testimonial"
-              className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-slate-300 hover:border-slate-400 dark:border-slate-600 dark:hover:border-slate-400 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-white flex items-center justify-center transition-all shadow-xs active:scale-95 cursor-pointer"
+              className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-slate-200 dark:border-[var(--border-default)] hover:border-[var(--brand-primary)] dark:hover:border-[var(--brand-primary)] bg-white dark:bg-[var(--bg-surface-secondary)] hover:bg-[var(--brand-primary)] dark:hover:bg-[var(--brand-primary)] text-slate-700 dark:text-slate-200 hover:text-white dark:hover:text-[var(--navy-950)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
               <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
             </button>

@@ -52,7 +52,7 @@ export default function SectionEditor({
                   {f.type === "textarea" ? (
                     <textarea 
                       className="form-textarea" 
-                      style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--border)", fontFamily: "inherit" }} 
+                      style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--border)", fontFamily: "inherit" }} 
                       rows={3} 
                       value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
                       onChange={setM(f.key)} 
@@ -71,7 +71,7 @@ export default function SectionEditor({
                   ) : (
                     <input 
                       className="form-input" 
-                      style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)" }} 
+                      style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)" }} 
                       type="text" 
                       value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
                       onChange={setM(f.key)} 

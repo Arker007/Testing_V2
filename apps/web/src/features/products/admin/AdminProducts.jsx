@@ -241,7 +241,7 @@ export default function AdminProducts() {
             {(() => {
               let img = null;
               try { img = JSON.parse(activeItem.image)?.[0]; } catch { img = activeItem.image; }
-              return img ? <img src={img} style={{ width: "100%", height: 180, objectFit: "contain", borderRadius: 12, border: "1px solid var(--border)", background: "var(--bg-surface)", marginBottom: 12 }} alt="" /> : null;
+              return img ? <img src={img} style={{ width: "100%", height: 180, objectFit: "contain", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--border)", background: "var(--bg-surface)", marginBottom: 12 }} alt="" /> : null;
             })()}
             <div>
               <span className={styles.drawerLabel}>Product Name</span>

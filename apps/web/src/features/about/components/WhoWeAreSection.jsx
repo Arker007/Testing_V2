@@ -17,14 +17,14 @@ export default function WhoWeAreSection() {
         {/* Left Column: Heading & Paragraph */}
         <div className="lg:col-span-5 space-y-6">
           <div>
-            <Badge variant="eyebrow" icon="solar:buildings-3-linear">
+            <Badge variant="eyebrow" size="lg" icon="solar:buildings-3-linear">
               Who We Are
             </Badge>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-primary)] tracking-tight leading-tight">
             {c("about_who_title", "Pioneering Eco-Friendly Industrial Plastics Since 2008.")}
           </h2>
-          <div className="h-1 w-16 bg-[var(--brand-primary)] rounded-full" />
+          <div className="h-1 w-16 bg-[var(--brand-primary)]" />
           <p className="text-[var(--text-secondary)] text-base leading-relaxed font-normal">
             {c(
               "about_who_text_1",

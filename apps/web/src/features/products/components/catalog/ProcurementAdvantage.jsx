@@ -26,7 +26,7 @@ export default function ProcurementAdvantage() {
     <section className={styles.procurementSection}>
       <div className={styles.procurementHead}>
         <div className="flex justify-center mb-4">
-          <Badge variant="eyebrow" icon="solar:verified-check-linear">
+          <Badge variant="eyebrow" size="lg" icon="solar:verified-check-linear">
             Procurement Advantage
           </Badge>
         </div>

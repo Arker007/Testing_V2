@@ -14,8 +14,8 @@ export default function IndustriesGrid() {
     <section className={styles.industriesSection}>
       <div className="container">
         <div className={styles.sectionHeader}>
-          <div className="flex justify-center mb-3">
-            <Badge variant="eyebrow">
+          <div className="flex justify-center mb-4">
+            <Badge variant="eyebrow" size="lg">
               {c("industries_eyebrow", "Applications")}
             </Badge>
           </div>

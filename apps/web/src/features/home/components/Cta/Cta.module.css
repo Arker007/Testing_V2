@@ -10,11 +10,11 @@
   position: relative;
   max-width: 800px;
   margin: 0 auto;
-  background: var(--bg-card, var(--white));
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  padding: 3.5rem 4rem;
-  box-shadow: var(--shadow-lg);
+  background: var(--bg-surface, var(--white));
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card, 8px);
+  padding: 3rem 3.5rem;
+  box-shadow: var(--shadow-sm);
 }
 
 /* ── Dark Mode Adaptations for Testimonials ── */

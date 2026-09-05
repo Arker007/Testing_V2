@@ -81,22 +81,17 @@ export default function Footer() {
       <div className={`container ${styles.grid}`}>
         {/* Company Column */}
         <div className={styles.brand}>
-          <div className={styles.logoRow}>
+          <Link to="/" className={styles.logoRow}>
             {co("logo") && !logoError ? (
-              <div className={styles.customLogo}>
-                <img
-                  src={co("logo")}
-                  alt={co("name", "VISHAL ENTERPRISE")}
-                  onError={() => setLogoError(true)}
-                />
-              </div>
+              <img
+                src={co("logo")}
+                alt={co("name", "VISHAL ENTERPRISE")}
+                className={styles.logoImg}
+                onError={() => setLogoError(true)}
+              />
             ) : (
-              <div className={styles.customLogo}>
-                {/* Fallback designed exactly like the white rounded VE logo block in the mockup */}
-                <div className={styles.fallbackLogoInner}>
-                  <span className={styles.logoV}>V</span>
-                  <span className={styles.logoE}>E</span>
-                </div>
+              <div className={styles.logoIcon}>
+                {co("name", "VISHAL ENTERPRISE").charAt(0).toUpperCase()}
               </div>
             )}
             <div className={styles.logoTitles}>
@@ -107,7 +102,7 @@ export default function Footer() {
                 {co("tagline", "Circular Polymers & Recycled Solutions")}
               </div>
             </div>
-          </div>
+          </Link>
           <p className={styles.tagline}>
             {c(
               "footer_tagline",

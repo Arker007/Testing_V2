@@ -55,7 +55,7 @@ export default function SpecsTab({
           style={{
             background: "var(--bg-section)",
             padding: "20px",
-            borderRadius: "12px",
+            borderRadius: "var(--radius-admin, 8px)",
             border: "1px solid var(--border)",
             color: "var(--text-muted)",
             fontSize: "0.8125rem",
@@ -98,7 +98,7 @@ export default function SpecsTab({
                 draggedFeatureIndex === idx
                   ? "var(--warning-bg)"
                   : "transparent",
-              borderRadius: "8px",
+              borderRadius: "var(--radius-admin, 8px)",
               transition: "background 0.2s",
             }}
           >
@@ -111,7 +111,7 @@ export default function SpecsTab({
                 width: "36px",
                 height: "42px",
                 border: "1px solid var(--border)",
-                borderRadius: "8px",
+                borderRadius: "var(--radius-admin, 8px)",
                 background: "var(--bg-surface)",
                 color: "var(--text-muted)",
               }}

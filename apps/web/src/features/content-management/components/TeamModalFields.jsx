@@ -9,7 +9,7 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
         </label>
         <input
           className="form-input"
-          style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)" }}
+          style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)" }}
           required
           value={data.name || ""}
           onChange={(e) => onChange("name", e.target.value)}
@@ -22,7 +22,7 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
         </label>
         <input
           className="form-input"
-          style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)" }}
+          style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)" }}
           required
           value={data.role || ""}
           onChange={(e) => onChange("role", e.target.value)}
@@ -36,7 +36,7 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
           </label>
           <input
             className="form-input"
-            style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)" }}
+            style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)" }}
             required
             value={data.init || ""}
             onChange={(e) => onChange("init", e.target.value.toUpperCase().slice(0, 2))}
@@ -49,7 +49,7 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
           </label>
           <input
             className="form-input"
-            style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)" }}
+            style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)" }}
             required
             value={data.color || ""}
             onChange={(e) => onChange("color", e.target.value)}

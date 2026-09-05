@@ -24,7 +24,7 @@ export default function FaqsTab({ form, setForm }) {
           <div
             key={idx}
             style={{
-              borderBottom: "1px solid rgba(5, 40, 63, 0.05)",
+              borderBottom: "1px solid var(--border-subtle)",
               paddingBottom: "20px",
             }}
           >
@@ -46,10 +46,11 @@ export default function FaqsTab({ form, setForm }) {
                 style={{
                   width: "100%",
                   padding: "10px",
-                  borderRadius: "8px",
-                  border: "1px solid var(--gray-200)",
+                  borderRadius: "var(--radius-admin, 8px)",
+                  border: "1px solid var(--border-default)",
                   fontWeight: 600,
-                  background: "var(--gray-50)",
+                  background: "var(--bg-surface)",
+                  color: "var(--text-primary)",
                 }}
                 value={faq.question}
                 onChange={(e) =>
@@ -79,8 +80,10 @@ export default function FaqsTab({ form, setForm }) {
                 style={{
                   width: "100%",
                   padding: "10px",
-                  borderRadius: "8px",
-                  border: "1px solid var(--gray-200)",
+                  borderRadius: "var(--radius-admin, 8px)",
+                  border: "1px solid var(--border-default)",
+                  background: "var(--bg-surface)",
+                  color: "var(--text-primary)",
                   fontFamily: "inherit",
                 }}
                 rows={2}

@@ -245,6 +245,7 @@ export default function ProcessSection({ className = "" }) {
         <div className="text-center mb-16">
           <Badge
             variant="eyebrow"
+            size="lg"
             icon={<Icon icon="solar:restart-circle-linear" className="w-4 h-4 animate-spin-slow" />}
             className="mb-4"
           >

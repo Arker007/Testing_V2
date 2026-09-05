@@ -37,7 +37,7 @@ export default function ModalEditor({ modalItem, setModalItem, handleModalSave }
       <div
         style={{
           background: "var(--surface-card)",
-          borderRadius: "16px",
+          borderRadius: "var(--radius-admin, 8px)",
           border: "1px solid var(--border)",
           width: "100%",
           maxWidth: "480px",

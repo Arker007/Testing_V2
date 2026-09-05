@@ -7,38 +7,38 @@ import styles from "../styles/navbar.module.css";
 
 const CATEGORY_META = {
   "plastic-pallets": {
-    icon: "solar:widget-2-outline",
-    label: "PLASTIC PALLETS",
+    icon: "solar:box-minimalistic-outline",
+    label: "Plastic Pallets",
     subtext: "ISPM-15 Export & Racking",
   },
   "plastic-lumber": {
     icon: "solar:ruler-angular-outline",
-    label: "PLASTIC LUMBER",
+    label: "Plastic Lumber",
     subtext: "Structural Profiles & Posts",
   },
   "garden-bench": {
     icon: "solar:chair-2-outline",
-    label: "GARDEN BENCHES",
+    label: "Garden Benches",
     subtext: "Park & Society Benches",
   },
   "plastic-table": {
     icon: "solar:layers-outline",
-    label: "RECYCLED TABLES",
+    label: "Recycled Tables",
     subtext: "Picnic Sets & Dining",
   },
   "custom-products": {
     icon: "solar:box-outline",
-    label: "CUSTOM & FENCING",
+    label: "Custom & Fencing",
     subtext: "Molded Shapes & Ranch Rail",
   },
   "outdoor-furniture": {
     icon: "solar:chair-outline",
-    label: "OUTDOOR FURNITURE",
+    label: "Outdoor Furniture",
     subtext: "Eco Seating & Amenities",
   },
   "garden-fence": {
     icon: "solar:shield-outline",
-    label: "GARDEN FENCE",
+    label: "Garden Fence",
     subtext: "Perimeter Systems",
   },
 };
@@ -139,16 +139,23 @@ export default function MegaMenu({
     }
     leaveTimeoutRef.current = setTimeout(() => {
       setIsOpen(false);
-    }, 150);
+    }, 180);
   };
 
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
+      window.removeEventListener("keydown", handleKeyDown);
       if (leaveTimeoutRef.current) {
         clearTimeout(leaveTimeoutRef.current);
       }
     };
-  }, []);
+  }, [isOpen]);
 
   const handleLinkClick = () => {
     setIsOpen(false);
@@ -202,7 +209,7 @@ export default function MegaMenu({
         slug,
         meta: CATEGORY_META[slug] || {
           icon: "solar:box-minimalistic-outline",
-          label: (cat.name || slug).toUpperCase(),
+          label: cat.name || slug,
         },
       };
     });
@@ -217,6 +224,8 @@ export default function MegaMenu({
       <Link
         to="/products"
         onClick={handleLinkClick}
+        aria-haspopup="true"
+        aria-expanded={isOpen}
         className={`${styles.dropdownBtn} ${
           isProductsActive ? styles.dropdownBtnActive : ""
         }`}
@@ -234,14 +243,14 @@ export default function MegaMenu({
         {isOpen && (
           <motion.div
             className={styles.dropdownMenu}
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 6 }}
-            transition={{ duration: 0.15, ease: "easeOut" }}
+            initial={{ opacity: 0, y: -4, scale: 0.995 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -4, scale: 0.995 }}
+            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
             style={{ display: "flex" }}
           >
             <div
-              className={`${styles.dropdownMenuPanel} p-6 sm:p-7 lg:p-8 transition-all shadow-2xl`}
+              className={`${styles.dropdownMenuPanel} p-6 sm:p-7 lg:p-8 transition-all shadow-2xl backdrop-blur-md`}
             >
               {/* Main 5-Column Dynamic Category Grid */}
               <div className={styles.megaMenuGrid}>
@@ -256,7 +265,7 @@ export default function MegaMenu({
                   const label =
                     cat.meta?.label ||
                     CATEGORY_META[catSlug]?.label ||
-                    (cat.name || catSlug).toUpperCase();
+                    (cat.name || catSlug);
 
                   return (
                     <div
@@ -274,7 +283,7 @@ export default function MegaMenu({
                               className="w-3.5 h-3.5 text-[var(--brand-primary)]"
                             />
                           </div>
-                          <span className="font-bold tracking-wider text-[12.5px] truncate text-[var(--text-primary)]">
+                          <span className="font-bold tracking-tight text-[13.5px] truncate text-[var(--text-primary)]">
                             {label}
                           </span>
                           {catItems.length > 0 && (
@@ -300,7 +309,7 @@ export default function MegaMenu({
                                   title={item.name}
                                 >
                                   <div className="flex flex-col min-w-0 pr-1">
-                                    <span className="truncate text-[13px] font-medium text-[var(--text-secondary)] transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-[var(--brand-primary)]">
+                                    <span className="truncate text-[13px] font-medium text-[var(--text-secondary)] transition-colors group-hover:text-[var(--brand-primary)]">
                                       {cleanTitle}
                                     </span>
                                     {sizeBadge && (
@@ -309,10 +318,6 @@ export default function MegaMenu({
                                       </span>
                                     )}
                                   </div>
-                                  <Icon
-                                    icon="solar:alt-arrow-right-linear"
-                                    className="w-3 h-3 text-[var(--text-muted)] group-hover:text-[var(--brand-primary)] group-hover:translate-x-0.5 transition-all shrink-0 ml-1.5"
-                                  />
                                 </Link>
                               );
                             })
@@ -341,121 +346,67 @@ export default function MegaMenu({
                 })}
               </div>
 
-              {/* Quick Info Feature Banner */}
-              <div
-                className={`${styles.megaMenuBanner} grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[var(--border-subtle)] mt-6`}
-              >
-                {/* 1. ISPM-15 Exempt & Export Compliant */}
-                <Link
-                  to="/sustainability"
-                  onClick={handleLinkClick}
-                  className="group p-3.5 sm:p-4 flex items-center justify-between hover:bg-[var(--bg-surface-secondary)] transition-all duration-200 rounded-lg md:rounded-none first:rounded-l-lg last:rounded-r-lg"
-                >
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-[var(--brand-soft)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
-                      <Icon
-                        icon="solar:shield-check-outline"
-                        className="w-5 h-5 text-[var(--brand-primary)] group-hover:scale-105 transition-transform duration-200"
-                      />
+              {/* Consolidated Quick-Value & B2B Action Bar */}
+              <div className="mt-5 pt-3.5 border-t border-[var(--border-subtle)] flex flex-col lg:flex-row items-center justify-between gap-3 text-xs">
+                {/* Value Highlights */}
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[var(--text-secondary)]">
+                  <Link
+                    to="/sustainability"
+                    onClick={handleLinkClick}
+                    className="inline-flex items-center gap-2 group hover:text-[var(--text-primary)] transition-colors"
+                  >
+                    <div className="w-6 h-6 rounded-md bg-[var(--brand-soft)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
+                      <Icon icon="solar:shield-check-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                     </div>
-                    <div>
-                      <span className="block text-[13px] font-bold text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors leading-tight">
-                        ISPM-15 Exempt & ISO Certified
-                      </span>
-                      <p className="text-[12px] text-[var(--text-secondary)] mt-0.5 leading-tight">
-                        Zero fumigation needed for global export shipments
-                      </p>
-                    </div>
-                  </div>
-                  <Icon
-                    icon="solar:alt-arrow-right-linear"
-                    className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--brand-primary)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2"
-                  />
-                </Link>
+                    <span className="font-semibold text-[12.5px] text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors">
+                      ISPM-15 Export Certified
+                    </span>
+                    <span className="hidden sm:inline text-[11.5px] text-[var(--text-muted)]">
+                      • Zero fumigation needed
+                    </span>
+                  </Link>
 
-                {/* 2. Custom Pallets, Skids & Lumber */}
-                <Link
-                  to="/contact?quote=1"
-                  onClick={handleLinkClick}
-                  className="group p-3.5 sm:p-4 flex items-center justify-between hover:bg-[var(--bg-surface-secondary)] transition-all duration-200 rounded-lg md:rounded-none"
-                >
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-[var(--brand-soft)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
-                      <Icon
-                        icon="solar:ruler-angular-outline"
-                        className="w-5 h-5 text-[var(--brand-primary)] group-hover:scale-105 transition-transform duration-200"
-                      />
+                  <Link
+                    to="/contact?quote=1"
+                    onClick={handleLinkClick}
+                    className="inline-flex items-center gap-2 group hover:text-[var(--text-primary)] transition-colors"
+                  >
+                    <div className="w-6 h-6 rounded-md bg-[var(--brand-soft)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
+                      <Icon icon="solar:ruler-angular-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                     </div>
-                    <div>
-                      <span className="block text-[13px] font-bold text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors leading-tight">
-                        Custom Sizes & Moldings
-                      </span>
-                      <p className="text-[12px] text-[var(--text-secondary)] mt-0.5 leading-tight">
-                        Machinery skids, custom lengths & industrial CAD tooling
-                      </p>
-                    </div>
-                  </div>
-                  <Icon
-                    icon="solar:alt-arrow-right-linear"
-                    className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--brand-primary)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2"
-                  />
-                </Link>
+                    <span className="font-semibold text-[12.5px] text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors">
+                      Custom Moulds & Profiles
+                    </span>
+                    <span className="hidden sm:inline text-[11.5px] text-[var(--text-muted)]">
+                      • CAD skids & bespoke sizing
+                    </span>
+                  </Link>
 
-                {/* 3. Direct B2B Pricing & Support */}
-                <Link
-                  to="/contact"
-                  onClick={handleLinkClick}
-                  className="group p-3.5 sm:p-4 flex items-center justify-between hover:bg-[var(--bg-surface-secondary)] transition-all duration-200 rounded-lg md:rounded-none first:rounded-l-lg last:rounded-r-lg"
-                >
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-[var(--brand-soft)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
-                      <Icon
-                        icon="solar:headphones-round-outline"
-                        className="w-5 h-5 text-[var(--brand-primary)] group-hover:scale-105 transition-transform duration-200"
-                      />
+                  <Link
+                    to="/sustainability"
+                    onClick={handleLinkClick}
+                    className="hidden xl:inline-flex items-center gap-2 group hover:text-[var(--text-primary)] transition-colors"
+                  >
+                    <div className="w-6 h-6 rounded-md bg-[var(--brand-soft)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
+                      <Icon icon="solar:leaf-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                     </div>
-                    <div>
-                      <span className="block text-[13px] font-bold text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors leading-tight">
-                        Factory-Direct Pricing
-                      </span>
-                      <p className="text-[12px] text-[var(--text-secondary)] mt-0.5 leading-tight">
-                        Bulk supply, container dispatch & technical consulting
-                      </p>
-                    </div>
-                  </div>
-                  <Icon
-                    icon="solar:alt-arrow-right-linear"
-                    className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--brand-primary)] group-hover:translate-x-0.5 transition-all shrink-0 ml-2"
-                  />
-                </Link>
-              </div>
-
-              {/* Bottom Footer Strip */}
-              <div className="mt-5 pt-4 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-                <div className="flex items-center gap-2 text-[var(--text-secondary)]">
-                  <Icon
-                    icon="solar:leaf-linear"
-                    className="w-4 h-4 text-[var(--brand-primary)] shrink-0"
-                  />
-                  <span className="font-bold text-[var(--text-primary)] text-[12.5px]">
-                    Circular Polymers. 50+ Year Durability.
-                  </span>
-                  <span className="text-[var(--text-secondary)] text-[12px] hidden sm:inline ml-1">
-                    100% rot-proof, termite-proof & zero deforestation.
-                  </span>
+                    <span className="font-semibold text-[12.5px] text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors">
+                      100% Recycled Polymers
+                    </span>
+                  </Link>
                 </div>
 
-                <Link
-                  to="/contact?quote=1"
-                  onClick={handleLinkClick}
-                  className="inline-flex items-center gap-1.5 text-[12.5px] font-bold text-[var(--brand-primary)] hover:text-[var(--brand-hover)] transition-colors duration-150"
-                >
-                  <span>Request B2B Quote</span>
-                  <Icon
-                    icon="solar:arrow-right-linear"
-                    className="w-3.5 h-3.5"
-                  />
-                </Link>
+                {/* Primary Action Button */}
+                <div className="flex items-center gap-3 shrink-0 self-end lg:self-auto">
+                  <Link
+                    to="/contact?quote=1"
+                    onClick={handleLinkClick}
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-[var(--radius-card,8px)] bg-[var(--brand-primary)] text-slate-950 font-bold text-xs hover:bg-[var(--brand-hover)] transition-all shadow-2xs cursor-pointer"
+                  >
+                    <span>Request B2B Quote</span>
+                    <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
           </motion.div>

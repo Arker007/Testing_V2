@@ -1,29 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../../shared/context/SiteContext";
-import { Card, Badge, CtaCard } from "@/shared/ui";
-import styles from "../styles/contact.module.css";
+import { Badge, CtaCard, Accordion } from "@/shared/ui";
 import { FAQ_ITEMS } from "../constants";
-
-const ToggleIcon = ({ isOpen }) => (
-  <motion.div
-    animate={{
-      rotate: isOpen ? 135 : 0,
-      scale: isOpen ? 1.08 : 1,
-    }}
-    transition={{ type: "spring", stiffness: 350, damping: 22 }}
-    className={`shrink-0 ml-4 w-7 h-7 rounded-full flex items-center justify-center transition-colors duration-200 ${
-      isOpen
-        ? "bg-[var(--brand,#5FBF50)]/15 text-[var(--brand-dark,#4FC36D)] dark:text-[#5FBF50]"
-        : "bg-slate-200/80 dark:bg-white/10 text-slate-600 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white"
-    }`}
-  >
-    <Icon icon="solar:add-circle-linear" className="w-5 h-5" />
-  </motion.div>
-);
 
 const WhatsAppIcon = () => (
   <motion.div
@@ -47,93 +29,46 @@ const AnimatedCatalogIcon = () => (
 
 export default function ContactFaqSection() {
   const { c, co } = useSite();
-  const [openFaq, setOpenFaq] = useState(0);
-
   const waLink = `https://wa.me/${co("whatsapp", "919898686379").replace(/\D/g, "")}`;
+
+  // Format clean items without icon or badge
+  const accordionItems = FAQ_ITEMS.map((item, idx) => ({
+    id: item.id || `faq-${idx}`,
+    title: item.q,
+    content: item.a,
+  }));
 
   return (
     <>
-      <section className={styles.faqSection}>
-        <div className="container">
+      <section className="py-14 sm:py-20 bg-[var(--bg-canvas)] border-t border-[var(--border-subtle)]/60 transition-colors">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Heading */}
           <motion.div
-            className={styles.sectionHeaderCenter}
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-10 sm:mb-12"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.45 }}
+            transition={{ duration: 0.4 }}
           >
             <div className="flex justify-center mb-3">
-              <Badge variant="brand" size="sm">
+              <Badge variant="eyebrow" size="lg">
                 Got Questions?
               </Badge>
             </div>
-            <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
-            <p className={styles.sectionDesc}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[var(--text-primary)] mb-3">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-sm sm:text-base text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed">
               Clear answers regarding minimum orders, custom options, export compliance, and delivery.
             </p>
           </motion.div>
 
-          <div className={styles.faqList}>
-            {FAQ_ITEMS.map((item, index) => {
-              const isOpen = openFaq === index;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-30px" }}
-                  transition={{ duration: 0.35, delay: index * 0.05 }}
-                  whileHover={{ y: -2 }}
-                  className={`${styles.faqCard} group transition-shadow ${
-                    isOpen ? styles.faqCardOpen : ""
-                  }`}
-                >
-                  <motion.button
-                    type="button"
-                    className={styles.faqQuestion}
-                    onClick={() => setOpenFaq(isOpen ? null : index)}
-                    aria-expanded={isOpen}
-                    whileTap={{ scale: 0.995 }}
-                  >
-                    <span className="group-hover:text-[var(--brand-dark,#4FC36D)] dark:group-hover:text-[#5FBF50] transition-colors">
-                      {item.q}
-                    </span>
-                    <ToggleIcon isOpen={isOpen} />
-                  </motion.button>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        key="faq-answer-content"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{
-                          opacity: 1,
-                          height: "auto",
-                          transition: {
-                            height: { duration: 0.32, ease: [0.04, 0.62, 0.23, 0.98] },
-                            opacity: { duration: 0.25, delay: 0.04 },
-                          },
-                        }}
-                        exit={{
-                          opacity: 0,
-                          height: 0,
-                          transition: {
-                            height: { duration: 0.25, ease: [0.04, 0.62, 0.23, 0.98] },
-                            opacity: { duration: 0.15 },
-                          },
-                        }}
-                        className="overflow-hidden"
-                      >
-                        <p className={styles.faqAnswer}>{item.a}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              );
-            })}
-          </div>
+          {/* Accordion FAQ List without icons and category badges */}
+          <Accordion items={accordionItems} defaultOpenIndex={0} allowMultiple={true} />
         </div>
       </section>
 
+      {/* Restored Direct Connect CTA Card */}
       {c("about_cta_enabled", "1") !== "0" && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12 cta-section">
           <CtaCard

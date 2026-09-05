@@ -1,15 +1,16 @@
 /* RichTextEditor — Quill snow theme overrides to match admin design */
 .wrap {
-  border: 1px solid var(--border, var(--border-subtle));
-  border-radius: 8px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-admin, 8px);
   overflow: hidden;
+  background: var(--bg-surface);
 }
 
 /* Toolbar */
 .wrap :global(.ql-toolbar.ql-snow) {
   border: none;
-  border-bottom: 1px solid var(--border, var(--border-subtle));
-  background: var(--surface, var(--bg-page));
+  border-bottom: 1px solid var(--border-default);
+  background: var(--bg-surface-secondary);
   padding: 6px 10px;
   font-family: inherit;
 }
@@ -19,6 +20,8 @@
   border: none;
   font-family: inherit;
   font-size: 0.9rem;
+  background: var(--bg-surface);
+  color: var(--text-primary);
 }
 
 .wrap :global(.ql-editor) {
@@ -72,8 +75,9 @@
 
 /* picker dropdown */
 .wrap :global(.ql-snow .ql-picker-options) {
-  background: var(--surface, var(--bg-page));
-  border: 1px solid var(--border, var(--border-subtle));
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-admin, 8px);
+  box-shadow: var(--shadow-dropdown);
 }

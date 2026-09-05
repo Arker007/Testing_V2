@@ -22,7 +22,7 @@ export default function Badge({
   children,
   variant = "eyebrow",
   size = "md",
-  shape = "pill",
+  shape = "rounded",
   icon,
   iconRight,
   iconClassName = "",
@@ -34,22 +34,22 @@ export default function Badge({
   ...props
 }) {
   const sizeClasses = {
-    xs: "px-2 py-0.5 text-[10px] gap-1 leading-tight",
-    sm: "px-2.5 py-1 text-[11px] gap-1.5 leading-none",
-    md: "px-3.5 py-1.5 text-xs gap-2 leading-none",
-    lg: "px-4.5 py-2 text-sm gap-2.5 leading-none",
+    xs: "px-2 py-0.5 text-[10px] gap-1 leading-normal font-bold",
+    sm: "px-2.5 py-1 text-[11px] gap-1.5 leading-normal font-bold",
+    md: "px-3 py-1.5 text-xs gap-1.5 leading-normal font-bold",
+    lg: "px-3.5 py-1.5 text-xs sm:text-sm gap-2 leading-normal font-bold",
   };
 
   const iconSizes = {
     xs: "w-3 h-3",
     sm: "w-3.5 h-3.5",
-    md: "w-4 h-4",
-    lg: "w-4.5 h-4.5",
+    md: "w-3.5 h-3.5",
+    lg: "w-4 h-4",
   };
 
   const shapeClasses = {
-    pill: "rounded-pill",
-    rounded: "rounded-[var(--radius-badge,6px)]",
+    pill: "rounded-[var(--radius-pill,9999px)]",
+    rounded: "rounded-[var(--radius-badge,4px)]",
     square: "rounded-none",
   };
 

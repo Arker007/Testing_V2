@@ -29,13 +29,9 @@ export default function CtaCard({
   return (
     <Card
       variant={variant}
-      className={`p-8 sm:p-12 text-[var(--text-primary)] shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[var(--surface,#161c24)] border border-slate-200/90 dark:border-[var(--border-subtle,rgba(242,242,242,0.12))] rounded-lg ${className}`.trim()}
+      className={`p-8 sm:p-10 text-[var(--text-primary)] relative overflow-hidden bg-[var(--bg-surface,#ffffff)] border border-[var(--border-subtle)] rounded-[var(--radius-card,8px)] shadow-[var(--shadow-sm)] ${className}`.trim()}
       {...props}
     >
-      {/* Ambient radial glow blobs */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-[var(--brand-primary)]/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
-
       <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 md:gap-8">
         <div className="space-y-2.5">
           {badge && (

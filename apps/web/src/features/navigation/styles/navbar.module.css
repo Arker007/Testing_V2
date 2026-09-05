@@ -43,45 +43,36 @@
   right: 0;
   width: 100%;
   z-index: 1000;
-  pointer-events: none;
-  padding: 0.75rem 0;
-  transition: padding var(--motion-base) var(--ease-standard);
+  pointer-events: auto;
+  background: var(--bg-surface, #ffffff);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: box-shadow var(--motion-fast) var(--ease-standard);
 }
 
 .headerScrolled {
-  padding: 0 !important;
+  box-shadow: var(--shadow-sm);
 }
 
-/* Floating Pill Navbar Container */
+/* Navbar Container */
 .nav {
   position: relative;
-  pointer-events: auto;
-  max-width: 1280px;
-  width: calc(100% - 2rem);
-  margin: 0 auto;
-  background: var(--surface-nav, rgba(255, 255, 255, 0.9));
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px !important;
-  box-shadow: var(--shadow-md);
-  transition: all var(--motion-base) var(--ease-standard);
+  width: 100%;
+  background: transparent;
+  transition: all var(--motion-fast) var(--ease-standard);
 }
 
 .navShrink {
-  background: var(--surface-nav, rgba(255, 255, 255, 0.95));
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-md);
+  background: transparent;
 }
 
 .inner {
-  max-width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 /* Logo & Divider */
@@ -514,7 +505,7 @@ html.dark .dropdownBtnActive {
   border: 1px solid var(--border-subtle);
   color: var(--text-primary);
   box-shadow: var(--shadow-xl);
-  border-radius: 12px;
+  border-radius: var(--radius-card, 8px) !important;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -585,10 +576,9 @@ html.dark .dropdownBtnActive {
   display: flex !important;
   align-items: center !important;
   gap: var(--space-2, 0.5rem) !important;
-  font-size: var(--font-size-sm, 13px) !important;
+  font-size: var(--font-size-sm, 13.5px) !important;
   font-weight: var(--font-weight-bold, 700) !important;
-  letter-spacing: var(--tracking-caps, 0.05em) !important;
-  text-transform: uppercase !important;
+  letter-spacing: var(--tracking-tight, -0.02em) !important;
   color: var(--text-primary) !important;
   padding-bottom: 0.75rem !important;
   margin-bottom: 0.65rem !important;
@@ -607,7 +597,7 @@ html.dark .dropdownBtnActive {
   line-height: var(--line-height-body, 1.45) !important;
   color: var(--text-secondary) !important;
   white-space: nowrap !important;
-  border-radius: 6px !important;
+  border-radius: var(--radius-sm, 6px) !important;
   transition: all var(--motion-fast, 0.15s) ease !important;
 }
 
@@ -652,7 +642,7 @@ html.dark .megaMenuItemLink:hover {
   padding: 4px;
   background: var(--bg-surface-secondary);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--mega-menu-radius, 12px);
+  border-radius: var(--radius-card, 8px);
 }
 
 .megaMenuContainer {

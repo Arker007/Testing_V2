@@ -58,7 +58,7 @@ export default function AdminTopBar({
           style={{
             background: "var(--bg-card)",
             border: "1px solid var(--line)",
-            borderRadius: "9999px",
+            borderRadius: "var(--radius-admin, 8px)",
             padding: "8px 16px 8px 38px",
             fontSize: "0.875rem",
             color: "var(--text-muted)",

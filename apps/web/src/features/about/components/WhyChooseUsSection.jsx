@@ -25,6 +25,7 @@ export default function WhyChooseUsSection() {
               <div className="mb-4">
                 <Badge
                   variant="hero"
+                  size="lg"
                   icon="solar:shield-check-linear"
                 >
                   Why Industries Choose Us

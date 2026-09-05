@@ -45,7 +45,7 @@ export default function CompanyForm({
                       <img
                         src={val}
                         alt="Logo Preview"
-                        style={{ height: "48px", width: "auto", borderRadius: "6px", border: "1px solid var(--border)" }}
+                        style={{ height: "48px", width: "auto", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--border)" }}
                       />
                     )}
                     <input
@@ -69,7 +69,7 @@ export default function CompanyForm({
                   </label>
                   <textarea
                     className="form-textarea"
-                    style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)", fontFamily: "inherit" }}
+                    style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)", fontFamily: "inherit" }}
                     rows={3}
                     placeholder={f.placeholder}
                     value={val}
@@ -87,7 +87,7 @@ export default function CompanyForm({
                 <input
                   type="text"
                   className="form-input"
-                  style={{ width: "100%", padding: "10px", borderRadius: "8px", border: "1px solid var(--gray-200)" }}
+                  style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)" }}
                   placeholder={f.placeholder}
                   value={val}
                   onChange={setCo(f.key)}

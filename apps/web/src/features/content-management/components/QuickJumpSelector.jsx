@@ -29,7 +29,7 @@ export default function QuickJumpSelector({
           justifyContent: "space-between",
           background: "var(--surface-card)",
           border: "1px solid var(--border)",
-          borderRadius: "10px",
+          borderRadius: "var(--radius-admin, 8px)",
           padding: "8px 12px",
           cursor: "pointer",
           boxShadow: "0 2px 6px var(--shadow-sm)",
@@ -67,7 +67,7 @@ export default function QuickJumpSelector({
             left: 0,
             right: 0,
             background: "var(--surface-card)",
-            borderRadius: "12px",
+            borderRadius: "var(--radius-admin, 8px)",
             border: "1px solid var(--border)",
             boxShadow: "0 12px 28px var(--shadow-md)",
             zIndex: 100,
@@ -160,7 +160,7 @@ export default function QuickJumpSelector({
                     width: "100%",
                     textAlign: "left",
                     padding: "8px 10px",
-                    borderRadius: "6px",
+                    borderRadius: "var(--radius-admin, 8px)",
                     border: "none",
                     background:
                       activeSub === sec.key

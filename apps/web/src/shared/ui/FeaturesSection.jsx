@@ -71,7 +71,7 @@ export default function FeaturesSection() {
         backgroundColor: "var(--bg-canvas)",
         color: "var(--text-primary)",
       }}
-      className="py-10 md:py-16 transition-colors"
+      className="py-10 md:py-14 transition-colors"
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader

@@ -20,7 +20,7 @@ export default function AdminCommandPalette({
       style={{
         position: "fixed",
         inset: 0,
-        background: "var(--border-subtle)",
+        background: "var(--bg-modal-backdrop, rgba(15, 20, 26, 0.6))",
         backdropFilter: "blur(4px)",
         zIndex: 1000,
         display: "flex",
@@ -35,7 +35,7 @@ export default function AdminCommandPalette({
           width: "100%",
           maxWidth: "540px",
           background: "var(--bg-card)",
-          borderRadius: "16px",
+          borderRadius: "var(--radius-admin, 8px)",
           boxShadow: "0 25px 50px -12px var(--shadow-md)",
           border: "1px solid var(--line)",
           overflow: "hidden",
@@ -60,6 +60,7 @@ export default function AdminCommandPalette({
             onChange={(e) => setSearchQuery(e.target.value)}
             style={{
               width: "100%",
+              background: "transparent",
               border: "none",
               outline: "none",
               fontSize: "1rem",
@@ -124,7 +125,7 @@ export default function AdminCommandPalette({
                     alignItems: "center",
                     justifyContent: "space-between",
                     padding: "10px 12px",
-                    borderRadius: "8px",
+                    borderRadius: "var(--radius-admin, 8px)",
                     border: "none",
                     background: "transparent",
                     cursor: "pointer",
