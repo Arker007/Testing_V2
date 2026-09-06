@@ -185,7 +185,7 @@ export default function AdminProducts() {
                   </div>
                 </div>
                 <span>
-                  <span className={styles.badge} style={{ background: "var(--gray-100)", color: "var(--gray-800)" }}>
+                  <span className={styles.badge} style={{ background: "var(--bg-surface-secondary)", color: "var(--text-secondary)" }}>
                     {p.category_name || "Unassigned"}
                   </span>
                 </span>
@@ -251,7 +251,7 @@ export default function AdminProducts() {
               <div>
                 <span className={styles.drawerLabel}>Category</span>
                 <div className={styles.drawerValue} style={{ marginTop: 4 }}>
-                  <span className={styles.badge} style={{ background: "var(--gray-100)", color: "var(--gray-800)", padding: "2px 8px" }}>
+                  <span className={styles.badge} style={{ background: "var(--bg-surface-secondary)", color: "var(--text-secondary)", padding: "2px 8px" }}>
                     {activeItem.category_name || "Unassigned"}
                   </span>
                 </div>

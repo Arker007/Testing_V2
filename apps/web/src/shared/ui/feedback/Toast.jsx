@@ -34,7 +34,7 @@ export function ToastProvider({ children }) {
     <ToastContext.Provider value={toast}>
       {children}
       {/* Toast Container */}
-      <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-2.5 max-w-sm w-full pointer-events-none px-4 sm:px-0">
+      <div className="fixed bottom-5 right-5 z-[var(--z-toast,1400)] flex flex-col gap-2.5 max-w-sm w-full pointer-events-none px-4 sm:px-0">
         {toasts.map((t) => (
           <ToastItem key={t.id} toast={t} onClose={() => removeToast(t.id)} />
         ))}
@@ -67,7 +67,7 @@ export function ToastItem({ toast, onClose }) {
 
   return (
     <div
-      className={`pointer-events-auto flex items-center justify-between p-3.5 rounded-xl border shadow-xl backdrop-blur-md transition-all animate-in slide-in-from-bottom-5 duration-200 ${stylesMap[toast.type] || stylesMap.info}`}
+      className={`pointer-events-auto flex items-center justify-between p-3.5 rounded-xl border shadow-[var(--shadow-toast)] backdrop-blur-md transition-all animate-in slide-in-from-bottom-5 duration-200 ${stylesMap[toast.type] || stylesMap.info}`}
     >
       <div className="flex items-center gap-2.5 min-w-0">
         <Icon

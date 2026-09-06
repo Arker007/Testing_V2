@@ -28,3 +28,4 @@
 3. **Comments**: Document *why*, never *what*.
 4. **Error Handling**: Unified error classes; concise guard clauses early in function execution.
 5. **Verification**: Verify code linting and compilation before concluding turns.
+6. **UI/UX First Principles**: Adhere to `docs/design/first-principles-ui-ux.md` (hierarchy, proximity, base-4/8 spacing, soft tinted shadows, 45-75ch measure, max 2 typefaces, multi-signal feedback).

@@ -240,7 +240,7 @@ export default function ProductHeaderSpecs({
                   onClick={() => setSelectedSize(option)}
                   className={`px-4 py-2.5 rounded-[var(--radius-card,8px)] text-xs font-bold border transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95 ${
                     isSelected
-                      ? "bg-[var(--brand-primary)] border-[var(--brand-primary)] text-white shadow-xs"
+                      ? "bg-[var(--brand-primary)] border-[var(--brand-primary)] text-[var(--brand-btn-text)] shadow-xs"
                       : "bg-[var(--bg-surface)] text-[var(--text-secondary)] border-[var(--border-default)] hover:bg-[var(--bg-surface-secondary)] hover:text-[var(--text-primary)]"
                   }`}
                 >
@@ -257,7 +257,7 @@ export default function ProductHeaderSpecs({
         <div className="flex flex-col sm:flex-row gap-3">
           <button
             type="button"
-            className="flex-1 min-h-[48px] px-6 bg-[var(--brand-primary)] hover:bg-[var(--brand-hover,#226e32)] active:bg-[var(--brand-active,#1d5c2a)] text-white rounded-[var(--radius-card,8px)] font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm border-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 active:scale-[0.98]"
+            className="flex-1 min-h-[48px] px-6 bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] active:bg-[var(--brand-active)] text-[var(--brand-btn-text)] rounded-[var(--radius-card,8px)] font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm border-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 active:scale-[0.98]"
             onClick={() => setShowInquiry(true)}
           >
             <span>Request B2B Quotation</span>

@@ -156,9 +156,16 @@ export default function InquiryModal({ product, onClose }) {
               </div>
 
               <div className={styles.formGroup}>
-                <label htmlFor="quantity" className={styles.formLabel}>
-                  Estimated Quantity
-                </label>
+                <div className="flex items-center justify-between mb-1">
+                  <label htmlFor="quantity" className={styles.formLabel} style={{ marginBottom: 0 }}>
+                    Estimated Quantity
+                  </label>
+                  {formData.quantity && (
+                    <span className="text-[11px] text-[var(--brand-text)] font-medium">
+                      {formData.quantity}
+                    </span>
+                  )}
+                </div>
                 <input
                   id="quantity"
                   name="quantity"
@@ -167,6 +174,22 @@ export default function InquiryModal({ product, onClose }) {
                   placeholder="e.g. 100 units"
                   className={styles.formInput}
                 />
+                <div className="flex items-center gap-1.5 mt-2 flex-wrap">
+                  {["50 units", "100 units", "500 units", "1,000+ units"].map((q) => (
+                    <button
+                      key={q}
+                      type="button"
+                      onClick={() => setFormData((prev) => ({ ...prev, quantity: q }))}
+                      className={`text-[11px] px-2.5 py-1 rounded-[var(--radius-btn,6px)] border transition-all cursor-pointer ${
+                        formData.quantity === q
+                          ? "bg-[var(--brand-soft)] text-[var(--text-brand)] border-[var(--brand-primary)] font-bold shadow-xs"
+                          : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--brand-primary)]"
+                      }`}
+                    >
+                      {q}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 

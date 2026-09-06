@@ -66,6 +66,49 @@ export default function ContactFormSection() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className={styles.contactForm}>
+                {/* Step 2 & 7: Visual Selectable Category Cards */}
+                <div className="mb-3">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-xs font-semibold text-[var(--text-secondary)]">
+                      Select Category or Type Below:
+                    </span>
+                    {form.productService && (
+                      <span className="text-[11px] font-medium text-[var(--brand-text)] flex items-center gap-1">
+                        <Icon icon="solar:check-circle-bold" className="w-3.5 h-3.5" />
+                        Selected
+                      </span>
+                    )}
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {[
+                      { label: "Industrial Pallets", icon: "solar:box-minimalistic-linear" },
+                      { label: "Plastic Lumber", icon: "solar:layers-minimalistic-linear" },
+                      { label: "Garden Benches", icon: "solar:armchair-linear" },
+                      { label: "Custom Profile", icon: "solar:tuning-square-linear" },
+                    ].map((cat) => {
+                      const isSelected = form.productService === cat.label;
+                      return (
+                        <button
+                          key={cat.label}
+                          type="button"
+                          onClick={() => {
+                            const syntheticEvent = { target: { value: cat.label } };
+                            f("productService")(syntheticEvent);
+                          }}
+                          className={`flex items-center gap-1.5 px-2.5 py-2 text-xs font-semibold rounded-[var(--radius-btn,8px)] border transition-all text-left cursor-pointer min-h-[40px] ${
+                            isSelected
+                              ? "bg-[var(--brand-soft)] text-[var(--text-brand)] border-[var(--brand-primary)] shadow-sm font-bold"
+                              : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--brand-primary)] hover:text-[var(--text-primary)]"
+                          }`}
+                        >
+                          <Icon icon={cat.icon} className="w-3.5 h-3.5 shrink-0 text-[var(--brand-text)]" />
+                          <span className="truncate">{cat.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
                 {/* Product/Service & Name */}
                 <div className={styles.row2}>
                   <div className={styles.inputFieldWrapper}>
@@ -78,7 +121,7 @@ export default function ContactFormSection() {
                       className={`${styles.customInput} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-primary)]`}
                       value={form.productService || ""}
                       onChange={f("productService")}
-                      placeholder="Product / Service Looking for"
+                      placeholder="Product / Service Looking for (e.g. Heavy Duty Pallet)"
                     />
                   </div>
 
@@ -265,14 +308,14 @@ export default function ContactFormSection() {
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Mobile</span>
                   {showMobile ? (
                     <p className={`${styles.infoCardValue} text-[var(--text-primary)]`}>
-                      <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="hover:underline text-[#1E622A] dark:text-[#6BBF54] font-bold">
+                      <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="hover:underline text-[var(--text-brand)] font-bold">
                         {phoneVal}
                       </a>
                     </p>
                   ) : (
                     <button
                       type="button"
-                      className="text-[#1E622A] dark:text-[#6BBF54] font-bold hover:underline bg-transparent border-none p-0 text-sm cursor-pointer"
+                      className="text-[var(--text-brand)] font-bold hover:underline bg-transparent border-none p-0 text-sm cursor-pointer"
                       onClick={() => setShowMobile(true)}
                     >
                       View Mobile Number
@@ -287,7 +330,7 @@ export default function ContactFormSection() {
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Email</span>
                   <p className={`${styles.infoCardValue} text-[var(--text-primary)]`}>
-                    <a href={`mailto:${emailVal}`} className="hover:underline text-[#1E622A] dark:text-[#6BBF54] font-bold">
+                    <a href={`mailto:${emailVal}`} className="hover:underline text-[var(--text-brand)] font-bold">
                       {emailVal}
                     </a>
                   </p>
@@ -304,8 +347,8 @@ export default function ContactFormSection() {
                   <p className="text-xs text-[var(--text-secondary)] mt-0.5">Our team is ready to help you with your requirements.</p>
                 </div>
               </div>
-              <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="inline-flex items-center gap-2 bg-[#6BBF54] hover:bg-[#5fbf50] text-slate-950 font-bold text-xs px-4 py-2.5 rounded-[var(--radius-btn,8px)] shadow-xs transition-all shrink-0 no-underline">
-                <Icon icon="solar:phone-calling-linear" className="w-4 h-4 text-slate-950" />
+              <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="inline-flex items-center gap-2 bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-[var(--brand-btn-text)] font-bold text-xs px-4 py-2.5 rounded-[var(--radius-btn,8px)] shadow-xs transition-all shrink-0 no-underline">
+                <Icon icon="solar:phone-calling-linear" className="w-4 h-4 text-[var(--brand-btn-text)]" />
                 Call Now
               </a>
             </div>

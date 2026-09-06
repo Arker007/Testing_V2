@@ -145,13 +145,13 @@ export default function ProductTabsSection({
           <div className="space-y-8">
             {product.description ? (
               <div
-                className="prose prose-slate dark:prose-invert max-w-none text-[var(--text-secondary)] text-sm leading-relaxed"
+                className="prose prose-slate dark:prose-invert max-w-[70ch] text-[var(--text-secondary)] text-sm leading-relaxed"
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(product.description),
                 }}
               />
             ) : (
-              <p className="text-[var(--text-muted)] text-sm">
+              <p className="text-[var(--text-muted)] text-sm max-w-[70ch] leading-relaxed">
                 Industrial polymer composite engineered from high-density recycled polyethylene (HDPE). Formulated for heavy cyclic loads, structural rigidity, and zero moisture degradation.
               </p>
             )}

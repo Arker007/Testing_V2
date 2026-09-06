@@ -55,16 +55,16 @@ export default function Modal({
   const selectedSize = sizeClasses[size] || sizeClasses.md;
 
   const modalContent = (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-[var(--z-modal,1300)] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-slate-950/60 backdrop-blur-xs transition-opacity animate-in fade-in duration-200"
+        className="fixed inset-0 bg-[var(--scrim-overlay,rgba(15,23,42,0.65))] backdrop-blur-xs transition-opacity animate-in fade-in duration-200"
         onClick={preventClose ? undefined : onClose}
       />
 
       {/* Dialog Container */}
       <div
-        className={`relative w-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-2xl shadow-2xl overflow-hidden flex flex-col z-10 m-auto animate-in zoom-in-95 duration-200 ${selectedSize} ${className}`.trim()}
+        className={`relative w-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-[var(--radius-modal,16px)] shadow-[var(--shadow-modal)] overflow-hidden flex flex-col z-10 m-auto animate-in zoom-in-95 duration-200 ${selectedSize} ${className}`.trim()}
       >
         {/* Modal Header */}
         {(title || description) && (

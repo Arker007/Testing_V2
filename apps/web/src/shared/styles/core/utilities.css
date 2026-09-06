@@ -2,71 +2,155 @@
    GENERIC UTILITY CLASSES
    ========================================================================== */
 
-/* ─── Semantic Typography Utility Classes ───────────────────── */
+/* ─── Semantic Typography Utility Classes (Functional Architecture) ─── */
+.type-display,
 .text-display {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-extrabold, 800);
-  line-height: var(--line-height-tight);
-  letter-spacing: var(--tracking-display);
+  font-size: var(--type-display-size, var(--font-size-5xl, 3.75rem));
+  font-weight: var(--type-display-weight, var(--font-weight-extrabold, 800));
+  line-height: var(--line-height-display, 1.15); /* 1.1 – 1.2 tight */
+  letter-spacing: var(--type-display-tracking, var(--tracking-display));
+  color: var(--text-primary);
 }
+
+.type-heading-large,
 .text-h1 {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold, 700);
-  line-height: var(--line-height-tight);
-  letter-spacing: var(--tracking-h1);
+  font-size: var(--type-heading-large-size, var(--font-size-4xl, 3rem));
+  font-weight: var(--type-heading-large-weight, var(--font-weight-bold, 700));
+  line-height: var(--line-height-display, 1.15); /* 1.1 – 1.2 tight */
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
 }
+
+.type-heading-medium,
 .text-h2 {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold, 700);
-  line-height: var(--line-height-heading);
-  letter-spacing: var(--tracking-h2);
+  font-size: var(--type-heading-medium-size, var(--font-size-2xl, 1.875rem));
+  font-weight: var(--type-heading-medium-weight, var(--font-weight-bold, 700));
+  line-height: var(--line-height-heading, 1.25); /* 1.2 – 1.3 snug */
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
 }
+
+.type-heading-small,
 .text-h3 {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-semibold, 600);
-  line-height: var(--line-height-heading);
-  letter-spacing: var(--tracking-h3);
+  font-size: var(--type-heading-small-size, var(--font-size-lg, 1.25rem));
+  font-weight: var(--type-heading-small-weight, var(--font-weight-semibold, 600));
+  line-height: var(--line-height-heading, 1.25); /* 1.2 – 1.3 snug */
+  letter-spacing: var(--tracking-normal);
+  color: var(--text-primary);
 }
+
 .text-h4 {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-xl, 1.5rem);
   font-weight: var(--font-weight-semibold, 600);
-  line-height: var(--line-height-heading);
-  letter-spacing: var(--tracking-h4);
+  line-height: var(--line-height-heading, 1.25);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
 }
+
+.type-body-large,
 .text-body-lg {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
+  font-size: var(--font-size-lg, 1.25rem);
+  font-weight: var(--font-weight-regular, 400);
+  line-height: var(--line-height-body, 1.55); /* 1.4 – 1.6 loose */
+  color: var(--text-secondary);
 }
+
+.type-body-primary,
 .text-body {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-md);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-body);
+  font-size: var(--type-body-primary-size, var(--font-size-base, 1rem));
+  font-weight: var(--type-body-primary-weight, var(--font-weight-regular, 400));
+  line-height: var(--line-height-body, 1.55); /* 1.4 – 1.6 loose */
+  color: var(--text-secondary);
 }
+
+.type-body-secondary,
 .text-label {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
+  font-size: var(--type-body-secondary-size, var(--font-size-sm, 0.8125rem));
+  font-weight: var(--font-weight-regular, 400);
+  line-height: var(--line-height-body, 1.55);
+  color: var(--text-secondary);
 }
+
+.type-caption-muted,
 .text-caption {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-body);
+  font-size: var(--type-caption-muted-size, var(--font-size-xs, 0.75rem));
+  font-weight: var(--type-caption-muted-weight, var(--font-weight-medium, 500));
+  line-height: var(--line-height-caption, 1.35); /* 1.3 – 1.4 supporting context */
+  color: var(--text-muted, #64748B);
 }
+
+.type-microcopy,
 .text-micro {
   font-family: var(--font-family-primary);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
+  font-size: var(--type-microcopy-size, var(--font-size-2xs, 0.6875rem));
+  font-weight: var(--type-microcopy-weight, var(--font-weight-semibold, 600));
+  line-height: var(--line-height-caption, 1.35);
   letter-spacing: var(--tracking-caps);
+  color: var(--text-muted, #64748B);
+}
+
+/* ─── Ergonomics: Measure Control (Line Length Constraining) ─── */
+.measure-reading {
+  max-width: var(--measure-desktop-ideal, 65ch);
+  width: 100%;
+}
+
+.measure-compact {
+  max-width: var(--measure-desktop-min, 45ch);
+  width: 100%;
+}
+
+.measure-wide {
+  max-width: var(--measure-desktop-max, 75ch);
+  width: 100%;
+}
+
+/* ─── Contrast Through Weight & Tint ───────────────────────── */
+/* Skip-weight pairings guarantee obvious, unmistakable contrast */
+.skip-weight-primary {
+  font-weight: var(--font-weight-bold, 700) !important;
+  color: var(--charcoal-900, #1A1A1A) !important;
+}
+
+.skip-weight-secondary {
+  font-weight: var(--font-weight-regular, 400) !important;
+  color: var(--charcoal-body, #4E4E4E) !important;
+}
+
+.skip-weight-light-pair {
+  font-weight: var(--font-weight-light, 300) !important;
+}
+
+.skip-weight-semibold-pair {
+  font-weight: var(--font-weight-semibold, 600) !important;
+}
+
+/* Tinting utilities: de-prioritize info without shrinking font to illegible size */
+.text-tint-primary {
+  color: var(--charcoal-900, #1A1A1A) !important;
+}
+
+.text-tint-secondary {
+  color: var(--charcoal-body, #4E4E4E) !important;
+}
+
+.text-tint-muted {
+  color: #64748B !important;
+}
+
+.text-tint-timestamp {
+  color: #64748B !important;
+  font-size: var(--font-size-xs, 0.75rem);
+  line-height: var(--line-height-caption, 1.35);
 }
 
 /* ─── Global Button Utilities ────────────────────────────── */

@@ -10,6 +10,7 @@ import Badge from "../data-display/Badge";
  * @param {string|React.ReactNode} [props.subtitle]
  * @param {'center' | 'left'} [props.align='center']
  * @param {boolean} [props.light=false]
+ * @param {boolean} [props.verticalAxis=false]
  * @param {string} [props.className='']
  */
 export default function SectionHeader({
@@ -18,12 +19,13 @@ export default function SectionHeader({
   subtitle,
   align = "center",
   light = false,
+  verticalAxis = false,
   className = "",
   ...props
 }) {
   const alignClasses =
     align === "left"
-      ? "text-left items-start"
+      ? `text-left items-start ${verticalAxis ? "vertical-axis-left pl-6 border-l-2 border-[var(--border-subtle)]" : ""}`
       : "text-center items-center mx-auto";
 
   return (

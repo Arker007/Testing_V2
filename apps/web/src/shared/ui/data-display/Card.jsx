@@ -99,6 +99,10 @@ export default function Card({
       "bg-transparent border border-slate-200/90 dark:border-slate-800 text-[var(--text-primary)] rounded-[var(--radius-card,8px)]",
     subtle:
       "bg-slate-50/80 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 text-[var(--text-primary)] rounded-[var(--radius-card,8px)]",
+    proximity:
+      "bg-[var(--bg-surface-secondary,#F8FAFC)] dark:bg-[var(--surface,#161c24)] text-[var(--text-primary)] rounded-[var(--radius-card,12px)] border-0 shadow-none hover:bg-[var(--neutral-100,#F1F5F9)] transition-colors duration-200",
+    borderless:
+      "bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--surface,#161c24)] text-[var(--text-primary)] rounded-[var(--radius-card,12px)] border-0 shadow-none",
     cta:
       "p-8 sm:p-12 text-[var(--text-primary)] shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[var(--surface,#161c24)] border border-slate-200/90 dark:border-[var(--border-subtle,rgba(242,242,242,0.12))] rounded-[var(--radius-card,8px)]",
   };

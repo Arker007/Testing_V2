@@ -1,6 +1,291 @@
-/* Layout & Navigation Core Styles */
+/* ==========================================================================
+   LAYOUT, NAVIGATION, 8-POINT GRID & STRUCTURAL ALIGNMENT
+   ========================================================================== */
+
+/* ─── Base Layout Container ──────────────────────────────── */
 .layout-container {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
+
+/* ─── 12-Column Responsive Layout Grid (Horizontal Rhythm) ───── */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--space-comp-lg, 24px);
+  row-gap: var(--space-comp-lg, 24px);
+  width: 100%;
+}
+
+/* 12-Column Spans */
+.col-span-12 { grid-column: span 12 / span 12; }
+.col-span-11 { grid-column: span 11 / span 11; }
+.col-span-10 { grid-column: span 10 / span 10; }
+.col-span-9  { grid-column: span 9 / span 9; }
+.col-span-8  { grid-column: span 8 / span 8; }
+.col-span-7  { grid-column: span 7 / span 7; }
+.col-span-6  { grid-column: span 6 / span 6; }
+.col-span-5  { grid-column: span 5 / span 5; }
+.col-span-4  { grid-column: span 4 / span 4; }
+.col-span-3  { grid-column: span 3 / span 3; }
+.col-span-2  { grid-column: span 2 / span 2; }
+.col-span-1  { grid-column: span 1 / span 1; }
+
+@media (max-width: 1024px) {
+  .lg-col-span-12 { grid-column: span 12 / span 12; }
+  .lg-col-span-8  { grid-column: span 8 / span 8; }
+  .lg-col-span-6  { grid-column: span 6 / span 6; }
+  .lg-col-span-4  { grid-column: span 4 / span 4; }
+}
+
+@media (max-width: 768px) {
+  .md-col-span-12 { grid-column: span 12 / span 12; }
+  .md-col-span-6  { grid-column: span 6 / span 6; }
+  .grid-12 {
+    column-gap: var(--space-comp-md, 16px);
+    row-gap: var(--space-comp-md, 16px);
+  }
+}
+
+@media (max-width: 640px) {
+  .sm-col-span-12 { grid-column: span 12 / span 12; }
+  .grid-12 > [class*="col-span-"] {
+    grid-column: span 12 / span 12;
+  }
+}
+
+/* ─── Baseline Grid & Typography Anchoring ───────────────── */
+/* Anchors line-heights and text blocks so text aligns across adjacent columns */
+.baseline-grid {
+  display: flex;
+  flex-direction: column;
+  line-height: var(--line-height-body, 1.55);
+}
+
+.baseline-anchor {
+  margin-top: 0;
+  margin-bottom: var(--space-micro-md, 8px);
+}
+
+/* ─── Alignment Anchoring (Strong Left Vertical Axis) ────── */
+/* Eliminates center drift on complex, content-heavy screens */
+.align-anchor-left {
+  text-align: left !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+
+.vertical-axis-left {
+  position: relative;
+  padding-left: var(--space-comp-lg, 24px);
+  border-left: 2px solid var(--border-subtle, #E2E8F0);
+}
+
+.vertical-axis-left:focus-within {
+  border-left-color: var(--brand-primary, #6BBF54);
+}
+
+/* ─── Whitespace Engineering: Micro vs. Macro ────────────── */
+/* Micro-Whitespace: 4px – 8px tight binding for directly related elements */
+.micro-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-micro-md, 8px);
+}
+
+.micro-stack-tight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-micro-sm, 4px);
+}
+
+.micro-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-micro-md, 8px);
+}
+
+.micro-inline-tight {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-micro-sm, 4px);
+}
+
+/* Macro-Whitespace: 48px – 96px+ for distinct sections & cognitive breathing room */
+.macro-section-py {
+  padding-top: var(--space-macro-md, 64px);
+  padding-bottom: var(--space-macro-md, 64px);
+}
+
+.macro-section-lg {
+  padding-top: var(--space-macro-lg, 96px);
+  padding-bottom: var(--space-macro-lg, 96px);
+}
+
+.macro-gap {
+  gap: var(--space-macro-sm, 48px);
+}
+
+.macro-gap-lg {
+  gap: var(--space-macro-md, 64px);
+}
+
+/* ─── Proximity over Borders (Engineered Negative Space) ─── */
+/* Clean grouping through negative space rather than heavy bounding lines */
+.proximity-group {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin-bottom: var(--space-macro-sm, 48px);
+}
+
+.proximity-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-comp-md, 16px);
+}
+
+.proximity-card {
+  background-color: var(--bg-surface-secondary, #F8FAFC);
+  border: none !important;
+  box-shadow: none !important;
+  padding: var(--space-comp-lg, 24px);
+  border-radius: var(--radius-card, 12px);
+  transition: background-color var(--motion-fast) var(--ease-standard);
+}
+
+.proximity-card:hover {
+  background-color: var(--neutral-100, #F1F5F9);
+}
+
+/* ─── Scale, Proportion & Eye Routing ─────────────────────── */
+/* Non-Linear Scaling: Disproportionately dominant primary actions */
+.action-primary-dominant {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-micro-md, 8px);
+  padding: 14px 32px;
+  font-size: var(--font-size-base, 1rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  background: var(--brand-primary, #6BBF54) !important;
+  color: var(--navy-950, #0B0E14) !important;
+  border-radius: var(--radius-btn, 8px);
+  box-shadow: var(--shadow-md);
+  transition: all var(--motion-fast) var(--ease-standard);
+  transform-origin: center;
+}
+
+.action-primary-dominant:hover {
+  background: var(--brand-400, #7ACC63) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.action-secondary-muted {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-micro-sm, 4px);
+  padding: 10px 20px;
+  font-size: var(--font-size-sm, 0.8125rem);
+  font-weight: 600;
+  background: transparent;
+  color: var(--text-secondary, #4E4E4E);
+  border: 1px solid var(--border-default, #CBD5E1);
+  border-radius: var(--radius-btn, 8px);
+  transition: all var(--motion-fast) var(--ease-standard);
+}
+
+.action-secondary-muted:hover {
+  color: var(--text-primary, #1A1A1A);
+  border-color: var(--brand-primary, #6BBF54);
+  background: var(--brand-soft, rgba(107, 191, 84, 0.08));
+}
+
+/* Scanning Pattern Layouts */
+.scan-f-pattern {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-comp-lg, 24px);
+}
+
+.scan-z-pattern {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-macro-sm, 48px);
+}
+
+@media (max-width: 768px) {
+  .scan-z-pattern {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-comp-lg, 24px);
+  }
+}
+
+/* ─── Elevation and Simulated Depth Mechanics ─────────────── */
+/* Z-Index Mapping & Depth Classes */
+.elevation-base {
+  z-index: var(--z-base, 0);
+  box-shadow: var(--shadow-none);
+}
+
+.elevation-raised {
+  z-index: var(--z-raised, 10);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
+}
+
+.elevation-raised:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.elevation-sticky {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky, 100);
+  backdrop-filter: var(--scrim-blur, blur(8px));
+  -webkit-backdrop-filter: var(--scrim-blur, blur(8px));
+  box-shadow: var(--shadow-xs);
+}
+
+.elevation-drawer {
+  z-index: var(--z-drawer, 900);
+  box-shadow: var(--shadow-xl);
+}
+
+.elevation-dropdown {
+  z-index: var(--z-dropdown, 1000);
+  box-shadow: var(--shadow-lg);
+}
+
+.elevation-popover {
+  z-index: var(--z-popover, 1100);
+  box-shadow: var(--shadow-lg);
+}
+
+.elevation-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-scrim, 1200);
+  background-color: var(--scrim-overlay, rgba(15, 23, 42, 0.65));
+  backdrop-filter: var(--scrim-blur, blur(8px));
+  -webkit-backdrop-filter: var(--scrim-blur, blur(8px));
+}
+
+.elevation-modal {
+  z-index: var(--z-modal, 1300);
+  box-shadow: var(--shadow-xl);
+}
+
+.elevation-toast {
+  z-index: var(--z-toast, 1400);
+  box-shadow: var(--shadow-toast, var(--shadow-2xl));
+}
+

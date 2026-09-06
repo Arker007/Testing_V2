@@ -52,7 +52,7 @@ export default function Button({
   };
 
   const baseClasses =
-    "inline-flex items-center justify-center font-semibold tracking-tight transition-all duration-200 cursor-pointer select-none relative overflow-hidden isolate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-canvas)] disabled:opacity-55 disabled:cursor-not-allowed disabled:pointer-events-none disabled:shadow-none";
+    "inline-flex items-center justify-center font-semibold tracking-tight whitespace-nowrap transition-all duration-200 cursor-pointer select-none relative overflow-hidden isolate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-canvas)] disabled:opacity-55 disabled:cursor-not-allowed disabled:pointer-events-none disabled:shadow-none";
 
   const variantClasses = {
     primary:

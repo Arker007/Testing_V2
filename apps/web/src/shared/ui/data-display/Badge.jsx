@@ -89,7 +89,7 @@ export default function Badge({
   };
 
   const baseClasses =
-    "inline-flex items-center font-bold tracking-wider uppercase transition-colors select-none";
+    "inline-flex items-center font-bold tracking-wider uppercase whitespace-nowrap transition-colors select-none";
 
   const selectedSizeClass = sizeClasses[size] || sizeClasses.md;
   const selectedShapeClass = shapeClasses[shape] || shapeClasses.pill;
