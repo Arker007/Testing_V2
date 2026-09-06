@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "./Modal";
 import Button from "../buttons/Button";
-import IconBox from "../data-display/IconBox";
+import { Icon } from "@iconify/react";
 
 /**
  * Reusable ConfirmDialog component for confirmation popups (e.g., delete actions).
@@ -28,59 +28,77 @@ export default function ConfirmDialog({
   variant = "danger",
   loading = false,
 }) {
-  const iconMap = {
-    danger: "solar:trash-bin-trash-bold",
-    warning: "solar:danger-triangle-bold",
-    brand: "solar:info-square-bold",
+  const variantConfig = {
+    danger: {
+      icon: "solar:trash-bin-trash-bold-duotone",
+      iconBg: "bg-rose-100 text-rose-600 dark:bg-rose-500/20 dark:text-rose-400",
+      btnVariant: "danger"
+    },
+    warning: {
+      icon: "solar:danger-triangle-bold-duotone",
+      iconBg: "bg-amber-100 text-amber-600 dark:bg-amber-500/20 dark:text-amber-400",
+      btnVariant: "warning"
+    },
+    brand: {
+      icon: "solar:info-circle-bold-duotone",
+      iconBg: "bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400",
+      btnVariant: "primary"
+    },
   };
 
-  const iconVariantMap = {
-    danger: "subtle",
-    warning: "subtle",
-    brand: "brand",
+  const config = variantConfig[variant] || variantConfig.danger;
+
+  const handleClose = () => {
+    if (!loading && onClose) onClose();
   };
 
-  const buttonVariantMap = {
-    danger: "danger",
-    warning: "warning",
-    brand: "primary",
-  };
+  const footerContent = (
+    <div className="flex flex-col-reverse sm:flex-row items-center justify-end gap-3 w-full sm:w-auto">
+      <Button
+        type="button"
+        variant="outline"
+        onClick={handleClose}
+        disabled={loading}
+        className="w-full sm:w-auto"
+        autoFocus
+      >
+        {cancelText}
+      </Button>
+      <Button
+        type="button"
+        variant={config.btnVariant}
+        onClick={onConfirm}
+        loading={loading}
+        className="w-full sm:w-auto"
+      >
+        {confirmText}
+      </Button>
+    </div>
+  );
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="sm">
-      <div className="flex flex-col items-center text-center p-2">
-        <IconBox
-          icon={iconMap[variant] || iconMap.danger}
-          variant={iconVariantMap[variant] || "subtle"}
-          size="xl"
-          className="mb-4 text-rose-500"
-        />
-        <h3 className="text-lg font-bold text-[var(--text-primary)]">
-          {title}
-        </h3>
-        <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1.5 leading-relaxed">
-          {message}
-        </p>
+    <Modal 
+      isOpen={isOpen} 
+      onClose={handleClose} 
+      size="sm" 
+      className="sm:max-w-[400px]"
+      footer={footerContent}
+      preventClose={loading}
+    >
+      <div className="flex flex-col sm:flex-row gap-4 p-1 sm:p-0">
+        {/* Icon */}
+        <div className={`shrink-0 flex items-center justify-center w-12 h-12 rounded-full ${config.iconBg}`}>
+          <Icon icon={config.icon} className="w-6 h-6" />
+        </div>
 
-        <div className="flex items-center justify-center gap-3 mt-6 w-full">
-          <Button
-            type="button"
-            variant="outline"
-            onClick={onClose}
-            disabled={loading}
-            className="flex-1"
-          >
-            {cancelText}
-          </Button>
-          <Button
-            type="button"
-            variant={buttonVariantMap[variant] || "danger"}
-            onClick={onConfirm}
-            loading={loading}
-            className="flex-1"
-          >
-            {confirmText}
-          </Button>
+        {/* Content */}
+        <div className="flex-1 pt-1">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 leading-tight">
+            {title}
+          </h3>
+          <p className="text-sm text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+            {message}
+          </p>
         </div>
       </div>
     </Modal>

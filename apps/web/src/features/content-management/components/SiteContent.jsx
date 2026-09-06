@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import styles from "../../admin/styles/AdminTable.module.css";
 import cStyles from "../styles/SiteContent.module.css";
 
@@ -39,7 +40,6 @@ export default function SiteContent() {
     searchFieldQuery, setSearchFieldQuery,
     showToast, setShowToast,
     toastMessage,
-    showDropdownSelect, setShowDropdownSelect,
     selectSearchQuery, setSelectSearchQuery,
     activeFilterTab, setActiveFilterTab,
     executePost, uploadLogo,
@@ -56,7 +56,19 @@ export default function SiteContent() {
         disabled={saving}
         style={{ minWidth: 150 }}
       >
-        {saving ? <><i className="fa-solid fa-spinner fa-spin" /> Saving…</> : saved ? <><i className="fa-solid fa-check" /> Saved!</> : <><i className="fa-solid fa-floppy-disk" /> Save Changes</>}
+        {saving ? (
+          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+            <Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin" /> Saving…
+          </span>
+        ) : saved ? (
+          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+            <Icon icon="solar:check-circle-bold" className="w-4 h-4" /> Saved!
+          </span>
+        ) : (
+          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+            <Icon icon="solar:diskette-linear" className="w-4 h-4" /> Save Changes
+          </span>
+        )}
       </button>
     );
     return () => setHeaderActions(null);
@@ -94,7 +106,11 @@ export default function SiteContent() {
   };
 
   if (loading) {
-    return <div className={cStyles.loader}><i className="fa-solid fa-spinner fa-spin" /> Loading content...</div>;
+    return (
+      <div className={cStyles.loader}>
+        <Icon icon="solar:restart-linear" className="w-5 h-5 animate-spin mr-2 inline" /> Loading content...
+      </div>
+    );
   }
 
   const selectedCmsGroup = CMS_FIELDS.find((g) => g.section === activeSub);
@@ -107,23 +123,18 @@ export default function SiteContent() {
         setTab={setTab}
         activeSub={activeSub}
         setActiveSub={setActiveSub}
-        cms={cms}
-        getSectionDisplayName={getSectionDisplayName}
-        getSectionToggleKey={getSectionToggleKey}
         getSubSectionStatusBadge={getSubSectionStatusBadge}
-        showDropdownSelect={showDropdownSelect}
-        setShowDropdownSelect={setShowDropdownSelect}
-        selectSearchQuery={selectSearchQuery}
-        setSelectSearchQuery={setSelectSearchQuery}
         activeFilterTab={activeFilterTab}
         setActiveFilterTab={setActiveFilterTab}
+        selectSearchQuery={selectSearchQuery}
+        setSelectSearchQuery={setSelectSearchQuery}
       />
 
       <main className={cStyles.editorPanel}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(5, 40, 63, 0.06)", paddingBottom: "16px", marginBottom: "24px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <div style={{ width: "40px", height: "40px", borderRadius: "var(--radius-admin, 8px)", background: "var(--brand-light)", display: "flex", alignItems: "center", justifyItems: "center", justifyContent: "center" }}>
-              <i className={`fa-solid ${allSectionsList.find(s => s.key === activeSub)?.icon || "fa-file-pen"} text-[var(--brand-dark)]`} style={{ fontSize: "1.1rem" }} />
+            <div style={{ width: "40px", height: "40px", borderRadius: "var(--radius-admin, 8px)", background: "var(--brand-light)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Icon icon={allSectionsList.find(s => s.key === activeSub)?.icon || "solar:document-text-linear"} className="w-5 h-5 text-emerald-700" />
             </div>
             <div>
               <h3 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 800, color: "var(--ink)" }}>{getSectionDisplayName(activeSub)}</h3>
@@ -140,7 +151,7 @@ export default function SiteContent() {
             )}
 
             <div style={{ position: "relative" }}>
-              <i className="fa-solid fa-magnifying-glass text-slate-400" style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", fontSize: "0.75rem" }} />
+              <Icon icon="solar:magnifer-linear" className="text-slate-400 w-3.5 h-3.5" style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
               <input 
                 type="text" 
                 placeholder="Filter settings..." 
@@ -162,9 +173,10 @@ export default function SiteContent() {
                 <button 
                   type="button" 
                   onClick={() => setSearchFieldQuery("")} 
-                  style={{ position: "absolute", right: "8px", top: "50%", transform: "translateY(-50%)", border: "none", background: "none", color: "var(--muted)", cursor: "pointer", fontSize: "0.7rem" }}
+                  style={{ position: "absolute", right: "8px", top: "50%", transform: "translateY(-50%)", border: "none", background: "none", color: "var(--muted)", cursor: "pointer", display: "flex", alignItems: "center" }}
+                  title="Clear filter"
                 >
-                  <i className="fa-solid fa-xmark" />
+                  <Icon icon="solar:close-circle-linear" className="w-3.5 h-3.5" />
                 </button>
               )}
             </div>
@@ -182,6 +194,32 @@ export default function SiteContent() {
               saving={saving}
               searchFieldQuery={searchFieldQuery}
             />
+            <div className={cStyles.stickyActionBar}>
+              <div className={cStyles.stickyStatusText}>
+                <Icon icon="solar:shield-check-linear" className="w-4 h-4 text-emerald-600" />
+                <span>All profile adjustments auto-validate before sync.</span>
+              </div>
+              <button
+                type="submit"
+                className={styles.actionBtnPrimary}
+                disabled={saving}
+                style={{ minWidth: 150 }}
+              >
+                {saving ? (
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                    <Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin" /> Saving…
+                  </span>
+                ) : saved ? (
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                    <Icon icon="solar:check-circle-bold" className="w-4 h-4" /> Saved!
+                  </span>
+                ) : (
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                    <Icon icon="solar:diskette-linear" className="w-4 h-4" /> Save Profile
+                  </span>
+                )}
+              </button>
+            </div>
           </form>
         ) : (
           <form id="cms-form" onSubmit={(e) => { e.preventDefault(); executePost("/api/content", cms); }}>
@@ -227,6 +265,32 @@ export default function SiteContent() {
                 searchFieldQuery={searchFieldQuery}
               />
             )}
+            <div className={cStyles.stickyActionBar}>
+              <div className={cStyles.stickyStatusText}>
+                <Icon icon="solar:shield-check-linear" className="w-4 h-4 text-emerald-600" />
+                <span>Modifications apply live to public website upon save.</span>
+              </div>
+              <button
+                type="submit"
+                className={styles.actionBtnPrimary}
+                disabled={saving}
+                style={{ minWidth: 150 }}
+              >
+                {saving ? (
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                    <Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin" /> Saving…
+                  </span>
+                ) : saved ? (
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                    <Icon icon="solar:check-circle-bold" className="w-4 h-4" /> Saved!
+                  </span>
+                ) : (
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                    <Icon icon="solar:diskette-linear" className="w-4 h-4" /> Save Section
+                  </span>
+                )}
+              </button>
+            </div>
           </form>
         )}
       </main>

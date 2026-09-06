@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Icon } from "@iconify/react";
 import cStyles from "../styles/SiteContent.module.css";
 
@@ -12,10 +12,11 @@ export default function TeamEditor({
   setModalItem,
   searchFieldQuery = ""
 }) {
+  const [confirmDeleteIdx, setConfirmDeleteIdx] = useState(null);
+
   const setM = (key) => (e) => setCms((p) => ({ ...p, [key]: e.target.value }));
 
-  const deleteTeamMember = (indexToDel) => {
-    if (!window.confirm("Delete this profile permanently?")) return;
+  const executeDelete = (indexToDel) => {
     setCms((prev) => {
       const copy = { ...prev };
       for (let i = indexToDel + 1; i <= teamCount; i++) {
@@ -30,7 +31,41 @@ export default function TeamEditor({
       delete copy[`team_${teamCount}_color`];
       return copy;
     });
-    setTeamCount((c) => Math.max(1, c - 1));
+    setTeamCount((c) => Math.max(0, c - 1));
+    setConfirmDeleteIdx(null);
+  };
+
+  const shiftOrder = (index, direction) => {
+    if ((direction === -1 && index === 1) || (direction === 1 && index === teamCount)) return;
+    const targetIdx = index + direction;
+    
+    setCms((prev) => {
+      const copy = { ...prev };
+      const current = {
+        name: copy[`team_${index}_name`] || "",
+        role: copy[`team_${index}_role`] || "",
+        init: copy[`team_${index}_init`] || "",
+        color: copy[`team_${index}_color`] || ""
+      };
+      const target = {
+        name: copy[`team_${targetIdx}_name`] || "",
+        role: copy[`team_${targetIdx}_role`] || "",
+        init: copy[`team_${targetIdx}_init`] || "",
+        color: copy[`team_${targetIdx}_color`] || ""
+      };
+      
+      copy[`team_${index}_name`] = target.name;
+      copy[`team_${index}_role`] = target.role;
+      copy[`team_${index}_init`] = target.init;
+      copy[`team_${index}_color`] = target.color;
+      
+      copy[`team_${targetIdx}_name`] = current.name;
+      copy[`team_${targetIdx}_role`] = current.role;
+      copy[`team_${targetIdx}_init`] = current.init;
+      copy[`team_${targetIdx}_color`] = current.color;
+      
+      return copy;
+    });
   };
 
   const rawFields = selectedCmsGroup ? selectedCmsGroup.fields.slice(1, 3) : [];
@@ -62,14 +97,16 @@ export default function TeamEditor({
     <div>
       <div style={!isCmsGroupEnabled ? { opacity: 0.55, pointerEvents: "none" } : {}}>
         {fieldsToRender.length > 0 && (
-          <div className={cStyles.editorBody} style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "20px" }}>
+          <div className={cStyles.editorBody}>
             {fieldsToRender.map((f) => {
               return (
-                <div key={f.key} className="form-group" style={{ gridColumn: "span 2" }}>
-                  <label className="form-label" style={{ fontWeight: 600, fontSize: "13px", display: "block", marginBottom: "6px" }}>{f.label}</label>
+                <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: "1 / -1" }}>
+                  <label className={cStyles.formLabel}>
+                    <Icon icon="solar:text-field-linear" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
+                    {f.label}
+                  </label>
                   <input 
-                    className="form-input" 
-                    style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)" }} 
+                    className={cStyles.formInput} 
                     type="text" 
                     value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
                     onChange={setM(f.key)} 
@@ -110,26 +147,59 @@ export default function TeamEditor({
                   </div>
                 </div>
                 <div className={cStyles.repeaterActions}>
-                  <button 
-                    type="button" 
-                    className={cStyles.repeaterEditBtn} 
-                    onClick={() => setModalItem({
-                      type: "team",
-                      index,
-                      data: { name, role, init, color }
-                    })}
-                    title="Edit Member"
-                  >
-                    <Icon icon="solar:pen-linear" className="w-3.5 h-3.5" />
-                  </button>
-                  <button 
-                    type="button" 
-                    className={cStyles.repeaterDelBtn} 
-                    onClick={() => deleteTeamMember(index)}
-                    title="Delete Member"
-                  >
-                    <Icon icon="solar:trash-bin-trash-linear" className="w-3.5 h-3.5" />
-                  </button>
+                  {confirmDeleteIdx === index ? (
+                    <div className={cStyles.confirmDeleteRow}>
+                      <button type="button" className={cStyles.cancelDeleteBtn} onClick={() => setConfirmDeleteIdx(null)}>Cancel</button>
+                      <button type="button" className={cStyles.confirmDeleteBtn} onClick={() => executeDelete(index)}>
+                        Delete
+                      </button>
+                    </div>
+                  ) : (
+                    <>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "2px", marginRight: "4px" }}>
+                        <button 
+                          type="button" 
+                          className={cStyles.repeaterOrderBtn} 
+                          style={{ height: "14px", borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }}
+                          disabled={index === 1 || !!searchFieldQuery}
+                          onClick={() => shiftOrder(index, -1)}
+                          title="Move Up"
+                        >
+                          <Icon icon="solar:alt-arrow-up-linear" className="w-3 h-3" />
+                        </button>
+                        <button 
+                          type="button" 
+                          className={cStyles.repeaterOrderBtn}
+                          style={{ height: "14px", borderTopLeftRadius: 0, borderTopRightRadius: 0 }}
+                          disabled={index === teamCount || !!searchFieldQuery}
+                          onClick={() => shiftOrder(index, 1)}
+                          title="Move Down"
+                        >
+                          <Icon icon="solar:alt-arrow-down-linear" className="w-3 h-3" />
+                        </button>
+                      </div>
+                      <button 
+                        type="button" 
+                        className={cStyles.repeaterEditBtn} 
+                        onClick={() => setModalItem({
+                          type: "team",
+                          index,
+                          data: { name, role, init, color }
+                        })}
+                        title="Edit Member"
+                      >
+                        <Icon icon="solar:pen-linear" className="w-3.5 h-3.5" />
+                      </button>
+                      <button 
+                        type="button" 
+                        className={cStyles.repeaterDelBtn} 
+                        onClick={() => setConfirmDeleteIdx(index)}
+                        title="Delete Member"
+                      >
+                        <Icon icon="solar:trash-bin-trash-linear" className="w-3.5 h-3.5" />
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             ))}
@@ -144,11 +214,11 @@ export default function TeamEditor({
               className={cStyles.repeaterAddCard} 
               onClick={() => {
                 const nextIdx = teamCount + 1;
-                setTeamCount(nextIdx);
                 setModalItem({
                   type: "team",
+                  isNew: true,
                   index: nextIdx,
-                  data: { name: "Team Member Name", role: "Specialist", init: "VE", color: "var(--navy)" }
+                  data: { name: "", role: "", init: "", color: "#0f172a" }
                 });
               }}
             >

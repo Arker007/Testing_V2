@@ -16,7 +16,6 @@ export function useSiteContent() {
   const [searchFieldQuery, setSearchFieldQuery] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
-  const [showDropdownSelect, setShowDropdownSelect] = useState(false);
   const [selectSearchQuery, setSelectSearchQuery] = useState("");
   const [activeFilterTab, setActiveFilterTab] = useState("All");
 
@@ -98,7 +97,7 @@ export function useSiteContent() {
   const handleModalSave = useCallback((e) => {
     e.preventDefault();
     if (!modalItem) return;
-    const { type, index, data } = modalItem;
+    const { type, index, data, isNew } = modalItem;
     setCms((prev) => {
       const copy = { ...prev };
       if (type === "timeline") {
@@ -113,6 +112,10 @@ export function useSiteContent() {
       }
       return copy;
     });
+    if (isNew) {
+      if (type === "timeline") setTlCount(index);
+      else setTeamCount(index);
+    }
     setModalItem(null);
   }, [modalItem]);
 
@@ -128,7 +131,6 @@ export function useSiteContent() {
     searchFieldQuery, setSearchFieldQuery,
     showToast, setShowToast,
     toastMessage,
-    showDropdownSelect, setShowDropdownSelect,
     selectSearchQuery, setSelectSearchQuery,
     activeFilterTab, setActiveFilterTab,
     executePost, uploadLogo,

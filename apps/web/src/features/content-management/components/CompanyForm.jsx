@@ -31,31 +31,45 @@ export default function CompanyForm({
           No fields match your search filter "{searchFieldQuery}"
         </div>
       ) : (
-        <div className={cStyles.editorBody} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+        <div className={cStyles.editorBody}>
           {filteredFields.map((f) => {
             const val = company[f.key] ?? "";
             if (f.type === "image") {
               return (
-                <div key={f.key} className="form-group" style={{ gridColumn: "1 / -1" }}>
-                  <label className="form-label" style={{ fontWeight: 600, fontSize: "13px", display: "block", marginBottom: "6px" }}>
+                <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: "1 / -1" }}>
+                  <label className={cStyles.formLabel}>
+                    <Icon icon="solar:gallery-wide-linear" className="w-4 h-4 text-emerald-600 inline mr-1" />
                     {f.label}
                   </label>
-                  <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
-                    {val && (
+                  <div className={cStyles.imageUploadContainer}>
+                    {val ? (
                       <img
                         src={val}
                         alt="Logo Preview"
-                        style={{ height: "48px", width: "auto", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--border)" }}
+                        className={cStyles.imagePreview}
                       />
+                    ) : (
+                      <div style={{ width: "52px", height: "52px", borderRadius: "var(--radius-admin, 8px)", border: "1px dashed var(--border)", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--surface-card)" }}>
+                        <Icon icon="solar:gallery-linear" className="w-5 h-5 text-slate-400" />
+                      </div>
                     )}
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={(e) => {
-                        const file = e.target.files[0];
-                        if (file && uploadLogo) uploadLogo(file, f.key);
-                      }}
-                    />
+                    <div className={cStyles.imageUploadMeta}>
+                      <span className={cStyles.imageUploadText}>
+                        {val ? "Replace Brand Asset" : "Upload Brand Asset"}
+                      </span>
+                      <span className={cStyles.imageUploadSub}>
+                        PNG, SVG, or WebP recommended. Transparent background preferred.
+                      </span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className={cStyles.imageFileInput}
+                        onChange={(e) => {
+                          const file = e.target.files[0];
+                          if (file && uploadLogo) uploadLogo(file, f.key);
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
               );
@@ -63,13 +77,12 @@ export default function CompanyForm({
 
             if (f.type === "textarea") {
               return (
-                <div key={f.key} className="form-group" style={{ gridColumn: "1 / -1" }}>
-                  <label className="form-label" style={{ fontWeight: 600, fontSize: "13px", display: "block", marginBottom: "6px" }}>
+                <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: "1 / -1" }}>
+                  <label className={cStyles.formLabel}>
                     {f.label}
                   </label>
                   <textarea
-                    className="form-textarea"
-                    style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)", fontFamily: "inherit" }}
+                    className={cStyles.formTextarea}
                     rows={3}
                     placeholder={f.placeholder}
                     value={val}
@@ -80,14 +93,13 @@ export default function CompanyForm({
             }
 
             return (
-              <div key={f.key} className="form-group" style={{ gridColumn: f.key === "address" || f.key === "description" ? "1 / -1" : "span 1" }}>
-                <label className="form-label" style={{ fontWeight: 600, fontSize: "13px", display: "block", marginBottom: "6px" }}>
+              <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: f.key === "address" || f.key === "description" ? "1 / -1" : "span 1" }}>
+                <label className={cStyles.formLabel}>
                   {f.label}
                 </label>
                 <input
                   type="text"
-                  className="form-input"
-                  style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)" }}
+                  className={cStyles.formInput}
                   placeholder={f.placeholder}
                   value={val}
                   onChange={setCo(f.key)}

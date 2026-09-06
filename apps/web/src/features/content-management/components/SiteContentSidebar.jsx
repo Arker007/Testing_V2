@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Icon } from "@iconify/react";
 import cStyles from "../styles/SiteContent.module.css";
 import { ALL_SECTIONS_LIST } from "../constants/allSectionsList";
-import { TAB_SECTIONS } from "../constants/siteContent.constants";
-import QuickJumpSelector from "./QuickJumpSelector";
 import { SidebarFilterTabs } from "./SidebarFilterTabs";
 
 export default function SiteContentSidebar({
@@ -11,224 +9,163 @@ export default function SiteContentSidebar({
   setTab,
   activeSub,
   setActiveSub,
-  cms,
-  getSectionDisplayName,
-  getSectionToggleKey,
   getSubSectionStatusBadge,
-  showDropdownSelect,
-  setShowDropdownSelect,
-  selectSearchQuery,
-  setSelectSearchQuery,
   activeFilterTab,
   setActiveFilterTab,
+  selectSearchQuery,
+  setSelectSearchQuery,
 }) {
+  const filteredSections = useMemo(() => {
+    return ALL_SECTIONS_LIST.filter((sec) => {
+      const matchesCategory =
+        activeFilterTab === "All" || sec.group === activeFilterTab;
+      const matchesSearch =
+        !selectSearchQuery ||
+        sec.label.toLowerCase().includes(selectSearchQuery.toLowerCase()) ||
+        sec.key.toLowerCase().includes(selectSearchQuery.toLowerCase()) ||
+        sec.group.toLowerCase().includes(selectSearchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [activeFilterTab, selectSearchQuery]);
+
+  // Group filtered sections by category group
+  const groupedSections = useMemo(() => {
+    const groups = {};
+    filteredSections.forEach((sec) => {
+      const g = sec.group || "General";
+      if (!groups[g]) groups[g] = [];
+      groups[g].push(sec);
+    });
+    return groups;
+  }, [filteredSections]);
+
   return (
     <aside className={cStyles.treeNav}>
       <div className={cStyles.treeTitle}>
-        <Icon icon="solar:layers-minimalistic-linear" className="w-4 h-4 mr-1.5 inline" /> Content Sections Map
+        <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+          <Icon
+            icon="solar:layers-minimalistic-linear"
+            className="w-4 h-4 text-emerald-600"
+          />
+          Sections
+        </span>
+        <span className={cStyles.treeCountBadge}>
+          {filteredSections.length} {filteredSections.length === 1 ? "section" : "sections"}
+        </span>
       </div>
 
-      <QuickJumpSelector
-        activeSub={activeSub}
-        setActiveSub={setActiveSub}
-        setTab={setTab}
-        cms={cms}
-        getSectionDisplayName={getSectionDisplayName}
-        getSectionToggleKey={getSectionToggleKey}
-        showDropdownSelect={showDropdownSelect}
-        setShowDropdownSelect={setShowDropdownSelect}
-        selectSearchQuery={selectSearchQuery}
-        setSelectSearchQuery={setSelectSearchQuery}
-        activeFilterTab={activeFilterTab}
-      />
+      {/* Quick Search */}
+      <div className={cStyles.sectionSearchBox}>
+        <Icon
+          icon="solar:magnifer-linear"
+          className={cStyles.sectionSearchIcon}
+        />
+        <input
+          type="text"
+          className={cStyles.sectionSearchInput}
+          placeholder="Filter sections..."
+          value={selectSearchQuery}
+          onChange={(e) => setSelectSearchQuery(e.target.value)}
+        />
+        {selectSearchQuery && (
+          <button
+            type="button"
+            className={cStyles.sectionSearchClear}
+            onClick={() => setSelectSearchQuery("")}
+            title="Clear filter"
+          >
+            <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+          </button>
+        )}
+      </div>
 
+      {/* Category Pills Filter */}
       <SidebarFilterTabs
         activeFilterTab={activeFilterTab}
         setActiveFilterTab={setActiveFilterTab}
       />
 
-      {/* Dynamic section trees filtered by Tab */}
-      {(activeFilterTab === "All" || activeFilterTab === "Profile") && (
-        <>
-          <div className={cStyles.treeHeader}>General Info</div>
+      {/* Sections List Grouped */}
+      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+        {Object.keys(groupedSections).length === 0 ? (
           <div
-            className={`${cStyles.treeNode} ${
-              tab === "company" && activeSub === "Business Info"
-                ? cStyles.treeNodeActive
-                : ""
-            }`}
-            onClick={() => {
-              setTab("company");
-              setActiveSub("Business Info");
+            style={{
+              padding: "24px 12px",
+              textAlign: "center",
+              fontSize: "0.8rem",
+              color: "var(--muted)",
             }}
           >
-            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Icon icon="solar:buildings-2-linear" className="w-4 h-4 text-emerald-600" />
-              Company Profile
-            </span>
+            <Icon
+              icon="solar:info-circle-linear"
+              className="w-5 h-5 mx-auto mb-1 text-slate-400 block"
+            />
+            No sections match your filter
           </div>
-          <div
-            className={`${cStyles.treeNode} ${
-              tab === "company" && activeSub === "Contact Details"
-                ? cStyles.treeNodeActive
-                : ""
-            }`}
-            onClick={() => {
-              setTab("company");
-              setActiveSub("Contact Details");
-            }}
-          >
-            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Icon icon="solar:phone-calling-linear" className="w-4 h-4 text-emerald-600" />
-              Contact Details
-            </span>
-          </div>
-          <div
-            className={`${cStyles.treeNode} ${
-              tab === "company" && activeSub === "Social & Links"
-                ? cStyles.treeNodeActive
-                : ""
-            }`}
-            onClick={() => {
-              setTab("company");
-              setActiveSub("Social & Links");
-            }}
-          >
-            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Icon icon="solar:share-circle-linear" className="w-4 h-4 text-emerald-600" />
-              Social Links
-            </span>
-          </div>
-        </>
-      )}
-
-      {(activeFilterTab === "All" || activeFilterTab === "Homepage") && (
-        <>
-          <div className={cStyles.treeHeader}>Homepage Content</div>
-          {TAB_SECTIONS.home_footer.map((sec) => {
-            const sectionData = ALL_SECTIONS_LIST.find(s => s.key === sec);
-            return (
-              <div
-                key={sec}
-                className={`${cStyles.treeSubNode} ${
-                  tab === "home_footer" && activeSub === sec
-                    ? cStyles.treeSubNodeActive
-                    : ""
-                }`}
-                onClick={() => {
-                  setTab("home_footer");
-                  setActiveSub(sec);
-                }}
-              >
-                <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  {sectionData?.icon && <Icon icon={sectionData.icon} className="w-4 h-4" />}
-                  {getSectionDisplayName(sec)}
-                </span>
-                {getSubSectionStatusBadge(sec)}
-              </div>
-            );
-          })}
-        </>
-      )}
-
-      {(activeFilterTab === "All" || activeFilterTab === "About") && (
-        <>
-          <div className={cStyles.treeHeader}>About Page Sections</div>
-          {TAB_SECTIONS["About Page"].map((sec) => {
-            const sectionData = ALL_SECTIONS_LIST.find(s => s.key === sec);
-            return (
-              <div
-                key={sec}
-                className={`${cStyles.treeSubNode} ${
-                  tab === "About Page" && activeSub === sec
-                    ? cStyles.treeSubNodeActive
-                    : ""
-                }`}
-                onClick={() => {
-                  setTab("About Page");
-                  setActiveSub(sec);
-                }}
-              >
-                <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  {sectionData?.icon && <Icon icon={sectionData.icon} className="w-4 h-4" />}
-                  {getSectionDisplayName(sec)}
-                </span>
-                {getSubSectionStatusBadge(sec)}
-              </div>
-            );
-          })}
-        </>
-      )}
-
-      {(activeFilterTab === "All" || activeFilterTab === "Products") && (
-        <>
-          <div className={cStyles.treeHeader}>Products Catalog</div>
-          <div
-            className={`${cStyles.treeNode} ${
-              tab === "Products Page" ? cStyles.treeNodeActive : ""
-            }`}
-            onClick={() => {
-              setTab("Products Page");
-              setActiveSub("Products Page");
-            }}
-          >
-            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4 text-emerald-600" />
-              Catalog Hero Banner
-            </span>
-            {getSubSectionStatusBadge("Products Page")}
-          </div>
-        </>
-      )}
-
-      {(activeFilterTab === "All" || activeFilterTab === "Contact") && (
-        <>
-          <div className={cStyles.treeHeader}>Contact Page Sections</div>
-          {TAB_SECTIONS["Contact Page"].map((sec) => {
-            const sectionData = ALL_SECTIONS_LIST.find(s => s.key === sec);
-            return (
-              <div
-                key={sec}
-                className={`${cStyles.treeSubNode} ${
-                  tab === "Contact Page" && activeSub === sec
-                    ? cStyles.treeSubNodeActive
-                    : ""
-                }`}
-                onClick={() => {
-                  setTab("Contact Page");
-                  setActiveSub(sec);
-                }}
-              >
-                <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  {sectionData?.icon && <Icon icon={sectionData.icon} className="w-4 h-4" />}
-                  {getSectionDisplayName(sec)}
-                </span>
-                {getSubSectionStatusBadge(sec)}
-              </div>
-            );
-          })}
-        </>
-      )}
-
-      {(activeFilterTab === "All" || activeFilterTab === "SEO") && (
-        <>
-          <div className={cStyles.treeHeader}>SEO & Analytics</div>
-          <div
-            className={`${cStyles.treeNode} ${
-              tab === "SEO / Meta" ? cStyles.treeNodeActive : ""
-            }`}
-            onClick={() => {
-              setTab("SEO / Meta");
-              setActiveSub("SEO / Meta");
-            }}
-          >
-            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Icon icon="solar:magnifer-linear" className="w-4 h-4 text-emerald-600" />
-              Global Meta & OpenGraph
-            </span>
-          </div>
-        </>
-      )}
+        ) : (
+          Object.entries(groupedSections).map(([groupName, items]) => (
+            <div key={groupName} style={{ marginBottom: "8px" }}>
+              <div className={cStyles.treeHeader}>{groupName}</div>
+              {items.map((sec) => {
+                const isSelected = tab === sec.tab && activeSub === sec.key;
+                return (
+                  <div
+                    key={sec.key}
+                    className={`${cStyles.treeNode} ${
+                      isSelected ? cStyles.treeNodeActive : ""
+                    }`}
+                    onClick={() => {
+                      setTab(sec.tab);
+                      setActiveSub(sec.key);
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        setTab(sec.tab);
+                        setActiveSub(sec.key);
+                      }
+                    }}
+                  >
+                    <span
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        minWidth: 0,
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      <Icon
+                        icon={sec.icon || "solar:document-text-linear"}
+                        className={`w-4 h-4 flex-shrink-0 ${
+                          isSelected ? "text-emerald-700" : "text-emerald-600"
+                        }`}
+                      />
+                      <span
+                        style={{
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {sec.label}
+                      </span>
+                    </span>
+                    {sec.hasToggle && getSubSectionStatusBadge && (
+                      <span style={{ marginLeft: "8px", flexShrink: 0 }}>
+                        {getSubSectionStatusBadge(sec.key)}
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          ))
+        )}
+      </div>
     </aside>
   );
 }

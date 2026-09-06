@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Icon } from "@iconify/react";
 
 /**
@@ -23,10 +24,11 @@ export default function Modal({
   children,
   footer,
   className = "",
+  preventClose = false,
 }) {
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === "Escape" && isOpen) {
+      if (e.key === "Escape" && isOpen && !preventClose) {
         onClose?.();
       }
     };
@@ -38,7 +40,7 @@ export default function Modal({
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, preventClose]);
 
   if (!isOpen) return null;
 
@@ -52,17 +54,17 @@ export default function Modal({
 
   const selectedSize = sizeClasses[size] || sizeClasses.md;
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+  const modalContent = (
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-slate-950/60 backdrop-blur-xs transition-opacity animate-in fade-in duration-200"
-        onClick={onClose}
+        onClick={preventClose ? undefined : onClose}
       />
 
       {/* Dialog Container */}
       <div
-        className={`relative w-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-2xl shadow-2xl overflow-hidden flex flex-col z-10 my-auto animate-in zoom-in-95 duration-200 ${selectedSize} ${className}`.trim()}
+        className={`relative w-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-2xl shadow-2xl overflow-hidden flex flex-col z-10 m-auto animate-in zoom-in-95 duration-200 ${selectedSize} ${className}`.trim()}
       >
         {/* Modal Header */}
         {(title || description) && (
@@ -79,18 +81,20 @@ export default function Modal({
                 </p>
               )}
             </div>
-            <button
-              type="button"
-              onClick={onClose}
-              className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/10 transition-colors ml-4 cursor-pointer"
-              aria-label="Close dialog"
-            >
-              <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
-            </button>
+            {!preventClose && (
+              <button
+                type="button"
+                onClick={onClose}
+                className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/10 transition-colors ml-4 cursor-pointer"
+                aria-label="Close dialog"
+              >
+                <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
+              </button>
+            )}
           </div>
         )}
 
-        {!title && !description && (
+        {!title && !description && !preventClose && (
           <button
             type="button"
             onClick={onClose}
@@ -113,4 +117,6 @@ export default function Modal({
       </div>
     </div>
   );
+
+  return typeof document !== "undefined" ? createPortal(modalContent, document.body) : modalContent;
 }

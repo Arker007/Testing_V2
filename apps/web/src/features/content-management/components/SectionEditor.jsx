@@ -33,45 +33,39 @@ export default function SectionEditor({
             No fields match your search filter "{searchFieldQuery}"
           </div>
         ) : (
-          <div className={cStyles.editorBody} style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "20px" }}>
+          <div className={cStyles.editorBody}>
             {fieldsToRender.map((f) => {
               const key = f.key || "";
               const type = f.type || "";
               
-              let gridSpan = "span 1";
-              
-              if (type === "image" || type === "textarea" || key === "address" || key === "description" || key === "map_embed" || key?.includes("desc") || key?.includes("text") || key?.includes("sub")) {
-                gridSpan = "1 / -1";
-              } else if (key === "name" || key === "tagline" || key === "gstin" || key?.includes("title") || key === "website" || key === "linkedin" || key === "instagram" || key === "youtube") {
-                gridSpan = "span 2";
-              }
+              const isFullWidth = type === "image" || type === "textarea" || key === "address" || key === "description" || key === "map_embed" || key?.includes("desc") || key?.includes("text") || key?.includes("sub");
 
               return (
-                <div key={f.key} className="form-group" style={{ gridColumn: gridSpan }}>
-                  <label className="form-label" style={{ fontWeight: 600, fontSize: "13px", display: "block", marginBottom: "6px" }}>{f.label}</label>
+                <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: isFullWidth ? "1 / -1" : "span 1" }}>
+                  <label className={cStyles.formLabel}>{f.label}</label>
                   {f.type === "textarea" ? (
                     <textarea 
-                      className="form-textarea" 
-                      style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--border)", fontFamily: "inherit" }} 
+                      className={cStyles.formTextarea} 
                       rows={3} 
                       value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
                       onChange={setM(f.key)} 
                       placeholder={f.placeholder} 
                     />
                   ) : f.type === "checkbox" ? (
-                    <label style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", marginTop: "4px" }}>
-                      <input 
-                        type="checkbox" 
-                        style={{ width: 16, height: 16, accentColor: "var(--brand)" }} 
-                        checked={cms[f.key] === "1" || cms[f.key] === undefined} 
-                        onChange={(e) => setM(f.key)({ target: { value: e.target.checked ? "1" : "0" } })} 
-                      />
-                      <span style={{ fontWeight: 500, fontSize: "13px", color: "var(--gray-800)" }}>{f.checkboxLabel || "Enable flag parameter"}</span>
+                    <label className={cStyles.toggleRow}>
+                      <span className={cStyles.toggleSwitch}>
+                        <input 
+                          type="checkbox" 
+                          checked={cms[f.key] === "1" || cms[f.key] === undefined} 
+                          onChange={(e) => setM(f.key)({ target: { value: e.target.checked ? "1" : "0" } })} 
+                        />
+                        <span className={cStyles.toggleSlider} />
+                      </span>
+                      <span className={cStyles.toggleLabelText}>{f.checkboxLabel || "Enable feature / section"}</span>
                     </label>
                   ) : (
                     <input 
-                      className="form-input" 
-                      style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)" }} 
+                      className={cStyles.formInput} 
                       type="text" 
                       value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
                       onChange={setM(f.key)} 

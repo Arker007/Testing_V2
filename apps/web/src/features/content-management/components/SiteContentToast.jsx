@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 
 export default function SiteContentToast({
   showToast,
@@ -6,6 +7,8 @@ export default function SiteContentToast({
   toastMessage,
 }) {
   if (!showToast) return null;
+
+  const isError = toastMessage.includes("Failed") || toastMessage.includes("Error");
 
   return (
     <div
@@ -29,21 +32,20 @@ export default function SiteContentToast({
     >
       <div
         style={{
-          width: "20px",
-          height: "20px",
+          width: "22px",
+          height: "22px",
           borderRadius: "50%",
-          background: toastMessage.includes("Failed") ? "var(--color-error)" : "var(--brand)",
+          background: isError ? "var(--color-error)" : "var(--brand)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           color: "var(--white)",
+          flexShrink: 0,
         }}
       >
-        <i
-          className={`fa-solid ${
-            toastMessage.includes("Failed") ? "fa-xmark" : "fa-check"
-          }`}
-          style={{ fontSize: "0.7rem" }}
+        <Icon
+          icon={isError ? "solar:close-circle-bold" : "solar:check-circle-bold"}
+          className="w-4 h-4"
         />
       </div>
       <span>{toastMessage}</span>
@@ -56,9 +58,12 @@ export default function SiteContentToast({
           color: "var(--gray-400)",
           cursor: "pointer",
           marginLeft: "12px",
+          display: "flex",
+          alignItems: "center",
         }}
+        title="Dismiss"
       >
-        <i className="fa-solid fa-xmark" />
+        <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
       </button>
     </div>
   );

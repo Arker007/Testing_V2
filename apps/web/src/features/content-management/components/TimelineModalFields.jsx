@@ -1,45 +1,49 @@
 import React from "react";
+import { Icon } from "@iconify/react";
+import cStyles from "../styles/SiteContent.module.css";
 
 export const TimelineModalFields = React.memo(function TimelineModalFields({ data, onChange }) {
   return (
     <>
-      <div className="form-group">
-        <label className="form-label" style={{ fontWeight: 600, fontSize: "13px" }}>
-          Year Milestone Label *
+      <div className={cStyles.formGroup}>
+        <label className={cStyles.formLabel}>
+          <Icon icon="solar:calendar-date-linear" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
+          Year / Milestone Period *
         </label>
         <input
-          className="form-input"
-          style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)" }}
+          className={cStyles.formInput}
           required
           value={data.year || ""}
           onChange={(e) => onChange("year", e.target.value)}
-          placeholder="e.g. 2018"
+          placeholder="e.g. 2018 or 2024–Present"
         />
       </div>
-      <div className="form-group">
-        <label className="form-label" style={{ fontWeight: 600, fontSize: "13px" }}>
-          Strategic Entry Title *
+
+      <div className={cStyles.formGroup}>
+        <label className={cStyles.formLabel}>
+          <Icon icon="solar:flag-linear" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
+          Strategic Milestone Title *
         </label>
         <input
-          className="form-input"
-          style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)" }}
+          className={cStyles.formInput}
           required
           value={data.title || ""}
           onChange={(e) => onChange("title", e.target.value)}
-          placeholder="e.g. Export Expansion"
+          placeholder="e.g. Nationwide Distribution & Export Expansion"
         />
       </div>
-      <div className="form-group">
-        <label className="form-label" style={{ fontWeight: 600, fontSize: "13px" }}>
-          Descriptive Meta Information
+
+      <div className={cStyles.formGroup}>
+        <label className={cStyles.formLabel}>
+          <Icon icon="solar:notes-linear" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
+          Descriptive Detail & Key Accomplishments
         </label>
         <textarea
-          className="form-textarea"
-          style={{ width: "100%", padding: "10px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--gray-200)", fontFamily: "inherit" }}
+          className={cStyles.formTextarea}
           rows={3}
           value={data.desc || ""}
           onChange={(e) => onChange("desc", e.target.value)}
-          placeholder="Provide description..."
+          placeholder="Detail the operational or technological breakthrough achieved..."
         />
       </div>
     </>

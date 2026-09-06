@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Icon } from "@iconify/react";
 import cStyles from "../styles/SiteContent.module.css";
 
@@ -11,8 +11,9 @@ export default function TimelineEditor({
   setModalItem,
   searchFieldQuery = ""
 }) {
-  const deleteTimelineItem = (indexToDel) => {
-    if (!window.confirm("Delete this milestone record permanently?")) return;
+  const [confirmDeleteIdx, setConfirmDeleteIdx] = useState(null);
+
+  const executeDelete = (indexToDel) => {
     setCms((prev) => {
       const copy = { ...prev };
       for (let i = indexToDel + 1; i <= tlCount; i++) {
@@ -25,7 +26,37 @@ export default function TimelineEditor({
       delete copy[`tl_${tlCount}_desc`];
       return copy;
     });
-    setTlCount((c) => Math.max(1, c - 1));
+    setTlCount((c) => Math.max(0, c - 1));
+    setConfirmDeleteIdx(null);
+  };
+
+  const shiftOrder = (index, direction) => {
+    if ((direction === -1 && index === 1) || (direction === 1 && index === tlCount)) return;
+    const targetIdx = index + direction;
+    
+    setCms((prev) => {
+      const copy = { ...prev };
+      const current = {
+        year: copy[`tl_${index}_year`] || "",
+        title: copy[`tl_${index}_title`] || "",
+        desc: copy[`tl_${index}_desc`] || ""
+      };
+      const target = {
+        year: copy[`tl_${targetIdx}_year`] || "",
+        title: copy[`tl_${targetIdx}_title`] || "",
+        desc: copy[`tl_${targetIdx}_desc`] || ""
+      };
+      
+      copy[`tl_${index}_year`] = target.year;
+      copy[`tl_${index}_title`] = target.title;
+      copy[`tl_${index}_desc`] = target.desc;
+      
+      copy[`tl_${targetIdx}_year`] = current.year;
+      copy[`tl_${targetIdx}_title`] = current.title;
+      copy[`tl_${targetIdx}_desc`] = current.desc;
+      
+      return copy;
+    });
   };
 
   const rawEntries = Array.from({ length: tlCount }).map((_, i) => {
@@ -58,26 +89,59 @@ export default function TimelineEditor({
                 <span className={cStyles.repeaterSub}>{desc}</span>
               </div>
               <div className={cStyles.repeaterActions}>
-                <button 
-                  type="button" 
-                  className={cStyles.repeaterEditBtn} 
-                  onClick={() => setModalItem({
-                    type: "timeline",
-                    index,
-                    data: { year, title, desc }
-                  })}
-                  title="Edit Milestone"
-                >
-                  <Icon icon="solar:pen-linear" className="w-3.5 h-3.5" />
-                </button>
-                <button 
-                  type="button" 
-                  className={cStyles.repeaterDelBtn} 
-                  onClick={() => deleteTimelineItem(index)}
-                  title="Delete Milestone"
-                >
-                  <Icon icon="solar:trash-bin-trash-linear" className="w-3.5 h-3.5" />
-                </button>
+                {confirmDeleteIdx === index ? (
+                  <div className={cStyles.confirmDeleteRow}>
+                    <button type="button" className={cStyles.cancelDeleteBtn} onClick={() => setConfirmDeleteIdx(null)}>Cancel</button>
+                    <button type="button" className={cStyles.confirmDeleteBtn} onClick={() => executeDelete(index)}>
+                      Delete
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "2px", marginRight: "4px" }}>
+                      <button 
+                        type="button" 
+                        className={cStyles.repeaterOrderBtn} 
+                        style={{ height: "14px", borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }}
+                        disabled={index === 1 || !!searchFieldQuery}
+                        onClick={() => shiftOrder(index, -1)}
+                        title="Move Up"
+                      >
+                        <Icon icon="solar:alt-arrow-up-linear" className="w-3 h-3" />
+                      </button>
+                      <button 
+                        type="button" 
+                        className={cStyles.repeaterOrderBtn}
+                        style={{ height: "14px", borderTopLeftRadius: 0, borderTopRightRadius: 0 }}
+                        disabled={index === tlCount || !!searchFieldQuery}
+                        onClick={() => shiftOrder(index, 1)}
+                        title="Move Down"
+                      >
+                        <Icon icon="solar:alt-arrow-down-linear" className="w-3 h-3" />
+                      </button>
+                    </div>
+                    <button 
+                      type="button" 
+                      className={cStyles.repeaterEditBtn} 
+                      onClick={() => setModalItem({
+                        type: "timeline",
+                        index,
+                        data: { year, title, desc }
+                      })}
+                      title="Edit Milestone"
+                    >
+                      <Icon icon="solar:pen-linear" className="w-3.5 h-3.5" />
+                    </button>
+                    <button 
+                      type="button" 
+                      className={cStyles.repeaterDelBtn} 
+                      onClick={() => setConfirmDeleteIdx(index)}
+                      title="Delete Milestone"
+                    >
+                      <Icon icon="solar:trash-bin-trash-linear" className="w-3.5 h-3.5" />
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           ))}
@@ -92,11 +156,11 @@ export default function TimelineEditor({
             className={cStyles.repeaterAddCard} 
             onClick={() => {
               const nextIdx = tlCount + 1;
-              setTlCount(nextIdx);
               setModalItem({
                 type: "timeline",
+                isNew: true,
                 index: nextIdx,
-                data: { year: "2026", title: "New Milestone", desc: "" }
+                data: { year: "", title: "", desc: "" }
               });
             }}
           >
