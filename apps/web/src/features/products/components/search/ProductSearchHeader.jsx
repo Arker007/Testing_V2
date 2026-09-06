@@ -200,7 +200,7 @@ export default function ProductSearchHeader({
                 exit={{ opacity: 0, scale: 0.8 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Icon icon="ix:cancel" className="w-4 h-4" />
+                <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
               </motion.button>
             )}
           </AnimatePresence>

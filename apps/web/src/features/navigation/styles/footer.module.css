@@ -397,6 +397,12 @@
   background: var(--navy-darker, var(--navy-950));
 }
 
+@media (max-width: 768px) {
+  .bottom {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 .bottom :global(.container) {
   display: flex;
   justify-content: space-between;

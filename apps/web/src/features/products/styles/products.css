@@ -96,6 +96,7 @@
   font-size: 0.8125rem;
   font-weight: 700;
   padding: 0.55rem 0.95rem;
+  min-height: 40px;
   border-radius: 8px;
   border: 1px solid var(--border-subtle);
   white-space: nowrap;
@@ -103,6 +104,8 @@
   flex-shrink: 0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   transition: all 0.2s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .mobileChip:active {
   transform: scale(0.96);
@@ -249,11 +252,14 @@
   font-size: 0.8125rem;
   font-weight: 600;
   padding: 0.65rem 1rem;
+  min-height: 44px;
   border-radius: var(--radius-btn);
   border: none;
   cursor: pointer;
   position: relative;
   transition: background var(--motion-fast) ease, transform var(--motion-fast) ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobileFilterToggleBtn:hover {
@@ -719,8 +725,10 @@
 .mobileCloseBtn {
   background: var(--neutral-200);
   border: none;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 8px;
   display: grid;
   place-items: center;
@@ -833,12 +841,20 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  min-height: 44px;
   background: none;
   border: none;
-  padding: 0;
+  padding: 0.5rem 0;
   cursor: pointer;
   text-align: left;
   user-select: none;
+  border-radius: var(--radius-sm);
+  transition: color var(--motion-fast) ease;
+}
+
+.accordionHeaderBtn:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
 }
 
 .accordionTitle {
@@ -878,8 +894,12 @@
   display: flex;
   align-items: center;
   gap: 0.65rem;
+  padding: 0.45rem 0.25rem;
+  min-height: 44px;
   cursor: pointer;
   user-select: none;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--motion-fast) ease;
 }
 
 .checkboxInputHidden {
@@ -890,11 +910,16 @@
   height: 0;
 }
 
+.checkboxInputHidden:focus-visible + .customCheckboxSquare {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
 .customCheckboxSquare {
-  width: 16px;
-  height: 16px;
-  border: 1.5px solid var(--neutral-300);
-  border-radius: 3px;
+  width: 22px;
+  height: 22px;
+  border: 1.75px solid var(--neutral-300);
+  border-radius: 4px;
   background: var(--surface-card);
   display: grid;
   place-items: center;
@@ -983,12 +1008,12 @@
 .dualRangeInput::-webkit-slider-thumb {
   pointer-events: auto;
   -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: var(--brand, var(--brand-500));
-  border: 2px solid var(--white);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  border: 3px solid var(--white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
   cursor: pointer;
   transition: transform 0.1s ease;
 }
@@ -1003,12 +1028,12 @@
 
 .dualRangeInput::-moz-range-thumb {
   pointer-events: auto;
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: var(--brand, var(--brand-500));
-  border: 2px solid var(--white);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+  border: 3px solid var(--white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
   cursor: pointer;
 }
 
@@ -1031,7 +1056,8 @@
   color: var(--navy, var(--text-inverse));
   border: none;
   border-radius: var(--radius-btn, 8px);
-  padding: 0.32rem 1.1rem;
+  padding: 0.45rem 1.1rem;
+  min-height: 36px;
   font-size: 0.8rem;
   font-weight: 700;
   cursor: pointer;
@@ -1051,7 +1077,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1rem 1.25rem;
+  padding: 1rem 1.25rem calc(1rem + env(safe-area-inset-bottom, 0px)) 1.25rem;
   border-top: 1px solid var(--neutral-300);
   background: var(--surface-card);
 }
@@ -1061,12 +1087,13 @@
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  padding: 0.65rem 1rem;
+  padding: 0.75rem 1rem;
+  min-height: 48px;
   border-radius: 8px;
   border: 1px solid var(--neutral-300);
   background: var(--neutral-100);
   color: var(--neutral-700);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
 }
@@ -1076,12 +1103,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.65rem 1.25rem;
+  padding: 0.75rem 1.25rem;
+  min-height: 48px;
   border-radius: 8px;
   background: var(--brand-600);
   color: var(--white);
   border: none;
-  font-size: 0.85rem;
+  font-size: 0.9375rem;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(67, 160, 71, 0.3);
@@ -1426,6 +1454,7 @@ html.dark .sliderTrackBackground {
   align-items: center;
   justify-content: center;
   width: 100%;
+  min-height: 44px;
   background: var(--brand-primary);
   color: var(--brand-btn-text) !important;
   font-size: 0.95rem;
@@ -1438,6 +1467,8 @@ html.dark .sliderTrackBackground {
   border: none;
   cursor: pointer;
   text-align: center;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .viewProductBtn:hover {
@@ -1445,6 +1476,10 @@ html.dark .sliderTrackBackground {
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
   color: var(--brand-btn-text) !important;
+}
+
+.viewProductBtn:active {
+  transform: scale(0.98);
 }
 
 .datasheetLinkWrap {
@@ -1456,7 +1491,8 @@ html.dark .sliderTrackBackground {
 .datasheetLink {
   background: none;
   border: none;
-  padding: 0.2rem 0.5rem;
+  padding: 0.5rem 0.75rem;
+  min-height: 40px;
   color: var(--text-brand);
   font-size: 0.875rem;
   font-weight: 700;
@@ -1467,6 +1503,8 @@ html.dark .sliderTrackBackground {
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color var(--motion-fast) ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .datasheetLink:hover {
@@ -1850,8 +1888,10 @@ html.dark .sliderTrackBackground {
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: var(--radius-btn, 8px);
   background: var(--bg-surface-secondary, var(--neutral-200));
   color: var(--color-text-primary, var(--neutral-950));
@@ -1868,6 +1908,15 @@ html.dark .sliderTrackBackground {
   background: var(--brand-soft);
   color: var(--brand-text);
   border-color: var(--brand, var(--brand-500));
+}
+
+.modalCloseBtn:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
+}
+
+.modalCloseBtn:active {
+  transform: scale(0.95);
 }
 
 .modalHeaderRow {
@@ -2035,22 +2084,22 @@ html.dark .sliderTrackBackground {
 
 .emptyState {
   background: var(--surface);
-  border-radius: 8px;
+  border-radius: var(--radius-card, 8px);
   border: 1px dashed var(--border-default, var(--border, var(--neutral-300)));
-  padding: 3.5rem 1.5rem;
+  padding: 3rem 1.5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.25rem;
   box-shadow: 0 4px 20px -2px rgba(11, 47, 99, 0.03), 0 2px 4px -1px rgba(11, 47, 99, 0.02);
 }
 
 .emptyIconCircle {
   width: 64px;
   height: 64px;
-  border-radius: 8px;
+  border-radius: var(--radius-btn, 8px);
   background: var(--surface-secondary, var(--neutral-200));
   color: var(--text-muted, var(--neutral-500));
   display: grid;
@@ -2067,24 +2116,59 @@ html.dark .sliderTrackBackground {
 .emptyState p {
   font-size: 0.875rem;
   color: var(--text-secondary, var(--neutral-500));
-  max-width: 420px;
+  max-width: 460px;
   margin: 0;
   line-height: 1.6;
+}
+
+.emptyFilterPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-btn, 6px);
+  background: var(--bg-surface-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  transition: all var(--motion-fast) ease;
+}
+
+.emptyFilterPill:hover {
+  border-color: var(--brand-primary);
+}
+
+.emptyPillRemoveBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color var(--motion-fast) ease;
+}
+
+.emptyPillRemoveBtn:hover {
+  color: var(--text-primary);
 }
 
 .emptyResetBtn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: var(--brand, var(--brand-500));
   color: var(--neutral-950);
   font-size: 0.875rem;
   font-weight: 700;
   padding: 0.75rem 1.5rem;
-  border-radius: 8px;
+  min-height: 44px;
+  border-radius: var(--radius-btn, 8px);
   border: none;
   cursor: pointer;
-  margin-top: 0.5rem;
   transition: all var(--motion-fast) var(--ease-standard);
 }
 
@@ -2095,6 +2179,50 @@ html.dark .sliderTrackBackground {
 .emptyResetBtn:hover {
   background: var(--brand-600);
   color: var(--neutral-950);
+}
+
+.emptyCustomCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--surface-card);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  min-height: 44px;
+  border-radius: var(--radius-btn, 8px);
+  border: 1px solid var(--border-default, var(--neutral-300));
+  cursor: pointer;
+  transition: all var(--motion-fast) var(--ease-standard);
+}
+
+.emptyCustomCtaBtn:hover {
+  border-color: var(--brand-primary);
+  background: var(--brand-soft);
+  color: var(--brand-text);
+}
+
+.emptySuggestionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-btn, 6px);
+  background: var(--surface-secondary, var(--neutral-100));
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--motion-fast) ease;
+}
+
+.emptySuggestionBtn:hover {
+  border-color: var(--brand-primary);
+  color: var(--text-primary);
+  background: var(--surface-card);
 }
 
 /* ─── PROCUREMENT ADVANTAGE SECTION ─────────────────────── */

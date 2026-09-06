@@ -9,20 +9,20 @@ export default function ContactWorkflowSection() {
       <div className="container">
         <div className={styles.sectionHeaderCenter}>
           <div className="flex justify-center mb-4">
-            <Badge variant="hero" size="lg">
-              Easy Ordering Process
+            <Badge variant="brand" size="md">
+              Procurement Workflow
             </Badge>
           </div>
-          <h2 className={styles.sectionTitleLight}>5 Steps From Inquiry to Delivery</h2>
-          <p className={styles.sectionDescLight}>
-            Here is how simple it is to get high-quality recycled plastic products for your factory.
+          <h2 className={styles.sectionTitleLight}>5-Stage Factory Procurement Process</h2>
+          <p className={`${styles.sectionDescLight} max-w-2xl mx-auto`}>
+            A structured manufacturing and supply lifecycle ensuring dimensional tolerance, load certification, and scheduled batch logistics.
           </p>
         </div>
 
         <div className={styles.workflowGrid}>
           {WORKFLOW_STEPS.map((step) => (
             <div key={step.num} className={styles.workflowCard}>
-              <div className={styles.workflowNum}>{step.num}</div>
+              <div className={`${styles.workflowNum} font-mono tabular-nums`}>{step.num}</div>
               <h3 className={styles.workflowTitle}>{step.title}</h3>
               <p className={styles.workflowDesc}>{step.desc}</p>
             </div>
@@ -32,3 +32,4 @@ export default function ContactWorkflowSection() {
     </section>
   );
 }
+

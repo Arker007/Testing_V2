@@ -14,6 +14,8 @@ export default function TimedInquiryModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
   const [errorMessage, setErrorMessage] = useState("");
+  const [referenceId, setReferenceId] = useState("");
+  const [copiedRef, setCopiedRef] = useState(false);
 
   const [form, setForm] = useState({
     productService: "",
@@ -24,6 +26,29 @@ export default function TimedInquiryModal() {
     phone: "",
     message: "",
   });
+
+  const handleCopyRef = () => {
+    if (referenceId) {
+      navigator.clipboard.writeText(referenceId);
+      setCopiedRef(true);
+      setTimeout(() => setCopiedRef(false), 2000);
+    }
+  };
+
+  const handleResetForm = () => {
+    setForm({
+      productService: "",
+      fullName: "",
+      email: "",
+      country: "India",
+      phonePrefix: "+91",
+      phone: "",
+      message: "",
+    });
+    setStatus("idle");
+    setErrorMessage("");
+    setReferenceId("");
+  };
 
   // Track site usage time across public navigation
   useEffect(() => {
@@ -126,6 +151,16 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
         throw new Error("Failed to submit inquiry. Please try again.");
       }
 
+      let generatedRef = "";
+      try {
+        const data = await res.json();
+        const rawId = data?.id ?? Math.floor(10000 + Math.random() * 90000);
+        generatedRef = `RFQ-VE-${String(rawId).padStart(5, "0")}`;
+      } catch {
+        generatedRef = `RFQ-VE-${Math.floor(10000 + Math.random() * 90000)}`;
+      }
+
+      setReferenceId(generatedRef);
       setStatus("sent");
       sessionStorage.setItem(STORAGE_DISMISSED_KEY, "true");
     } catch (err) {
@@ -170,37 +205,65 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
 
         {/* Modal Header */}
         <div className={styles.header}>
-          <div className={styles.eyebrowRow}>
-            <span className={styles.eyebrowText}>
-              {c("inquiry_modal_eyebrow", "We're Here to Help")}
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="text-xs uppercase font-bold tracking-wider text-[var(--brand-primary)] px-2.5 py-0.5 rounded-[var(--radius-sm,4px)] bg-[var(--brand-soft)]">
+              Direct Engineering & Sales Desk
             </span>
-            <div className={styles.eyebrowBar} />
           </div>
           <h2 id="timed-inquiry-title" className={styles.title}>
-            Quick <span className={styles.titleAccent}>Enquiry</span>
+            Direct Factory Quotation
           </h2>
           <p className={styles.subtitle}>
-            Have a question or need bulk pricing? Send us your details and our sales team will get back to you shortly.
+            Specify your technical application or volume requirements. Our factory engineering team responds within 2 business hours.
           </p>
         </div>
 
         {status === "sent" ? (
           <div className={styles.successContainer}>
-            <div className={styles.successIconWrapper}>
-              <Icon icon="solar:check-circle-linear" className="w-16 h-16 text-[var(--color-success,#16a34a)]" />
+            <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center mx-auto mb-3 text-emerald-500">
+              <Icon icon="solar:check-circle-bold" className="w-10 h-10" />
             </div>
-            <h3 className={styles.successHeading}>Inquiry Sent Successfully!</h3>
+            <h3 className={styles.successHeading}>Inquiry Sent Successfully</h3>
+            
+            {referenceId && (
+              <div className="my-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-[var(--radius-btn,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
+                <span className="text-xs text-[var(--text-muted)] font-mono font-medium">Reference:</span>
+                <span className="text-xs font-mono font-bold text-[var(--text-primary)] tracking-wider">
+                  {referenceId}
+                </span>
+                <button
+                  type="button"
+                  onClick={handleCopyRef}
+                  className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer ml-1"
+                  title="Copy Reference Code"
+                  aria-label="Copy reference code"
+                >
+                  <Icon icon={copiedRef ? "solar:check-read-linear" : "solar:copy-linear"} className="w-4 h-4 text-[var(--brand-primary)]" />
+                </button>
+              </div>
+            )}
+
             <p className={styles.successBody}>
               Thank you for reaching out. Our engineering and sales team will contact you within{" "}
-              <strong>2 business hours</strong> with technical specifications and pricing.
+              <strong className="text-[var(--text-primary)]">2 business hours</strong> with technical specifications and pricing.
             </p>
-            <button
-              type="button"
-              className={styles.doneBtn}
-              onClick={handleClose}
-            >
-              Done
-            </button>
+            <div className="flex flex-col sm:flex-row items-center gap-2.5 mt-4 w-full justify-center">
+              <button
+                type="button"
+                className="btn btn-secondary min-h-[44px] px-6 justify-center w-full sm:w-auto"
+                onClick={handleResetForm}
+              >
+                <Icon icon="solar:restart-linear" className="w-4 h-4" />
+                <span>New Inquiry</span>
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary min-h-[44px] px-8 justify-center w-full sm:w-auto"
+                onClick={handleClose}
+              >
+                Done
+              </button>
+            </div>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className={styles.form}>

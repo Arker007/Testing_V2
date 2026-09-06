@@ -13,15 +13,15 @@ export default function ContactHero() {
         { label: "Home", to: "/" },
         { label: "Contact Us" },
       ]}
-      tag={c("contact_hero_badge", "Get in Touch with Our Specialists")}
-      tagIcon="solar:bolt-linear"
-      title="Let's Discuss Your"
-      titleAccent="Recycled Plastic Requirements"
+      tag={c("contact_hero_badge", "Direct Factory Sales Desk")}
+      tagIcon="solar:headphones-round-linear"
+      title="Commercial Procurement & Engineering Support"
       description={c(
         "contact_hero_sub",
-        "Request bulk pricing, custom product dimensions, or get direct support from our sales and engineering team."
+        "Request volume pricing, custom extruded profiles, or schedule plant dispatches directly with our Ankleshwar manufacturing facility."
       )}
     />
   );
 }
+
 

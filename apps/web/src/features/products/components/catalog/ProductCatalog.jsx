@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
 import useDocumentTitle from "../../../../shared/hooks/useDocumentTitle";
 import { useProducts } from "../../hooks/useProducts";
@@ -16,7 +16,7 @@ import ProductListSkeletonCard from "../cards/ProductListSkeletonCard";
 import QuickViewModal from "../quick-view/QuickViewModal";
 import ProcurementAdvantage from "./ProcurementAdvantage";
 import ProcurementCtaBand from "./ProcurementCtaBand";
-import { BackToTop } from "../../../../shared/ui";
+import { BackToTop, InquiryModal } from "../../../../shared/ui";
 import { applicationOptions } from "../../constants";
 import {
   getImg,
@@ -144,6 +144,7 @@ export default function ProductCatalog() {
   const [viewMode, setViewMode] = useState("grid");
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState(null);
+  const [inquiryProduct, setInquiryProduct] = useState(null);
 
   // New Redesigned Filter States matching image mockup
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -389,6 +390,7 @@ export default function ProductCatalog() {
           categoryOptions={categoryOptions}
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          setSelectedCategories={setSelectedCategories}
           categoryCounts={categoryCounts}
         />
 
@@ -478,19 +480,197 @@ export default function ProductCatalog() {
                 <div className={styles.emptyIconCircle}>
                   <Icon icon="solar:magnifer-linear" className="w-8 h-8 text-slate-400" />
                 </div>
-                <h3>No Matching Products</h3>
+                <h3>No Matching Products Found</h3>
                 <p>
-                  No items matched your current filter criteria. Try adjusting search query, category, or load rating filters.
+                  No items matched your current filter criteria. You can remove specific filter tags below, reset the catalog view, or request a custom manufactured specification.
                 </p>
-                <motion.button
-                  type="button"
-                  onClick={resetFilters}
-                  className={styles.emptyResetBtn}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Icon icon="solar:restart-linear" className="w-4 h-4" />
-                  <span>Clear All Filters</span>
-                </motion.button>
+
+                {/* Active Filter Criteria Summary Tags */}
+                {hasActiveFilters && (
+                  <div className="flex flex-wrap items-center justify-center gap-2 max-w-xl my-1">
+                    {searchQuery.trim() && (
+                      <span className={styles.emptyFilterPill}>
+                        <span>Query: <strong>"{searchQuery.trim()}"</strong></span>
+                        <button
+                          type="button"
+                          className={styles.emptyPillRemoveBtn}
+                          onClick={() => setSearchQuery("")}
+                          aria-label="Remove search query"
+                        >
+                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                        </button>
+                      </span>
+                    )}
+                    {selectedCategory && selectedCategory !== "All" && (
+                      <span className={styles.emptyFilterPill}>
+                        <span>Category: <strong>{selectedCategory}</strong></span>
+                        <button
+                          type="button"
+                          className={styles.emptyPillRemoveBtn}
+                          onClick={() => {
+                            setSelectedCategory("All");
+                            setSelectedCategories([]);
+                          }}
+                          aria-label="Remove category filter"
+                        >
+                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                        </button>
+                      </span>
+                    )}
+                    {selectedCategories.map((cat) => (
+                      <span key={cat} className={styles.emptyFilterPill}>
+                        <span>Category: <strong>{cat}</strong></span>
+                        <button
+                          type="button"
+                          className={styles.emptyPillRemoveBtn}
+                          onClick={() => setSelectedCategories((prev) => prev.filter((c) => c !== cat))}
+                          aria-label={`Remove category ${cat}`}
+                        >
+                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                        </button>
+                      </span>
+                    ))}
+                    {selectedAttributes.map((attr) => (
+                      <span key={attr} className={styles.emptyFilterPill}>
+                        <span>Feature: <strong>{attr}</strong></span>
+                        <button
+                          type="button"
+                          className={styles.emptyPillRemoveBtn}
+                          onClick={() => setSelectedAttributes((prev) => prev.filter((a) => a !== attr))}
+                          aria-label={`Remove attribute ${attr}`}
+                        >
+                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                        </button>
+                      </span>
+                    ))}
+                    {selectedDimensions.map((dim) => (
+                      <span key={dim} className={styles.emptyFilterPill}>
+                        <span>Size: <strong>{dim}</strong></span>
+                        <button
+                          type="button"
+                          className={styles.emptyPillRemoveBtn}
+                          onClick={() => setSelectedDimensions((prev) => prev.filter((d) => d !== dim))}
+                          aria-label={`Remove dimension ${dim}`}
+                        >
+                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                        </button>
+                      </span>
+                    ))}
+                    {(minStaticLoad > 0 || activeStaticFilter) && (
+                      <span className={styles.emptyFilterPill}>
+                        <span>Static Load: <strong>≥ {activeStaticFilter || minStaticLoad} kg</strong></span>
+                        <button
+                          type="button"
+                          className={styles.emptyPillRemoveBtn}
+                          onClick={() => {
+                            setMinStaticLoad(0);
+                            setActiveStaticFilter(null);
+                          }}
+                          aria-label="Remove static load filter"
+                        >
+                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                        </button>
+                      </span>
+                    )}
+                    {activeDynamicFilter && (
+                      <span className={styles.emptyFilterPill}>
+                        <span>Dynamic Load: <strong>≥ {activeDynamicFilter} kg</strong></span>
+                        <button
+                          type="button"
+                          className={styles.emptyPillRemoveBtn}
+                          onClick={() => setActiveDynamicFilter(null)}
+                          aria-label="Remove dynamic load filter"
+                        >
+                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                        </button>
+                      </span>
+                    )}
+                    {activeRackFilter && (
+                      <span className={styles.emptyFilterPill}>
+                        <span>Rack Load: <strong>≥ {activeRackFilter} kg</strong></span>
+                        <button
+                          type="button"
+                          className={styles.emptyPillRemoveBtn}
+                          onClick={() => setActiveRackFilter(null)}
+                          aria-label="Remove rack load filter"
+                        >
+                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                        </button>
+                      </span>
+                    )}
+                    {isCustom && (
+                      <span className={styles.emptyFilterPill}>
+                        <span>Filter: <strong>Custom Only</strong></span>
+                        <button
+                          type="button"
+                          className={styles.emptyPillRemoveBtn}
+                          onClick={() => setIsCustom(false)}
+                          aria-label="Remove custom filter"
+                        >
+                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                        </button>
+                      </span>
+                    )}
+                  </div>
+                )}
+
+                {/* Primary Recovery Action Buttons */}
+                <div className="flex flex-col sm:flex-row items-center gap-3 mt-1">
+                  <motion.button
+                    type="button"
+                    onClick={resetFilters}
+                    className={styles.emptyResetBtn}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Icon icon="solar:restart-linear" className="w-4 h-4" />
+                    <span>Reset All Filters</span>
+                  </motion.button>
+                  <motion.button
+                    type="button"
+                    onClick={() => {
+                      setInquiryProduct({
+                        name: searchQuery.trim()
+                          ? `Custom Specification for "${searchQuery.trim()}"`
+                          : "Custom Recycled Plastic Fabrication",
+                        category: "Custom Sourcing / Tooling",
+                        sku: "CUSTOM-RFP",
+                      });
+                    }}
+                    className={styles.emptyCustomCtaBtn}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Icon icon="solar:tuning-square-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
+                    <span>Request Custom Machining / Sourcing</span>
+                  </motion.button>
+                </div>
+
+                {/* Suggested Search Terms */}
+                <div className="mt-4 pt-4 border-t border-[var(--border-subtle)] w-full max-w-md">
+                  <span className="text-xs text-[var(--text-muted)] font-semibold block mb-2">
+                    Or try popular industrial searches:
+                  </span>
+                  <div className="flex flex-wrap justify-center gap-1.5">
+                    {[
+                      { label: "Heavy Duty Pallet", query: "Heavy Duty" },
+                      { label: "Nestable Pallet", query: "Nestable" },
+                      { label: "Plastic Lumber", query: "Lumber" },
+                      { label: "Outdoor Bench", query: "Bench" },
+                    ].map((s) => (
+                      <button
+                        key={s.label}
+                        type="button"
+                        onClick={() => {
+                          resetFilters();
+                          setSearchQuery(s.query);
+                        }}
+                        className={styles.emptySuggestionBtn}
+                      >
+                        <Icon icon="solar:magnifer-linear" className="w-3 h-3 text-[var(--text-muted)]" />
+                        <span>{s.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             ) : viewMode === "grid" ? (
               <motion.div
@@ -547,11 +727,25 @@ export default function ProductCatalog() {
       <QuickViewModal
         product={quickViewProduct}
         onClose={() => setQuickViewProduct(null)}
+        onRequestQuote={(prod) => {
+          setQuickViewProduct(null);
+          setInquiryProduct(prod);
+        }}
         img={getImg(quickViewProduct)}
         staticLoad={getStaticLoadKg(quickViewProduct)}
         dimStr={getDimensionsStr(quickViewProduct)}
         headline={getHeadline(quickViewProduct)}
       />
+
+      {/* Inquiry Modal */}
+      <AnimatePresence>
+        {inquiryProduct && (
+          <InquiryModal
+            product={inquiryProduct}
+            onClose={() => setInquiryProduct(null)}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Back to top floating button for long listing navigation */}
       <BackToTop />

@@ -163,7 +163,7 @@ export default function ProductHeaderSpecs({
           </h1>
         </div>
 
-        <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+        <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed max-w-[65ch]">
           {product.technical_blurb ||
             "Heavy-duty industrial polymer composite formulation. Resistant to chemical degradation, moisture absorption, termites, and intense weather variations."}
         </p>
@@ -183,7 +183,7 @@ export default function ProductHeaderSpecs({
 
         {currentPrice && currentPrice !== "0" ? (
           <div className="flex items-baseline gap-2 pt-1">
-            <span className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight">
+            <span className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight font-mono tabular-nums">
               ₹{currentPrice}
             </span>
             <span className="text-xs font-semibold text-[var(--text-muted)]">
@@ -195,7 +195,7 @@ export default function ProductHeaderSpecs({
             <span className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight">
               Volume Quotation on Request
             </span>
-            <span className="text-xs font-medium text-[var(--text-muted)] mt-0.5">
+            <span className="text-xs font-medium text-[var(--text-muted)] mt-0.5 max-w-[65ch]">
               Wholesale tiered brackets for container, truckload & scheduled plant orders
             </span>
           </div>
@@ -216,7 +216,7 @@ export default function ProductHeaderSpecs({
               <span className="block text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
                 {item.label}
               </span>
-              <span className="text-xs sm:text-sm font-extrabold text-[var(--text-primary)] truncate block mt-0.5">
+              <span className="text-xs sm:text-sm font-extrabold text-[var(--text-primary)] truncate block mt-0.5 font-mono tabular-nums">
                 {item.value}
               </span>
             </div>
@@ -238,7 +238,7 @@ export default function ProductHeaderSpecs({
                   key={option}
                   type="button"
                   onClick={() => setSelectedSize(option)}
-                  className={`px-4 py-2.5 rounded-[var(--radius-card,8px)] text-xs font-bold border transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95 ${
+                  className={`px-4 py-2.5 rounded-[var(--radius-card,8px)] text-xs font-mono font-bold border transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95 tabular-nums ${
                     isSelected
                       ? "bg-[var(--brand-primary)] border-[var(--brand-primary)] text-[var(--brand-btn-text)] shadow-xs"
                       : "bg-[var(--bg-surface)] text-[var(--text-secondary)] border-[var(--border-default)] hover:bg-[var(--bg-surface-secondary)] hover:text-[var(--text-primary)]"

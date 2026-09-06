@@ -14,14 +14,14 @@ export default function ProductsHero({ activeCategory }) {
   return (
     <PageHero
       breadcrumbs={breadcrumbs}
-      tag={c("products_hero_tag", "Sustainable Polymer Manufacturing")}
+      tag={c("products_hero_tag", "Industrial Polymer Products")}
       tagIcon="solar:box-minimalistic-linear"
-      title="Recycled Plastic"
-      titleAccent="Lumber & Pallet Catalog"
+      title="Recycled Plastic Pallet & Lumber Catalog"
       description={c(
         "products_hero_subtitle",
-        "Engineered industrial profiles, heavy-duty logistics pallets, municipal benches, and custom extruded profiles built from 100% post-consumer plastic. Zero rot, maintenance-free, and weather-proof."
+        "Engineered industrial profiles, heavy-duty logistics pallets, municipal benches, and custom extruded sections manufactured from 100% recycled HDPE. Zero rot, termite-proof, and maintenance-free."
       )}
     />
   );
 }
+

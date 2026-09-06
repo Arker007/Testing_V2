@@ -140,7 +140,7 @@ export default function ProductGallery({
         {images[currentImgIdx] && (
           <button
             type="button"
-            className="absolute top-3.5 right-3.5 bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] p-2 rounded-[var(--radius-card,8px)] transition-all shadow-xs border border-[var(--border-default)] cursor-pointer z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95"
+            className="absolute top-3.5 right-3.5 bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] w-10 h-10 min-w-[40px] min-h-[40px] rounded-[var(--radius-card,8px)] flex items-center justify-center transition-all shadow-xs border border-[var(--border-default)] cursor-pointer z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95"
             onClick={() => setShowImageModal(true)}
             aria-label="View image full screen"
             title="Expand Full View"
@@ -154,25 +154,25 @@ export default function ProductGallery({
           <>
             <button
               type="button"
-              className="absolute left-2 sm:left-3.5 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)] flex items-center justify-center shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-95 z-10 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+              className="absolute left-2 sm:left-3.5 top-1/2 -translate-y-1/2 w-10 h-10 min-w-[40px] min-h-[40px] rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)]/95 hover:bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)] flex items-center justify-center shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-90 z-10 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
               onClick={(e) => {
                 e.stopPropagation();
                 handlePrevImage();
               }}
               aria-label="Previous product image"
             >
-              <Icon icon="solar:alt-arrow-left-linear" className="w-4.5 h-4.5" />
+              <Icon icon="solar:alt-arrow-left-linear" className="w-5 h-5" />
             </button>
             <button
               type="button"
-              className="absolute right-2 sm:right-3.5 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)] flex items-center justify-center shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-95 z-10 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+              className="absolute right-2 sm:right-3.5 top-1/2 -translate-y-1/2 w-10 h-10 min-w-[40px] min-h-[40px] rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)]/95 hover:bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)] flex items-center justify-center shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-90 z-10 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
               onClick={(e) => {
                 e.stopPropagation();
                 handleNextImage();
               }}
               aria-label="Next product image"
             >
-              <Icon icon="solar:alt-arrow-right-linear" className="w-4.5 h-4.5" />
+              <Icon icon="solar:alt-arrow-right-linear" className="w-5 h-5" />
             </button>
           </>
         )}

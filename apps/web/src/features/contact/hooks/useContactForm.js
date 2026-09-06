@@ -14,6 +14,7 @@ export function useContactForm() {
   });
   const [status, setStatus] = useState("");
   const [copiedKey, setCopiedKey] = useState("");
+  const [referenceId, setReferenceId] = useState("");
 
   const handleCopy = useCallback((text, key) => {
     navigator.clipboard.writeText(text);
@@ -49,18 +50,47 @@ ${form.message}
           message: composedMessage,
         }),
       });
-      setStatus(res.ok ? "sent" : "error");
+
+      if (res.ok) {
+        let generatedRef = "";
+        try {
+          const data = await res.json();
+          const rawId = data?.id ?? Math.floor(10000 + Math.random() * 90000);
+          generatedRef = `RFQ-VE-${String(rawId).padStart(5, "0")}`;
+        } catch {
+          generatedRef = `RFQ-VE-${Math.floor(10000 + Math.random() * 90000)}`;
+        }
+        setReferenceId(generatedRef);
+        setStatus("sent");
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }
   }, [form]);
 
-  const resetStatus = useCallback(() => setStatus(""), []);
+  const resetStatus = useCallback(() => {
+    setStatus("");
+    setReferenceId("");
+    setForm({
+      fullName: "",
+      email: "",
+      phone: "",
+      company: "",
+      estimatedVolume: "",
+      message: "",
+      productService: "",
+      country: "India",
+      phonePrefix: "+91",
+    });
+  }, []);
 
   return {
     form,
     status,
     copiedKey,
+    referenceId,
     handleCopy,
     handleChange,
     handleSubmit,

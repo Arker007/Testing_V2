@@ -26,8 +26,7 @@ export default function ManufacturingPage() {
         ]}
         tag={c("mfg_hero_tag", "High-Precision Polymer Processing")}
         tagIcon="solar:settings-linear"
-        title="State-of-the-Art"
-        titleAccent="Extrusion & Quality Control"
+        title="High-Pressure Polymer Extrusion & Quality Control"
         description={c(
           "mfg_hero_sub",
           "Our Gujarat-based manufacturing facility utilizes advanced automated polymer sorting, decontamination, and high-pressure extrusion to convert waste into durable structural profiles."

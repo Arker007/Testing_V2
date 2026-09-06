@@ -1264,8 +1264,10 @@ html.dark .suggestionAllBtn:hover {
 }
 
 .mobileCloseBtn {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: var(--radius-md, 8px);
   background: var(--surface-secondary);
   border: 1px solid var(--border-default);

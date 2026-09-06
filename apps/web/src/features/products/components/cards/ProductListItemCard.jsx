@@ -39,27 +39,27 @@ export default function ProductListItemCard({
       <div className={styles.listCardBody}>
         <div className={styles.listMetaRow}>
           <span className={styles.catTagDesktop}>{categoryName}</span>
-          {product.sku && <span className={styles.skuBadge}>SKU: {product.sku}</span>}
+          {product.sku && <span className={`${styles.skuBadge} font-mono tabular-nums`}>SKU: {product.sku}</span>}
         </div>
 
         <h3 className={styles.listCardTitle}>
           <Link to={`/products/${product.id}`}>{title}</Link>
         </h3>
 
-        <p className={styles.listDescription}>{description}</p>
+        <p className={`${styles.listDescription} max-w-[65ch]`}>{description}</p>
 
         <div className={styles.listSpecsLine}>
           <div className={styles.listSpecBadge}>
             <span>Size:</span>
-            <strong>{dimStr}</strong>
+            <strong className="font-mono tabular-nums">{dimStr}</strong>
           </div>
           <div className={styles.listSpecBadge}>
             <span>Static Load:</span>
-            <strong>{staticLoad > 0 ? `${staticLoad.toLocaleString()} kg` : "Custom"}</strong>
+            <strong className="font-mono tabular-nums">{staticLoad > 0 ? `${staticLoad.toLocaleString()} kg` : "Custom"}</strong>
           </div>
           <div className={styles.listSpecBadge}>
             <span>Material:</span>
-            <strong>100% Recycled PE/PP</strong>
+            <strong>100% Recycled HDPE</strong>
           </div>
         </div>
       </div>

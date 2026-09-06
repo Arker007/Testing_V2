@@ -107,11 +107,11 @@ export default function ProductDetailView() {
       </nav>
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10 space-y-16">
-        {/* Core Layout Grid: Asymmetric 58% / 42% (7 cols / 5 cols) with generous 48px gap */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          {/* Left Column Stack: Gallery Viewport */}
-          <div className="lg:col-span-7 flex flex-col gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-10 space-y-12 sm:space-y-16">
+        {/* Core Layout Grid: Reordered on mobile (Gallery -> Specs & CTA -> Detailed Tabs) and 7/5 cols on desktop */}
+        <section className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+          {/* 1. Gallery Viewport: Order 1 on mobile, 7 cols on desktop */}
+          <div className="order-1 lg:order-1 lg:col-span-7 w-full">
             <ProductGallery
               images={images}
               currentImgIdx={currentImgIdx}
@@ -121,8 +121,22 @@ export default function ProductDetailView() {
               handlePrevImage={handlePrevImage}
               handleNextImage={handleNextImage}
             />
+          </div>
 
-            {/* Dynamic Technical Specifications and Engineering Standards */}
+          {/* 2. Commercial Specs & Quoting CTA Rail: Order 2 on mobile (immediately accessible), 5 cols & sticky on desktop */}
+          <div className="order-2 lg:order-2 lg:col-span-5 w-full lg:sticky lg:top-24">
+            <ProductHeaderSpecs
+              product={product}
+              brand={brand}
+              sku={sku}
+              currentPrice={currentPrice}
+              sizeOptions={sizeOptions}
+              setShowInquiry={setShowInquiry}
+            />
+          </div>
+
+          {/* 3. Deep Technical Specifications & Engineering Standards: Order 3 on mobile, 7 cols under gallery on desktop */}
+          <div className="order-3 lg:order-3 lg:col-span-7 w-full">
             <ProductTabsSection
               product={product}
               categoryObj={categoryObj}
@@ -132,18 +146,6 @@ export default function ProductDetailView() {
               tab={activeTab}
               setTab={setActiveTab}
               tabs={availableTabs}
-            />
-          </div>
-
-          {/* Right Column Stack: Sticky Commercial & Procurement Configuration Rail */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24 flex flex-col gap-6">
-            <ProductHeaderSpecs
-              product={product}
-              brand={brand}
-              sku={sku}
-              currentPrice={currentPrice}
-              sizeOptions={sizeOptions}
-              setShowInquiry={setShowInquiry}
             />
           </div>
         </section>
@@ -174,6 +176,38 @@ export default function ProductDetailView() {
 
         {/* Related Products Section */}
         <RelatedProductsSection relatedProducts={relatedProducts} />
+      </div>
+
+      {/* Mobile Persistent Sticky Procurement Bar (Thumb-Zone Optimization) */}
+      <div className="lg:hidden fixed bottom-[calc(64px+env(safe-area-inset-bottom,0px))] left-0 right-0 z-30 bg-[var(--bg-surface)]/95 backdrop-blur-md border-t border-[var(--border-default)] px-4 py-2.5 shadow-[0_-4px_16px_rgba(0,0,0,0.08)] flex items-center justify-between gap-3">
+        <div className="min-w-0 flex-1">
+          <span className="text-[10px] font-mono font-bold text-[var(--text-muted)] uppercase tracking-wider block truncate">
+            {sku ? `REF: ${sku}` : "FACTORY DIRECT"}
+          </span>
+          <span className="text-xs font-black text-[var(--text-primary)] block truncate">
+            {product.name}
+          </span>
+        </div>
+        <div className="flex items-center gap-2 shrink-0">
+          <a
+            href={`https://wa.me/919898686379?text=${encodeURIComponent(`Hello Vishal Enterprise, I am requesting quote for: ${product.name}${sku ? ` (REF: ${sku})` : ""}`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2.5 !min-h-[44px] !w-[44px] rounded-[var(--radius-btn,8px)] border border-[#25D366]/40 bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#128C7E] dark:text-[#25D366] flex items-center justify-center transition-all decoration-none active:scale-95"
+            aria-label="WhatsApp Sales Desk"
+            title="WhatsApp Sales Desk"
+          >
+            <Icon icon="solar:chat-round-dots-bold" className="w-5 h-5 text-[#25D366]" />
+          </a>
+          <button
+            type="button"
+            onClick={() => setShowInquiry(true)}
+            className="px-4 py-2.5 bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-[var(--brand-btn-text)] rounded-[var(--radius-btn,8px)] font-bold text-xs flex items-center gap-1.5 shadow-xs active:scale-95 transition-all cursor-pointer border-0 min-h-[44px]"
+          >
+            <Icon icon="solar:chat-round-dots-linear" className="w-4 h-4" />
+            <span>Request Quote</span>
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

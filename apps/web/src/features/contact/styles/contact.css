@@ -211,6 +211,18 @@
   background: var(--bg-surface-secondary);
 }
 
+@media (max-width: 768px) {
+  .customInput,
+  .customSelect,
+  .customTextarea,
+  .phonePrefixSelect {
+    font-size: 1rem !important;
+    min-height: 44px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
 /* Submit Action Area */
 .actionArea {
   display: flex;

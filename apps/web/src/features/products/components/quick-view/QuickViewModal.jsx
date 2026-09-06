@@ -11,6 +11,7 @@ import styles from "../../products.module.css";
 export default function QuickViewModal({
   product,
   onClose,
+  onRequestQuote,
   img,
   staticLoad,
   dimStr,
@@ -132,12 +133,24 @@ export default function QuickViewModal({
 
             {/* Actions Row */}
             <div className={styles.modalActionsRow}>
-              <QuoteButton
-                to={`/contact?product=${product.id}`}
-                onClick={onClose}
-                text="Request B2B Quote"
-                style={{ flex: 1, padding: "0.75rem 1rem", fontSize: "0.875rem", justifyContent: "center" }}
-              />
+              {onRequestQuote ? (
+                <button
+                  type="button"
+                  onClick={() => onRequestQuote(product)}
+                  className="btn btn-primary"
+                  style={{ flex: 1, padding: "0.75rem 1rem", fontSize: "0.875rem", justifyContent: "center", minHeight: "44px" }}
+                >
+                  <Icon icon="solar:chat-round-dots-linear" className="w-4 h-4" />
+                  <span>Request B2B Quote</span>
+                </button>
+              ) : (
+                <QuoteButton
+                  to={`/contact?product=${product.id}`}
+                  onClick={onClose}
+                  text="Request B2B Quote"
+                  style={{ flex: 1, padding: "0.75rem 1rem", fontSize: "0.875rem", justifyContent: "center" }}
+                />
+              )}
               <Link
                 to={`/products/${product.id}`}
                 onClick={onClose}

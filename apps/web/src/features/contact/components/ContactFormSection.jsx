@@ -11,12 +11,22 @@ export default function ContactFormSection() {
   const {
     form,
     status,
+    referenceId,
     handleChange: f,
     handleSubmit,
     resetStatus,
   } = useContactForm();
 
+  const [copiedRef, setCopiedRef] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
+
+  const handleCopyRef = () => {
+    if (referenceId) {
+      navigator.clipboard.writeText(referenceId);
+      setCopiedRef(true);
+      setTimeout(() => setCopiedRef(false), 2000);
+    }
+  };
 
   // Fallbacks matching the website copy specs
   const contactPerson = c("contact_person", "Mr. Harsh Maru");
@@ -36,22 +46,44 @@ export default function ContactFormSection() {
           {/* Left Column: Interactive Enquiry Form */}
           <div className={`${styles.enquiryCard} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-[var(--shadow-lg)] text-[var(--text-primary)]`} id="enquiry-card">
             <div className={styles.formHeader}>
-              <div className={styles.formEyebrowContainer}>
-                <span className={`${styles.formEyebrow} text-[var(--brand-text)]`}>We're Here to Help</span>
-                <div className={`${styles.formEyebrowLine} bg-[var(--brand-primary)]`} />
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-xs uppercase font-bold tracking-wider text-[var(--brand-primary)] px-2.5 py-0.5 rounded-[var(--radius-sm,4px)] bg-[var(--brand-soft)]">
+                  Direct Factory Desk
+                </span>
               </div>
               <h2 className={`${styles.formTitle} text-[var(--text-primary)]`}>
-                Quick <span className="text-[var(--brand-text)]">Enquiry</span>
+                Procurement & Inquiry Form
               </h2>
               <p className={styles.formSubText}>
-                Have a question or need a quote? Send us your details and we'll get back to you shortly.
+                Specify your volume, dimensions, or application requirements. Our sales team responds within 2 business hours.
               </p>
             </div>
 
             {status === "sent" ? (
               <div className={styles.successBox}>
-                <Icon icon="solar:check-circle-linear" className="w-16 h-16 text-[var(--color-success)]" />
-                <p className="text-[var(--text-primary)] font-bold text-xl">Inquiry Sent Successfully!</p>
+                <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center mx-auto mb-2 text-emerald-500">
+                  <Icon icon="solar:check-circle-bold" className="w-10 h-10" />
+                </div>
+                <p className="text-[var(--text-primary)] font-bold text-xl">Inquiry Sent Successfully</p>
+                
+                {referenceId && (
+                  <div className="my-2 inline-flex items-center gap-2 px-3 py-1.5 rounded-[var(--radius-btn,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
+                    <span className="text-xs text-[var(--text-muted)] font-mono font-medium">Reference:</span>
+                    <span className="text-xs font-mono font-bold text-[var(--text-primary)] tracking-wider">
+                      {referenceId}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleCopyRef}
+                      className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer ml-1"
+                      title="Copy Reference Code"
+                      aria-label="Copy reference code"
+                    >
+                      <Icon icon={copiedRef ? "solar:check-read-linear" : "solar:copy-linear"} className="w-4 h-4 text-[var(--brand-primary)]" />
+                    </button>
+                  </div>
+                )}
+
                 <p className="text-[var(--text-secondary)]">
                   Thank you for contacting us. Our sales team will get back to you within{" "}
                   <strong className="text-[var(--text-primary)]">2 business hours</strong> with pricing and spec sheets.
@@ -61,7 +93,7 @@ export default function ContactFormSection() {
                   className={styles.successBtn}
                   onClick={resetStatus}
                 >
-                  Send Another Enquiry
+                  Send Another Inquiry
                 </button>
               </div>
             ) : (
@@ -287,7 +319,7 @@ export default function ContactFormSection() {
               <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-person">
                 <IconBox icon="solar:user-linear" variant="brand" size="md" />
                 <div className={styles.infoCardContent}>
-                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Contact Person</span>
+                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Sales & Technical Contact</span>
                   <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-bold`}>{contactPerson}</p>
                 </div>
               </Card>
@@ -296,8 +328,8 @@ export default function ContactFormSection() {
               <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-address">
                 <IconBox icon="solar:map-point-linear" variant="brand" size="md" />
                 <div className={styles.infoCardContent}>
-                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Address</span>
-                  <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-semibold leading-snug`}>{address}</p>
+                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Manufacturing Plant & Works</span>
+                  <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-semibold leading-snug tabular-nums`}>{address}</p>
                 </div>
               </Card>
 
@@ -305,9 +337,9 @@ export default function ContactFormSection() {
               <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-mobile">
                 <IconBox icon="solar:phone-calling-linear" variant="brand" size="md" />
                 <div className={styles.infoCardContent}>
-                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Mobile</span>
+                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Direct Sales Line</span>
                   {showMobile ? (
-                    <p className={`${styles.infoCardValue} text-[var(--text-primary)]`}>
+                    <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-mono tabular-nums`}>
                       <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="hover:underline text-[var(--text-brand)] font-bold">
                         {phoneVal}
                       </a>
@@ -328,7 +360,7 @@ export default function ContactFormSection() {
               <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-email">
                 <IconBox icon="solar:letter-linear" variant="brand" size="md" />
                 <div className={styles.infoCardContent}>
-                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Email</span>
+                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Official Procurement Email</span>
                   <p className={`${styles.infoCardValue} text-[var(--text-primary)]`}>
                     <a href={`mailto:${emailVal}`} className="hover:underline text-[var(--text-brand)] font-bold">
                       {emailVal}

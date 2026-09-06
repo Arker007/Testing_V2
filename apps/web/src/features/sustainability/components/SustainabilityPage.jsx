@@ -26,8 +26,7 @@ export default function SustainabilityPage() {
         ]}
         tag={c("sus_hero_tag", "Environmental Impact & Circular Economy")}
         tagIcon="solar:leaf-linear"
-        title="Diverting Plastic Waste into"
-        titleAccent="Enduring Infrastructure"
+        title="Diverting Plastic Waste into Enduring Infrastructure"
         description={c(
           "sus_hero_sub",
           "By diverting post-industrial polymer waste from oceans and landfills, we manufacture structural materials that last generations without requiring a single tree to be cut down."

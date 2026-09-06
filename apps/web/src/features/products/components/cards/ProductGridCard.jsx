@@ -62,58 +62,66 @@ export default function ProductGridCard({
 
       {/* Lower Gray Card Section with SKU, Specifications Table & Actions */}
       <div className={styles.gridCardDetails}>
-        {/* Product SKU/Model Title */}
-        <h3 className={styles.gridCardSkuTitle}>
-          <Link to={`/products/${product.id}`} title={title}>
+        {/* Product SKU and Model Title */}
+        <div className="mb-2.5">
+          <span className="text-[11px] font-mono font-bold tracking-wider text-[var(--text-muted)] uppercase block mb-0.5 tabular-nums">
             {sku}
-          </Link>
-        </h3>
+          </span>
+          <h3 className={styles.gridCardSkuTitle} style={{ margin: 0 }}>
+            <Link to={`/products/${product.id}`} title={title} className="line-clamp-1">
+              {title}
+            </Link>
+          </h3>
+        </div>
 
         {/* Vertical Key-Value Specifications List */}
         <div className={styles.specList}>
           <div className={styles.specRowItem}>
             <span className={styles.specRowLabel}>Dimensions</span>
-            <span className={styles.specRowVal}>{dimStr}</span>
+            <span className={`${styles.specRowVal} font-mono tabular-nums`}>{dimStr}</span>
           </div>
           <div className={styles.specRowItem}>
             <span className={styles.specRowLabel}>Weight</span>
-            <span className={styles.specRowVal}>{weightStr}</span>
+            <span className={`${styles.specRowVal} font-mono tabular-nums`}>{weightStr}</span>
           </div>
           <div className={styles.specRowItem}>
             <span className={styles.specRowLabel}>Static Load</span>
-            <span className={styles.specRowVal}>{staticLoadDisplay}</span>
+            <span className={`${styles.specRowVal} font-mono tabular-nums`}>{staticLoadDisplay}</span>
           </div>
           <div className={styles.specRowItem}>
             <span className={styles.specRowLabel}>Dynamic Load</span>
-            <span className={styles.specRowVal}>{dynamicLoadDisplay}</span>
+            <span className={`${styles.specRowVal} font-mono tabular-nums`}>{dynamicLoadDisplay}</span>
           </div>
           <div className={styles.specRowItem}>
             <span className={styles.specRowLabel}>Rack Load</span>
-            <span className={styles.specRowVal}>{rackLoadDisplay}</span>
+            <span className={`${styles.specRowVal} font-mono tabular-nums`}>{rackLoadDisplay}</span>
           </div>
         </div>
 
-        {/* Primary CTA Button: "View product" */}
-        <div className={styles.gridCardBtnWrap}>
-          <Link to={`/products/${product.id}`} className={styles.viewProductBtn}>
-            View product
-          </Link>
-        </div>
+        {/* Anchored Actions Container for Regularized Baseline */}
+        <div className="mt-auto pt-2">
+          {/* Primary CTA Button: "View product" */}
+          <div className={styles.gridCardBtnWrap}>
+            <Link to={`/products/${product.id}`} className={styles.viewProductBtn}>
+              View product
+            </Link>
+          </div>
 
-        {/* Secondary Action: "Technical Data Sheet" */}
-        <div className={styles.datasheetLinkWrap}>
-          <button
-            type="button"
-            onClick={() => onQuickView(product)}
-            className={styles.datasheetLink}
-            title={`View Technical Data Sheet for ${title}`}
-            aria-label={`View Technical Data Sheet for ${title}`}
-          >
-            <span>Technical Data Sheet</span>
-            <span className={styles.datasheetIconBox}>
-              <Icon icon="solar:arrow-down-linear" className="w-3 h-3" />
-            </span>
-          </button>
+          {/* Secondary Action: "Technical Data Sheet" */}
+          <div className={styles.datasheetLinkWrap}>
+            <button
+              type="button"
+              onClick={() => onQuickView(product)}
+              className={styles.datasheetLink}
+              title={`View Technical Data Sheet for ${title}`}
+              aria-label={`View Technical Data Sheet for ${title}`}
+            >
+              <span>Technical Data Sheet</span>
+              <span className={styles.datasheetIconBox}>
+                <Icon icon="solar:arrow-down-linear" className="w-3 h-3" />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </motion.article>

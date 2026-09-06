@@ -1,238 +1,435 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { createPortal } from "react-dom";
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useInquiry } from "../../hooks/useInquiry";
+import { getSkuCode } from "@/features/products/utils/product.utils";
 import styles from "./InquiryModal.module.css";
 
-export default function InquiryModal({ product, onClose }) {
-  const { submitInquiry, submitting, success, error, resetState } = useInquiry();
+const PRESET_VOLUMES = ["50 units", "100 units", "500 units", "1,000+ units", "Custom Batch"];
 
-  const handleClose = () => {
-    resetState();
-    onClose();
-  };
+export default function InquiryModal({ product, onClose }) {
+  const { submitInquiry, submitting, success, error, referenceId, resetState } = useInquiry();
+  const [copiedRef, setCopiedRef] = useState(false);
+  const modalRef = useRef(null);
+  const firstInputRef = useRef(null);
+
+  const sku = product ? getSkuCode(product) : "";
+  const rawProductName = product?.name || product?.title || "";
+  const productName = rawProductName ? rawProductName.replace(/^Custom Specification for\s*"?/i, "").replace(/"?$/i, "") : "";
+  const productCategory = product?.category_name || product?.category || "Industrial Recycled Plastic";
+
+  const defaultMessage = product
+    ? `Requesting technical datasheet, load rating verification, and tiered volume pricing for ${productName || "custom specification"}${sku ? ` (REF: ${sku})` : ""}.`
+    : "";
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     company: "",
-    quantity: "",
-    message: "",
+    quantity: "100 units",
+    message: defaultMessage,
   });
+
+  const [contactError, setContactError] = useState("");
+
+  const handleClose = useCallback(() => {
+    resetState();
+    onClose();
+  }, [resetState, onClose]);
+
+  // Lock body scroll and handle Escape key
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        handleClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    
+    const timer = setTimeout(() => {
+      firstInputRef.current?.focus();
+    }, 150);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+      clearTimeout(timer);
+    };
+  }, [handleClose]);
+
+  useEffect(() => {
+    if (product) {
+      setFormData((prev) => ({
+        ...prev,
+        message: prev.message || defaultMessage,
+      }));
+    }
+  }, [product, defaultMessage]);
+
+  const handleCopyRef = () => {
+    if (referenceId) {
+      navigator.clipboard.writeText(referenceId);
+      setCopiedRef(true);
+      setTimeout(() => setCopiedRef(false), 2000);
+    }
+  };
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    if (contactError && (e.target.name === "email" || e.target.name === "phone")) {
+      setContactError("");
+    }
+  };
+
+  const handleSelectPreset = (vol) => {
+    setFormData((prev) => ({ ...prev, quantity: vol }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.name.trim()) {
+      setContactError("Please provide your name so our sales team knows whom to address.");
+      return;
+    }
+    if (!formData.phone.trim() && !formData.email.trim()) {
+      setContactError("Please provide either a Phone/WhatsApp number or Work Email so we can deliver your quotation.");
+      return;
+    }
+
     try {
       await submitInquiry({
         ...formData,
         product_id: product?.id,
-        product_name: product?.name,
+        product_name: productName || "Custom Specification",
+        product_sku: sku || "CUSTOM-RFP",
+        product_category: productCategory,
       });
     } catch {
       // Error handled by hook
     }
   };
 
-  return (
+  const whatsAppText = encodeURIComponent(
+    `Hello Vishal Enterprise, I would like to request an official quote for:\nProduct: ${productName || "Industrial Recycled Plastic"}\nRef/SKU: ${sku || "CUSTOM-RFP"}\nQuantity: ${formData.quantity || "100 units"}`
+  );
+
+  const modalContent = (
     <motion.div
       className={styles.modalOverlay}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.18 }}
       onClick={(e) => e.target === e.currentTarget && handleClose()}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="inquiry-modal-title"
     >
       <motion.div
+        ref={modalRef}
         className={styles.modalCard}
-        initial={{ opacity: 0, scale: 0.94, y: 16 }}
+        initial={{ opacity: 0, scale: 0.96, y: 14 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.94, y: 16 }}
-        transition={{ type: "spring", damping: 28, stiffness: 360 }}
+        exit={{ opacity: 0, scale: 0.96, y: 14 }}
+        transition={{ type: "spring", damping: 30, stiffness: 380 }}
       >
-        <button
-          type="button"
-          onClick={handleClose}
-          className={styles.modalCloseBtn}
-          aria-label="Close"
-        >
-          <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
-        </button>
-
+        {/* Fixed Header */}
         <div className={styles.modalHeader}>
-          <span className={styles.catTag}>
-            Inquire for Quote
-          </span>
-          <h2 className={styles.gridCardTitle}>
-            {product?.name ? `Quote Request: ${product.name}` : "Product Inquiry"}
-          </h2>
+          <div className={styles.headerInfo}>
+            <div className={styles.tagRow}>
+              <span className={styles.rfqBadge}>
+                <Icon icon="solar:shield-check-bold" className="w-3.5 h-3.5" />
+                Direct Factory RFQ
+              </span>
+              {sku && (
+                <span className={styles.skuBadge}>
+                  REF: {sku}
+                </span>
+              )}
+            </div>
+            <h2 id="inquiry-modal-title" className={styles.modalTitle}>
+              {productName ? `Quote Request: ${productName}` : "Direct Factory Quotation"}
+            </h2>
+            <p className={styles.modalSubtitle}>
+              Official pricing, technical drawings & dispatch schedule from Ankleshwar Plant
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleClose}
+            className={styles.modalCloseBtn}
+            aria-label="Close dialog"
+            title="Close (Esc)"
+          >
+            <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
+          </button>
         </div>
 
-        {success ? (
-          <div className={styles.successState}>
-            <Icon icon="solar:check-circle-linear" className={`${styles.successIcon} w-12 h-12 text-emerald-500`} />
-            <p className={styles.successTitle}>Inquiry Submitted!</p>
-            <p className={styles.successSub}>
-              Our sales team will contact you with pricing and product specifications within 2 hours.
-            </p>
-
-            <button
-              type="button"
-              onClick={onClose}
-              className="btn btn-primary"
-              style={{ width: "100%", justifyContent: "center" }}
-            >
-              Done
-            </button>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className={styles.modalForm}>
-            <div className={styles.formGroup}>
-              <label htmlFor="name" className={styles.formLabel}>
-                Full Name *
-              </label>
-              <input
-                id="name"
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Rahul Patel"
-                className={styles.formInput}
-              />
-            </div>
-
-            <div className={styles.formRow}>
-              <div className={styles.formGroup}>
-                <label htmlFor="email" className={styles.formLabel}>
-                  Email Address *
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="name@company.com"
-                  className={styles.formInput}
-                />
+        {/* Modal Body */}
+        <div className={styles.modalBody}>
+          {/* Product Snapshot Banner */}
+          {product && (
+            <div className={styles.productSnapshot}>
+              <div className={styles.snapshotContent}>
+                <span className={styles.snapshotCategory}>
+                  {productCategory}
+                </span>
+                <span className={styles.snapshotName} title={productName}>
+                  {productName || "Custom Industrial Fabrication"}
+                </span>
               </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="phone" className={styles.formLabel}>
-                  Phone / Mobile *
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  required
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="+91 98765 43210"
-                  className={styles.formInput}
-                />
+              <div className={styles.snapshotResponse}>
+                <Icon icon="solar:clock-circle-linear" className="w-3.5 h-3.5" />
+                <span>Response ~2h</span>
               </div>
             </div>
+          )}
 
-            <div className={styles.formRow}>
-              <div className={styles.formGroup}>
-                <label htmlFor="company" className={styles.formLabel}>
-                  Company Name
-                </label>
-                <input
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder="Company Inc."
-                  className={styles.formInput}
-                />
+          {success ? (
+            <div className={styles.successState}>
+              <div className={styles.successIconCircle}>
+                <Icon icon="solar:check-circle-bold" className="w-10 h-10" />
               </div>
-
-              <div className={styles.formGroup}>
-                <div className="flex items-center justify-between mb-1">
-                  <label htmlFor="quantity" className={styles.formLabel} style={{ marginBottom: 0 }}>
-                    Estimated Quantity
-                  </label>
-                  {formData.quantity && (
-                    <span className="text-[11px] text-[var(--brand-text)] font-medium">
-                      {formData.quantity}
-                    </span>
-                  )}
+              
+              <h3 className={styles.successTitle}>Inquiry Submitted Successfully</h3>
+              
+              {referenceId && (
+                <div className={styles.referenceBadge}>
+                  <span className="text-xs text-[var(--text-muted)] font-medium">Ref No:</span>
+                  <span className="text-xs font-bold text-[var(--text-primary)] tracking-wider">
+                    {referenceId}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleCopyRef}
+                    className={styles.copyRefBtn}
+                    title="Copy Reference Code"
+                    aria-label="Copy reference code"
+                  >
+                    <Icon
+                      icon={copiedRef ? "solar:check-read-linear" : "solar:copy-linear"}
+                      className="w-4 h-4"
+                    />
+                  </button>
                 </div>
-                <input
-                  id="quantity"
-                  name="quantity"
-                  value={formData.quantity}
-                  onChange={handleChange}
-                  placeholder="e.g. 100 units"
-                  className={styles.formInput}
-                />
-                <div className="flex items-center gap-1.5 mt-2 flex-wrap">
-                  {["50 units", "100 units", "500 units", "1,000+ units"].map((q) => (
+              )}
+
+              <p className={styles.successDescription}>
+                Our engineering sales desk in Ankleshwar has received your quote request for{" "}
+                <strong>{productName || "custom items"}</strong>. An engineer will follow up within{" "}
+                <strong>2 business hours</strong> with technical datasheets, CAD drawings, and volume tiered pricing.
+              </p>
+
+              <div className={styles.successActionRow}>
+                <button
+                  type="button"
+                  onClick={resetState}
+                  className="btn btn-secondary flex-1 min-h-[44px] justify-center"
+                >
+                  <Icon icon="solar:restart-linear" className="w-4 h-4" />
+                  <span>New Inquiry</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={handleClose}
+                  className="btn btn-primary flex-1 min-h-[44px] justify-center"
+                >
+                  <span>Done</span>
+                </button>
+              </div>
+            </div>
+          ) : (
+            <form id="inquiry-modal-form" onSubmit={handleSubmit} className={styles.modalForm}>
+              {/* Full Name */}
+              <div className={styles.formGroup}>
+                <label htmlFor="inquiry-name" className={styles.formLabel}>
+                  <span>Full Name<span className={styles.requiredMarker}>*</span></span>
+                </label>
+                <div className={styles.inputWrapper}>
+                  <Icon icon="solar:user-linear" className={styles.inputIcon} />
+                  <input
+                    ref={firstInputRef}
+                    id="inquiry-name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="e.g. Rahul Patel"
+                    className={styles.formInput}
+                  />
+                </div>
+              </div>
+
+              {/* Phone & Work Email Grid */}
+              <div className={styles.formGrid}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="inquiry-phone" className={styles.formLabel}>
+                    <span>Phone / WhatsApp<span className={styles.requiredMarker}>*</span></span>
+                  </label>
+                  <div className={styles.inputWrapper}>
+                    <Icon icon="solar:phone-calling-linear" className={styles.inputIcon} />
+                    <input
+                      id="inquiry-phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+91 98765 43210"
+                      className={styles.formInput}
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.formGroup}>
+                  <label htmlFor="inquiry-email" className={styles.formLabel}>
+                    <span>Work Email</span>
+                  </label>
+                  <div className={styles.inputWrapper}>
+                    <Icon icon="solar:letter-linear" className={styles.inputIcon} />
+                    <input
+                      id="inquiry-email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="name@company.com"
+                      className={styles.formInput}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Company & Order Volume Grid */}
+              <div className={styles.formGrid}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="inquiry-company" className={styles.formLabel}>
+                    <span>Company Name <span className="text-[11px] font-normal text-[var(--text-muted)]">(Optional)</span></span>
+                  </label>
+                  <div className={styles.inputWrapper}>
+                    <Icon icon="solar:buildings-2-linear" className={styles.inputIcon} />
+                    <input
+                      id="inquiry-company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      placeholder="e.g. Apex Logistics Ltd."
+                      className={styles.formInput}
+                    />
+                  </div>
+                </div>
+
+                <div className={styles.formGroup}>
+                  <label htmlFor="inquiry-quantity" className={styles.formLabel}>
+                    <span>Order Volume</span>
+                  </label>
+                  <div className={styles.inputWrapper}>
+                    <Icon icon="solar:box-linear" className={styles.inputIcon} />
+                    <input
+                      id="inquiry-quantity"
+                      name="quantity"
+                      value={formData.quantity}
+                      onChange={handleChange}
+                      placeholder="e.g. 100 units"
+                      className={styles.formInput}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Volume Preset Chips */}
+              <div className="flex flex-col gap-1.5 -mt-1">
+                <span className="text-[11px] text-[var(--text-muted)] font-medium">
+                  Standard batch sizes:
+                </span>
+                <div className={styles.volumePillRow}>
+                  {PRESET_VOLUMES.map((vol) => (
                     <button
-                      key={q}
+                      key={vol}
                       type="button"
-                      onClick={() => setFormData((prev) => ({ ...prev, quantity: q }))}
-                      className={`text-[11px] px-2.5 py-1 rounded-[var(--radius-btn,6px)] border transition-all cursor-pointer ${
-                        formData.quantity === q
-                          ? "bg-[var(--brand-soft)] text-[var(--text-brand)] border-[var(--brand-primary)] font-bold shadow-xs"
-                          : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--brand-primary)]"
+                      onClick={() => handleSelectPreset(vol)}
+                      className={`${styles.volumePill} ${
+                        formData.quantity === vol ? styles.volumePillActive : ""
                       }`}
                     >
-                      {q}
+                      {vol}
                     </button>
                   ))}
                 </div>
               </div>
-            </div>
 
-            <div className={styles.formGroup}>
-              <label htmlFor="message" className={styles.formLabel}>
-                Requirement Details *
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows={3}
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Mention required dimensions, color preference, or delivery timeline..."
-                className={styles.formTextarea}
-              />
-            </div>
-
-            {error && (
-              <div className={styles.errorBanner}>
-                <Icon icon="solar:danger-triangle-linear" className="w-4 h-4" />
-                <span>{error}</span>
+              {/* Specifications / Notes Textarea */}
+              <div className={styles.formGroup}>
+                <label htmlFor="inquiry-message" className={styles.formLabel}>
+                  <span>Specifications & Requirements</span>
+                </label>
+                <textarea
+                  id="inquiry-message"
+                  name="message"
+                  rows={2}
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Mention required dimensions, static/dynamic load ratings, delivery PIN code, or custom color specifications..."
+                  className={styles.formTextarea}
+                />
               </div>
-            )}
+
+              {/* Validation & Server Error Messages */}
+              {(contactError || error) && (
+                <div className={styles.errorBanner} role="alert">
+                  <Icon icon="solar:danger-triangle-linear" className="w-4 h-4 shrink-0" />
+                  <span>{contactError || error}</span>
+                </div>
+              )}
+            </form>
+          )}
+        </div>
+
+        {/* Fixed Footer Actions (when form is active) */}
+        {!success && (
+          <div className={styles.modalFooter}>
+            <a
+              href={`https://wa.me/919898686379?text=${whatsAppText}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.whatsAppBtn}
+              title="Chat with factory sales on WhatsApp"
+            >
+              <Icon icon="solar:chat-round-dots-bold" className="w-4 h-4 text-[#25D366]" />
+              <span>WhatsApp Quick RFQ</span>
+            </a>
 
             <button
               type="submit"
+              form="inquiry-modal-form"
               disabled={submitting}
-              className={`btn btn-primary ${styles.submitBtn}`}
+              className={styles.submitBtn}
             >
               {submitting ? (
                 <>
                   <Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin" />
-                  <span>Submitting Inquiry...</span>
+                  <span>Dispatching RFQ...</span>
                 </>
               ) : (
-                <span>Submit Quote Request</span>
+                <>
+                  <span>Submit Quote Request</span>
+                  <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
+                </>
               )}
             </button>
-          </form>
+          </div>
         )}
       </motion.div>
     </motion.div>
   );
+
+  return typeof document !== "undefined"
+    ? createPortal(modalContent, document.body)
+    : modalContent;
 }

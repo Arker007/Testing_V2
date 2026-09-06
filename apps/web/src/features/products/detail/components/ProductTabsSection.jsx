@@ -93,7 +93,7 @@ export default function ProductTabsSection({
                         <span className="col-span-5 sm:col-span-4 text-xs sm:text-sm font-semibold text-[var(--text-secondary)]">
                           {fld.label || formatParamKey(fld.name)}
                         </span>
-                        <span className="col-span-7 sm:col-span-8 text-xs sm:text-sm font-bold text-[var(--text-primary)] font-mono">
+                        <span className="col-span-7 sm:col-span-8 text-xs sm:text-sm font-bold text-[var(--text-primary)] font-mono tabular-nums">
                           {val}
                         </span>
                       </div>
@@ -110,7 +110,7 @@ export default function ProductTabsSection({
                       <span className="col-span-5 sm:col-span-4 text-xs sm:text-sm font-semibold text-[var(--text-secondary)]">
                         {formatParamKey(k)}
                       </span>
-                      <span className="col-span-7 sm:col-span-8 text-xs sm:text-sm font-bold text-[var(--text-primary)] font-mono">
+                      <span className="col-span-7 sm:col-span-8 text-xs sm:text-sm font-bold text-[var(--text-primary)] font-mono tabular-nums">
                         {v}
                       </span>
                     </div>
@@ -162,9 +162,9 @@ export default function ProductTabsSection({
                 Polymer Formulation & Environmental Immunity
               </h3>
               
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="p-4 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-xs font-bold text-[var(--text-primary)]">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="flex flex-col gap-1.5 border-l-2 border-[var(--brand-primary)] pl-3.5">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--text-primary)]">
                     <Icon icon="solar:shield-check-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
                     <span>Chemical & Rot Immunity</span>
                   </div>
@@ -173,8 +173,8 @@ export default function ProductTabsSection({
                   </p>
                 </div>
 
-                <div className="p-4 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-xs font-bold text-[var(--text-primary)]">
+                <div className="flex flex-col gap-1.5 border-l-2 border-[var(--brand-primary)] pl-3.5">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--text-primary)]">
                     <Icon icon="solar:sun-2-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
                     <span>UV Stabilization</span>
                   </div>
@@ -183,8 +183,8 @@ export default function ProductTabsSection({
                   </p>
                 </div>
 
-                <div className="p-4 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-xs font-bold text-[var(--text-primary)]">
+                <div className="flex flex-col gap-1.5 border-l-2 border-[var(--brand-primary)] pl-3.5">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--text-primary)]">
                     <Icon icon="solar:leaf-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
                     <span>Circular Economy</span>
                   </div>
@@ -205,11 +205,11 @@ export default function ProductTabsSection({
                   {features.map((feat, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start gap-3 p-3.5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-xs sm:text-sm text-[var(--text-secondary)] list-none"
+                      className="flex items-start gap-3 py-2 px-3 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)]/60 text-xs sm:text-sm text-[var(--text-secondary)] list-none"
                     >
                       <Icon
                         icon="solar:check-circle-linear"
-                        className="w-4.5 h-4.5 text-[var(--brand-primary)] shrink-0 mt-0.5"
+                        className="w-4 h-4 text-[var(--brand-primary)] shrink-0 mt-0.5"
                       />
                       <span className="font-medium">{feat}</span>
                     </li>
@@ -223,12 +223,10 @@ export default function ProductTabsSection({
         {/* TAB 3: LOGISTICS & FREIGHT HANDLING */}
         {tab === "shipping" && (
           <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              <div className="p-5 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] flex flex-col gap-2.5">
-                <div className="flex items-center gap-2.5 text-[var(--text-primary)] font-bold text-sm">
-                  <div className="p-1.5 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)]">
-                    <Icon icon="solar:delivery-linear" className="w-4 h-4" />
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="flex flex-col gap-2 border-l-2 border-[var(--brand-primary)] pl-3.5">
+                <div className="flex items-center gap-2 text-[var(--text-primary)] font-bold text-sm">
+                  <Icon icon="solar:delivery-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
                   <h4>Dispatch & Truckload</h4>
                 </div>
                 <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
@@ -236,11 +234,9 @@ export default function ProductTabsSection({
                 </p>
               </div>
 
-              <div className="p-5 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] flex flex-col gap-2.5">
-                <div className="flex items-center gap-2.5 text-[var(--text-primary)] font-bold text-sm">
-                  <div className="p-1.5 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)]">
-                    <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4" />
-                  </div>
+              <div className="flex flex-col gap-2 border-l-2 border-[var(--brand-primary)] pl-3.5">
+                <div className="flex items-center gap-2 text-[var(--text-primary)] font-bold text-sm">
+                  <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
                   <h4>Container Stuffing (Export)</h4>
                 </div>
                 <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
@@ -248,11 +244,9 @@ export default function ProductTabsSection({
                 </p>
               </div>
 
-              <div className="p-5 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] flex flex-col gap-2.5">
-                <div className="flex items-center gap-2.5 text-[var(--text-primary)] font-bold text-sm">
-                  <div className="p-1.5 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)]">
-                    <Icon icon="solar:shield-check-linear" className="w-4 h-4" />
-                  </div>
+              <div className="flex flex-col gap-2 border-l-2 border-[var(--brand-primary)] pl-3.5">
+                <div className="flex items-center gap-2 text-[var(--text-primary)] font-bold text-sm">
+                  <Icon icon="solar:shield-check-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
                   <h4>Zero Fumigation Protocol</h4>
                 </div>
                 <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
@@ -273,43 +267,40 @@ export default function ProductTabsSection({
           </div>
         )}
 
-        {/* TAB 4: PROCUREMENT FAQS */}
+        {/* TAB 4: PROCUREMENT FAQS (Flattened Accordion/List) */}
         {tab === "faq" && (
-          <div className="space-y-4">
+          <div className="divide-y divide-[var(--border-subtle)] border-t border-b border-[var(--border-subtle)]">
             {product.faqs && product.faqs.length > 0 ? (
               product.faqs.map((faq, i) => (
-                <div
-                  key={i}
-                  className="p-5 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)]"
-                >
+                <div key={i} className="py-4 space-y-1.5">
                   <h4 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] flex items-center gap-2">
                     <span className="text-[var(--brand-primary)] font-mono font-black">Q.</span> {faq.question}
                   </h4>
-                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-2 pl-4 border-l-2 border-[var(--brand-primary)] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] pl-5 leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>
               ))
             ) : (
-              <div className="space-y-3">
-                <div className="p-5 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] space-y-2">
-                  <h4 className="text-sm font-bold text-[var(--text-primary)]">
-                    Can Vishal Enterprise customize dimensions or weight profiles?
+              <>
+                <div className="py-4 space-y-1.5">
+                  <h4 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] flex items-center gap-2">
+                    <span className="text-[var(--brand-primary)] font-mono font-black">Q.</span> Can Vishal Enterprise customize dimensions or weight profiles?
                   </h4>
-                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
-                    Yes. In addition to standard standard sizes (1200x1000, 1200x800, 1100x1100), our Ankleshwar plant manufactures custom composite skids, reinforced runners, and non-standard lumber cross-sections.
+                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] pl-5 leading-relaxed">
+                    Yes. In addition to standard sizes (1200x1000, 1200x800, 1100x1100), our Ankleshwar plant manufactures custom composite skids, reinforced runners, and non-standard lumber cross-sections.
                   </p>
                 </div>
 
-                <div className="p-5 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] space-y-2">
-                  <h4 className="text-sm font-bold text-[var(--text-primary)]">
-                    How do recycled composite pallets compare to virgin plastic?
+                <div className="py-4 space-y-1.5">
+                  <h4 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] flex items-center gap-2">
+                    <span className="text-[var(--brand-primary)] font-mono font-black">Q.</span> How do recycled composite pallets compare to virgin plastic?
                   </h4>
-                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[var(--text-secondary)] pl-5 leading-relaxed">
                     Our recycled HDPE polymer blends are fortified with impact modifiers and structural cross-ribbing. They deliver comparable flexural modulus and load ratings at significantly lower unit costs while advancing corporate ESG sustainability goals.
                   </p>
                 </div>
-              </div>
+              </>
             )}
           </div>
         )}

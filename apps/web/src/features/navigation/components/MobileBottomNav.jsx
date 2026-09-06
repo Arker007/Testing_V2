@@ -56,7 +56,7 @@ export default function MobileBottomNav() {
         className={`${styles.navItem} ${styles.waItem}`}
         aria-label="Chat on WhatsApp"
       >
-        <Icon icon="logos:whatsapp-icon" className="w-5 h-5 mb-0.5" />
+        <Icon icon="solar:chat-round-dots-bold" className="w-5 h-5 mb-0.5 text-[#25D366]" />
         <span>WhatsApp</span>
       </a>
 

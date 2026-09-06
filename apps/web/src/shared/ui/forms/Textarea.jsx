@@ -32,9 +32,9 @@ const Textarea = forwardRef(function Textarea(
   ref
 ) {
   const sizeClasses = {
-    sm: "text-xs p-2.5",
-    md: "text-sm p-3",
-    lg: "text-base p-4",
+    sm: "text-base sm:text-xs p-2.5 min-h-[80px]",
+    md: "text-base sm:text-sm p-3 min-h-[100px]",
+    lg: "text-base p-4 min-h-[120px]",
   };
 
   const radiusClasses = {

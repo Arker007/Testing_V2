@@ -5,6 +5,7 @@ export default function MobileCategoryBar({
   categoryOptions,
   selectedCategory,
   setSelectedCategory,
+  setSelectedCategories,
   categoryCounts,
 }) {
   return (
@@ -17,7 +18,10 @@ export default function MobileCategoryBar({
             <button
               key={catName}
               type="button"
-              onClick={() => setSelectedCategory(catName)}
+              onClick={() => {
+                setSelectedCategory(catName);
+                if (setSelectedCategories) setSelectedCategories([]);
+              }}
               className={`${styles.mobileChip} ${isSelected ? styles.mobileChipActive : ""}`}
             >
               <span>{catName === "All" ? "All Products" : catName}</span>

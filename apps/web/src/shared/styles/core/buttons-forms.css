@@ -44,8 +44,9 @@ input[type="reset"]:focus-visible,
 /* ─── Active Tactile Feedback ─────────────────────────────── */
 .btn:active:not(:disabled),
 a.btn:active:not(:disabled),
-button.btn:active:not(:disabled) {
-  transform: translateY(1px) scale(0.99);
+button.btn:active:not(:disabled),
+.swipe-btn:active:not(:disabled) {
+  transform: translateY(1px) scale(0.98) !important;
 }
 
 /* ─── Disabled & Loading State ────────────────────────────── */
@@ -444,8 +445,9 @@ table th,
 
 @media (max-width: 768px) {
   .btn {
-    padding: 0.65rem 1.4rem;
+    padding: 0.75rem 1.4rem;
     font-size: 0.875rem;
+    min-height: 44px;
   }
 
   .form-group {
@@ -455,8 +457,9 @@ table th,
   .form-input,
   .form-select,
   .form-textarea {
-    font-size: 0.875rem;
-    padding: 0.625rem 0.875rem;
+    font-size: 1rem !important; /* 16px baseline prevents mobile Safari/Chrome viewport auto-zoom */
+    padding: 0.6875rem 0.875rem;
+    min-height: 44px;
   }
 
   .form-textarea {
