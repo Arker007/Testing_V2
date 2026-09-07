@@ -95,7 +95,7 @@ export default function AdminProducts() {
               <span>
                 {catFilter === "all" ? "All Categories" : (categories.find(c => String(c.id) === catFilter)?.name || "All Categories")}
               </span>
-              <Icon icon="solar:alt-arrow-down-linear" className={`${dropdownOpen ? styles.chevronOpen : ""} w-4 h-4`} />
+              <Icon icon="carbon:chevron-down" className={`${dropdownOpen ? styles.chevronOpen : ""} w-4 h-4`} />
             </button>
             {dropdownOpen && (
               <div className={styles.customSelectOptions} style={{ maxHeight: '240px', overflowY: 'auto' }}>
@@ -149,7 +149,7 @@ export default function AdminProducts() {
           [1, 2, 3, 4, 5].map((i) => <div key={i} className={styles.skeleRow} />)
         ) : filtered.length === 0 ? (
           <EmptyState
-            icon="solar:box-open-linear"
+            icon="carbon:box"
             title={search || catFilter !== "all" ? "No products match your search filters." : "No products found."}
             description={!search && catFilter === "all" ? "Start by adding your first product to the enterprise catalog." : "Try clearing your search query or selecting a different category."}
             action={
@@ -177,7 +177,7 @@ export default function AdminProducts() {
               >
                 <div className={styles.prodCell}>
                   <div className={styles.thumb}>
-                    {img ? <img src={img} alt="" /> : <Icon icon="solar:gallery-linear" className="w-4 h-4 text-slate-400" />}
+                    {img ? <img src={img} alt="" /> : <Icon icon="carbon:image" className="w-4 h-4 text-slate-400" />}
                   </div>
                   <div>
                     <div className={styles.prodName}>{p.name}</div>
@@ -192,11 +192,11 @@ export default function AdminProducts() {
                 <span>
                   {(p.published !== null && p.published !== undefined && Number(p.published) === 0) ? (
                     <span className={styles.badge} style={{ background: "var(--color-warning-bg)", color: "var(--color-warning)" }}>
-                      <Icon icon="solar:pen-linear" className="w-3 h-3 inline mr-1" /> Draft
+                      <Icon icon="carbon:edit" className="w-3 h-3 inline mr-1" /> Draft
                     </span>
                   ) : (
                     <span className={styles.badge}>
-                      <Icon icon="solar:check-circle-linear" className="w-3 h-3 inline mr-1" /> Live
+                      <Icon icon="carbon:checkmark-outline" className="w-3 h-3 inline mr-1" /> Live
                     </span>
                   )}
                 </span>
@@ -206,10 +206,10 @@ export default function AdminProducts() {
                 </span>
                 <div className={styles.rowActions}>
                   <Link to={`/admin/products/${p.id}`} className={styles.editBtn} title="Edit Product">
-                    <Icon icon="solar:pen-linear" className="w-4 h-4" />
+                    <Icon icon="carbon:edit" className="w-4 h-4" />
                   </Link>
                   <button className={styles.delBtn} onClick={() => setConfirmDelete(p.id)} title="Delete Product">
-                    {deleting === p.id ? <Spinner size="sm" /> : <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />}
+                    {deleting === p.id ? <Spinner size="sm" /> : <Icon icon="carbon:trash-can" className="w-4 h-4" />}
                   </button>
                 </div>
               </div>
@@ -233,7 +233,7 @@ export default function AdminProducts() {
         <div className={styles.drawerHeader}>
           <h2 className={styles.drawerTitle}>Product Preview</h2>
           <button className={styles.drawerCloseBtn} onClick={() => setActiveItem(null)}>
-            <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
+            <Icon icon="carbon:close" className="w-5 h-5" />
           </button>
         </div>
         {activeItem && (
@@ -269,7 +269,7 @@ export default function AdminProducts() {
             </div>
             <div style={{ marginTop: "auto", paddingTop: 16, borderTop: "1px solid var(--border)", display: "flex", gap: 12 }}>
               <Link to={`/admin/products/${activeItem.id}`} className={styles.actionBtnPrimary} style={{ flex: 1, justifyContent: "center", textDecoration: "none" }}>
-                <Icon icon="solar:pen-linear" className="w-4 h-4 mr-1 inline" /> Full Editor
+                <Icon icon="carbon:edit" className="w-4 h-4 mr-1 inline" /> Full Editor
               </Link>
               <button type="button" className={styles.actionBtnSecondary} style={{ flex: 1, justifyContent: "center" }} onClick={() => setActiveItem(null)}>
                 Dismiss

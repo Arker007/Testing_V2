@@ -82,7 +82,7 @@ export default function Avatar({
         ) : initials ? (
           <span>{initials}</span>
         ) : (
-          <Icon icon="solar:user-bold" className="w-1/2 h-1/2 opacity-70" />
+          <Icon icon="carbon:user-filled" className="w-1/2 h-1/2 opacity-70" />
         )}
       </div>
 

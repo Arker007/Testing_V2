@@ -35,7 +35,7 @@ export default class ErrorBoundary extends Component {
         <div className={styles.container}>
           <div className={styles.card}>
             <div className={styles.iconWrap}>
-              <Icon icon="solar:danger-triangle-linear" className="w-8 h-8 text-rose-500" />
+              <Icon icon="carbon:warning-alt" className="w-8 h-8 text-rose-500" />
             </div>
             <h1 className={styles.title}>Something Went Wrong</h1>
             <p className={styles.message}>
@@ -48,10 +48,10 @@ export default class ErrorBoundary extends Component {
             )}
             <div className={styles.actions}>
               <button className={styles.btnPrimary} onClick={() => window.location.reload()}>
-                <Icon icon="solar:restart-linear" className="w-4 h-4 mr-1.5 inline" /> Reload Page
+                <Icon icon="carbon:renew" className="w-4 h-4 mr-1.5 inline" /> Reload Page
               </button>
               <a href="/" className={styles.btnOutline}>
-                <Icon icon="solar:home-2-linear" className="w-4 h-4 mr-1.5 inline" /> Go Home
+                <Icon icon="carbon:home" className="w-4 h-4 mr-1.5 inline" /> Go Home
               </a>
             </div>
           </div>

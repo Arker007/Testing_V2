@@ -7,37 +7,37 @@ import styles from "../styles/navbar.module.css";
 
 const CATEGORY_META = {
   "plastic-pallets": {
-    icon: "solar:box-minimalistic-outline",
+    icon: "carbon:inventory-management",
     label: "Plastic Pallets",
     subtext: "ISPM-15 Export & Racking",
   },
   "plastic-lumber": {
-    icon: "solar:ruler-angular-outline",
+    icon: "carbon:document",
     label: "Plastic Lumber",
     subtext: "Structural Profiles & Posts",
   },
   "garden-bench": {
-    icon: "solar:chair-2-outline",
+    icon: "carbon:tree",
     label: "Garden Benches",
     subtext: "Park & Society Benches",
   },
   "plastic-table": {
-    icon: "solar:layers-outline",
+    icon: "carbon:layers",
     label: "Recycled Tables",
     subtext: "Picnic Sets & Dining",
   },
   "custom-products": {
-    icon: "solar:box-outline",
+    icon: "carbon:tool-box",
     label: "Custom & Fencing",
     subtext: "Molded Shapes & Ranch Rail",
   },
   "outdoor-furniture": {
-    icon: "solar:chair-outline",
+    icon: "carbon:sun",
     label: "Outdoor Furniture",
     subtext: "Eco Seating & Amenities",
   },
   "garden-fence": {
-    icon: "solar:shield-outline",
+    icon: "carbon:security",
     label: "Garden Fence",
     subtext: "Perimeter Systems",
   },
@@ -182,7 +182,7 @@ export default function MegaMenu({
         slug,
         name: CATEGORY_META[slug]?.label || slug,
         meta: CATEGORY_META[slug] || {
-          icon: "solar:box-minimalistic-outline",
+          icon: "carbon:inventory-management",
           label: slug.toUpperCase(),
         },
       }));
@@ -208,7 +208,7 @@ export default function MegaMenu({
         ...cat,
         slug,
         meta: CATEGORY_META[slug] || {
-          icon: "solar:box-minimalistic-outline",
+          icon: "carbon:inventory-management",
           label: cat.name || slug,
         },
       };
@@ -232,7 +232,7 @@ export default function MegaMenu({
       >
         <span>Products</span>
         <Icon
-          icon="solar:alt-arrow-down-linear"
+          icon="carbon:chevron-down"
           className={`w-3.5 h-3.5 ml-1 inline transition-transform duration-200 ${
             isOpen ? "rotate-180 text-[var(--brand)]" : ""
           }`}
@@ -261,7 +261,7 @@ export default function MegaMenu({
                   const icon =
                     cat.meta?.icon ||
                     CATEGORY_META[catSlug]?.icon ||
-                    "solar:box-minimalistic-outline";
+                    "carbon:inventory-management";
                   const label =
                     cat.meta?.label ||
                     CATEGORY_META[catSlug]?.label ||
@@ -337,7 +337,7 @@ export default function MegaMenu({
                       >
                         <span className="text-[var(--brand-primary)] group-hover:text-[var(--brand-hover)]">View All {cat.name || label}</span>
                         <Icon
-                          icon="solar:arrow-right-linear"
+                          icon="carbon:arrow-right"
                           className="w-3 h-3 transition-transform duration-150 group-hover:translate-x-0.5"
                         />
                       </Link>
@@ -356,7 +356,7 @@ export default function MegaMenu({
                     className="inline-flex items-center gap-2 group hover:text-[var(--text-primary)] transition-colors"
                   >
                     <div className="w-6 h-6 rounded-md bg-[var(--brand-soft)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
-                      <Icon icon="solar:shield-check-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
+                      <Icon icon="carbon:security" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                     </div>
                     <span className="font-semibold text-[12.5px] text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors">
                       ISPM-15 Export Certified
@@ -372,7 +372,7 @@ export default function MegaMenu({
                     className="inline-flex items-center gap-2 group hover:text-[var(--text-primary)] transition-colors"
                   >
                     <div className="w-6 h-6 rounded-md bg-[var(--brand-soft)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
-                      <Icon icon="solar:ruler-angular-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
+                      <Icon icon="carbon:tool-box" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                     </div>
                     <span className="font-semibold text-[12.5px] text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors">
                       Custom Moulds & Profiles
@@ -388,7 +388,7 @@ export default function MegaMenu({
                     className="hidden xl:inline-flex items-center gap-2 group hover:text-[var(--text-primary)] transition-colors"
                   >
                     <div className="w-6 h-6 rounded-md bg-[var(--brand-soft)] border border-[var(--border-subtle)] flex items-center justify-center shrink-0">
-                      <Icon icon="solar:leaf-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
+                      <Icon icon="carbon:recycle" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                     </div>
                     <span className="font-semibold text-[12.5px] text-[var(--text-primary)] group-hover:text-[var(--brand-primary)] transition-colors">
                       100% Recycled Polymers
@@ -404,7 +404,7 @@ export default function MegaMenu({
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-[var(--radius-card,8px)] bg-[var(--brand-primary)] text-slate-950 font-bold text-xs hover:bg-[var(--brand-hover)] transition-all shadow-2xs cursor-pointer"
                   >
                     <span>Request B2B Quote</span>
-                    <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5" />
+                    <Icon icon="carbon:arrow-right" className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>

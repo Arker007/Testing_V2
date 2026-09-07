@@ -6,7 +6,7 @@ import Button from "../buttons/Button";
  * Reusable EmptyState component for empty lists, search results, or missing data.
  *
  * @param {Object} props
- * @param {string | React.ReactNode} [props.icon='solar:inbox-line-linear'] - Icon name or element
+ * @param {string | React.ReactNode} [props.icon='carbon:email-new'] - Icon name or element
  * @param {string} props.title - Main header title
  * @param {string} [props.description] - Supporting descriptive text
  * @param {React.ReactNode} [props.action] - Optional action button or node
@@ -14,7 +14,7 @@ import Button from "../buttons/Button";
  * @param {string} [props.className=''] - Additional custom CSS classes
  */
 export default function EmptyState({
-  icon = "solar:inbox-line-linear",
+  icon = "carbon:email-new",
   title = "No items found",
   description,
   action,

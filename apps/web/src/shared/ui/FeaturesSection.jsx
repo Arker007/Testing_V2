@@ -13,7 +13,7 @@ export default function FeaturesSection() {
     {
       icon: (
         <Icon
-          icon="solar:verified-check-linear"
+          icon="carbon:certificate"
           className="w-7 h-7 text-[var(--brand)]"
         />
       ),
@@ -26,7 +26,7 @@ export default function FeaturesSection() {
     {
       icon: (
         <Icon
-          icon="solar:settings-minimalistic-linear"
+          icon="carbon:settings"
           className="w-7 h-7 text-[var(--brand)]"
         />
       ),
@@ -39,7 +39,7 @@ export default function FeaturesSection() {
     {
       icon: (
         <Icon
-          icon="solar:leaf-linear"
+          icon="carbon:recycle"
           className="w-7 h-7 text-[var(--brand)]"
         />
       ),
@@ -52,7 +52,7 @@ export default function FeaturesSection() {
     {
       icon: (
         <Icon
-          icon="solar:graph-up-linear"
+          icon="carbon:chart-line"
           className="w-7 h-7 text-[var(--brand)]"
         />
       ),

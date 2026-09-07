@@ -88,7 +88,7 @@ export default function Modal({
                 className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/10 transition-colors ml-4 cursor-pointer focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:outline-none"
                 aria-label="Close dialog"
               >
-                <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
+                <Icon icon="carbon:close" className="w-5 h-5" />
               </button>
             )}
           </div>
@@ -101,7 +101,7 @@ export default function Modal({
             className="absolute top-3 right-3 z-10 min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/10 transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:outline-none"
             aria-label="Close dialog"
           >
-            <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
+            <Icon icon="carbon:close" className="w-5 h-5" />
           </button>
         )}
 

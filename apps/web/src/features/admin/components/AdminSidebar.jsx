@@ -23,7 +23,7 @@ export default function AdminSidebar({
             </div>
           ) : (
             <div className={styles.logoIcon}>
-              <Icon icon="solar:bolt-linear" className="w-5 h-5 text-white" />
+              <Icon icon="carbon:flash" className="w-5 h-5 text-white" />
             </div>
           )}
           {sidebarOpen && (
@@ -38,7 +38,7 @@ export default function AdminSidebar({
 
         <nav className={styles.nav}>
           {NAV_ITEMS.map((n) => {
-            const iconName = typeof n.icon === "string" ? n.icon : "solar:box-minimalistic-linear";
+            const iconName = typeof n.icon === "string" ? n.icon : "carbon:cube";
             return (
               <NavLink
                 key={n.path}
@@ -69,7 +69,7 @@ export default function AdminSidebar({
           title="View Website"
           data-label="View Website"
         >
-          <Icon icon="solar:global-linear" className={`${styles.navIcon} w-4.5 h-4.5`} />
+          <Icon icon="carbon:globe" className={`${styles.navIcon} w-4.5 h-4.5`} />
           {sidebarOpen && <span>View Website</span>}
         </a>
         <button
@@ -78,7 +78,7 @@ export default function AdminSidebar({
           data-label="Logout"
           onClick={logout}
         >
-          <Icon icon="solar:logout-2-linear" className={`${styles.navIcon} w-4.5 h-4.5`} />
+          <Icon icon="carbon:logout" className={`${styles.navIcon} w-4.5 h-4.5`} />
           {sidebarOpen && <span>Logout</span>}
         </button>
       </div>

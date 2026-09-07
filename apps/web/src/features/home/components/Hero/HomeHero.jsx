@@ -12,15 +12,15 @@ import weatherResistantBg from "../../../../assets/images/backgrounds/weather_re
 
 // Slide-specific linear icons map from @iconify/react
 const iconMap = {
-  ShieldCheck: "solar:shield-check-linear",
-  Link2: "solar:verified-check-linear",
-  Droplets: "solar:waterdrops-linear",
-  Wrench: "solar:bolt-linear",
-  Leaf: "solar:leaf-linear",
-  Check: "solar:check-read-linear",
-  Eye: "solar:star-linear",
-  Plane: "solar:delivery-linear",
-  Waves: "solar:waterdrops-linear"
+  ShieldCheck: "carbon:security",
+  Link2: "carbon:certificate",
+  Droplets: "carbon:rain-drop",
+  Wrench: "carbon:flash",
+  Leaf: "carbon:recycle",
+  Check: "carbon:checkmark",
+  Eye: "carbon:star",
+  Plane: "carbon:delivery-truck",
+  Waves: "carbon:rain-drop"
 };
 
 const slides = [
@@ -44,7 +44,7 @@ const slides = [
     badge: "Manufacturer & Supplier",
     titleLime: "HEAVY-DUTY",
     titleWhite: "PLASTIC PALLETS",
-    desc: "High-capacity, injection-molded and extruded plastic pallets designed for seamless warehousing, industrial logistics, and hassle-free international sea freight shipping.",
+    desc: "High-capacity, injection-molded and extruded plastic pallets designed for efficient warehousing, industrial logistics, and reliable international sea freight shipping.",
     image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
     fallbackSrc: highLoadCapacity,
     features: [
@@ -147,7 +147,7 @@ export default function HomeHero() {
         style={{ top: centerY }}
         aria-label="Previous Slide"
       >
-        <Icon icon="solar:alt-arrow-left-linear" className="w-5 h-5 text-white" />
+        <Icon icon="carbon:chevron-left" className="w-5 h-5 text-white" />
       </Motion.button>
       <Motion.button
         onClick={handleNext}
@@ -155,7 +155,7 @@ export default function HomeHero() {
         style={{ top: centerY }}
         aria-label="Next Slide"
       >
-        <Icon icon="solar:alt-arrow-right-linear" className="w-5 h-5 text-white" />
+        <Icon icon="carbon:chevron-right" className="w-5 h-5 text-white" />
       </Motion.button>
 
       <div className="container relative z-10">
@@ -174,7 +174,7 @@ export default function HomeHero() {
                 {/* Manufacturer Badge */}
                 <div className={styles.badge}>
                   <div className={styles.badgeIconWrapper}>
-                    <Icon icon="solar:buildings-3-linear" className={styles.badgeIcon} />
+                    <Icon icon="carbon:industry" className={styles.badgeIcon} />
                   </div>
                   <span className={styles.badgeText}>{activeSlide.badge}</span>
                 </div>
@@ -217,7 +217,7 @@ export default function HomeHero() {
                 className={styles.featurePanel}
               >
                 {activeSlide.features.map((feat, idx) => {
-                  const iconName = iconMap[feat.icon] || "solar:shield-check-linear";
+                  const iconName = iconMap[feat.icon] || "carbon:security";
                   return (
                     <Motion.div
                       key={idx}
@@ -251,7 +251,7 @@ export default function HomeHero() {
               >
                 <Link to="/products" className="exploreBtnGlobal">
                   <span>EXPLORE PRODUCTS</span>
-                  <Icon icon="solar:arrow-right-linear" className="exploreBtnArrowGlobal" />
+                  <Icon icon="carbon:arrow-right" className="exploreBtnArrowGlobal" />
                 </Link>
               </Motion.div>
               <div className={styles.decorativeSlashes} aria-hidden="true">
@@ -419,7 +419,7 @@ export default function HomeHero() {
                   transition={{ type: "spring", stiffness: 350, damping: 20 }}
                 >
                   <div className={styles.assistanceIconCircle}>
-                    <Icon icon="solar:headphones-round-linear" className="w-5 h-5 text-white" />
+                    <Icon icon="carbon:headset" className="w-5 h-5 text-white" />
                   </div>
                   <div className={styles.assistanceTextGroup}>
                     <span className={styles.assistanceLabel}>NEED ASSISTANCE?</span>
@@ -433,7 +433,7 @@ export default function HomeHero() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Icon icon="solar:phone-calling-linear" className="w-3.5 h-3.5 text-inherit" />
+                    <Icon icon="carbon:phone" className="w-3.5 h-3.5 text-inherit" />
                     <span>CONTACT US</span>
                   </Motion.a>
                 </Motion.div>

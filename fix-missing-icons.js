@@ -1,0 +1,47 @@
+const fs = require('fs');
+const path = require('path');
+
+const iconFixes = {
+  'carbon:fitness': 'carbon:activity',
+  'carbon:inbox': 'carbon:email-new',
+  'carbon:leaf': 'carbon:recycle',
+  'carbon:server': 'carbon:data-base',
+  'carbon:seat': 'carbon:tree',
+  'carbon:bullseye': 'carbon:target',
+  'carbon:temperature-cold': 'carbon:snowflake'
+};
+
+function walk(dir) {
+  let results = [];
+  const list = fs.readdirSync(dir);
+  list.forEach(file => {
+    const fullPath = path.join(dir, file);
+    const stat = fs.statSync(fullPath);
+    if (stat && stat.isDirectory()) {
+      results = results.concat(walk(fullPath));
+    } else if (file.endsWith(".jsx") || file.endsWith(".js") || file.endsWith(".tsx") || file.endsWith(".ts")) {
+      results.push(fullPath);
+    }
+  });
+  return results;
+}
+
+const files = walk("apps/web/src");
+let changedFiles = 0;
+
+files.forEach(file => {
+  let content = fs.readFileSync(file, "utf8");
+  let originalContent = content;
+  
+  Object.keys(iconFixes).forEach(badIcon => {
+      content = content.split(badIcon).join(iconFixes[badIcon]);
+  });
+
+  if (content !== originalContent) {
+    fs.writeFileSync(file, content, "utf8");
+    changedFiles++;
+    console.log("Fixed icons in:", file);
+  }
+});
+
+console.log(`\nFixed missing icons in ${changedFiles} files.`);

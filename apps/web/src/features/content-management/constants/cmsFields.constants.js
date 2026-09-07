@@ -123,7 +123,7 @@ export const CMS_FIELDS = [
       { key: "show_home_cta", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show CTA Banner" },
       { key: "home_cta_title", label: "Title", type: "text", placeholder: "Looking for Durable Recycled Plastic Products?" },
       { key: "home_cta_subtitle", label: "Subtitle", type: "textarea", placeholder: "Get in touch with our technical engineering team today…" },
-      { key: "home_cta_btn", label: "Button Text", type: "text", placeholder: "Get Quote" },
+      { key: "home_cta_btn", label: "Button Text", type: "text", placeholder: "Request a Quote" },
     ],
   },
   {

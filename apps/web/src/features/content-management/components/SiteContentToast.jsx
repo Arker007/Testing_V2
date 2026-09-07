@@ -44,7 +44,7 @@ export default function SiteContentToast({
         }}
       >
         <Icon
-          icon={isError ? "solar:close-circle-bold" : "solar:check-circle-bold"}
+          icon={isError ? "carbon:close-filled" : "carbon:checkmark-filled"}
           className="w-4 h-4"
         />
       </div>
@@ -63,7 +63,7 @@ export default function SiteContentToast({
         }}
         title="Dismiss"
       >
-        <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+        <Icon icon="carbon:close-outline" className="w-4 h-4" />
       </button>
     </div>
   );

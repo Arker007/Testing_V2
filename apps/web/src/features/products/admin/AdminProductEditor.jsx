@@ -87,9 +87,9 @@ export default function AdminProductEditor() {
           style={{ minWidth: 150 }}
         >
           {saving ? (
-            <><Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin mr-1 inline" /> Syncing…</>
+            <><Icon icon="carbon:renew" className="w-4 h-4 animate-spin mr-1 inline" /> Syncing…</>
           ) : (
-            <><Icon icon="solar:diskette-linear" className="w-4 h-4 mr-1 inline" /> Save Product</>
+            <><Icon icon="carbon:save" className="w-4 h-4 mr-1 inline" /> Save Product</>
           )}
         </button>
       </div>
@@ -122,7 +122,7 @@ export default function AdminProductEditor() {
   if (loading) {
     return (
       <div className={styles.loadingState}>
-        <Icon icon="solar:restart-linear" className="w-5 h-5 animate-spin inline mr-2" /> Loading Product Editor...
+        <Icon icon="carbon:renew" className="w-5 h-5 animate-spin inline mr-2" /> Loading Product Editor...
       </div>
     );
   }
@@ -131,7 +131,7 @@ export default function AdminProductEditor() {
     <div className={styles.dashboard}>
       <div style={{ display: "flex", alignItems: "center", justifyItems: "center", gap: "16px", marginBottom: "8px" }}>
         <button className={styles.actionBtnSecondary} style={{ padding: "8px 16px" }} onClick={() => navigate("/admin/products")}>
-          <Icon icon="solar:arrow-left-linear" className="w-4 h-4 mr-1 inline" /> Back
+          <Icon icon="carbon:arrow-left" className="w-4 h-4 mr-1 inline" /> Back
         </button>
         <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--gray-800)", margin: 0 }}>
           {isNew ? "Add New Product" : `Edit Product: ${form.name}`}
@@ -143,10 +143,10 @@ export default function AdminProductEditor() {
           {/* Tab Selector Headers */}
           <div style={{ display: "flex", gap: "12px", borderBottom: "1px solid rgba(5, 40, 63, 0.06)", paddingBottom: "12px", marginBottom: "24px", flexWrap: "wrap" }}>
             {[
-              { id: "general", label: "Core Details", icon: "solar:info-circle-linear" },
-              { id: "media", label: "Image Gallery", icon: "solar:gallery-linear" },
-              { id: "specs", label: "Technical Specs", icon: "solar:settings-linear" },
-              { id: "faqs", label: "FAQ Templates", icon: "solar:question-circle-linear" },
+              { id: "general", label: "Core Details", icon: "carbon:information" },
+              { id: "media", label: "Image Gallery", icon: "carbon:image" },
+              { id: "specs", label: "Technical Specs", icon: "carbon:settings" },
+              { id: "faqs", label: "FAQ Templates", icon: "carbon:help" },
             ].map((t) => (
               <button
                 key={t.id}
@@ -222,7 +222,7 @@ export default function AdminProductEditor() {
                 <span style={{ fontSize: "14px", fontWeight: 600, color: form.published ? "var(--brand)" : "var(--gray-400)" }}>Visible on Website</span>
               </label>
               <button type="submit" className={styles.actionBtnPrimary} disabled={saving || uploading}>
-                {saving ? <><Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin mr-1 inline" /> Saving...</> : <><Icon icon="solar:diskette-linear" className="w-4 h-4 mr-1 inline" /> Save Product</>}
+                {saving ? <><Icon icon="carbon:renew" className="w-4 h-4 animate-spin mr-1 inline" /> Saving...</> : <><Icon icon="carbon:save" className="w-4 h-4 mr-1 inline" /> Save Product</>}
               </button>
             </div>
           </div>

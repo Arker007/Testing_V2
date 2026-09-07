@@ -47,7 +47,7 @@ export default function SearchInput({
   return (
     <div className={`relative inline-flex items-center w-full ${className}`.trim()}>
       <Icon
-        icon="solar:magnifer-linear"
+        icon="carbon:search"
         className={`absolute text-slate-400 pointer-events-none ${selectedIconSize}`}
       />
       <input
@@ -65,7 +65,7 @@ export default function SearchInput({
           className="absolute right-2.5 p-0.5 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-full hover:bg-slate-200 dark:hover:bg-white/10 transition-colors cursor-pointer"
           aria-label="Clear search"
         >
-          <Icon icon="solar:close-circle-bold" className="w-4 h-4" />
+          <Icon icon="carbon:close-filled" className="w-4 h-4" />
         </button>
       )}
     </div>

@@ -89,38 +89,38 @@ export default function Dashboard() {
 
       {statsError && (
         <div className={styles.alert}>
-          <Icon icon="solar:danger-triangle-linear" className="w-4 h-4 inline mr-2 text-rose-500" /> Core services are uncommunicative. check API status.
+          <Icon icon="carbon:warning-alt" className="w-4 h-4 inline mr-2 text-rose-500" /> Core services are uncommunicative. check API status.
         </div>
       )}
 
       <section className={styles.statsRow}>
-        <StatCard iconName="solar:box-minimalistic-linear" label="Products Listed" value={loading ? "..." : stats?.products ?? 0} href="/admin/products" />
-        <StatCard iconName="solar:tag-linear" label="Total Categories" value={loading ? "..." : stats?.categories ?? 0} href="/admin/categories" />
-        <StatCard iconName="solar:letter-linear" label="Inquiries Logged" value={loading ? "..." : inquiries.length} href="/admin/inquiries" />
+        <StatCard iconName="carbon:cube" label="Products Listed" value={loading ? "..." : stats?.products ?? 0} href="/admin/products" />
+        <StatCard iconName="carbon:tag" label="Total Categories" value={loading ? "..." : stats?.categories ?? 0} href="/admin/categories" />
+        <StatCard iconName="carbon:email" label="Inquiries Logged" value={loading ? "..." : inquiries.length} href="/admin/inquiries" />
       </section>
 
       <section className={styles.grid2}>
         <article className={styles.panel}>
           <div className={styles.panelHead}>
             <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Icon icon="solar:box-minimalistic-linear" className="w-4.5 h-4.5" /> Recent Catalog Products
+              <Icon icon="carbon:cube" className="w-4.5 h-4.5" /> Recent Catalog Products
             </h3>
             <Link to="/admin/products" className={styles.link}>See all</Link>
           </div>
-          {loading ? <Skel rows={5} /> : products.length === 0 ? <Empty iconName="solar:inbox-linear" msg="No products yet" /> : (
+          {loading ? <Skel rows={5} /> : products.length === 0 ? <Empty iconName="carbon:email-new" msg="No products yet" /> : (
             products.map((p) => {
               let img = null;
               try { img = JSON.parse(p.image)?.[0]; } catch { img = p.image; }
               return (
                 <div key={p.id} className={styles.listRow}>
                   <div className={styles.listThumb}>
-                    {img ? <img src={img} alt="" /> : <Icon icon="solar:gallery-linear" className="w-4.5 h-4.5 text-slate-400" />}
+                    {img ? <img src={img} alt="" /> : <Icon icon="carbon:image" className="w-4.5 h-4.5 text-slate-400" />}
                   </div>
                   <div className={styles.listInfo}>
                     <div className={styles.listName}>{p.name}</div>
                     <div className={styles.listSub}>{p.category_name || "Uncategorized"}</div>
                   </div>
-                  <Link to={`/admin/products/${p.id}`} className={styles.miniBtn}><Icon icon="solar:pen-linear" className="w-3.5 h-3.5" /></Link>
+                  <Link to={`/admin/products/${p.id}`} className={styles.miniBtn}><Icon icon="carbon:edit" className="w-3.5 h-3.5" /></Link>
                 </div>
               );
             })
@@ -130,11 +130,11 @@ export default function Dashboard() {
         <article className={styles.panel}>
           <div className={styles.panelHead}>
             <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Icon icon="solar:letter-linear" className="w-4.5 h-4.5" /> Recent Inquiries Timeline
+              <Icon icon="carbon:email" className="w-4.5 h-4.5" /> Recent Inquiries Timeline
             </h3>
             <Link to="/admin/inquiries" className={styles.link}>See all</Link>
           </div>
-          {loading ? <Skel rows={5} /> : inquiries.length === 0 ? <Empty iconName="solar:inbox-linear" msg="No incoming inquiries" /> : (
+          {loading ? <Skel rows={5} /> : inquiries.length === 0 ? <Empty iconName="carbon:email-new" msg="No incoming inquiries" /> : (
             <div className={styles.activityFeed}>
               {inquiries.map((inq, idx) => {
                 const isProduct = inq.product_id || inq.message?.toLowerCase().includes("product") || inq.message?.toLowerCase().includes("pallet");
@@ -168,15 +168,15 @@ export default function Dashboard() {
       <section className={styles.panel}>
         <div className={styles.panelHead}>
           <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <Icon icon="solar:server-linear" className="w-4.5 h-4.5" /> System Service Metrics
+            <Icon icon="carbon:data-base" className="w-4.5 h-4.5" /> System Service Metrics
           </h3>
           {sysStatus && <span className={styles.healthTime}>Refreshed at {sysStatus.time.toLocaleTimeString("en-IN")}</span>}
         </div>
         <div className={styles.statusFlexRow}>
-          <StatusRow label="API Framework" ok={sysStatus?.api?.ok} loading={sysLoading} detail={sysStatus?.api?.ok ? `${sysStatus.api.ms}ms` : "Network down"} iconName="solar:pulse-linear" />
-          <StatusRow label="Products Registry" ok={sysStatus?.api?.ok} loading={sysLoading} detail={sysStatus?.api?.ok ? `${stats?.products ?? 0} items` : "Locked"} iconName="solar:box-minimalistic-linear" />
-          <StatusRow label="Categories Matrix" ok={sysStatus?.cats?.ok} loading={sysLoading} detail={sysStatus?.cats?.ok ? `${stats?.categories ?? 0} groups` : "Locked"} iconName="solar:tag-linear" />
-          <StatusRow label="Inquiries Stream" ok={sysStatus?.inqs?.ok} loading={sysLoading} detail={sysStatus?.inqs?.ok ? "Live" : "Unreachable"} iconName="solar:letter-linear" />
+          <StatusRow label="API Framework" ok={sysStatus?.api?.ok} loading={sysLoading} detail={sysStatus?.api?.ok ? `${sysStatus.api.ms}ms` : "Network down"} iconName="carbon:activity" />
+          <StatusRow label="Products Registry" ok={sysStatus?.api?.ok} loading={sysLoading} detail={sysStatus?.api?.ok ? `${stats?.products ?? 0} items` : "Locked"} iconName="carbon:cube" />
+          <StatusRow label="Categories Matrix" ok={sysStatus?.cats?.ok} loading={sysLoading} detail={sysStatus?.cats?.ok ? `${stats?.categories ?? 0} groups` : "Locked"} iconName="carbon:tag" />
+          <StatusRow label="Inquiries Stream" ok={sysStatus?.inqs?.ok} loading={sysLoading} detail={sysStatus?.inqs?.ok ? "Live" : "Unreachable"} iconName="carbon:email" />
         </div>
       </section>
     </div>
@@ -190,7 +190,7 @@ function StatusRow({ iconName, label, ok, loading, detail }) {
     <div className={`${styles.statusRowMini} ${stateClass}`}>
       <div className={styles.statusIconMini}>
         {loading ? (
-          <Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin" />
+          <Icon icon="carbon:renew" className="w-4 h-4 animate-spin" />
         ) : (
           <Icon icon={iconName} className="w-4 h-4" />
         )}
@@ -199,11 +199,11 @@ function StatusRow({ iconName, label, ok, loading, detail }) {
       <div className={styles.statusDetailMini}>{loading ? "Verifying..." : detail}</div>
       <div className={styles.statusBadgeMini}>
         {loading ? (
-          <Icon icon="solar:restart-linear" className="w-3.5 h-3.5 animate-spin" />
+          <Icon icon="carbon:renew" className="w-3.5 h-3.5 animate-spin" />
         ) : ok ? (
-          <Icon icon="solar:check-circle-linear" className="w-3.5 h-3.5 text-emerald-500" />
+          <Icon icon="carbon:checkmark-outline" className="w-3.5 h-3.5 text-emerald-500" />
         ) : (
-          <Icon icon="solar:close-circle-linear" className="w-3.5 h-3.5 text-rose-500" />
+          <Icon icon="carbon:close-outline" className="w-3.5 h-3.5 text-rose-500" />
         )}
       </div>
     </div>

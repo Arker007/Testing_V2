@@ -62,7 +62,7 @@ export default function ContactFormSection() {
             {status === "sent" ? (
               <div className={styles.successBox}>
                 <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center mx-auto mb-2 text-emerald-500">
-                  <Icon icon="solar:check-circle-bold" className="w-10 h-10" />
+                  <Icon icon="carbon:checkmark-filled" className="w-10 h-10" />
                 </div>
                 <p className="text-[var(--text-primary)] font-bold text-xl">Inquiry Sent Successfully</p>
                 
@@ -79,7 +79,7 @@ export default function ContactFormSection() {
                       title="Copy Reference Code"
                       aria-label="Copy reference code"
                     >
-                      <Icon icon={copiedRef ? "solar:check-read-linear" : "solar:copy-linear"} className="w-4 h-4 text-[var(--brand-primary)]" />
+                      <Icon icon={copiedRef ? "carbon:checkmark" : "carbon:copy"} className="w-4 h-4 text-[var(--brand-primary)]" />
                     </button>
                   </div>
                 )}
@@ -106,17 +106,17 @@ export default function ContactFormSection() {
                     </span>
                     {form.productService && (
                       <span className="text-[11px] font-medium text-[var(--brand-text)] flex items-center gap-1">
-                        <Icon icon="solar:check-circle-bold" className="w-3.5 h-3.5" />
+                        <Icon icon="carbon:checkmark-filled" className="w-3.5 h-3.5" />
                         Selected
                       </span>
                     )}
                   </div>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     {[
-                      { label: "Industrial Pallets", icon: "solar:box-minimalistic-linear" },
-                      { label: "Plastic Lumber", icon: "solar:layers-minimalistic-linear" },
-                      { label: "Garden Benches", icon: "solar:armchair-linear" },
-                      { label: "Custom Profile", icon: "solar:tuning-square-linear" },
+                      { label: "Industrial Pallets", icon: "carbon:cube" },
+                      { label: "Plastic Lumber", icon: "carbon:layers" },
+                      { label: "Garden Benches", icon: "carbon:tree" },
+                      { label: "Custom Profile", icon: "carbon:settings-adjust" },
                     ].map((cat) => {
                       const isSelected = form.productService === cat.label;
                       return (
@@ -145,7 +145,7 @@ export default function ContactFormSection() {
                 <div className={styles.row2}>
                   <div className={styles.inputFieldWrapper}>
                     <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Icon icon="solar:box-minimalistic-linear" className="w-5 h-5" />
+                      <Icon icon="carbon:cube" className="w-5 h-5" />
                     </div>
                     <input
                       id="productService"
@@ -159,7 +159,7 @@ export default function ContactFormSection() {
 
                   <div className={styles.inputFieldWrapper}>
                     <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Icon icon="solar:user-linear" className="w-5 h-5" />
+                      <Icon icon="carbon:user" className="w-5 h-5" />
                     </div>
                     <input
                       id="fullName"
@@ -176,7 +176,7 @@ export default function ContactFormSection() {
                 <div className={styles.row2}>
                   <div className={styles.inputFieldWrapper}>
                     <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Icon icon="solar:letter-linear" className="w-5 h-5" />
+                      <Icon icon="carbon:email" className="w-5 h-5" />
                     </div>
                     <input
                       id="email"
@@ -191,7 +191,7 @@ export default function ContactFormSection() {
 
                   <div className={styles.inputFieldWrapper}>
                     <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Icon icon="solar:global-linear" className="w-5 h-5" />
+                      <Icon icon="carbon:globe" className="w-5 h-5" />
                     </div>
                     <select
                       id="country"
@@ -234,7 +234,7 @@ export default function ContactFormSection() {
                   </div>
                   <div className={styles.inputFieldWrapper}>
                     <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Icon icon="solar:phone-calling-linear" className="w-5 h-5" />
+                      <Icon icon="carbon:phone" className="w-5 h-5" />
                     </div>
                     <input
                       id="phone"
@@ -251,7 +251,7 @@ export default function ContactFormSection() {
                 {/* Message */}
                 <div className={styles.inputFieldWrapper}>
                   <div className={`${styles.inputIcon} text-[var(--brand-text)]`} style={{ top: "1rem" }}>
-                    <Icon icon="solar:chat-round-dots-linear" className="w-5 h-5" />
+                    <Icon icon="carbon:chat" className="w-5 h-5" />
                   </div>
                   <textarea
                     id="message"
@@ -267,7 +267,7 @@ export default function ContactFormSection() {
 
                 {status === "error" && (
                   <p className={styles.errorText} role="alert">
-                    <Icon icon="solar:danger-triangle-linear" className="w-5 h-5 text-[var(--color-error)] shrink-0" />
+                    <Icon icon="carbon:warning-alt" className="w-5 h-5 text-[var(--color-error)] shrink-0" />
                     Sending failed. Please try again or contact us directly.
                   </p>
                 )}
@@ -281,21 +281,21 @@ export default function ContactFormSection() {
                   >
                     {status === "sending" ? (
                       <>
-                        <Icon icon="solar:restart-linear" className="w-5 h-5 animate-spin" />
+                        <Icon icon="carbon:renew" className="w-5 h-5 animate-spin" />
                         <span className="btn-text">Sending Message...</span>
                       </>
                     ) : (
                       <>
                         <span className="btn-text">Send Message</span>
                         <span className="btn-icon-bubble">
-                          <Icon icon="solar:plain-2-linear" className="btn-arrow-icon w-4 h-4" />
+                          <Icon icon="carbon:send-alt" className="btn-arrow-icon w-4 h-4" />
                         </span>
                       </>
                     )}
                   </button>
 
                   <div className={styles.privacyNote}>
-                    <Icon icon="solar:shield-check-linear" className={`${styles.privacyIcon} text-[var(--brand-text)] w-4 h-4`} />
+                    <Icon icon="carbon:security" className={`${styles.privacyIcon} text-[var(--brand-text)] w-4 h-4`} />
                     <span>We respect your privacy. Your information is safe with us.</span>
                   </div>
                 </div>
@@ -317,7 +317,7 @@ export default function ContactFormSection() {
             <div className={styles.infoCardsGrid}>
               {/* Card 1: Contact Person */}
               <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-person">
-                <IconBox icon="solar:user-linear" variant="brand" size="md" />
+                <IconBox icon="carbon:user" variant="brand" size="md" />
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Sales & Technical Contact</span>
                   <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-bold`}>{contactPerson}</p>
@@ -326,7 +326,7 @@ export default function ContactFormSection() {
 
               {/* Card 2: Address */}
               <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-address">
-                <IconBox icon="solar:map-point-linear" variant="brand" size="md" />
+                <IconBox icon="carbon:location" variant="brand" size="md" />
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Manufacturing Plant & Works</span>
                   <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-semibold leading-snug tabular-nums`}>{address}</p>
@@ -335,7 +335,7 @@ export default function ContactFormSection() {
 
               {/* Card 3: Mobile */}
               <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-mobile">
-                <IconBox icon="solar:phone-calling-linear" variant="brand" size="md" />
+                <IconBox icon="carbon:phone" variant="brand" size="md" />
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Direct Sales Line</span>
                   {showMobile ? (
@@ -358,7 +358,7 @@ export default function ContactFormSection() {
 
               {/* Card 4: Email */}
               <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-email">
-                <IconBox icon="solar:letter-linear" variant="brand" size="md" />
+                <IconBox icon="carbon:email" variant="brand" size="md" />
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Official Procurement Email</span>
                   <p className={`${styles.infoCardValue} text-[var(--text-primary)]`}>
@@ -373,14 +373,14 @@ export default function ContactFormSection() {
             {/* Immediate Assistance Banner */}
             <div className={`${styles.assistanceBanner} mt-6 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-[var(--brand-border)]/50 rounded-[var(--radius-card,8px)]`} id="assistance-banner">
               <div className="flex items-center gap-3.5">
-                <IconBox icon="solar:headphones-round-linear" variant="brand" size="lg" />
+                <IconBox icon="carbon:headset" variant="brand" size="lg" />
                 <div>
                   <span className="block font-bold text-[var(--text-primary)] text-sm sm:text-base">Need Immediate Assistance?</span>
                   <p className="text-xs text-[var(--text-secondary)] mt-0.5">Our team is ready to help you with your requirements.</p>
                 </div>
               </div>
               <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="inline-flex items-center gap-2 bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-[var(--brand-btn-text)] font-bold text-xs px-4 py-2.5 rounded-[var(--radius-btn,8px)] shadow-xs transition-all shrink-0 no-underline">
-                <Icon icon="solar:phone-calling-linear" className="w-4 h-4 text-[var(--brand-btn-text)]" />
+                <Icon icon="carbon:phone" className="w-4 h-4 text-[var(--brand-btn-text)]" />
                 Call Now
               </a>
             </div>
@@ -391,7 +391,7 @@ export default function ContactFormSection() {
         <Card variant="default" className="mt-10 p-6" id="embedded-map-container">
           <div className={styles.mapHeader}>
             <div className={styles.mapTitleGroup}>
-              <IconBox icon="solar:map-point-linear" variant="brand" size="md" />
+              <IconBox icon="carbon:location" variant="brand" size="md" />
               <div>
                 <span className="block font-bold text-[var(--text-primary)] text-base">Find Our Manufacturing Facility</span>
                 <p className="text-xs text-[var(--text-muted)] mt-0.5">{address}</p>
@@ -406,7 +406,7 @@ export default function ContactFormSection() {
             >
               <span className="btn-text">Get Directions</span>
               <span className="btn-icon-bubble">
-                <Icon icon="solar:routing-2-linear" className="btn-arrow-icon w-4 h-4" />
+                <Icon icon="carbon:direction-straight" className="btn-arrow-icon w-4 h-4" />
               </span>
             </a>
           </div>

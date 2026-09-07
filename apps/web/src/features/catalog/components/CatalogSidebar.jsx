@@ -16,7 +16,7 @@ export default function CatalogSidebar({
     <aside className={styles.controlsSidebar}>
       <div className={styles.sidebarHeader}>
         <h2 className={styles.sidebarTitle}>
-          <Icon icon="solar:book-2-linear" className="w-5 h-5 text-[var(--brand)]" />
+          <Icon icon="carbon:book" className="w-5 h-5 text-[var(--brand)]" />
           Catalog Setup
         </h2>
       </div>
@@ -86,7 +86,7 @@ export default function CatalogSidebar({
           style={{ width: "100%", justifyContent: "center" }}
           onClick={() => window.print()}
         >
-          <Icon icon="solar:printer-linear" className="w-4 h-4 mr-1.5" /> Export PDF Catalog
+          <Icon icon="carbon:printer" className="w-4 h-4 mr-1.5" /> Export PDF Catalog
         </button>
       </div>
     </aside>

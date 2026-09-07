@@ -27,12 +27,12 @@ export default function Alert({
   children,
 }) {
   const statusIcons = {
-    info: "solar:info-circle-bold",
-    success: "solar:check-circle-bold",
-    warning: "solar:danger-triangle-bold",
-    danger: "solar:close-circle-bold",
-    brand: "solar:leaf-bold",
-    neutral: "solar:bell-bold",
+    info: "carbon:information-filled",
+    success: "carbon:checkmark-filled",
+    warning: "carbon:warning-filled",
+    danger: "carbon:close-filled",
+    brand: "carbon:recycle",
+    neutral: "carbon:notification-filled",
   };
 
   const statusSubtle = {
@@ -110,7 +110,7 @@ export default function Alert({
           className="shrink-0 -mr-1 -mt-1 p-1 rounded-md opacity-70 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/10 transition-all cursor-pointer"
           aria-label="Dismiss alert"
         >
-          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+          <Icon icon="carbon:close" className="w-4 h-4" />
         </button>
       )}
     </div>

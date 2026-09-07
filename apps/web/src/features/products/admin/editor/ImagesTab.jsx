@@ -14,7 +14,7 @@ export default function ImagesTab({
   return (
     <div>
       <div className={styles.formSectionTitle} style={{ marginTop: 0 }}>
-        <Icon icon="solar:gallery-linear" className="w-4 h-4 mr-1 inline" /> Linked Product Images
+        <Icon icon="carbon:image" className="w-4 h-4 mr-1 inline" /> Linked Product Images
       </div>
       <p
         style={{
@@ -81,7 +81,7 @@ export default function ImagesTab({
                   />
                 ) : (
                   <Icon
-                    icon="solar:gallery-linear"
+                    icon="carbon:image"
                     className="w-6 h-6 text-slate-400"
                   />
                 )}
@@ -210,7 +210,7 @@ export default function ImagesTab({
                   className={styles.delBtn}
                   title="Delete Image Slot"
                 >
-                  <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />
+                  <Icon icon="carbon:trash-can" className="w-4 h-4" />
                 </button>
                 {i > 0 && (
                   <button
@@ -252,7 +252,7 @@ export default function ImagesTab({
             onChange={handleImageUpload}
             style={{ display: "none" }}
           />
-          <Icon icon="solar:upload-track-linear" className="w-4 h-4" /> Upload Multiple Images
+          <Icon icon="carbon:upload" className="w-4 h-4" /> Upload Multiple Images
         </label>
         <button
           type="button"
@@ -265,7 +265,7 @@ export default function ImagesTab({
           }}
           onClick={handleAddBlankImage}
         >
-          <Icon icon="solar:link-linear" className="w-4 h-4" /> Add External Image URL Only
+          <Icon icon="carbon:link" className="w-4 h-4" /> Add External Image URL Only
         </button>
       </div>
     </div>

@@ -40,16 +40,16 @@ function createMotionIcon(iconName) {
   return motion.create(IconWrapper);
 }
 
-export const MotionHardHat = createMotionIcon("solar:shield-warning-linear");
-export const MotionShieldCheck = createMotionIcon("solar:shield-check-linear");
-export const MotionRoute = createMotionIcon("solar:routing-2-linear");
-export const MotionTrees = createMotionIcon("solar:chair-2-linear");
-export const MotionSchool = createMotionIcon("solar:buildings-2-linear");
-export const MotionWarehouse = createMotionIcon("solar:box-minimalistic-linear");
-export const MotionSprout = createMotionIcon("solar:leaf-linear");
-export const MotionHomeIcon = createMotionIcon("solar:home-2-linear");
-export const MotionBuilding2 = createMotionIcon("solar:buildings-3-linear");
-export const MotionArrowRight = createMotionIcon("solar:arrow-right-linear");
+export const MotionHardHat = createMotionIcon("carbon:shield-alert");
+export const MotionShieldCheck = createMotionIcon("carbon:security");
+export const MotionRoute = createMotionIcon("carbon:direction-straight");
+export const MotionTrees = createMotionIcon("carbon:tree");
+export const MotionSchool = createMotionIcon("carbon:enterprise");
+export const MotionWarehouse = createMotionIcon("carbon:cube");
+export const MotionSprout = createMotionIcon("carbon:recycle");
+export const MotionHomeIcon = createMotionIcon("carbon:home");
+export const MotionBuilding2 = createMotionIcon("carbon:industry");
+export const MotionArrowRight = createMotionIcon("carbon:arrow-right");
 
 export const hardHatVariants = {
   hover: {

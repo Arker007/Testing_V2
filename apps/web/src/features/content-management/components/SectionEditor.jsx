@@ -29,7 +29,7 @@ export default function SectionEditor({
       <div style={!isCmsGroupEnabled ? { opacity: 0.55, pointerEvents: "none" } : {}}>
         {fieldsToRender.length === 0 ? (
           <div style={{ textAlign: "center", padding: "40px 20px", color: "var(--text-muted)", fontSize: "0.85rem" }}>
-            <Icon icon="solar:info-circle-linear" style={{ marginRight: "6px", color: "var(--brand)" }} className="w-4 h-4 inline" />
+            <Icon icon="carbon:information" style={{ marginRight: "6px", color: "var(--brand)" }} className="w-4 h-4 inline" />
             No fields match your search filter "{searchFieldQuery}"
           </div>
         ) : (

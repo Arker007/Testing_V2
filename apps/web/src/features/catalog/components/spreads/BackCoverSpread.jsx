@@ -33,7 +33,7 @@ export function getBackCoverSpread({
           </p>
           <p style={{ marginBottom: "15px" }}>
             <strong>Export Compliance:</strong> Phytosanitary exempt material
-            design enables seamless hassle-free international sea freight.
+            design enables efficient, hassle-free international sea freight.
           </p>
         </div>
 

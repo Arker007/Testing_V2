@@ -55,7 +55,7 @@ export default function ProductDetailView() {
     return (
       <main className="pt-0 min-h-[60vh] flex flex-col items-center justify-center p-6 bg-[var(--bg-canvas)] text-[var(--text-primary)]">
         <EmptyState
-          icon="solar:danger-triangle-linear"
+          icon="carbon:warning-alt"
           title="Product not found"
           description="The product you are looking for does not exist or has been removed."
           action={
@@ -63,7 +63,7 @@ export default function ProductDetailView() {
               to="/products"
               className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-[var(--radius-card,8px)] border border-[var(--border-default)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] font-bold text-sm transition-all shadow-2xs hover:border-[var(--brand-border)]"
             >
-              <Icon icon="solar:arrow-left-linear" className="w-4 h-4" />
+              <Icon icon="carbon:arrow-left" className="w-4 h-4" />
               <span>Back to Products</span>
             </Link>
           }
@@ -84,22 +84,22 @@ export default function ProductDetailView() {
       <nav aria-label="Breadcrumb" className="border-b border-[var(--border-subtle)] py-3.5 bg-[var(--bg-surface)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center flex-wrap gap-2 text-xs sm:text-sm font-medium">
           <Link to="/" className="text-[var(--text-secondary)] hover:text-[var(--brand-primary)] flex items-center gap-1 transition-colors">
-            <Icon icon="solar:home-2-linear" className="w-4 h-4" />
+            <Icon icon="carbon:home" className="w-4 h-4" />
             <span>Home</span>
           </Link>
-          <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-[var(--text-muted)]" />
+          <Icon icon="carbon:chevron-right" className="w-3 h-3 text-[var(--text-muted)]" />
           <Link to="/products" className="text-[var(--text-secondary)] hover:text-[var(--brand-primary)] transition-colors">
             Catalog
           </Link>
           {categoryObj && (
             <>
-              <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-[var(--text-muted)]" />
+              <Icon icon="carbon:chevron-right" className="w-3 h-3 text-[var(--text-muted)]" />
               <Link to={`/products?cat=${categoryObj.id}`} className="text-[var(--text-secondary)] hover:text-[var(--brand-primary)] transition-colors">
                 {categoryObj.name}
               </Link>
             </>
           )}
-          <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 text-[var(--text-muted)]" />
+          <Icon icon="carbon:chevron-right" className="w-3 h-3 text-[var(--text-muted)]" />
           <span className="text-[var(--text-primary)] font-bold truncate max-w-[220px] sm:max-w-none">
             {product.name}
           </span>
@@ -168,7 +168,7 @@ export default function ProductDetailView() {
               href={`tel:${phone.replace(/\s+/g, "")}`}
               className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-[var(--radius-card,8px)] border border-[var(--border-default)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] font-bold text-sm transition-all shadow-2xs decoration-none"
             >
-              <Icon icon="solar:phone-calling-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
+              <Icon icon="carbon:phone" className="w-4 h-4 text-[var(--brand-primary)]" />
               <span>Call Technical Sales Desk</span>
             </a>
           </CtaCard>
@@ -197,14 +197,14 @@ export default function ProductDetailView() {
             aria-label="WhatsApp Sales Desk"
             title="WhatsApp Sales Desk"
           >
-            <Icon icon="solar:chat-round-dots-bold" className="w-5 h-5 text-[#25D366]" />
+            <Icon icon="carbon:chat" className="w-5 h-5 text-[#25D366]" />
           </a>
           <button
             type="button"
             onClick={() => setShowInquiry(true)}
             className="px-4 py-2.5 bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-[var(--brand-btn-text)] rounded-[var(--radius-btn,8px)] font-bold text-xs flex items-center gap-1.5 shadow-xs active:scale-95 transition-all cursor-pointer border-0 min-h-[44px]"
           >
-            <Icon icon="solar:chat-round-dots-linear" className="w-4 h-4" />
+            <Icon icon="carbon:chat" className="w-4 h-4" />
             <span>Request Quote</span>
           </button>
         </div>

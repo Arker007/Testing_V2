@@ -61,7 +61,7 @@ export default function ProductImageFullscreenModal({
               className="min-h-[44px] min-w-[44px] p-2.5 rounded-[var(--radius-card,8px)] bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer flex items-center justify-center focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:outline-none active:scale-95"
               aria-label="Close fullscreen view"
             >
-              <Icon icon="solar:close-square-linear" className="w-5 h-5" />
+              <Icon icon="carbon:minimize" className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function ProductImageFullscreenModal({
                 onClick={handlePrevImage}
                 aria-label="Previous image"
               >
-                <Icon icon="solar:alt-arrow-left-linear" className="w-6 h-6" />
+                <Icon icon="carbon:chevron-left" className="w-6 h-6" />
               </button>
               <button
                 type="button"
@@ -95,7 +95,7 @@ export default function ProductImageFullscreenModal({
                 onClick={handleNextImage}
                 aria-label="Next image"
               >
-                <Icon icon="solar:alt-arrow-right-linear" className="w-6 h-6" />
+                <Icon icon="carbon:chevron-right" className="w-6 h-6" />
               </button>
             </>
           )}

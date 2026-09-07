@@ -44,7 +44,7 @@ export default function FormField({
             {required && <span className="text-[var(--color-danger)] font-bold">*</span>}
             {tooltip && (
               <span className="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors" title={tooltip}>
-                <Icon icon="solar:info-circle-linear" className="w-3.5 h-3.5 inline" />
+                <Icon icon="carbon:information" className="w-3.5 h-3.5 inline" />
               </span>
             )}
           </label>
@@ -56,7 +56,7 @@ export default function FormField({
 
         {error ? (
           <p className="text-xs font-medium text-[var(--color-danger)] flex items-center gap-1 mt-0.5 animate-fadeIn">
-            <Icon icon="solar:danger-triangle-linear" className="w-3.5 h-3.5 shrink-0" />
+            <Icon icon="carbon:warning-alt" className="w-3.5 h-3.5 shrink-0" />
             <span>{error}</span>
           </p>
         ) : hint ? (

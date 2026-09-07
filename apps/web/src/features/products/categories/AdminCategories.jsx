@@ -45,7 +45,7 @@ export default function AdminCategories() {
         {loading ? [1, 2, 3].map((i) => <div key={i} className={styles.skeleRow} />) :
           cats.length === 0 ? (
             <EmptyState
-              icon="solar:tag-linear"
+              icon="carbon:tag"
               title="No categorisation parameters defined"
               description="Create root categories to organize your product catalog."
               action={
@@ -61,7 +61,7 @@ export default function AdminCategories() {
                 {c.image ? (
                   <div className={styles.thumb}><img src={c.image} alt="" /></div>
                 ) : (
-                  <div className={styles.catIcon}><Icon icon="solar:tag-linear" className="w-4 h-4" /></div>
+                  <div className={styles.catIcon}><Icon icon="carbon:tag" className="w-4 h-4" /></div>
                 )}
                 <span className={styles.prodName}>{c.name}</span>
               </div>
@@ -69,10 +69,10 @@ export default function AdminCategories() {
               <span className={styles.muted}>{c.created_at ? new Date(c.created_at).toLocaleDateString("en-IN") : "—"}</span>
               <div className={styles.rowActions}>
                 <button className={styles.editBtn} onClick={() => navigate(`/admin/categories/${c.id}`)}>
-                  <Icon icon="solar:pen-linear" className="w-4 h-4" />
+                  <Icon icon="carbon:edit" className="w-4 h-4" />
                 </button>
                 <button className={styles.delBtn} onClick={() => setConfirmDelete(c.id)}>
-                  {deleting === c.id ? <Spinner size="sm" /> : <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />}
+                  {deleting === c.id ? <Spinner size="sm" /> : <Icon icon="carbon:trash-can" className="w-4 h-4" />}
                 </button>
               </div>
             </div>

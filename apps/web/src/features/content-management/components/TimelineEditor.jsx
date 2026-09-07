@@ -107,7 +107,7 @@ export default function TimelineEditor({
                         onClick={() => shiftOrder(index, -1)}
                         title="Move Up"
                       >
-                        <Icon icon="solar:alt-arrow-up-linear" className="w-3 h-3" />
+                        <Icon icon="carbon:chevron-up" className="w-3 h-3" />
                       </button>
                       <button 
                         type="button" 
@@ -117,7 +117,7 @@ export default function TimelineEditor({
                         onClick={() => shiftOrder(index, 1)}
                         title="Move Down"
                       >
-                        <Icon icon="solar:alt-arrow-down-linear" className="w-3 h-3" />
+                        <Icon icon="carbon:chevron-down" className="w-3 h-3" />
                       </button>
                     </div>
                     <button 
@@ -130,7 +130,7 @@ export default function TimelineEditor({
                       })}
                       title="Edit Milestone"
                     >
-                      <Icon icon="solar:pen-linear" className="w-3.5 h-3.5" />
+                      <Icon icon="carbon:edit" className="w-3.5 h-3.5" />
                     </button>
                     <button 
                       type="button" 
@@ -138,7 +138,7 @@ export default function TimelineEditor({
                       onClick={() => setConfirmDeleteIdx(index)}
                       title="Delete Milestone"
                     >
-                      <Icon icon="solar:trash-bin-trash-linear" className="w-3.5 h-3.5" />
+                      <Icon icon="carbon:trash-can" className="w-3.5 h-3.5" />
                     </button>
                   </>
                 )}
@@ -164,7 +164,7 @@ export default function TimelineEditor({
               });
             }}
           >
-            <Icon icon="solar:add-circle-linear" className="w-5 h-5 mb-1" />
+            <Icon icon="carbon:add-alt" className="w-5 h-5 mb-1" />
             <span>Add Milestone</span>
           </div>
         </div>

@@ -13,7 +13,7 @@ const WhatsAppIcon = () => (
     transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
     className="shrink-0"
   >
-    <Icon icon="solar:chat-round-line-linear" className="w-5 h-5" />
+    <Icon icon="carbon:chat" className="w-5 h-5" />
   </motion.div>
 );
 
@@ -23,7 +23,7 @@ const AnimatedCatalogIcon = () => (
     transition={{ duration: 0.5 }}
     className="shrink-0"
   >
-    <Icon icon="solar:box-minimalistic-linear" className="w-5 h-5" />
+    <Icon icon="carbon:cube" className="w-5 h-5" />
   </motion.div>
 );
 

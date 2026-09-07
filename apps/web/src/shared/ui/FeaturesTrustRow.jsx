@@ -10,7 +10,7 @@ export default function FeaturesTrustRow() {
       {/* Value 1 */}
       <div className="flex items-start gap-4">
         <div className="w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] flex items-center justify-center shrink-0 border border-[var(--border-brand)]">
-          <Icon icon="solar:leaf-linear" className="w-5 h-5" />
+          <Icon icon="carbon:recycle" className="w-5 h-5" />
         </div>
         <div>
           <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">
@@ -25,7 +25,7 @@ export default function FeaturesTrustRow() {
       {/* Value 2 */}
       <div className="flex items-start gap-4">
         <div className="w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] flex items-center justify-center shrink-0 border border-[var(--border-brand)]">
-          <Icon icon="solar:shield-check-linear" className="w-5 h-5" />
+          <Icon icon="carbon:security" className="w-5 h-5" />
         </div>
         <div>
           <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">
@@ -40,7 +40,7 @@ export default function FeaturesTrustRow() {
       {/* Value 3 */}
       <div className="flex items-start gap-4">
         <div className="w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] flex items-center justify-center shrink-0 border border-[var(--border-brand)]">
-          <Icon icon="solar:wrench-linear" className="w-5 h-5" />
+          <Icon icon="carbon:tool-box" className="w-5 h-5" />
         </div>
         <div>
           <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">
@@ -55,7 +55,7 @@ export default function FeaturesTrustRow() {
       {/* Value 4 */}
       <div className="flex items-start gap-4">
         <div className="w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] flex items-center justify-center shrink-0 border border-[var(--border-brand)]">
-          <Icon icon="solar:headphones-round-linear" className="w-5 h-5" />
+          <Icon icon="carbon:headset" className="w-5 h-5" />
         </div>
         <div>
           <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">

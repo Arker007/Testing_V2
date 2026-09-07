@@ -14,7 +14,7 @@ export default function SpecsTab({
   return (
     <div>
       <div className={styles.formSectionTitle} style={{ marginTop: 0 }}>
-        <Icon icon="solar:settings-linear" className="w-4 h-4 mr-1 inline" /> Category Specification Matrix
+        <Icon icon="carbon:settings" className="w-4 h-4 mr-1 inline" /> Category Specification Matrix
       </div>
       {filteredCatFields.length > 0 ? (
         <div
@@ -62,14 +62,14 @@ export default function SpecsTab({
             marginBottom: "32px",
           }}
         >
-          <Icon icon="solar:info-circle-linear" className="w-4 h-4 mr-1 inline" /> Select a category tree
-          directory on the Core Details tab to unlock product specification
+          <Icon icon="carbon:information" className="w-4 h-4 mr-1 inline" /> Select a category tree
+          directory on the Core Details tab to enable product specification
           attributes.
         </div>
       )}
 
       <div className={styles.formSectionTitle}>
-        <Icon icon="solar:checklist-minimalistic-linear" className="w-4 h-4 mr-1 inline" /> Core Bullet Features
+        <Icon icon="carbon:list-checked" className="w-4 h-4 mr-1 inline" /> Core Bullet Features
       </div>
       <p
         style={{
@@ -117,7 +117,7 @@ export default function SpecsTab({
               }}
               title="Drag to reorder"
             >
-              <Icon icon="solar:hamburger-menu-linear" className="w-4 h-4" />
+              <Icon icon="carbon:menu" className="w-4 h-4" />
             </div>
             <input
               className={styles.formInput}
@@ -142,7 +142,7 @@ export default function SpecsTab({
                 }))
               }
             >
-              <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />
+              <Icon icon="carbon:trash-can" className="w-4 h-4" />
             </button>
           </div>
         ))}
@@ -157,7 +157,7 @@ export default function SpecsTab({
             }))
           }
         >
-          <Icon icon="solar:add-circle-linear" className="w-4 h-4 mr-1 inline" /> Add Highlight Feature
+          <Icon icon="carbon:add-alt" className="w-4 h-4 mr-1 inline" /> Add Highlight Feature
         </button>
       </div>
     </div>

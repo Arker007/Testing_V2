@@ -51,7 +51,7 @@ export default function AdminCommandPalette({
             gap: "12px",
           }}
         >
-          <Icon icon="solar:magnifer-linear" className="w-5 h-5 text-slate-400" />
+          <Icon icon="carbon:search" className="w-5 h-5 text-slate-400" />
           <input
             type="text"
             placeholder="Type a command or page name..."
@@ -110,7 +110,7 @@ export default function AdminCommandPalette({
             </div>
           ) : (
             filteredNavs.map((n) => {
-              const iconName = typeof n.icon === "string" ? n.icon : "solar:box-minimalistic-linear";
+              const iconName = typeof n.icon === "string" ? n.icon : "carbon:cube";
               return (
                 <button
                   key={n.path}
@@ -152,7 +152,7 @@ export default function AdminCommandPalette({
                       {n.label}
                     </span>
                   </div>
-                  <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 text-slate-400" />
+                  <Icon icon="carbon:chevron-right" className="w-4 h-4 text-slate-400" />
                 </button>
               );
             })

@@ -31,7 +31,7 @@ export default function AdminCatalog() {
           className={splitView ? styles.toolbarBtnActive : styles.toolbarBtn}
           onClick={() => setSplitView((prev) => !prev)}
         >
-          <Icon icon={splitView ? "solar:eye-closed-linear" : "solar:eye-linear"} className="w-4 h-4 inline mr-1" />
+          <Icon icon={splitView ? "carbon:view-off" : "carbon:view"} className="w-4 h-4 inline mr-1" />
           {splitView ? "Hide Template" : "Show Template Spread"}
         </button>
         <button
@@ -39,7 +39,7 @@ export default function AdminCatalog() {
           className={styles.toolbarBtnPrimary}
           onClick={() => window.print()}
         >
-          <Icon icon="solar:printer-linear" className="w-4 h-4 inline mr-1" />
+          <Icon icon="carbon:printer" className="w-4 h-4 inline mr-1" />
           Print / Save PDF
         </button>
       </div>
@@ -58,7 +58,7 @@ export default function AdminCatalog() {
         }}
       >
         <Icon
-          icon="solar:restart-linear"
+          icon="carbon:renew"
           className="w-10 h-10 animate-spin text-[var(--brand)]"
         />
       </div>
@@ -94,7 +94,7 @@ export default function AdminCatalog() {
               disabled={activeSpreadIdx === 0}
               onClick={() => setActiveSpreadIdx((idx) => Math.max(0, idx - 1))}
             >
-              <Icon icon="solar:alt-arrow-left-linear" className="w-4 h-4 inline mr-1" /> Prev
+              <Icon icon="carbon:chevron-left" className="w-4 h-4 inline mr-1" /> Prev
             </button>
 
             <span className={styles.pageIndicator}>
@@ -111,7 +111,7 @@ export default function AdminCatalog() {
                 )
               }
             >
-              Next <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 inline ml-1" />
+              Next <Icon icon="carbon:chevron-right" className="w-4 h-4 inline ml-1" />
             </button>
           </div>
 

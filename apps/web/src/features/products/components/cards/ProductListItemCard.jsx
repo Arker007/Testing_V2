@@ -68,7 +68,7 @@ export default function ProductListItemCard({
         <motion.div whileTap={{ scale: 0.97 }}>
           <Link to={`/products/${product.id}`} className={styles.detailsBtn}>
             <span>View Details</span>
-            <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4" />
+            <Icon icon="carbon:chevron-right" className="w-4 h-4" />
           </Link>
         </motion.div>
         <motion.button
@@ -80,7 +80,7 @@ export default function ProductListItemCard({
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.92 }}
         >
-          <Icon icon="solar:eye-linear" className="w-4 h-4" />
+          <Icon icon="carbon:view" className="w-4 h-4" />
         </motion.button>
       </div>
     </motion.article>

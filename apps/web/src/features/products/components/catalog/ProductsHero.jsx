@@ -15,7 +15,7 @@ export default function ProductsHero({ activeCategory }) {
     <PageHero
       breadcrumbs={breadcrumbs}
       tag={c("products_hero_tag", "Industrial Polymer Products")}
-      tagIcon="solar:box-minimalistic-linear"
+      tagIcon="carbon:cube"
       title="Recycled Plastic Pallet & Lumber Catalog"
       description={c(
         "products_hero_subtitle",

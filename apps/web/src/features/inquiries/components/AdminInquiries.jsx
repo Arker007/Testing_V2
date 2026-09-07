@@ -85,7 +85,7 @@ export default function AdminInquiries() {
                                 {sourceFilter === 'contact_form' && 'Contact Form'}
                                 {sourceFilter === 'product_inquiry' && 'Product Inquiries'}
                             </span>
-                            <Icon icon="solar:alt-arrow-down-linear" className={`${dropdownOpen ? styles.chevronOpen : ''} w-4 h-4`} />
+                            <Icon icon="carbon:chevron-down" className={`${dropdownOpen ? styles.chevronOpen : ''} w-4 h-4`} />
                         </button>
                         {dropdownOpen && (
                             <div className={styles.customSelectOptions}>
@@ -122,7 +122,7 @@ export default function AdminInquiries() {
                 {loading ? [1, 2, 3, 4].map(i => <div key={i} className={styles.skeleRow} />) :
                     filteredInquiries.length === 0 ? (
                         <EmptyState
-                            icon="solar:inbox-linear"
+                            icon="carbon:email-new"
                             title="No matching inquiries found"
                             description="Try adjusting your search terms or filter selection."
                             size="sm"
@@ -143,8 +143,8 @@ export default function AdminInquiries() {
                                     {inq.message || 'No text snippet provided.'}
                                 </div>
                                 <div className={iStyles.metaLine}>
-                                    {inq.phone && <span><Icon icon="solar:phone-calling-linear" className="w-3.5 h-3.5 inline mr-1" /> {inq.phone}</span>}
-                                    {inq.company && <span><Icon icon="solar:buildings-3-linear" className="w-3.5 h-3.5 inline mr-1" /> {inq.company}</span>}
+                                    {inq.phone && <span><Icon icon="carbon:phone" className="w-3.5 h-3.5 inline mr-1" /> {inq.phone}</span>}
+                                    {inq.company && <span><Icon icon="carbon:industry" className="w-3.5 h-3.5 inline mr-1" /> {inq.company}</span>}
                                 </div>
                             </div>
                             <div className={iStyles.contactCell}>
@@ -165,10 +165,10 @@ export default function AdminInquiries() {
                             </div>
                             <div className={styles.rowActions} style={{ justifyContent: 'center' }}>
                                 <Link className={styles.editBtn} to={`/admin/inquiries/${inq.source}/${inq.id}`} title="View Inquiry">
-                                    <Icon icon="solar:eye-linear" className="w-4 h-4" />
+                                    <Icon icon="carbon:view" className="w-4 h-4" />
                                 </Link>
                                 <button className={styles.delBtn} onClick={() => setItemToDelete({ id: inq.id, source: inq.source })} disabled={deleting === inq.id}>
-                                    {deleting === inq.id ? <Spinner size="sm" /> : <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />}
+                                    {deleting === inq.id ? <Spinner size="sm" /> : <Icon icon="carbon:trash-can" className="w-4 h-4" />}
                                 </button>
                             </div>
                         </div>
@@ -191,7 +191,7 @@ export default function AdminInquiries() {
                 <div className={styles.drawerHeader}>
                     <h2 className={styles.drawerTitle}>Inquiry Details</h2>
                     <button className={styles.drawerCloseBtn} onClick={() => setActiveItem(null)}>
-                        <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
+                        <Icon icon="carbon:close-outline" className="w-5 h-5" />
                     </button>
                 </div>
                 {activeItem && (

@@ -243,7 +243,7 @@ export default function ProductFilterSidebar({
           {/* Top Title: "Filter" in bold green */}
           <div className={styles.sidebarHeader}>
             <h2 className={styles.filterMainHeading}>
-              <Icon icon="solar:filter-linear" className={styles.filterHeadingIcon} />
+              <Icon icon="carbon:filter" className={styles.filterHeadingIcon} />
               <span>Filter</span>
             </h2>
 
@@ -258,7 +258,7 @@ export default function ProductFilterSidebar({
                 whileTap={{ scale: 0.92 }}
               >
                 <Icon
-                  icon={areAllCollapsed ? "solar:add-linear" : "solar:minus-linear"}
+                  icon={areAllCollapsed ? "carbon:add" : "carbon:subtract"}
                   className={styles.collapseActionIcon}
                 />
                 <span className={styles.collapseBtnText}>
@@ -274,7 +274,7 @@ export default function ProductFilterSidebar({
                 aria-label="Close filters"
                 whileTap={{ scale: 0.9 }}
               >
-                <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
+                <Icon icon="carbon:close" className="w-5 h-5" />
               </motion.button>
             </div>
           </div>
@@ -290,7 +290,7 @@ export default function ProductFilterSidebar({
               >
                 <span className={styles.accordionTitle}>Category</span>
                 <Icon
-                  icon="solar:alt-arrow-down-linear"
+                  icon="carbon:chevron-down"
                   className={`${styles.accordionChevron} ${
                     sectionsOpen.category
                       ? styles.accordionChevronOpen
@@ -332,7 +332,7 @@ export default function ProductFilterSidebar({
                             }`}
                           >
                             {isChecked && (
-                              <Icon icon="solar:check-read-linear" className="w-3 h-3 text-white" />
+                              <Icon icon="carbon:checkmark" className="w-3 h-3 text-white" />
                             )}
                           </span>
                           <span className={styles.checkboxLabelText}>
@@ -359,7 +359,7 @@ export default function ProductFilterSidebar({
               >
                 <span className={styles.accordionTitle}>Attributes</span>
                 <Icon
-                  icon="solar:alt-arrow-down-linear"
+                  icon="carbon:chevron-down"
                   className={`${styles.accordionChevron} ${
                     sectionsOpen.attributes
                       ? styles.accordionChevronOpen
@@ -393,7 +393,7 @@ export default function ProductFilterSidebar({
                             }`}
                           >
                             {isChecked && (
-                              <Icon icon="solar:check-read-linear" className="w-3 h-3 text-white" />
+                              <Icon icon="carbon:checkmark" className="w-3 h-3 text-white" />
                             )}
                           </span>
                           <span className={styles.checkboxLabelText}>{attr}</span>
@@ -415,7 +415,7 @@ export default function ProductFilterSidebar({
               >
                 <span className={styles.accordionTitle}>Dimensions</span>
                 <Icon
-                  icon="solar:alt-arrow-down-linear"
+                  icon="carbon:chevron-down"
                   className={`${styles.accordionChevron} ${
                     sectionsOpen.dimensions
                       ? styles.accordionChevronOpen
@@ -449,7 +449,7 @@ export default function ProductFilterSidebar({
                             }`}
                           >
                             {isChecked && (
-                              <Icon icon="solar:check-read-linear" className="w-3 h-3 text-white" />
+                              <Icon icon="carbon:checkmark" className="w-3 h-3 text-white" />
                             )}
                           </span>
                           <span className={styles.checkboxLabelText}>{dim}</span>
@@ -471,7 +471,7 @@ export default function ProductFilterSidebar({
               >
                 <span className={styles.accordionTitle}>Max Dynamic Load</span>
                 <Icon
-                  icon="solar:alt-arrow-down-linear"
+                  icon="carbon:chevron-down"
                   className={`${styles.accordionChevron} ${
                     sectionsOpen.dynamicLoad
                       ? styles.accordionChevronOpen
@@ -515,7 +515,7 @@ export default function ProductFilterSidebar({
               >
                 <span className={styles.accordionTitle}>Max Static Load</span>
                 <Icon
-                  icon="solar:alt-arrow-down-linear"
+                  icon="carbon:chevron-down"
                   className={`${styles.accordionChevron} ${
                     sectionsOpen.staticLoad
                       ? styles.accordionChevronOpen
@@ -559,7 +559,7 @@ export default function ProductFilterSidebar({
               >
                 <span className={styles.accordionTitle}>Max Rack Load</span>
                 <Icon
-                  icon="solar:alt-arrow-down-linear"
+                  icon="carbon:chevron-down"
                   className={`${styles.accordionChevron} ${
                     sectionsOpen.rackLoad
                       ? styles.accordionChevronOpen
@@ -603,7 +603,7 @@ export default function ProductFilterSidebar({
               >
                 <span className={styles.accordionTitle}>Custom</span>
                 <Icon
-                  icon="solar:alt-arrow-down-linear"
+                  icon="carbon:chevron-down"
                   className={`${styles.accordionChevron} ${
                     sectionsOpen.custom
                       ? styles.accordionChevronOpen
@@ -634,7 +634,7 @@ export default function ProductFilterSidebar({
                         }`}
                       >
                         {isCustom && (
-                          <Icon icon="solar:check-read-linear" className="w-3 h-3 text-white" />
+                          <Icon icon="carbon:checkmark" className="w-3 h-3 text-white" />
                         )}
                       </span>
                       <span className={styles.checkboxLabelText}>Custom</span>
@@ -654,7 +654,7 @@ export default function ProductFilterSidebar({
                 onClick={resetFilters}
                 whileTap={{ scale: 0.95 }}
               >
-                <Icon icon="solar:restart-linear" className="w-3.5 h-3.5" />
+                <Icon icon="carbon:renew" className="w-3.5 h-3.5" />
                 <span>Reset</span>
               </motion.button>
             )}

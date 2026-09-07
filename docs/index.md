@@ -20,6 +20,7 @@ Use this index to fetch ONLY the specific file and line range needed for a task.
 ## 🎨 Design & UI Standards
 - **First Principles of UI/UX Design**: `docs/design/first-principles-ui-ux.md` (lines 1–55)
 - **Comprehensive Design System**: `docs/design/design.md` (lines 1–60)
+- **Application Icon Inventory**: `docs/design/icons-inventory.md` (lines 1–130)
 - **Design Tokens & Theme Variables**: `docs/standards/ui-tokens.md` (lines 1–10)
 - **Icon Standard (`@iconify/react`)**: `docs/standards/ui-tokens.md` (lines 12–16)
 - **API Response & Error Schemas**: `docs/standards/api-response.md` (lines 1–12)

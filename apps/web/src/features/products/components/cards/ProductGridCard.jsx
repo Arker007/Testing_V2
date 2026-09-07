@@ -118,7 +118,7 @@ export default function ProductGridCard({
             >
               <span>Technical Data Sheet</span>
               <span className={styles.datasheetIconBox}>
-                <Icon icon="solar:arrow-down-linear" className="w-3 h-3" />
+                <Icon icon="carbon:arrow-down" className="w-3 h-3" />
               </span>
             </button>
           </div>

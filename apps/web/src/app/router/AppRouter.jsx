@@ -70,7 +70,7 @@ const PageFallback = () => (
       {/* Inner pulsing container with custom eco / circular-plastic loop icon */}
       <div className="absolute flex items-center justify-center bg-emerald-50/50 dark:bg-[rgba(107,191,84,0.08)] w-14 h-14 rounded-full shadow-xs animate-pulse">
         <Icon
-          icon="solar:refresh-circle-bold-duotone"
+          icon="carbon:renew"
           className="w-8 h-8 text-emerald-600 dark:text-[#6BBF54]"
         />
       </div>

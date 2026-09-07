@@ -38,7 +38,7 @@ export default function Spinner({
 
   const spinnerIcon = (
     <Icon
-      icon="solar:restart-linear"
+      icon="carbon:renew"
       className={`animate-spin shrink-0 ${selectedSize} ${selectedVariant} ${className}`.trim()}
       {...props}
     />

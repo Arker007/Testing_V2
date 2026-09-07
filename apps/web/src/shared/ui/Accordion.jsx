@@ -71,7 +71,7 @@ export function AccordionItem({
             aria-hidden="true"
           >
             <Icon
-              icon="solar:alt-arrow-down-linear"
+              icon="carbon:chevron-down"
               className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : "rotate-0"}`}
             />
           </span>

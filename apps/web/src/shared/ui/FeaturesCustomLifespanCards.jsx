@@ -34,7 +34,7 @@ export default function FeaturesCustomLifespanCards({ cardVariant }) {
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 rounded-[var(--radius-btn,8px)] border border-[var(--brand)]/30 bg-[var(--brand)]/15 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.08] shrink-0">
-              <Icon icon="solar:buildings-3-linear" className="w-6 h-6 text-[var(--brand)]" />
+              <Icon icon="carbon:industry" className="w-6 h-6 text-[var(--brand)]" />
             </div>
             <h3 className="text-xl md:text-2xl font-extrabold text-white tracking-tight">
               {c("why_us_f5_title", "Custom Manufacturing")}
@@ -69,7 +69,7 @@ export default function FeaturesCustomLifespanCards({ cardVariant }) {
         <div className="relative z-10 flex-1 flex flex-col justify-center">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-12 rounded-[var(--radius-btn,8px)] border border-[var(--brand)]/30 bg-[var(--brand)]/15 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.08] shrink-0">
-              <Icon icon="solar:shield-check-linear" className="w-6 h-6 text-[var(--brand)]" />
+              <Icon icon="carbon:security" className="w-6 h-6 text-[var(--brand)]" />
             </div>
             <h3 className="text-xl md:text-2xl font-extrabold text-white tracking-tight">
               {c("why_us_f6_title", "50+ Year Lifespan")}

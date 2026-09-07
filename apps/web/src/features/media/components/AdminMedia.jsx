@@ -77,7 +77,7 @@ export default function AdminMedia() {
                 </p>
                 <label className={`${styles.actionBtnPrimary} ${uploading ? 'disabled' : ''}`} style={{ cursor: 'pointer' }}>
                     <input type="file" accept="image/*" multiple onChange={handleUpload} style={{ display: 'none' }} />
-                    {uploading ? <><Icon icon="solar:spinner-linear" className="w-4 h-4 animate-spin" /> Uploading...</> : <><Icon icon="solar:upload-track-2-linear" className="w-4 h-4 mr-1 inline" /> Upload Assets</>}
+                    {uploading ? <><Icon icon="carbon:circle-dash" className="w-4 h-4 animate-spin" /> Uploading...</> : <><Icon icon="carbon:upload" className="w-4 h-4 mr-1 inline" /> Upload Assets</>}
                 </label>
             </div>
 
@@ -88,11 +88,11 @@ export default function AdminMedia() {
                         Directories
                     </div>
                     {[
-                        { id: 'all', label: 'All Uploads', icon: 'solar:folder-with-files-linear' },
-                        { id: 'pallets', label: 'pallets/', icon: 'solar:folder-linear' },
-                        { id: 'lumber', label: 'lumber/', icon: 'solar:folder-linear' },
-                        { id: 'garden-bench', label: 'garden-bench/', icon: 'solar:folder-linear' },
-                        { id: 'general', label: 'general/', icon: 'solar:folder-linear' },
+                        { id: 'all', label: 'All Uploads', icon: 'carbon:folder-details' },
+                        { id: 'pallets', label: 'pallets/', icon: 'carbon:folder' },
+                        { id: 'lumber', label: 'lumber/', icon: 'carbon:folder' },
+                        { id: 'garden-bench', label: 'garden-bench/', icon: 'carbon:folder' },
+                        { id: 'general', label: 'general/', icon: 'carbon:folder' },
                     ].map(f => {
                         const count = media.filter(m => f.id === 'all' || getFileCategory(m.url) === f.id).length;
                         return (
@@ -122,13 +122,13 @@ export default function AdminMedia() {
                     ) : filteredMedia.length === 0 ? (
                         <div className={styles.card} style={{ width: '100%' }}>
                             <EmptyState
-                                icon="solar:gallery-linear"
+                                icon="carbon:image"
                                 title="No media files found"
                                 description="No media files found in this directory folder."
                                 action={
                                     <label className={styles.actionBtnPrimary} style={{ cursor: 'pointer' }}>
                                         <input type="file" accept="image/*" multiple onChange={handleUpload} style={{ display: 'none' }} />
-                                        <Icon icon="solar:upload-track-2-linear" className="w-4 h-4 mr-1 inline" /> Upload Files
+                                        <Icon icon="carbon:upload" className="w-4 h-4 mr-1 inline" /> Upload Files
                                     </label>
                                 }
                             />
@@ -139,13 +139,13 @@ export default function AdminMedia() {
                                 <div key={m.id} className={mStyles.card}>
                                     <div className={mStyles.imgWrap}>
                                         <img src={m.url} alt={m.filename} onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }} />
-                                        <div className={mStyles.fallback} style={{ display: 'none' }}><Icon icon="solar:gallery-linear" className="w-8 h-8 text-slate-400" /></div>
+                                        <div className={mStyles.fallback} style={{ display: 'none' }}><Icon icon="carbon:image" className="w-8 h-8 text-slate-400" /></div>
                                     </div>
                                     <div className={mStyles.info}>
                                         <div className={mStyles.filename} title={m.filename}>{m.filename}</div>
                                         <div className={mStyles.url} title={m.url}>{m.url}</div>
                                         <button className={mStyles.copyBtn} onClick={() => copyUrl(m.url)}>
-                                            <Icon icon={copied === m.url ? "solar:check-read-linear" : "solar:copy-linear"} className="w-3.5 h-3.5 mr-1 inline" />
+                                            <Icon icon={copied === m.url ? "carbon:checkmark" : "carbon:copy"} className="w-3.5 h-3.5 mr-1 inline" />
                                             {copied === m.url ? 'Copied!' : 'Copy URL'}
                                         </button>
                                     </div>

@@ -98,7 +98,7 @@ export default function InquiryModal({ product, onClose }) {
       return;
     }
     if (!formData.phone.trim() && !formData.email.trim()) {
-      setContactError("Please provide either a Phone/WhatsApp number or Work Email so we can deliver your quotation.");
+      setContactError("Please provide either a Phone/WhatsApp number or Work Email so we can provide your quote.");
       return;
     }
 
@@ -144,7 +144,7 @@ export default function InquiryModal({ product, onClose }) {
           <div className={styles.headerInfo}>
             <div className={styles.tagRow}>
               <span className={styles.rfqBadge}>
-                <Icon icon="solar:shield-check-bold" className="w-3.5 h-3.5" />
+                <Icon icon="carbon:badge" className="w-3.5 h-3.5" />
                 Direct Factory RFQ
               </span>
               {sku && (
@@ -154,7 +154,7 @@ export default function InquiryModal({ product, onClose }) {
               )}
             </div>
             <h2 id="inquiry-modal-title" className={styles.modalTitle}>
-              {productName ? `Quote Request: ${productName}` : "Direct Factory Quotation"}
+              {productName ? `Quote Request: ${productName}` : "Direct Factory Quote"}
             </h2>
             <p className={styles.modalSubtitle}>
               Official pricing, technical drawings & dispatch schedule from Ankleshwar Plant
@@ -168,7 +168,7 @@ export default function InquiryModal({ product, onClose }) {
             aria-label="Close dialog"
             title="Close (Esc)"
           >
-            <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
+            <Icon icon="carbon:close" className="w-5 h-5" />
           </button>
         </div>
 
@@ -186,7 +186,7 @@ export default function InquiryModal({ product, onClose }) {
                 </span>
               </div>
               <div className={styles.snapshotResponse}>
-                <Icon icon="solar:clock-circle-linear" className="w-3.5 h-3.5" />
+                <Icon icon="carbon:time" className="w-3.5 h-3.5" />
                 <span>Response ~2h</span>
               </div>
             </div>
@@ -195,7 +195,7 @@ export default function InquiryModal({ product, onClose }) {
           {success ? (
             <div className={styles.successState}>
               <div className={styles.successIconCircle}>
-                <Icon icon="solar:check-circle-bold" className="w-10 h-10" />
+                <Icon icon="carbon:checkmark-filled" className="w-10 h-10" />
               </div>
               
               <h3 className={styles.successTitle}>Inquiry Submitted Successfully</h3>
@@ -214,7 +214,7 @@ export default function InquiryModal({ product, onClose }) {
                     aria-label="Copy reference code"
                   >
                     <Icon
-                      icon={copiedRef ? "solar:check-read-linear" : "solar:copy-linear"}
+                      icon={copiedRef ? "carbon:checkmark" : "carbon:copy"}
                       className="w-4 h-4"
                     />
                   </button>
@@ -233,7 +233,7 @@ export default function InquiryModal({ product, onClose }) {
                   onClick={resetState}
                   className="btn btn-secondary flex-1 min-h-[44px] justify-center"
                 >
-                  <Icon icon="solar:restart-linear" className="w-4 h-4" />
+                  <Icon icon="carbon:renew" className="w-4 h-4" />
                   <span>New Inquiry</span>
                 </button>
                 <button
@@ -253,7 +253,7 @@ export default function InquiryModal({ product, onClose }) {
                   <span>Full Name<span className={styles.requiredMarker}>*</span></span>
                 </label>
                 <div className={styles.inputWrapper}>
-                  <Icon icon="solar:user-linear" className={styles.inputIcon} />
+                  <Icon icon="carbon:user" className={styles.inputIcon} />
                   <input
                     ref={firstInputRef}
                     id="inquiry-name"
@@ -274,7 +274,7 @@ export default function InquiryModal({ product, onClose }) {
                     <span>Phone / WhatsApp<span className={styles.requiredMarker}>*</span></span>
                   </label>
                   <div className={styles.inputWrapper}>
-                    <Icon icon="solar:phone-calling-linear" className={styles.inputIcon} />
+                    <Icon icon="carbon:phone" className={styles.inputIcon} />
                     <input
                       id="inquiry-phone"
                       name="phone"
@@ -292,7 +292,7 @@ export default function InquiryModal({ product, onClose }) {
                     <span>Work Email</span>
                   </label>
                   <div className={styles.inputWrapper}>
-                    <Icon icon="solar:letter-linear" className={styles.inputIcon} />
+                    <Icon icon="carbon:email" className={styles.inputIcon} />
                     <input
                       id="inquiry-email"
                       name="email"
@@ -313,7 +313,7 @@ export default function InquiryModal({ product, onClose }) {
                     <span>Company Name <span className="text-[11px] font-normal text-[var(--text-muted)]">(Optional)</span></span>
                   </label>
                   <div className={styles.inputWrapper}>
-                    <Icon icon="solar:buildings-2-linear" className={styles.inputIcon} />
+                    <Icon icon="carbon:enterprise" className={styles.inputIcon} />
                     <input
                       id="inquiry-company"
                       name="company"
@@ -330,7 +330,7 @@ export default function InquiryModal({ product, onClose }) {
                     <span>Order Volume</span>
                   </label>
                   <div className={styles.inputWrapper}>
-                    <Icon icon="solar:box-linear" className={styles.inputIcon} />
+                    <Icon icon="carbon:package" className={styles.inputIcon} />
                     <input
                       id="inquiry-quantity"
                       name="quantity"
@@ -383,7 +383,7 @@ export default function InquiryModal({ product, onClose }) {
               {/* Validation & Server Error Messages */}
               {(contactError || error) && (
                 <div className={styles.errorBanner} role="alert">
-                  <Icon icon="solar:danger-triangle-linear" className="w-4 h-4 shrink-0" />
+                  <Icon icon="carbon:warning-alt" className="w-4 h-4 shrink-0" />
                   <span>{contactError || error}</span>
                 </div>
               )}
@@ -401,7 +401,7 @@ export default function InquiryModal({ product, onClose }) {
               className={styles.whatsAppBtn}
               title="Chat with factory sales on WhatsApp"
             >
-              <Icon icon="solar:chat-round-dots-bold" className="w-4 h-4 text-[#25D366]" />
+              <Icon icon="carbon:chat" className="w-4 h-4 text-[#25D366]" />
               <span>WhatsApp Quick RFQ</span>
             </a>
 
@@ -413,13 +413,13 @@ export default function InquiryModal({ product, onClose }) {
             >
               {submitting ? (
                 <>
-                  <Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin" />
+                  <Icon icon="carbon:renew" className="w-4 h-4 animate-spin" />
                   <span>Dispatching RFQ...</span>
                 </>
               ) : (
                 <>
                   <span>Submit Quote Request</span>
-                  <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
+                  <Icon icon="carbon:arrow-right" className="w-4 h-4" />
                 </>
               )}
             </button>

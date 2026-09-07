@@ -127,7 +127,7 @@ export default function NavbarSearch({
           className={styles.searchSubmitBtn}
           aria-label={isExpanded ? "Submit search" : "Open search bar"}
         >
-          <Icon icon="solar:magnifer-linear" className="w-5 h-5 shrink-0" width="20" height="20" />
+          <Icon icon="carbon:search" className="w-5 h-5 shrink-0" width="20" height="20" />
         </button>
 
         <input
@@ -161,7 +161,7 @@ export default function NavbarSearch({
             title="Close"
             aria-label="Close search"
           >
-            <Icon icon="ix:cancel" className="w-4 h-4" />
+            <Icon icon="carbon:close" className="w-4 h-4" />
           </button>
         )}
       </form>
@@ -253,7 +253,7 @@ export default function NavbarSearch({
                           </div>
                         </div>
                         <Icon
-                          icon="solar:alt-arrow-right-linear"
+                          icon="carbon:chevron-right"
                           className={styles.suggestionItemArrow}
                         />
                       </motion.button>
@@ -270,10 +270,10 @@ export default function NavbarSearch({
                   transition={{ delay: 0.2 }}
                 >
                   <div className={styles.suggestionAllLeft}>
-                    <Icon icon="solar:magnifer-linear" className={styles.suggestionAllIcon} />
+                    <Icon icon="carbon:search" className={styles.suggestionAllIcon} />
                     <span>View all results for <strong>&ldquo;{query.trim()}&rdquo;</strong></span>
                   </div>
-                  <Icon icon="solar:arrow-right-linear" className={styles.suggestionAllArrow} />
+                  <Icon icon="carbon:arrow-right" className={styles.suggestionAllArrow} />
                 </motion.button>
               </>
             ) : (
@@ -282,7 +282,7 @@ export default function NavbarSearch({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
-                <Icon icon="solar:minimalistic-magnifer-linear" className={styles.noSuggestionIcon} />
+                <Icon icon="carbon:search" className={styles.noSuggestionIcon} />
                 <p className={styles.noSuggestionText}>
                   No products found for <strong>&ldquo;{query.trim()}&rdquo;</strong>
                 </p>

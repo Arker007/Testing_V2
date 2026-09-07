@@ -20,7 +20,7 @@ export default function AboutHero() {
         { label: "About Us" },
       ]}
       tag={c("about_hero_tag", "Pioneering Recycled Polymer Extrusion")}
-      tagIcon="solar:history-linear"
+      tagIcon="carbon:time"
       title={rawTitle}
       titleAccent=""
       description={c(

@@ -25,7 +25,7 @@ export default function ManufacturingPage() {
           { label: "Manufacturing" },
         ]}
         tag={c("mfg_hero_tag", "High-Precision Polymer Processing")}
-        tagIcon="solar:settings-linear"
+        tagIcon="carbon:settings"
         title="High-Pressure Polymer Extrusion & Quality Control"
         description={c(
           "mfg_hero_sub",
@@ -44,7 +44,7 @@ export default function ManufacturingPage() {
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <div className="mb-4">
-              <Badge variant="eyebrow" size="lg" icon="solar:star-linear">
+              <Badge variant="eyebrow" size="lg" icon="carbon:star">
                 Quality Standards
               </Badge>
             </div>
@@ -57,7 +57,7 @@ export default function ManufacturingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             <div className="feature-card-item">
               <div className="feature-icon-wrapper">
-                <Icon icon="solar:cpu-linear" className="w-6 h-6" />
+                <Icon icon="carbon:chip" className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">Advanced Automation</h3>
               <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
@@ -67,7 +67,7 @@ export default function ManufacturingPage() {
 
             <div className="feature-card-item">
               <div className="feature-icon-wrapper">
-                <Icon icon="solar:shield-check-linear" className="w-6 h-6" />
+                <Icon icon="carbon:security" className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">ISO 9001 Quality Check</h3>
               <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
@@ -77,7 +77,7 @@ export default function ManufacturingPage() {
 
             <div className="feature-card-item">
               <div className="feature-icon-wrapper">
-                <Icon icon="solar:bolt-linear" className="w-6 h-6" />
+                <Icon icon="carbon:flash" className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">Zero Chemical Toxins</h3>
               <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
@@ -141,7 +141,7 @@ export default function ManufacturingPage() {
         <CtaCard
           badge="Government Certified Plant"
           badgeVariant="eyebrow"
-          badgeIcon="solar:verified-check-linear"
+          badgeIcon="carbon:certificate"
           title="Schedule a Facility Inspection or Request Batch Specs"
           subtitle="Connect with our Ankleshwar plant engineers for detailed polymer test certificates, custom extrusion capabilities, or factory audits."
         >

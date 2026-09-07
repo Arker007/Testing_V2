@@ -111,7 +111,7 @@
   --neutral-200: #E7EBE8;
   --neutral-300: var(--neutral-200);
   --neutral-400: var(--neutral-500);
-  --neutral-500: #667785;
+  --neutral-500: #44525D;
   --neutral-600: var(--neutral-700);
   --neutral-700: #385064;
   --neutral-800: #222A36;
@@ -146,27 +146,27 @@
   /* 1.4 Status & Feedback Color Primitives */
   --success-50:  #F2FBE8;
   --success-100: #E5F3E8;
-  --success-500: #2E6005;
-  --success-600: #2E6005;
-  --success-700: #2E6005;
+  --success-500: #1E4203;
+  --success-600: #1E4203;
+  --success-700: #1E4203;
 
   --warning-50:  #FFF7E6;
   --warning-100: #FFEAA7;
-  --warning-500: #925400;
-  --warning-600: #925400;
-  --warning-700: #925400;
+  --warning-500: #663A00;
+  --warning-600: #663A00;
+  --warning-700: #663A00;
 
   --danger-50:  #FFF0F0;
   --danger-100: #FFC9C9;
-  --danger-500: #A61E1E;
-  --danger-600: #A61E1E;
-  --danger-700: #A61E1E;
+  --danger-500: #7A1414;
+  --danger-600: #7A1414;
+  --danger-700: #7A1414;
 
   --info-50:  #EFF6FF;
   --info-100: #DBEAFE;
-  --info-500: #1D4ED8;
-  --info-600: #1D4ED8;
-  --info-700: #1D4ED8;
+  --info-500: #11328C;
+  --info-600: #11328C;
+  --info-700: #11328C;
 
   --white: #FFFFFF;
   --black: #000000;
@@ -194,7 +194,7 @@
 
   /* 1.6 Semantic Typography Colors (Step 5: Charcoal #1A1A1A / Dark Grey #4E4E4E WCAG AA) */
   --charcoal-900:           #1A1A1A; /* Dark charcoal/off-black for headers */
-  --charcoal-body:          #4E4E4E; /* Dark grey for body text (WCAG AA 4.5:1+) */
+  --charcoal-body:          #454545; /* Dark grey for body text (WCAG AA 4.5:1+) */
   --text-primary:           var(--charcoal-900);
   --text-secondary:         var(--charcoal-body);
   --text-muted:             var(--neutral-500);
@@ -204,7 +204,7 @@
   --text-inverse-muted:     rgba(255, 255, 255, 0.65);
   --text-on-dark:           #FFFFFF;
   --text-on-dark-secondary: #D8DEDA;
-  --text-brand:             #1E622A;
+  --text-brand:             #14471D;
 
   /* 1.7 Semantic Brand Tokens */
   --brand-primary:        var(--brand-500);

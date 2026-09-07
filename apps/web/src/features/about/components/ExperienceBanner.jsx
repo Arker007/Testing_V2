@@ -19,7 +19,7 @@ export default function ExperienceBanner() {
 
         <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div className="flex items-center gap-6">
-            <IconBox icon="solar:medal-ribbons-star-linear" variant="brand" size="xl" />
+            <IconBox icon="carbon:badge" variant="brand" size="xl" />
             <div>
               <h3 className="text-xl sm:text-2xl font-black tracking-tight text-slate-950 dark:text-white">
                 {c("experience_banner_title", "Over 15 Years of Industrial Excellence")}

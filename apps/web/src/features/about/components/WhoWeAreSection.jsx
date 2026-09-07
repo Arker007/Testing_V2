@@ -17,7 +17,7 @@ export default function WhoWeAreSection() {
         {/* Left Column: Heading & Paragraph */}
         <div className="lg:col-span-5 space-y-6">
           <div>
-            <Badge variant="eyebrow" size="lg" icon="solar:buildings-3-linear">
+            <Badge variant="eyebrow" size="lg" icon="carbon:industry">
               Who We Are
             </Badge>
           </div>
@@ -34,7 +34,7 @@ export default function WhoWeAreSection() {
           <p className="text-[var(--text-secondary)] text-base leading-relaxed font-normal">
             {c(
               "about_who_text_2",
-              "By merging rigorous quality control with environmentally responsible processing techniques, we empower logistics, agriculture, chemical, and manufacturing sectors to cut operational overhead while significantly lowering their carbon footprint."
+              "By merging rigorous quality control with environmentally responsible processing techniques, we support logistics, agriculture, chemical, and manufacturing sectors to cut operational overhead while significantly lowering their carbon footprint."
             )}
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function WhoWeAreSection() {
             className="group flex items-start gap-5 p-6 bg-white dark:bg-surface rounded-card border border-slate-200/90 dark:border-subtle hover:border-[var(--brand-primary)]/50 dark:hover:border-[var(--brand-primary)]/40 shadow-xs dark:shadow-xl hover:shadow-card-hover transition-all duration-300"
           >
             <div className="w-12 h-12 rounded-btn bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20 flex items-center justify-center text-[var(--brand-primary)] transition-transform duration-300 group-hover:scale-110 shrink-0">
-              <Icon icon="solar:target-linear" className="w-6 h-6" />
+              <Icon icon="carbon:target" className="w-6 h-6" />
             </div>
             <div>
               <h3 className="text-lg font-black text-[var(--text-primary)]">{c("about_mission_title", "Our Mission")}</h3>
@@ -69,7 +69,7 @@ export default function WhoWeAreSection() {
             className="group flex items-start gap-5 p-6 bg-white dark:bg-surface rounded-card border border-slate-200/90 dark:border-subtle hover:border-[var(--brand-primary)]/50 dark:hover:border-[var(--brand-primary)]/40 shadow-xs dark:shadow-xl hover:shadow-card-hover transition-all duration-300"
           >
             <div className="w-12 h-12 rounded-btn bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20 flex items-center justify-center text-[var(--brand-primary)] transition-transform duration-300 group-hover:scale-110 shrink-0">
-              <Icon icon="solar:eye-linear" className="w-6 h-6" />
+              <Icon icon="carbon:view" className="w-6 h-6" />
             </div>
             <div>
               <h3 className="text-lg font-black text-[var(--text-primary)]">{c("about_vision_title", "Our Vision")}</h3>
@@ -85,7 +85,7 @@ export default function WhoWeAreSection() {
             className="group flex items-start gap-5 p-6 bg-white dark:bg-surface rounded-card border border-slate-200/90 dark:border-subtle hover:border-[var(--brand-primary)]/50 dark:hover:border-[var(--brand-primary)]/40 shadow-xs dark:shadow-xl hover:shadow-card-hover transition-all duration-300"
           >
             <div className="w-12 h-12 rounded-btn bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20 flex items-center justify-center text-[var(--brand-primary)] transition-transform duration-300 group-hover:scale-110 shrink-0">
-              <Icon icon="solar:medal-ribbons-star-linear" className="w-6 h-6" />
+              <Icon icon="carbon:badge" className="w-6 h-6" />
             </div>
             <div>
               <h3 className="text-lg font-black text-[var(--text-primary)]">{c("about_commitment_title", "Our Commitment")}</h3>

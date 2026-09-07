@@ -44,7 +44,7 @@ export default function SiteContentSidebar({
       <div className={cStyles.treeTitle}>
         <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
           <Icon
-            icon="solar:layers-minimalistic-linear"
+            icon="carbon:layers"
             className="w-4 h-4 text-emerald-600"
           />
           Sections
@@ -57,7 +57,7 @@ export default function SiteContentSidebar({
       {/* Quick Search */}
       <div className={cStyles.sectionSearchBox}>
         <Icon
-          icon="solar:magnifer-linear"
+          icon="carbon:search"
           className={cStyles.sectionSearchIcon}
         />
         <input
@@ -74,7 +74,7 @@ export default function SiteContentSidebar({
             onClick={() => setSelectSearchQuery("")}
             title="Clear filter"
           >
-            <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+            <Icon icon="carbon:close-outline" className="w-4 h-4" />
           </button>
         )}
       </div>
@@ -97,7 +97,7 @@ export default function SiteContentSidebar({
             }}
           >
             <Icon
-              icon="solar:info-circle-linear"
+              icon="carbon:information"
               className="w-5 h-5 mx-auto mb-1 text-slate-400 block"
             />
             No sections match your filter
@@ -139,7 +139,7 @@ export default function SiteContentSidebar({
                       }}
                     >
                       <Icon
-                        icon={sec.icon || "solar:document-text-linear"}
+                        icon={sec.icon || "carbon:document"}
                         className={`w-4 h-4 flex-shrink-0 ${
                           isSelected ? "text-emerald-700" : "text-emerald-600"
                         }`}

@@ -41,7 +41,7 @@ export default function AdminTopBar({
     <header className={`${styles.topbar} ${!sidebarOpen ? styles.topbarCollapsed : ""}`}>
       <div className={styles.topLeft}>
         <button className={styles.toggleBtn} onClick={() => setSidebarOpen(!sidebarOpen)}>
-          {sidebarOpen ? <Icon icon="solar:close-circle-linear" className="w-5 h-5" /> : <Icon icon="solar:hamburger-menu-linear" className="w-5 h-5" />}
+          {sidebarOpen ? <Icon icon="carbon:close-outline" className="w-5 h-5" /> : <Icon icon="carbon:menu" className="w-5 h-5" />}
         </button>
         <div>
           <h1 className={styles.pageTitle}>{pageTitle}</h1>
@@ -72,7 +72,7 @@ export default function AdminTopBar({
           }}
         >
           <Icon
-            icon="solar:magnifer-linear"
+            icon="carbon:search"
             className="w-4 h-4"
             style={{
               position: "absolute",
@@ -108,9 +108,9 @@ export default function AdminTopBar({
             title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
             {theme === "dark" ? (
-              <Icon icon="solar:sun-2-linear" className="w-5 h-5" />
+              <Icon icon="carbon:sun" className="w-5 h-5" />
             ) : (
-              <Icon icon="solar:moon-linear" className="w-5 h-5" />
+              <Icon icon="carbon:moon" className="w-5 h-5" />
             )}
           </button>
         </div>
@@ -124,7 +124,7 @@ export default function AdminTopBar({
             }}
             style={{ position: "relative" }}
           >
-            <Icon icon="solar:bell-linear" className="w-5 h-5" />
+            <Icon icon="carbon:notification" className="w-5 h-5" />
             {unreadCount > 0 && (
               <span
                 style={{

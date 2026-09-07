@@ -22,7 +22,7 @@ export default function MobileBottomNav() {
           isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
         }
       >
-        <Icon icon="solar:home-2-linear" className="w-5 h-5 mb-0.5" />
+        <Icon icon="carbon:home" className="w-5 h-5 mb-0.5" />
         <span>Home</span>
       </NavLink>
 
@@ -32,7 +32,7 @@ export default function MobileBottomNav() {
           isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
         }
       >
-        <Icon icon="solar:box-minimalistic-linear" className="w-5 h-5 mb-0.5" />
+        <Icon icon="carbon:cube" className="w-5 h-5 mb-0.5" />
         <span>Catalog</span>
       </NavLink>
 
@@ -43,7 +43,7 @@ export default function MobileBottomNav() {
         aria-label="Toggle Menu"
       >
         <Icon
-          icon={mobileMenuOpen ? "solar:close-circle-linear" : "solar:hamburger-menu-linear"}
+          icon={mobileMenuOpen ? "carbon:close" : "carbon:menu"}
           className="w-5 h-5 mb-0.5"
         />
         <span>Menu</span>
@@ -56,7 +56,7 @@ export default function MobileBottomNav() {
         className={`${styles.navItem} ${styles.waItem}`}
         aria-label="Chat on WhatsApp"
       >
-        <Icon icon="solar:chat-round-dots-bold" className="w-5 h-5 mb-0.5 text-[#25D366]" />
+        <Icon icon="carbon:chat" className="w-5 h-5 mb-0.5 text-[#25D366]" />
         <span>WhatsApp</span>
       </a>
 
@@ -66,7 +66,7 @@ export default function MobileBottomNav() {
           isActive ? `${styles.navItem} ${styles.active} ${styles.quoteItem}` : `${styles.navItem} ${styles.quoteItem}`
         }
       >
-        <Icon icon="solar:document-text-linear" className="w-5 h-5 mb-0.5" />
+        <Icon icon="carbon:document" className="w-5 h-5 mb-0.5" />
         <span>Quote</span>
       </NavLink>
     </nav>

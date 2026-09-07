@@ -12,7 +12,7 @@ export default function SustainabilityPage() {
     c("meta_sustainability_title", `Sustainability & ESG | ${co("name", "VISHAL ENTERPRISE")}`),
     c(
       "meta_sustainability_desc",
-      "Learn about our zero-maintenance, carbon-negative recycled plastic solutions that actively save forests and divert plastic from oceans."
+      "Learn about our zero-maintenance, low-carbon recycled plastic solutions that actively save forests and divert plastic from oceans."
     )
   );
 
@@ -25,7 +25,7 @@ export default function SustainabilityPage() {
           { label: "Sustainability" },
         ]}
         tag={c("sus_hero_tag", "Environmental Impact & Circular Economy")}
-        tagIcon="solar:leaf-linear"
+        tagIcon="carbon:recycle"
         title="Diverting Plastic Waste into Enduring Infrastructure"
         description={c(
           "sus_hero_sub",
@@ -44,7 +44,7 @@ export default function SustainabilityPage() {
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <div className="mb-4">
-              <Badge variant="eyebrow" size="lg" icon="solar:leaf-linear">
+              <Badge variant="eyebrow" size="lg" icon="carbon:recycle">
                 Our Pillars
               </Badge>
             </div>
@@ -69,7 +69,7 @@ export default function SustainabilityPage() {
 
             <div className="feature-card-item">
               <div className="feature-icon-wrapper">
-                <Icon icon="solar:leaf-linear" className="w-6 h-6" />
+                <Icon icon="carbon:recycle" className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">Carbon Avoidance</h3>
               <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
@@ -79,7 +79,7 @@ export default function SustainabilityPage() {
 
             <div className="feature-card-item">
               <div className="feature-icon-wrapper">
-                <Icon icon="solar:global-linear" className="w-6 h-6" />
+                <Icon icon="carbon:globe" className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">100% Recyclable</h3>
               <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
@@ -143,9 +143,9 @@ export default function SustainabilityPage() {
         <CtaCard
           badge="ESG Partnership"
           badgeVariant="eyebrow"
-          badgeIcon="solar:handshake-linear"
+          badgeIcon="carbon:partnership"
           title="Partner on Circular Economy & Net-Zero Commitments"
-          subtitle="Help your enterprise transition from conventional single-use packaging to circular, carbon-negative closed-loop recycled pallets and containers."
+          subtitle="Help your enterprise transition from conventional single-use packaging to circular, sustainable closed-loop recycled pallets and containers."
         >
           <QuoteButton
             to="/contact?source=sustainability"

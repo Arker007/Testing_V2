@@ -24,7 +24,7 @@ export function InteractiveHoverButton({
       <span className="interactive-hover-button-dot" />
       <span className="interactive-hover-button-text">{labelText}</span>
       <span className="interactive-hover-button-arrow-wrap">
-        <Icon icon="solar:arrow-right-linear" className="interactive-hover-button-arrow w-4 h-4" />
+        <Icon icon="carbon:arrow-right" className="interactive-hover-button-arrow w-4 h-4" />
       </span>
     </button>
   );

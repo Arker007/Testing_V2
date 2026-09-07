@@ -73,7 +73,7 @@ export default function AdminLogin() {
                     <div className={styles.features}>
                         {['Recycled Pallet Inventory Matrices', 'B2B Inquiry Live Streams', 'Taxonomy Architecture Controls', 'High-Fidelity Diagnostics'].map(f => (
                             <div key={f} className={styles.feature}>
-                                <Icon icon="solar:verified-check-linear" className="text-emerald-500 w-4 h-4" />
+                                <Icon icon="carbon:certificate" className="text-emerald-500 w-4 h-4" />
                                 <span>{f}</span>
                             </div>
                         ))}
@@ -91,7 +91,7 @@ export default function AdminLogin() {
                         <div className="form-group">
                             <label className="form-label" style={{ fontWeight: 600, fontSize: '13px', display: 'block', marginBottom: '6px' }}>Username Address</label>
                             <div className={styles.inputWrap}>
-                                <Icon icon="solar:user-linear" className={`${styles.inputIcon} w-4 h-4`} />
+                                <Icon icon="carbon:user" className={`${styles.inputIcon} w-4 h-4`} />
                                 <input
                                     className={styles.paddedInput}
                                     type="text"
@@ -106,7 +106,7 @@ export default function AdminLogin() {
                         <div className="form-group">
                             <label className="form-label" style={{ fontWeight: 600, fontSize: '13px', display: 'block', marginBottom: '6px' }}>Password Cipher</label>
                             <div className={styles.inputWrap}>
-                                <Icon icon="solar:lock-password-linear" className={`${styles.inputIcon} w-4 h-4`} />
+                                <Icon icon="carbon:password" className={`${styles.inputIcon} w-4 h-4`} />
                                 <input
                                     className={styles.brandInput || styles.paddedInput}
                                     type={showPw ? 'text' : 'password'}
@@ -116,24 +116,24 @@ export default function AdminLogin() {
                                     onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
                                 />
                                 <button type="button" className={styles.eye} onClick={() => setShowPw(v => !v)}>
-                                    <Icon icon={showPw ? "solar:eye-closed-linear" : "solar:eye-linear"} className="w-4 h-4" />
+                                    <Icon icon={showPw ? "carbon:view-off" : "carbon:view"} className="w-4 h-4" />
                                 </button>
                             </div>
                         </div>
 
                         {error && (
                             <div className={styles.errorBox}>
-                                <Icon icon="solar:danger-triangle-linear" className="w-4 h-4" /> {error}
+                                <Icon icon="carbon:warning-alt" className="w-4 h-4" /> {error}
                             </div>
                         )}
 
                         <button type="submit" className={styles.submitBtn} disabled={loading}>
-                            {loading ? <><Icon icon="solar:spinner-linear" className="w-4 h-4 animate-spin" /> Resolving Verification...</> : <><Icon icon="solar:login-2-linear" className="w-4 h-4 mr-1.5 inline" /> Connect Node</>}
+                            {loading ? <><Icon icon="carbon:circle-dash" className="w-4 h-4 animate-spin" /> Resolving Verification...</> : <><Icon icon="carbon:login" className="w-4 h-4 mr-1.5 inline" /> Connect Node</>}
                         </button>
                     </form>
 
                     <p className={styles.back}>
-                        <a href="/"><Icon icon="solar:arrow-left-linear" className="w-4 h-4 inline mr-1" /> Back to Website</a>
+                        <a href="/"><Icon icon="carbon:arrow-left" className="w-4 h-4 inline mr-1" /> Back to Website</a>
                     </p>
                 </div>
             </div>

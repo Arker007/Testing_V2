@@ -33,7 +33,7 @@ export default function PageHero({
                 <React.Fragment key={item.label || idx}>
                   {idx > 0 && (
                     <Icon
-                      icon="solar:alt-arrow-right-linear"
+                      icon="carbon:chevron-right"
                       className={`${styles.breadcrumbSep} w-3 h-3`}
                     />
                   )}
@@ -45,7 +45,7 @@ export default function PageHero({
                     <Link to={item.to} className={styles.breadcrumbLink}>
                       {idx === 0 && (
                         <Icon
-                          icon="solar:home-2-linear"
+                          icon="carbon:home"
                           className="w-3.5 h-3.5 opacity-80 shrink-0"
                         />
                       )}

@@ -45,10 +45,10 @@ export function ToastProvider({ children }) {
 
 export function ToastItem({ toast, onClose }) {
   const icons = {
-    success: "solar:check-circle-bold",
-    error: "solar:danger-circle-bold",
-    warning: "solar:danger-triangle-bold",
-    info: "solar:info-square-bold",
+    success: "carbon:checkmark-filled",
+    error: "carbon:warning-filled",
+    warning: "carbon:warning-filled",
+    info: "carbon:information-square-filled",
   };
 
   const stylesMap = {
@@ -84,7 +84,7 @@ export function ToastItem({ toast, onClose }) {
         className="p-1 text-slate-400 hover:text-white rounded-lg transition-colors ml-2 cursor-pointer shrink-0"
         aria-label="Dismiss toast"
       >
-        <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+        <Icon icon="carbon:close" className="w-4 h-4" />
       </button>
     </div>
   );

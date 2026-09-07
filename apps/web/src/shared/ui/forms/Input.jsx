@@ -130,7 +130,7 @@ const Input = forwardRef(function Input(
 
       {isLoading && (
         <div className="pr-3 flex items-center">
-          <Icon icon="solar:spinner-linear" className={`${currentIconSize} animate-spin text-[var(--brand-primary)]`} />
+          <Icon icon="carbon:circle-dash" className={`${currentIconSize} animate-spin text-[var(--brand-primary)]`} />
         </div>
       )}
 
@@ -142,7 +142,7 @@ const Input = forwardRef(function Input(
           className="pr-2.5 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer"
           aria-label="Clear value"
         >
-          <Icon icon="solar:close-circle-bold" className={currentIconSize} />
+          <Icon icon="carbon:close-filled" className={currentIconSize} />
         </button>
       )}
 

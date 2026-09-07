@@ -102,7 +102,7 @@ export default function TeamEditor({
               return (
                 <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: "1 / -1" }}>
                   <label className={cStyles.formLabel}>
-                    <Icon icon="solar:text-field-linear" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
+                    <Icon icon="carbon:text-font" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
                     {f.label}
                   </label>
                   <input 
@@ -165,7 +165,7 @@ export default function TeamEditor({
                           onClick={() => shiftOrder(index, -1)}
                           title="Move Up"
                         >
-                          <Icon icon="solar:alt-arrow-up-linear" className="w-3 h-3" />
+                          <Icon icon="carbon:chevron-up" className="w-3 h-3" />
                         </button>
                         <button 
                           type="button" 
@@ -175,7 +175,7 @@ export default function TeamEditor({
                           onClick={() => shiftOrder(index, 1)}
                           title="Move Down"
                         >
-                          <Icon icon="solar:alt-arrow-down-linear" className="w-3 h-3" />
+                          <Icon icon="carbon:chevron-down" className="w-3 h-3" />
                         </button>
                       </div>
                       <button 
@@ -188,7 +188,7 @@ export default function TeamEditor({
                         })}
                         title="Edit Member"
                       >
-                        <Icon icon="solar:pen-linear" className="w-3.5 h-3.5" />
+                        <Icon icon="carbon:edit" className="w-3.5 h-3.5" />
                       </button>
                       <button 
                         type="button" 
@@ -196,7 +196,7 @@ export default function TeamEditor({
                         onClick={() => setConfirmDeleteIdx(index)}
                         title="Delete Member"
                       >
-                        <Icon icon="solar:trash-bin-trash-linear" className="w-3.5 h-3.5" />
+                        <Icon icon="carbon:trash-can" className="w-3.5 h-3.5" />
                       </button>
                     </>
                   )}
@@ -222,7 +222,7 @@ export default function TeamEditor({
                 });
               }}
             >
-              <Icon icon="solar:add-circle-linear" className="w-5 h-5 mb-1" />
+              <Icon icon="carbon:add-alt" className="w-5 h-5 mb-1" />
               <span>Add Profile</span>
             </div>
           </div>

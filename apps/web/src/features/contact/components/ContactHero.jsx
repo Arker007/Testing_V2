@@ -14,7 +14,7 @@ export default function ContactHero() {
         { label: "Contact Us" },
       ]}
       tag={c("contact_hero_badge", "Direct Factory Sales Desk")}
-      tagIcon="solar:headphones-round-linear"
+      tagIcon="carbon:headset"
       title="Commercial Procurement & Engineering Support"
       description={c(
         "contact_hero_sub",

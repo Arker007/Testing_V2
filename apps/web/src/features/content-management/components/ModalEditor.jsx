@@ -45,7 +45,7 @@ export default function ModalEditor({ modalItem, setModalItem, handleModalSave }
           <div className={cStyles.modalHeader}>
             <h4 className={cStyles.modalTitle}>
               <Icon
-                icon={isTimeline ? "solar:calendar-date-bold" : "solar:user-bold"}
+                icon={isTimeline ? "carbon:calendar" : "carbon:user-filled"}
                 className="w-5 h-5 text-emerald-600"
               />
               {isTimeline
@@ -58,7 +58,7 @@ export default function ModalEditor({ modalItem, setModalItem, handleModalSave }
               onClick={() => setModalItem(null)}
               title="Close modal (Esc)"
             >
-              <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
+              <Icon icon="carbon:close-outline" className="w-5 h-5" />
             </button>
           </div>
 

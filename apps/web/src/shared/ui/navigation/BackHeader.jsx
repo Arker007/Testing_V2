@@ -43,7 +43,7 @@ export default function BackHeader({
           onClick={handleBack}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[var(--radius-btn,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:bg-[var(--bg-surface-elevated)] hover:border-[var(--brand-border)] text-xs font-bold text-[var(--text-primary)] shadow-2xs transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-1 active:scale-95"
         >
-          <Icon icon="solar:arrow-left-linear" className="w-4 h-4 text-[var(--text-secondary)]" />
+          <Icon icon="carbon:arrow-left" className="w-4 h-4 text-[var(--text-secondary)]" />
           <span>{backLabel}</span>
         </button>
 

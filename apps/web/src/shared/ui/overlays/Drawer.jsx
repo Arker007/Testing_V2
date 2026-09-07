@@ -102,7 +102,7 @@ export default function Drawer({
             className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-secondary)] transition-colors cursor-pointer"
             aria-label="Close drawer"
           >
-            <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
+            <Icon icon="carbon:close" className="w-5 h-5" />
           </button>
         </div>
 

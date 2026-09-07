@@ -51,7 +51,7 @@ export default function Pagination({
         className="p-2 rounded-[var(--radius-btn,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[var(--bg-surface-elevated)] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-1 active:scale-95"
         aria-label="Previous Page"
       >
-        <Icon icon="solar:alt-arrow-left-linear" className="w-4 h-4" />
+        <Icon icon="carbon:chevron-left" className="w-4 h-4" />
       </button>
 
       {getPageNumbers().map((p, idx) =>
@@ -85,7 +85,7 @@ export default function Pagination({
         className="p-2 rounded-[var(--radius-btn,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[var(--bg-surface-elevated)] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-1 active:scale-95"
         aria-label="Next Page"
       >
-        <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4" />
+        <Icon icon="carbon:chevron-right" className="w-4 h-4" />
       </button>
     </nav>
   );

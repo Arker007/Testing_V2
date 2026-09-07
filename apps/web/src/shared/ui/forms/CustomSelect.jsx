@@ -55,7 +55,7 @@ export default function CustomSelect({ value, onChange, options = [], placeholde
           )}
         </span>
         <Icon
-          icon="solar:alt-arrow-down-linear"
+          icon="carbon:chevron-down"
           className={`${styles.selectChevron} ${isOpen ? styles.chevronRotate : ""}`}
         />
       </button>
@@ -64,7 +64,7 @@ export default function CustomSelect({ value, onChange, options = [], placeholde
         <div className={styles.customSelectDropdownWrapper}>
           {options.length > 5 && (
             <div className={styles.selectSearchContainer}>
-              <Icon icon="solar:magnifer-linear" className={styles.selectSearchIcon} />
+              <Icon icon="carbon:search" className={styles.selectSearchIcon} />
               <input
                 ref={searchInputRef}
                 type="text"
@@ -84,7 +84,7 @@ export default function CustomSelect({ value, onChange, options = [], placeholde
                   }}
                   aria-label="Clear search"
                 >
-                  <Icon icon="solar:close-circle-linear" className={styles.clearIcon} />
+                  <Icon icon="carbon:close" className={styles.clearIcon} />
                 </button>
               )}
             </div>
@@ -112,7 +112,7 @@ export default function CustomSelect({ value, onChange, options = [], placeholde
                         <span className={styles.categoryCountBadge}>{option.badge}</span>
                       )}
                     </div>
-                    {isSelected && <Icon icon="solar:check-read-linear" className={styles.checkIcon} />}
+                    {isSelected && <Icon icon="carbon:checkmark" className={styles.checkIcon} />}
                   </li>
                 );
               })

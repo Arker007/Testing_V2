@@ -121,7 +121,7 @@ export default function ProductTabsSection({
 
             {/* Engineering Standard Notes Strip */}
             <div className="p-4 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex items-start gap-3">
-              <Icon icon="solar:info-circle-linear" className="w-4 h-4 text-[var(--brand-primary)] shrink-0 mt-0.5" />
+              <Icon icon="carbon:information" className="w-4 h-4 text-[var(--brand-primary)] shrink-0 mt-0.5" />
               <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                 {isPallet && (
                   <>Operating temperature range: <strong className="text-[var(--text-primary)]">-30°C to +60°C</strong>. Fully compliant with high-density AS/RS automated racking, cold storage blast freezers, and maritime container stuffing.</>
@@ -165,7 +165,7 @@ export default function ProductTabsSection({
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div className="flex flex-col gap-1.5 border-l-2 border-[var(--brand-primary)] pl-3.5">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--text-primary)]">
-                    <Icon icon="solar:shield-check-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
+                    <Icon icon="carbon:security" className="w-4 h-4 text-[var(--brand-primary)]" />
                     <span>Chemical & Rot Immunity</span>
                   </div>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
@@ -175,7 +175,7 @@ export default function ProductTabsSection({
 
                 <div className="flex flex-col gap-1.5 border-l-2 border-[var(--brand-primary)] pl-3.5">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--text-primary)]">
-                    <Icon icon="solar:sun-2-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
+                    <Icon icon="carbon:sun" className="w-4 h-4 text-[var(--brand-primary)]" />
                     <span>UV Stabilization</span>
                   </div>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
@@ -185,7 +185,7 @@ export default function ProductTabsSection({
 
                 <div className="flex flex-col gap-1.5 border-l-2 border-[var(--brand-primary)] pl-3.5">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--text-primary)]">
-                    <Icon icon="solar:leaf-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
+                    <Icon icon="carbon:recycle" className="w-4 h-4 text-[var(--brand-primary)]" />
                     <span>Circular Economy</span>
                   </div>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
@@ -208,7 +208,7 @@ export default function ProductTabsSection({
                       className="flex items-start gap-3 py-2 px-3 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)]/60 text-xs sm:text-sm text-[var(--text-secondary)] list-none"
                     >
                       <Icon
-                        icon="solar:check-circle-linear"
+                        icon="carbon:checkmark-outline"
                         className="w-4 h-4 text-[var(--brand-primary)] shrink-0 mt-0.5"
                       />
                       <span className="font-medium">{feat}</span>
@@ -226,7 +226,7 @@ export default function ProductTabsSection({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="flex flex-col gap-2 border-l-2 border-[var(--brand-primary)] pl-3.5">
                 <div className="flex items-center gap-2 text-[var(--text-primary)] font-bold text-sm">
-                  <Icon icon="solar:delivery-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
+                  <Icon icon="carbon:delivery-truck" className="w-4 h-4 text-[var(--brand-primary)]" />
                   <h4>Dispatch & Truckload</h4>
                 </div>
                 <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
@@ -236,7 +236,7 @@ export default function ProductTabsSection({
 
               <div className="flex flex-col gap-2 border-l-2 border-[var(--brand-primary)] pl-3.5">
                 <div className="flex items-center gap-2 text-[var(--text-primary)] font-bold text-sm">
-                  <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
+                  <Icon icon="carbon:cube" className="w-4 h-4 text-[var(--brand-primary)]" />
                   <h4>Container Stuffing (Export)</h4>
                 </div>
                 <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
@@ -246,7 +246,7 @@ export default function ProductTabsSection({
 
               <div className="flex flex-col gap-2 border-l-2 border-[var(--brand-primary)] pl-3.5">
                 <div className="flex items-center gap-2 text-[var(--text-primary)] font-bold text-sm">
-                  <Icon icon="solar:shield-check-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
+                  <Icon icon="carbon:security" className="w-4 h-4 text-[var(--brand-primary)]" />
                   <h4>Zero Fumigation Protocol</h4>
                 </div>
                 <p className="text-xs text-[var(--text-secondary)] leading-relaxed">

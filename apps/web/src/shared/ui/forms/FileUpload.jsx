@@ -81,7 +81,7 @@ export default function FileUpload({
       ) : (
         <>
           <div className="w-12 h-12 rounded-2xl bg-[var(--brand-light)] text-[#1E622A] dark:text-[#6BBF54] border border-[var(--brand-border)] flex items-center justify-center mb-3">
-            <Icon icon="solar:cloud-upload-linear" className="w-6 h-6" />
+            <Icon icon="carbon:upload" className="w-6 h-6" />
           </div>
           <p className="text-sm font-bold text-[var(--text-primary)] text-center">
             Upload Files

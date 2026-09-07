@@ -41,12 +41,12 @@ export default function AdminInquiryDetail() {
     if (!current) {
         return (
             <EmptyState
-                icon="solar:inbox-line-linear"
+                icon="carbon:email-new"
                 title="Inquiry Not Found"
                 description="The requested inquiry does not exist or has been deleted."
                 action={
                     <Link to="/admin/inquiries" className={styles.actionBtnSecondary}>
-                        <Icon icon="solar:arrow-left-linear" className="w-4 h-4 mr-1 inline" /> Return to Inquiries
+                        <Icon icon="carbon:arrow-left" className="w-4 h-4 mr-1 inline" /> Return to Inquiries
                     </Link>
                 }
             />
@@ -70,7 +70,7 @@ export default function AdminInquiryDetail() {
                             style={{ padding: '8px 14px' }}
                             onClick={(e) => !previous && e.preventDefault()}
                         >
-                            <Icon icon="solar:alt-arrow-left-linear" className="w-4 h-4 mr-1 inline" /> Prev
+                            <Icon icon="carbon:chevron-left" className="w-4 h-4 mr-1 inline" /> Prev
                         </Link>
                         <Link
                             to={next ? `/admin/inquiries/${next.source}/${next.id}` : '#'}
@@ -78,7 +78,7 @@ export default function AdminInquiryDetail() {
                             style={{ padding: '8px 14px' }}
                             onClick={(e) => !next && e.preventDefault()}
                         >
-                            Next <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 ml-1 inline" />
+                            Next <Icon icon="carbon:chevron-right" className="w-4 h-4 ml-1 inline" />
                         </Link>
                     </div>
                 }
@@ -88,7 +88,7 @@ export default function AdminInquiryDetail() {
                 <div className={iStyles.detailHeader}>
                     <div>
                         <span className={iStyles.sourceBadge}>
-                            <Icon icon="solar:inbox-linear" className="w-4 h-4 mr-1 inline text-emerald-500" /> {sourceLabel}
+                            <Icon icon="carbon:email-new" className="w-4 h-4 mr-1 inline text-emerald-500" /> {sourceLabel}
                         </span>
                     </div>
                 </div>
@@ -121,7 +121,7 @@ export default function AdminInquiryDetail() {
                 <div className={iStyles.actionsRow}>
                     {current.email && (
                         <a href={`mailto:${current.email}?subject=Re: ${current.productName || 'Your Request'}`} className={styles.actionBtnPrimary}>
-                            <Icon icon="solar:reply-linear" className="w-4 h-4 mr-1.5 inline" /> Reply via Email
+                            <Icon icon="carbon:reply" className="w-4 h-4 mr-1.5 inline" /> Reply via Email
                         </a>
                     )}
                     {current.phone && (

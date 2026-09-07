@@ -45,14 +45,14 @@ export const ContactInfoItem = React.memo(function ContactInfoItem({
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 400, damping: 15 }}
                 >
-                  <Icon icon="solar:check-read-linear" className="w-3.5 h-3.5 text-[var(--brand-dark)]" />
+                  <Icon icon="carbon:checkmark" className="w-3.5 h-3.5 text-[var(--brand-dark)]" />
                 </motion.div>
               ) : (
                 <motion.div
                   whileHover={{ scale: 1.15 }}
                   whileTap={{ scale: 0.85 }}
                 >
-                  <Icon icon="solar:copy-linear" className="w-3.5 h-3.5" />
+                  <Icon icon="carbon:copy" className="w-3.5 h-3.5" />
                 </motion.div>
               )}
             </button>

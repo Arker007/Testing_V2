@@ -5,17 +5,17 @@ import styles from "../../products.module.css";
 
 const procurementItems = [
   {
-    icon: "solar:shield-check-linear",
+    icon: "carbon:security",
     title: "Dimensional Tolerance Control",
     desc: "Extrusion section control to maintain exact section dimensions and structural density across volume orders.",
   },
   {
-    icon: "solar:layers-minimalistic-linear",
+    icon: "carbon:layers",
     title: "Scheduled Batch Dispatch",
     desc: "Streamlined inventory and logistics support for recurring OEM production schedules and pan-India distribution.",
   },
   {
-    icon: "solar:medal-ribbons-star-linear",
+    icon: "carbon:badge",
     title: "Technical Consultation",
     desc: "Direct access to polymer extrusion engineers to determine exact load calculations and profile selection.",
   },
@@ -26,7 +26,7 @@ export default function ProcurementAdvantage() {
     <section className={styles.procurementSection}>
       <div className={styles.procurementHead}>
         <div className="flex justify-center mb-4">
-          <Badge variant="eyebrow" size="lg" icon="solar:verified-check-linear">
+          <Badge variant="eyebrow" size="lg" icon="carbon:certificate">
             Procurement Advantage
           </Badge>
         </div>

@@ -71,7 +71,7 @@ export default function QuickViewModal({
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.92 }}
             >
-              <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
+              <Icon icon="carbon:close" className="w-5 h-5" />
             </motion.button>
 
             {/* Header category and SKU row */}
@@ -122,11 +122,11 @@ export default function QuickViewModal({
             {/* Highlights List */}
             <div className={styles.modalHighlights}>
               <div className={styles.highlightItem}>
-                <Icon icon="solar:check-circle-linear" className={`${styles.checkIcon} w-4 h-4`} />
+                <Icon icon="carbon:checkmark-outline" className={`${styles.checkIcon} w-4 h-4`} />
                 <span>Water, termite & rot proof section</span>
               </div>
               <div className={styles.highlightItem}>
-                <Icon icon="solar:check-circle-linear" className={`${styles.checkIcon} w-4 h-4`} />
+                <Icon icon="carbon:checkmark-outline" className={`${styles.checkIcon} w-4 h-4`} />
                 <span>Can be sawn, drilled & screwed like wood</span>
               </div>
             </div>
@@ -140,7 +140,7 @@ export default function QuickViewModal({
                   className="btn btn-primary"
                   style={{ flex: 1, padding: "0.75rem 1rem", fontSize: "0.875rem", justifyContent: "center", minHeight: "44px" }}
                 >
-                  <Icon icon="solar:chat-round-dots-linear" className="w-4 h-4" />
+                  <Icon icon="carbon:chat" className="w-4 h-4" />
                   <span>Request B2B Quote</span>
                 </button>
               ) : (
@@ -157,7 +157,7 @@ export default function QuickViewModal({
                 className={styles.modalDetailsBtn}
               >
                 <span>Full Specs Page</span>
-                <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4" />
+                <Icon icon="carbon:chevron-right" className="w-4 h-4" />
               </Link>
             </div>
           </motion.div>

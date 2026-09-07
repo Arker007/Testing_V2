@@ -5,7 +5,7 @@ import { Icon } from "@iconify/react";
  * Reusable IconBox component for consistent icon containers across the application.
  *
  * @param {Object} props
- * @param {string | React.ReactNode} props.icon - Iconify string (e.g. 'solar:box-linear') or custom JSX icon element
+ * @param {string | React.ReactNode} props.icon - Iconify string (e.g. 'carbon:package') or custom JSX icon element
  * @param {'sm' | 'md' | 'lg' | 'xl'} [props.size='md'] - Icon container size
  * @param {'brand' | 'success' | 'sky' | 'neutral' | 'dark' | 'glass' | 'subtle' | 'outline'} [props.variant='brand'] - Style variant
  * @param {string} [props.className=''] - Additional custom CSS classes

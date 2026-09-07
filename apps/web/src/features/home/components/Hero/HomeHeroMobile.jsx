@@ -11,15 +11,15 @@ import highLoadCapacity from "../../../../assets/images/backgrounds/high_load_ca
 import weatherResistantBg from "../../../../assets/images/backgrounds/weather_resistant_bg_1785866780021.jpg";
 
 const iconMap = {
-  ShieldCheck: "solar:shield-check-linear",
-  Link2: "solar:verified-check-linear",
-  Droplets: "solar:waterdrops-linear",
-  Wrench: "solar:bolt-linear",
-  Leaf: "solar:leaf-linear",
-  Check: "solar:check-read-linear",
-  Eye: "solar:star-linear",
-  Plane: "solar:box-minimalistic-linear",
-  Waves: "solar:waterdrops-linear"
+  ShieldCheck: "carbon:security",
+  Link2: "carbon:certificate",
+  Droplets: "carbon:rain-drop",
+  Wrench: "carbon:flash",
+  Leaf: "carbon:recycle",
+  Check: "carbon:checkmark",
+  Eye: "carbon:star",
+  Plane: "carbon:cube",
+  Waves: "carbon:rain-drop"
 };
 
 const slides = [
@@ -43,7 +43,7 @@ const slides = [
     badge: "MANUFACTURER & SUPPLIER",
     titleLime: "HEAVY-DUTY",
     titleWhite: "PLASTIC PALLETS",
-    desc: "High-capacity, injection-molded and extruded plastic pallets designed for seamless warehousing, industrial logistics, and hassle-free international sea freight shipping.",
+    desc: "High-capacity, injection-molded and extruded plastic pallets designed for efficient warehousing, industrial logistics, and reliable international sea freight shipping.",
     image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
     fallbackSrc: highLoadCapacity,
     features: [
@@ -113,7 +113,7 @@ export default function HomeHeroMobile() {
           {/* Badge */}
           <div className="inline-flex items-center gap-[0.75rem] bg-[var(--neutral-950,#0a0a0a)] border border-white/12 py-2 pl-3 pr-5 mb-5 w-fit shadow-[0_4px_16px_var(--shadow-md,rgba(0,0,0,0.3))] backdrop-blur-md rounded-[8px]">
             <div className="flex items-center justify-center bg-transparent text-[var(--brand)] pr-3 border-r border-white/12 rounded-none">
-              <Icon icon="solar:buildings-3-linear" className="w-6 h-6" />
+              <Icon icon="carbon:industry" className="w-6 h-6" />
             </div>
             <span className="text-[0.8rem] font-extrabold tracking-[0.05em] text-white uppercase">{activeSlide.badge}</span>
           </div>
@@ -148,7 +148,7 @@ export default function HomeHeroMobile() {
                   className={`${styles.chevronBtn} ${styles.chevronBtnLeft}`}
                   aria-label="Previous Slide"
                 >
-                  <Icon icon="solar:alt-arrow-left-linear" className="w-5 h-5 text-white" />
+                  <Icon icon="carbon:chevron-left" className="w-5 h-5 text-white" />
                 </Motion.button>
 
                 <div className="mx-auto w-[250px] h-[260px] pointer-events-none">
@@ -267,7 +267,7 @@ export default function HomeHeroMobile() {
                   className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
                   aria-label="Next Slide"
                 >
-                  <Icon icon="solar:alt-arrow-right-linear" className="w-5 h-5 text-white" />
+                  <Icon icon="carbon:chevron-right" className="w-5 h-5 text-white" />
                 </Motion.button>
               </div>
 
@@ -305,7 +305,7 @@ export default function HomeHeroMobile() {
                 >
                   <Link to="/products" className="exploreBtnGlobal">
                     <span>EXPLORE PRODUCTS</span>
-                    <Icon icon="solar:arrow-right-linear" className="exploreBtnArrowGlobal" />
+                    <Icon icon="carbon:arrow-right" className="exploreBtnArrowGlobal" />
                   </Link>
                 </Motion.div>
               </div>
@@ -326,7 +326,7 @@ export default function HomeHeroMobile() {
           >
             <div className="grid grid-cols-2 gap-2.5 col-span-1 sm:col-span-2">
               {activeSlide.features.slice(0, 4).map((feat, idx) => {
-                const iconName = iconMap[feat.icon] || "solar:shield-check-linear";
+                const iconName = iconMap[feat.icon] || "carbon:security";
                 return (
                   <div key={idx} className="p-2.5 sm:p-3 flex flex-row items-center gap-2.5 bg-[#1b2129] rounded-[8px]">
                     <div className="w-[30px] h-[30px] shrink-0 rounded-full bg-[rgba(107,191,84,0.15)] text-[var(--brand)] border border-[rgba(107,191,84,0.3)] flex items-center justify-center">
@@ -347,7 +347,7 @@ export default function HomeHeroMobile() {
         <div className="flex flex-row items-center justify-between gap-2 bg-white border border-[#E2E8F0] py-3 px-3.5 rounded-[8px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] mb-8 w-full max-w-full">
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-[38px] h-[38px] rounded-[8px] bg-[var(--brand)] shrink-0">
-              <Icon icon="solar:headphones-round-linear" className="w-[20px] h-[20px] text-white" />
+              <Icon icon="carbon:headset" className="w-[20px] h-[20px] text-white" />
             </div>
             
             <div className="flex flex-col gap-0.5">
@@ -363,7 +363,7 @@ export default function HomeHeroMobile() {
             className="flex items-center justify-center gap-1.5 bg-[#0f1319] border border-[#0f1319] text-white py-2 px-3 rounded-[8px] text-[9px] font-extrabold uppercase transition hover:bg-[var(--brand)] hover:border-[var(--brand)] hover:text-[#0f1319] shrink-0"
             style={{ color: "#ffffff" }}
           >
-            <Icon icon="solar:phone-calling-linear" className="w-3.5 h-3.5" style={{ color: "#ffffff" }} />
+            <Icon icon="carbon:phone" className="w-3.5 h-3.5" style={{ color: "#ffffff" }} />
             <span style={{ color: "#ffffff" }}>CONTACT US</span>
           </a>
         </div>

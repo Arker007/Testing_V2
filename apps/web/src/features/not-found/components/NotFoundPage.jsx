@@ -14,10 +14,10 @@ export default function NotFoundPage() {
         </p>
         <div className={styles.actions}>
           <Link to="/" className={styles.btnPrimary}>
-            <Icon icon="solar:home-2-linear" className="w-4 h-4 mr-1.5" /> Back to Safety
+            <Icon icon="carbon:home" className="w-4 h-4 mr-1.5" /> Back to Safety
           </Link>
           <Link to="/products" className={styles.btnOutline}>
-            <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4 mr-1.5" /> Browse Catalog
+            <Icon icon="carbon:cube" className="w-4 h-4 mr-1.5" /> Browse Catalog
           </Link>
         </div>
       </div>

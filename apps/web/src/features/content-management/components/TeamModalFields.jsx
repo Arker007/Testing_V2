@@ -39,7 +39,7 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
 
       <div className={cStyles.formGroup}>
         <label className={cStyles.formLabel}>
-          <Icon icon="solar:user-linear" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
+          <Icon icon="carbon:user" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
           Full Representative Name *
         </label>
         <input
@@ -62,7 +62,7 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
 
       <div className={cStyles.formGroup}>
         <label className={cStyles.formLabel}>
-          <Icon icon="solar:briefcase-linear" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
+          <Icon icon="carbon:portfolio" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
           Functional Role Title *
         </label>
         <input
@@ -77,7 +77,7 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
         <div className={cStyles.formGroup}>
           <label className={cStyles.formLabel}>
-            <Icon icon="solar:text-square-linear" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
+            <Icon icon="carbon:catalog" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
             Avatar Initials (Max 2) *
           </label>
           <input
@@ -92,7 +92,7 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
 
         <div className={cStyles.formGroup}>
           <label className={cStyles.formLabel}>
-            <Icon icon="solar:pallete-2-linear" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
+            <Icon icon="carbon:color-palette" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
             Custom Color (Hex/Var) *
           </label>
           <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>

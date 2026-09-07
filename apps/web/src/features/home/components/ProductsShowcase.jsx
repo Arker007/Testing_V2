@@ -7,10 +7,10 @@ import { useProducts } from "@/shared/hooks/useProducts";
 import { getImg } from "@/shared/utils/productUtils";
 
 const DEFAULT_SPECIFICATIONS = [
-  { title: "Waterproof", icon: "solar:waterdrops-linear" },
-  { title: "UV Resistant", icon: "solar:sun-2-linear" },
-  { title: "Termite Proof", icon: "solar:shield-check-linear" },
-  { title: "Zero Maintenance", icon: "solar:wrench-linear" },
+  { title: "Waterproof", icon: "carbon:rain-drop" },
+  { title: "UV Resistant", icon: "carbon:sun" },
+  { title: "Termite Proof", icon: "carbon:security" },
+  { title: "Zero Maintenance", icon: "carbon:tool-box" },
 ];
 
 const DEFAULT_BENTO_PRODUCTS = [
@@ -100,7 +100,7 @@ const renderFeatureIcon = (iconName, title = "") => {
     );
   }
 
-  return <Icon icon={iconName || "solar:check-circle-linear"} className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />;
+  return <Icon icon={iconName || "carbon:checkmark-outline"} className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />;
 };
 
 const getCardFeatures = (prod) => {
@@ -108,10 +108,10 @@ const getCardFeatures = (prod) => {
     return prod.features.map((f, i) => {
       if (typeof f === "string") {
         const icons = [
-          "solar:waterdrops-linear",
-          "solar:sun-2-linear",
-          "solar:shield-check-linear",
-          "solar:wrench-linear",
+          "carbon:rain-drop",
+          "carbon:sun",
+          "carbon:security",
+          "carbon:tool-box",
         ];
         return { title: f, icon: icons[i % icons.length] };
       }
@@ -121,15 +121,15 @@ const getCardFeatures = (prod) => {
         const titleLower = title.toLowerCase();
         const keyLower = (f.key || "").toLowerCase();
         if (keyLower === "maintenance" || titleLower.includes("maintenance") || titleLower.includes("zero")) {
-          icon = "solar:wrench-linear";
+          icon = "carbon:tool-box";
         } else if (keyLower === "waterproof" || titleLower.includes("water")) {
-          icon = "solar:waterdrops-linear";
+          icon = "carbon:rain-drop";
         } else if (keyLower === "uv" || titleLower.includes("uv") || titleLower.includes("sun")) {
-          icon = "solar:sun-2-linear";
+          icon = "carbon:sun";
         } else if (keyLower === "termite" || titleLower.includes("termite") || titleLower.includes("shield")) {
-          icon = "solar:shield-check-linear";
+          icon = "carbon:security";
         } else {
-          icon = "solar:check-circle-linear";
+          icon = "carbon:checkmark-outline";
         }
       }
       return { title, icon };
@@ -286,7 +286,7 @@ export default function ProductsShowcase() {
               aria-label="View Collection"
               className="relative z-30 w-11 h-11 rounded-[var(--radius-btn,8px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] flex items-center justify-center cursor-pointer border !border-[var(--brand-primary)] shrink-0 shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
-              <Icon icon="solar:arrow-right-up-linear" className="w-5 h-5 !text-[var(--brand-btn-text)]" />
+              <Icon icon="carbon:launch" className="w-5 h-5 !text-[var(--brand-btn-text)]" />
             </Motion.button>
           </div>
 
@@ -307,7 +307,7 @@ export default function ProductsShowcase() {
             <div className="mt-5 pt-4 border-t border-white/15 flex flex-wrap items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
                 {featuredFeatures.map((feat, idx) => {
-                  const iconName = typeof feat.icon === "string" ? feat.icon : "solar:waterdrops-linear";
+                  const iconName = typeof feat.icon === "string" ? feat.icon : "carbon:rain-drop";
                   return (
                     <Motion.div
                       key={idx}
@@ -338,7 +338,7 @@ export default function ProductsShowcase() {
                 className="relative z-30 min-h-[var(--btn-h-md,42px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-[var(--radius-btn,8px)] flex items-center gap-2 cursor-pointer border !border-[var(--brand-primary)] shrink-0 shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               >
                 <span className="!text-[var(--brand-btn-text)] font-bold">Explore Collection</span>
-                <Icon icon="solar:arrow-right-linear" className="w-4 h-4 !text-[var(--brand-btn-text)]" />
+                <Icon icon="carbon:arrow-right" className="w-4 h-4 !text-[var(--brand-btn-text)]" />
               </Motion.button>
             </div>
           </div>
@@ -401,7 +401,7 @@ export default function ProductsShowcase() {
                   aria-label="View Product"
                   className="relative z-30 w-9 h-9 rounded-[var(--radius-btn,8px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] flex items-center justify-center cursor-pointer border !border-[var(--brand-primary)] shrink-0 shadow-md transition-colors duration-200"
                 >
-                  <Icon icon="solar:arrow-right-up-linear" className="w-4 h-4 !text-[var(--brand-btn-text)]" />
+                  <Icon icon="carbon:launch" className="w-4 h-4 !text-[var(--brand-btn-text)]" />
                 </Motion.button>
               </div>
 
@@ -475,7 +475,7 @@ export default function ProductsShowcase() {
                   aria-label="View Product"
                   className="relative z-30 w-9 h-9 rounded-[var(--radius-btn,8px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] flex items-center justify-center cursor-pointer border !border-[var(--brand-primary)] shrink-0 shadow-md transition-colors duration-200"
                 >
-                  <Icon icon="solar:arrow-right-up-linear" className="w-4 h-4 !text-[var(--brand-btn-text)]" />
+                  <Icon icon="carbon:launch" className="w-4 h-4 !text-[var(--brand-btn-text)]" />
                 </Motion.button>
               </div>
 

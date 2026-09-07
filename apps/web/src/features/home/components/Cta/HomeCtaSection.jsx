@@ -16,7 +16,7 @@ export default function HomeCtaSection() {
               <div className={styles.testimonialSlide}>
                 <div className={styles.starsRow}>
                   {[1, 2, 3, 4, 5].map((s) => (
-                    <Icon key={s} icon="solar:star-linear" className="text-amber-500 w-4 h-4 inline" />
+                    <Icon key={s} icon="carbon:star" className="text-amber-500 w-4 h-4 inline" />
                   ))}
                 </div>
                 <p className={styles.testimonialQuote}>
@@ -60,7 +60,7 @@ export default function HomeCtaSection() {
               "Contact our team today for custom sizing, product specifications, and bulk pricing details."
             )}
           >
-            <QuoteButton to="/contact" text={c("home_cta_btn", "Get Quote")} size="large" className="shadow-md" />
+            <QuoteButton to="/contact" text={c("home_cta_btn", "Request a Quote")} size="large" className="shadow-md" />
           </CtaCard>
         </section>
       )}

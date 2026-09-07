@@ -46,10 +46,10 @@ export default function Footer() {
     : "Plot No. 42, GIDC Industrial Estate, Vapi – 396195, Gujarat, India";
 
   const CONTACT = [
-    { icon: "solar:map-point-linear", text: addr },
-    { icon: "solar:phone-calling-linear", text: co("phone", "+91 98986 86379") },
-    { icon: "solar:letter-linear", text: co("email", "info@vishalenterprise.com") },
-    { icon: "solar:clock-circle-linear", text: "Mon – Sat: 9 AM – 6 PM" },
+    { icon: "carbon:location", text: addr },
+    { icon: "carbon:phone", text: co("phone", "+91 98986 86379") },
+    { icon: "carbon:email", text: co("email", "info@vishalenterprise.com") },
+    { icon: "carbon:time", text: "Mon – Sat: 9 AM – 6 PM" },
   ];
 
   const handleSubscribe = (e) => {
@@ -106,14 +106,14 @@ export default function Footer() {
           <p className={styles.tagline}>
             {c(
               "footer_tagline",
-              co("description", "Transforming industrial plastic waste into premium recycled lumber, pallets, and custom outdoor structures since 2008.")
+              co("description", "Processing industrial plastic waste into premium recycled lumber, pallets, and custom outdoor structures since 2008.")
             )}
           </p>
           
           <div className={styles.brandLine} />
 
           <div className={styles.isoRow}>
-            <Icon icon="solar:verified-check-linear" className="text-emerald-500 w-5 h-5 inline mr-1.5" />
+            <Icon icon="carbon:certificate" className="text-emerald-500 w-5 h-5 inline mr-1.5" />
             <span>{co("gstin") ? `GSTIN: ${co("gstin")}` : c("cert_gst", "GST Registered")}</span>
           </div>
 
@@ -135,7 +135,7 @@ export default function Footer() {
                 className={styles.social}
                 aria-label="Email"
               >
-                <Icon icon="solar:letter-linear" className="text-lg" />
+                <Icon icon="carbon:email" className="text-lg" />
               </a>
             )}
             {co("phone") && (
@@ -144,7 +144,7 @@ export default function Footer() {
                 className={styles.social}
                 aria-label="Phone"
               >
-                <Icon icon="solar:phone-calling-linear" className="text-lg" />
+                <Icon icon="carbon:phone" className="text-lg" />
               </a>
             )}
             {co("linkedin") && (
@@ -170,7 +170,7 @@ export default function Footer() {
           >
             <span>Our Products</span>
             <Icon
-              icon="solar:alt-arrow-down-linear"
+              icon="carbon:chevron-down"
               className={`${styles.headingChevron} ${openSections.products ? styles.headingChevronActive : ""}`}
             />
           </button>
@@ -180,7 +180,7 @@ export default function Footer() {
               {PRODUCT_LINKS.map((item) => (
                 <li key={item.label}>
                   <Link to={item.path} className={styles.fLink}>
-                    <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 inline mr-1 text-emerald-500" />
+                    <Icon icon="carbon:chevron-right" className="w-3 h-3 inline mr-1 text-emerald-500" />
                     {item.label}
                   </Link>
                 </li>
@@ -198,7 +198,7 @@ export default function Footer() {
           >
             <span>Quick Links</span>
             <Icon
-              icon="solar:alt-arrow-down-linear"
+              icon="carbon:chevron-down"
               className={`${styles.headingChevron} ${openSections.quick ? styles.headingChevronActive : ""}`}
             />
           </button>
@@ -208,7 +208,7 @@ export default function Footer() {
               {QUICK_LINKS.map((item) => (
                 <li key={item.label}>
                   <Link to={item.path} className={styles.fLink}>
-                    <Icon icon="solar:alt-arrow-right-linear" className="w-3 h-3 inline mr-1 text-emerald-500" />
+                    <Icon icon="carbon:chevron-right" className="w-3 h-3 inline mr-1 text-emerald-500" />
                     {item.label}
                   </Link>
                 </li>
@@ -226,7 +226,7 @@ export default function Footer() {
           >
             <span>Contact Us</span>
             <Icon
-              icon="solar:alt-arrow-down-linear"
+              icon="carbon:chevron-down"
               className={`${styles.headingChevron} ${openSections.contact ? styles.headingChevronActive : ""}`}
             />
           </button>
@@ -252,7 +252,7 @@ export default function Footer() {
             <div className={styles.headingLine} />
             {subscribed ? (
               <p className={styles.subscribedText}>
-                <Icon icon="solar:check-circle-linear" className="text-emerald-500 inline mr-1" />
+                <Icon icon="carbon:checkmark-outline" className="text-emerald-500 inline mr-1" />
                 Thank you for subscribing!
               </p>
             ) : (
@@ -266,7 +266,7 @@ export default function Footer() {
                   required
                 />
                 <button type="submit" className={styles.newsletterSubmit} aria-label="Subscribe">
-                  <Icon icon="solar:plain-3-linear" className="w-4 h-4 text-slate-900" />
+                  <Icon icon="carbon:send-alt" className="w-4 h-4 text-slate-900" />
                 </button>
               </form>
             )}

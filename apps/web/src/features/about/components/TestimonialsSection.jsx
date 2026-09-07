@@ -34,7 +34,7 @@ export default function TestimonialsSection() {
       <Card variant="elevated" className="p-8 sm:p-12 lg:p-16 relative overflow-hidden border border-slate-200 dark:border-subtle">
         {/* Background accent icon */}
         <div className="absolute -bottom-10 -right-10 opacity-5 pointer-events-none text-slate-900 dark:text-white">
-          <Icon icon="solar:restart-circle-linear" className="w-96 h-96" />
+          <Icon icon="carbon:renew" className="w-96 h-96" />
         </div>
 
         <div className="max-w-3xl relative z-10">
@@ -80,7 +80,7 @@ export default function TestimonialsSection() {
               aria-label="Previous testimonial"
               className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-slate-200 dark:border-[var(--border-default)] hover:border-[var(--brand-primary)] dark:hover:border-[var(--brand-primary)] bg-white dark:bg-[var(--bg-surface-secondary)] hover:bg-[var(--brand-primary)] dark:hover:bg-[var(--brand-primary)] text-slate-700 dark:text-slate-200 hover:text-white dark:hover:text-[var(--navy-950)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
-              <Icon icon="solar:arrow-left-linear" className="w-4 h-4" />
+              <Icon icon="carbon:arrow-left" className="w-4 h-4" />
             </button>
             <span className="text-xs font-bold text-slate-700 dark:text-slate-300 tracking-wider select-none font-mono">
               0{currentSlide + 1} <span className="text-slate-400 dark:text-slate-500">/</span> 0{testimonials.length}
@@ -91,7 +91,7 @@ export default function TestimonialsSection() {
               aria-label="Next testimonial"
               className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-slate-200 dark:border-[var(--border-default)] hover:border-[var(--brand-primary)] dark:hover:border-[var(--brand-primary)] bg-white dark:bg-[var(--bg-surface-secondary)] hover:bg-[var(--brand-primary)] dark:hover:bg-[var(--brand-primary)] text-slate-700 dark:text-slate-200 hover:text-white dark:hover:text-[var(--navy-950)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
-              <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
+              <Icon icon="carbon:arrow-right" className="w-4 h-4" />
             </button>
           </div>
         </div>

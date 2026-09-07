@@ -114,7 +114,7 @@ export default function AdminLayout() {
   if (checkingAuth) {
     return (
       <div className={styles.loadingScreen}>
-        <Icon icon="solar:restart-linear" className="w-5 h-5 animate-spin inline mr-2" /> Verifying Authentication...
+        <Icon icon="carbon:renew" className="w-5 h-5 animate-spin inline mr-2" /> Verifying Authentication...
       </div>
     );
   }

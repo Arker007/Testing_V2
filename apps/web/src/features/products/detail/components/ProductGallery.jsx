@@ -124,7 +124,7 @@ export default function ProductGallery({
             <ImageZoom src={images[currentImgIdx]} alt={productName} />
           ) : (
             <div className="flex flex-col items-center justify-center h-full text-[var(--text-muted)]">
-              <Icon icon="solar:gallery-linear" className="w-12 h-12" />
+              <Icon icon="carbon:image" className="w-12 h-12" />
               <span className="text-xs mt-2 font-semibold">Inspection Image Not Available</span>
             </div>
           )}
@@ -132,7 +132,7 @@ export default function ProductGallery({
 
         {/* Certified Quality Badge */}
         <div className="absolute top-3.5 left-3.5 bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] px-3 py-1.5 rounded-[var(--radius-card,8px)] text-[10px] sm:text-xs font-bold flex items-center gap-1.5 backdrop-blur-xs shadow-xs border border-[var(--border-subtle)] z-10">
-          <Icon icon="solar:shield-check-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
+          <Icon icon="carbon:security" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
           <span>50+ Year Polymer Durability</span>
         </div>
 
@@ -145,7 +145,7 @@ export default function ProductGallery({
             aria-label="View image full screen"
             title="Expand Full View"
           >
-            <Icon icon="solar:full-screen-square-linear" className="w-4 h-4" />
+            <Icon icon="carbon:maximize" className="w-4 h-4" />
           </button>
         )}
 
@@ -161,7 +161,7 @@ export default function ProductGallery({
               }}
               aria-label="Previous product image"
             >
-              <Icon icon="solar:alt-arrow-left-linear" className="w-5 h-5" />
+              <Icon icon="carbon:chevron-left" className="w-5 h-5" />
             </button>
             <button
               type="button"
@@ -172,7 +172,7 @@ export default function ProductGallery({
               }}
               aria-label="Next product image"
             >
-              <Icon icon="solar:alt-arrow-right-linear" className="w-5 h-5" />
+              <Icon icon="carbon:chevron-right" className="w-5 h-5" />
             </button>
           </>
         )}
@@ -187,7 +187,7 @@ export default function ProductGallery({
             onClick={handlePrevImage}
             aria-label="Previous thumbnail"
           >
-            <Icon icon="solar:alt-arrow-left-linear" className="w-4 h-4" />
+            <Icon icon="carbon:chevron-left" className="w-4 h-4" />
           </button>
 
           <div className="flex-1 flex gap-2 overflow-x-auto py-1 scrollbar-none justify-center">
@@ -218,7 +218,7 @@ export default function ProductGallery({
             onClick={handleNextImage}
             aria-label="Next thumbnail"
           >
-            <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4" />
+            <Icon icon="carbon:chevron-right" className="w-4 h-4" />
           </button>
         </div>
       )}
@@ -226,15 +226,15 @@ export default function ProductGallery({
       {/* 3. Factory Certified Standards Strip */}
       <div className="grid grid-cols-3 gap-2.5 pt-4 border-t border-[var(--border-subtle)]">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 p-2 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-center">
-          <Icon icon="solar:shield-check-linear" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
+          <Icon icon="carbon:security" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
           <span className="text-[11px] font-bold text-[var(--text-primary)]">ISO 9001:2015</span>
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 p-2 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-center">
-          <Icon icon="solar:leaf-linear" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
+          <Icon icon="carbon:recycle" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
           <span className="text-[11px] font-bold text-[var(--text-primary)]">100% Recycled</span>
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 p-2 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-center">
-          <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
+          <Icon icon="carbon:cube" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
           <span className="text-[11px] font-bold text-[var(--text-primary)]">Export Exemption</span>
         </div>
       </div>

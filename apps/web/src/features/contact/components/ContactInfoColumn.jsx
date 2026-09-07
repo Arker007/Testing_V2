@@ -12,7 +12,7 @@ const WhatsAppIcon = () => (
     transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
     className="shrink-0"
   >
-    <Icon icon="solar:chat-round-line-linear" className="w-5 h-5" />
+    <Icon icon="carbon:chat" className="w-5 h-5" />
   </motion.div>
 );
 
@@ -42,7 +42,7 @@ export default function ContactInfoColumn({
 
       <div className={styles.infoItems}>
         <ContactInfoItem
-          iconName="solar:map-point-linear"
+          iconName="carbon:location"
           label="Factory Address"
           value={addr}
           copyKey="addr"
@@ -55,7 +55,7 @@ export default function ContactInfoColumn({
         />
 
         <ContactInfoItem
-          iconName="solar:phone-calling-linear"
+          iconName="carbon:phone"
           label="Sales Phone"
           value={phone}
           copyKey="phone"
@@ -68,7 +68,7 @@ export default function ContactInfoColumn({
         />
 
         <ContactInfoItem
-          iconName="solar:letter-linear"
+          iconName="carbon:email"
           label="Email Address"
           value={email}
           copyKey="email"
@@ -81,7 +81,7 @@ export default function ContactInfoColumn({
         />
 
         <ContactInfoItem
-          iconName="solar:clock-circle-linear"
+          iconName="carbon:time"
           label="Working Hours"
           value="Monday – Saturday: 9:00 AM – 6:00 PM"
           iconAnimation={{

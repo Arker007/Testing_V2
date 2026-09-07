@@ -178,7 +178,7 @@ export default function ProductSearchHeader({
       {/* Search Input Row */}
       <div className={styles.searchRow}>
         <div className={styles.searchBoxWrapper}>
-          <Icon icon="solar:magnifer-linear" className={styles.searchIcon} />
+          <Icon icon="carbon:search" className={styles.searchIcon} />
           <input
             id="product-search-input-field"
             type="text"
@@ -200,7 +200,7 @@ export default function ProductSearchHeader({
                 exit={{ opacity: 0, scale: 0.8 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                <Icon icon="carbon:close" className="w-4 h-4" />
               </motion.button>
             )}
           </AnimatePresence>
@@ -214,7 +214,7 @@ export default function ProductSearchHeader({
             onClick={() => setIsMobileFilterOpen(true)}
             whileTap={{ scale: 0.95 }}
           >
-            <Icon icon="solar:tuning-2-linear" className="w-4 h-4" />
+            <Icon icon="carbon:settings-adjust" className="w-4 h-4" />
             <span>Filters</span>
             {hasActiveFilters && <span className={styles.filterDotBadge} />}
           </motion.button>
@@ -239,7 +239,7 @@ export default function ProductSearchHeader({
               aria-label="Grid View"
               whileTap={{ scale: 0.9 }}
             >
-              <Icon icon="solar:widget-2-linear" className="w-4 h-4" />
+              <Icon icon="carbon:grid" className="w-4 h-4" />
             </motion.button>
             <motion.button
               type="button"
@@ -249,7 +249,7 @@ export default function ProductSearchHeader({
               aria-label="List View"
               whileTap={{ scale: 0.9 }}
             >
-              <Icon icon="solar:list-linear" className="w-4 h-4" />
+              <Icon icon="carbon:list" className="w-4 h-4" />
             </motion.button>
           </div>
         </div>
@@ -306,7 +306,7 @@ export default function ProductSearchHeader({
                     aria-label={`Remove ${tag.label}`}
                     whileTap={{ scale: 0.8 }}
                   >
-                    <Icon icon="solar:close-circle-bold" className="w-3.5 h-3.5" />
+                    <Icon icon="carbon:close-filled" className="w-3.5 h-3.5" />
                   </motion.button>
                 </motion.span>
               ))}
@@ -319,7 +319,7 @@ export default function ProductSearchHeader({
               title="Clear all active filters"
               whileTap={{ scale: 0.95 }}
             >
-              <Icon icon="solar:restart-linear" className="w-3.5 h-3.5" />
+              <Icon icon="carbon:renew" className="w-3.5 h-3.5" />
               <span>Clear All</span>
             </motion.button>
           </div>

@@ -30,17 +30,17 @@ export default function ConfirmDialog({
 }) {
   const variantConfig = {
     danger: {
-      icon: "solar:trash-bin-trash-bold-duotone",
+      icon: "carbon:trash-can",
       iconBg: "bg-rose-100 text-rose-600 dark:bg-rose-500/20 dark:text-rose-400",
       btnVariant: "danger"
     },
     warning: {
-      icon: "solar:danger-triangle-bold-duotone",
+      icon: "carbon:warning-filled",
       iconBg: "bg-amber-100 text-amber-600 dark:bg-amber-500/20 dark:text-amber-400",
       btnVariant: "warning"
     },
     brand: {
-      icon: "solar:info-circle-bold-duotone",
+      icon: "carbon:information-filled",
       iconBg: "bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400",
       btnVariant: "primary"
     },

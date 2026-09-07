@@ -58,15 +58,15 @@ export default function SiteContent() {
       >
         {saving ? (
           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-            <Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin" /> Saving…
+            <Icon icon="carbon:renew" className="w-4 h-4 animate-spin" /> Saving…
           </span>
         ) : saved ? (
           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-            <Icon icon="solar:check-circle-bold" className="w-4 h-4" /> Saved!
+            <Icon icon="carbon:checkmark-filled" className="w-4 h-4" /> Saved!
           </span>
         ) : (
           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-            <Icon icon="solar:diskette-linear" className="w-4 h-4" /> Save Changes
+            <Icon icon="carbon:save" className="w-4 h-4" /> Save Changes
           </span>
         )}
       </button>
@@ -108,7 +108,7 @@ export default function SiteContent() {
   if (loading) {
     return (
       <div className={cStyles.loader}>
-        <Icon icon="solar:restart-linear" className="w-5 h-5 animate-spin mr-2 inline" /> Loading content...
+        <Icon icon="carbon:renew" className="w-5 h-5 animate-spin mr-2 inline" /> Loading content...
       </div>
     );
   }
@@ -134,7 +134,7 @@ export default function SiteContent() {
         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(5, 40, 63, 0.06)", paddingBottom: "16px", marginBottom: "24px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <div style={{ width: "40px", height: "40px", borderRadius: "var(--radius-admin, 8px)", background: "var(--brand-light)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Icon icon={allSectionsList.find(s => s.key === activeSub)?.icon || "solar:document-text-linear"} className="w-5 h-5 text-emerald-700" />
+              <Icon icon={allSectionsList.find(s => s.key === activeSub)?.icon || "carbon:document"} className="w-5 h-5 text-emerald-700" />
             </div>
             <div>
               <h3 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 800, color: "var(--ink)" }}>{getSectionDisplayName(activeSub)}</h3>
@@ -151,7 +151,7 @@ export default function SiteContent() {
             )}
 
             <div style={{ position: "relative" }}>
-              <Icon icon="solar:magnifer-linear" className="text-slate-400 w-3.5 h-3.5" style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
+              <Icon icon="carbon:search" className="text-slate-400 w-3.5 h-3.5" style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
               <input 
                 type="text" 
                 placeholder="Filter settings..." 
@@ -176,7 +176,7 @@ export default function SiteContent() {
                   style={{ position: "absolute", right: "8px", top: "50%", transform: "translateY(-50%)", border: "none", background: "none", color: "var(--muted)", cursor: "pointer", display: "flex", alignItems: "center" }}
                   title="Clear filter"
                 >
-                  <Icon icon="solar:close-circle-linear" className="w-3.5 h-3.5" />
+                  <Icon icon="carbon:close-outline" className="w-3.5 h-3.5" />
                 </button>
               )}
             </div>
@@ -196,7 +196,7 @@ export default function SiteContent() {
             />
             <div className={cStyles.stickyActionBar}>
               <div className={cStyles.stickyStatusText}>
-                <Icon icon="solar:shield-check-linear" className="w-4 h-4 text-emerald-600" />
+                <Icon icon="carbon:security" className="w-4 h-4 text-emerald-600" />
                 <span>All profile adjustments auto-validate before sync.</span>
               </div>
               <button
@@ -207,15 +207,15 @@ export default function SiteContent() {
               >
                 {saving ? (
                   <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                    <Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin" /> Saving…
+                    <Icon icon="carbon:renew" className="w-4 h-4 animate-spin" /> Saving…
                   </span>
                 ) : saved ? (
                   <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                    <Icon icon="solar:check-circle-bold" className="w-4 h-4" /> Saved!
+                    <Icon icon="carbon:checkmark-filled" className="w-4 h-4" /> Saved!
                   </span>
                 ) : (
                   <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                    <Icon icon="solar:diskette-linear" className="w-4 h-4" /> Save Profile
+                    <Icon icon="carbon:save" className="w-4 h-4" /> Save Profile
                   </span>
                 )}
               </button>
@@ -267,7 +267,7 @@ export default function SiteContent() {
             )}
             <div className={cStyles.stickyActionBar}>
               <div className={cStyles.stickyStatusText}>
-                <Icon icon="solar:shield-check-linear" className="w-4 h-4 text-emerald-600" />
+                <Icon icon="carbon:security" className="w-4 h-4 text-emerald-600" />
                 <span>Modifications apply live to public website upon save.</span>
               </div>
               <button
@@ -278,15 +278,15 @@ export default function SiteContent() {
               >
                 {saving ? (
                   <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                    <Icon icon="solar:restart-linear" className="w-4 h-4 animate-spin" /> Saving…
+                    <Icon icon="carbon:renew" className="w-4 h-4 animate-spin" /> Saving…
                   </span>
                 ) : saved ? (
                   <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                    <Icon icon="solar:check-circle-bold" className="w-4 h-4" /> Saved!
+                    <Icon icon="carbon:checkmark-filled" className="w-4 h-4" /> Saved!
                   </span>
                 ) : (
                   <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                    <Icon icon="solar:diskette-linear" className="w-4 h-4" /> Save Section
+                    <Icon icon="carbon:save" className="w-4 h-4" /> Save Section
                   </span>
                 )}
               </button>

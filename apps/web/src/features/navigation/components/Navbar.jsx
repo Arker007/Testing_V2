@@ -223,9 +223,9 @@ export default function Navbar() {
                     transition={{ duration: 0.12, ease: "easeOut" }}
                   >
                     {theme === "dark" ? (
-                      <Icon icon="solar:sun-2-linear" className="w-5 h-5" />
+                      <Icon icon="carbon:sun" className="w-5 h-5" />
                     ) : (
-                      <Icon icon="solar:moon-linear" className="w-5 h-5" />
+                      <Icon icon="carbon:moon" className="w-5 h-5" />
                     )}
                   </Motion.div>
                 </AnimatePresence>
@@ -234,7 +234,7 @@ export default function Navbar() {
               <div className={styles.headerQuoteBtnWrap}>
                 <QuoteButton
                   to="/contact?quote=1"
-                  text="Get Quote"
+                  text="Request a Quote"
                 />
               </div>
 
@@ -254,7 +254,7 @@ export default function Navbar() {
                   transition={{ duration: 0.2 }}
                 >
                   <Icon
-                    icon={open ? "solar:close-circle-linear" : "solar:hamburger-menu-linear"}
+                    icon={open ? "carbon:close" : "carbon:menu"}
                     className="w-5 h-5"
                   />
                 </Motion.div>

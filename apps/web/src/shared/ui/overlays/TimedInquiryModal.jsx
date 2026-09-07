@@ -200,7 +200,7 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
           className={styles.closeBtn}
           aria-label="Close inquiry dialog"
         >
-          <Icon icon="solar:close-circle-linear" className="w-6 h-6" />
+          <Icon icon="carbon:close" className="w-6 h-6" />
         </button>
 
         {/* Modal Header */}
@@ -211,7 +211,7 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
             </span>
           </div>
           <h2 id="timed-inquiry-title" className={styles.title}>
-            Direct Factory Quotation
+            Direct Factory Quote
           </h2>
           <p className={styles.subtitle}>
             Specify your technical application or volume requirements. Our factory engineering team responds within 2 business hours.
@@ -221,7 +221,7 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
         {status === "sent" ? (
           <div className={styles.successContainer}>
             <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center mx-auto mb-3 text-emerald-500">
-              <Icon icon="solar:check-circle-bold" className="w-10 h-10" />
+              <Icon icon="carbon:checkmark-filled" className="w-10 h-10" />
             </div>
             <h3 className={styles.successHeading}>Inquiry Sent Successfully</h3>
             
@@ -238,7 +238,7 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
                   title="Copy Reference Code"
                   aria-label="Copy reference code"
                 >
-                  <Icon icon={copiedRef ? "solar:check-read-linear" : "solar:copy-linear"} className="w-4 h-4 text-[var(--brand-primary)]" />
+                  <Icon icon={copiedRef ? "carbon:checkmark" : "carbon:copy"} className="w-4 h-4 text-[var(--brand-primary)]" />
                 </button>
               </div>
             )}
@@ -253,7 +253,7 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
                 className="btn btn-secondary min-h-[44px] px-6 justify-center w-full sm:w-auto"
                 onClick={handleResetForm}
               >
-                <Icon icon="solar:restart-linear" className="w-4 h-4" />
+                <Icon icon="carbon:renew" className="w-4 h-4" />
                 <span>New Inquiry</span>
               </button>
               <button
@@ -271,7 +271,7 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
             <div className={styles.grid2}>
               <div className={styles.inputWrapper}>
                 <div className={styles.inputIcon}>
-                  <Icon icon="solar:box-minimalistic-linear" className="w-5 h-5" />
+                  <Icon icon="carbon:cube" className="w-5 h-5" />
                 </div>
                 <input
                   id="modalProductService"
@@ -285,7 +285,7 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
 
               <div className={styles.inputWrapper}>
                 <div className={styles.inputIcon}>
-                  <Icon icon="solar:user-linear" className="w-5 h-5" />
+                  <Icon icon="carbon:user" className="w-5 h-5" />
                 </div>
                 <input
                   id="modalFullName"
@@ -302,7 +302,7 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
             <div className={styles.grid2}>
               <div className={styles.inputWrapper}>
                 <div className={styles.inputIcon}>
-                  <Icon icon="solar:letter-linear" className="w-5 h-5" />
+                  <Icon icon="carbon:email" className="w-5 h-5" />
                 </div>
                 <input
                   id="modalEmail"
@@ -317,7 +317,7 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
 
               <div className={styles.inputWrapper}>
                 <div className={styles.inputIcon}>
-                  <Icon icon="solar:global-linear" className="w-5 h-5" />
+                  <Icon icon="carbon:globe" className="w-5 h-5" />
                 </div>
                 <select
                   id="modalCountry"
@@ -360,7 +360,7 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
               </div>
               <div className={styles.inputWrapper} style={{ flex: 1 }}>
                 <div className={styles.inputIcon}>
-                  <Icon icon="solar:phone-calling-linear" className="w-5 h-5" />
+                  <Icon icon="carbon:phone" className="w-5 h-5" />
                 </div>
                 <input
                   id="modalPhone"
@@ -377,7 +377,7 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
             {/* Row 4: Message */}
             <div className={styles.inputWrapper}>
               <div className={`${styles.inputIcon} ${styles.inputIconTextarea}`}>
-                <Icon icon="solar:chat-round-dots-linear" className="w-5 h-5" />
+                <Icon icon="carbon:chat" className="w-5 h-5" />
               </div>
               <textarea
                 id="modalMessage"
@@ -392,7 +392,7 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
 
             {status === "error" && (
               <div className={styles.errorBox} role="alert">
-                <Icon icon="solar:danger-triangle-linear" className="w-5 h-5 shrink-0" />
+                <Icon icon="carbon:warning-alt" className="w-5 h-5 shrink-0" />
                 <span>{errorMessage}</span>
               </div>
             )}
@@ -406,21 +406,21 @@ ${form.message || "Requested product catalog and bulk pricing quote."}
               >
                 {status === "sending" ? (
                   <>
-                    <Icon icon="solar:restart-linear" className="w-5 h-5 animate-spin" />
+                    <Icon icon="carbon:renew" className="w-5 h-5 animate-spin" />
                     <span>Sending Message...</span>
                   </>
                 ) : (
                   <>
                     <span>Send Message</span>
                     <span className={styles.btnIconBubble}>
-                      <Icon icon="solar:plain-2-linear" className="w-4 h-4" />
+                      <Icon icon="carbon:send-alt" className="w-4 h-4" />
                     </span>
                   </>
                 )}
               </button>
 
               <div className={styles.privacyNote}>
-                <Icon icon="solar:shield-check-linear" className="w-4 h-4 text-[var(--brand-text,#16a34a)]" />
+                <Icon icon="carbon:security" className="w-4 h-4 text-[var(--brand-text,#16a34a)]" />
                 <span>We respect your privacy. Your details remain confidential.</span>
               </div>
             </div>

@@ -1,53 +1,53 @@
 export const CLOSED_LOOP_BENEFITS = [
   {
-    icon: "solar:dumbbell-large-linear",
+    icon: "carbon:activity",
     text: "Made from recycled high-density polyethylene (HDPE) with impact, UV, and moisture resistance.",
   },
   {
-    icon: "solar:check-circle-linear",
+    icon: "carbon:checkmark-outline",
     text: "Versatility for use in both stacking and racking systems.",
   },
   {
-    icon: "solar:layers-minimalistic-linear",
+    icon: "carbon:layers",
     text: "Compatibility with RFID and customizable labeling.",
   },
   {
-    icon: "solar:shield-check-linear",
+    icon: "carbon:security",
     text: "Hygienic, easy to clean, and non-absorbent.",
   },
   {
-    icon: "solar:ruler-cross-linear",
+    icon: "carbon:rule",
     text: "Available in 100% virgin material for FDA-grade applications.",
   },
   {
-    icon: "solar:hourglass-linear",
+    icon: "carbon:hourglass",
     text: "10+ years of durability.",
   },
 ];
 
 export const LIGHTWEIGHT_BENEFITS = [
   {
-    icon: "solar:shield-warning-linear",
+    icon: "carbon:shield-alert",
     text: "Made from recycled high-density polyethylene (HDPE) with impact, UV, and moisture resistance.",
   },
   {
-    icon: "solar:document-check-linear",
+    icon: "carbon:document-tasks",
     text: "Exempt from NOM 144 requirements.",
   },
   {
-    icon: "solar:sort-from-top-to-bottom-linear",
+    icon: "carbon:arrows-vertical",
     text: "Lightweight pallet design.",
   },
   {
-    icon: "solar:box-minimalistic-linear",
+    icon: "carbon:cube",
     text: "Nestable design that maximizes space.",
   },
   {
-    icon: "solar:box-bold-linear",
+    icon: "carbon:box",
     text: "Available in 100% virgin material for FDA-grade applications.",
   },
   {
-    icon: "solar:waterdrops-linear",
+    icon: "carbon:rain-drop",
     text: "Hygienic, easy to clean, and non-absorbent.",
   },
 ];
@@ -61,13 +61,13 @@ export const DEFAULT_RETURN_POLICY =
   "All batches are factory load-tested with batch certification. We offer direct replacements for transit damages or non-conformance within 7 days of delivery receipt.";
 
 export const DEFAULT_TRUST_INDICATORS = [
-  { icon: "solar:verified-check-linear", label: "Factory Direct" },
-  { icon: "solar:box-linear", label: "Pan-India Dispatch" },
-  { icon: "solar:shield-check-linear", label: "ISO Certified" },
+  { icon: "carbon:certificate", label: "Factory Direct" },
+  { icon: "carbon:package", label: "Pan-India Dispatch" },
+  { icon: "carbon:security", label: "ISO Certified" },
 ];
 
 export const DEFAULT_STANDARDS_BAR = [
-  { icon: "solar:verified-check-linear", label: "ISPM-15 Exempt" },
-  { icon: "solar:leaf-linear", label: "Zero Rot/Splinter" },
-  { icon: "solar:refresh-circle-linear", label: "100% Recycled PE" },
+  { icon: "carbon:certificate", label: "ISPM-15 Exempt" },
+  { icon: "carbon:recycle", label: "Zero Rot/Splinter" },
+  { icon: "carbon:renew", label: "100% Recycled PE" },
 ];

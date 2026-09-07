@@ -61,7 +61,7 @@ export default function GeneralTab({
                 : "Select Category"}
             </span>
             <Icon
-              icon="solar:alt-arrow-down-linear"
+              icon="carbon:chevron-down"
               className={`${catDropdownOpen ? styles.chevronOpen : ""} w-4 h-4`}
             />
           </button>

@@ -26,7 +26,7 @@ export default function WhyChooseUsSection() {
                 <Badge
                   variant="hero"
                   size="lg"
-                  icon="solar:shield-check-linear"
+                  icon="carbon:security"
                 >
                   Why Industries Choose Us
                 </Badge>
@@ -57,7 +57,7 @@ export default function WhyChooseUsSection() {
             <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/40 hover:bg-white/[0.07] rounded-[var(--radius-card,8px)] p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
               <div>
                 <IconBox
-                  icon="solar:shield-check-linear"
+                  icon="carbon:security"
                   variant="brand"
                   size="lg"
                   className="mb-5 group-hover:scale-110"
@@ -76,7 +76,7 @@ export default function WhyChooseUsSection() {
             <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/40 hover:bg-white/[0.07] rounded-[var(--radius-card,8px)] p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
               <div>
                 <IconBox
-                  icon="solar:sun-fog-linear"
+                  icon="carbon:sun"
                   variant="brand"
                   size="lg"
                   className="mb-5 group-hover:scale-110"
@@ -95,7 +95,7 @@ export default function WhyChooseUsSection() {
             <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/40 hover:bg-white/[0.07] rounded-[var(--radius-card,8px)] p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
               <div>
                 <IconBox
-                  icon="solar:settings-minimalistic-linear"
+                  icon="carbon:settings"
                   variant="brand"
                   size="lg"
                   className="mb-5 group-hover:scale-110"
@@ -114,7 +114,7 @@ export default function WhyChooseUsSection() {
             <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/40 hover:bg-white/[0.07] rounded-[var(--radius-card,8px)] p-6 sm:p-8 flex flex-col justify-between shadow-lg transition-all duration-300">
               <div>
                 <IconBox
-                  icon="solar:leaf-linear"
+                  icon="carbon:recycle"
                   variant="brand"
                   size="lg"
                   className="mb-5 group-hover:scale-110"

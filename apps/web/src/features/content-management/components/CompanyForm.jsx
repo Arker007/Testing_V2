@@ -27,7 +27,7 @@ export default function CompanyForm({
     <div>
       {filteredFields.length === 0 ? (
         <div style={{ textAlign: "center", padding: "40px 20px", color: "var(--text-muted)", fontSize: "0.85rem" }}>
-          <Icon icon="solar:info-circle-linear" style={{ marginRight: "6px", color: "var(--brand)" }} className="w-4 h-4 inline" />
+          <Icon icon="carbon:information" style={{ marginRight: "6px", color: "var(--brand)" }} className="w-4 h-4 inline" />
           No fields match your search filter "{searchFieldQuery}"
         </div>
       ) : (
@@ -38,7 +38,7 @@ export default function CompanyForm({
               return (
                 <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: "1 / -1" }}>
                   <label className={cStyles.formLabel}>
-                    <Icon icon="solar:gallery-wide-linear" className="w-4 h-4 text-emerald-600 inline mr-1" />
+                    <Icon icon="carbon:image" className="w-4 h-4 text-emerald-600 inline mr-1" />
                     {f.label}
                   </label>
                   <div className={cStyles.imageUploadContainer}>
@@ -50,7 +50,7 @@ export default function CompanyForm({
                       />
                     ) : (
                       <div style={{ width: "52px", height: "52px", borderRadius: "var(--radius-admin, 8px)", border: "1px dashed var(--border)", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--surface-card)" }}>
-                        <Icon icon="solar:gallery-linear" className="w-5 h-5 text-slate-400" />
+                        <Icon icon="carbon:image" className="w-5 h-5 text-slate-400" />
                       </div>
                     )}
                     <div className={cStyles.imageUploadMeta}>

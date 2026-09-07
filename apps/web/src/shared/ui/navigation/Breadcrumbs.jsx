@@ -33,12 +33,12 @@ export default function Breadcrumbs({
       case "slash":
         return <span className="text-[var(--text-disabled)] font-light select-none">/</span>;
       case "arrow":
-        return <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5 text-[var(--text-disabled)] shrink-0" />;
+        return <Icon icon="carbon:arrow-right" className="w-3.5 h-3.5 text-[var(--text-disabled)] shrink-0" />;
       case "pill":
         return <span className="w-1 h-1 rounded-full bg-[var(--text-disabled)] select-none shrink-0" />;
       case "chevron":
       default:
-        return <Icon icon="solar:alt-arrow-right-linear" className="w-3.5 h-3.5 text-[var(--text-disabled)] shrink-0" />;
+        return <Icon icon="carbon:chevron-right" className="w-3.5 h-3.5 text-[var(--text-disabled)] shrink-0" />;
     }
   };
 

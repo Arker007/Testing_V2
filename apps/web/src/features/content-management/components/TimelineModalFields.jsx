@@ -7,7 +7,7 @@ export const TimelineModalFields = React.memo(function TimelineModalFields({ dat
     <>
       <div className={cStyles.formGroup}>
         <label className={cStyles.formLabel}>
-          <Icon icon="solar:calendar-date-linear" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
+          <Icon icon="carbon:calendar" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
           Year / Milestone Period *
         </label>
         <input
@@ -21,7 +21,7 @@ export const TimelineModalFields = React.memo(function TimelineModalFields({ dat
 
       <div className={cStyles.formGroup}>
         <label className={cStyles.formLabel}>
-          <Icon icon="solar:flag-linear" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
+          <Icon icon="carbon:flag" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
           Strategic Milestone Title *
         </label>
         <input
@@ -35,7 +35,7 @@ export const TimelineModalFields = React.memo(function TimelineModalFields({ dat
 
       <div className={cStyles.formGroup}>
         <label className={cStyles.formLabel}>
-          <Icon icon="solar:notes-linear" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
+          <Icon icon="carbon:notebook" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
           Descriptive Detail & Key Accomplishments
         </label>
         <textarea

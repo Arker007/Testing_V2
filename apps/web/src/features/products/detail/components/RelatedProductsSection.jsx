@@ -23,7 +23,7 @@ export default function RelatedProductsSection({ relatedProducts }) {
           className="text-xs sm:text-sm font-bold text-[var(--brand-primary)] hover:underline flex items-center gap-1.5"
         >
           <span>View Full Catalog</span>
-          <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
+          <Icon icon="carbon:arrow-right" className="w-4 h-4" />
         </Link>
       </div>
 
@@ -41,7 +41,7 @@ export default function RelatedProductsSection({ relatedProducts }) {
               <div className="relative aspect-4/3 bg-[var(--bg-surface-secondary)] p-4 flex items-center justify-center overflow-hidden border-b border-[var(--border-subtle)]">
                 {meta.verified && (
                   <div className="absolute top-3 left-3 z-10">
-                    <Badge variant="success" size="xs" icon="solar:verified-check-linear">
+                    <Badge variant="success" size="xs" icon="carbon:certificate">
                       Verified Spec
                     </Badge>
                   </div>
@@ -55,7 +55,7 @@ export default function RelatedProductsSection({ relatedProducts }) {
                       className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                   ) : (
-                    <Icon icon="solar:gallery-linear" className="w-10 h-10 text-[var(--text-muted)]" />
+                    <Icon icon="carbon:image" className="w-10 h-10 text-[var(--text-muted)]" />
                   )}
                 </div>
               </div>
@@ -84,7 +84,7 @@ export default function RelatedProductsSection({ relatedProducts }) {
                   </div>
 
                   <span className="p-1.5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] group-hover:bg-[var(--brand-primary)] group-hover:text-white transition-colors">
-                    <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
+                    <Icon icon="carbon:arrow-right" className="w-4 h-4" />
                   </span>
                 </div>
               </div>

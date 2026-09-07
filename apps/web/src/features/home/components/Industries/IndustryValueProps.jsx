@@ -7,7 +7,7 @@ export default function IndustryValueProps() {
     <div className={styles.bentoBottomRow}>
       <div className={styles.bentoBottomBadge}>
         <div className={styles.bentoBottomIcon}>
-          <Icon icon="solar:shield-check-linear" className="w-5 h-5 text-brand" />
+          <Icon icon="carbon:security" className="w-5 h-5 text-brand" />
         </div>
         <div className={styles.bentoBottomText}>
           <span className={styles.bentoBottomTitle}>Engineered Strength</span>
@@ -17,7 +17,7 @@ export default function IndustryValueProps() {
 
       <div className={styles.bentoBottomBadge}>
         <div className={styles.bentoBottomIcon}>
-          <Icon icon="solar:leaf-linear" className="w-5 h-5 text-brand" />
+          <Icon icon="carbon:recycle" className="w-5 h-5 text-brand" />
         </div>
         <div className={styles.bentoBottomText}>
           <span className={styles.bentoBottomTitle}>Eco-Conscious</span>
@@ -27,7 +27,7 @@ export default function IndustryValueProps() {
 
       <div className={styles.bentoBottomBadge}>
         <div className={styles.bentoBottomIcon}>
-          <Icon icon="solar:wrench-linear" className="w-5 h-5 text-brand" />
+          <Icon icon="carbon:tool-box" className="w-5 h-5 text-brand" />
         </div>
         <div className={styles.bentoBottomText}>
           <span className={styles.bentoBottomTitle}>Zero Maintenance</span>
@@ -37,7 +37,7 @@ export default function IndustryValueProps() {
 
       <div className={styles.bentoBottomBadge}>
         <div className={styles.bentoBottomIcon}>
-          <Icon icon="solar:clock-circle-linear" className="w-5 h-5 text-brand" />
+          <Icon icon="carbon:time" className="w-5 h-5 text-brand" />
         </div>
         <div className={styles.bentoBottomText}>
           <span className={styles.bentoBottomTitle}>Long Service Life</span>

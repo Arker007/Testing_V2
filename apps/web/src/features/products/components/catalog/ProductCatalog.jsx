@@ -478,7 +478,7 @@ export default function ProductCatalog() {
                 transition={{ duration: 0.25 }}
               >
                 <div className={styles.emptyIconCircle}>
-                  <Icon icon="solar:magnifer-linear" className="w-8 h-8 text-slate-400" />
+                  <Icon icon="carbon:search" className="w-8 h-8 text-slate-400" />
                 </div>
                 <h3>No Matching Products Found</h3>
                 <p>
@@ -497,7 +497,7 @@ export default function ProductCatalog() {
                           onClick={() => setSearchQuery("")}
                           aria-label="Remove search query"
                         >
-                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                          <Icon icon="carbon:close" className="w-4 h-4" />
                         </button>
                       </span>
                     )}
@@ -513,7 +513,7 @@ export default function ProductCatalog() {
                           }}
                           aria-label="Remove category filter"
                         >
-                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                          <Icon icon="carbon:close" className="w-4 h-4" />
                         </button>
                       </span>
                     )}
@@ -526,7 +526,7 @@ export default function ProductCatalog() {
                           onClick={() => setSelectedCategories((prev) => prev.filter((c) => c !== cat))}
                           aria-label={`Remove category ${cat}`}
                         >
-                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                          <Icon icon="carbon:close" className="w-4 h-4" />
                         </button>
                       </span>
                     ))}
@@ -539,7 +539,7 @@ export default function ProductCatalog() {
                           onClick={() => setSelectedAttributes((prev) => prev.filter((a) => a !== attr))}
                           aria-label={`Remove attribute ${attr}`}
                         >
-                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                          <Icon icon="carbon:close" className="w-4 h-4" />
                         </button>
                       </span>
                     ))}
@@ -552,7 +552,7 @@ export default function ProductCatalog() {
                           onClick={() => setSelectedDimensions((prev) => prev.filter((d) => d !== dim))}
                           aria-label={`Remove dimension ${dim}`}
                         >
-                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                          <Icon icon="carbon:close" className="w-4 h-4" />
                         </button>
                       </span>
                     ))}
@@ -568,7 +568,7 @@ export default function ProductCatalog() {
                           }}
                           aria-label="Remove static load filter"
                         >
-                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                          <Icon icon="carbon:close" className="w-4 h-4" />
                         </button>
                       </span>
                     )}
@@ -581,7 +581,7 @@ export default function ProductCatalog() {
                           onClick={() => setActiveDynamicFilter(null)}
                           aria-label="Remove dynamic load filter"
                         >
-                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                          <Icon icon="carbon:close" className="w-4 h-4" />
                         </button>
                       </span>
                     )}
@@ -594,7 +594,7 @@ export default function ProductCatalog() {
                           onClick={() => setActiveRackFilter(null)}
                           aria-label="Remove rack load filter"
                         >
-                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                          <Icon icon="carbon:close" className="w-4 h-4" />
                         </button>
                       </span>
                     )}
@@ -607,7 +607,7 @@ export default function ProductCatalog() {
                           onClick={() => setIsCustom(false)}
                           aria-label="Remove custom filter"
                         >
-                          <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
+                          <Icon icon="carbon:close" className="w-4 h-4" />
                         </button>
                       </span>
                     )}
@@ -622,7 +622,7 @@ export default function ProductCatalog() {
                     className={styles.emptyResetBtn}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Icon icon="solar:restart-linear" className="w-4 h-4" />
+                    <Icon icon="carbon:renew" className="w-4 h-4" />
                     <span>Reset All Filters</span>
                   </motion.button>
                   <motion.button
@@ -639,7 +639,7 @@ export default function ProductCatalog() {
                     className={styles.emptyCustomCtaBtn}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Icon icon="solar:tuning-square-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
+                    <Icon icon="carbon:settings-adjust" className="w-4 h-4 text-[var(--brand-primary)]" />
                     <span>Request Custom Machining / Sourcing</span>
                   </motion.button>
                 </div>
@@ -665,7 +665,7 @@ export default function ProductCatalog() {
                         }}
                         className={styles.emptySuggestionBtn}
                       >
-                        <Icon icon="solar:magnifer-linear" className="w-3 h-3 text-[var(--text-muted)]" />
+                        <Icon icon="carbon:search" className="w-3 h-3 text-[var(--text-muted)]" />
                         <span>{s.label}</span>
                       </button>
                     ))}

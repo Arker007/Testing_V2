@@ -22,7 +22,7 @@ export default function QuoteButton({
     <>
       <span className="btn-text">{text}</span>
       <span className="btn-icon-bubble">
-        <Icon icon="solar:arrow-right-linear" className="btn-arrow-icon w-4 h-4" />
+        <Icon icon="carbon:arrow-right" className="btn-arrow-icon w-4 h-4" />
       </span>
     </>
   );

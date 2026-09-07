@@ -26,22 +26,22 @@ export default function ProductHeaderSpecs({
     if (isPallet) {
       return [
         {
-          icon: "solar:box-minimalistic-linear",
+          icon: "carbon:cube",
           label: "Min. Order (MOQ)",
           value: product.moq || "50 Units",
         },
         {
-          icon: "solar:delivery-linear",
+          icon: "carbon:delivery-truck",
           label: "Lead Time",
           value: product.dispatch || "Ex-stock Ankleshwar",
         },
         {
-          icon: "solar:scale-linear",
+          icon: "carbon:scale",
           label: "Static Load",
           value: product.specs?.["Static Load"] || product.capacity || "5,000 kg",
         },
         {
-          icon: "solar:routing-2-linear",
+          icon: "carbon:direction-straight",
           label: "Forklift Handling",
           value: product.specs?.["Entry"] || "4-Way Entry",
         },
@@ -51,22 +51,22 @@ export default function ProductHeaderSpecs({
     if (isLumber) {
       return [
         {
-          icon: "solar:box-minimalistic-linear",
+          icon: "carbon:cube",
           label: "Min. Order (MOQ)",
           value: product.moq || "20 Profiles",
         },
         {
-          icon: "solar:delivery-linear",
+          icon: "carbon:delivery-truck",
           label: "Lead Time",
           value: product.dispatch || "3-5 Days",
         },
         {
-          icon: "solar:atom-linear",
+          icon: "carbon:chemistry",
           label: "Density",
           value: product.specs?.["Density"] || "0.95 g/cm³",
         },
         {
-          icon: "solar:wrench-linear",
+          icon: "carbon:tool-box",
           label: "Carpentry",
           value: "Saws & Screws like Wood",
         },
@@ -76,22 +76,22 @@ export default function ProductHeaderSpecs({
     if (isBenchOrTable) {
       return [
         {
-          icon: "solar:box-minimalistic-linear",
+          icon: "carbon:cube",
           label: "Min. Order (MOQ)",
           value: product.moq || "5 Units",
         },
         {
-          icon: "solar:delivery-linear",
+          icon: "carbon:delivery-truck",
           label: "Lead Time",
           value: product.dispatch || "5-7 Days",
         },
         {
-          icon: "solar:scale-linear",
+          icon: "carbon:scale",
           label: "Unit Weight",
           value: product.specs?.["Weight"] || product.capacity || "55 kg (Tip-proof)",
         },
         {
-          icon: "solar:shield-check-linear",
+          icon: "carbon:security",
           label: "Surface Security",
           value: "Bolt-down Anchored",
         },
@@ -101,22 +101,22 @@ export default function ProductHeaderSpecs({
     // Default Industrial Equipment
     return [
       {
-        icon: "solar:box-minimalistic-linear",
+        icon: "carbon:cube",
         label: "Min. Order (MOQ)",
         value: product.moq || "10 Units",
       },
       {
-        icon: "solar:delivery-linear",
+        icon: "carbon:delivery-truck",
         label: "Dispatch",
         value: product.dispatch || "Ready Stock",
       },
       {
-        icon: "solar:scale-linear",
+        icon: "carbon:scale",
         label: "Load Rating",
         value: product.capacity || "Heavy Industrial",
       },
       {
-        icon: "solar:wrench-linear",
+        icon: "carbon:tool-box",
         label: "Custom Cuts",
         value: "Available on Request",
       },
@@ -138,18 +138,18 @@ export default function ProductHeaderSpecs({
           </Badge>
           {isPallet && (
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[var(--radius-card,8px)] text-xs font-semibold bg-[var(--success-bg)] text-[var(--color-success)] border border-[var(--success-border)]">
-              <Icon icon="solar:shield-check-linear" className="w-3.5 h-3.5 shrink-0" />
+              <Icon icon="carbon:security" className="w-3.5 h-3.5 shrink-0" />
               <span>ISPM-15 Exempt</span>
             </span>
           )}
           {isLumber && (
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[var(--radius-card,8px)] text-xs font-semibold bg-[var(--success-bg)] text-[var(--color-success)] border border-[var(--success-border)]">
-              <Icon icon="solar:leaf-linear" className="w-3.5 h-3.5 shrink-0" />
+              <Icon icon="carbon:recycle" className="w-3.5 h-3.5 shrink-0" />
               <span>100% Recycled HDPE</span>
             </span>
           )}
           <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[var(--radius-card,8px)] text-xs font-medium text-[var(--text-muted)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
-            <Icon icon="solar:verified-check-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
+            <Icon icon="carbon:certificate" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
             <span>ISO 9001:2015</span>
           </span>
         </div>
@@ -176,7 +176,7 @@ export default function ProductHeaderSpecs({
             Commercial Terms
           </span>
           <span className="text-xs font-bold text-[var(--brand-primary)] flex items-center gap-1">
-            <Icon icon="solar:verified-check-linear" className="w-3.5 h-3.5" />
+            <Icon icon="carbon:certificate" className="w-3.5 h-3.5" />
             Direct Factory Pricing
           </span>
         </div>
@@ -193,7 +193,7 @@ export default function ProductHeaderSpecs({
         ) : (
           <div className="flex flex-col pt-1">
             <span className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight">
-              Volume Quotation on Request
+              Volume Quote on Request
             </span>
             <span className="text-xs font-medium text-[var(--text-muted)] mt-0.5 max-w-[65ch]">
               Wholesale tiered brackets for container, truckload & scheduled plant orders
@@ -260,8 +260,8 @@ export default function ProductHeaderSpecs({
             className="flex-1 min-h-[48px] px-6 bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] active:bg-[var(--brand-active)] text-[var(--brand-btn-text)] rounded-[var(--radius-card,8px)] font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm border-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 active:scale-[0.98]"
             onClick={() => setShowInquiry(true)}
           >
-            <span>Request B2B Quotation</span>
-            <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
+            <span>Request a Quote</span>
+            <Icon icon="carbon:arrow-right" className="w-4 h-4" />
           </button>
 
           <WhatsAppButton

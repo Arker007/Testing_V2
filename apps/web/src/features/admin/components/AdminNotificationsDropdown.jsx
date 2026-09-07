@@ -39,7 +39,7 @@ export default function AdminNotificationsDropdown({
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Icon icon="solar:bell-bing-linear" className="w-4 h-4 text-[var(--brand-primary)]" />
+          <Icon icon="carbon:notification-new" className="w-4 h-4 text-[var(--brand-primary)]" />
           <span
             style={{ fontWeight: 800, fontSize: "0.85rem", color: "var(--ink)" }}
           >
@@ -66,7 +66,7 @@ export default function AdminNotificationsDropdown({
               gap: "4px",
             }}
           >
-            <Icon icon="solar:check-read-linear" className="w-3.5 h-3.5" /> Mark read
+            <Icon icon="carbon:checkmark" className="w-3.5 h-3.5" /> Mark read
           </button>
         )}
       </div>
@@ -82,7 +82,7 @@ export default function AdminNotificationsDropdown({
             }}
           >
             <Icon
-              icon="solar:stars-linear"
+              icon="carbon:star"
               className="w-6 h-6 mx-auto mb-2 text-slate-400"
             />
             No new notifications
@@ -198,7 +198,7 @@ export default function AdminNotificationsDropdown({
             width: "100%",
           }}
         >
-          <Icon icon="solar:pulse-linear" className="w-3.5 h-3.5" /> View all system logs
+          <Icon icon="carbon:activity" className="w-3.5 h-3.5" /> View all system logs
         </button>
       </div>
     </div>
