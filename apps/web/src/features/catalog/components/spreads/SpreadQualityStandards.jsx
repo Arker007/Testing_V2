@@ -29,14 +29,14 @@ export function getQualityStandardsSpread({ emailVal, webVal }) {
               style={{
                 fontWeight: 700,
                 color: "var(--color-warning)",
-                fontSize: "16px",
+                fontSize: "15px",
                 marginBottom: "5px",
               }}
             >
-              GST Registered
+              GSTIN: 24AXCPS0336E1ZV
             </div>
             <div style={{ color: "var(--gray-500)" }}>
-              Audited B2B Management Systems
+              GST Registered Enterprise
             </div>
           </div>
           <div

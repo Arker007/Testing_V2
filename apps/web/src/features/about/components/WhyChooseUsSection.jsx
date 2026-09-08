@@ -20,7 +20,7 @@ export default function WhyChooseUsSection() {
           </div>
 
           {/* Column 2: Middle Intro text Card */}
-          <div className="lg:col-span-4 bg-white/[0.04] border border-white/10 rounded-[var(--radius-card,8px)] p-8 sm:p-10 flex flex-col justify-between backdrop-blur-sm shadow-xl min-h-[440px] lg:min-h-[540px]">
+          <div className="lg:col-span-4 bg-white/[0.04] border border-white/10 rounded-[var(--radius-card,8px)] p-6 sm:p-8 lg:p-10 flex flex-col justify-between backdrop-blur-sm shadow-xl min-h-[440px] lg:min-h-[540px] min-w-0">
             <div>
               <div className="mb-4">
                 <Badge

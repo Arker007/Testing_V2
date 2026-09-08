@@ -46,7 +46,7 @@ export function useAdminCatalog() {
   }, []);
 
   const catalogProducts = products.filter((p) => selectedProductIds.includes(p.id));
-  const emailVal = company.email || "info@vishalenterprise.com";
+  const emailVal = company.email || "Info@vishalenterpriseank.com";
   const webVal = "www.vishalenterprise.com";
 
   const coverImages = {

@@ -562,7 +562,7 @@ const products = [
       "Custom Extrusion & Compression Molding Capabilities",
       "Substitutes Expensive Nylon / UHMW Virgin Plastics",
       "High Abrasion Resistance & Low Friction Coefficient",
-      "ISO 9001:2015 Certified Manufacturing Tolerances",
+      "Certified High-Precision Manufacturing Tolerances",
     ]),
     published: 1,
   },

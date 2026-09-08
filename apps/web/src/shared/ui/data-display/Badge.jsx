@@ -89,7 +89,7 @@ export default function Badge({
   };
 
   const baseClasses =
-    "inline-flex items-center font-bold tracking-wider uppercase whitespace-nowrap transition-colors select-none";
+    "inline-flex items-center font-bold tracking-wider uppercase whitespace-normal sm:whitespace-nowrap max-w-full break-words transition-colors select-none";
 
   const selectedSizeClass = sizeClasses[size] || sizeClasses.md;
   const selectedShapeClass = shapeClasses[shape] || shapeClasses.pill;
@@ -123,7 +123,7 @@ export default function Badge({
         />
       )}
       {renderIcon(icon)}
-      {children && <span>{children}</span>}
+      {children && <span className="break-words min-w-0">{children}</span>}
       {renderIcon(iconRight)}
     </span>
   );

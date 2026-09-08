@@ -60,10 +60,10 @@ export default function ProductTabsSection({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[var(--border-subtle)]">
               <div>
                 <h3 className="text-base font-bold text-[var(--text-primary)]">
-                  Certified Technical Data Sheet
+                  Technical Data Sheet
                 </h3>
                 <p className="text-xs text-[var(--text-muted)]">
-                  Dimensional tolerances: ±2mm. Tested in accordance with ASTM & ISO standards.
+                  Dimensional tolerances: ±2mm. Tested in accordance with ASTM & industry testing standards.
                 </p>
               </div>
               <span className="text-[11px] font-mono font-semibold px-2.5 py-1 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-[var(--text-secondary)] self-start sm:self-auto">
@@ -75,7 +75,7 @@ export default function ProductTabsSection({
             <div className="border border-[var(--border-default)] rounded-[var(--radius-card,8px)] overflow-hidden">
               <div className="grid grid-cols-12 bg-[var(--bg-surface-secondary)] py-3 px-4 border-b border-[var(--border-default)] text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">
                 <div className="col-span-5 sm:col-span-4">Parameter</div>
-                <div className="col-span-7 sm:col-span-8">Certified Specification</div>
+                <div className="col-span-7 sm:col-span-8">Specification</div>
               </div>
 
               <div className="divide-y divide-[var(--border-subtle)]">

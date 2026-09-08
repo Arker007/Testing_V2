@@ -2,9 +2,10 @@ export const HUB_LOCATIONS = [
   {
     type: "Main Factory & HQ",
     name: "Ankleshwar Factory Campus",
-    address: "Plot No. 45-B, GIDC Industrial Estate, Ankleshwar, Gujarat 393002",
-    phone: "+91 98986 86379",
-    email: "info@vishalenterprise.com",
+    address: "PLOT NO. 1706/06 , South 9 Road, G.I.D.C, Ankleshwar, Bharuch, GUJARAT, 393002",
+    phone: "+91 9898686379",
+    email: "Info@vishalenterpriseank.com",
+    gstin: "24AXCPS0336E1ZV",
     hours: "Mon - Sat: 9:00 AM - 6:00 PM",
     badge: "Main Manufacturing Unit",
   },

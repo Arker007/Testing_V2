@@ -42,13 +42,13 @@ export default function Footer() {
   };
 
   const addr = co("address")
-    ? `${co("address")}${co("city") ? ", " + co("city") : ""}`
-    : "Plot No. 42, GIDC Industrial Estate, Vapi – 396195, Gujarat, India";
+    ? `${co("address")}${co("city") ? ", " + co("city") : ""}${co("pincode") ? ", " + co("pincode") : ""}`
+    : "PLOT NO. 1706/06 , South 9 Road, G.I.D.C, Ankleshwar, Bharuch, GUJARAT, 393002";
 
   const CONTACT = [
     { icon: "carbon:location", text: addr },
-    { icon: "carbon:phone", text: co("phone", "+91 98986 86379") },
-    { icon: "carbon:email", text: co("email", "info@vishalenterprise.com") },
+    { icon: "carbon:phone", text: co("phone", "+91 9898686379") },
+    { icon: "carbon:email", text: co("email", "Info@vishalenterpriseank.com") },
     { icon: "carbon:time", text: "Mon – Sat: 9 AM – 6 PM" },
   ];
 
@@ -106,7 +106,11 @@ export default function Footer() {
           <p className={styles.tagline}>
             {c(
               "footer_tagline",
-              co("description", "Processing industrial plastic waste into premium recycled lumber, pallets, and custom outdoor structures since 2008.")
+              (co("description") || "Transforming industrial plastic waste into premium recycled lumber, pallets, and custom outdoor structures since 2008.")
+                .replace(/\.?\s*(?:ISO\s*9001(?::2015)?|GST\s*Registered)?\s*Certified\.?/gi, "")
+                .replace(/\.?\s*GST\s*Registered\.?/gi, "")
+                .replace(/\.?\s*ISO\s*9001(?::2015)?\.?/gi, "")
+                .trim()
             )}
           </p>
           
@@ -114,7 +118,7 @@ export default function Footer() {
 
           <div className={styles.isoRow}>
             <Icon icon="carbon:certificate" className="text-emerald-500 w-5 h-5 inline mr-1.5" />
-            <span>{co("gstin") ? `GSTIN: ${co("gstin")}` : c("cert_gst", "GST Registered")}</span>
+            <span>{co("gstin") ? `GSTIN: ${co("gstin")}` : c("cert_gst", "GSTIN: 24AXCPS0336E1ZV")}</span>
           </div>
 
           <div className={styles.socials}>

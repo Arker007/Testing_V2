@@ -8,7 +8,7 @@ export default function AboutCtaSection() {
   if (c("about_cta_enabled", "1") === "0") return null;
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 cta-section">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 cta-section w-full">
       <CtaCard
         badge={c("about_cta_eyebrow", "Ready to Upgrade Your Supply Chain?")}
         badgeVariant="eyebrow"

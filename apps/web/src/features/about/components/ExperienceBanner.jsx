@@ -8,20 +8,20 @@ export default function ExperienceBanner() {
   if (c("about_cert_enabled", "1") === "0") return null;
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
       <Card
         variant="elevated"
-        className="p-8 sm:p-10 text-slate-900 dark:text-white shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[#161c24] border border-slate-200/90 dark:border-[rgba(242,242,242,0.12)] rounded-[var(--radius-card,8px)]"
+        className="p-6 sm:p-8 md:p-10 text-slate-900 dark:text-white shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[#161c24] border border-slate-200/90 dark:border-[rgba(242,242,242,0.12)] rounded-[var(--radius-card,8px)] w-full min-w-0"
       >
         {/* Ambient radial glow blobs */}
         <div className="absolute top-0 right-0 w-80 h-80 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/8 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/5 dark:bg-blue-500/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
 
-        <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <div className="flex items-center gap-6">
-            <IconBox icon="carbon:badge" variant="brand" size="xl" />
-            <div>
-              <h3 className="text-xl sm:text-2xl font-black tracking-tight text-slate-950 dark:text-white">
+        <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8 w-full min-w-0">
+          <div className="flex items-start sm:items-center gap-4 sm:gap-6 min-w-0 flex-1">
+            <IconBox icon="carbon:badge" variant="brand" size="xl" className="shrink-0" />
+            <div className="min-w-0 flex-1">
+              <h3 className="text-xl sm:text-2xl font-black tracking-tight text-slate-950 dark:text-white break-words">
                 {c("experience_banner_title", "Over 15 Years of Industrial Excellence")}
               </h3>
               <p className="text-slate-700 dark:text-slate-200 text-sm mt-1 max-w-xl font-normal leading-relaxed">

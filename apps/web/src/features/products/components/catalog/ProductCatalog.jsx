@@ -749,28 +749,28 @@ export default function ProductCatalog() {
                     ))}
                   </motion.div>
                 )}
-
-                {/* Pagination Controls */}
-                {totalPages > 1 && (
-                  <div className="mt-8 mb-2 flex justify-center">
-                    <Pagination
-                      currentPage={currentPage}
-                      totalPages={totalPages}
-                      onPageChange={(page) => {
-                        setCurrentPage(page);
-                        const catalogEl = document.getElementById("catalog-products-section");
-                        if (catalogEl) {
-                          const topOffset = catalogEl.getBoundingClientRect().top + window.pageYOffset - 110;
-                          window.scrollTo({ top: Math.max(0, topOffset), behavior: "smooth" });
-                        }
-                      }}
-                    />
-                  </div>
-                )}
               </>
             )}
           </section>
         </div>
+
+        {/* Pagination Controls - Centered across container */}
+        {totalPages > 1 && (
+          <div className="mt-8 mb-6 flex justify-center w-full" id="catalog-pagination">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={(page) => {
+                setCurrentPage(page);
+                const catalogEl = document.getElementById("catalog-products-section");
+                if (catalogEl) {
+                  const topOffset = catalogEl.getBoundingClientRect().top + window.pageYOffset - 110;
+                  window.scrollTo({ top: Math.max(0, topOffset), behavior: "smooth" });
+                }
+              }}
+            />
+          </div>
+        )}
 
         {/* Procurement Advantage Section */}
         <ProcurementAdvantage />

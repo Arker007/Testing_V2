@@ -29,13 +29,13 @@ export default function CtaCard({
   return (
     <Card
       variant={variant}
-      className={`p-8 sm:p-10 text-[var(--text-primary)] relative overflow-hidden bg-[var(--bg-surface,#ffffff)] border border-[var(--border-subtle)] rounded-[var(--radius-card,8px)] shadow-[var(--shadow-sm)] ${className}`.trim()}
+      className={`p-6 sm:p-8 lg:p-10 text-[var(--text-primary)] relative overflow-hidden bg-[var(--bg-surface,#ffffff)] border border-[var(--border-subtle)] rounded-[var(--radius-card,8px)] shadow-[var(--shadow-sm)] w-full max-w-full ${className}`.trim()}
       {...props}
     >
-      <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 md:gap-8">
-        <div className="space-y-2.5">
+      <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 md:gap-8 w-full min-w-0">
+        <div className="space-y-2.5 w-full min-w-0 flex-1">
           {badge && (
-            <div className="mb-2">
+            <div className="mb-2 max-w-full">
               {typeof badge === "string" ? (
                 <Badge variant={badgeVariant} icon={badgeIcon} size="md">
                   {badge}
@@ -46,12 +46,12 @@ export default function CtaCard({
             </div>
           )}
           {title && (
-            <h2 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight leading-tight">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-[var(--text-primary)] tracking-tight leading-tight break-words">
               {title}
             </h2>
           )}
           {subtitle && (
-            <p className="text-[var(--text-secondary)] text-sm sm:text-base mt-2 max-w-xl font-medium leading-relaxed">
+            <p className="text-[var(--text-secondary)] text-sm sm:text-base mt-2 max-w-xl font-medium leading-relaxed break-words">
               {subtitle}
             </p>
           )}

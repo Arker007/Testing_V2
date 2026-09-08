@@ -26,6 +26,26 @@ const DIMENSION_ITEMS = [
   "1,016 mm x 1,219 mm",
 ];
 
+function CheckboxCheck() {
+  return (
+    <svg
+      className={styles.checkboxCheckIcon}
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M3.5 8.5L6.5 11.5L12.5 4.5"
+        stroke="white"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function RangeSliderWidget({
   min,
   max,
@@ -283,13 +303,13 @@ export default function ProductFilterSidebar({
                 aria-label={areAllCollapsed ? "Expand All Sections" : "Collapse All Sections"}
                 whileTap={{ scale: 0.95 }}
               >
-                <Icon
-                  icon={areAllCollapsed ? "solar:add-circle-linear" : "solar:minus-circle-linear"}
-                  className={styles.collapseActionIcon}
-                />
                 <span className={styles.collapseBtnText}>
                   {areAllCollapsed ? "Expand All" : "Collapse All"}
                 </span>
+                <Icon
+                  icon={areAllCollapsed ? "carbon:chevron-down" : "carbon:chevron-up"}
+                  className={styles.collapseActionIcon}
+                />
               </motion.button>
 
               {/* Mobile Drawer Close Button */}
@@ -362,9 +382,7 @@ export default function ProductFilterSidebar({
                               isChecked ? styles.customCheckboxChecked : ""
                             }`}
                           >
-                            {isChecked && (
-                              <Icon icon="carbon:checkmark" className="w-3 h-3 text-white" />
-                            )}
+                            {isChecked && <CheckboxCheck />}
                           </span>
                           <span className={styles.checkboxLabelText}>
                             {cat.name}
@@ -427,9 +445,7 @@ export default function ProductFilterSidebar({
                               isChecked ? styles.customCheckboxChecked : ""
                             }`}
                           >
-                            {isChecked && (
-                              <Icon icon="carbon:checkmark" className="w-3 h-3 text-white" />
-                            )}
+                            {isChecked && <CheckboxCheck />}
                           </span>
                           <span className={styles.checkboxLabelText}>{attr}</span>
                         </label>
@@ -483,9 +499,7 @@ export default function ProductFilterSidebar({
                               isChecked ? styles.customCheckboxChecked : ""
                             }`}
                           >
-                            {isChecked && (
-                              <Icon icon="carbon:checkmark" className="w-3 h-3 text-white" />
-                            )}
+                            {isChecked && <CheckboxCheck />}
                           </span>
                           <span className={styles.checkboxLabelText}>{dim}</span>
                         </label>
@@ -642,9 +656,7 @@ export default function ProductFilterSidebar({
                     isCustom ? styles.customCheckboxChecked : ""
                   }`}
                 >
-                  {isCustom && (
-                    <Icon icon="carbon:checkmark" className="w-3.5 h-3.5 text-white" />
-                  )}
+                  {isCustom && <CheckboxCheck />}
                 </span>
                 <div className={styles.customToggleTextGroup}>
                   <span className={styles.customToggleTitle}>Custom / Bespoke Profiles</span>

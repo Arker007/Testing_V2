@@ -144,7 +144,7 @@ export default function ProcessSection({ className = "" }) {
       features: [
         { label: "Flexural Load Test", desc: "Ensures heavy load-bearing capacities without breakage." },
         { label: "Weather Endurance", desc: "Guarantees 50+ years of life in extreme outdoor environments." },
-        { label: "ISO 9001 Protocols", desc: "Rigorous compliance checks verify structural grades." }
+        { label: "Quality & Compliance", desc: "Rigorous compliance checks verify structural grades." }
       ],
       color: "violet",
       icon: (

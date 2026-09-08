@@ -15,7 +15,7 @@ export default function ContactWorkflowSection() {
           </div>
           <h2 className={styles.sectionTitleLight}>5-Stage Factory Procurement Process</h2>
           <p className={`${styles.sectionDescLight} max-w-2xl mx-auto`}>
-            A structured manufacturing and supply lifecycle ensuring dimensional tolerance, load certification, and scheduled batch logistics.
+            A structured manufacturing and supply lifecycle ensuring dimensional tolerance, load testing, and scheduled batch logistics.
           </p>
         </div>
 

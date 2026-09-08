@@ -58,12 +58,12 @@ export const DEFAULT_SHIPPING_INFO =
   "Standard manufacturing delivery timeline is 3-7 business days across India. Bulk trailer loads and container deliveries are coordinated directly with our dispatch cell.";
 
 export const DEFAULT_RETURN_POLICY =
-  "All batches are factory load-tested with batch certification. We offer direct replacements for transit damages or non-conformance within 7 days of delivery receipt.";
+  "All batches are factory load-tested and quality verified. We offer direct replacements for transit damages or non-conformance within 7 days of delivery receipt.";
 
 export const DEFAULT_TRUST_INDICATORS = [
   { icon: "carbon:certificate", label: "Factory Direct" },
   { icon: "carbon:package", label: "Pan-India Dispatch" },
-  { icon: "carbon:security", label: "ISO Certified" },
+  { icon: "carbon:security", label: "GST Registered" },
 ];
 
 export const DEFAULT_STANDARDS_BAR = [

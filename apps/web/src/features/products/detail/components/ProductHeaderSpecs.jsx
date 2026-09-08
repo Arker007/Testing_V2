@@ -150,7 +150,7 @@ export default function ProductHeaderSpecs({
           )}
           <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[var(--radius-card,8px)] text-xs font-medium text-[var(--text-muted)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
             <Icon icon="carbon:certificate" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
-            <span>ISO 9001:2015</span>
+            <span>GST Registered</span>
           </span>
         </div>
 

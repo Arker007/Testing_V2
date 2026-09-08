@@ -28,10 +28,11 @@ export default function ContactFormSection() {
   };
 
   // Fallbacks matching the website copy specs
-  const contactPerson = c("contact_person", "Mr. Harsh Maru");
-  const address = c("contact_address", "Plot No. 45-B, GIDC Industrial Estate, Ankleshwar, Gujarat 393002, India");
-  const phoneVal = co("phone", "+91 98986 86379");
-  const emailVal = c("contact_email", "info@vishalenterprise.com");
+  const contactPerson = c("contact_person", "Mr. Vinod Kumar Sharma");
+  const address = c("contact_address", "PLOT NO. 1706/06 , South 9 Road, G.I.D.C, Ankleshwar, Bharuch, GUJARAT, 393002");
+  const phoneVal = co("phone", "+91 9898686379");
+  const emailVal = c("contact_email", "Info@vishalenterpriseank.com");
+  const gstinVal = co("gstin", "24AXCPS0336E1ZV");
 
   return (
     <section id="contact-form-anchor" className={`${styles.mainSection} bg-[var(--surface-page)] transition-colors duration-300`}>
@@ -361,6 +362,19 @@ export default function ContactFormSection() {
                     <a href={`mailto:${emailVal}`} className="hover:underline text-[var(--text-brand)] font-bold">
                       {emailVal}
                     </a>
+                  </p>
+                </div>
+              </Card>
+
+              {/* Card 5: GSTIN */}
+              <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-gstin">
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
+                  <Icon icon="carbon:certificate" className="w-5 h-5" />
+                </div>
+                <div className={styles.infoCardContent}>
+                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Goods & Services Tax (GSTIN)</span>
+                  <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-bold tracking-wider tabular-nums`}>
+                    {gstinVal}
                   </p>
                 </div>
               </Card>

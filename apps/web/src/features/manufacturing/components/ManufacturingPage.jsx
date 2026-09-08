@@ -12,7 +12,7 @@ export default function ManufacturingPage() {
     c("meta_manufacturing_title", `Manufacturing Process | ${co("name", "VISHAL ENTERPRISE")}`),
     c(
       "meta_manufacturing_desc",
-      "Discover our advanced eco-friendly plastic recycling and high-pressure extrusion process. ISO 9001:2015 certified production."
+      "Discover our advanced eco-friendly plastic recycling and high-pressure extrusion process. GST registered production."
     )
   );
 
@@ -67,9 +67,9 @@ export default function ManufacturingPage() {
 
             <div className="feature-card-item">
               <div className="feature-icon-wrapper">
-                <Icon icon="carbon:security" className="w-6 h-6" />
+                <Icon icon="carbon:certificate" className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">ISO 9001 Quality Check</h3>
+              <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">Quality & GST Compliance Check</h3>
               <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
                 Standardized testing protocols verify flexural strength, tensile tolerance, UV stability, and stress-crack resistance under extreme industrial applications.
               </p>
@@ -91,11 +91,11 @@ export default function ManufacturingPage() {
       {/* Bottom CTA Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 cta-section">
         <CtaCard
-          badge="Government Certified Plant"
+          badge="Industrial Manufacturing Facility"
           badgeVariant="eyebrow"
-          badgeIcon="carbon:certificate"
+          badgeIcon="carbon:enterprise"
           title="Schedule a Facility Inspection or Request Batch Specs"
-          subtitle="Connect with our Ankleshwar plant engineers for detailed polymer test certificates, custom extrusion capabilities, or factory audits."
+          subtitle="Connect with our Ankleshwar plant engineers for detailed polymer test reports, custom extrusion capabilities, or factory audits."
         >
           <QuoteButton
             to="/contact?source=manufacturing"

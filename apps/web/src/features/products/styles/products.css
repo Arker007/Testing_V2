@@ -719,34 +719,33 @@
 }
 
 .sidebarCollapseAllBtn {
-  font-size: 0.725rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
+  font-weight: 500;
   color: var(--color-text-muted, #64748b);
   background: transparent;
-  border: 1px solid transparent;
+  border: none;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3rem;
-  padding: 0.2rem 0.45rem;
-  border-radius: var(--radius-sm, 6px);
-  transition: all 0.15s ease;
-  line-height: 1;
+  gap: 0.35rem;
+  padding: 0.2rem 0.25rem;
+  transition: color 0.15s ease;
+  line-height: 1.2;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .collapseActionIcon {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .sidebarCollapseAllBtn:hover {
   color: var(--color-text-primary, #0f172a);
-  background: var(--bg-surface-secondary, rgba(0, 0, 0, 0.05));
+  background: transparent;
   border-color: transparent;
 }
 
@@ -956,25 +955,33 @@
 }
 
 .customCheckboxSquare {
-  width: 18px;
-  height: 18px;
+  width: 19px;
+  height: 19px;
   border: 1.5px solid var(--neutral-400, #94a3b8);
-  border-radius: 4px;
+  border-radius: 4.5px;
   background: var(--surface-card, #ffffff);
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   transition: all 0.15s ease;
+  box-sizing: border-box;
 }
 
 .checkboxRow:hover .customCheckboxSquare {
-  border-color: var(--brand-600, #16a34a);
+  border-color: #388e3c;
 }
 
 .customCheckboxChecked {
-  background: var(--brand-600) !important;
-  border-color: var(--brand-600) !important;
-  color: var(--white);
+  background: #388e3c !important;
+  border-color: #388e3c !important;
+  color: #ffffff !important;
+}
+
+.checkboxCheckIcon {
+  width: 13px;
+  height: 13px;
+  display: block;
 }
 
 .checkboxLabelText {
@@ -1276,8 +1283,14 @@ html.dark .sliderTrackBackground {
 
 :global([data-theme="dark"]) .customCheckboxSquare,
 :global(.dark) .customCheckboxSquare {
-  background: var(--bg-surface-elevated, var(--neutral-800)) !important;
-  border-color: var(--border, rgba(242, 242, 242, 0.2)) !important;
+  background: var(--bg-surface-elevated, var(--neutral-800));
+  border-color: var(--border, rgba(242, 242, 242, 0.25));
+}
+
+:global([data-theme="dark"]) .customCheckboxChecked,
+:global(.dark) .customCheckboxChecked {
+  background: #388e3c !important;
+  border-color: #388e3c !important;
 }
 
 :global([data-theme="dark"]) .mobileDrawerFooter,
@@ -2810,16 +2823,16 @@ html.dark [class*="sidebarPanel"] {
 
 :global([data-theme="dark"]) .sidebarCollapseAllBtn,
 :global(.dark) .sidebarCollapseAllBtn {
-  background: rgba(242, 242, 242, 0.05) !important;
-  color: rgba(242, 242, 242, 0.7) !important;
-  border-color: var(--border, rgba(242, 242, 242, 0.12)) !important;
+  background: transparent !important;
+  color: #94a3b8 !important;
+  border: none !important;
 }
 
 :global([data-theme="dark"]) .sidebarCollapseAllBtn:hover,
 :global(.dark) .sidebarCollapseAllBtn:hover {
-  background: rgba(107, 191, 84, 0.15) !important;
-  color: var(--accent, var(--brand-500)) !important;
-  border-color: var(--accent, var(--brand-500)) !important;
+  background: transparent !important;
+  color: #f8fafc !important;
+  border: none !important;
 }
 
 :global([data-theme="dark"]) .sidebarHeaderTitle h3,

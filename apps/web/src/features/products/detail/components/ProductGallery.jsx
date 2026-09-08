@@ -226,8 +226,8 @@ export default function ProductGallery({
       {/* 3. Factory Certified Standards Strip */}
       <div className="grid grid-cols-3 gap-2.5 pt-4 border-t border-[var(--border-subtle)]">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 p-2 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-center">
-          <Icon icon="carbon:security" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
-          <span className="text-[11px] font-bold text-[var(--text-primary)]">ISO 9001:2015</span>
+          <Icon icon="carbon:certificate" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
+          <span className="text-[11px] font-bold text-[var(--text-primary)]">GST Registered</span>
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 p-2 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-center">
           <Icon icon="carbon:recycle" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
