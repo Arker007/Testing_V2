@@ -16,7 +16,7 @@ import ProductListSkeletonCard from "../cards/ProductListSkeletonCard";
 import QuickViewModal from "../quick-view/QuickViewModal";
 import ProcurementAdvantage from "./ProcurementAdvantage";
 import ProcurementCtaBand from "./ProcurementCtaBand";
-import { BackToTop, InquiryModal } from "../../../../shared/ui";
+import { BackToTop, InquiryModal, Pagination } from "../../../../shared/ui";
 import { applicationOptions } from "../../constants";
 import {
   getImg,
@@ -135,6 +135,8 @@ export default function ProductCatalog() {
   const activeCatParam = searchParams.get("cat") || "All";
   const activeSearchParam = searchParams.get("search") || "";
 
+  const ITEMS_PER_PAGE = 6;
+
   // Basic Filter States
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState(activeSearchParam);
@@ -142,6 +144,7 @@ export default function ProductCatalog() {
   const [selectedApplication, setSelectedApplication] = useState("All");
   const [sortBy, setSortBy] = useState("featured");
   const [viewMode, setViewMode] = useState("grid");
+  const [currentPage, setCurrentPage] = useState(1);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState(null);
   const [inquiryProduct, setInquiryProduct] = useState(null);
@@ -330,6 +333,7 @@ export default function ProductCatalog() {
       })
       .sort((a, b) => {
         if (sortBy === "load-high") return getStaticLoadKg(b) - getStaticLoadKg(a);
+        if (sortBy === "load-low") return getStaticLoadKg(a) - getStaticLoadKg(b);
         if (sortBy === "name") return (a.name || a.title || "").localeCompare(b.name || b.title || "");
         return 0;
       });
@@ -347,6 +351,31 @@ export default function ProductCatalog() {
     isCustom,
     sortBy,
   ]);
+
+  // Reset pagination to page 1 whenever any filter or sorting criteria change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [
+    selectedCategory,
+    searchQuery,
+    minStaticLoad,
+    selectedApplication,
+    selectedCategories,
+    selectedAttributes,
+    selectedDimensions,
+    activeDynamicFilter,
+    activeStaticFilter,
+    activeRackFilter,
+    isCustom,
+    sortBy,
+  ]);
+
+  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+
+  const paginatedProducts = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    return filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  }, [filteredProducts, currentPage]);
 
   const hasActiveFilters =
     selectedCategory !== "All" ||
@@ -377,6 +406,7 @@ export default function ProductCatalog() {
     setActiveRackFilter(null);
     setIsCustom(false);
     setSortBy("featured");
+    setCurrentPage(1);
   };
 
   return (
@@ -404,6 +434,8 @@ export default function ProductCatalog() {
           setViewMode={setViewMode}
           filteredCount={filteredProducts.length}
           totalCount={products.length}
+          currentPage={currentPage}
+          itemsPerPage={ITEMS_PER_PAGE}
           hasActiveFilters={hasActiveFilters}
           resetFilters={resetFilters}
           selectedCategory={selectedCategory}
@@ -455,7 +487,7 @@ export default function ProductCatalog() {
             applyLoadFilter={applyLoadFilter}
           />
 
-          <section className={styles.mainCatalogArea}>
+          <section className={styles.mainCatalogArea} id="catalog-products-section">
             {loading ? (
               viewMode === "grid" ? (
                 <div className={styles.prodGrid}>
@@ -672,46 +704,70 @@ export default function ProductCatalog() {
                   </div>
                 </div>
               </motion.div>
-            ) : viewMode === "grid" ? (
-              <motion.div
-                key="grid-view"
-                className={styles.prodGrid}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                {filteredProducts.map((p) => (
-                  <ProductGridCard
-                    key={p.id}
-                    product={p}
-                    img={getImg(p)}
-                    staticLoad={getStaticLoadKg(p)}
-                    dimStr={getDimensionsStr(p)}
-                    onQuickView={setQuickViewProduct}
-                  />
-                ))}
-              </motion.div>
             ) : (
-              <motion.div
-                key="list-view"
-                className={styles.prodList}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                {filteredProducts.map((p) => (
-                  <ProductListItemCard
-                    key={p.id}
-                    product={p}
-                    img={getImg(p)}
-                    staticLoad={getStaticLoadKg(p)}
-                    dimStr={getDimensionsStr(p)}
-                    onQuickView={setQuickViewProduct}
-                  />
-                ))}
-              </motion.div>
+              <>
+                {viewMode === "grid" ? (
+                  <motion.div
+                    key={`grid-view-p${currentPage}`}
+                    className={styles.prodGrid}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {paginatedProducts.map((p, index) => (
+                      <ProductGridCard
+                        key={p.id}
+                        index={index}
+                        product={p}
+                        img={getImg(p)}
+                        staticLoad={getStaticLoadKg(p)}
+                        dimStr={getDimensionsStr(p)}
+                        onQuickView={setQuickViewProduct}
+                      />
+                    ))}
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key={`list-view-p${currentPage}`}
+                    className={styles.prodList}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {paginatedProducts.map((p, idx) => (
+                      <ProductListItemCard
+                        key={p.id}
+                        product={p}
+                        img={getImg(p)}
+                        staticLoad={getStaticLoadKg(p)}
+                        dimStr={getDimensionsStr(p)}
+                        onQuickView={setQuickViewProduct}
+                        index={idx}
+                      />
+                    ))}
+                  </motion.div>
+                )}
+
+                {/* Pagination Controls */}
+                {totalPages > 1 && (
+                  <div className="mt-8 mb-2 flex justify-center">
+                    <Pagination
+                      currentPage={currentPage}
+                      totalPages={totalPages}
+                      onPageChange={(page) => {
+                        setCurrentPage(page);
+                        const catalogEl = document.getElementById("catalog-products-section");
+                        if (catalogEl) {
+                          const topOffset = catalogEl.getBoundingClientRect().top + window.pageYOffset - 110;
+                          window.scrollTo({ top: Math.max(0, topOffset), behavior: "smooth" });
+                        }
+                      }}
+                    />
+                  </div>
+                )}
+              </>
             )}
           </section>
         </div>

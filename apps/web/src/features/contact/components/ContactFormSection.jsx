@@ -18,7 +18,6 @@ export default function ContactFormSection() {
   } = useContactForm();
 
   const [copiedRef, setCopiedRef] = useState(false);
-  const [showMobile, setShowMobile] = useState(false);
 
   const handleCopyRef = () => {
     if (referenceId) {
@@ -111,7 +110,7 @@ export default function ContactFormSection() {
                       </span>
                     )}
                   </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  <div className="grid grid-cols-2 gap-2">
                     {[
                       { label: "Industrial Pallets", icon: "carbon:cube" },
                       { label: "Plastic Lumber", icon: "carbon:layers" },
@@ -127,14 +126,14 @@ export default function ContactFormSection() {
                             const syntheticEvent = { target: { value: cat.label } };
                             f("productService")(syntheticEvent);
                           }}
-                          className={`flex items-center gap-1.5 px-2.5 py-2 text-xs font-semibold rounded-[var(--radius-btn,8px)] border transition-all text-left cursor-pointer min-h-[40px] ${
+                          className={`flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-[var(--radius-btn,8px)] border transition-all text-left cursor-pointer min-h-[40px] whitespace-nowrap ${
                             isSelected
                               ? "bg-[var(--brand-soft)] text-[var(--text-brand)] border-[var(--brand-primary)] shadow-sm font-bold"
                               : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--brand-primary)] hover:text-[var(--text-primary)]"
                           }`}
                         >
-                          <Icon icon={cat.icon} className="w-3.5 h-3.5 shrink-0 text-[var(--brand-text)]" />
-                          <span className="truncate">{cat.label}</span>
+                          <Icon icon={cat.icon} className="w-4 h-4 shrink-0 text-[var(--brand-text)]" />
+                          <span className="font-medium">{cat.label}</span>
                         </button>
                       );
                     })}
@@ -153,7 +152,7 @@ export default function ContactFormSection() {
                       className={`${styles.customInput} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-primary)]`}
                       value={form.productService || ""}
                       onChange={f("productService")}
-                      placeholder="Product / Service Looking for (e.g. Heavy Duty Pallet)"
+                      placeholder="e.g. Heavy Duty Pallets, Lumber"
                     />
                   </div>
 
@@ -310,14 +309,15 @@ export default function ContactFormSection() {
               <h2 className={`${styles.rightTitle} text-[var(--heading)]`}>
                 Contact <span className="text-[var(--brand-text)]">Vishal</span> Enterprise
               </h2>
-              <div className={`${styles.rightUnderline} bg-[var(--brand)]`} />
             </div>
 
             {/* Info Cards List */}
             <div className={styles.infoCardsGrid}>
               {/* Card 1: Contact Person */}
               <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-person">
-                <IconBox icon="carbon:user" variant="brand" size="md" />
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
+                  <Icon icon="carbon:user" className="w-5 h-5" />
+                </div>
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Sales & Technical Contact</span>
                   <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-bold`}>{contactPerson}</p>
@@ -326,7 +326,9 @@ export default function ContactFormSection() {
 
               {/* Card 2: Address */}
               <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-address">
-                <IconBox icon="carbon:location" variant="brand" size="md" />
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
+                  <Icon icon="carbon:location" className="w-5 h-5" />
+                </div>
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Manufacturing Plant & Works</span>
                   <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-semibold leading-snug tabular-nums`}>{address}</p>
@@ -335,30 +337,24 @@ export default function ContactFormSection() {
 
               {/* Card 3: Mobile */}
               <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-mobile">
-                <IconBox icon="carbon:phone" variant="brand" size="md" />
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
+                  <Icon icon="carbon:phone" className="w-5 h-5" />
+                </div>
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Direct Sales Line</span>
-                  {showMobile ? (
-                    <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-mono tabular-nums`}>
-                      <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="hover:underline text-[var(--text-brand)] font-bold">
-                        {phoneVal}
-                      </a>
-                    </p>
-                  ) : (
-                    <button
-                      type="button"
-                      className="text-[var(--text-brand)] font-bold hover:underline bg-transparent border-none p-0 text-sm cursor-pointer"
-                      onClick={() => setShowMobile(true)}
-                    >
-                      View Mobile Number
-                    </button>
-                  )}
+                  <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-semibold tabular-nums`}>
+                    <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="hover:underline text-[var(--text-primary)] hover:text-[var(--brand-primary)] transition-colors">
+                      {phoneVal}
+                    </a>
+                  </p>
                 </div>
               </Card>
 
               {/* Card 4: Email */}
               <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-email">
-                <IconBox icon="carbon:email" variant="brand" size="md" />
+                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
+                  <Icon icon="carbon:email" className="w-5 h-5" />
+                </div>
                 <div className={styles.infoCardContent}>
                   <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Official Procurement Email</span>
                   <p className={`${styles.infoCardValue} text-[var(--text-primary)]`}>
@@ -371,16 +367,18 @@ export default function ContactFormSection() {
             </div>
 
             {/* Immediate Assistance Banner */}
-            <div className={`${styles.assistanceBanner} mt-6 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-[var(--brand-border)]/50 rounded-[var(--radius-card,8px)]`} id="assistance-banner">
+            <div className="mt-6 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--brand-primary)]/40 rounded-[var(--radius-card,12px)] shadow-[var(--shadow-sm)]" id="assistance-banner">
               <div className="flex items-center gap-3.5">
-                <IconBox icon="carbon:headset" variant="brand" size="lg" />
+                <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
+                  <Icon icon="carbon:headset" className="w-5 h-5" />
+                </div>
                 <div>
                   <span className="block font-bold text-[var(--text-primary)] text-sm sm:text-base">Need Immediate Assistance?</span>
                   <p className="text-xs text-[var(--text-secondary)] mt-0.5">Our team is ready to help you with your requirements.</p>
                 </div>
               </div>
-              <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="inline-flex items-center gap-2 bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-[var(--brand-btn-text)] font-bold text-xs px-4 py-2.5 rounded-[var(--radius-btn,8px)] shadow-xs transition-all shrink-0 no-underline">
-                <Icon icon="carbon:phone" className="w-4 h-4 text-[var(--brand-btn-text)]" />
+              <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="inline-flex items-center gap-2 bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-white font-bold text-xs px-4 py-2.5 rounded-[var(--radius-btn,8px)] shadow-xs transition-all shrink-0 no-underline">
+                <Icon icon="carbon:phone" className="w-4 h-4 text-white" />
                 Call Now
               </a>
             </div>

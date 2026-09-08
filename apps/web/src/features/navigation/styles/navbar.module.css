@@ -136,10 +136,6 @@
   color: var(--text-muted);
 }
 
-.logoDot {
-  color: var(--brand);
-}
-
 /* Navigation Links */
 .links {
   display: flex;

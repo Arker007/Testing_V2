@@ -9,6 +9,7 @@ export const loadCapacityOptions = [
 export const sortByOptions = [
   { value: "featured", label: "Featured First" },
   { value: "load-high", label: "Load Capacity: High to Low" },
+  { value: "load-low", label: "Load Capacity: Low to High" },
   { value: "name", label: "Name: A to Z" },
 ];
 

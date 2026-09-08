@@ -3,7 +3,7 @@ import useDocumentTitle from "../../../shared/hooks/useDocumentTitle";
 import { useSite } from "../../../shared/context/SiteContext";
 import { SustainabilitySection } from "../../home";
 import { Icon } from "@iconify/react";
-import { CtaCard, Card, QuoteButton, PageHero, Badge } from "@/shared/ui";
+import { CtaCard, QuoteButton, PageHero, Badge } from "@/shared/ui";
 
 export default function SustainabilityPage() {
   const { c, co } = useSite();
@@ -86,54 +86,6 @@ export default function SustainabilityPage() {
                 Our materials are engineered for true circularity. At the end of their multi-decade lifespans, they can be completely reground and remolded again.
               </p>
             </div>
-          </div>
-
-          {/* Sustainability and Eco-Advantage Showcase */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card variant="dark" className="group relative overflow-hidden min-h-[260px] flex flex-col justify-end p-6 border-0">
-              <img
-                src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1200&auto=format&fit=crop"
-                alt="Conserving forestry and nature reserves"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
-              <div className="relative z-10">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1 block">Preservation</span>
-                <span className="block text-lg font-extrabold text-white">Forestry Conservation</span>
-                <p className="text-xs text-slate-200 mt-1">Replacing natural timber with robust polymer profiles to directly prevent deforestation.</p>
-              </div>
-            </Card>
-
-            <Card variant="dark" className="group relative overflow-hidden min-h-[260px] flex flex-col justify-end p-6 border-0">
-              <img
-                src="https://images.unsplash.com/photo-1595225476474-87563907a212?q=80&w=1200&auto=format&fit=crop"
-                alt="Recycled plastic polymers ready for manufacturing"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
-              <div className="relative z-10">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1 block">Recycling Process</span>
-                <span className="block text-lg font-extrabold text-white">Circular Upcycling</span>
-                <p className="text-xs text-slate-200 mt-1">Cleaning and processing HDPE polymers to ensure strict structural compliance.</p>
-              </div>
-            </Card>
-
-            <Card variant="dark" className="group relative overflow-hidden min-h-[260px] flex flex-col justify-end p-6 border-0">
-              <img
-                src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?q=80&w=1200&auto=format&fit=crop"
-                alt="Green logistics and smart circular economy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
-              <div className="relative z-10">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1 block">ESG Supply Chain</span>
-                <span className="block text-lg font-extrabold text-white">Resource Loop Closure</span>
-                <p className="text-xs text-slate-200 mt-1">Delivering highly reusable, circular shipping assets that satisfy international regulations.</p>
-              </div>
-            </Card>
           </div>
         </div>
       </section>

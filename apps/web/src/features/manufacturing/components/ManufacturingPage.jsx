@@ -3,7 +3,7 @@ import useDocumentTitle from "../../../shared/hooks/useDocumentTitle";
 import { useSite } from "../../../shared/context/SiteContext";
 import { ProcessSection } from "../../home";
 import { Icon } from "@iconify/react";
-import { CtaCard, Card, QuoteButton, PageHero, Badge } from "@/shared/ui";
+import { CtaCard, QuoteButton, PageHero, Badge } from "@/shared/ui";
 
 export default function ManufacturingPage() {
   const { c, co } = useSite();
@@ -54,7 +54,7 @@ export default function ManufacturingPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="feature-card-item">
               <div className="feature-icon-wrapper">
                 <Icon icon="carbon:chip" className="w-6 h-6" />
@@ -84,54 +84,6 @@ export default function ManufacturingPage() {
                 Unlike pressure-treated timber, our physical extrusion process requires no harmful chemical impregnations, rendering products perfectly safe for agricultural use.
               </p>
             </div>
-          </div>
-
-          {/* Plant & Quality Control Image Showcase */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card variant="dark" className="group relative overflow-hidden min-h-[260px] flex flex-col justify-end p-6 border-0">
-              <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop"
-                alt="High-precision polymer extrusion line"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
-              <div className="relative z-10">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1 block">Extrusion Plant</span>
-                <span className="block text-lg font-extrabold text-white">Automated Extrusion Lines</span>
-                <p className="text-xs text-slate-200 mt-1">High-pressure extrusion shaping dense, void-free recycled plastic profiles.</p>
-              </div>
-            </Card>
-
-            <Card variant="dark" className="group relative overflow-hidden min-h-[260px] flex flex-col justify-end p-6 border-0">
-              <img
-                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop"
-                alt="Polymer testing and quality control laboratory"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
-              <div className="relative z-10">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1 block">QA & Testing</span>
-                <span className="block text-lg font-extrabold text-white">Tensile & Load Testing Lab</span>
-                <p className="text-xs text-slate-200 mt-1">Batch testing for flexural modulus, impact resistance, and thermal tolerance.</p>
-              </div>
-            </Card>
-
-            <Card variant="dark" className="group relative overflow-hidden min-h-[260px] flex flex-col justify-end p-6 border-0">
-              <img
-                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop"
-                alt="Finished industrial pallet warehouse storage"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
-              <div className="relative z-10">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1 block">Logistics Hub</span>
-                <span className="block text-lg font-extrabold text-white">Dispatch & Inventory Storage</span>
-                <p className="text-xs text-slate-200 mt-1">Ready-to-ship pallet inventory engineered for heavy industrial supply chains.</p>
-              </div>
-            </Card>
           </div>
         </div>
       </section>

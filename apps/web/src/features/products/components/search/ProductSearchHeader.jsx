@@ -7,9 +7,9 @@ import { sortByOptions } from "../../constants";
 import styles from "../../products.module.css";
 
 const QUICK_SEARCH_SUGGESTIONS = [
-  { label: "Pallets", cat: "Pallets" },
-  { label: "Lumber / Sections", cat: "Recycled Plastic Lumber" },
-  { label: "Benches", cat: "Outdoor Benches & Furniture" },
+  { label: "Plastic Pallets", cat: "Plastic Pallets", matchCat: ["Plastic Pallets", "Pallets"] },
+  { label: "Lumber / Sections", cat: "Recycled Plastic Lumber", matchCat: ["Recycled Plastic Lumber"] },
+  { label: "Garden Benches", cat: "Outdoor Benches & Furniture", matchCat: ["Outdoor Benches & Furniture", "Garden Benches", "Benches"] },
   { label: "3,000+ kg Load", load: 3000 },
 ];
 
@@ -22,6 +22,8 @@ export default function ProductSearchHeader({
   setViewMode,
   filteredCount,
   totalCount,
+  currentPage = 1,
+  itemsPerPage = 6,
   hasActiveFilters,
   resetFilters,
   selectedCategory,
@@ -61,7 +63,7 @@ export default function ProductSearchHeader({
   if (selectedCategory && selectedCategory !== "All") {
     activeTags.push({
       key: `top-cat-${selectedCategory}`,
-      label: `Category: ${selectedCategory}`,
+      label: selectedCategory,
       clear: () => setSelectedCategory("All"),
     });
   }
@@ -69,9 +71,11 @@ export default function ProductSearchHeader({
   // 3. Sidebar Multi-Selected Categories
   if (Array.isArray(selectedCategories) && selectedCategories.length > 0) {
     selectedCategories.forEach((cat) => {
+      // Don't duplicate if already shown by top category
+      if (cat === selectedCategory) return;
       activeTags.push({
         key: `cat-${cat}`,
-        label: `Category: ${cat}`,
+        label: cat,
         clear: () => {
           if (setSelectedCategories) {
             setSelectedCategories(selectedCategories.filter((c) => c !== cat));
@@ -115,7 +119,7 @@ export default function ProductSearchHeader({
   if (activeDynamicFilter && Array.isArray(activeDynamicFilter)) {
     activeTags.push({
       key: "dyn-load",
-      label: `Dynamic: ${activeDynamicFilter[0].toLocaleString()} - ${activeDynamicFilter[1].toLocaleString()} Kg`,
+      label: `Dynamic: ${activeDynamicFilter[0].toLocaleString()} - ${activeDynamicFilter[1].toLocaleString()} kg`,
       clear: () => {
         if (setActiveDynamicFilter) setActiveDynamicFilter(null);
       },
@@ -126,7 +130,7 @@ export default function ProductSearchHeader({
   if (activeStaticFilter && Array.isArray(activeStaticFilter)) {
     activeTags.push({
       key: "stat-load",
-      label: `Static: ${activeStaticFilter[0].toLocaleString()} - ${activeStaticFilter[1].toLocaleString()} Kg`,
+      label: `Static: ${activeStaticFilter[0].toLocaleString()} - ${activeStaticFilter[1].toLocaleString()} kg`,
       clear: () => {
         if (setActiveStaticFilter) setActiveStaticFilter(null);
       },
@@ -137,7 +141,7 @@ export default function ProductSearchHeader({
   if (activeRackFilter && Array.isArray(activeRackFilter)) {
     activeTags.push({
       key: "rack-load",
-      label: `Rack: ${activeRackFilter[0].toLocaleString()} - ${activeRackFilter[1].toLocaleString()} Kg`,
+      label: `Rack: ${activeRackFilter[0].toLocaleString()} - ${activeRackFilter[1].toLocaleString()} kg`,
       clear: () => {
         if (setActiveRackFilter) setActiveRackFilter(null);
       },
@@ -166,7 +170,7 @@ export default function ProductSearchHeader({
   if (isCustom) {
     activeTags.push({
       key: "custom",
-      label: "Custom Specification",
+      label: "Custom Spec",
       clear: () => {
         if (setIsCustom) setIsCustom(false);
       },
@@ -255,75 +259,101 @@ export default function ProductSearchHeader({
         </div>
       </div>
 
-      {/* Quick Search Shortcut Chips (Show when no active filter tags or as quick presets) */}
-      {!hasActiveFilters && (
-        <div className={styles.quickSearchPillsRow}>
-          <span className={styles.quickSearchLabel}>Quick Filters:</span>
-          {QUICK_SEARCH_SUGGESTIONS.map((sug, i) => (
+      {/* Persistent Quick Search Shortcut Chips */}
+      <div className={styles.quickSearchPillsRow}>
+        <span className={styles.quickSearchLabel}>Quick Filters:</span>
+        {QUICK_SEARCH_SUGGESTIONS.map((sug, i) => {
+          const isSelected = sug.cat
+            ? (sug.matchCat || [sug.cat]).includes(selectedCategory)
+            : sug.load
+            ? minStaticLoad === sug.load
+            : false;
+
+          return (
             <motion.button
               key={i}
               type="button"
-              className={styles.quickSearchPillBtn}
+              className={`${styles.quickSearchPillBtn} ${isSelected ? styles.quickSearchPillBtnActive : ""}`}
               onClick={() => {
-                if (sug.cat) setSelectedCategory(sug.cat);
-                if (sug.load) setMinStaticLoad(sug.load);
+                if (sug.cat) {
+                  setSelectedCategory(isSelected ? "All" : sug.cat);
+                }
+                if (sug.load) {
+                  setMinStaticLoad(isSelected ? 0 : sug.load);
+                }
               }}
               whileTap={{ scale: 0.94 }}
             >
-              {sug.label}
+              <span>{sug.label}</span>
+              {isSelected && (
+                <Icon icon="carbon:close" className="w-3.5 h-3.5 ml-1 text-current opacity-75" />
+              )}
             </motion.button>
-          ))}
-        </div>
-      )}
+          );
+        })}
+      </div>
 
-      {/* Results Count & Active Multi-Filter Badges Bar */}
+      {/* Results Count & Active Filter Tags Bar - Grouped Together on the Left */}
       <div className={styles.resultsBar}>
-        <div className={styles.resultsText}>
-          Showing <strong>{filteredCount}</strong> {filteredCount === 1 ? "Product" : "Products"}
-          {totalCount > 0 && totalCount !== filteredCount && (
-            <span className={styles.totalText}> (filtered from {totalCount} total)</span>
+        <div className={styles.resultsLeftGroup}>
+          <div className={styles.resultsText}>
+            {filteredCount > itemsPerPage ? (
+              <>
+                Showing <strong>{(currentPage - 1) * itemsPerPage + 1}–{Math.min(currentPage * itemsPerPage, filteredCount)}</strong> of <strong>{filteredCount}</strong> Products
+              </>
+            ) : (
+              <>
+                Showing <strong>{filteredCount}</strong> {filteredCount === 1 ? "Product" : "Products"}
+              </>
+            )}
+            {totalCount > 0 && totalCount !== filteredCount && (
+              <span className={styles.totalText}> (filtered from {totalCount} total)</span>
+            )}
+          </div>
+
+          {activeTags.length > 0 && (
+            <div className={styles.activeTagContainer}>
+              <AnimatePresence>
+                {activeTags.map((tag) => (
+                  <motion.span
+                    key={tag.key}
+                    className={styles.filterTagPill}
+                    initial={{ opacity: 0, scale: 0.85, y: -2 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.85, y: -2 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    <span className={styles.filterTagText}>{tag.label}</span>
+                    <motion.button
+                      type="button"
+                      onClick={tag.clear}
+                      className={styles.tagRemoveBtn}
+                      title={`Remove ${tag.label}`}
+                      aria-label={`Remove ${tag.label}`}
+                      whileTap={{ scale: 0.8 }}
+                    >
+                      <Icon icon="carbon:close-filled" className="w-4 h-4" />
+                    </motion.button>
+                  </motion.span>
+                ))}
+              </AnimatePresence>
+
+              {/* Show Clear All only if 2 or more active filters are applied */}
+              {activeTags.length >= 2 && (
+                <motion.button
+                  type="button"
+                  onClick={resetFilters}
+                  className={styles.resetAllLinkBtn}
+                  title="Clear all active filters"
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Icon icon="carbon:renew" className="w-3.5 h-3.5" />
+                  <span>Clear All</span>
+                </motion.button>
+              )}
+            </div>
           )}
         </div>
-
-        {activeTags.length > 0 && (
-          <div className={styles.activeTagContainer}>
-            <AnimatePresence>
-              {activeTags.map((tag) => (
-                <motion.span
-                  key={tag.key}
-                  className={styles.filterTagPill}
-                  initial={{ opacity: 0, scale: 0.85, y: -2 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.85, y: -2 }}
-                  transition={{ duration: 0.15 }}
-                >
-                  <span className={styles.filterTagText}>{tag.label}</span>
-                  <motion.button
-                    type="button"
-                    onClick={tag.clear}
-                    className={styles.tagRemoveBtn}
-                    title={`Remove ${tag.label}`}
-                    aria-label={`Remove ${tag.label}`}
-                    whileTap={{ scale: 0.8 }}
-                  >
-                    <Icon icon="carbon:close-filled" className="w-3.5 h-3.5" />
-                  </motion.button>
-                </motion.span>
-              ))}
-            </AnimatePresence>
-
-            <motion.button
-              type="button"
-              onClick={resetFilters}
-              className={styles.resetAllLinkBtn}
-              title="Clear all active filters"
-              whileTap={{ scale: 0.95 }}
-            >
-              <Icon icon="carbon:renew" className="w-3.5 h-3.5" />
-              <span>Clear All</span>
-            </motion.button>
-          </div>
-        )}
       </div>
     </div>
   );

@@ -33,7 +33,7 @@ function RangeSliderWidget({
   value,
   onChange,
   onApply,
-  unit = "Kg",
+  unit = "kg",
 }) {
   const [localRange, setLocalRange] = useState(value || [min, max]);
 
@@ -47,6 +47,7 @@ function RangeSliderWidget({
     const updated = [nextVal, localRange[1]];
     setLocalRange(updated);
     if (onChange) onChange(updated);
+    if (onApply) onApply(updated);
   };
 
   const handleMaxChange = (e) => {
@@ -54,10 +55,14 @@ function RangeSliderWidget({
     const updated = [localRange[0], nextVal];
     setLocalRange(updated);
     if (onChange) onChange(updated);
+    if (onApply) onApply(updated);
   };
 
   const minPercent = Math.max(0, Math.min(100, ((localRange[0] - min) / (max - min)) * 100));
   const maxPercent = Math.max(0, Math.min(100, ((localRange[1] - min) / (max - min)) * 100));
+
+  // Determine if minimum thumb is near the top to prevent stacking trap
+  const minIsHigher = localRange[0] > max - (max - min) * 0.15;
 
   return (
     <div className={styles.sliderSectionWrapper}>
@@ -77,7 +82,7 @@ function RangeSliderWidget({
           step={step}
           value={localRange[0]}
           onChange={handleMinChange}
-          className={styles.dualRangeInput}
+          className={`${styles.dualRangeInput} ${minIsHigher ? styles.rangeInputHigher : ""}`}
           aria-label="Minimum load"
         />
         <input
@@ -94,17 +99,10 @@ function RangeSliderWidget({
 
       <div className={styles.sliderBottomRow}>
         <span className={styles.sliderDisplayValue}>
-          {localRange[0].toLocaleString()} to {localRange[1].toLocaleString()} {unit}
+          <strong>{localRange[0].toLocaleString()} {unit}</strong>
+          <span className={styles.sliderDisplaySeparator}>to</span>
+          <strong>{localRange[1].toLocaleString()} {unit}</strong>
         </span>
-        <button
-          type="button"
-          className={styles.sliderApplyFilterBtn}
-          onClick={() => {
-            if (onApply) onApply(localRange);
-          }}
-        >
-          Filter
-        </button>
       </div>
     </div>
   );
@@ -133,10 +131,11 @@ export default function ProductFilterSidebar({
   setIsMobileFilterOpen,
   applyLoadFilter,
 }) {
-  // Normalize dynamic category items
+  // Normalize dynamic category items (filtering out categories with 0 items)
   const dynamicCategories = useMemo(() => {
+    let list = [];
     if (Array.isArray(categories) && categories.length > 0) {
-      return categories
+      list = categories
         .map((c) => {
           if (typeof c === "string") {
             return { id: c, name: c, key: c };
@@ -148,20 +147,48 @@ export default function ProductFilterSidebar({
           };
         })
         .filter((c) => c.name && c.name !== "All");
+    } else {
+      list = DEFAULT_CATEGORY_ITEMS.map((name) => ({ id: name, name, key: name }));
     }
-    return DEFAULT_CATEGORY_ITEMS.map((name) => ({ id: name, name, key: name }));
-  }, [categories]);
 
-  // Collapsible section state (default all open as in mockup)
+    // Only include categories that contain at least 1 product (or are actively selected)
+    return list.filter((cat) => {
+      const rawCount =
+        categoryCounts[cat.name] ??
+        categoryCounts[cat.id] ??
+        categoryCounts[cat.key];
+      const count = typeof rawCount === "number" ? rawCount : 0;
+      const isChecked =
+        selectedCategories.includes(cat.id) ||
+        selectedCategories.includes(cat.name) ||
+        selectedCategories.includes(cat.key);
+      return count > 0 || isChecked;
+    });
+  }, [categories, categoryCounts, selectedCategories]);
+
+  // Collapsible section state (primary open, secondary load sliders collapsed by default for balanced height)
   const [sectionsOpen, setSectionsOpen] = useState({
     category: true,
     attributes: true,
     dimensions: true,
-    dynamicLoad: true,
-    staticLoad: true,
-    rackLoad: true,
-    custom: true,
+    dynamicLoad: false,
+    staticLoad: false,
+    rackLoad: false,
   });
+
+  // Auto-expand any section that has active filter selections
+  React.useEffect(() => {
+    setSectionsOpen((prev) => {
+      const updates = {};
+      if (selectedCategories?.length > 0 && !prev.category) updates.category = true;
+      if (selectedAttributes?.length > 0 && !prev.attributes) updates.attributes = true;
+      if (selectedDimensions?.length > 0 && !prev.dimensions) updates.dimensions = true;
+      if (Object.keys(updates).length > 0) {
+        return { ...prev, ...updates };
+      }
+      return prev;
+    });
+  }, [selectedCategories, selectedAttributes, selectedDimensions]);
 
   const toggleSection = (sectionKey) => {
     setSectionsOpen((prev) => ({
@@ -183,7 +210,6 @@ export default function ProductFilterSidebar({
       dynamicLoad: nextState,
       staticLoad: nextState,
       rackLoad: nextState,
-      custom: nextState,
     });
   };
 
@@ -240,10 +266,10 @@ export default function ProductFilterSidebar({
         }`}
       >
         <div className={styles.sidebarInner}>
-          {/* Top Title: "Filter" in bold green */}
+          {/* Sidebar Top Header */}
           <div className={styles.sidebarHeader}>
             <h2 className={styles.filterMainHeading}>
-              <Icon icon="carbon:filter" className={styles.filterHeadingIcon} />
+              <Icon icon="solar:filter-linear" className={styles.filterHeadingIcon} />
               <span>Filter</span>
             </h2>
 
@@ -255,10 +281,10 @@ export default function ProductFilterSidebar({
                 onClick={toggleCollapseAll}
                 title={areAllCollapsed ? "Expand All Sections" : "Collapse All Sections"}
                 aria-label={areAllCollapsed ? "Expand All Sections" : "Collapse All Sections"}
-                whileTap={{ scale: 0.92 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <Icon
-                  icon={areAllCollapsed ? "carbon:add" : "carbon:subtract"}
+                  icon={areAllCollapsed ? "solar:add-circle-linear" : "solar:minus-circle-linear"}
                   className={styles.collapseActionIcon}
                 />
                 <span className={styles.collapseBtnText}>
@@ -274,7 +300,7 @@ export default function ProductFilterSidebar({
                 aria-label="Close filters"
                 whileTap={{ scale: 0.9 }}
               >
-                <Icon icon="carbon:close" className="w-5 h-5" />
+                <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
               </motion.button>
             </div>
           </div>
@@ -313,13 +339,18 @@ export default function ProductFilterSidebar({
                         selectedCategories.includes(cat.id) ||
                         selectedCategories.includes(cat.name) ||
                         selectedCategories.includes(cat.key);
-                      const count =
+                      const rawCount =
                         categoryCounts[cat.name] ??
                         categoryCounts[cat.id] ??
                         categoryCounts[cat.key];
+                      const count = typeof rawCount === "number" ? rawCount : 0;
+                      const hasCount = count > 0;
 
                       return (
-                        <label key={cat.key} className={styles.checkboxRow}>
+                        <label
+                          key={cat.key}
+                          className={`${styles.checkboxRow} ${!hasCount ? styles.checkboxRowEmpty : ""}`}
+                        >
                           <input
                             type="checkbox"
                             className={styles.checkboxInputHidden}
@@ -337,9 +368,13 @@ export default function ProductFilterSidebar({
                           </span>
                           <span className={styles.checkboxLabelText}>
                             {cat.name}
-                            {typeof count === "number" && count > 0 && (
-                              <span className={styles.categoryCountBadge}> ({count})</span>
-                            )}
+                          </span>
+                          <span
+                            className={`${styles.categoryCountBadge} ${
+                              !hasCount ? styles.categoryCountBadgeZero : ""
+                            }`}
+                          >
+                            {count}
                           </span>
                         </label>
                       );
@@ -498,7 +533,7 @@ export default function ProductFilterSidebar({
                       onApply={(range) => {
                         if (applyLoadFilter) applyLoadFilter("dynamic", range);
                       }}
-                      unit="Kg"
+                      unit="kg"
                     />
                   </motion.div>
                 )}
@@ -542,7 +577,7 @@ export default function ProductFilterSidebar({
                       onApply={(range) => {
                         if (applyLoadFilter) applyLoadFilter("static", range);
                       }}
-                      unit="Kg"
+                      unit="kg"
                     />
                   </motion.div>
                 )}
@@ -586,62 +621,36 @@ export default function ProductFilterSidebar({
                       onApply={(range) => {
                         if (applyLoadFilter) applyLoadFilter("rack", range);
                       }}
-                      unit="Kg"
+                      unit="kg"
                     />
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            {/* 7. CUSTOM */}
-            <div className={styles.accordionSection}>
-              <button
-                type="button"
-                className={styles.accordionHeaderBtn}
-                onClick={() => toggleSection("custom")}
-                aria-expanded={sectionsOpen.custom}
-              >
-                <span className={styles.accordionTitle}>Custom</span>
-                <Icon
-                  icon="carbon:chevron-down"
-                  className={`${styles.accordionChevron} ${
-                    sectionsOpen.custom
-                      ? styles.accordionChevronOpen
-                      : styles.accordionChevronClosed
-                  }`}
+            {/* 7. CUSTOM PROFILES TOGGLE */}
+            <div className={styles.customToggleSection}>
+              <label className={styles.customToggleLabel}>
+                <input
+                  type="checkbox"
+                  className={styles.checkboxInputHidden}
+                  checked={isCustom}
+                  onChange={(e) => setIsCustom && setIsCustom(e.target.checked)}
                 />
-              </button>
-
-              <AnimatePresence initial={false}>
-                {sectionsOpen.custom && (
-                  <motion.div
-                    className={styles.accordionContent}
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <label className={styles.checkboxRow}>
-                      <input
-                        type="checkbox"
-                        className={styles.checkboxInputHidden}
-                        checked={isCustom}
-                        onChange={(e) => setIsCustom && setIsCustom(e.target.checked)}
-                      />
-                      <span
-                        className={`${styles.customCheckboxSquare} ${
-                          isCustom ? styles.customCheckboxChecked : ""
-                        }`}
-                      >
-                        {isCustom && (
-                          <Icon icon="carbon:checkmark" className="w-3 h-3 text-white" />
-                        )}
-                      </span>
-                      <span className={styles.checkboxLabelText}>Custom</span>
-                    </label>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                <span
+                  className={`${styles.customCheckboxSquare} ${
+                    isCustom ? styles.customCheckboxChecked : ""
+                  }`}
+                >
+                  {isCustom && (
+                    <Icon icon="carbon:checkmark" className="w-3.5 h-3.5 text-white" />
+                  )}
+                </span>
+                <div className={styles.customToggleTextGroup}>
+                  <span className={styles.customToggleTitle}>Custom / Bespoke Profiles</span>
+                  <span className={styles.customToggleSubtitle}>Show customizable OEM molds only</span>
+                </div>
+              </label>
             </div>
           </div>
 

@@ -13,9 +13,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 280px;
+  height: 100%;
   width: 100%;
-  background: linear-gradient(135deg, var(--brand-glow-subtle) 0%, var(--navy-subtle) 100%);
+  background: radial-gradient(circle at 80% 10%, var(--brand-glow-subtle, rgba(22, 163, 74, 0.06)) 0%, transparent 60%);
   z-index: 1;
   pointer-events: none;
 }

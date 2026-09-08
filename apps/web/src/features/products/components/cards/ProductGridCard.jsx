@@ -5,12 +5,9 @@ import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { OptimizedImage } from "@/shared/ui";
 import {
-  getStaticLoadKg,
-  getDynamicLoadKg,
-  getRackLoadKg,
   getDimensionsStr,
-  getWeightStr,
   getSkuCode,
+  getProductCardSpecs,
 } from "../../utils/product.utils";
 import styles from "../../products.module.css";
 
@@ -20,35 +17,53 @@ export default function ProductGridCard({
   staticLoad: propStaticLoad,
   dimStr: propDimStr,
   onQuickView,
+  index = 0,
 }) {
-  const categoryName = product.category_name || product.category || "Recycled Plastic";
+  const rawCat = product.category_name || product.category || product.category_title || "";
+  const formatCategory = (cat) => {
+    if (!cat) return "Industrial Plastics";
+    const cleaned = String(cat).replace(/[-_]/g, " ").trim();
+    if (cleaned.toLowerCase() === "pallets" || cleaned.toLowerCase() === "pallet") return "Plastic Pallets";
+    if (cleaned.toLowerCase() === "garden bench" || cleaned.toLowerCase() === "benches") return "Garden Benches";
+    return cleaned.toUpperCase();
+  };
+  const categoryName = formatCategory(rawCat);
   const title = product.name || product.title;
   const sku = getSkuCode(product);
   const dimStr = propDimStr || getDimensionsStr(product);
-  const weightStr = getWeightStr(product);
+  const specsList = getProductCardSpecs(product, propStaticLoad);
 
-  const staticVal = propStaticLoad !== undefined && propStaticLoad > 0 ? propStaticLoad : getStaticLoadKg(product);
-  const dynamicVal = getDynamicLoadKg(product);
-  const rackVal = getRackLoadKg(product);
+  // Clean dimensions string and standardize with mathematical multiplication sign
+  let cleanDimStr = (dimStr || "")
+    .replace(/\s*\([Ll]\s*[x×]\s*[Ww]\s*[x×]\s*[Hh]\)/g, "")
+    .replace(/\s*[xX]\s*/g, " × ")
+    .trim();
 
-  const staticLoadDisplay = staticVal > 0 ? `${staticVal.toLocaleString()} kg` : "8,000 kg";
-  const dynamicLoadDisplay = dynamicVal > 0 ? `${dynamicVal.toLocaleString()} kg` : "1,300 kg";
-  const rackLoadDisplay = rackVal > 0 ? `${rackVal.toLocaleString()} kg` : "500 kg";
+  const isCustomizable = cleanDimStr.toLowerCase().includes("customizable") || 
+                        Boolean(product.is_custom || product.customizable);
+  
+  cleanDimStr = cleanDimStr.replace(/\s*\([Cc]ustomizable\)/g, "").trim();
+
+  if (!cleanDimStr) {
+    cleanDimStr = "1800 × 650 × 820 mm";
+  }
+
+  // Calculate subtle column-based stagger delay (up to 3 columns: 0ms, 40ms, 80ms)
+  const staggerDelay = (index % 3) * 0.04;
 
   return (
     <motion.article
       className={styles.gridCard}
-      initial={{ opacity: 0, y: 16 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      exit={{ opacity: 0, scale: 0.96 }}
-      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={{
-        y: -4,
-        transition: { type: "spring", stiffness: 350, damping: 22 },
+      viewport={{ once: true, margin: "60px 0px" }}
+      exit={{ opacity: 0, scale: 0.98 }}
+      transition={{
+        duration: 0.28,
+        delay: staggerDelay,
+        ease: [0.16, 1, 0.3, 1],
       }}
     >
-      {/* Upper White Card Section with Centered Image & Preserved Category Tag */}
       <div className={styles.gridCardThumbWrap}>
         <div className={styles.gridCardThumb}>
           <OptimizedImage
@@ -57,71 +72,64 @@ export default function ProductGridCard({
             className={styles.gridCardImg}
           />
         </div>
-        <span className={styles.catTag}>{categoryName}</span>
+        {categoryName && <span className={styles.catTag}>{categoryName}</span>}
       </div>
 
-      {/* Lower Gray Card Section with SKU, Specifications Table & Actions */}
       <div className={styles.gridCardDetails}>
-        {/* Product SKU and Model Title */}
-        <div className="mb-2.5">
-          <span className="text-[11px] font-mono font-bold tracking-wider text-[var(--text-muted)] uppercase block mb-0.5 tabular-nums">
-            {sku}
-          </span>
-          <h3 className={styles.gridCardSkuTitle} style={{ margin: 0 }}>
-            <Link to={`/products/${product.id}`} title={title} className="line-clamp-1">
-              {title}
-            </Link>
-          </h3>
+        <div className={styles.skuRow}>
+          <span className={styles.skuCode}>{sku}</span>
+          {isCustomizable && <span className={styles.customBadge}>Customizable</span>}
         </div>
+        <h3 className={styles.gridCardSkuTitle}>
+          <Link to={`/products/${product.id}`} title={title} className="line-clamp-2">
+            {title}
+          </Link>
+        </h3>
 
-        {/* Vertical Key-Value Specifications List */}
-        <div className={styles.specList}>
-          <div className={styles.specRowItem}>
-            <span className={styles.specRowLabel}>Dimensions</span>
-            <span className={`${styles.specRowVal} font-mono tabular-nums`}>{dimStr}</span>
+        {/* Dimensions Standalone Block with fixed baseline */}
+        <div className={styles.dimBlock}>
+          <div className={styles.dimIconWrap}>
+            <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4 text-slate-700 dark:text-slate-300" />
           </div>
-          <div className={styles.specRowItem}>
-            <span className={styles.specRowLabel}>Weight</span>
-            <span className={`${styles.specRowVal} font-mono tabular-nums`}>{weightStr}</span>
-          </div>
-          <div className={styles.specRowItem}>
-            <span className={styles.specRowLabel}>Static Load</span>
-            <span className={`${styles.specRowVal} font-mono tabular-nums`}>{staticLoadDisplay}</span>
-          </div>
-          <div className={styles.specRowItem}>
-            <span className={styles.specRowLabel}>Dynamic Load</span>
-            <span className={`${styles.specRowVal} font-mono tabular-nums`}>{dynamicLoadDisplay}</span>
-          </div>
-          <div className={styles.specRowItem}>
-            <span className={styles.specRowLabel}>Rack Load</span>
-            <span className={`${styles.specRowVal} font-mono tabular-nums`}>{rackLoadDisplay}</span>
+          <div className={styles.dimContent}>
+            <span className={styles.dimLabel}>Dimensions</span>
+            <span className={styles.dimValue} title={cleanDimStr}>{cleanDimStr}</span>
           </div>
         </div>
 
-        {/* Anchored Actions Container for Regularized Baseline */}
-        <div className="mt-auto pt-2">
-          {/* Primary CTA Button: "View product" */}
-          <div className={styles.gridCardBtnWrap}>
-            <Link to={`/products/${product.id}`} className={styles.viewProductBtn}>
-              View product
-            </Link>
-          </div>
+        <hr className={styles.cardDivider} />
 
-          {/* Secondary Action: "Technical Data Sheet" */}
-          <div className={styles.datasheetLinkWrap}>
-            <button
-              type="button"
-              onClick={() => onQuickView(product)}
-              className={styles.datasheetLink}
-              title={`View Technical Data Sheet for ${title}`}
-              aria-label={`View Technical Data Sheet for ${title}`}
-            >
-              <span>Technical Data Sheet</span>
-              <span className={styles.datasheetIconBox}>
-                <Icon icon="carbon:arrow-down" className="w-3 h-3" />
-              </span>
-            </button>
-          </div>
+        {/* 2x2 Specs Grid - Category Aware Metrics */}
+        <div className={styles.bentoGrid}>
+          {specsList.map((item, i) => (
+            <div key={item.label || i} className={styles.bentoItem}>
+              <div className={styles.bentoIconWrap}>
+                <Icon icon={item.icon} className="w-3.5 h-3.5 text-slate-600 dark:text-slate-300" />
+              </div>
+              <div className={styles.bentoContent}>
+                <span className={styles.bentoLabel} title={item.title || item.label}>{item.label}</span>
+                <span className={styles.bentoValue} title={item.value}>{item.value}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.gridCardActions}>
+          <Link to={`/products/${product.id}`} className={styles.primaryViewBtn}>
+            <span>View product</span>
+            <Icon icon="solar:arrow-right-linear" className={`w-4 h-4 ml-1 ${styles.primaryViewArrow}`} />
+          </Link>
+
+          <button
+            type="button"
+            onClick={() => onQuickView?.(product)}
+            className={styles.datasheetTextLink}
+            title={`View Technical Data Sheet for ${title}`}
+            aria-label={`View Technical Data Sheet for ${title}`}
+          >
+            <Icon icon="solar:document-text-linear" className="w-4 h-4 mr-1.5" />
+            <span className={styles.datasheetText}>Technical Data Sheet</span>
+          </button>
         </div>
       </div>
     </motion.article>

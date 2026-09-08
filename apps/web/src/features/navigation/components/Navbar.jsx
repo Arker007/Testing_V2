@@ -128,7 +128,6 @@ export default function Navbar() {
                   </span>
                   <span className={styles.logoNameLine2}>
                     {co("name", "VISHAL ENTERPRISE").trim().split(/\s+/).slice(1).join(" ") || "ENTERPRISE"}
-                    <span className={styles.logoDot}>.</span>
                   </span>
                 </div>
               </Link>
