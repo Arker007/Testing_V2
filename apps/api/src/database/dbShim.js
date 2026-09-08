@@ -61,6 +61,9 @@ function makeShim(c) {
         .then(() => cb && cb(null))
         .catch((err) => cb && cb(err));
     },
+    batch: (statements, mode) => {
+      return c.batch(statements, mode || "write");
+    }
   };
 }
 

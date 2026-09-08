@@ -105,7 +105,7 @@ export const CMS_FIELDS = [
   {
     section: "Homepage Sustainability",
     fields: [
-      { key: "show_home_about", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show About Section" },
+      { key: "show_home_about", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Sustainability Section" },
       { key: "home_about_eyebrow", label: "Eyebrow Tag", type: "text", placeholder: "Eco-Infrastructure Impact" },
       { key: "home_about_title", label: "Title", type: "text", placeholder: "Replacing Wood. Saving Forests." },
       { key: "home_about_desc", label: "Main Description", type: "textarea", placeholder: "Every linear foot of plastic lumber contributes to saving forests…" },
@@ -137,6 +137,7 @@ export const CMS_FIELDS = [
     section: "About Hero",
     fields: [
       { key: "about_hero_enabled", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Hero Header" },
+      { key: "about_hero_tag", label: "Tag / Badge", type: "text", placeholder: "Pioneering Recycled Polymer Extrusion" },
       { key: "about_hero_title", label: "Title", type: "text", placeholder: "About VISHAL ENTERPRISE" },
       { key: "about_hero_subtitle", label: "Subtitle", type: "textarea", placeholder: "Two decades of polymer innovation…" },
     ],
@@ -154,26 +155,6 @@ export const CMS_FIELDS = [
       { key: "about_vision_text", label: "Vision Text", type: "textarea", placeholder: "To be the leading supplier…" },
       { key: "about_commitment_title", label: "Commitment Title", type: "text", placeholder: "Our Commitment" },
       { key: "about_commitment_text", label: "Commitment Text", type: "textarea", placeholder: "Every product is checked..." },
-    ],
-  },
-  {
-    section: "About Timeline",
-    fields: [
-      { key: "about_timeline_enabled", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Milestones Intro" },
-      { key: "about_timeline_title", label: "Title", type: "text", placeholder: "Our Journey" },
-      { key: "about_timeline_subtitle", label: "Subtitle", type: "textarea", placeholder: "Two decades of growth…" },
-    ],
-  },
-  {
-    section: "About Timeline Entries",
-    fields: [],
-  },
-  {
-    section: "About Team",
-    fields: [
-      { key: "about_team_enabled", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Executive Team" },
-      { key: "about_team_title", label: "Team Title", type: "text", placeholder: "Our Executive Team" },
-      { key: "about_team_subtitle", label: "Team Subtitle", type: "text", placeholder: "Leadership steering our growth" },
     ],
   },
   {
@@ -208,8 +189,7 @@ export const CMS_FIELDS = [
   {
     section: "Products Page",
     fields: [
-      { key: "show_product_hero", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Catalog Hero Banner" },
-      { key: "products_hero_title", label: "Page Title", type: "text", placeholder: "Product Catalog" },
+      { key: "products_hero_tag", label: "Tag / Badge", type: "text", placeholder: "Industrial Polymer Products" },
       { key: "products_hero_subtitle", label: "Page Subtitle", type: "textarea", placeholder: "Browse our complete range…" },
     ],
   },
@@ -217,8 +197,8 @@ export const CMS_FIELDS = [
     section: "Contact Hero",
     fields: [
       { key: "show_contact_hero", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Hero Header" },
-      { key: "contact_hero_title", label: "Title", type: "text", placeholder: "Get in Touch" },
-      { key: "contact_hero_subtitle", label: "Subtitle", type: "textarea", placeholder: "We are here to help…" },
+      { key: "contact_hero_badge", label: "Tag / Badge", type: "text", placeholder: "Direct Factory Sales Desk" },
+      { key: "contact_hero_sub", label: "Subtitle", type: "textarea", placeholder: "Request volume pricing…" },
     ],
   },
   {
@@ -228,21 +208,5 @@ export const CMS_FIELDS = [
       { key: "contact_info_title", label: "Section Title", type: "text", placeholder: "Contact Information" },
       { key: "contact_hours", label: "Working Hours", type: "text", placeholder: "Mon - Sat: 9:00 AM - 6:00 PM" },
     ],
-  },
-  {
-    section: "Contact Form",
-    fields: [
-      { key: "show_contact_form", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Contact Form Settings" },
-      { key: "contact_form_title", label: "Form Title", type: "text", placeholder: "Send Us a Message" },
-      { key: "contact_form_subtitle", label: "Form Subtitle", type: "text", placeholder: "Fill out the form below…" },
-    ],
-  },
-  {
-    section: "SEO / Meta",
-    fields: [
-      { key: "seo_meta_title", label: "Default Meta Title", type: "text", placeholder: "VISHAL ENTERPRISE - Recycled Plastic Pallets & Lumber" },
-      { key: "seo_meta_desc", label: "Default Meta Description", type: "textarea", placeholder: "Leading manufacturer of industrial recycled plastic products in India." },
-      { key: "seo_keywords", label: "Meta Keywords", type: "text", placeholder: "plastic pallets, plastic lumber, recycled plastic" },
-    ],
-  },
+  }
 ];

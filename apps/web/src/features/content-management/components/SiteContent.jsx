@@ -7,9 +7,6 @@ import cStyles from "../styles/SiteContent.module.css";
 // Sub-components
 import CompanyForm from "./CompanyForm";
 import SectionEditor from "./SectionEditor";
-import TimelineEditor from "./TimelineEditor";
-import TeamEditor from "./TeamEditor";
-import ModalEditor from "./ModalEditor";
 import SiteContentSidebar from "./SiteContentSidebar";
 import SiteContentToast from "./SiteContentToast";
 
@@ -34,16 +31,13 @@ export default function SiteContent() {
     company, setCompany,
     cms, setCms,
     loading, saving, saved,
-    tlCount, setTlCount,
-    teamCount, setTeamCount,
-    modalItem, setModalItem,
     searchFieldQuery, setSearchFieldQuery,
     showToast, setShowToast,
     toastMessage,
     selectSearchQuery, setSelectSearchQuery,
     activeFilterTab, setActiveFilterTab,
     executePost, uploadLogo,
-    getSectionToggleKey, handleToggleSection, handleModalSave,
+    getSectionToggleKey, handleToggleSection
   } = useSiteContent();
 
   useEffect(() => {
@@ -223,48 +217,17 @@ export default function SiteContent() {
           </form>
         ) : (
           <form id="cms-form" onSubmit={(e) => { e.preventDefault(); executePost("/api/content", cms); }}>
-            {activeSub === "About Timeline Entries" ? (
-              <TimelineEditor
-                activeSub={activeSub}
-                cms={cms}
-                setCms={setCms}
-                tlCount={tlCount}
-                setTlCount={setTlCount}
-                renderToggle={renderToggle}
-                saving={saving}
-                isCmsGroupEnabled={isCmsGroupEnabled}
-                getSectionDisplayName={getSectionDisplayName}
-                setModalItem={setModalItem}
-                searchFieldQuery={searchFieldQuery}
-              />
-            ) : activeSub === "About Team" ? (
-              <TeamEditor
-                activeSub={activeSub}
-                selectedCmsGroup={selectedCmsGroup}
-                cms={cms}
-                setCms={setCms}
-                teamCount={teamCount}
-                setTeamCount={setTeamCount}
-                renderToggle={renderToggle}
-                saving={saving}
-                isCmsGroupEnabled={isCmsGroupEnabled}
-                getSectionDisplayName={getSectionDisplayName}
-                setModalItem={setModalItem}
-                searchFieldQuery={searchFieldQuery}
-              />
-            ) : (
-              <SectionEditor
-                activeSub={activeSub}
-                selectedCmsGroup={selectedCmsGroup}
-                cms={cms}
-                setCms={setCms}
-                isCmsGroupEnabled={isCmsGroupEnabled}
-                renderToggle={renderToggle}
-                saving={saving}
-                getSectionDisplayName={getSectionDisplayName}
-                searchFieldQuery={searchFieldQuery}
-              />
-            )}
+            <SectionEditor
+              activeSub={activeSub}
+              selectedCmsGroup={selectedCmsGroup}
+              cms={cms}
+              setCms={setCms}
+              isCmsGroupEnabled={isCmsGroupEnabled}
+              renderToggle={renderToggle}
+              saving={saving}
+              getSectionDisplayName={getSectionDisplayName}
+              searchFieldQuery={searchFieldQuery}
+            />
             <div className={cStyles.stickyActionBar}>
               <div className={cStyles.stickyStatusText}>
                 <Icon icon="carbon:security" className="w-4 h-4 text-emerald-600" />
@@ -301,11 +264,6 @@ export default function SiteContent() {
         toastMessage={toastMessage}
       />
 
-      <ModalEditor
-        modalItem={modalItem}
-        setModalItem={setModalItem}
-        handleModalSave={handleModalSave}
-      />
     </div>
   );
 }

@@ -9,10 +9,6 @@ export function useSiteContent() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const [tlCount, setTlCount] = useState(1);
-  const [teamCount, setTeamCount] = useState(1);
-  const [modalItem, setModalItem] = useState(null);
-
   const [searchFieldQuery, setSearchFieldQuery] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
@@ -28,18 +24,9 @@ export function useSiteContent() {
       .then(([co, cm]) => {
         setCompany(co || {});
         const flat = {};
-        let mTl = 1, mTeam = 1;
         Object.entries(cm || {}).forEach(([k, v]) => {
           flat[k] = typeof v === "object" ? v.value : v;
-          if (k.startsWith("tl_") && flat[k]) {
-            const m = k.match(/tl_(\d+)_/); if (m) mTl = Math.max(mTl, parseInt(m[1]));
-          }
-          if (k.startsWith("team_") && flat[k]) {
-            const m = k.match(/team_(\d+)_/); if (m) mTeam = Math.max(mTeam, parseInt(m[1]));
-          }
         });
-        setTlCount(mTl);
-        setTeamCount(mTeam);
         setCms(flat);
       })
       .finally(() => setLoading(false));
@@ -94,46 +81,18 @@ export function useSiteContent() {
     });
   }, [getSectionToggleKey]);
 
-  const handleModalSave = useCallback((e) => {
-    e.preventDefault();
-    if (!modalItem) return;
-    const { type, index, data, isNew } = modalItem;
-    setCms((prev) => {
-      const copy = { ...prev };
-      if (type === "timeline") {
-        copy[`tl_${index}_year`] = data.year;
-        copy[`tl_${index}_title`] = data.title;
-        copy[`tl_${index}_desc`] = data.desc;
-      } else {
-        copy[`team_${index}_name`] = data.name;
-        copy[`team_${index}_role`] = data.role;
-        copy[`team_${index}_init`] = data.init;
-        copy[`team_${index}_color`] = data.color;
-      }
-      return copy;
-    });
-    if (isNew) {
-      if (type === "timeline") setTlCount(index);
-      else setTeamCount(index);
-    }
-    setModalItem(null);
-  }, [modalItem]);
-
   return {
     tab, setTab,
     activeSub, setActiveSub,
     company, setCompany,
     cms, setCms,
     loading, saving, saved,
-    tlCount, setTlCount,
-    teamCount, setTeamCount,
-    modalItem, setModalItem,
     searchFieldQuery, setSearchFieldQuery,
     showToast, setShowToast,
     toastMessage,
     selectSearchQuery, setSelectSearchQuery,
     activeFilterTab, setActiveFilterTab,
     executePost, uploadLogo,
-    getSectionToggleKey, handleToggleSection, handleModalSave,
+    getSectionToggleKey, handleToggleSection,
   };
 }

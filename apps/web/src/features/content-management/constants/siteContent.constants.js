@@ -4,31 +4,31 @@ import { CMS_FIELDS } from "./cmsFields.constants";
 export { COMPANY_FIELDS, CMS_FIELDS };
 
 export const TAB_SECTIONS = {
-  home_footer: [
+  "Home Page": [
     "Homepage Hero",
     "Homepage Trusted By",
     "Homepage Categories",
-    "Homepage Process",
-    "Homepage Industries",
     "Homepage Why Us",
-    "Homepage Sustainability",
+    "Homepage Industries",
     "Homepage Testimonials",
     "Homepage CTA Banner",
     "Footer"
   ],
+  "Manufacturing Page": [
+    "Homepage Process"
+  ],
+  "Sustainability Page": [
+    "Homepage Sustainability"
+  ],
   "About Page": [
     "About Hero",
     "About Mission & History",
-    "About Timeline",
-    "About Timeline Entries",
     "About Certifications",
-    "About Team",
     "About Testimonials",
     "About CTA"
   ],
   "Products Page": ["Products Page"],
-  "Contact Page": ["Contact Hero", "Contact Info & Map", "Contact Form"],
-  "SEO / Meta": ["SEO / Meta"],
+  "Contact Page": ["Contact Hero", "Contact Info & Map"]
 };
 
 export const SECTION_TOGGLE_KEYS = {
@@ -43,14 +43,10 @@ export const SECTION_TOGGLE_KEYS = {
   "Homepage CTA Banner": "show_home_cta",
   "About Hero": "about_hero_enabled",
   "About Mission & History": "about_bento_enabled",
-  "About Timeline": "about_timeline_enabled",
   "About Certifications": "about_cert_enabled",
-  "About Team": "about_team_enabled",
   "About Testimonials": "about_testimonials_enabled",
-  "Products Page": "show_product_hero",
   "Contact Hero": "show_contact_hero",
   "Contact Info & Map": "show_contact_info",
-  "Contact Form": "show_contact_form",
   "About CTA": "about_cta_enabled",
 };
 
@@ -70,15 +66,10 @@ export const SECTION_DISPLAY_NAMES = {
   "Footer": "Footer Copy",
   "About Hero": "Hero Header",
   "About Mission & History": "Mission & Vision",
-  "About Timeline": "Milestones Intro",
-  "About Timeline Entries": "Timeline Milestones",
   "About Certifications": "Quality Standards & Certifications",
-  "About Team": "Executive Team",
   "About Testimonials": "Client Testimonials",
   "About CTA": "About Page Bottom CTA",
   "Products Page": "Products Catalog Hero Banner",
   "Contact Hero": "Hero Header",
-  "Contact Info & Map": "Contact Details & Location Map",
-  "Contact Form": "Contact Form Settings",
-  "SEO / Meta": "Search Engine Optimization (SEO)",
+  "Contact Info & Map": "Contact Details & Location Map"
 };

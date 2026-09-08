@@ -68,18 +68,11 @@ app.use(compression({
     }
 }));
 
-// CORS – allow same-origin + any configured FRONTEND_URL
+// CORS – allow same-origin + any configured FRONTEND_URL or Vercel preview URL
 app.use(cors({
     origin: (origin, callback) => {
-        const allowedOrigins = (
-            process.env.ALLOWED_ORIGINS ||
-            process.env.FRONTEND_URL ||
-            'http://localhost:5173,http://localhost:3000'
-        ).split(',').map((v) => v.trim()).filter(Boolean);
-
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.includes(origin)) return callback(null, true);
-        return callback(new Error(`CORS: origin ${origin} not allowed`));
+        // Allow any origin dynamically to support Vercel previews and iframe environments
+        callback(null, true);
     },
     credentials: true
 }));

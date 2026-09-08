@@ -102,7 +102,7 @@
 .filterTabsRow {
   display: flex;
   gap: 4px;
-  overflow-x: auto;
+  flex-wrap: wrap;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--border-subtle, rgba(5, 40, 63, 0.06));
   margin-bottom: 10px;
