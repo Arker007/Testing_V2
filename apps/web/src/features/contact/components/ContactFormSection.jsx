@@ -81,51 +81,41 @@ export default function ContactFormSection() {
           {/* BEGIN: RequestAQuoteForm */}
           <Card
             variant="default"
-            className="lg:col-span-7 p-4.5 sm:p-6 shadow-sm border border-[var(--border-subtle)] transition-all duration-200 hover:border-[var(--border-default)]"
+            className="lg:col-span-7 p-5 sm:p-6 shadow-sm border border-[var(--border-subtle)] transition-all duration-200 hover:border-[var(--border-default)]"
             data-purpose="quote-request-card"
             id="enquiry-card"
           >
             {/* Header Section */}
             <header className="mb-4 sm:mb-5">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="w-4 h-1 bg-[var(--brand-primary)] rounded-full inline-block" />
-                <span className="text-[11px] font-extrabold tracking-widest text-[var(--brand-primary)] uppercase">GET A QUOTE</span>
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="w-4 h-[2px] bg-[var(--brand-primary)] inline-block shrink-0" />
+                <span className="text-[11px] font-bold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">GET A QUOTE</span>
               </div>
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <h1 className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-snug">
-                  Request a <span className="text-[var(--brand-primary)]">Quote</span>
-                </h1>
-                {/* Quick Response Badge */}
-                <div className="flex items-center gap-2 bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] px-2.5 py-1.5 self-start sm:self-auto rounded-md">
-                  <Icon icon="carbon:checkmark-outline" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
-                  <div>
-                    <span className="block text-[11px] font-bold text-[var(--text-primary)] leading-tight">Quick Response</span>
-                    <span className="block text-[10px] text-[var(--text-muted)] font-medium leading-tight mt-0.5">Usually within 24 hours</span>
-                  </div>
-                </div>
-              </div>
-              <p className="text-[var(--text-secondary)] text-xs sm:text-sm leading-relaxed mt-1.5">
-                Share your requirements and our team will get back to you with the best solution and pricing.
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight mb-1.5">
+                Request a <span className="text-[var(--brand-primary)]">Quote</span>
+              </h1>
+              <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed max-w-2xl">
+                Share your requirements and our team will get back to you with the best solution and pricing for your business.
               </p>
             </header>
 
             {status === "sent" ? (
               <div className={styles.successBox}>
-                <div className="w-12 h-12 rounded-full bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20 flex items-center justify-center mx-auto mb-3 text-[var(--brand-primary)]">
-                  <Icon icon="carbon:checkmark" className="w-6 h-6" />
+                <div className="w-10 h-10 rounded-full bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20 flex items-center justify-center mx-auto mb-2.5 text-[var(--brand-primary)]">
+                  <Icon icon="carbon:checkmark" className="w-5 h-5" />
                 </div>
-                <h3 className="text-[var(--text-primary)] font-bold text-lg mb-1">Quote Request Sent</h3>
+                <h3 className="text-[var(--text-primary)] font-bold text-base mb-1">Quote Request Sent</h3>
                 
                 {referenceId && (
-                  <div className="my-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
-                    <span className="text-xs text-[var(--text-muted)] font-mono">Ref:</span>
-                    <span className="text-xs font-mono font-semibold text-[var(--text-primary)]">
+                  <div className="my-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
+                    <span className="text-[11px] text-[var(--text-muted)] font-mono">Ref:</span>
+                    <span className="text-[11px] font-mono font-semibold text-[var(--text-primary)]">
                       {referenceId}
                     </span>
                     <button
                       type="button"
                       onClick={handleCopyRef}
-                      className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer ml-1"
+                      className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer ml-0.5"
                       title="Copy Reference Code"
                       aria-label="Copy reference code"
                     >
@@ -134,33 +124,37 @@ export default function ContactFormSection() {
                   </div>
                 )}
 
-                <p className="text-[var(--text-secondary)] text-xs sm:text-sm mb-4">
+                <p className="text-[var(--text-secondary)] text-xs mb-3.5">
                   Thank you. We have received your inquiry and will follow up with pricing shortly.
                 </p>
                 <Button
                   type="button"
                   variant="outline"
-                  size="md"
+                  size="sm"
                   onClick={resetStatus}
                 >
                   Submit Another Request
                 </Button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                 {/* Step 1: Select Product */}
                 <div className="space-y-2.5">
-                  <div
-                    className={`${styles.formStepHeading || ""} text-xs font-semibold text-[var(--text-primary)] flex items-center gap-1.5`}
-                    role="heading"
-                    aria-level={2}
-                  >
-                    <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] font-bold text-[10px] shrink-0">1</span>
-                    <span>Select Product / Requirement</span>
-                    <span className="text-red-500 text-xs font-semibold">*</span>
+                  <div className="flex items-start gap-2.5">
+                    <div className="w-6 h-6 sm:w-6.5 sm:h-6.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
+                      1
+                    </div>
+                    <div>
+                      <h2 className="text-[22px] font-bold text-[var(--text-primary)] leading-tight">
+                        Product / Requirement
+                      </h2>
+                      <p className="text-[14px] text-[var(--text-secondary)] mt-0.5">
+                        Select the product category that best matches your requirement.
+                      </p>
+                    </div>
                   </div>
                   
-                  <div className="space-y-2">
+                  <div className="space-y-2.5 pt-0.5 pl-0 sm:pl-9">
                     <CustomSelect
                       value={form.productService || ""}
                       onChange={(val) => f("productService")({ target: { value: val } })}
@@ -168,7 +162,7 @@ export default function ContactFormSection() {
                       placeholder="Select product or requirement"
                     />
 
-                    <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-0.5">
                       {[
                         "Industrial Pallets",
                         "Plastic Lumber",
@@ -181,22 +175,16 @@ export default function ContactFormSection() {
                             key={cat}
                             type="button"
                             onClick={() => f("productService")({ target: { value: cat } })}
-                            className="cursor-pointer"
+                            className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-all cursor-pointer flex items-center justify-center gap-1 text-center ${
+                              isSelected
+                                ? "bg-[var(--bg-surface)] text-[var(--brand-primary)] border-2 border-[var(--brand-primary)] font-bold shadow-2xs"
+                                : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-default)] hover:border-[var(--brand-primary)]/40"
+                            }`}
                           >
-                            <Badge
-                              variant={isSelected ? "brand" : "neutral"}
-                              size="sm"
-                              className={
-                                isSelected
-                                  ? "font-semibold shadow-xs text-xs py-0.5 px-2"
-                                  : "font-semibold text-xs py-0.5 px-2 text-[var(--text-primary)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] hover:border-[var(--brand-primary)]/50 transition-colors"
-                              }
-                            >
-                              {cat}
-                              {isSelected && (
-                                <Icon icon="carbon:checkmark" className="w-3 h-3 ml-1 inline" />
-                              )}
-                            </Badge>
+                            <span>{cat}</span>
+                            {isSelected && (
+                              <Icon icon="carbon:checkmark" className="w-3 h-3 text-[var(--brand-primary)] shrink-0" />
+                            )}
                           </button>
                         );
                       })}
@@ -206,15 +194,21 @@ export default function ContactFormSection() {
 
                 {/* Step 2: Contact Details */}
                 <div className="space-y-2.5">
-                  <div
-                    className={`${styles.formStepHeading || ""} text-xs font-semibold text-[var(--text-primary)] flex items-center gap-1.5`}
-                    role="heading"
-                    aria-level={2}
-                  >
-                    <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] font-bold text-[10px] shrink-0">2</span>
-                    <span>Your Details</span>
+                  <div className="flex items-start gap-2.5">
+                    <div className="w-6 h-6 sm:w-6.5 sm:h-6.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
+                      2
+                    </div>
+                    <div>
+                      <h2 className="text-[22px] font-bold text-[var(--text-primary)] leading-tight">
+                        Your Details
+                      </h2>
+                      <p className="text-[15px] text-[var(--text-secondary)] mt-0.5">
+                        Let us know how to get in touch with you.
+                      </p>
+                    </div>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-0.5 pl-0 sm:pl-9">
                     {/* Full Name */}
                     <FormField label="Full Name" htmlFor="fullName" required>
                       <Input
@@ -222,7 +216,7 @@ export default function ContactFormSection() {
                         required
                         type="text"
                         size="sm"
-                        leftIcon="carbon:user"
+                        leftIcon="solar:user-linear"
                         placeholder="Full name"
                         value={form.fullName || ""}
                         onChange={f("fullName")}
@@ -236,7 +230,7 @@ export default function ContactFormSection() {
                         required
                         type="email"
                         size="sm"
-                        leftIcon="carbon:email"
+                        leftIcon="solar:letter-linear"
                         placeholder="name@company.com"
                         value={form.email || ""}
                         onChange={f("email")}
@@ -249,7 +243,7 @@ export default function ContactFormSection() {
                         <div className="relative flex items-center h-full shrink-0 border-r border-[var(--border-default)] bg-[var(--bg-surface-secondary)]">
                           <select
                             id="phonePrefix"
-                            className="h-full pl-2.5 pr-5 bg-transparent appearance-none text-base sm:text-xs font-normal text-[var(--text-primary)] focus:outline-none cursor-pointer z-10"
+                            className="h-full pl-2.5 pr-5 bg-transparent appearance-none text-xs font-medium text-[var(--text-primary)] focus:outline-none cursor-pointer z-10"
                             value={form.phonePrefix || "+91"}
                             onChange={f("phonePrefix")}
                             aria-label="Country phone code"
@@ -269,7 +263,7 @@ export default function ContactFormSection() {
                           id="phone"
                           required
                           type="tel"
-                          className="w-full h-full px-2.5 bg-transparent text-base sm:text-xs font-normal text-[var(--text-primary)] placeholder:text-[var(--text-disabled)] focus:outline-none"
+                          className="w-full h-full px-2.5 bg-transparent text-xs font-normal text-[var(--text-primary)] placeholder:text-[var(--text-disabled)] focus:outline-none"
                           placeholder="Phone number"
                           value={form.phone || ""}
                           onChange={f("phone")}
@@ -283,7 +277,7 @@ export default function ContactFormSection() {
                         id="company"
                         type="text"
                         size="sm"
-                        leftIcon="carbon:enterprise"
+                        leftIcon="solar:buildings-2-linear"
                         placeholder="Company name"
                         value={form.company || ""}
                         onChange={f("company")}
@@ -294,56 +288,70 @@ export default function ContactFormSection() {
 
                 {/* Step 3: Requirement Details */}
                 <div className="space-y-2.5">
-                  <div
-                    className={`${styles.formStepHeading || ""} text-xs font-semibold text-[var(--text-primary)] flex items-center gap-1.5`}
-                    role="heading"
-                    aria-level={2}
-                  >
-                    <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] font-bold text-[10px] shrink-0">3</span>
-                    <span>Requirement Details</span>
+                  <div className="flex items-start gap-2.5">
+                    <div className="w-6 h-6 sm:w-6.5 sm:h-6.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
+                      3
+                    </div>
+                    <div>
+                      <h2 className="text-[22px] font-bold text-[var(--text-primary)] leading-tight">
+                        Requirement Details
+                      </h2>
+                      <p className="text-[15px] text-[var(--text-secondary)] mt-0.5">
+                        Help us understand your requirement better.
+                      </p>
+                    </div>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-                    {/* Estimated Quantity */}
-                    <FormField label="Estimated Quantity (Optional)" htmlFor="estimatedVolume">
-                      <Input
-                        id="estimatedVolume"
-                        type="text"
-                        size="sm"
-                        leftIcon="carbon:inventory-management"
-                        placeholder="e.g. 500 units"
-                        value={form.estimatedVolume || ""}
-                        onChange={f("estimatedVolume")}
-                      />
-                    </FormField>
+                  
+                  <div className="space-y-2.5 pt-0.5 pl-0 sm:pl-9">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                      {/* Estimated Quantity */}
+                      <FormField label="Estimated Quantity (Optional)" htmlFor="estimatedVolume">
+                        <Input
+                          id="estimatedVolume"
+                          type="text"
+                          size="sm"
+                          leftIcon="solar:box-linear"
+                          placeholder="e.g. 500 units"
+                          value={form.estimatedVolume || ""}
+                          onChange={f("estimatedVolume")}
+                        />
+                      </FormField>
 
-                    {/* Target Application */}
-                    <FormField label="Target Application (Optional)" htmlFor="targetApplication">
-                      <Input
-                        id="targetApplication"
-                        type="text"
-                        size="sm"
-                        leftIcon="carbon:application"
-                        placeholder="e.g. Warehouse, Outdoor"
-                        value={form.targetApplication || ""}
-                        onChange={f("targetApplication")}
-                      />
+                      {/* Target Application */}
+                      <FormField label="Target Application (Optional)" htmlFor="targetApplication">
+                        <Input
+                          id="targetApplication"
+                          type="text"
+                          size="sm"
+                          leftIcon="solar:settings-minimalistic-linear"
+                          placeholder="e.g. Warehouse, Outdoor"
+                          value={form.targetApplication || ""}
+                          onChange={f("targetApplication")}
+                        />
+                      </FormField>
+                    </div>
+
+                    {/* Specifications or Message */}
+                    <FormField label="Specifications or Message" htmlFor="message" required>
+                      <div className="relative">
+                        <div className="absolute top-2.5 left-2.5 pointer-events-none text-[var(--text-muted)] z-10">
+                          <Icon icon="solar:pen-linear" className="w-3.5 h-3.5" />
+                        </div>
+                        <Textarea
+                          id="message"
+                          required
+                          rows={2.5}
+                          maxLength={1000}
+                          showCount
+                          size="sm"
+                          className="pl-8 py-2 px-2.5 min-h-[75px] text-xs"
+                          placeholder="Specifications, dimensions, or notes..."
+                          value={form.message || ""}
+                          onChange={f("message")}
+                        />
+                      </div>
                     </FormField>
                   </div>
-
-                  {/* Specifications or Message */}
-                  <FormField label="Specifications or Message" htmlFor="message" required>
-                    <Textarea
-                      id="message"
-                      required
-                      rows={2.5}
-                      maxLength={1000}
-                      showCount
-                      className="text-xs py-2 px-3 min-h-[70px]"
-                      placeholder="Specifications, dimensions, or notes..."
-                      value={form.message || ""}
-                      onChange={f("message")}
-                    />
-                  </FormField>
                 </div>
 
                 {status === "error" && (
@@ -353,7 +361,7 @@ export default function ContactFormSection() {
                 )}
 
                 {/* Bottom Action Buttons & Trust Badge */}
-                <div className="flex flex-col sm:flex-row items-stretch gap-2.5 pt-2 sm:pt-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2.5 border-t border-[var(--border-subtle)]">
                   {/* Submit CTA */}
                   <Button
                     type="submit"
@@ -361,20 +369,20 @@ export default function ContactFormSection() {
                     size="md"
                     loading={status === "sending" || status === "loading"}
                     loadingText="Sending..."
-                    className="w-full sm:w-auto shrink-0 font-bold min-h-[40px] text-xs sm:text-sm px-5"
-                    icon={<Icon icon="carbon:send-alt" className="w-4 h-4 mr-1.5 inline" />}
+                    className="w-full sm:w-auto shrink-0 font-bold min-h-[40px] text-xs sm:text-sm px-5 shadow-2xs"
+                    icon={<Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5 ml-1 inline" />}
                     id="submit-message-btn"
                   >
                     Send Quote Request
                   </Button>
 
-                  {/* Secure Info Badge */}
-                  <div className="w-full sm:flex-1 flex items-center gap-2.5 px-3 py-2 bg-[var(--bg-surface-secondary)] dark:bg-emerald-950/20 border border-[var(--border-subtle)] dark:border-emerald-800/40 rounded-md min-h-[40px]">
-                    <div className="text-[var(--brand-primary)] shrink-0">
-                      <Icon icon="solar:shield-check-bold" className="w-4 h-4" />
+                  {/* Secure Info Badge - Clean Unboxed Layout */}
+                  <div className="flex items-center gap-2.5 px-1 py-1 text-left sm:border-l sm:border-[var(--border-subtle)] sm:pl-4">
+                    <div className="text-[var(--brand-primary)] dark:text-emerald-400 shrink-0">
+                      <Icon icon="solar:shield-check-bold" className="w-5 h-5" />
                     </div>
                     <div className="text-[11px] leading-tight">
-                      <span className="block font-bold text-[var(--text-primary)]">Your information is secure</span>
+                      <span className="block font-bold text-[var(--text-primary)]">Your information is secure.</span>
                       <span className="block text-[var(--text-muted)] text-[10px] mt-0.5">We respect your privacy and never share your data.</span>
                     </div>
                   </div>
@@ -393,12 +401,16 @@ export default function ContactFormSection() {
             {/* Top Container */}
             <div>
               {/* Header Info */}
-              <div className="mb-4">
-                <h2 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] tracking-tight">
+              <div className="mb-4 sm:mb-5">
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <span className="w-5 h-[2px] bg-[var(--brand-primary)] inline-block shrink-0" />
+                  <span className="text-[11px] font-bold tracking-[0.18em] text-slate-600 dark:text-slate-300 uppercase">GET IN TOUCH</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-snug">
                   Contact Information
                 </h2>
-                <p className="text-[var(--text-secondary)] text-xs sm:text-sm mt-0.5">
-                  Direct channels for sales inquiries, technical support, and plant visits.
+                <p className="text-[var(--text-secondary)] text-xs sm:text-sm mt-1 leading-relaxed">
+                  Direct channels for sales inquiries, technical support, and plant visits. We&apos;re here to help.
                 </p>
               </div>
 
