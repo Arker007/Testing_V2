@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import { Input, Button } from "@/shared/ui";
 import styles from "../styles/AdminCatalog.module.css";
 
 export default function CatalogSidebar({
@@ -22,46 +23,36 @@ export default function CatalogSidebar({
       </div>
 
       <div className={styles.sidebarSection}>
-        <div className={styles.formGroup}>
-          <label>Catalog Title</label>
-          <input
-            type="text"
+        <div className="space-y-4">
+          <Input
+            label="Catalog Title"
             value={catalogTitle}
             onChange={(e) => setCatalogTitle(e.target.value)}
             placeholder="e.g. Recycled Pallets Catalog"
           />
-        </div>
 
-        <div className={styles.formGroup}>
-          <label>Calendar Year / Vol</label>
-          <input
-            type="text"
+          <Input
+            label="Calendar Year / Vol"
             value={catalogYear}
             onChange={(e) => setCatalogYear(e.target.value)}
             placeholder="e.g. 2024 | 25"
           />
         </div>
 
-        <div className={styles.formGroup}>
+        <div className={`${styles.formGroup} mt-4`}>
           <div className={styles.sectionTitle}>
             <span>Included Products</span>
-            <button
+            <Button
               type="button"
+              variant="ghost"
+              size="xs"
               onClick={handleSelectAll}
-              style={{
-                background: "none",
-                border: "none",
-                color: "var(--brand-dark)",
-                fontSize: "0.7rem",
-                fontWeight: 800,
-                cursor: "pointer",
-                textTransform: "uppercase",
-              }}
+              className="text-xs uppercase font-bold"
             >
               {selectedProductIds.length === products.length
                 ? "Deselect All"
                 : "Select All"}
-            </button>
+            </Button>
           </div>
 
           <div className={styles.checkboxList}>
@@ -80,14 +71,16 @@ export default function CatalogSidebar({
       </div>
 
       <div className={styles.sidebarFooter}>
-        <button
+        <Button
           type="button"
-          className={styles.toolbarBtnPrimary}
-          style={{ width: "100%", justifyContent: "center" }}
+          variant="primary"
+          fullWidth
+          size="md"
           onClick={() => window.print()}
+          icon={<Icon icon="carbon:printer" className="w-4 h-4 mr-1.5" />}
         >
-          <Icon icon="carbon:printer" className="w-4 h-4 mr-1.5" /> Export PDF Catalog
-        </button>
+          Export PDF Catalog
+        </Button>
       </div>
     </aside>
   );

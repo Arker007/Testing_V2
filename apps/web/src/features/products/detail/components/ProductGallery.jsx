@@ -1,21 +1,33 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
 import { OptimizedImage } from "@/shared/ui";
 
 const MotionDiv = motion.div;
 
-function ImageZoom({ src, alt }) {
+function ImageZoom({ src, alt, onOpenModal }) {
   const [showLens, setShowLens] = useState(false);
   const [lensPos, setLensPos] = useState({ x: 0, y: 0 });
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const containerRef = useRef(null);
+
+  useEffect(() => {
+    const checkTouch = () => {
+      setIsTouchDevice(
+        "ontouchstart" in window ||
+        navigator.maxTouchPoints > 0 ||
+        window.matchMedia("(hover: none) and (pointer: coarse)").matches
+      );
+    };
+    checkTouch();
+  }, []);
 
   const zoomFactor = 2;
   const lensSize = 160;
 
   const handleMouseMove = (e) => {
-    if (!containerRef.current) return;
+    if (isTouchDevice || !containerRef.current) return;
     const { left, top, width, height } = containerRef.current.getBoundingClientRect();
 
     if (dimensions.width !== width || dimensions.height !== height) {
@@ -32,6 +44,7 @@ function ImageZoom({ src, alt }) {
   };
 
   const handleMouseEnter = () => {
+    if (isTouchDevice) return;
     if (containerRef.current) {
       const { width, height } = containerRef.current.getBoundingClientRect();
       setDimensions({ width, height });
@@ -41,6 +54,12 @@ function ImageZoom({ src, alt }) {
 
   const handleMouseLeave = () => {
     setShowLens(false);
+  };
+
+  const handleClick = () => {
+    if (isTouchDevice && onOpenModal) {
+      onOpenModal();
+    }
   };
 
   const mouseX = lensPos.x + lensSize / 2;
@@ -54,23 +73,33 @@ function ImageZoom({ src, alt }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
-      className="relative w-full h-full overflow-hidden cursor-zoom-in flex items-center justify-center select-none"
+      onClick={handleClick}
+      className={`relative w-full h-full overflow-hidden flex items-center justify-center select-none ${
+        isTouchDevice ? "cursor-pointer" : "cursor-zoom-in"
+      }`}
     >
       <OptimizedImage
         src={src}
         alt={alt}
         sizes="(max-width: 768px) 100vw, 800px"
-        className="w-full h-full object-contain block pointer-events-none p-4"
+        className="w-full h-full object-cover block pointer-events-none"
       />
 
+      {isTouchDevice && (
+        <div className="absolute bottom-3 right-3 bg-black/60 text-white text-[11px] font-semibold px-2.5 py-1 rounded-full backdrop-blur-xs flex items-center gap-1 pointer-events-none z-20">
+          <Icon icon="carbon:maximize" className="w-3.5 h-3.5" />
+          <span>Tap to expand</span>
+        </div>
+      )}
+
       <AnimatePresence>
-        {showLens && dimensions.width > 0 && (
+        {!isTouchDevice && showLens && dimensions.width > 0 && (
           <MotionDiv
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.12, ease: "easeOut" }}
-            className="absolute rounded-[var(--radius-card,8px)] border-2 border-[#277D38] shadow-lg pointer-events-none z-20 bg-white overflow-hidden"
+            className="absolute rounded-[var(--radius-card,8px)] border-2 border-[var(--brand-primary)] shadow-2xl pointer-events-none z-20 bg-[var(--bg-surface)] overflow-hidden"
             style={{
               left: `${lensPos.x}px`,
               top: `${lensPos.y}px`,
@@ -93,7 +122,7 @@ function ImageZoom({ src, alt }) {
               <img
                 src={src}
                 alt={alt}
-                className="w-full h-full object-contain block p-4"
+                className="w-full h-full object-cover block"
               />
             </div>
           </MotionDiv>
@@ -111,17 +140,24 @@ export default function ProductGallery({
   setShowImageModal,
   handlePrevImage,
   handleNextImage,
+  onHoverChange,
 }) {
   return (
     <div
       id="product-gallery-panel"
+      onMouseEnter={() => onHoverChange?.(true)}
+      onMouseLeave={() => onHoverChange?.(false)}
       className="bg-[var(--bg-surface)] border border-[var(--border-default)] rounded-[var(--radius-card,8px)] p-4 sm:p-6 shadow-xs flex flex-col gap-5 transition-all duration-200"
     >
       {/* 1. Main Viewport */}
       <div className="relative aspect-4/3 w-full bg-[var(--bg-surface-secondary)] rounded-[var(--radius-card,8px)] overflow-hidden flex items-center justify-center border border-[var(--border-subtle)]">
         <div className="w-full h-full">
           {images[currentImgIdx] ? (
-            <ImageZoom src={images[currentImgIdx]} alt={productName} />
+            <ImageZoom
+              src={images[currentImgIdx]}
+              alt={productName}
+              onOpenModal={() => setShowImageModal?.(true)}
+            />
           ) : (
             <div className="flex flex-col items-center justify-center h-full text-[var(--text-muted)]">
               <Icon icon="carbon:image" className="w-12 h-12" />
@@ -131,7 +167,7 @@ export default function ProductGallery({
         </div>
 
         {/* Certified Quality Badge */}
-        <div className="absolute top-3.5 left-3.5 bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] px-3 py-1.5 rounded-[var(--radius-card,8px)] text-[10px] sm:text-xs font-bold flex items-center gap-1.5 backdrop-blur-xs shadow-xs border border-[var(--border-subtle)] z-10">
+        <div className="absolute top-3.5 left-3.5 bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] px-3 py-1.5 rounded-[var(--radius-card,8px)] text-[10px] sm:text-xs font-bold flex items-center gap-1.5 backdrop-blur-xs shadow-xs border border-[var(--border-subtle)] z-30 pointer-events-none">
           <Icon icon="carbon:security" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
           <span>50+ Year Polymer Durability</span>
         </div>
@@ -140,7 +176,7 @@ export default function ProductGallery({
         {images[currentImgIdx] && (
           <button
             type="button"
-            className="absolute top-3.5 right-3.5 bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] w-10 h-10 min-w-[40px] min-h-[40px] rounded-[var(--radius-card,8px)] flex items-center justify-center transition-all shadow-xs border border-[var(--border-default)] cursor-pointer z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95"
+            className="absolute top-3.5 right-3.5 bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] w-10 h-10 min-w-[40px] min-h-[40px] rounded-[var(--radius-card,8px)] flex items-center justify-center transition-all shadow-xs border border-[var(--border-default)] cursor-pointer z-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95"
             onClick={() => setShowImageModal(true)}
             aria-label="View image full screen"
             title="Expand Full View"
@@ -154,7 +190,7 @@ export default function ProductGallery({
           <>
             <button
               type="button"
-              className="absolute left-2 sm:left-3.5 top-1/2 -translate-y-1/2 w-10 h-10 min-w-[40px] min-h-[40px] rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)]/95 hover:bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)] flex items-center justify-center shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-90 z-10 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+              className="absolute left-2 sm:left-3.5 top-1/2 -translate-y-1/2 w-10 h-10 min-w-[40px] min-h-[40px] rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)]/95 hover:bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)] flex items-center justify-center shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-90 z-30 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
               onClick={(e) => {
                 e.stopPropagation();
                 handlePrevImage();
@@ -165,7 +201,7 @@ export default function ProductGallery({
             </button>
             <button
               type="button"
-              className="absolute right-2 sm:right-3.5 top-1/2 -translate-y-1/2 w-10 h-10 min-w-[40px] min-h-[40px] rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)]/95 hover:bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)] flex items-center justify-center shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-90 z-10 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+              className="absolute right-2 sm:right-3.5 top-1/2 -translate-y-1/2 w-10 h-10 min-w-[40px] min-h-[40px] rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)]/95 hover:bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)] flex items-center justify-center shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-90 z-30 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
               onClick={(e) => {
                 e.stopPropagation();
                 handleNextImage();
@@ -206,7 +242,7 @@ export default function ProductGallery({
                 <OptimizedImage
                   src={src}
                   alt={`${productName} thumbnail ${i + 1}`}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                 />
               </button>
             ))}

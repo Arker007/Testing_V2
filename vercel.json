@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "cd apps/web && npm install && npm run build",
+  "buildCommand": "node scripts/build.js",
   "outputDirectory": "apps/web/dist",
   "installCommand": "npm install",
   "headers": [
@@ -27,7 +27,7 @@
     "api/index.js": {
       "maxDuration": 30,
       "memory": 1024,
-      "includeFiles": "{uploads/**,data/**}"
+      "includeFiles": "{storage/uploads/**,storage/database/**,uploads/**,data/**}"
     }
   },
   "env": {

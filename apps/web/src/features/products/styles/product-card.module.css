@@ -1,0 +1,170 @@
+/* Moved from monolithic products.css */
+.gridCard {
+  background: var(--bg-surface, #ffffff);
+  border-radius: var(--radius-2xl, 16px);
+  border: 1px solid var(--border-subtle, #e5e7eb);
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.05));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color var(--motion-fast) ease, box-shadow var(--motion-fast) ease, transform var(--motion-fast) ease;
+  height: 100%;
+  padding: 1rem;
+}
+
+.gridCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-default);
+}
+
+.gridCardThumbWrap {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  background: #f4f5f7;
+  border-radius: var(--radius-xl, 12px);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.gridCardThumb {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.gridCardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: inherit;
+  transition: transform var(--motion-base) var(--ease-standard);
+}
+
+.gridCard:hover .gridCardImg {
+  transform: scale(1.04);
+}
+
+.catTag {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: var(--brand-soft);
+  color: var(--text-brand);
+  font-size: var(--font-size-xs, 0.75rem);
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-badge);
+  letter-spacing: 0.03em;
+  border: 1px solid var(--border-brand);
+  box-shadow: var(--shadow-none);
+  line-height: 1.25;
+  z-index: 2;
+}
+
+.gridCardDetails {
+  background: transparent;
+  padding: 1.25rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.gridCardSkuTitle {
+  font-family: var(--font-display, inherit);
+  font-size: var(--font-size-lg, 1.25rem);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.gridCardSkuTitle a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--motion-fast) ease;
+}
+
+.gridCardSkuTitle a:hover {
+  color: var(--text-brand);
+}
+
+.specList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.specRowItem {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: var(--font-size-sm, 0.8125rem);
+  line-height: 1.4;
+}
+
+.specRowLabel {
+  color: var(--text-secondary);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.specRowVal {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium, 500);
+  text-align: right;
+  word-break: break-word;
+}
+
+.gridCardBtnWrap {
+  margin-bottom: 0.75rem;
+}
+
+.viewProductBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  background: var(--bg-surface-elevated, #ffffff);
+  color: var(--text-primary, #0f172a);
+  border: 1px solid var(--border-subtle, #e2e8f0);
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-btn, 8px);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--motion-fast) ease;
+  text-decoration: none;
+}
+
+.viewProductBtn:hover {
+  background: var(--neutral-100, #f8fafc);
+  border-color: var(--border-default, #cbd5e1);
+  color: var(--brand-700, #15803d);
+}
+
+.viewProductBtnIcon {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--motion-fast) ease;
+}
+
+.viewProductBtn:hover .viewProductBtnIcon {
+  transform: translateX(3px);
+}

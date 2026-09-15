@@ -99,10 +99,10 @@ export function useProductDetail(productId) {
 
   const availableTabs = useMemo(() => {
     return [
-      hasSpecs && { key: "specs", label: "Technical Specifications" },
-      { key: "description", label: "Material & Engineering" },
-      { key: "shipping", label: "Logistics & Freight" },
-      { key: "faq", label: "Procurement FAQs" },
+      hasSpecs && { key: "specs", label: "Product Specs" },
+      { key: "description", label: "Materials" },
+      { key: "shipping", label: "Delivery" },
+      { key: "faq", label: "Common Questions" },
     ].filter(Boolean);
   }, [hasSpecs]);
 

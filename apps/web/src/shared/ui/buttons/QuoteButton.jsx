@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { motion as Motion } from "framer-motion";
+import { motion as Motion } from "motion/react";
 
 export default function QuoteButton({
   to = "/contact?quote=1",

@@ -19,6 +19,9 @@ html[data-theme="dark"] {
   --bg-grid-overlay: rgba(255, 255, 255, 0.04);
   --bg-nav: rgba(22, 28, 36, 0.90);
   --bg-canvas: var(--bg-base);
+  --bg-default: var(--bg-canvas);
+  --bg-page: var(--bg-canvas);
+  --bg-subtle: var(--bg-surface-secondary);
 
   /* Brand & Accent Colors */
   --primary: var(--brand-500);

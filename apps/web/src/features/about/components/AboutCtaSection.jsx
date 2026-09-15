@@ -1,6 +1,6 @@
 import React from "react";
 import { useSite } from "../../../shared/context/SiteContext";
-import { QuoteButton, CtaCard } from "@/shared/ui";
+import { CtaCard, QuoteButton } from "@/shared/ui";
 
 export default function AboutCtaSection() {
   const { c } = useSite();
@@ -11,7 +11,7 @@ export default function AboutCtaSection() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 cta-section w-full">
       <CtaCard
         badge={c("about_cta_eyebrow", "Ready to Upgrade Your Supply Chain?")}
-        badgeVariant="eyebrow"
+        badgeVariant="brand"
         badgeIcon="carbon:launch"
         title={c("about_cta_title", "Get Custom Quotes & Product Specs Today")}
         subtitle={c(
@@ -22,7 +22,7 @@ export default function AboutCtaSection() {
         <QuoteButton
           to="/contact"
           text={c("about_cta_btn_text", "Get Started")}
-          className="shadow-md"
+          className="shadow-sm"
         />
       </CtaCard>
     </section>

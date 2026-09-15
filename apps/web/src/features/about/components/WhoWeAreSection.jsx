@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../../shared/context/SiteContext";
-import { Badge } from "@/shared/ui";
+import { SectionHeader } from "@/shared/ui";
 import { containerVariants, itemVariants } from "../constants";
 
 export default function WhoWeAreSection() {
@@ -16,15 +16,15 @@ export default function WhoWeAreSection() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Left Column: Heading & Paragraph */}
         <div className="lg:col-span-5 space-y-6">
-          <div>
-            <Badge variant="eyebrow" size="lg" icon="carbon:industry">
-              Who We Are
-            </Badge>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-[var(--text-primary)] tracking-tight leading-tight">
-            {c("about_who_title", "Pioneering Eco-Friendly Industrial Plastics Since 2008.")}
-          </h2>
-          <div className="h-1 w-16 bg-[var(--brand-primary)]" />
+          <SectionHeader
+            eyebrow="Who We Are"
+            eyebrowIcon="carbon:industry"
+            title={c("about_who_title", "Pioneering Eco-Friendly Industrial Plastics Since 2008.")}
+            align="left"
+            accentLine
+            size="lg"
+            className="!mb-0"
+          />
           <p className="text-[var(--text-secondary)] text-base leading-relaxed font-normal">
             {c(
               "about_who_text_1",

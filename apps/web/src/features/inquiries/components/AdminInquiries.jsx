@@ -1,10 +1,21 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import styles from '../../admin/styles/AdminTable.module.css';
 import iStyles from '../styles/Inquiries.module.css';
 import { normalizeInquiry } from '../../../shared/utils/parsers';
-import { SearchInput, EmptyState, ConfirmDialog, WhatsAppButton, Spinner } from "@/shared/ui";
+import {
+    AdminPageHeader,
+    EmptyState,
+    ConfirmDialog,
+    WhatsAppButton,
+    Spinner,
+    Badge,
+    Button,
+    CustomSelect,
+} from "@/shared/ui";
+
+import { InquiryService } from '../services/inquiry.service';
 
 export default function AdminInquiries() {
     const [inquiries, setInquiries] = useState([]);
@@ -14,23 +25,11 @@ export default function AdminInquiries() {
     const [search, setSearch] = useState('');
     const [sourceFilter, setSourceFilter] = useState('all');
     const [activeItem, setActiveItem] = useState(null);
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const dropdownRef = useRef(null);
-
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setDropdownOpen(false);
-            }
-        };
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, []);
 
     const load = useCallback(() => {
         setLoading(true);
-        const headers = { Authorization: `Bearer ${localStorage.getItem('admin_token')}` };
-        fetch('/api/inquiries', { headers }).then(r => r.json())
+        const token = localStorage.getItem('admin_token');
+        InquiryService.getAll(token)
             .then(d => setInquiries(Array.isArray(d) ? d : d.inquiries || []))
             .catch(() => setInquiries([]))
             .finally(() => setLoading(false));
@@ -40,11 +39,13 @@ export default function AdminInquiries() {
 
     const confirmDelete = async () => {
         if (!itemToDelete) return;
-        const { id, source } = itemToDelete;
+        const { id } = itemToDelete;
         setDeleting(id);
         try {
-            const headers = { Authorization: `Bearer ${localStorage.getItem('admin_token')}` };
-            await fetch(`/api/inquiries/${source}/${id}`, { method: 'DELETE', headers });
+            const token = localStorage.getItem('admin_token');
+            // The API expects /inquiries/:id but legacy frontend used /inquiries/:source/:id
+            // the router in api/app.js routes `/api/inquiries/:id` properly.
+            await InquiryService.delete(id, token);
             load();
         } catch { alert('Delete failed'); }
         finally {
@@ -64,55 +65,29 @@ export default function AdminInquiries() {
 
     return (
         <div>
-            <div className={styles.toolbar}>
-                <div style={{ display: 'flex', gap: '12px', flex: 1, flexWrap: 'wrap', alignItems: 'center' }}>
-                    <div style={{ minWidth: '240px', flex: '1 1 300px' }}>
-                        <SearchInput
-                            placeholder="Search client inquiries..."
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                            onClear={() => setSearch('')}
+            <AdminPageHeader
+                title="Client Inquiries"
+                count={filteredInquiries.length}
+                countLabel="inquiries"
+                search={search}
+                onSearchChange={(e) => setSearch(e.target.value)}
+                onSearchClear={() => setSearch('')}
+                searchPlaceholder="Search client inquiries..."
+                filter={
+                    <div className="w-56">
+                        <CustomSelect
+                            options={[
+                                { value: 'all', label: 'All Channels' },
+                                { value: 'contact_form', label: 'Contact Form' },
+                                { value: 'product_inquiry', label: 'Product Inquiries' },
+                            ]}
+                            value={sourceFilter}
+                            onChange={(val) => setSourceFilter(val)}
+                            placeholder="All Channels"
                         />
                     </div>
-                    <div className={styles.customSelectContainer} ref={dropdownRef}>
-                        <button
-                            type="button"
-                            className={styles.customSelectTrigger}
-                            onClick={() => setDropdownOpen(!dropdownOpen)}
-                        >
-                            <span>
-                                {sourceFilter === 'all' && 'All Channels'}
-                                {sourceFilter === 'contact_form' && 'Contact Form'}
-                                {sourceFilter === 'product_inquiry' && 'Product Inquiries'}
-                            </span>
-                            <Icon icon="carbon:chevron-down" className={`${dropdownOpen ? styles.chevronOpen : ''} w-4 h-4`} />
-                        </button>
-                        {dropdownOpen && (
-                            <div className={styles.customSelectOptions}>
-                                {[
-                                    { value: 'all', label: 'All Channels' },
-                                    { value: 'contact_form', label: 'Contact Form' },
-                                    { value: 'product_inquiry', label: 'Product Inquiries' }
-                                ].map(opt => (
-                                    <div
-                                        key={opt.value}
-                                        className={`${styles.customSelectOption} ${sourceFilter === opt.value ? styles.customSelectOptionActive : ''}`}
-                                        onClick={() => {
-                                            setSourceFilter(opt.value);
-                                            setDropdownOpen(false);
-                                        }}
-                                    >
-                                        {opt.label}
-                                    </div>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                </div>
-                <p className={styles.count}>
-                    Showing {filteredInquiries.length} of {inquiries.length} entries
-                </p>
-            </div>
+                }
+            />
 
             <div className={styles.card}>
                 <div className={styles.thead} style={{ gridTemplateColumns: '2fr 1.5fr 1.4fr 1fr 120px' }}>
@@ -153,23 +128,32 @@ export default function AdminInquiries() {
                             </div>
                             <div className={iStyles.productCell}>
                                 <span className={iStyles.productName}>{inq.productName || inq.product_name || '—'}</span>
-                                <span className={styles.badge} style={{ 
-                                    background: inq.source === 'contact_form' ? 'var(--brand-light)' : 'var(--bg-surface)', 
-                                    color: inq.source === 'contact_form' ? 'var(--brand-dark)' : 'var(--text-primary)' 
-                                }}>
+                                <Badge
+                                    variant={inq.source === 'contact_form' ? 'brand' : 'neutral'}
+                                    size="sm"
+                                >
                                     {inq.source === 'contact_form' ? 'General Form' : 'B2B Product Asset'}
-                                </span>
+                                </Badge>
                             </div>
                             <div className={iStyles.dateCell}>
                                 <span className={styles.muted}>{inq.created_at ? new Date(inq.created_at).toLocaleDateString('en-IN') : '—'}</span>
                             </div>
                             <div className={styles.rowActions} style={{ justifyContent: 'center' }}>
-                                <Link className={styles.editBtn} to={`/admin/inquiries/${inq.source}/${inq.id}`} title="View Inquiry">
-                                    <Icon icon="carbon:view" className="w-4 h-4" />
+                                <Link to={`/admin/inquiries/${inq.source}/${inq.id}`} title="View Inquiry">
+                                    <Button variant="ghost" size="sm" className="!p-1.5 !h-auto text-slate-500 hover:text-slate-800">
+                                        <Icon icon="carbon:view" className="w-4 h-4" />
+                                    </Button>
                                 </Link>
-                                <button className={styles.delBtn} onClick={() => setItemToDelete({ id: inq.id, source: inq.source })} disabled={deleting === inq.id}>
+                                <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    className="!p-1.5 !h-auto text-rose-500 hover:text-rose-700 hover:bg-rose-500/10"
+                                    onClick={() => setItemToDelete({ id: inq.id, source: inq.source })}
+                                    disabled={deleting === inq.id}
+                                    title="Delete Inquiry"
+                                >
                                     {deleting === inq.id ? <Spinner size="sm" /> : <Icon icon="carbon:trash-can" className="w-4 h-4" />}
-                                </button>
+                                </Button>
                             </div>
                         </div>
                     ))}
@@ -227,13 +211,12 @@ export default function AdminInquiries() {
                         <div>
                             <span className={styles.drawerLabel}>Source</span>
                             <div className={styles.drawerValue} style={{ marginTop: 4 }}>
-                                <span className={styles.badge} style={{ 
-                                    background: activeItem.source === 'contact_form' ? 'var(--brand-light)' : 'var(--bg-surface)', 
-                                    color: activeItem.source === 'contact_form' ? 'var(--brand-dark)' : 'var(--text-primary)',
-                                    padding: '2px 8px'
-                                }}>
+                                <Badge
+                                    variant={activeItem.source === 'contact_form' ? 'brand' : 'neutral'}
+                                    size="sm"
+                                >
                                     {activeItem.source === 'contact_form' ? 'Contact Form' : 'Product Page'}
-                                </span>
+                                </Badge>
                             </div>
                         </div>
                         {(activeItem.productName || activeItem.product_name) ? (
@@ -260,9 +243,15 @@ export default function AdminInquiries() {
                                     className="flex-1"
                                 />
                             )}
-                            <button type="button" className={styles.actionBtnSecondary} style={{ flex: 1, justifyContent: 'center' }} onClick={() => setActiveItem(null)}>
+                            <Button
+                                variant="outline"
+                                size="md"
+                                style={{ flex: 1 }}
+                                className="justify-center"
+                                onClick={() => setActiveItem(null)}
+                            >
                                 Close
-                            </button>
+                            </Button>
                         </div>
                     </div>
                 )}

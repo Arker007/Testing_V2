@@ -16,6 +16,9 @@ import MegaMenu from "./MegaMenu";
 import MobileNavDrawer from "./MobileNavDrawer";
 import NavbarSearch from "./NavbarSearch";
 import styles from "../styles/navbar.module.css";
+import { ProductService } from "../../products/services/product.service";
+import { CategoryService } from "../../categories";
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,9 +56,9 @@ export default function Navbar() {
   useEffect(() => {
     const pf = window.__prefetch || {};
     const productsPromise =
-      pf.products || fetch("/api/products").then((r) => r.json());
+      pf.products || ProductService.getProducts();
     const categoriesPromise =
-      pf.categories || fetch("/api/categories").then((r) => r.json());
+      pf.categories || CategoryService.getAll();
 
     Promise.all([productsPromise, categoriesPromise])
       .then(([pd, cd]) => {

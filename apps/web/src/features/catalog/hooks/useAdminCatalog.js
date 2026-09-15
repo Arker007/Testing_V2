@@ -1,6 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { getProductImage } from "../utils/catalog.utils";
 import { buildSpreads } from "../components/catalogSpreads";
+import { ProductService } from "../../products/services/product.service";
+import { CategoryService } from "../../categories";
+
+import MediaConfig from "../../../config/media.config";
 
 export function useAdminCatalog() {
   const [products, setProducts] = useState([]);
@@ -25,8 +29,8 @@ export function useAdminCatalog() {
     };
 
     Promise.all([
-      fetch("/api/products", { headers: h }).then((r) => r.json()).catch(() => ({ products: [] })),
-      fetch("/api/categories", { headers: h }).then((r) => r.json()).catch(() => ({ categories: [] })),
+      ProductService.getProducts().catch(() => ({ products: [] })),
+      CategoryService.getAll().catch(() => ({ categories: [] })),
       fetch("/api/company", { headers: h }).then((r) => r.json()).catch(() => ({})),
       fetch("/api/content", { headers: h }).then((r) => r.json()).catch(() => ({})),
     ])
@@ -50,15 +54,15 @@ export function useAdminCatalog() {
   const webVal = "www.vishalenterprise.com";
 
   const coverImages = {
-    coverImg1: catalogProducts[0] ? getProductImage(catalogProducts[0]) : "/uploads/products/pallets/pallets-1770374237161-67758.webp",
-    coverImg2: catalogProducts[1] ? getProductImage(catalogProducts[1]) : "/uploads/products/lumber/plastic-lumber-pallet-1770447286569-0.webp",
-    coverImg5: catalogProducts[2] ? getProductImage(catalogProducts[2]) : "/uploads/products/categories/categories-1770374476904-61107.webp",
-    coverImg7: catalogProducts[3] ? getProductImage(catalogProducts[3]) : "/uploads/products/plastic-table/plastic-table-1770447279363-0.webp",
+    coverImg1: catalogProducts[0] ? getProductImage(catalogProducts[0]) : MediaConfig.defaultProduct,
+    coverImg2: catalogProducts[1] ? getProductImage(catalogProducts[1]) : MediaConfig.defaultProduct,
+    coverImg5: catalogProducts[2] ? getProductImage(catalogProducts[2]) : MediaConfig.defaultCategory,
+    coverImg7: catalogProducts[3] ? getProductImage(catalogProducts[3]) : MediaConfig.defaultProduct,
   };
 
   const aboutImages = {
-    aboutImg1: catalogProducts[4] ? getProductImage(catalogProducts[4]) : "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
-    aboutImg2: catalogProducts[5] ? getProductImage(catalogProducts[5]) : "/uploads/products/categories/garden-bench-1770446422580-0.webp",
+    aboutImg1: catalogProducts[4] ? getProductImage(catalogProducts[4]) : MediaConfig.defaultProduct,
+    aboutImg2: catalogProducts[5] ? getProductImage(catalogProducts[5]) : MediaConfig.defaultCategory,
   };
 
   const productsByCategory = {};

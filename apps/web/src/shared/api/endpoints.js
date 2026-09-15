@@ -3,7 +3,7 @@
  */
 export const API_ENDPOINTS = {
   PRODUCTS: '/products',
-  CATEGORIES: '/products/categories',
+  CATEGORIES: '/categories',
   INQUIRIES: '/inquiries',
   CONTACT: '/contact',
   CONTENT: '/content',

@@ -41,3 +41,9 @@ apps/web/
 - **`shared/ui/`**: Reusable base primitives (`Button`, `Card`, `Badge`, `Modal`, `Table`, `Toast`, `Kbd`, `Accordion`).
 - **`shared/context/`**: `SiteContext` for global website state.
 - **`shared/styles/core/`**: Design tokens (`tokens.css`), themes (`themes.css`), and base reset.
+
+---
+
+## 🎯 Target Architecture Reference
+For the full application target folder structure and domain specifications, see [`docs/architecture/Target-Architecture.md`](./Target-Architecture.md).
+

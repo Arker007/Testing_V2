@@ -26,7 +26,7 @@ export default function SustainabilityPage() {
         ]}
         tag={c("sus_hero_tag", "Environmental Impact & Circular Economy")}
         tagIcon="carbon:recycle"
-        title="Diverting Plastic Waste into Enduring Infrastructure"
+        title="Turning Plastic Waste into Long-Lasting Products"
         description={c(
           "sus_hero_sub",
           "By diverting post-industrial polymer waste from oceans and landfills, we manufacture structural materials that last generations without requiring a single tree to be cut down."
@@ -40,7 +40,7 @@ export default function SustainabilityPage() {
       </div>
 
       {/* Core Sustainability Pillars */}
-      <section className="py-16 px-4 bg-slate-50 dark:bg-[var(--bg-canvas,#0f141a)] border-t border-b border-slate-200 dark:border-[rgba(242,242,242,0.12)]">
+      <section className="py-16 px-4 bg-slate-50 dark:bg-[var(--bg-canvas,#0f141a)] border-t border-slate-200 dark:border-[rgba(242,242,242,0.12)]">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <div className="mb-4">
@@ -94,7 +94,7 @@ export default function SustainabilityPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 cta-section">
         <CtaCard
           badge="ESG Partnership"
-          badgeVariant="eyebrow"
+          badgeVariant="brand"
           badgeIcon="carbon:partnership"
           title="Partner on Circular Economy & Net-Zero Commitments"
           subtitle="Help your enterprise transition from conventional single-use packaging to circular, sustainable closed-loop recycled pallets and containers."
@@ -102,8 +102,15 @@ export default function SustainabilityPage() {
           <QuoteButton
             to="/contact?source=sustainability"
             text="Explore ESG Solutions"
-            className="shadow-md"
+            className="shadow-sm"
           />
+          <a
+            href="tel:+919825125164"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-btn,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] hover:bg-[var(--bg-surface-tertiary)] hover:border-[var(--border-default)] text-[var(--text-primary)] text-sm font-bold transition-all shadow-2xs whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+          >
+            <Icon icon="carbon:phone" className="w-4 h-4 text-[var(--brand-primary,#059669)] shrink-0" />
+            <span>Consult ESG Desk</span>
+          </a>
         </CtaCard>
       </section>
     </main>

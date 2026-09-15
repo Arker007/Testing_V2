@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { Icon } from "@iconify/react";
+import { SearchInput } from "@/shared/ui";
 import cStyles from "../styles/SiteContent.module.css";
 import { ALL_SECTIONS_LIST } from "../constants/allSectionsList";
 import { SidebarFilterTabs } from "./SidebarFilterTabs";
@@ -55,28 +56,14 @@ export default function SiteContentSidebar({
       </div>
 
       {/* Quick Search */}
-      <div className={cStyles.sectionSearchBox}>
-        <Icon
-          icon="carbon:search"
-          className={cStyles.sectionSearchIcon}
-        />
-        <input
-          type="text"
-          className={cStyles.sectionSearchInput}
+      <div className="mb-3">
+        <SearchInput
           placeholder="Filter sections..."
           value={selectSearchQuery}
           onChange={(e) => setSelectSearchQuery(e.target.value)}
+          onClear={() => setSelectSearchQuery("")}
+          size="sm"
         />
-        {selectSearchQuery && (
-          <button
-            type="button"
-            className={cStyles.sectionSearchClear}
-            onClick={() => setSelectSearchQuery("")}
-            title="Clear filter"
-          >
-            <Icon icon="carbon:close-outline" className="w-4 h-4" />
-          </button>
-        )}
       </div>
 
       {/* Category Pills Filter */}

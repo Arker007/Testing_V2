@@ -1,3 +1,5 @@
+import { CategoryService } from "../../services/category.service";
+
 const _productCache = new Map();
 
 export async function fetchProductById(id, { useCache = true } = {}) {
@@ -29,9 +31,7 @@ export async function fetchProductById(id, { useCache = true } = {}) {
 
 export async function fetchProductCategories() {
   try {
-    const res = await fetch("/api/categories");
-    if (!res.ok) return [];
-    const data = await res.json();
+    const data = await CategoryService.getAll();
     return data?.categories || [];
   } catch {
     return [];

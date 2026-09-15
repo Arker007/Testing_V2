@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "./Card";
 import Badge from "./Badge";
 
 /**
@@ -13,7 +12,6 @@ import Badge from "./Badge";
  * @param {string | React.ReactNode} [props.subtitle] - Subtitle/description paragraph
  * @param {React.ReactNode} props.children - Action buttons / controls
  * @param {string} [props.className=""] - Additional custom wrapper class
- * @param {'elevated' | 'glass' | 'bordered' | 'brand'} [props.variant="elevated"] - Card variant
  */
 export default function CtaCard({
   badge,
@@ -23,15 +21,17 @@ export default function CtaCard({
   subtitle,
   children,
   className = "",
-  variant = "elevated",
   ...props
 }) {
   return (
-    <Card
-      variant={variant}
-      className={`p-6 sm:p-8 lg:p-10 text-[var(--text-primary)] relative overflow-hidden bg-[var(--bg-surface,#ffffff)] border border-[var(--border-subtle)] rounded-[var(--radius-card,8px)] shadow-[var(--shadow-sm)] w-full max-w-full ${className}`.trim()}
+    <div
+      className={`relative overflow-hidden rounded-[var(--radius-card,8px)] bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--bg-surface,#1e2530)] text-[var(--text-primary)] border border-[var(--border-subtle)] shadow-[var(--shadow-sm)] p-6 sm:p-8 lg:p-10 w-full max-w-full ${className}`.trim()}
       {...props}
     >
+      {/* Background Decorative Ambient Radial Glow */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-[var(--brand-primary,#059669)]/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-slate-500/5 dark:bg-slate-400/5 rounded-full blur-2xl -ml-16 -mb-16 pointer-events-none" />
+
       <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 md:gap-8 w-full min-w-0">
         <div className="space-y-2.5 w-full min-w-0 flex-1">
           {badge && (
@@ -51,7 +51,7 @@ export default function CtaCard({
             </h2>
           )}
           {subtitle && (
-            <p className="text-[var(--text-secondary)] text-sm sm:text-base mt-2 max-w-xl font-medium leading-relaxed break-words">
+            <p className="text-[var(--text-secondary)] text-sm sm:text-base mt-2 max-w-2xl font-normal leading-relaxed break-words">
               {subtitle}
             </p>
           )}
@@ -63,6 +63,6 @@ export default function CtaCard({
           </div>
         )}
       </div>
-    </Card>
+    </div>
   );
 }

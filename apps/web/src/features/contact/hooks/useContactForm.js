@@ -7,8 +7,9 @@ export function useContactForm() {
     phone: "",
     company: "",
     estimatedVolume: "",
+    targetApplication: "",
     message: "",
-    productService: "",
+    productService: "Plastic Lumber",
     country: "India",
     phonePrefix: "+91",
   });
@@ -30,14 +31,15 @@ export function useContactForm() {
     e.preventDefault();
     setStatus("sending");
     try {
-      const composedMessage = `
-Product/Service Looking For: ${form.productService || "Not specified"}
-Country: ${form.country || "Not specified"}
-Phone Code: ${form.phonePrefix || "+91"}
-
-Message:
-${form.message}
-`.trim();
+      const composedMessage = [
+        `Product/Service: ${form.productService || "Not specified"}`,
+        form.estimatedVolume ? `Estimated Quantity / Volume: ${form.estimatedVolume}` : null,
+        form.targetApplication ? `Target Application: ${form.targetApplication}` : null,
+        form.company ? `Company / Organization: ${form.company}` : null,
+        `Country: ${form.country || "India"}`,
+        `Phone: ${form.phonePrefix || "+91"} ${form.phone || ""}`,
+        `\nMessage / Details:\n${form.message}`,
+      ].filter(Boolean).join("\n").trim();
 
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -46,7 +48,7 @@ ${form.message}
           name: form.fullName,
           email: form.email,
           phone: `${form.phonePrefix || "+91"} ${form.phone || ""}`.trim(),
-          company: form.productService || "Inquiry",
+          company: form.company || form.productService || "Inquiry",
           message: composedMessage,
         }),
       });

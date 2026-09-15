@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
+import { Button } from "@/shared/ui";
 import { useSite } from "../../../shared/context/SiteContext";
 import styles from "../styles/navbar.module.css";
 
@@ -19,6 +20,7 @@ export default function MobileNavDrawer({
   products,
 }) {
   const { co } = useSite();
+  const navigate = useNavigate();
 
   return (
     <AnimatePresence>
@@ -159,59 +161,58 @@ export default function MobileNavDrawer({
                   transition={{ duration: 0.25, ease: "easeInOut" }}
                   style={{ overflow: "hidden" }}
                 >
-                  {categories.map((cat) => {
-                    const catSlug = cat.slug || cat.id;
-                    const catProducts = products.filter(
-                      (p) =>
-                        p &&
-                        (p.category === cat.id ||
-                          p.category === catSlug ||
-                          p.category_id === cat.id ||
-                          p.category_slug === catSlug ||
-                          (p.category_name &&
-                            p.category_name.toLowerCase() ===
-                              (cat.name || "").toLowerCase()))
-                    );
-
-                    return (
-                      <div key={cat.id} className={styles.dAccordionGroup}>
-                        <Link
-                          to={`/products?cat=${cat.id}`}
-                          className={styles.dCategoryHeader}
-                          onClick={() => setOpen(false)}
-                        >
-                          {cat.name}
-                          <Icon icon="carbon:chevron-right" className="w-3.5 h-3.5 ml-auto text-slate-400" />
-                        </Link>
-                        <div className={styles.dCategoryProducts}>
-                          {catProducts.slice(0, 3).map((prod) => (
-                            <Link
-                              key={prod.id}
-                              to={`/products/${prod.id}`}
-                              className={styles.dLinkSubProduct}
-                              onClick={() => setOpen(false)}
-                            >
-                              • {prod.name}
-                            </Link>
-                          ))}
-                          {catProducts.length === 0 && (
-                            <span className={styles.dLinkSubEmpty}>
-                              No products yet
-                            </span>
-                          )}
-                          {catProducts.length > 3 && (
-                            <Link
-                              to={`/products?cat=${cat.id}`}
-                              className={styles.dLinkSubMore}
-                              onClick={() => setOpen(false)}
-                            >
-                              View all (+{catProducts.length - 3})
-                            </Link>
-                          )}
+                  {categories
+                    .map((cat) => {
+                      const catSlug = cat.slug || cat.id;
+                      const catProducts = products.filter(
+                        (p) =>
+                          p &&
+                          (p.category === cat.id ||
+                            p.category === catSlug ||
+                            p.category_id === cat.id ||
+                            p.category_slug === catSlug ||
+                            (p.category_name &&
+                              p.category_name.toLowerCase() ===
+                                (cat.name || "").toLowerCase()))
+                      );
+                      return { cat, catProducts };
+                    })
+                    .filter(({ catProducts }) => catProducts.length > 0)
+                    .map(({ cat, catProducts }) => {
+                      return (
+                        <div key={cat.id} className={styles.dAccordionGroup}>
+                          <Link
+                            to={`/products?cat=${cat.id}`}
+                            className={styles.dCategoryHeader}
+                            onClick={() => setOpen(false)}
+                          >
+                            {cat.name}
+                            <Icon icon="carbon:chevron-right" className="w-3.5 h-3.5 ml-auto text-slate-400" />
+                          </Link>
+                          <div className={styles.dCategoryProducts}>
+                            {catProducts.slice(0, 3).map((prod) => (
+                              <Link
+                                key={prod.id}
+                                to={`/products/${prod.id}`}
+                                className={styles.dLinkSubProduct}
+                                onClick={() => setOpen(false)}
+                              >
+                                • {prod.name}
+                              </Link>
+                            ))}
+                            {catProducts.length > 3 && (
+                              <Link
+                                to={`/products?cat=${cat.id}`}
+                                className={styles.dLinkSubMore}
+                                onClick={() => setOpen(false)}
+                              >
+                                View all (+{catProducts.length - 3})
+                              </Link>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -268,14 +269,18 @@ export default function MobileNavDrawer({
 
         {/* Full-width CTA Button at Bottom */}
         <div className="pt-4 mt-auto">
-          <Link
-            to="/contact?quote=1"
-            className={styles.mobileCardCtaBtn}
-            onClick={() => setOpen(false)}
+          <Button
+            variant="primary"
+            fullWidth
+            size="lg"
+            onClick={() => {
+              setOpen(false);
+              navigate("/contact?quote=1");
+            }}
           >
             <span>Request a Quote</span>
-            <Icon icon="carbon:arrow-right" className="w-4 h-4" />
-          </Link>
+            <Icon icon="carbon:arrow-right" className="w-4 h-4 ml-2 inline" />
+          </Button>
         </div>
           </motion.div>
         </>

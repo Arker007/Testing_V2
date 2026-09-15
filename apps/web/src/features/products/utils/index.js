@@ -1,1 +1,2 @@
-export * from "./product.utils";
+export * from "./productUtils";
+export { default } from "./productUtils";

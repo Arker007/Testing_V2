@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
+import { Badge, Input } from "@/shared/ui";
 import AdminNotificationsDropdown from "./AdminNotificationsDropdown";
 import styles from "../styles/AdminLayout.module.css";
 
@@ -52,51 +53,21 @@ export default function AdminTopBar({
       </div>
 
       <div className={styles.topRight} style={{ position: "relative" }}>
-        <button
-          className={styles.headerSearch}
+        <div
+          className="w-[280px] cursor-pointer"
           onClick={() => setShowSearchCmd(true)}
-          style={{
-            background: "var(--bg-card)",
-            border: "1px solid var(--line)",
-            borderRadius: "var(--radius-admin, 8px)",
-            padding: "8px 16px 8px 38px",
-            fontSize: "0.875rem",
-            color: "var(--text-muted)",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: "280px",
-            position: "relative",
-            textAlign: "left",
-          }}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => e.key === "Enter" && setShowSearchCmd(true)}
         >
-          <Icon
-            icon="carbon:search"
-            className="w-4 h-4"
-            style={{
-              position: "absolute",
-              left: "14px",
-              color: "var(--text-muted)",
-              pointerEvents: "none",
-            }}
+          <Input
+            size="sm"
+            leftIcon="carbon:search"
+            placeholder="Search anything... (/)"
+            readOnly
+            className="cursor-pointer pointer-events-none"
           />
-          <span>Search anything...</span>
-          <kbd
-            style={{
-              fontSize: "0.68rem",
-              fontWeight: 700,
-              background: "var(--bg-surface)",
-              color: "var(--text-secondary)",
-              padding: "2px 6px",
-              borderRadius: "4px",
-              border: "1px solid var(--border-subtle)",
-              marginLeft: "auto",
-            }}
-          >
-            /
-          </kbd>
-        </button>
+        </div>
 
         {headerActions && <div className={styles.headerActions}>{headerActions}</div>}
 
@@ -126,27 +97,14 @@ export default function AdminTopBar({
           >
             <Icon icon="carbon:notification" className="w-5 h-5" />
             {unreadCount > 0 && (
-              <span
-                style={{
-                  position: "absolute",
-                  top: "-2px",
-                  right: "-2px",
-                  background: "var(--color-error)",
-                  color: "var(--text-inverse)",
-                  fontSize: "0.65rem",
-                  fontWeight: 800,
-                  width: "18px",
-                  height: "18px",
-                  borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  border: "2px solid var(--bg-card)",
-                  boxShadow: "0 2px 4px var(--danger-border)",
-                }}
+              <Badge
+                variant="danger"
+                size="sm"
+                pill
+                className="!absolute -top-1 -right-1 !h-4 !min-w-[16px] !px-1 !text-[10px] !leading-none flex items-center justify-center font-bold"
               >
                 {unreadCount}
-              </span>
+              </Badge>
             )}
           </button>
 

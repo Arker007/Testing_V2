@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
-import { QuoteButton, InquiryModal, CtaCard, EmptyState } from "@/shared/ui";
+import { QuoteButton, InquiryModal, CtaCard, EmptyState, Button, Divider } from "@/shared/ui";
 import { useSite } from "@/shared/context/SiteContext";
 import {
   ProductGallery,
@@ -20,6 +20,7 @@ export default function ProductDetailView() {
   const { co } = useSite();
   const [showInquiry, setShowInquiry] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
+  const [isGalleryHovered, setIsGalleryHovered] = useState(false);
 
   const {
     product,
@@ -44,7 +45,7 @@ export default function ProductDetailView() {
   } = useProductGallery(images, {
     autoRotate: true,
     intervalMs: 4000,
-    paused: showImageModal,
+    paused: showImageModal || isGalleryHovered,
   });
 
   if (loading) {
@@ -120,6 +121,7 @@ export default function ProductDetailView() {
               setShowImageModal={setShowImageModal}
               handlePrevImage={handlePrevImage}
               handleNextImage={handleNextImage}
+              onHoverChange={setIsGalleryHovered}
             />
           </div>
 
@@ -134,48 +136,51 @@ export default function ProductDetailView() {
               setShowInquiry={setShowInquiry}
             />
           </div>
-
-          {/* 3. Deep Technical Specifications & Engineering Standards: Order 3 on mobile, 7 cols under gallery on desktop */}
-          <div className="order-3 lg:order-3 lg:col-span-7 w-full">
-            <ProductTabsSection
-              product={product}
-              categoryObj={categoryObj}
-              specs={specs}
-              hasSpecs={hasSpecs}
-              features={features}
-              tab={activeTab}
-              setTab={setActiveTab}
-              tabs={availableTabs}
-            />
-          </div>
         </section>
 
-        {/* Custom Machining & B2B Engineering Callout */}
+        {/* 3. Deep Technical Specifications & Engineering Standards: Full width below core grid */}
+        <div className="w-full">
+          <ProductTabsSection
+            product={product}
+            categoryObj={categoryObj}
+            specs={specs}
+            hasSpecs={hasSpecs}
+            features={features}
+            tab={activeTab}
+            setTab={setActiveTab}
+            tabs={availableTabs}
+          />
+        </div>
+
+        {/* Custom Size & Direct Factory Manufacturing Callout */}
         <section>
           <CtaCard
-            badge="Direct Factory Engineering"
-            badgeVariant="success"
-            title="Require Custom Footprints, Machined Skids, or Stamped Branding?"
-            subtitle={`We fabricate custom dimensions, heavy-duty runners, and molded profiles directly at our Ankleshwar GIDC manufacturing facility. Call technical desk ${phone} or submit drawings for review.`}
+            badge="Custom Manufacturing"
+            badgeVariant="brand"
+            badgeIcon="carbon:tools"
+            title="Need Custom Sizes, Colors, or Your Company Logo?"
+            subtitle={`We make pallets and products in any size or specification directly at our Ankleshwar factory. Send us your requirements or call our sales team directly at ${phone}.`}
           >
             <QuoteButton
               type="button"
-              text="Submit Custom Specs"
+              text="Request Custom Quote"
               onClick={() => setShowInquiry(true)}
-              className="px-6 py-3.5 rounded-[var(--radius-card,8px)] font-bold text-sm shadow-sm"
+              className="shadow-sm"
             />
             <a
               href={`tel:${phone.replace(/\s+/g, "")}`}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-[var(--radius-card,8px)] border border-[var(--border-default)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] font-bold text-sm transition-all shadow-2xs decoration-none"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-btn,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] hover:bg-[var(--bg-surface-tertiary)] hover:border-[var(--border-default)] text-[var(--text-primary)] text-sm font-bold transition-all shadow-2xs whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
-              <Icon icon="carbon:phone" className="w-4 h-4 text-[var(--brand-primary)]" />
-              <span>Call Technical Sales Desk</span>
+              <Icon icon="carbon:phone" className="w-4 h-4 text-[var(--brand-primary,#059669)] shrink-0" />
+              <span>Call Sales Team</span>
             </a>
           </CtaCard>
         </section>
 
         {/* Related Products Section */}
-        <RelatedProductsSection relatedProducts={relatedProducts} />
+        {relatedProducts && relatedProducts.length > 0 && (
+          <RelatedProductsSection relatedProducts={relatedProducts} />
+        )}
       </div>
 
       {/* Mobile Persistent Sticky Procurement Bar (Thumb-Zone Optimization) */}
@@ -199,14 +204,16 @@ export default function ProductDetailView() {
           >
             <Icon icon="carbon:chat" className="w-5 h-5 text-[#25D366]" />
           </a>
-          <button
+          <Button
             type="button"
+            variant="primary"
+            size="sm"
             onClick={() => setShowInquiry(true)}
-            className="px-4 py-2.5 bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-[var(--brand-btn-text)] rounded-[var(--radius-btn,8px)] font-bold text-xs flex items-center gap-1.5 shadow-xs active:scale-95 transition-all cursor-pointer border-0 min-h-[44px]"
+            className="!min-h-[44px]"
+            icon={<Icon icon="carbon:chat" className="w-4 h-4 mr-1.5" />}
           >
-            <Icon icon="carbon:chat" className="w-4 h-4" />
-            <span>Request Quote</span>
-          </button>
+            Request Quote
+          </Button>
         </div>
       </div>
 

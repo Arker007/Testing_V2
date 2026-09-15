@@ -10,6 +10,11 @@
     "dev:full": "node apps/api/index.js",
     "build": "node scripts/build.js",
     "lint": "cd apps/web && npm run lint",
+    "test": "npm run test:api && npm run test:web && npm run test:e2e",
+    "test:api": "node --test apps/api/test/**/*.test.js",
+    "test:web": "cd apps/web && npm run test",
+    "test:e2e": "node --test tests/e2e/**/*.test.js",
+    "verify": "npm run lint && npm run test && npm run build",
     "seed:base": "node apps/api/scripts/seed.js",
     "seed:specs": "node apps/api/scripts/backfillSpecifications.js"
   },
@@ -23,21 +28,32 @@
     "express": "^4.18.2",
     "express-rate-limit": "^8.2.1",
     "framer-motion": "^12.43.0",
+    "helmet": "^8.3.0",
     "motion": "^13.0.0",
     "multer": "^1.4.5-lts.1",
+    "pino": "^10.3.1",
+    "pino-http": "^11.0.0",
     "quill": "^2.0.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.13.0",
-    "sharp": "0.32.6"
+    "sharp": "0.32.6",
+    "simple-icons": "^16.31.0",
+    "zod": "^4.6.1"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
     "@vitejs/plugin-react": "^5.1.1",
+    "jsdom": "^30.0.1",
+    "supertest": "^7.2.2",
     "tailwindcss": "^4.3.3",
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "vitest": "^5.0.0"
   },
   "workspaces": [
-    "apps/web"
+    "apps/web",
+    "packages/*"
   ]
 }

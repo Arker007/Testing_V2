@@ -2,9 +2,9 @@
 import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
-import { OptimizedImage, QuoteButton } from "@/shared/ui";
+import { OptimizedImage, QuoteButton, Button, Badge } from "@/shared/ui";
 import { getSkuCode } from "../../utils/product.utils";
 import styles from "../../products.module.css";
 
@@ -76,10 +76,10 @@ export default function QuickViewModal({
 
             {/* Header category and SKU row */}
             <div className={styles.modalHeaderRow}>
-              <span className={styles.modalCategoryBadge}>{categoryName}</span>
-              <span className={styles.modalSkuBadge}>
+              <Badge variant="brand" size="sm">{categoryName}</Badge>
+              <Badge variant="outline" size="sm">
                 ID: #{skuId}
-              </span>
+              </Badge>
             </div>
 
             {/* Modal Title */}
@@ -134,20 +134,21 @@ export default function QuickViewModal({
             {/* Actions Row */}
             <div className={styles.modalActionsRow}>
               {onRequestQuote ? (
-                <button
+                <Button
                   type="button"
+                  variant="primary"
+                  size="md"
                   onClick={() => onRequestQuote(product)}
-                  className="btn btn-primary"
-                  style={{ flex: 1, padding: "0.75rem 1rem", fontSize: "0.875rem", justifyContent: "center", minHeight: "44px" }}
+                  className="flex-1 min-h-[44px]"
+                  icon={<Icon icon="carbon:chat" className="w-4 h-4 mr-1.5" />}
                 >
-                  <Icon icon="carbon:chat" className="w-4 h-4" />
-                  <span>Request B2B Quote</span>
-                </button>
+                  Get a Quote
+                </Button>
               ) : (
                 <QuoteButton
                   to={`/contact?product=${product.id}`}
                   onClick={onClose}
-                  text="Request B2B Quote"
+                  text="Get a Quote"
                   style={{ flex: 1, padding: "0.75rem 1rem", fontSize: "0.875rem", justifyContent: "center" }}
                 />
               )}

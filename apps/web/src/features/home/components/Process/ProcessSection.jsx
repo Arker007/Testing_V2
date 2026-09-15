@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../../../shared/context/SiteContext";
-import { Badge } from "@/shared/ui";
+import { SectionHeader, Badge } from "@/shared/ui";
 
 export default function ProcessSection({ className = "" }) {
   const { c } = useSite();
@@ -242,22 +242,15 @@ export default function ProcessSection({ className = "" }) {
       <div className="container relative z-10">
         
         {/* Section Title Header */}
-        <div className="text-center mb-16">
-          <Badge
-            variant="eyebrow"
-            size="lg"
-            icon={<Icon icon="carbon:renew" className="w-4 h-4 animate-spin-slow" />}
-            className="mb-4"
-          >
-            Circular Supply Chain
-          </Badge>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
-            Our Manufacturing <span className="text-[var(--brand-dark)] dark:text-emerald-400">Process</span>
-          </h2>
-          <p className="text-slate-600 dark:text-slate-300 text-sm md:text-base max-w-2xl mx-auto mt-4 leading-relaxed font-normal">
-            From responsible plastic waste to high-performance products — every step is engineered for quality, sustainability, and long-term impact.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="Circular Supply Chain"
+          eyebrowIcon={<Icon icon="carbon:renew" className="w-4 h-4 animate-spin-slow" />}
+          title="Our Manufacturing Process"
+          highlightText="Process"
+          subtitle="From responsible plastic waste to high-performance products — every step is engineered for quality, sustainability, and long-term impact."
+          size="lg"
+          className="mb-16"
+        />
 
         {/* 1. Main Timeline Diagram Structure */}
         <div className="relative mb-20">
@@ -592,54 +585,54 @@ export default function ProcessSection({ className = "" }) {
           <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
             {/* Card 1 */}
-            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#1e2530]/70 hover:bg-white dark:hover:bg-[#1e2530] border border-slate-200/80 dark:border-[rgba(242,242,242,0.1)] hover:border-emerald-400/80 dark:hover:border-[#6BBF54]/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-[rgba(107,191,84,0.15)] text-emerald-600 dark:text-[#6BBF54] flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-[rgba(107,191,84,0.3)] shadow-2xs">
+            <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
                 <Icon icon="carbon:renew" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
-                <span className="block font-bold text-slate-900 dark:text-white text-sm mb-1">Sustainable</span>
-                <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed font-normal">Turning waste into long-lasting solutions.</p>
-                <div className="w-6 h-0.5 bg-[var(--brand)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
+                <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Sustainable</span>
+                <p className="text-[var(--text-secondary)] text-xs leading-relaxed font-normal">Turning waste into long-lasting solutions.</p>
+                <div className="w-6 h-0.5 bg-[var(--brand-primary)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
               </div>
             </div>
 
             {/* Card 2 */}
-            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#1e2530]/70 hover:bg-white dark:hover:bg-[#1e2530] border border-slate-200/80 dark:border-[rgba(242,242,242,0.1)] hover:border-emerald-400/80 dark:hover:border-[#6BBF54]/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-[rgba(107,191,84,0.15)] text-emerald-600 dark:text-[#6BBF54] flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-[rgba(107,191,84,0.3)] shadow-2xs">
+            <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
                 <Icon icon="carbon:security" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
-                <span className="block font-bold text-slate-900 dark:text-white text-sm mb-1">Quality Assured</span>
-                <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed font-normal">Each step is tested for performance and safety.</p>
-                <div className="w-6 h-0.5 bg-[var(--brand)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
+                <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Quality Assured</span>
+                <p className="text-[var(--text-secondary)] text-xs leading-relaxed font-normal">Each step is tested for performance and safety.</p>
+                <div className="w-6 h-0.5 bg-[var(--brand-primary)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
               </div>
             </div>
 
             {/* Card 3 */}
-            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#1e2530]/70 hover:bg-white dark:hover:bg-[#1e2530] border border-slate-200/80 dark:border-[rgba(242,242,242,0.1)] hover:border-emerald-400/80 dark:hover:border-[#6BBF54]/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-[rgba(107,191,84,0.15)] text-emerald-600 dark:text-[#6BBF54] flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-[rgba(107,191,84,0.3)] shadow-2xs">
+            <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
                 <Icon icon="carbon:chip" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
-                <span className="block font-bold text-slate-900 dark:text-white text-sm mb-1">Advanced Tech</span>
-                <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed font-normal">Modern machines for precision and consistent quality.</p>
-                <div className="w-6 h-0.5 bg-[var(--brand)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
+                <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Advanced Tech</span>
+                <p className="text-[var(--text-secondary)] text-xs leading-relaxed font-normal">Modern machines for precision and consistent quality.</p>
+                <div className="w-6 h-0.5 bg-[var(--brand-primary)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
               </div>
             </div>
 
             {/* Card 4 */}
-            <div className="relative overflow-hidden bg-slate-50/90 dark:bg-[#1e2530]/70 hover:bg-white dark:hover:bg-[#1e2530] border border-slate-200/80 dark:border-[rgba(242,242,242,0.1)] hover:border-emerald-400/80 dark:hover:border-[#6BBF54]/60 rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 shadow-2xs hover:shadow-md group">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand)]/10 dark:bg-[var(--brand)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-md,8px)] bg-emerald-50 dark:bg-[rgba(107,191,84,0.15)] text-emerald-600 dark:text-[#6BBF54] flex items-center justify-center flex-shrink-0 border border-emerald-200/80 dark:border-[rgba(107,191,84,0.3)] shadow-2xs">
+            <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
                 <Icon icon="carbon:globe" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
-                <span className="block font-bold text-slate-900 dark:text-white text-sm mb-1">Better for Planet</span>
-                <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed font-normal">Reducing landfill waste and building a circular future.</p>
-                <div className="w-6 h-0.5 bg-[var(--brand)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
+                <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Better for Planet</span>
+                <p className="text-[var(--text-secondary)] text-xs leading-relaxed font-normal">Reducing landfill waste and building a circular future.</p>
+                <div className="w-6 h-0.5 bg-[var(--brand-primary)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
               </div>
             </div>
 

@@ -1,287 +1,376 @@
-import React from "react";
+import React, { useState } from "react";
 import { Icon } from "@iconify/react";
-import { Badge } from "@/shared/ui";
-import { WhatsAppButton } from "@/shared/ui";
-import { DEFAULT_TRUST_INDICATORS } from "../constants";
 
 export default function ProductHeaderSpecs({
-  product,
-  brand,
-  sku,
-  currentPrice,
+  product = {},
+  sku = "",
   sizeOptions = [],
   setShowInquiry,
 }) {
-  const [selectedSize, setSelectedSize] = React.useState(sizeOptions[0] || "");
+  const [selectedSize, setSelectedSize] = useState(sizeOptions[0] || "");
 
   // Detect industrial category profile
-  const cat = (product.category || "").toLowerCase();
+  const cat = (product.category || product.category_name || "").toLowerCase();
   const name = (product.name || "").toLowerCase();
-  const isPallet = cat.includes("pallet") || name.includes("pallet");
+  const isPallet = cat.includes("pallet") || name.includes("pallet") || (!cat && !name);
   const isLumber = cat.includes("lumber") || name.includes("lumber") || cat.includes("profile");
-  const isBenchOrTable = cat.includes("bench") || cat.includes("table") || name.includes("bench") || name.includes("table");
 
-  // Dynamic engineering metrics matrix (2x2)
-  const getMetrics = () => {
-    if (isPallet) {
-      return [
-        {
-          icon: "carbon:cube",
-          label: "Min. Order (MOQ)",
-          value: product.moq || "50 Units",
-        },
-        {
-          icon: "carbon:delivery-truck",
-          label: "Lead Time",
-          value: product.dispatch || "Ex-stock Ankleshwar",
-        },
-        {
-          icon: "carbon:scale",
-          label: "Static Load",
-          value: product.specs?.["Static Load"] || product.capacity || "5,000 kg",
-        },
-        {
-          icon: "carbon:direction-straight",
-          label: "Forklift Handling",
-          value: product.specs?.["Entry"] || "4-Way Entry",
-        },
-      ];
+  // Dynamic values matching the engineering structure
+  const categoryLabel = (
+    product.category_name ||
+    product.category ||
+    (isPallet ? "Plastic Pallets" : isLumber ? "Plastic Lumber" : "Industrial Plastics")
+  ).toUpperCase();
+
+  const itemCode =
+    sku ||
+    product.sku ||
+    product.item_code ||
+    product.code ||
+    (isPallet ? "VE-PALLET" : isLumber ? "VE-LUMBER" : "VE-PROD");
+
+  const certBadge =
+    product.certification ||
+    product.specs?.["Certification"] ||
+    product.specs?.["Phytosanitary Certification"] ||
+    (isPallet ? "ISPM-15 Exempt" : isLumber ? "Zero Chemical Treatment" : "ISO Compliant");
+
+  const descriptionText =
+    product.description ||
+    product.technical_blurb ||
+    (isPallet
+      ? "Engineered for high-bay warehouse racking and automated AS/RS systems. Built with 3 steel-reinforced runners and anti-skid rubber grommets for maximum safety."
+      : isLumber
+      ? "Engineered composite recycled plastic profiles for extreme outdoor, marine, and industrial structural installations. 100% waterproof and maintenance-free."
+      : "Engineered high-density recycled polymer solution designed for superior durability, heavy-duty load handling, and environmental resistance.");
+
+  const moqValue =
+    product.moq || (isPallet ? "50 Units" : isLumber ? "20 Profiles" : "10 Units");
+  const leadTimeValue = product.dispatch || "Ready Stock Dispatch";
+
+  const staticLoad = product.static_load || product.specs?.["Static Load"] || product.capacity || "5,000 kg";
+  const dynamicLoad = product.dynamic_load || product.specs?.["Dynamic Load"] || "1,500 kg";
+  const rackLoad = product.racking_load || product.specs?.["Racking Load"] || "1,000 kg";
+
+  const capacityValue = isPallet
+    ? `Static ${staticLoad.includes("kg") ? staticLoad : `${staticLoad} kg`} | Dynamic ${dynamicLoad.includes("kg") ? dynamicLoad : `${dynamicLoad} kg`} | Racking ${rackLoad.includes("kg") ? rackLoad : `${rackLoad} kg`}`
+    : product.capacity || product.specs?.["Capacity"] || "Heavy Industrial Load Rating";
+
+  const handlingValue =
+    product.handling ||
+    product.specs?.["Forklift Handling"] ||
+    product.specs?.["Entry"] ||
+    (isPallet ? "4-way Entry" : isLumber ? "Standard Saw & Drill Tools" : "Standard Handling");
+
+  const highlights = [
+    {
+      icon: "solar:box-minimalistic-linear",
+      line1: isPallet ? "High Load" : isLumber ? "High Impact" : "Heavy Duty",
+      line2: isPallet ? "Capacity" : isLumber ? "Strength" : "Performance",
+    },
+    {
+      icon: "solar:shield-check-linear",
+      line1: "Durable &",
+      line2: "Long Lasting",
+    },
+    {
+      icon: "solar:refresh-circle-linear",
+      line1: "Sustainable",
+      line2: "& Recycled",
+    },
+  ];
+
+  const handleDownloadDatasheet = () => {
+    try {
+      // Create or reuse a hidden iframe for seamless, popup-blocker-proof printing
+      let printFrame = document.getElementById("datasheet-print-frame");
+      if (!printFrame) {
+        printFrame = document.createElement("iframe");
+        printFrame.id = "datasheet-print-frame";
+        printFrame.style.position = "fixed";
+        printFrame.style.right = "0";
+        printFrame.style.bottom = "0";
+        printFrame.style.width = "0";
+        printFrame.style.height = "0";
+        printFrame.style.border = "none";
+        document.body.appendChild(printFrame);
+      }
+
+      const specEntries = Object.entries(product.specs || {});
+      const specRowsHtml =
+        specEntries.length > 0
+          ? specEntries
+              .map(
+                ([k, v]) =>
+                  `<tr><td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-weight: 600; color: #334155; width: 40%;">${k}</td><td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; color: #0f172a;">${v}</td></tr>`
+              )
+              .join("")
+          : `
+            <tr><td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-weight: 600; color: #334155;">Static Load Rating</td><td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; color: #0f172a;">${staticLoad}</td></tr>
+            <tr><td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-weight: 600; color: #334155;">Dynamic Load Rating</td><td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; color: #0f172a;">${dynamicLoad}</td></tr>
+            <tr><td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-weight: 600; color: #334155;">Racking Load Rating</td><td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; color: #0f172a;">${rackLoad}</td></tr>
+            <tr><td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-weight: 600; color: #334155;">Material Composition</td><td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; color: #0f172a;">100% Recycled HDPE / PP Blend</td></tr>
+            <tr><td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-weight: 600; color: #334155;">Phytosanitary Certification</td><td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0; color: #0f172a;">ISPM-15 Exempt (No Fumigation Required)</td></tr>
+          `;
+
+      const htmlContent = `
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <meta charset="utf-8" />
+            <title>Technical Datasheet - ${product.name || "Product"}</title>
+            <style>
+              @page { size: A4; margin: 18mm; }
+              body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #0f172a; margin: 0; padding: 24px; }
+              .header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 3px solid #16532d; padding-bottom: 16px; margin-bottom: 20px; }
+              .brand { font-size: 20px; font-weight: 800; color: #16532d; letter-spacing: -0.5px; }
+              .sub { font-size: 11px; color: #64748b; margin-top: 3px; }
+              .doc-type { font-size: 13px; font-weight: 700; color: #16532d; text-transform: uppercase; letter-spacing: 0.5px; text-align: right; }
+              .product-title { font-size: 22px; font-weight: 800; margin: 0 0 8px 0; color: #0f172a; }
+              .category { font-size: 12px; font-weight: 700; color: #16532d; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+              .desc { font-size: 13px; color: #475569; line-height: 1.6; margin-bottom: 20px; }
+              .highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin-bottom: 20px; }
+              .highlight-item strong { display: block; font-size: 13px; color: #16532d; }
+              .highlight-item span { font-size: 11px; color: #64748b; }
+              table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 13px; }
+              th { background: #f1f5f9; padding: 10px 14px; text-align: left; font-size: 12px; font-weight: 700; text-transform: uppercase; color: #475569; border-bottom: 2px solid #cbd5e1; }
+              .meta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; border-top: 2px solid #e2e8f0; padding-top: 16px; margin-bottom: 28px; }
+              .meta-item label { display: block; font-size: 11px; color: #64748b; text-transform: uppercase; margin-bottom: 4px; font-weight: 600; }
+              .meta-item span { font-size: 14px; font-weight: 700; color: #0f172a; }
+              .footer { border-top: 1px solid #e2e8f0; padding-top: 14px; display: flex; justify-content: space-between; font-size: 11px; color: #64748b; }
+            </style>
+          </head>
+          <body>
+            <div class="header">
+              <div>
+                <div class="brand">VISHAL ENTERPRISE</div>
+                <div class="sub">Industrial Recycled Plastic Manufacturing & Fabrication</div>
+                <div class="sub">GIDC Industrial Estate, Ankleshwar, Gujarat, India</div>
+              </div>
+              <div class="doc-type">
+                Technical Datasheet<br>
+                <span style="font-size: 11px; color: #64748b; font-weight: normal;">REF: ${itemCode}</span>
+              </div>
+            </div>
+
+            <div class="category">${categoryLabel}</div>
+            <h1 class="product-title">${product.name || "Industrial Product"}</h1>
+            <p class="desc">${descriptionText}</p>
+
+            <div class="highlights">
+              <div class="highlight-item">
+                <strong>High Load Capacity</strong>
+                <span>Tested for heavy industrial duty</span>
+              </div>
+              <div class="highlight-item">
+                <strong>Durable & Long Lasting</strong>
+                <span>Impact, weather & chemical resistant</span>
+              </div>
+              <div class="highlight-item">
+                <strong>Sustainable & Recycled</strong>
+                <span>100% Eco-friendly circular polymer</span>
+              </div>
+            </div>
+
+            <h3 style="font-size: 14px; margin-bottom: 10px; color: #0f172a;">Engineering & Material Specifications</h3>
+            <table>
+              <thead>
+                <tr><th>Parameter</th><th>Specification Rating</th></tr>
+              </thead>
+              <tbody>
+                ${specRowsHtml}
+              </tbody>
+            </table>
+
+            <div class="meta-grid">
+              <div class="meta-item">
+                <label>Min. Order (MOQ)</label>
+                <span>${moqValue}</span>
+              </div>
+              <div class="meta-item">
+                <label>Lead Time</label>
+                <span>${leadTimeValue}</span>
+              </div>
+              <div class="meta-item">
+                <label>Handling / Entry</label>
+                <span>${handlingValue}</span>
+              </div>
+            </div>
+
+            <div class="footer">
+              <div>Vishal Enterprise · www.vishalplastic.com · sales@vishalplastic.com</div>
+              <div>Official B2B Engineering Specification Sheet</div>
+            </div>
+          </body>
+        </html>
+      `;
+
+      const frameDoc = printFrame.contentWindow || printFrame.contentDocument;
+      const doc = frameDoc.document || frameDoc;
+      doc.open();
+      doc.write(htmlContent);
+      doc.close();
+
+      setTimeout(() => {
+        try {
+          printFrame.contentWindow?.focus();
+          printFrame.contentWindow?.print();
+        } catch {
+          setShowInquiry?.(true);
+        }
+      }, 250);
+    } catch {
+      setShowInquiry?.(true);
     }
-
-    if (isLumber) {
-      return [
-        {
-          icon: "carbon:cube",
-          label: "Min. Order (MOQ)",
-          value: product.moq || "20 Profiles",
-        },
-        {
-          icon: "carbon:delivery-truck",
-          label: "Lead Time",
-          value: product.dispatch || "3-5 Days",
-        },
-        {
-          icon: "carbon:chemistry",
-          label: "Density",
-          value: product.specs?.["Density"] || "0.95 g/cm³",
-        },
-        {
-          icon: "carbon:tool-box",
-          label: "Carpentry",
-          value: "Saws & Screws like Wood",
-        },
-      ];
-    }
-
-    if (isBenchOrTable) {
-      return [
-        {
-          icon: "carbon:cube",
-          label: "Min. Order (MOQ)",
-          value: product.moq || "5 Units",
-        },
-        {
-          icon: "carbon:delivery-truck",
-          label: "Lead Time",
-          value: product.dispatch || "5-7 Days",
-        },
-        {
-          icon: "carbon:scale",
-          label: "Unit Weight",
-          value: product.specs?.["Weight"] || product.capacity || "55 kg (Tip-proof)",
-        },
-        {
-          icon: "carbon:security",
-          label: "Surface Security",
-          value: "Bolt-down Anchored",
-        },
-      ];
-    }
-
-    // Default Industrial Equipment
-    return [
-      {
-        icon: "carbon:cube",
-        label: "Min. Order (MOQ)",
-        value: product.moq || "10 Units",
-      },
-      {
-        icon: "carbon:delivery-truck",
-        label: "Dispatch",
-        value: product.dispatch || "Ready Stock",
-      },
-      {
-        icon: "carbon:scale",
-        label: "Load Rating",
-        value: product.capacity || "Heavy Industrial",
-      },
-      {
-        icon: "carbon:tool-box",
-        label: "Custom Cuts",
-        value: "Available on Request",
-      },
-    ];
   };
-
-  const metrics = getMetrics();
 
   return (
     <div
       id="product-detail-panel"
-      className="bg-[var(--bg-surface)] border border-[var(--border-default)] rounded-[var(--radius-card,8px)] p-6 sm:p-8 shadow-xs flex flex-col gap-6"
+      className="flex flex-col h-full py-1"
     >
-      {/* 1. Industrial Reference & Regulatory Badges */}
-      <div className="flex flex-col gap-3">
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="neutral" size="sm" className="font-mono text-[11px] uppercase tracking-wider">
-            REF: {sku}
-          </Badge>
-          {isPallet && (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[var(--radius-card,8px)] text-xs font-semibold bg-[var(--success-bg)] text-[var(--color-success)] border border-[var(--success-border)]">
-              <Icon icon="carbon:security" className="w-3.5 h-3.5 shrink-0" />
-              <span>ISPM-15 Exempt</span>
-            </span>
-          )}
-          {isLumber && (
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[var(--radius-card,8px)] text-xs font-semibold bg-[var(--success-bg)] text-[var(--color-success)] border border-[var(--success-border)]">
-              <Icon icon="carbon:recycle" className="w-3.5 h-3.5 shrink-0" />
-              <span>100% Recycled HDPE</span>
-            </span>
-          )}
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[var(--radius-card,8px)] text-xs font-medium text-[var(--text-muted)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
-            <Icon icon="carbon:certificate" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
-            <span>GST Registered</span>
-          </span>
-        </div>
-
-        <div>
-          <span className="text-[11px] font-bold tracking-widest text-[var(--text-muted)] uppercase block">
-            {brand}
-          </span>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight mt-1 leading-snug">
-            {product.name}
-          </h1>
-        </div>
-
-        <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed max-w-[65ch]">
-          {product.technical_blurb ||
-            "Heavy-duty industrial polymer composite formulation. Resistant to chemical degradation, moisture absorption, termites, and intense weather variations."}
-        </p>
+      {/* 1. Category Eyebrow */}
+      <div className="text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs tracking-wider uppercase mb-1">
+        {categoryLabel}
       </div>
 
-      {/* 2. B2B Commercial Rates Card */}
-      <div className="p-4 sm:p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex flex-col gap-1.5">
-        <div className="flex items-center justify-between flex-wrap gap-2">
-          <span className="text-[11px] font-bold tracking-wider text-[var(--text-muted)] uppercase">
-            Commercial Terms
-          </span>
-          <span className="text-xs font-bold text-[var(--brand-primary)] flex items-center gap-1">
-            <Icon icon="carbon:certificate" className="w-3.5 h-3.5" />
-            Direct Factory Pricing
-          </span>
-        </div>
+      {/* 2. Main Product Title */}
+      <h1 className="text-2xl sm:text-3xl lg:text-[2rem] font-extrabold text-[var(--text-primary)] leading-[1.2] tracking-tight mb-2">
+        {product.name || "Heavy-Duty Rackable Plastic Pallet 1200x1000"}
+      </h1>
 
-        {currentPrice && currentPrice !== "0" ? (
-          <div className="flex items-baseline gap-2 pt-1">
-            <span className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight font-mono tabular-nums">
-              ₹{currentPrice}
-            </span>
-            <span className="text-xs font-semibold text-[var(--text-muted)]">
-              / unit (Ex-factory Ankleshwar)
-            </span>
-          </div>
-        ) : (
-          <div className="flex flex-col pt-1">
-            <span className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight">
-              Volume Quote on Request
-            </span>
-            <span className="text-xs font-medium text-[var(--text-muted)] mt-0.5 max-w-[65ch]">
-              Wholesale tiered brackets for container, truckload & scheduled plant orders
-            </span>
-          </div>
-        )}
+      {/* 3. Item Code & Certification Meta Line */}
+      <div className="flex items-center flex-wrap gap-2 text-xs text-[var(--text-muted)] font-medium mb-3.5">
+        <span>Item: {itemCode}</span>
+        <span className="text-[var(--border-default)]">|</span>
+        <span className="inline-flex items-center gap-1 text-[var(--brand-primary)] dark:text-emerald-400 font-semibold">
+          <Icon icon="solar:check-circle-bold" className="w-3.5 h-3.5" />
+          <span>{certBadge}</span>
+        </span>
       </div>
 
-      {/* 3. Core Engineering Metric Matrix (2x2 Flat Grid) */}
-      <div className="grid grid-cols-2 gap-3">
-        {metrics.map((item, idx) => (
+      {/* 4. Product Description */}
+      <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-4 max-w-2xl">
+        {descriptionText}
+      </p>
+
+      {/* 5. Three Feature Highlights with Card Grouping */}
+      <div className="grid grid-cols-3 gap-2 sm:gap-3 my-2">
+        {highlights.map((item, idx) => (
           <div
             key={idx}
-            className="p-3.5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex items-start gap-3"
+            className="flex items-center gap-2 p-2 sm:p-2.5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] transition-colors hover:border-[var(--border-default)]"
           >
-            <div className="p-2 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] text-[var(--brand-primary)] shadow-2xs shrink-0 border border-[var(--border-subtle)]">
-              <Icon icon={item.icon} className="w-4 h-4" />
-            </div>
-            <div className="min-w-0">
-              <span className="block text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
-                {item.label}
+            <Icon
+              icon={item.icon}
+              className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--brand-primary)] dark:text-emerald-400 shrink-0 stroke-[1.5]"
+            />
+            <div className="flex flex-col min-w-0">
+              <span className="font-bold text-[11px] sm:text-xs text-[var(--text-primary)] leading-tight truncate">
+                {item.line1}
               </span>
-              <span className="text-xs sm:text-sm font-extrabold text-[var(--text-primary)] truncate block mt-0.5 font-mono tabular-nums">
-                {item.value}
+              <span className="font-semibold text-[10px] sm:text-[11px] text-[var(--text-secondary)] leading-tight truncate">
+                {item.line2}
               </span>
             </div>
           </div>
         ))}
       </div>
 
-      {/* 4. Footprint Selector (Only rendered if legitimate options exist) */}
-      {sizeOptions.length > 0 && (
-        <div className="flex flex-col gap-2 pt-1">
-          <span className="text-[11px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
-            Standard Footprint / Sizing
+      {/* Optional Size Selector if multiple sizes exist */}
+      {sizeOptions?.length > 1 && (
+        <div className="flex items-center gap-2.5 my-3 pt-1">
+          <span className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider">
+            Size:
           </span>
           <div className="flex flex-wrap gap-2">
-            {sizeOptions.map((option) => {
-              const isSelected = selectedSize === option;
-              return (
-                <button
-                  key={option}
-                  type="button"
-                  onClick={() => setSelectedSize(option)}
-                  className={`px-4 py-2.5 rounded-[var(--radius-card,8px)] text-xs font-mono font-bold border transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95 tabular-nums ${
-                    isSelected
-                      ? "bg-[var(--brand-primary)] border-[var(--brand-primary)] text-[var(--brand-btn-text)] shadow-xs"
-                      : "bg-[var(--bg-surface)] text-[var(--text-secondary)] border-[var(--border-default)] hover:bg-[var(--bg-surface-secondary)] hover:text-[var(--text-primary)]"
-                  }`}
-                >
-                  {option}
-                </button>
-              );
-            })}
+            {sizeOptions.map((option) => (
+              <button
+                key={option}
+                type="button"
+                onClick={() => setSelectedSize(option)}
+                className={`px-3 py-1 rounded-md text-xs font-medium border transition-colors cursor-pointer ${
+                  selectedSize === option
+                    ? "bg-[var(--brand-primary)] border-[var(--brand-primary)] text-white"
+                    : "bg-[var(--bg-surface)] text-[var(--text-secondary)] border-[var(--border-default)] hover:border-[var(--border-strong)]"
+                }`}
+              >
+                {option}
+              </button>
+            ))}
           </div>
         </div>
       )}
 
-      {/* 5. Procurement Call to Action Buttons */}
-      <div className="flex flex-col gap-3 pt-2">
-        <div className="flex flex-col sm:flex-row gap-3">
-          <button
-            type="button"
-            className="flex-1 min-h-[48px] px-6 bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] active:bg-[var(--brand-active)] text-[var(--brand-btn-text)] rounded-[var(--radius-card,8px)] font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm border-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 active:scale-[0.98]"
-            onClick={() => setShowInquiry(true)}
-          >
-            <span>Request a Quote</span>
-            <Icon icon="carbon:arrow-right" className="w-4 h-4" />
-          </button>
+      {/* 6. Two Action Buttons with High-Conversion Visual Hierarchy */}
+      <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 my-4">
+        <button
+          type="button"
+          onClick={() => setShowInquiry?.(true)}
+          className="sm:col-span-7 min-h-[46px] bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] active:scale-[0.99] text-white font-bold text-sm sm:text-base px-5 rounded-[var(--radius-btn,8px)] flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm hover:shadow-md"
+        >
+          <span>Request a Quote</span>
+          <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
+        </button>
 
-          <WhatsAppButton
-            label="WhatsApp Desk"
-            variant="solid"
-            size="lg"
-            text={`Hello, I am requesting technical specifications and commercial volume rates for: ${product?.name}`}
-            className="flex-1 min-h-[48px] rounded-[var(--radius-card,8px)] text-sm font-bold shadow-xs"
+        <button
+          type="button"
+          onClick={handleDownloadDatasheet}
+          className="sm:col-span-5 min-h-[46px] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] active:scale-[0.99] text-[var(--text-primary)] hover:text-[var(--brand-primary)] font-bold text-xs sm:text-sm px-4 rounded-[var(--radius-btn,8px)] flex items-center justify-center gap-1.5 border border-[var(--border-default)] transition-all cursor-pointer shadow-2xs hover:border-[var(--brand-primary)]"
+        >
+          <Icon
+            icon="solar:download-linear"
+            className="w-4 h-4 text-[var(--brand-primary)] dark:text-emerald-400 shrink-0"
           />
-        </div>
+          <span>Datasheet (PDF)</span>
+        </button>
       </div>
 
-      {/* Micro Trust Indicators */}
-      <div className="flex items-center justify-between text-[11px] font-semibold text-[var(--text-muted)] pt-3 border-t border-[var(--border-subtle)]">
-        {DEFAULT_TRUST_INDICATORS.map((indicator, idx) => (
-          <span key={idx} className="flex items-center gap-1.5">
-            <Icon icon={indicator.icon} className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
-            <span className="truncate">{indicator.label}</span>
+      {/* 7. Four Specifications Rows with Clean Dividers */}
+      <div className="border-t border-[var(--border-subtle)] divide-y divide-[var(--border-subtle)] mt-1">
+        {/* Row 1: Min Order (MOQ) */}
+        <div className="flex items-center justify-between py-2.5 text-xs sm:text-sm">
+          <div className="flex items-center gap-2 text-[var(--text-secondary)] font-medium">
+            <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+            <span>Min. Order (MOQ)</span>
+          </div>
+          <span className="font-bold text-[var(--text-primary)] text-right">
+            {moqValue}
           </span>
-        ))}
+        </div>
+
+        {/* Row 2: Lead Time */}
+        <div className="flex items-center justify-between py-2.5 text-xs sm:text-sm">
+          <div className="flex items-center gap-2 text-[var(--text-secondary)] font-medium">
+            <Icon icon="solar:clock-circle-linear" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+            <span>Lead Time</span>
+          </div>
+          <span className="font-bold text-[var(--text-primary)] text-right">
+            {leadTimeValue}
+          </span>
+        </div>
+
+        {/* Row 3: Load Capacity */}
+        <div className="flex items-center justify-between py-2.5 text-xs sm:text-sm gap-2">
+          <div className="flex items-center gap-2 text-[var(--text-secondary)] font-medium shrink-0">
+            <Icon icon="solar:chart-2-linear" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+            <span>Load Capacity</span>
+          </div>
+          <span className="font-medium text-[var(--text-primary)] text-right text-[11px] sm:text-xs md:text-sm">
+            {capacityValue}
+          </span>
+        </div>
+
+        {/* Row 4: Forklift Handling */}
+        <div className="flex items-center justify-between py-2.5 text-xs sm:text-sm">
+          <div className="flex items-center gap-2 text-[var(--text-secondary)] font-medium">
+            <Icon icon="solar:delivery-linear" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+            <span>Forklift Handling</span>
+          </div>
+          <span className="font-bold text-[var(--text-primary)] text-right">
+            {handlingValue}
+          </span>
+        </div>
       </div>
     </div>
   );

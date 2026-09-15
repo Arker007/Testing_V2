@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../../shared/context/SiteContext";
+import { Input, Button, OptimizedImage } from "@/shared/ui";
 import styles from "../styles/footer.module.css";
 
 const QUICK_LINKS = [
@@ -43,7 +44,7 @@ export default function Footer() {
 
   const addr = co("address")
     ? `${co("address")}${co("city") ? ", " + co("city") : ""}${co("pincode") ? ", " + co("pincode") : ""}`
-    : "PLOT NO. 1706/06 , South 9 Road, G.I.D.C, Ankleshwar, Bharuch, GUJARAT, 393002";
+    : "Plot No. 1706/06, South 9 Road, G.I.D.C., Ankleshwar, Bharuch, Gujarat, 393002";
 
   const CONTACT = [
     { icon: "carbon:location", text: addr },
@@ -83,7 +84,7 @@ export default function Footer() {
         <div className={styles.brand}>
           <Link to="/" className={styles.logoRow}>
             {co("logo") && !logoError ? (
-              <img
+              <OptimizedImage
                 src={co("logo")}
                 alt={co("name", "VISHAL ENTERPRISE")}
                 className={styles.logoImg}
@@ -260,18 +261,24 @@ export default function Footer() {
                 Thank you for subscribing!
               </p>
             ) : (
-              <form onSubmit={handleSubscribe} className={styles.newsletterForm}>
-                <input
+              <form onSubmit={handleSubscribe} className="flex items-center gap-2 mt-2">
+                <Input
                   type="email"
+                  size="sm"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter email address"
-                  className={styles.newsletterInput}
+                  className="flex-1"
                   required
                 />
-                <button type="submit" className={styles.newsletterSubmit} aria-label="Subscribe">
-                  <Icon icon="carbon:send-alt" className="w-4 h-4 text-slate-900" />
-                </button>
+                <Button
+                  type="submit"
+                  size="sm"
+                  variant="primary"
+                  aria-label="Subscribe"
+                  className="!px-3 !h-9 shrink-0"
+                  icon={<Icon icon="carbon:send-alt" className="w-4 h-4" />}
+                />
               </form>
             )}
           </div>

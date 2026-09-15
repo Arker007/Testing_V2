@@ -40,7 +40,7 @@ export default function ManufacturingPage() {
       </div>
 
       {/* Manufacturing Advantages / Tech Stats */}
-      <section className="py-16 px-4 bg-slate-50 dark:bg-[var(--bg-canvas,#0f141a)] border-t border-b border-slate-200 dark:border-[rgba(242,242,242,0.12)]">
+      <section className="py-16 px-4 bg-slate-50 dark:bg-[var(--bg-canvas,#0f141a)] border-t border-slate-200 dark:border-[rgba(242,242,242,0.12)]">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <div className="mb-4">
@@ -92,7 +92,7 @@ export default function ManufacturingPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 cta-section">
         <CtaCard
           badge="Industrial Manufacturing Facility"
-          badgeVariant="eyebrow"
+          badgeVariant="brand"
           badgeIcon="carbon:enterprise"
           title="Schedule a Facility Inspection or Request Batch Specs"
           subtitle="Connect with our Ankleshwar plant engineers for detailed polymer test reports, custom extrusion capabilities, or factory audits."
@@ -100,8 +100,15 @@ export default function ManufacturingPage() {
           <QuoteButton
             to="/contact?source=manufacturing"
             text="Request Facility Tour"
-            className="shadow-md"
+            className="shadow-sm"
           />
+          <a
+            href="tel:+919825125164"
+            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-btn,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] hover:bg-[var(--bg-surface-tertiary)] hover:border-[var(--border-default)] text-[var(--text-primary)] text-sm font-bold transition-all shadow-2xs whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+          >
+            <Icon icon="carbon:phone" className="w-4 h-4 text-[var(--brand-primary,#059669)] shrink-0" />
+            <span>Call Plant Engineers</span>
+          </a>
         </CtaCard>
       </section>
     </main>

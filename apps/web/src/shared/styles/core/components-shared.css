@@ -123,11 +123,10 @@
 }
 
 .form-label-shared {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: var(--font-size-sm, 0.8125rem);
+  font-weight: 500;
   color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
 }
 
 .form-input-shared,
@@ -150,8 +149,8 @@
 .form-textarea-shared:focus,
 .form-select-shared:focus {
   border-color: var(--brand);
-  outline: 2px solid var(--brand);
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: none;
 }
 
 .form-input-shared:disabled,
@@ -180,13 +179,12 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.75rem;
+  font-size: var(--font-size-xs, 0.75rem);
   font-weight: 600;
   padding: 0.3rem 0.75rem;
   border-radius: var(--radius-badge, 8px);
-  line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
 }
 
 .badge-shared-brand {

@@ -13,6 +13,13 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
+        "@features": path.resolve(__dirname, "./src/features"),
+        "@pages": path.resolve(__dirname, "./src/pages"),
+        "@shared": path.resolve(__dirname, "./src/shared"),
+        "@assets": path.resolve(__dirname, "./src/assets"),
+        "@app": path.resolve(__dirname, "./src/app"),
+        "@vishal/contracts": path.resolve(__dirname, "../../packages/contracts/src/index.mjs"),
+        "@contracts": path.resolve(__dirname, "../../packages/contracts/src/index.mjs"),
       },
     },
     server: {
@@ -53,18 +60,25 @@ export default defineConfig(({ mode }) => {
               id.includes("/features/admin/") ||
               id.includes("/features/auth/") ||
               id.includes("/features/catalog/") ||
+              id.includes("/features/categories/") ||
               id.includes("/features/content-management/") ||
               id.includes("/features/inquiries/") ||
               id.includes("/features/media/") ||
               id.includes("/features/products/admin/") ||
               id.includes("/features/products/categories/") ||
               id.includes("/pages/admin/") ||
+              id.includes("/pages/LoginPage") ||
               id.includes("/components/admin/")
             )
               return "admin";
           },
         },
       },
+    },
+    test: {
+      globals: true,
+      environment: "jsdom",
+      setupFiles: "./src/test/setup.js",
     },
   };
 });

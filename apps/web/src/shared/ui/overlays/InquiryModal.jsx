@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { Icon } from "@iconify/react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { useInquiry } from "../../hooks/useInquiry";
 import { getSkuCode } from "@/features/products/utils/product.utils";
 import styles from "./InquiryModal.module.css";

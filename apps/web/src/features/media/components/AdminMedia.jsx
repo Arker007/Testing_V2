@@ -1,8 +1,8 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { Icon } from '@iconify/react';
 import styles from '../../admin/styles/AdminTable.module.css';
 import mStyles from '../styles/Media.module.css';
-import { EmptyState, Skeleton } from "@/shared/ui";
+import { AdminPageHeader, EmptyState, Skeleton, Button, MediaLightboxModal } from "@/shared/ui";
 
 const getFileCategory = (url) => {
     if (!url) return 'general';
@@ -19,6 +19,8 @@ export default function AdminMedia() {
     const [uploading, setUploading] = useState(false);
     const [copied, setCopied] = useState(null);
     const [activeCategory, setActiveCategory] = useState('all');
+    const [previewMedia, setPreviewMedia] = useState(null);
+    const fileInputRef = useRef(null);
 
     const load = useCallback(() => {
         setLoading(true);
@@ -71,15 +73,34 @@ export default function AdminMedia() {
 
     return (
         <div>
-            <div className={styles.toolbar}>
-                <p className={styles.count}>
-                    {filteredMedia.length} of {media.length} Files Uploaded
-                </p>
-                <label className={`${styles.actionBtnPrimary} ${uploading ? 'disabled' : ''}`} style={{ cursor: 'pointer' }}>
-                    <input type="file" accept="image/*" multiple onChange={handleUpload} style={{ display: 'none' }} />
-                    {uploading ? <><Icon icon="carbon:circle-dash" className="w-4 h-4 animate-spin" /> Uploading...</> : <><Icon icon="carbon:upload" className="w-4 h-4 mr-1 inline" /> Upload Assets</>}
-                </label>
-            </div>
+            <AdminPageHeader
+                title="Media Library"
+                count={filteredMedia.length}
+                countLabel={`of ${media.length} files`}
+                actions={
+                    <div>
+                        <input
+                            ref={fileInputRef}
+                            type="file"
+                            accept="image/*"
+                            multiple
+                            onChange={handleUpload}
+                            className="hidden"
+                        />
+                        <Button
+                            type="button"
+                            variant="primary"
+                            size="md"
+                            loading={uploading}
+                            loadingText="Uploading..."
+                            onClick={() => fileInputRef.current?.click()}
+                            icon={<Icon icon="carbon:upload" className="w-4 h-4 mr-1.5" />}
+                        >
+                            Upload Assets
+                        </Button>
+                    </div>
+                }
+            />
 
             <div className={mStyles.splitLayout}>
                 {/* Left Folder Directory Menu */}
@@ -126,10 +147,15 @@ export default function AdminMedia() {
                                 title="No media files found"
                                 description="No media files found in this directory folder."
                                 action={
-                                    <label className={styles.actionBtnPrimary} style={{ cursor: 'pointer' }}>
-                                        <input type="file" accept="image/*" multiple onChange={handleUpload} style={{ display: 'none' }} />
-                                        <Icon icon="carbon:upload" className="w-4 h-4 mr-1 inline" /> Upload Files
-                                    </label>
+                                    <Button
+                                        type="button"
+                                        variant="primary"
+                                        size="sm"
+                                        onClick={() => fileInputRef.current?.click()}
+                                        icon={<Icon icon="carbon:upload" className="w-4 h-4 mr-1.5" />}
+                                    >
+                                        Upload Files
+                                    </Button>
                                 }
                             />
                         </div>
@@ -137,17 +163,32 @@ export default function AdminMedia() {
                         <div className={mStyles.grid}>
                             {filteredMedia.map(m => (
                                 <div key={m.id} className={mStyles.card}>
-                                    <div className={mStyles.imgWrap}>
+                                    <div
+                                        className={mStyles.imgWrap}
+                                        onClick={() => setPreviewMedia(m)}
+                                        style={{ cursor: 'pointer' }}
+                                        title="Click to preview fullscreen"
+                                    >
                                         <img src={m.url} alt={m.filename} onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }} />
                                         <div className={mStyles.fallback} style={{ display: 'none' }}><Icon icon="carbon:image" className="w-8 h-8 text-slate-400" /></div>
                                     </div>
                                     <div className={mStyles.info}>
                                         <div className={mStyles.filename} title={m.filename}>{m.filename}</div>
                                         <div className={mStyles.url} title={m.url}>{m.url}</div>
-                                        <button className={mStyles.copyBtn} onClick={() => copyUrl(m.url)}>
-                                            <Icon icon={copied === m.url ? "carbon:checkmark" : "carbon:copy"} className="w-3.5 h-3.5 mr-1 inline" />
-                                            {copied === m.url ? 'Copied!' : 'Copy URL'}
-                                        </button>
+                                        <div className="flex items-center justify-between gap-1.5 mt-2">
+                                            <button className={mStyles.copyBtn} onClick={() => copyUrl(m.url)}>
+                                                <Icon icon={copied === m.url ? "carbon:checkmark" : "carbon:copy"} className="w-3.5 h-3.5 mr-1 inline" />
+                                                {copied === m.url ? 'Copied!' : 'Copy URL'}
+                                            </button>
+                                            <button
+                                                type="button"
+                                                className="p-1 rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs"
+                                                onClick={() => setPreviewMedia(m)}
+                                                title="Preview image"
+                                            >
+                                                <Icon icon="carbon:view" className="w-3.5 h-3.5" />
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
@@ -155,6 +196,15 @@ export default function AdminMedia() {
                     )}
                 </main>
             </div>
+
+            <MediaLightboxModal
+                isOpen={Boolean(previewMedia)}
+                onClose={() => setPreviewMedia(null)}
+                src={previewMedia?.url}
+                title={previewMedia?.filename}
+                badge="Media Asset"
+                allowCopy={true}
+            />
         </div>
     );
 }

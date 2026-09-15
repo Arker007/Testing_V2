@@ -1,0 +1,32 @@
+{
+  "name": "@vishal/contracts",
+  "version": "1.0.0",
+  "description": "Shared schemas, enums, and API contracts for Vishal Enterprise",
+  "main": "src/index.js",
+  "module": "src/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./src/index.mjs",
+      "require": "./src/index.js",
+      "default": "./src/index.js"
+    },
+    "./schemas": {
+      "import": "./src/schemas/index.mjs",
+      "require": "./src/schemas/index.js",
+      "default": "./src/schemas/index.js"
+    },
+    "./enums": {
+      "import": "./src/enums/index.mjs",
+      "require": "./src/enums/index.js",
+      "default": "./src/enums/index.js"
+    },
+    "./constants": {
+      "import": "./src/constants/index.mjs",
+      "require": "./src/constants/index.js",
+      "default": "./src/constants/index.js"
+    }
+  },
+  "dependencies": {
+    "zod": "^4.6.1"
+  }
+}

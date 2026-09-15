@@ -108,7 +108,7 @@
   /* 1.1 Primitive Palette - Core Neutrals & Slate */
   --neutral-50:  #FFFFFF;
   --neutral-100: #F8FAFC;
-  --neutral-200: #E7EBE8;
+  --neutral-200: #F4F5F7;
   --neutral-300: var(--neutral-200);
   --neutral-400: var(--neutral-500);
   --neutral-500: #44525D;
@@ -191,6 +191,9 @@
   --bg-dark-container:    var(--neutral-900);
   --bg-nav:               rgba(255, 255, 255, 0.90);
   --surface:              var(--bg-surface);
+  --bg-default:           var(--bg-canvas);
+  --bg-page:              var(--bg-canvas);
+  --bg-subtle:            var(--bg-surface-secondary);
 
   /* 1.6 Semantic Typography Colors (Step 5: Charcoal #1A1A1A / Dark Grey #4E4E4E WCAG AA) */
   --charcoal-900:           #1A1A1A; /* Dark charcoal/off-black for headers */
@@ -385,6 +388,7 @@
   --type-caption-muted-size: var(--font-size-xs);
   --type-caption-muted-leading: var(--line-height-caption);
   --type-caption-muted-weight: var(--font-weight-medium);
+  --type-caption-muted-tracking: var(--tracking-wide);
 
   /* Microcopy / Badges */
   --type-microcopy-size: var(--font-size-2xs);

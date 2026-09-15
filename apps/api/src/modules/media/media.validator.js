@@ -1,18 +1,17 @@
 /**
  * Media Validator
- * Middleware for validating media requests.
  */
+const { z } = require("zod");
 
-function validateCreateMedia(req, res, next) {
-  const { filename, url } = req.body || {};
-  if (!filename && !url) {
-    return res
-      .status(400)
-      .json({ error: "Filename or URL is required for media record" });
-  }
-  next();
-}
+const createMediaSchema = z.object({
+  filename: z.string().optional().nullable(),
+  url: z.string().optional().nullable(),
+  type: z.string().optional().nullable(),
+}).passthrough().refine(data => data.filename || data.url, {
+  message: "Filename or URL is required for media record",
+  path: ["filename"]
+});
 
 module.exports = {
-  validateCreateMedia,
+  validateCreateMedia: createMediaSchema,
 };

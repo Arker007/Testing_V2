@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { SECTION_TOGGLE_KEYS } from "../constants/siteContent.constants";
+import { ContentService } from "../services/content.service";
 
 export function useSiteContent() {
   const [tab, setTab] = useState("company");
@@ -19,7 +20,7 @@ export function useSiteContent() {
     const h = { Authorization: `Bearer ${localStorage.getItem("admin_token")}`, "Content-Type": "application/json" };
     Promise.all([
       fetch("/api/company", { headers: h }).then((r) => r.json()).catch(() => ({})),
-      fetch("/api/content", { headers: h }).then((r) => r.json()).catch(() => ({})),
+      ContentService.getAll().catch(() => ({})),
     ])
       .then(([co, cm]) => {
         setCompany(co || {});

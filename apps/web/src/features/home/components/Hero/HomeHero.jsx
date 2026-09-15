@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { motion as Motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "motion/react";
 import { useSite } from "../../../../shared/context/SiteContext";
 import { OptimizedImage } from "@/shared/ui";
 import styles from "./Hero.module.css";
@@ -59,7 +59,7 @@ const slides = [
     badge: "Manufacturer & Supplier",
     titleLime: "WEATHERPROOF",
     titleWhite: "GARDEN BENCHES",
-    desc: "Robust, heavy-duty outdoor seating systems perfect for garden, commercial, and public spaces. Built to withstand all weather conditions and last for years.",
+    desc: "Durable, heavy-duty outdoor seating systems perfect for garden, commercial, and public spaces. Built to withstand all weather conditions and last for years.",
     image: "/uploads/products/categories/garden-bench-1770446422580-0.webp",
     fallbackSrc: weatherResistantBg,
     features: [
@@ -74,38 +74,9 @@ const slides = [
 export default function HomeHero() {
   const { c, co } = useSite();
   const [current, setCurrent] = useState(2); // Default to Slide 3 (Weatherproof Garden Benches matching reference)
-  
   const heroRef = useRef(null);
   const hexagonRef = useRef(null);
-  const [centerY, setCenterY] = useState("50%");
-
-  // Align navigation buttons to the exact vertical center (equator) of the hexagon frame
-  useEffect(() => {
-    const updateCenter = () => {
-      if (heroRef.current && hexagonRef.current) {
-        const heroRect = heroRef.current.getBoundingClientRect();
-        const hexRect = hexagonRef.current.getBoundingClientRect();
-        // Calculate center of hexagon relative to the hero top
-        const hexCenterInHero = (hexRect.top - heroRect.top) + (hexRect.height / 2);
-        setCenterY(`${hexCenterInHero}px`);
-      }
-    };
-
-    updateCenter();
-    window.addEventListener("resize", updateCenter);
-    
-    // Also run multiple times to handle dynamic loading/layout shifts
-    const timer1 = setTimeout(updateCenter, 100);
-    const timer2 = setTimeout(updateCenter, 500);
-    const timer3 = setTimeout(updateCenter, 1500);
-
-    return () => {
-      window.removeEventListener("resize", updateCenter);
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-      clearTimeout(timer3);
-    };
-  }, [current]);
+  const [chevronTop, setChevronTop] = useState(null);
 
   // Auto-advance logic (resets timer when current changes)
   useEffect(() => {
@@ -114,6 +85,36 @@ export default function HomeHero() {
     }, 7000);
     return () => clearInterval(timer);
   }, [current]);
+
+  // Dynamically calculate the vertical center of the hexagon card relative to the hero section
+  useEffect(() => {
+    const updateChevronPosition = () => {
+      if (!heroRef.current || !hexagonRef.current) return;
+      const heroRect = heroRef.current.getBoundingClientRect();
+      const hexRect = hexagonRef.current.getBoundingClientRect();
+      const centerY = hexRect.top - heroRect.top + hexRect.height / 2;
+      setChevronTop(centerY);
+    };
+
+    updateChevronPosition();
+    const rafId = requestAnimationFrame(updateChevronPosition);
+    window.addEventListener("resize", updateChevronPosition);
+
+    let ro;
+    if (typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(() => {
+        updateChevronPosition();
+      });
+      if (heroRef.current) ro.observe(heroRef.current);
+      if (hexagonRef.current) ro.observe(hexagonRef.current);
+    }
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", updateChevronPosition);
+      if (ro) ro.disconnect();
+    };
+  }, []);
 
   if (c("show_hero", "1") === "0") return null;
 
@@ -130,7 +131,7 @@ export default function HomeHero() {
   const cleanedPhone = companyPhone.replace(/\s+/g, "");
 
   return (
-    <section ref={heroRef} className={styles.hero} id="home-hero-redesign">
+    <section className={styles.hero} id="home-hero-redesign" ref={heroRef}>
       {/* Background Diagonal Split Elements */}
       <div className={styles.slantBgGreen} />
       <div className={styles.slantBgDark} />
@@ -140,19 +141,21 @@ export default function HomeHero() {
       <div className={styles.dotsPatternRightTop} />
       <div className={styles.dotsPatternRightBottom} />
 
-      {/* Navigation Chevron Buttons shifted to entire Hero Section */}
+      {/* Navigation Chevron Buttons aligned vertically in center of Hexagon Card */}
       <Motion.button
+        id="hero-chevron-prev"
         onClick={handlePrev}
         className={`${styles.chevronBtn} ${styles.chevronBtnLeft}`}
-        style={{ top: centerY }}
+        style={chevronTop !== null ? { top: `${chevronTop}px` } : undefined}
         aria-label="Previous Slide"
       >
         <Icon icon="carbon:chevron-left" className="w-5 h-5 text-white" />
       </Motion.button>
       <Motion.button
+        id="hero-chevron-next"
         onClick={handleNext}
         className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
-        style={{ top: centerY }}
+        style={chevronTop !== null ? { top: `${chevronTop}px` } : undefined}
         aria-label="Next Slide"
       >
         <Icon icon="carbon:chevron-right" className="w-5 h-5 text-white" />
@@ -264,7 +267,11 @@ export default function HomeHero() {
           {/* Right Product Showcase Column */}
           <div className={styles.heroRight}>
             <div className={styles.productShowcase}>
-              <div ref={hexagonRef} className={styles.productFrameWrapper}>
+              <div
+                id="hero-product-hexagon-frame"
+                className={styles.productFrameWrapper}
+                ref={hexagonRef}
+              >
                 {/* Hexagonal Geometric SVG Frame with Full-Screen Clipped Image and 3D Pedestal Stage */}
                 <svg
                   className={styles.productFrameSvg}

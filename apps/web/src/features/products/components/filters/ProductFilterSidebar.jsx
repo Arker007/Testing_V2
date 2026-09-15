@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
+import { Badge } from "@/shared/ui";
 import styles from "../../products.module.css";
 
 const DEFAULT_CATEGORY_ITEMS = [
@@ -281,6 +282,7 @@ export default function ProductFilterSidebar({
 
       {/* Sidebar / Mobile Drawer Container */}
       <aside
+        id="product-filter-sidebar"
         className={`${styles.sidebarPanel} ${
           isMobileFilterOpen ? styles.mobileDrawerOpen : ""
         }`}

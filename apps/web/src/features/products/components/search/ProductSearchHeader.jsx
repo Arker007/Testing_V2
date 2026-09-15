@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
 import { CustomSelect } from "@/shared/ui";
 import { sortByOptions } from "../../constants";

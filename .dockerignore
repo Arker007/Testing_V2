@@ -33,12 +33,20 @@ logs
 # Git
 .git
 .gitignore
+.github
 
 # Database (use mounted volume instead)
+storage/database/*.db-journal
+storage/database/*.db-wal
+storage/database/*.db-shm
 data/*.db
 data/*.db-journal
 
-# Uploads (use mounted volume instead)
+# Uploads & Cache (use mounted volume instead)
+storage/cache/*
+!storage/cache/.gitkeep
+storage/temp/*
+!storage/temp/.gitkeep
 uploads/*
 !uploads/.gitkeep
 

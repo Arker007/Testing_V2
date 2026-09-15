@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../../shared/context/SiteContext";
-import { Card, IconBox } from "@/shared/ui";
+import {
+  Card,
+  IconBox,
+  Input,
+  Textarea,
+  FormField,
+  Button,
+  CustomSelect,
+  Badge,
+  Alert
+} from "@/shared/ui";
 import { ContactTrustedRow } from "./ContactTrustedRow";
 import { useContactForm } from "../hooks/useContactForm";
-import styles from "../styles/contact.module.css";
+import styles from "../styles/quote-form.module.css";
+import mapStyles from "../styles/contact-map.module.css";
 
 export default function ContactFormSection() {
   const { c, co } = useSite();
@@ -18,6 +29,25 @@ export default function ContactFormSection() {
   } = useContactForm();
 
   const [copiedRef, setCopiedRef] = useState(false);
+  const [copiedCardKey, setCopiedCardKey] = useState(null);
+
+  const handleCopyCardText = (text, key) => {
+    if (text) {
+      navigator.clipboard.writeText(text);
+      setCopiedCardKey(key);
+      setTimeout(() => setCopiedCardKey(null), 2000);
+    }
+  };
+
+  const productOptions = useMemo(() => [
+    { value: "Industrial Pallets", label: "Industrial Pallets" },
+    { value: "Plastic Lumber", label: "Plastic Lumber" },
+    { value: "Garden Benches", label: "Garden Benches" },
+    { value: "Plastic Table", label: "Plastic Table" },
+    { value: "Garden Fence", label: "Garden Fence" },
+    { value: "Outdoor Furniture", label: "Outdoor Furniture" },
+    { value: "Custom Moulding", label: "Custom Moulding / Other" },
+  ], []);
 
   const handleCopyRef = () => {
     if (referenceId) {
@@ -29,7 +59,12 @@ export default function ContactFormSection() {
 
   // Fallbacks matching the website copy specs
   const contactPerson = c("contact_person", "Mr. Vinod Kumar Sharma");
-  const address = c("contact_address", "PLOT NO. 1706/06 , South 9 Road, G.I.D.C, Ankleshwar, Bharuch, GUJARAT, 393002");
+  const rawAddress = c("contact_address", "Plot No. 1706/06, South 9 Road, G.I.D.C., Ankleshwar, Bharuch, Gujarat, 393002");
+  const address = useMemo(() => {
+    if (!rawAddress) return "";
+    return rawAddress.replace(/\s+,/g, ",").replace(/PLOT NO\./gi, "Plot No.");
+  }, [rawAddress]);
+
   const phoneVal = co("phone", "+91 9898686379");
   const emailVal = c("contact_email", "Info@vishalenterpriseank.com");
   const gstinVal = co("gstin", "24AXCPS0336E1ZV");
@@ -41,35 +76,50 @@ export default function ContactFormSection() {
       <div className={styles.bgSlantDark} />
       <div className={`${styles.dotsPattern} dark:opacity-10`} />
 
-      <div className="container relative z-10">
-        <div className={styles.grid}>
-          {/* Left Column: Interactive Enquiry Form */}
-          <div className={`${styles.enquiryCard} bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-[var(--shadow-lg)] text-[var(--text-primary)]`} id="enquiry-card">
-            <div className={styles.formHeader}>
-              <div className="flex items-center gap-2 mb-1.5">
-                <span className="text-xs uppercase font-bold tracking-wider text-[var(--brand-primary)] px-2.5 py-0.5 rounded-[var(--radius-sm,4px)] bg-[var(--brand-soft)]">
-                  Direct Factory Desk
-                </span>
+      <div className="container max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          {/* BEGIN: RequestAQuoteForm */}
+          <Card
+            variant="default"
+            className="lg:col-span-7 p-4.5 sm:p-6 shadow-sm border border-[var(--border-subtle)] transition-all duration-200 hover:border-[var(--border-default)]"
+            data-purpose="quote-request-card"
+            id="enquiry-card"
+          >
+            {/* Header Section */}
+            <header className="mb-4 sm:mb-5">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-4 h-1 bg-[var(--brand-primary)] rounded-full inline-block" />
+                <span className="text-[11px] font-extrabold tracking-widest text-[var(--brand-primary)] uppercase">GET A QUOTE</span>
               </div>
-              <h2 className={`${styles.formTitle} text-[var(--text-primary)]`}>
-                Procurement & Inquiry Form
-              </h2>
-              <p className={styles.formSubText}>
-                Specify your volume, dimensions, or application requirements. Our sales team responds within 2 business hours.
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <h1 className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-snug">
+                  Request a <span className="text-[var(--brand-primary)]">Quote</span>
+                </h1>
+                {/* Quick Response Badge */}
+                <div className="flex items-center gap-2 bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] px-2.5 py-1.5 self-start sm:self-auto rounded-md">
+                  <Icon icon="carbon:checkmark-outline" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
+                  <div>
+                    <span className="block text-[11px] font-bold text-[var(--text-primary)] leading-tight">Quick Response</span>
+                    <span className="block text-[10px] text-[var(--text-muted)] font-medium leading-tight mt-0.5">Usually within 24 hours</span>
+                  </div>
+                </div>
+              </div>
+              <p className="text-[var(--text-secondary)] text-xs sm:text-sm leading-relaxed mt-1.5">
+                Share your requirements and our team will get back to you with the best solution and pricing.
               </p>
-            </div>
+            </header>
 
             {status === "sent" ? (
               <div className={styles.successBox}>
-                <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center mx-auto mb-2 text-emerald-500">
-                  <Icon icon="carbon:checkmark-filled" className="w-10 h-10" />
+                <div className="w-12 h-12 rounded-full bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20 flex items-center justify-center mx-auto mb-3 text-[var(--brand-primary)]">
+                  <Icon icon="carbon:checkmark" className="w-6 h-6" />
                 </div>
-                <p className="text-[var(--text-primary)] font-bold text-xl">Inquiry Sent Successfully</p>
+                <h3 className="text-[var(--text-primary)] font-bold text-lg mb-1">Quote Request Sent</h3>
                 
                 {referenceId && (
-                  <div className="my-2 inline-flex items-center gap-2 px-3 py-1.5 rounded-[var(--radius-btn,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
-                    <span className="text-xs text-[var(--text-muted)] font-mono font-medium">Reference:</span>
-                    <span className="text-xs font-mono font-bold text-[var(--text-primary)] tracking-wider">
+                  <div className="my-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
+                    <span className="text-xs text-[var(--text-muted)] font-mono">Ref:</span>
+                    <span className="text-xs font-mono font-semibold text-[var(--text-primary)]">
                       {referenceId}
                     </span>
                     <button
@@ -79,330 +129,493 @@ export default function ContactFormSection() {
                       title="Copy Reference Code"
                       aria-label="Copy reference code"
                     >
-                      <Icon icon={copiedRef ? "carbon:checkmark" : "carbon:copy"} className="w-4 h-4 text-[var(--brand-primary)]" />
+                      <Icon icon={copiedRef ? "carbon:checkmark" : "carbon:copy"} className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                     </button>
                   </div>
                 )}
 
-                <p className="text-[var(--text-secondary)]">
-                  Thank you for contacting us. Our sales team will get back to you within{" "}
-                  <strong className="text-[var(--text-primary)]">2 business hours</strong> with pricing and spec sheets.
+                <p className="text-[var(--text-secondary)] text-xs sm:text-sm mb-4">
+                  Thank you. We have received your inquiry and will follow up with pricing shortly.
                 </p>
-                <button
+                <Button
                   type="button"
-                  className={styles.successBtn}
+                  variant="outline"
+                  size="md"
                   onClick={resetStatus}
                 >
-                  Send Another Inquiry
-                </button>
+                  Submit Another Request
+                </Button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className={styles.contactForm}>
-                {/* Step 2 & 7: Visual Selectable Category Cards */}
-                <div className="mb-3">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-xs font-semibold text-[var(--text-secondary)]">
-                      Select Category or Type Below:
-                    </span>
-                    {form.productService && (
-                      <span className="text-[11px] font-medium text-[var(--brand-text)] flex items-center gap-1">
-                        <Icon icon="carbon:checkmark-filled" className="w-3.5 h-3.5" />
-                        Selected
-                      </span>
-                    )}
+              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+                {/* Step 1: Select Product */}
+                <div className="space-y-2.5">
+                  <div
+                    className={`${styles.formStepHeading || ""} text-xs font-semibold text-[var(--text-primary)] flex items-center gap-1.5`}
+                    role="heading"
+                    aria-level={2}
+                  >
+                    <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] font-bold text-[10px] shrink-0">1</span>
+                    <span>Select Product / Requirement</span>
+                    <span className="text-red-500 text-xs font-semibold">*</span>
                   </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    {[
-                      { label: "Industrial Pallets", icon: "carbon:cube" },
-                      { label: "Plastic Lumber", icon: "carbon:layers" },
-                      { label: "Garden Benches", icon: "carbon:tree" },
-                      { label: "Custom Profile", icon: "carbon:settings-adjust" },
-                    ].map((cat) => {
-                      const isSelected = form.productService === cat.label;
-                      return (
-                        <button
-                          key={cat.label}
-                          type="button"
-                          onClick={() => {
-                            const syntheticEvent = { target: { value: cat.label } };
-                            f("productService")(syntheticEvent);
-                          }}
-                          className={`flex items-center gap-2 px-3 py-2 text-xs font-semibold rounded-[var(--radius-btn,8px)] border transition-all text-left cursor-pointer min-h-[40px] whitespace-nowrap ${
-                            isSelected
-                              ? "bg-[var(--brand-soft)] text-[var(--text-brand)] border-[var(--brand-primary)] shadow-sm font-bold"
-                              : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] border-[var(--border-subtle)] hover:border-[var(--brand-primary)] hover:text-[var(--text-primary)]"
-                          }`}
-                        >
-                          <Icon icon={cat.icon} className="w-4 h-4 shrink-0 text-[var(--brand-text)]" />
-                          <span className="font-medium">{cat.label}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Product/Service & Name */}
-                <div className={styles.row2}>
-                  <div className={styles.inputFieldWrapper}>
-                    <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Icon icon="carbon:cube" className="w-5 h-5" />
-                    </div>
-                    <input
-                      id="productService"
-                      required
-                      className={`${styles.customInput} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-primary)]`}
+                  
+                  <div className="space-y-2">
+                    <CustomSelect
                       value={form.productService || ""}
-                      onChange={f("productService")}
-                      placeholder="e.g. Heavy Duty Pallets, Lumber"
+                      onChange={(val) => f("productService")({ target: { value: val } })}
+                      options={productOptions}
+                      placeholder="Select product or requirement"
                     />
-                  </div>
 
-                  <div className={styles.inputFieldWrapper}>
-                    <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Icon icon="carbon:user" className="w-5 h-5" />
+                    <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                      {[
+                        "Industrial Pallets",
+                        "Plastic Lumber",
+                        "Garden Benches",
+                        "Custom Moulding",
+                      ].map((cat) => {
+                        const isSelected = form.productService === cat;
+                        return (
+                          <button
+                            key={cat}
+                            type="button"
+                            onClick={() => f("productService")({ target: { value: cat } })}
+                            className="cursor-pointer"
+                          >
+                            <Badge
+                              variant={isSelected ? "brand" : "neutral"}
+                              size="sm"
+                              className={
+                                isSelected
+                                  ? "font-semibold shadow-xs text-xs py-0.5 px-2"
+                                  : "font-semibold text-xs py-0.5 px-2 text-[var(--text-primary)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] hover:border-[var(--brand-primary)]/50 transition-colors"
+                              }
+                            >
+                              {cat}
+                              {isSelected && (
+                                <Icon icon="carbon:checkmark" className="w-3 h-3 ml-1 inline" />
+                              )}
+                            </Badge>
+                          </button>
+                        );
+                      })}
                     </div>
-                    <input
-                      id="fullName"
-                      required
-                      className={`${styles.customInput} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-primary)]`}
-                      value={form.fullName || ""}
-                      onChange={f("fullName")}
-                      placeholder="Your Name"
-                    />
                   </div>
                 </div>
 
-                {/* Email & Country */}
-                <div className={styles.row2}>
-                  <div className={styles.inputFieldWrapper}>
-                    <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Icon icon="carbon:email" className="w-5 h-5" />
-                    </div>
-                    <input
-                      id="email"
-                      type="email"
-                      required
-                      className={`${styles.customInput} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-primary)]`}
-                      value={form.email || ""}
-                      onChange={f("email")}
-                      placeholder="Email"
-                    />
+                {/* Step 2: Contact Details */}
+                <div className="space-y-2.5">
+                  <div
+                    className={`${styles.formStepHeading || ""} text-xs font-semibold text-[var(--text-primary)] flex items-center gap-1.5`}
+                    role="heading"
+                    aria-level={2}
+                  >
+                    <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] font-bold text-[10px] shrink-0">2</span>
+                    <span>Your Details</span>
                   </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+                    {/* Full Name */}
+                    <FormField label="Full Name" htmlFor="fullName" required>
+                      <Input
+                        id="fullName"
+                        required
+                        type="text"
+                        size="sm"
+                        leftIcon="carbon:user"
+                        placeholder="Full name"
+                        value={form.fullName || ""}
+                        onChange={f("fullName")}
+                      />
+                    </FormField>
 
-                  <div className={styles.inputFieldWrapper}>
-                    <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Icon icon="carbon:globe" className="w-5 h-5" />
-                    </div>
-                    <select
-                      id="country"
-                      required
-                      className={`${styles.customSelect} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] focus:border-[var(--brand-primary)]`}
-                      value={form.country || "India"}
-                      onChange={f("country")}
-                    >
-                      <option value="India" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">India</option>
-                      <option value="United States" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">United States</option>
-                      <option value="United Kingdom" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">United Kingdom</option>
-                      <option value="United Arab Emirates" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">United Arab Emirates</option>
-                      <option value="Saudi Arabia" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">Saudi Arabia</option>
-                      <option value="Singapore" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">Singapore</option>
-                      <option value="Germany" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">Germany</option>
-                      <option value="Canada" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">Canada</option>
-                      <option value="Australia" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">Australia</option>
-                    </select>
+                    {/* Email Address */}
+                    <FormField label="Email Address" htmlFor="email" required>
+                      <Input
+                        id="email"
+                        required
+                        type="email"
+                        size="sm"
+                        leftIcon="carbon:email"
+                        placeholder="name@company.com"
+                        value={form.email || ""}
+                        onChange={f("email")}
+                      />
+                    </FormField>
+
+                    {/* Phone Number */}
+                    <FormField label="Phone Number" htmlFor="phone" required>
+                      <div className="flex items-center rounded-[var(--radius-input,6px)] border border-[var(--border-default)] bg-[var(--bg-surface)] focus-within:border-[var(--brand-primary)] focus-within:ring-2 focus-within:ring-[var(--brand-primary)]/20 transition-all overflow-hidden h-9 min-h-[36px]">
+                        <div className="relative flex items-center h-full shrink-0 border-r border-[var(--border-default)] bg-[var(--bg-surface-secondary)]">
+                          <select
+                            id="phonePrefix"
+                            className="h-full pl-2.5 pr-5 bg-transparent appearance-none text-base sm:text-xs font-normal text-[var(--text-primary)] focus:outline-none cursor-pointer z-10"
+                            value={form.phonePrefix || "+91"}
+                            onChange={f("phonePrefix")}
+                            aria-label="Country phone code"
+                          >
+                            <option value="+91" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+91 (IN)</option>
+                            <option value="+1" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+1 (US)</option>
+                            <option value="+44" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+44 (UK)</option>
+                            <option value="+971" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+971 (UAE)</option>
+                            <option value="+966" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+966 (KSA)</option>
+                            <option value="+65" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+65 (SG)</option>
+                            <option value="+49" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+49 (DE)</option>
+                            <option value="+61" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+61 (AU)</option>
+                          </select>
+                          <Icon icon="solar:alt-arrow-down-bold" className="w-2.5 h-2.5 text-[var(--text-muted)] absolute right-1.5 pointer-events-none z-0" />
+                        </div>
+                        <input
+                          id="phone"
+                          required
+                          type="tel"
+                          className="w-full h-full px-2.5 bg-transparent text-base sm:text-xs font-normal text-[var(--text-primary)] placeholder:text-[var(--text-disabled)] focus:outline-none"
+                          placeholder="Phone number"
+                          value={form.phone || ""}
+                          onChange={f("phone")}
+                        />
+                      </div>
+                    </FormField>
+
+                    {/* Company Name */}
+                    <FormField label="Company Name (Optional)" htmlFor="company">
+                      <Input
+                        id="company"
+                        type="text"
+                        size="sm"
+                        leftIcon="carbon:enterprise"
+                        placeholder="Company name"
+                        value={form.company || ""}
+                        onChange={f("company")}
+                      />
+                    </FormField>
                   </div>
                 </div>
 
-                {/* Phone prefix and input */}
-                <div className={styles.phoneInputRow}>
-                  <div>
-                    <select
-                      id="phonePrefix"
-                      className={`${styles.phonePrefixSelect} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] focus:border-[var(--brand-primary)]`}
-                      value={form.phonePrefix || "+91"}
-                      onChange={f("phonePrefix")}
-                    >
-                      <option value="+91" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+91</option>
-                      <option value="+1" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+1</option>
-                      <option value="+44" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+44</option>
-                      <option value="+971" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+971</option>
-                      <option value="+966" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+966</option>
-                      <option value="+65" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+65</option>
-                      <option value="+49" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+49</option>
-                      <option value="+61" className="bg-[var(--bg-surface-secondary)] text-[var(--text-primary)]">+61</option>
-                    </select>
+                {/* Step 3: Requirement Details */}
+                <div className="space-y-2.5">
+                  <div
+                    className={`${styles.formStepHeading || ""} text-xs font-semibold text-[var(--text-primary)] flex items-center gap-1.5`}
+                    role="heading"
+                    aria-level={2}
+                  >
+                    <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] font-bold text-[10px] shrink-0">3</span>
+                    <span>Requirement Details</span>
                   </div>
-                  <div className={styles.inputFieldWrapper}>
-                    <div className={`${styles.inputIcon} text-[var(--brand-text)]`}>
-                      <Icon icon="carbon:phone" className="w-5 h-5" />
-                    </div>
-                    <input
-                      id="phone"
-                      type="tel"
-                      required
-                      className={`${styles.customInput} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-primary)]`}
-                      value={form.phone || ""}
-                      onChange={f("phone")}
-                      placeholder="Phone / Mobile"
-                    />
-                  </div>
-                </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+                    {/* Estimated Quantity */}
+                    <FormField label="Estimated Quantity (Optional)" htmlFor="estimatedVolume">
+                      <Input
+                        id="estimatedVolume"
+                        type="text"
+                        size="sm"
+                        leftIcon="carbon:inventory-management"
+                        placeholder="e.g. 500 units"
+                        value={form.estimatedVolume || ""}
+                        onChange={f("estimatedVolume")}
+                      />
+                    </FormField>
 
-                {/* Message */}
-                <div className={styles.inputFieldWrapper}>
-                  <div className={`${styles.inputIcon} text-[var(--brand-text)]`} style={{ top: "1rem" }}>
-                    <Icon icon="carbon:chat" className="w-5 h-5" />
+                    {/* Target Application */}
+                    <FormField label="Target Application (Optional)" htmlFor="targetApplication">
+                      <Input
+                        id="targetApplication"
+                        type="text"
+                        size="sm"
+                        leftIcon="carbon:application"
+                        placeholder="e.g. Warehouse, Outdoor"
+                        value={form.targetApplication || ""}
+                        onChange={f("targetApplication")}
+                      />
+                    </FormField>
                   </div>
-                  <textarea
-                    id="message"
-                    required
-                    className={`${styles.customTextarea} bg-[var(--bg-surface-secondary)] border border-[var(--border-default)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--brand-primary)]`}
-                    style={{ paddingLeft: "2.75rem" }}
-                    rows={4}
-                    value={form.message || ""}
-                    onChange={f("message")}
-                    placeholder="Leave a Message for us"
-                  />
+
+                  {/* Specifications or Message */}
+                  <FormField label="Specifications or Message" htmlFor="message" required>
+                    <Textarea
+                      id="message"
+                      required
+                      rows={2.5}
+                      maxLength={1000}
+                      showCount
+                      className="text-xs py-2 px-3 min-h-[70px]"
+                      placeholder="Specifications, dimensions, or notes..."
+                      value={form.message || ""}
+                      onChange={f("message")}
+                    />
+                  </FormField>
                 </div>
 
                 {status === "error" && (
-                  <p className={styles.errorText} role="alert">
-                    <Icon icon="carbon:warning-alt" className="w-5 h-5 text-[var(--color-error)] shrink-0" />
-                    Sending failed. Please try again or contact us directly.
-                  </p>
+                  <Alert status="danger" variant="subtle" className="text-xs">
+                    Submission failed. Please try again or contact us directly.
+                  </Alert>
                 )}
 
-                <div className={styles.actionArea}>
-                  <button
+                {/* Bottom Action Buttons & Trust Badge */}
+                <div className="flex flex-col sm:flex-row items-stretch gap-2.5 pt-2 sm:pt-3">
+                  {/* Submit CTA */}
+                  <Button
                     type="submit"
-                    className="swipe-btn magic-shimmer-btn"
-                    disabled={status === "sending"}
+                    variant="primary"
+                    size="md"
+                    loading={status === "sending" || status === "loading"}
+                    loadingText="Sending..."
+                    className="w-full sm:w-auto shrink-0 font-bold min-h-[40px] text-xs sm:text-sm px-5"
+                    icon={<Icon icon="carbon:send-alt" className="w-4 h-4 mr-1.5 inline" />}
                     id="submit-message-btn"
                   >
-                    {status === "sending" ? (
-                      <>
-                        <Icon icon="carbon:renew" className="w-5 h-5 animate-spin" />
-                        <span className="btn-text">Sending Message...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span className="btn-text">Send Message</span>
-                        <span className="btn-icon-bubble">
-                          <Icon icon="carbon:send-alt" className="btn-arrow-icon w-4 h-4" />
-                        </span>
-                      </>
-                    )}
-                  </button>
+                    Send Quote Request
+                  </Button>
 
-                  <div className={styles.privacyNote}>
-                    <Icon icon="carbon:security" className={`${styles.privacyIcon} text-[var(--brand-text)] w-4 h-4`} />
-                    <span>We respect your privacy. Your information is safe with us.</span>
+                  {/* Secure Info Badge */}
+                  <div className="w-full sm:flex-1 flex items-center gap-2.5 px-3 py-2 bg-[var(--bg-surface-secondary)] dark:bg-emerald-950/20 border border-[var(--border-subtle)] dark:border-emerald-800/40 rounded-md min-h-[40px]">
+                    <div className="text-[var(--brand-primary)] shrink-0">
+                      <Icon icon="solar:shield-check-bold" className="w-4 h-4" />
+                    </div>
+                    <div className="text-[11px] leading-tight">
+                      <span className="block font-bold text-[var(--text-primary)]">Your information is secure</span>
+                      <span className="block text-[var(--text-muted)] text-[10px] mt-0.5">We respect your privacy and never share your data.</span>
+                    </div>
                   </div>
                 </div>
               </form>
             )}
-          </div>
+          </Card>
+          {/* END: RequestAQuoteForm */}
 
-          {/* Right Column: Contact Details & Info Cards */}
-          <div id="contact-details-column">
-            <div className={styles.rightTitleSection}>
-              <span className="text-xs font-bold uppercase tracking-wider text-[var(--brand-text)]">Get in Touch</span>
-              <h2 className={`${styles.rightTitle} text-[var(--heading)]`}>
-                Contact <span className="text-[var(--brand-text)]">Vishal</span> Enterprise
-              </h2>
-            </div>
+          {/* BEGIN: ContactVishalEnterprise */}
+          <section
+            className="lg:col-span-5 flex flex-col justify-between h-full relative"
+            data-purpose="contact-info-panel"
+            id="contact-details-column"
+          >
+            {/* Top Container */}
+            <div>
+              {/* Header Info */}
+              <div className="mb-4">
+                <h2 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] tracking-tight">
+                  Contact Information
+                </h2>
+                <p className="text-[var(--text-secondary)] text-xs sm:text-sm mt-0.5">
+                  Direct channels for sales inquiries, technical support, and plant visits.
+                </p>
+              </div>
 
-            {/* Info Cards List */}
-            <div className={styles.infoCardsGrid}>
-              {/* Card 1: Contact Person */}
-              <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-person">
-                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
-                  <Icon icon="carbon:user" className="w-5 h-5" />
+              {/* Contact Cards Stack */}
+              <div className="space-y-3">
+                {/* Card 1: Sales Contact */}
+                <div
+                  className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm"
+                  id="info-card-person"
+                >
+                  <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
+                    <Icon icon="solar:user-linear" className="w-5 h-5" />
+                  </div>
+                  <div className="pt-0.5 flex-1 min-w-0">
+                    <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Sales & Technical Contact</span>
+                    <h3 className="text-sm sm:text-[15px] !text-sm font-extrabold text-[var(--text-primary)] mt-0.5">{contactPerson}</h3>
+                    <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5 leading-relaxed">Product guidance, technical support, and quotations.</p>
+                  </div>
                 </div>
-                <div className={styles.infoCardContent}>
-                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Sales & Technical Contact</span>
-                  <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-bold`}>{contactPerson}</p>
-                </div>
-              </Card>
 
-              {/* Card 2: Address */}
-              <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-address">
-                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
-                  <Icon icon="carbon:location" className="w-5 h-5" />
+                {/* Card 2: Plant & Works */}
+                <div
+                  className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm group"
+                  id="info-card-address"
+                >
+                  <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
+                    <Icon icon="solar:map-point-linear" className="w-5 h-5" />
+                  </div>
+                  <div className="pt-0.5 flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Manufacturing Plant & Works</span>
+                      <button
+                        type="button"
+                        onClick={() => handleCopyCardText(address, "address")}
+                        className="inline-flex items-center gap-1 text-[10px] font-semibold text-[var(--text-muted)] hover:text-[var(--brand-primary)] transition-colors py-0.5 px-1.5 rounded bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] cursor-pointer shrink-0"
+                        title="Copy full address"
+                      >
+                        {copiedCardKey === "address" ? (
+                          <>
+                            <Icon icon="solar:check-circle-bold" className="w-3 h-3 text-emerald-600" />
+                            <span className="text-emerald-600 font-semibold">Copied</span>
+                          </>
+                        ) : (
+                          <>
+                            <Icon icon="solar:copy-bold" className="w-3 h-3" />
+                            <span>Copy</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                    <h3 className="text-sm sm:text-[15px] !text-sm font-extrabold text-[var(--text-primary)] leading-snug mt-0.5">
+                      {address}
+                    </h3>
+                  </div>
                 </div>
-                <div className={styles.infoCardContent}>
-                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Manufacturing Plant & Works</span>
-                  <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-semibold leading-snug tabular-nums`}>{address}</p>
-                </div>
-              </Card>
 
-              {/* Card 3: Mobile */}
-              <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-mobile">
-                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
-                  <Icon icon="carbon:phone" className="w-5 h-5" />
+                {/* Card 3: Direct Sales Line */}
+                <div
+                  className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm"
+                  id="info-card-mobile"
+                >
+                  <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
+                    <Icon icon="solar:phone-linear" className="w-5 h-5" />
+                  </div>
+                  <div className="pt-0.5 flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Direct Sales Line</span>
+                      <button
+                        type="button"
+                        onClick={() => handleCopyCardText(phoneVal, "phone")}
+                        className="inline-flex items-center gap-1 text-[10px] font-semibold text-[var(--text-muted)] hover:text-[var(--brand-primary)] transition-colors py-0.5 px-1.5 rounded bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] cursor-pointer shrink-0"
+                        title="Copy phone number"
+                      >
+                        {copiedCardKey === "phone" ? (
+                          <>
+                            <Icon icon="solar:check-circle-bold" className="w-3 h-3 text-emerald-600" />
+                            <span className="text-emerald-600 font-semibold">Copied</span>
+                          </>
+                        ) : (
+                          <>
+                            <Icon icon="solar:copy-bold" className="w-3 h-3" />
+                            <span>Copy</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <h3 className="!text-sm sm:!text-[15px] !font-extrabold text-[var(--text-primary)]">
+                        <a
+                          className="hover:text-[var(--brand-primary)] transition-colors inline-flex items-center gap-1.5"
+                          href={`tel:${phoneVal.replace(/\s+/g, "")}`}
+                        >
+                          <span>{phoneVal}</span>
+                          <Icon icon="solar:alt-arrow-right-bold" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
+                        </a>
+                      </h3>
+                    </div>
+                    <p className="text-xs text-[var(--text-muted)] font-medium mt-0.5">Mon – Sat, 9:00 AM – 6:00 PM</p>
+                  </div>
                 </div>
-                <div className={styles.infoCardContent}>
-                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Direct Sales Line</span>
-                  <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-semibold tabular-nums`}>
-                    <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="hover:underline text-[var(--text-primary)] hover:text-[var(--brand-primary)] transition-colors">
-                      {phoneVal}
-                    </a>
-                  </p>
-                </div>
-              </Card>
 
-              {/* Card 4: Email */}
-              <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-email">
-                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
-                  <Icon icon="carbon:email" className="w-5 h-5" />
+                {/* Card 4: Official Email */}
+                <div
+                  className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm"
+                  id="info-card-email"
+                >
+                  <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
+                    <Icon icon="solar:letter-linear" className="w-5 h-5" />
+                  </div>
+                  <div className="pt-0.5 flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Official Procurement Email</span>
+                      <button
+                        type="button"
+                        onClick={() => handleCopyCardText(emailVal, "email")}
+                        className="inline-flex items-center gap-1 text-[10px] font-semibold text-[var(--text-muted)] hover:text-[var(--brand-primary)] transition-colors py-0.5 px-1.5 rounded bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] cursor-pointer shrink-0"
+                        title="Copy email address"
+                      >
+                        {copiedCardKey === "email" ? (
+                          <>
+                            <Icon icon="solar:check-circle-bold" className="w-3 h-3 text-emerald-600" />
+                            <span className="text-emerald-600 font-semibold">Copied</span>
+                          </>
+                        ) : (
+                          <>
+                            <Icon icon="solar:copy-bold" className="w-3 h-3" />
+                            <span>Copy</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                    <h3 className="!text-sm sm:!text-[15px] !font-extrabold text-[var(--text-primary)] mt-0.5">
+                      <a
+                        className="hover:text-[var(--brand-primary)] transition-colors inline-flex items-center gap-1.5 break-all"
+                        href={`mailto:${emailVal}`}
+                      >
+                        <span>{emailVal}</span>
+                        <Icon icon="solar:alt-arrow-right-bold" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
+                      </a>
+                    </h3>
+                    <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5 leading-relaxed">For purchase orders, RFQs, and bulk inquiries.</p>
+                  </div>
                 </div>
-                <div className={styles.infoCardContent}>
-                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Official Procurement Email</span>
-                  <p className={`${styles.infoCardValue} text-[var(--text-primary)]`}>
-                    <a href={`mailto:${emailVal}`} className="hover:underline text-[var(--text-brand)] font-bold">
-                      {emailVal}
-                    </a>
-                  </p>
-                </div>
-              </Card>
 
-              {/* Card 5: GSTIN */}
-              <Card variant="default" className="p-4 flex items-center gap-4 transition-all hover:border-[var(--brand-primary)]/40" id="info-card-gstin">
-                <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
-                  <Icon icon="carbon:certificate" className="w-5 h-5" />
+                {/* Card 5: GSTIN Details */}
+                <div
+                  className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm"
+                  id="info-card-gstin"
+                >
+                  <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
+                    <Icon icon="solar:document-text-linear" className="w-5 h-5" />
+                  </div>
+                  <div className="pt-0.5 flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-1.5">
+                        <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Goods & Services Tax (GSTIN)</span>
+                        <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/60 px-1.5 py-0.2 rounded border border-emerald-300 dark:border-emerald-700">
+                          <Icon icon="solar:verified-check-bold" className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-400" />
+                          <span>Verified</span>
+                        </span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => handleCopyCardText(gstinVal, "gstin")}
+                        className="inline-flex items-center gap-1 text-[10px] font-semibold text-[var(--text-muted)] hover:text-[var(--brand-primary)] transition-colors py-0.5 px-1.5 rounded bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] cursor-pointer shrink-0"
+                        title="Copy GSTIN"
+                      >
+                        {copiedCardKey === "gstin" ? (
+                          <>
+                            <Icon icon="solar:check-circle-bold" className="w-3 h-3 text-emerald-600" />
+                            <span className="text-emerald-600 font-semibold">Copied</span>
+                          </>
+                        ) : (
+                          <>
+                            <Icon icon="solar:copy-bold" className="w-3 h-3" />
+                            <span>Copy</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                    <h3 className="!text-sm sm:!text-[15px] !font-extrabold text-[var(--text-primary)] tracking-wider mt-0.5 font-mono">{gstinVal}</h3>
+                    <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5 leading-relaxed">Official tax registration for billing and compliance.</p>
+                  </div>
                 </div>
-                <div className={styles.infoCardContent}>
-                  <span className={`${styles.infoCardLabel} text-[var(--text-muted)]`}>Goods & Services Tax (GSTIN)</span>
-                  <p className={`${styles.infoCardValue} text-[var(--text-primary)] font-bold tracking-wider tabular-nums`}>
-                    {gstinVal}
-                  </p>
-                </div>
-              </Card>
-            </div>
 
-            {/* Immediate Assistance Banner */}
-            <div className="mt-6 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--brand-primary)]/40 rounded-[var(--radius-card,12px)] shadow-[var(--shadow-sm)]" id="assistance-banner">
-              <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center shrink-0">
-                  <Icon icon="carbon:headset" className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="block font-bold text-[var(--text-primary)] text-sm sm:text-base">Need Immediate Assistance?</span>
-                  <p className="text-xs text-[var(--text-secondary)] mt-0.5">Our team is ready to help you with your requirements.</p>
+                {/* Card 6: Immediate Assistance CTA */}
+                <div
+                  className="bg-[var(--bg-surface)] p-4 sm:p-5 border border-[var(--border-subtle)] shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm"
+                  id="assistance-banner"
+                >
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
+                      <Icon icon="solar:headphones-round-linear" className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-extrabold text-[var(--text-primary)]">Need Immediate Assistance?</h4>
+                      <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5">Our technical team is ready to assist your bulk order.</p>
+                    </div>
+                  </div>
+                  <a
+                    className="px-4 py-2 bg-[var(--brand-primary)] text-white hover:bg-[var(--brand-hover)] text-xs font-bold flex items-center gap-1.5 transition-colors whitespace-nowrap rounded-lg no-underline cursor-pointer shadow-xs"
+                    href={`tel:${phoneVal.replace(/\s+/g, "")}`}
+                  >
+                    <Icon icon="solar:phone-calling-bold" className="w-3.5 h-3.5 text-white" />
+                    <span>Call Sales Now</span>
+                  </a>
                 </div>
               </div>
-              <a href={`tel:${phoneVal.replace(/\s+/g, "")}`} className="inline-flex items-center gap-2 bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-white font-bold text-xs px-4 py-2.5 rounded-[var(--radius-btn,8px)] shadow-xs transition-all shrink-0 no-underline">
-                <Icon icon="carbon:phone" className="w-4 h-4 text-white" />
-                Call Now
-              </a>
             </div>
-          </div>
+          </section>
+          {/* END: ContactVishalEnterprise */}
         </div>
 
         {/* Embedded Map Section */}
-        <Card variant="default" className="mt-10 p-6" id="embedded-map-container">
-          <div className={styles.mapHeader}>
-            <div className={styles.mapTitleGroup}>
+        <Card variant="default" className="mt-10 p-6 border border-[var(--border-subtle)] rounded-xl shadow-sm" id="embedded-map-container">
+          <div className={mapStyles.mapHeader}>
+            <div className={mapStyles.mapTitleGroup}>
               <IconBox icon="carbon:location" variant="brand" size="md" />
               <div>
                 <span className="block font-bold text-[var(--text-primary)] text-base">Find Our Manufacturing Facility</span>

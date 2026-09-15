@@ -2,7 +2,7 @@ export const HUB_LOCATIONS = [
   {
     type: "Main Factory & HQ",
     name: "Ankleshwar Factory Campus",
-    address: "PLOT NO. 1706/06 , South 9 Road, G.I.D.C, Ankleshwar, Bharuch, GUJARAT, 393002",
+    address: "Plot No. 1706/06, South 9 Road, G.I.D.C., Ankleshwar, Bharuch, Gujarat, 393002",
     phone: "+91 9898686379",
     email: "Info@vishalenterpriseank.com",
     gstin: "24AXCPS0336E1ZV",

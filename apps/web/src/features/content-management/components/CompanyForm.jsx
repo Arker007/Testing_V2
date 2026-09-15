@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react";
+import { Input, Textarea, OptimizedImage } from "@/shared/ui";
 import cStyles from "../styles/SiteContent.module.css";
 
 export default function CompanyForm({
@@ -43,7 +44,7 @@ export default function CompanyForm({
                   </label>
                   <div className={cStyles.imageUploadContainer}>
                     {val ? (
-                      <img
+                      <OptimizedImage
                         src={val}
                         alt="Logo Preview"
                         className={cStyles.imagePreview}
@@ -78,11 +79,8 @@ export default function CompanyForm({
             if (f.type === "textarea") {
               return (
                 <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: "1 / -1" }}>
-                  <label className={cStyles.formLabel}>
-                    {f.label}
-                  </label>
-                  <textarea
-                    className={cStyles.formTextarea}
+                  <Textarea
+                    label={f.label}
                     rows={3}
                     placeholder={f.placeholder}
                     value={val}
@@ -94,12 +92,9 @@ export default function CompanyForm({
 
             return (
               <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: f.key === "address" || f.key === "description" ? "1 / -1" : "span 1" }}>
-                <label className={cStyles.formLabel}>
-                  {f.label}
-                </label>
-                <input
+                <Input
+                  label={f.label}
                   type="text"
-                  className={cStyles.formInput}
                   placeholder={f.placeholder}
                   value={val}
                   onChange={setCo(f.key)}

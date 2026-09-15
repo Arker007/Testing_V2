@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { Icon } from "@iconify/react";
 import { Badge } from "@/shared/ui";
 import { ContactInfoItem } from "./ContactInfoItem";
-import styles from "../styles/contact.module.css";
+import styles from "../styles/contact-info-cards.module.css";
 
 const WhatsAppIcon = () => (
   <motion.div

@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
-import { Icon } from "@iconify/react";
 import PublicLayout from "../layouts/PublicLayout";
 import Home from "../../pages/Home";
 import Spinner from "../../shared/ui/feedback/Spinner";
@@ -34,27 +33,27 @@ const Sustainability = lazyRetry(() => import("../../pages/Sustainability"));
 
 // Admin pages — separate chunk, never loaded on public pages
 const AdminLayout = lazyRetry(() => import("../layouts/AdminLayout"));
-const AdminLogin = lazyRetry(() => import("../../features/auth/components/Login"));
-const Dashboard = lazyRetry(() => import("../../features/admin/components/Dashboard"));
-const AdminProducts = lazyRetry(() => import("../../features/products/admin/AdminProducts"));
+const AdminLogin = lazyRetry(() => import("../../pages/LoginPage"));
+const Dashboard = lazyRetry(() => import("../../pages/admin/DashboardPage"));
+const AdminProducts = lazyRetry(() => import("../../pages/admin/AdminProductsPage"));
 const AdminProductEditor = lazyRetry(
-  () => import("../../features/products/admin/AdminProductEditor")
+  () => import("../../pages/admin/AdminProductEditorPage")
 );
-const AdminCategories = lazyRetry(() => import("../../features/products/categories/AdminCategories"));
+const AdminCategories = lazyRetry(() => import("../../pages/admin/AdminCategoriesPage"));
 const AdminCategoryEditor = lazyRetry(
-  () => import("../../features/products/categories/AdminCategoryEditor")
+  () => import("../../pages/admin/AdminCategoryEditorPage")
 );
-const AdminInquiries = lazyRetry(() => import("../../features/inquiries/components/AdminInquiries"));
+const AdminInquiries = lazyRetry(() => import("../../pages/admin/AdminInquiriesPage"));
 const AdminInquiryDetail = lazyRetry(
-  () => import("../../features/inquiries/components/AdminInquiryDetail")
+  () => import("../../pages/admin/AdminInquiryDetailPage")
 );
-const AdminMedia = lazyRetry(() => import("../../features/media/components/AdminMedia"));
-const AdminCatalog = lazyRetry(() => import("../../features/catalog/components/AdminCatalog"));
+const AdminMedia = lazyRetry(() => import("../../pages/admin/AdminMediaPage"));
+const AdminCatalog = lazyRetry(() => import("../../pages/admin/AdminCatalogPage"));
 const SiteContent = lazyRetry(
-  () => import("../../features/content-management/components/SiteContent")
+  () => import("../../pages/admin/SiteContentPage")
 );
 const AdminSettings = lazyRetry(
-  () => import("../../features/admin/components/AdminSettings")
+  () => import("../../pages/admin/AdminSettingsPage")
 );
 const NotFound = lazyRetry(() => import("../../pages/NotFound"));
 

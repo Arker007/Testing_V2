@@ -2,7 +2,8 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
+import { Badge, OptimizedImage } from "@/shared/ui";
 import styles from "../styles/navbar.module.css";
 
 export default function NavbarSearch({
@@ -224,15 +225,11 @@ export default function NavbarSearch({
                         }}
                       >
                         <div className={styles.suggestionThumbWrap}>
-                          <img
+                          <OptimizedImage
                             src={imgUrl}
                             alt={p.name}
+                            fallbackSrc="/uploads/products/pallets/pallets-1770374237161-67758.webp"
                             className={styles.suggestionThumbImg}
-                            onError={(e) => {
-                              e.target.onerror = null;
-                              e.target.src =
-                                "/uploads/products/pallets/pallets-1770374237161-67758.webp";
-                            }}
                           />
                         </div>
                         <div className={styles.suggestionMeta}>
@@ -241,9 +238,9 @@ export default function NavbarSearch({
                           </span>
                           <div className={styles.suggestionSubRow}>
                             {catName && (
-                              <span className={styles.suggestionCategoryBadge}>
+                              <Badge variant="brand" size="xs">
                                 {catName}
-                              </span>
+                              </Badge>
                             )}
                             {p.sku && (
                               <span className={styles.suggestionSku}>

@@ -1,6 +1,6 @@
 import React from "react";
 // eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { OptimizedImage } from "@/shared/ui";
 import { Badge } from "@/shared/ui";
 import styles from "./Industries.module.css";

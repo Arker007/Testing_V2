@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import { Input, Button, Alert } from "@/shared/ui";
 import styles from "../../../admin/styles/AdminTable.module.css";
 
 export default function SpecsTab({
@@ -17,21 +18,11 @@ export default function SpecsTab({
         <Icon icon="carbon:settings" className="w-4 h-4 mr-1 inline" /> Category Specification Matrix
       </div>
       {filteredCatFields.length > 0 ? (
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-            gap: "20px",
-            marginBottom: "32px",
-          }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
           {filteredCatFields.map((fld, idx) => (
-            <div key={idx} className={styles.formGroup}>
-              <label className={styles.formLabel}>
-                {fld.label || fld.name}
-              </label>
-              <input
-                className={styles.formInput}
+            <div key={idx}>
+              <Input
+                label={fld.label || fld.name}
                 value={form.specifications[fld.name] || ""}
                 onChange={(e) =>
                   setForm((prev) => ({
@@ -51,20 +42,10 @@ export default function SpecsTab({
           ))}
         </div>
       ) : (
-        <div
-          style={{
-            background: "var(--bg-section)",
-            padding: "20px",
-            borderRadius: "var(--radius-admin, 8px)",
-            border: "1px solid var(--border)",
-            color: "var(--text-muted)",
-            fontSize: "0.8125rem",
-            marginBottom: "32px",
-          }}
-        >
-          <Icon icon="carbon:information" className="w-4 h-4 mr-1 inline" /> Select a category tree
-          directory on the Core Details tab to enable product specification
-          attributes.
+        <div className="mb-8">
+          <Alert variant="info">
+            Select a category directory on the Core Details tab to enable product specification attributes.
+          </Alert>
         </div>
       )}
 
@@ -82,7 +63,7 @@ export default function SpecsTab({
         B2B catalog.
       </p>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+      <div className="flex flex-col gap-3">
         {form.features.map((feat, idx) => (
           <div
             key={idx}
@@ -90,75 +71,62 @@ export default function SpecsTab({
             onDragStart={(e) => handleFeatureDragStart(e, idx)}
             onDragOver={handleFeatureDragOver}
             onDrop={(e) => handleFeatureDrop(e, idx)}
-            style={{
-              display: "flex",
-              gap: "10px",
-              alignItems: "center",
-              background:
-                draggedFeatureIndex === idx
-                  ? "var(--warning-bg)"
-                  : "transparent",
-              borderRadius: "var(--radius-admin, 8px)",
-              transition: "background 0.2s",
-            }}
+            className={`flex gap-2.5 items-center rounded-lg transition-colors ${
+              draggedFeatureIndex === idx ? "bg-[var(--warning-bg)]" : ""
+            }`}
           >
             <div
-              style={{
-                cursor: "grab",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "36px",
-                height: "42px",
-                border: "1px solid var(--border)",
-                borderRadius: "var(--radius-admin, 8px)",
-                background: "var(--bg-surface)",
-                color: "var(--text-muted)",
-              }}
+              className="cursor-grab flex items-center justify-center w-9 h-10 border border-[var(--border)] rounded-lg bg-[var(--bg-surface)] text-[var(--text-muted)] shrink-0"
               title="Drag to reorder"
             >
               <Icon icon="carbon:menu" className="w-4 h-4" />
             </div>
-            <input
-              className={styles.formInput}
-              style={{ flex: 1 }}
-              value={feat}
-              onChange={(e) =>
-                setForm((prev) => {
-                  const copy = [...prev.features];
-                  copy[idx] = e.target.value;
-                  return { ...prev, features: copy };
-                })
-              }
-              placeholder="e.g. UV Stabilised polymer construction..."
-            />
-            <button
+            <div className="flex-1">
+              <Input
+                value={feat}
+                onChange={(e) =>
+                  setForm((prev) => {
+                    const copy = [...prev.features];
+                    copy[idx] = e.target.value;
+                    return { ...prev, features: copy };
+                  })
+                }
+                placeholder="e.g. UV Stabilised polymer construction..."
+              />
+            </div>
+            <Button
               type="button"
-              className={styles.delBtn}
+              variant="ghost"
+              size="sm"
+              className="!p-1.5 !h-auto text-rose-500 hover:text-rose-700 hover:bg-rose-500/10 rounded-lg shrink-0"
               onClick={() =>
                 setForm((prev) => ({
                   ...prev,
                   features: prev.features.filter((_, i) => i !== idx),
                 }))
               }
+              title="Remove Feature"
             >
               <Icon icon="carbon:trash-can" className="w-4 h-4" />
-            </button>
+            </Button>
           </div>
         ))}
-        <button
-          type="button"
-          className={styles.actionBtnSecondary}
-          style={{ alignSelf: "flex-start", marginTop: "4px" }}
-          onClick={() =>
-            setForm((prev) => ({
-              ...prev,
-              features: [...prev.features, ""],
-            }))
-          }
-        >
-          <Icon icon="carbon:add-alt" className="w-4 h-4 mr-1 inline" /> Add Highlight Feature
-        </button>
+        <div className="pt-1">
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            icon={<Icon icon="carbon:add-alt" className="w-4 h-4 mr-1.5" />}
+            onClick={() =>
+              setForm((prev) => ({
+                ...prev,
+                features: [...prev.features, ""],
+              }))
+            }
+          >
+            Add Highlight Feature
+          </Button>
+        </div>
       </div>
     </div>
   );

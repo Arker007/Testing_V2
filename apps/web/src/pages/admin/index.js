@@ -1,0 +1,11 @@
+export { default as DashboardPage } from "./DashboardPage";
+export { default as AdminProductsPage } from "./AdminProductsPage";
+export { default as AdminProductEditorPage } from "./AdminProductEditorPage";
+export { default as AdminCategoriesPage } from "./AdminCategoriesPage";
+export { default as AdminCategoryEditorPage } from "./AdminCategoryEditorPage";
+export { default as AdminInquiriesPage } from "./AdminInquiriesPage";
+export { default as AdminInquiryDetailPage } from "./AdminInquiryDetailPage";
+export { default as AdminMediaPage } from "./AdminMediaPage";
+export { default as AdminCatalogPage } from "./AdminCatalogPage";
+export { default as SiteContentPage } from "./SiteContentPage";
+export { default as AdminSettingsPage } from "./AdminSettingsPage";

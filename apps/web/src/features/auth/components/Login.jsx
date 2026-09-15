@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { useSite } from '../../../shared/context/SiteContext';
+import { Input, Button, Alert, Card, CardContent } from '@/shared/ui';
 import styles from '../styles/Login.module.css';
+
+import { AuthService } from '../services/auth.service';
 
 export default function AdminLogin() {
     const { co } = useSite();
@@ -16,11 +19,9 @@ export default function AdminLogin() {
         const token = localStorage.getItem('admin_token');
         if (!token) return;
 
-        fetch('/api/auth/me', {
-            headers: { Authorization: `Bearer ${token}` },
-        })
+        AuthService.me(token)
             .then((res) => {
-                if (res.ok) {
+                if (res) {
                     navigate('/admin/dashboard', { replace: true });
                     return;
                 }
@@ -36,20 +37,15 @@ export default function AdminLogin() {
         setError('');
         setLoading(true);
         try {
-            const res = await fetch('/api/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(form),
-            });
-            const data = await res.json();
-            if (res.ok && data.token) {
+            const data = await AuthService.login(form.username, form.password);
+            if (data && data.token) {
                 localStorage.setItem('admin_token', data.token);
                 navigate('/admin/dashboard', { replace: true });
             } else {
                 setError(data.message || data.error || 'Invalid gateway parameters provided.');
             }
-        } catch {
-            setError('Connection failure encountered with validation firewall.');
+        } catch (err) {
+            setError(err.message || 'Connection failure encountered with validation firewall.');
         } finally {
             setLoading(false);
         }
@@ -84,57 +80,78 @@ export default function AdminLogin() {
             {/* Right credentials input workspace view */}
             <div className={styles.formPanel}>
                 <div className={styles.formWrap}>
-                    <h2 className={styles.formTitle}>Terminal Sign In</h2>
-                    <p className={styles.formSub}>Provide access variables to open connection</p>
+                    <Card variant="elevated" className="border-[var(--border-subtle)] bg-[var(--bg-surface)]">
+                        <CardContent className="p-8">
+                            <h2 className={styles.formTitle}>Terminal Sign In</h2>
+                            <p className={styles.formSub}>Provide access variables to open connection</p>
 
-                    <form onSubmit={handleSubmit} className={styles.form}>
-                        <div className="form-group">
-                            <label className="form-label" style={{ fontWeight: 600, fontSize: '13px', display: 'block', marginBottom: '6px' }}>Username Address</label>
-                            <div className={styles.inputWrap}>
-                                <Icon icon="carbon:user" className={`${styles.inputIcon} w-4 h-4`} />
-                                <input
-                                    className={styles.paddedInput}
-                                    type="text"
-                                    placeholder="Enter authorization user..."
-                                    required
-                                    value={form.username}
-                                    onChange={e => setForm(f => ({ ...f, username: e.target.value }))}
-                                />
-                            </div>
-                        </div>
+                            <form onSubmit={handleSubmit} className="space-y-4 mt-6">
+                                <div className="space-y-1.5">
+                                    <label htmlFor="login-username" className="block text-xs font-semibold text-[var(--text-primary)]">
+                                        Username Address
+                                    </label>
+                                    <Input
+                                        id="login-username"
+                                        type="text"
+                                        placeholder="Enter authorization user..."
+                                        required
+                                        value={form.username}
+                                        onChange={e => setForm(f => ({ ...f, username: e.target.value }))}
+                                        leftIcon="carbon:user"
+                                    />
+                                </div>
 
-                        <div className="form-group">
-                            <label className="form-label" style={{ fontWeight: 600, fontSize: '13px', display: 'block', marginBottom: '6px' }}>Password Cipher</label>
-                            <div className={styles.inputWrap}>
-                                <Icon icon="carbon:password" className={`${styles.inputIcon} w-4 h-4`} />
-                                <input
-                                    className={styles.brandInput || styles.paddedInput}
-                                    type={showPw ? 'text' : 'password'}
-                                    placeholder="••••••••"
-                                    required
-                                    value={form.password}
-                                    onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
-                                />
-                                <button type="button" className={styles.eye} onClick={() => setShowPw(v => !v)}>
-                                    <Icon icon={showPw ? "carbon:view-off" : "carbon:view"} className="w-4 h-4" />
-                                </button>
-                            </div>
-                        </div>
+                                <div className="space-y-1.5">
+                                    <label htmlFor="login-password" className="block text-xs font-semibold text-[var(--text-primary)]">
+                                        Password Cipher
+                                    </label>
+                                    <Input
+                                        id="login-password"
+                                        type={showPw ? 'text' : 'password'}
+                                        placeholder="••••••••"
+                                        required
+                                        value={form.password}
+                                        onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
+                                        leftIcon="carbon:password"
+                                        rightIcon={
+                                            <button
+                                                type="button"
+                                                className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer"
+                                                onClick={() => setShowPw(v => !v)}
+                                                tabIndex={-1}
+                                                aria-label={showPw ? "Hide password" : "Show password"}
+                                            >
+                                                <Icon icon={showPw ? "carbon:view-off" : "carbon:view"} className="w-4 h-4" />
+                                            </button>
+                                        }
+                                    />
+                                </div>
 
-                        {error && (
-                            <div className={styles.errorBox}>
-                                <Icon icon="carbon:warning-alt" className="w-4 h-4" /> {error}
-                            </div>
-                        )}
+                                {error && (
+                                    <Alert status="danger" variant="subtle" className="text-xs">
+                                        {error}
+                                    </Alert>
+                                )}
 
-                        <button type="submit" className={styles.submitBtn} disabled={loading}>
-                            {loading ? <><Icon icon="carbon:circle-dash" className="w-4 h-4 animate-spin" /> Resolving Verification...</> : <><Icon icon="carbon:login" className="w-4 h-4 mr-1.5 inline" /> Connect Node</>}
-                        </button>
-                    </form>
+                                <Button
+                                    type="submit"
+                                    variant="primary"
+                                    loading={loading}
+                                    loadingText="Resolving Verification..."
+                                    className="w-full mt-2"
+                                    icon={<Icon icon="carbon:login" className="w-4 h-4 mr-1.5 inline" />}
+                                >
+                                    Connect Node
+                                </Button>
+                            </form>
 
-                    <p className={styles.back}>
-                        <a href="/"><Icon icon="carbon:arrow-left" className="w-4 h-4 inline mr-1" /> Back to Website</a>
-                    </p>
+                            <p className={`${styles.back} mt-6`}>
+                                <Link to="/" className="inline-flex items-center text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
+                                    <Icon icon="carbon:arrow-left" className="w-4 h-4 mr-1" /> Back to Website
+                                </Link>
+                            </p>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
         </div>

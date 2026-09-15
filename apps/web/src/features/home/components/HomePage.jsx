@@ -3,7 +3,8 @@ import useDocumentTitle from "../../../shared/hooks/useDocumentTitle";
 import { useSite } from "../../../shared/context/SiteContext";
 import styles from "../home.module.css";
 import ProductsShowcase from "./ProductsShowcase";
-import { FeaturesSection, SectionHeader } from "@/shared/ui";
+import { FeaturesSection } from "./Features";
+import { SectionHeader } from "@/shared/ui";
 import {
   HomeHero,
   HomeHeroMobile,

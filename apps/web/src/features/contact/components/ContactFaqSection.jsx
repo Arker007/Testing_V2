@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../../shared/context/SiteContext";
-import { Badge, CtaCard, Accordion } from "@/shared/ui";
+import { Badge, CtaCard, FaqAccordion } from "@/shared/ui";
 import { FAQ_ITEMS } from "../constants";
 
 const WhatsAppIcon = () => (
@@ -64,7 +64,7 @@ export default function ContactFaqSection() {
           </motion.div>
 
           {/* Accordion FAQ List without icons and category badges */}
-          <Accordion items={accordionItems} defaultOpenIndex={0} allowMultiple={true} />
+          <FaqAccordion items={accordionItems} defaultOpenIndex={0} allowMultiple={true} />
         </div>
       </section>
 
@@ -81,14 +81,14 @@ export default function ContactFaqSection() {
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[var(--radius-btn,8px)] bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-btn,8px)] bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow-sm transition-all whitespace-nowrap"
             >
               <WhatsAppIcon />
               <span>Chat on WhatsApp</span>
             </a>
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-[var(--radius-btn,8px)] border border-slate-200/90 dark:border-[var(--border-subtle)] bg-slate-100/80 dark:bg-white/5 hover:bg-slate-200/80 dark:hover:bg-white/10 text-slate-800 dark:text-slate-200 font-bold text-sm transition-colors shadow-2xs"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-btn,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] hover:bg-[var(--bg-surface-tertiary)] hover:border-[var(--border-default)] text-[var(--text-primary)] text-sm font-bold transition-all shadow-2xs whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
               <AnimatedCatalogIcon />
               <span>Explore Catalog</span>

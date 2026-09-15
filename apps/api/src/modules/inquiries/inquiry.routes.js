@@ -6,13 +6,14 @@ const express = require("express");
 const router = express.Router();
 const inquiryController = require("./inquiry.controller");
 const validate = require("../../middleware/validate");
-const { validateInquiry } = require("./inquiry.validator");
+const { inquiryLimiter } = require("../../middleware/rateLimiter");
+const { inquirySchema } = require("../../validation/inquiry.schema");
 
 /**
  * POST /api/contact
  * Submit contact form
  */
-router.post("/contact", validate(validateInquiry), (req, res) =>
+router.post("/contact", inquiryLimiter, validate(inquirySchema), (req, res) =>
   inquiryController.submitContactForm(req, res)
 );
 
@@ -28,7 +29,7 @@ router.get("/contact", (req, res) =>
  * POST /api/inquiries
  * Submit product inquiry
  */
-router.post("/inquiries", validate(validateInquiry), (req, res) =>
+router.post("/inquiries", inquiryLimiter, validate(inquirySchema), (req, res) =>
   inquiryController.submitProductInquiry(req, res)
 );
 

@@ -7,11 +7,15 @@ const path = require("path");
 const fs = require("fs");
 const { createClient } = require("@libsql/client");
 
-const dbPath =
-  process.env.DB_PATH ||
-  (fs.existsSync("/app/data/vishal_enterprise.db")
-    ? "/app/data/vishal_enterprise.db"
-    : path.join(__dirname, "../../../../../data/vishal_enterprise.db"));
+const resolveSeedDbPath = () => {
+  if (process.env.DB_PATH) return process.env.DB_PATH;
+  const storagePath = path.resolve(__dirname, "../../../../storage/database/vishal_enterprise.db");
+  if (fs.existsSync(storagePath)) return storagePath;
+  if (fs.existsSync("/app/data/vishal_enterprise.db")) return "/app/data/vishal_enterprise.db";
+  return path.join(__dirname, "../../../../../data/vishal_enterprise.db");
+};
+
+const dbPath = resolveSeedDbPath();
 
 console.log("Connecting to database at:", dbPath);
 const client = createClient({ url: `file:${dbPath}` });

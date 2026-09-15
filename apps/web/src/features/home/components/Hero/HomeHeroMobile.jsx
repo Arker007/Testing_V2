@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { motion as Motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "motion/react";
 import { useSite } from "../../../../shared/context/SiteContext";
 import { OptimizedImage } from "@/shared/ui";
 import styles from "./Hero.module.css";
@@ -58,7 +58,7 @@ const slides = [
     badge: "MANUFACTURER & SUPPLIER",
     titleLime: "WEATHERPROOF",
     titleWhite: "GARDEN BENCHES",
-    desc: "Robust, heavy-duty outdoor seating systems perfect for garden, commercial, and public spaces. Built to withstand all weather conditions and last for years.",
+    desc: "Durable, heavy-duty outdoor seating systems perfect for garden, commercial, and public spaces. Built to withstand all weather conditions and last for years.",
     image: "/uploads/products/categories/garden-bench-1770446422580-0.webp",
     fallbackSrc: weatherResistantBg,
     features: [
@@ -143,6 +143,7 @@ export default function HomeHeroMobile() {
               <div className="w-full flex justify-between items-center my-6 h-[260px] relative z-10 px-1">
                 {/* Left Chevron Button (Desktop Style) */}
                 <Motion.button
+                  id="mobile-hero-chevron-prev"
                   type="button"
                   onClick={handlePrev}
                   className={`${styles.chevronBtn} ${styles.chevronBtnLeft}`}
@@ -199,7 +200,7 @@ export default function HomeHeroMobile() {
                     {/* Full-Screen Product Image Clipped to Hexagon */}
                     <g clipPath="url(#heroHexagonClipMobile)">
                       <foreignObject x="0" y="0" width="500" height="520">
-                        <div style={{ width: "100%", height: "100%", backgroundColor: "var(--white, #ffffff)", position: "relative", overflow: "hidden" }}>
+                        <div className="w-full h-full bg-white relative overflow-hidden">
                           <div
                             style={{
                               position: "absolute",
@@ -262,6 +263,7 @@ export default function HomeHeroMobile() {
 
                 {/* Right Chevron Button (Desktop Style) */}
                 <Motion.button
+                  id="mobile-hero-chevron-next"
                   type="button"
                   onClick={handleNext}
                   className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
@@ -292,7 +294,7 @@ export default function HomeHeroMobile() {
               </div>
 
               {/* Description */}
-              <p className="text-[13px] text-slate-200 leading-relaxed mb-6 pr-2 font-medium" style={{ color: "#D8DEDA" }}>
+              <p className="text-[13px] text-slate-200 leading-relaxed mb-6 pr-2 font-medium">
                 {activeSlide.desc}
               </p>
 
@@ -334,7 +336,7 @@ export default function HomeHeroMobile() {
                     </div>
                     <div className="flex flex-col flex-1 min-w-0 justify-center">
                       <span className="text-white text-[10px] uppercase font-extrabold tracking-wide leading-tight">{feat.title}</span>
-                      <span className="text-slate-300 text-[9.5px] font-medium leading-snug mt-0.5" style={{ color: "#CBD5E1" }}>{feat.text}</span>
+                      <span className="text-slate-300 text-[9.5px] font-medium leading-snug mt-0.5">{feat.text}</span>
                     </div>
                   </div>
                 );
@@ -360,11 +362,10 @@ export default function HomeHeroMobile() {
           
           <a
             href={`tel:${cleanedPhone}`}
-            className="flex items-center justify-center gap-1.5 bg-[#0f1319] border border-[#0f1319] text-white py-2 px-3 rounded-[8px] text-[9px] font-extrabold uppercase transition hover:bg-[var(--brand)] hover:border-[var(--brand)] hover:text-[#0f1319] shrink-0"
-            style={{ color: "#ffffff" }}
+            className="flex items-center justify-center gap-1.5 bg-[#0f1319] border border-[#0f1319] !text-white py-2 px-3 rounded-[8px] text-[10px] font-extrabold uppercase transition hover:bg-[var(--brand)] hover:border-[var(--brand)] hover:!text-[#0f1319] shrink-0"
           >
-            <Icon icon="carbon:phone" className="w-3.5 h-3.5" style={{ color: "#ffffff" }} />
-            <span style={{ color: "#ffffff" }}>CONTACT US</span>
+            <Icon icon="carbon:phone" className="w-3.5 h-3.5 !text-white" />
+            <span className="!text-white">CONTACT US</span>
           </a>
         </div>
       </div>

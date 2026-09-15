@@ -1,0 +1,71 @@
+import React from "react";
+import { Icon } from "@iconify/react";
+import { useSite } from "@/shared/context/SiteContext";
+
+export default function FeaturesTrustRow() {
+  const { c } = useSite();
+
+  return (
+    <div className="mt-8 md:mt-16 border border-[var(--border-subtle)] rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] p-6 md:p-8 shadow-[var(--shadow-sm)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      {/* Value 1 */}
+      <div className="flex items-start gap-4 group cursor-default transition-all duration-300 hover:-translate-y-1">
+        <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+          <Icon icon="carbon:recycle" className="w-5 h-5" />
+        </div>
+        <div>
+          <span className="block font-bold text-[var(--text-primary)] text-sm mb-1 group-hover:text-[var(--brand-primary)] transition-colors">
+            {c("why_us_t1_title", "Sustainable Choice")}
+          </span>
+          <p className="text-[var(--text-secondary)] text-xs leading-relaxed">
+            {c("why_us_t1_desc", "Low carbon footprint and environmentally responsible.")}
+          </p>
+        </div>
+      </div>
+
+      {/* Value 2 */}
+      <div className="flex items-start gap-4 group cursor-default transition-all duration-300 hover:-translate-y-1">
+        <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+          <Icon icon="carbon:security" className="w-5 h-5" />
+        </div>
+        <div>
+          <span className="block font-bold text-[var(--text-primary)] text-sm mb-1 group-hover:text-[var(--brand-primary)] transition-colors">
+            {c("why_us_t2_title", "Corrosion Proof")}
+          </span>
+          <p className="text-[var(--text-secondary)] text-xs leading-relaxed">
+            {c("why_us_t2_desc", "Resistant to chemicals, salt, and corrosion.")}
+          </p>
+        </div>
+      </div>
+
+      {/* Value 3 */}
+      <div className="flex items-start gap-4 group cursor-default transition-all duration-300 hover:-translate-y-1">
+        <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+          <Icon icon="carbon:tool-box" className="w-5 h-5" />
+        </div>
+        <div>
+          <span className="block font-bold text-[var(--text-primary)] text-sm mb-1 group-hover:text-[var(--brand-primary)] transition-colors">
+            {c("why_us_t3_title", "Low Maintenance")}
+          </span>
+          <p className="text-[var(--text-secondary)] text-xs leading-relaxed">
+            {c("why_us_t3_desc", "No painting, no sealing, just long-lasting performance.")}
+          </p>
+        </div>
+      </div>
+
+      {/* Value 4 */}
+      <div className="flex items-start gap-4 group cursor-default transition-all duration-300 hover:-translate-y-1">
+        <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
+          <Icon icon="carbon:headset" className="w-5 h-5" />
+        </div>
+        <div>
+          <span className="block font-bold text-[var(--text-primary)] text-sm mb-1 group-hover:text-[var(--brand-primary)] transition-colors">
+            {c("why_us_t4_title", "Reliable Support")}
+          </span>
+          <p className="text-[var(--text-secondary)] text-xs leading-relaxed">
+            {c("why_us_t4_desc", "Expert guidance and dedicated customer support.")}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}

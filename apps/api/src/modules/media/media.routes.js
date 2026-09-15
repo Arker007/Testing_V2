@@ -5,6 +5,7 @@
 const express = require("express");
 const router = express.Router();
 const mediaController = require("./media.controller");
+const validate = require("../../middleware/validate");
 const { validateCreateMedia } = require("./media.validator");
 
 /**
@@ -17,7 +18,7 @@ router.get("/media", (req, res) => mediaController.getAllMedia(req, res));
  * POST /api/media
  * Add media record
  */
-router.post("/media", validateCreateMedia, (req, res) =>
+router.post("/media", validate(validateCreateMedia), (req, res) =>
   mediaController.createMedia(req, res)
 );
 

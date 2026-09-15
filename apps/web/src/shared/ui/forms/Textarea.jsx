@@ -27,6 +27,9 @@ const Textarea = forwardRef(function Textarea(
     onChange,
     className = "",
     id,
+    fullWidth: _fullWidth,
+    fullwidth: _fullwidth,
+    isFullWidth: _isFullWidth,
     ...props
   },
   ref
@@ -81,9 +84,9 @@ const Textarea = forwardRef(function Textarea(
         {...props}
       />
       {showCount && maxLength && (
-        <div className="flex justify-end mt-1 text-[11px] font-medium text-[var(--text-muted)]">
+        <div className="flex justify-end mt-1.5 pr-0.5 text-[11px] font-mono tabular-nums text-[var(--text-muted)]">
           <span>
-            {currentLength} / {maxLength}
+            {currentLength.toLocaleString()} / {maxLength.toLocaleString()} characters
           </span>
         </div>
       )}

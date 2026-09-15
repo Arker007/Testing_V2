@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import { Input, Badge } from "@/shared/ui";
 import { NAV_ITEMS } from "../constants/adminNav.constants";
 
 export default function AdminCommandPalette({
@@ -44,43 +45,27 @@ export default function AdminCommandPalette({
       >
         <div
           style={{
-            padding: "16px",
+            padding: "12px 16px",
             borderBottom: "1px solid var(--line)",
             display: "flex",
             alignItems: "center",
-            gap: "12px",
+            gap: "8px",
           }}
         >
-          <Icon icon="carbon:search" className="w-5 h-5 text-slate-400" />
-          <input
-            type="text"
-            placeholder="Type a command or page name..."
-            autoFocus
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            style={{
-              width: "100%",
-              background: "transparent",
-              border: "none",
-              outline: "none",
-              fontSize: "1rem",
-              fontWeight: 500,
-              color: "var(--ink)",
-            }}
-          />
-          <kbd
-            style={{
-              fontSize: "0.68rem",
-              fontWeight: 700,
-              background: "var(--bg-surface)",
-              color: "var(--text-secondary)",
-              padding: "2px 6px",
-              borderRadius: "4px",
-              border: "1px solid var(--border-subtle)",
-            }}
-          >
+          <div className="flex-1">
+            <Input
+              type="text"
+              size="md"
+              leftIcon="carbon:search"
+              placeholder="Type a command or page name..."
+              autoFocus
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+          <Badge variant="neutral" size="sm" className="font-mono text-xs cursor-pointer" onClick={() => setShowSearchCmd(false)}>
             ESC
-          </kbd>
+          </Badge>
         </div>
 
         <div style={{ padding: "12px", maxHeight: "320px", overflowY: "auto" }}>

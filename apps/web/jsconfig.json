@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@features/*": ["./src/features/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@app/*": ["./src/app/*"],
+      "@vishal/contracts": ["../../packages/contracts/src/index.mjs"],
+      "@contracts": ["../../packages/contracts/src/index.mjs"]
+    },
+    "jsx": "react-jsx"
+  },
+  "include": ["src/**/*"]
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import { QuoteButton, Badge, IconBox } from "@/shared/ui";
+import { QuoteButton, SectionHeader, IconBox } from "@/shared/ui";
 
 export default function WhyChooseUsSection() {
   return (
@@ -22,25 +22,18 @@ export default function WhyChooseUsSection() {
           {/* Column 2: Middle Intro text Card */}
           <div className="lg:col-span-4 bg-white/[0.04] border border-white/10 rounded-[var(--radius-card,8px)] p-6 sm:p-8 lg:p-10 flex flex-col justify-between backdrop-blur-sm shadow-xl min-h-[440px] lg:min-h-[540px] min-w-0">
             <div>
-              <div className="mb-4">
-                <Badge
-                  variant="hero"
-                  size="lg"
-                  icon="carbon:security"
-                >
-                  Why Industries Choose Us
-                </Badge>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[var(--text-primary)] tracking-tight leading-tight">
-                Engineered for Strength. Built for Generations.
-              </h2>
-
-              <div className="h-[2px] w-12 bg-[var(--brand)] my-6" />
-
-              <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed font-normal">
-                Our recycled plastic products are designed to withstand harsh conditions, heavy loads and continuous use — without compromising on quality.
-              </p>
+              <SectionHeader
+                eyebrow="Why Industries Choose Us"
+                eyebrowIcon="carbon:security"
+                eyebrowVariant="hero"
+                title="Engineered for Strength. Built for Generations."
+                subtitle="Our recycled plastic products are designed to withstand harsh conditions, heavy loads and continuous use — without compromising on quality."
+                align="left"
+                accentLine
+                light
+                size="sm"
+                className="!mb-0"
+              />
             </div>
 
             <div className="mt-8">

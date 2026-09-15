@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import { Input } from "@/shared/ui";
 import cStyles from "../styles/SiteContent.module.css";
 
 const COLOR_PRESETS = [
@@ -38,12 +39,8 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
       </div>
 
       <div className={cStyles.formGroup}>
-        <label className={cStyles.formLabel}>
-          <Icon icon="carbon:user" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
-          Full Representative Name *
-        </label>
-        <input
-          className={cStyles.formInput}
+        <Input
+          label="Full Representative Name *"
           required
           value={data.name || ""}
           onChange={(e) => {
@@ -57,36 +54,31 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
             }
           }}
           placeholder="e.g. Dr. Rajesh Sharma"
+          leftIcon="carbon:user"
         />
       </div>
 
       <div className={cStyles.formGroup}>
-        <label className={cStyles.formLabel}>
-          <Icon icon="carbon:portfolio" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
-          Functional Role Title *
-        </label>
-        <input
-          className={cStyles.formInput}
+        <Input
+          label="Functional Role Title *"
           required
           value={data.role || ""}
           onChange={(e) => onChange("role", e.target.value)}
           placeholder="e.g. Senior Polymer Materials Lead"
+          leftIcon="carbon:portfolio"
         />
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
         <div className={cStyles.formGroup}>
-          <label className={cStyles.formLabel}>
-            <Icon icon="carbon:catalog" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
-            Avatar Initials (Max 2) *
-          </label>
-          <input
-            className={cStyles.formInput}
+          <Input
+            label="Avatar Initials (Max 2) *"
             required
             maxLength={2}
             value={data.init || ""}
             onChange={(e) => onChange("init", e.target.value.toUpperCase().slice(0, 2))}
             placeholder="e.g. RS"
+            leftIcon="carbon:catalog"
           />
         </div>
 
@@ -103,13 +95,14 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
               style={{ width: "36px", height: "36px", borderRadius: "var(--radius-admin, 8px)", border: "1px solid var(--border)", padding: "2px", cursor: "pointer", background: "none" }}
               title="Pick color"
             />
-            <input
-              className={cStyles.formInput}
-              required
-              value={data.color || ""}
-              onChange={(e) => onChange("color", e.target.value)}
-              placeholder="e.g. #059669"
-            />
+            <div className="flex-1">
+              <Input
+                required
+                value={data.color || ""}
+                onChange={(e) => onChange("color", e.target.value)}
+                placeholder="e.g. #059669"
+              />
+            </div>
           </div>
         </div>
       </div>

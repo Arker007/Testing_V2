@@ -1,0 +1,353 @@
+/* Contact Info Cards, Details, & Assistance Banner */
+
+.rightTitleSection {
+  margin-bottom: 2rem;
+}
+
+.rightEyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--brand-primary);
+  margin-bottom: 0.35rem;
+}
+
+.rightTitle {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.rightUnderline {
+  height: 3px;
+  width: 48px;
+  background-color: var(--brand-primary);
+  border-radius: 2px;
+  margin-top: 0.75rem;
+}
+
+/* Info Cards Stack */
+.infoCardsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.infoCardAccent {
+  background: var(--bg-surface);
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  padding: 1.15rem 1.35rem;
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.infoCardAccent:hover {
+  border-color: var(--border-default);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.infoCardIconCircle {
+  width: 42px;
+  height: 42px;
+  background: var(--brand-soft, #E8F5EE);
+  color: var(--brand-primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 135, 62, 0.15);
+}
+
+.infoCardContent {
+  flex-grow: 1;
+}
+
+.infoCardLabel {
+  display: block;
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.04em;
+}
+
+.infoCardValue {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.infoCardLink {
+  color: var(--brand-primary);
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
+  transition: color 0.15s ease;
+}
+
+.infoCardLink:hover {
+  color: var(--brand-primary);
+  text-decoration: underline;
+}
+
+/* Assistance Quick Banner */
+.assistanceBanner {
+  background: var(--brand-soft, #E8F5EE);
+  border: 1px solid rgba(0, 135, 62, 0.2);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.bannerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.bannerIconCircle {
+  width: 42px;
+  height: 42px;
+  background: var(--brand-soft, #E8F5EE);
+  color: var(--brand-primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bannerTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.15rem 0;
+}
+
+.bannerSub {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.bannerBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  background: var(--brand-primary);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 0.6rem 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.bannerBtn:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 4px 12px var(--brand-glow-subtle);
+}
+
+/* Legacy Sub-Component Elements (ContactInfoColumn & ContactInfoItem) */
+.infoCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoTitle {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.infoIntro {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.infoItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.infoIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--brand-soft, #E8F5EE);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.infoLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.copyIconBtn {
+  background: none;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color 0.15s;
+}
+
+.copyIconBtn:hover {
+  color: var(--brand-primary);
+}
+
+.infoVal {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.directBlock {
+  background: var(--bg-surface-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.directHeading {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+}
+
+.directSub {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.waButton {
+  background: #25D366;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: filter 0.2s;
+}
+
+.waButton:hover {
+  filter: brightness(1.06);
+}
+
+/* ── Dark Mode Adaptations ── */
+:global([data-theme="dark"]) .rightTitle,
+:global(.dark) .rightTitle,
+html.dark .rightTitle {
+  color: var(--text-primary) !important;
+}
+
+:global([data-theme="dark"]) .bannerTitle,
+:global(.dark) .bannerTitle,
+html.dark .bannerTitle {
+  color: var(--text-primary) !important;
+}
+
+:global([data-theme="dark"]) .bannerSub,
+:global(.dark) .bannerSub,
+html.dark .bannerSub {
+  color: var(--text-secondary) !important;
+}
+
+:global([data-theme="dark"]) .infoCardAccent,
+:global(.dark) .infoCardAccent,
+html.dark .infoCardAccent {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+:global([data-theme="dark"]) .infoCardAccent:hover,
+:global(.dark) .infoCardAccent:hover,
+html.dark .infoCardAccent:hover {
+  border-color: var(--border-default) !important;
+  transform: translateY(-2px);
+}
+
+:global([data-theme="dark"]) .infoCardLabel,
+:global(.dark) .infoCardLabel,
+html.dark .infoCardLabel {
+  color: var(--text-muted) !important;
+}
+
+:global([data-theme="dark"]) .infoCardValue,
+:global(.dark) .infoCardValue,
+html.dark .infoCardValue {
+  color: var(--text-primary) !important;
+}
+
+:global([data-theme="dark"]) .assistanceBanner,
+:global(.dark) .assistanceBanner,
+html.dark .assistanceBanner {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+:global([data-theme="dark"]) .infoCardIconCircle,
+:global([data-theme="dark"]) .bannerIconCircle,
+:global(.dark) .infoCardIconCircle,
+:global(.dark) .bannerIconCircle,
+html.dark .infoCardIconCircle,
+html.dark .bannerIconCircle {
+  background: rgba(0, 135, 62, 0.2) !important;
+  border-color: rgba(0, 135, 62, 0.3) !important;
+  color: var(--brand-primary) !important;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import styles from "../styles/contact.module.css";
+import styles from "../styles/contact-workflow.module.css";
 
 export const ContactTrustedRow = React.memo(function ContactTrustedRow() {
   return (

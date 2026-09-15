@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "../styles/AdminLayout.module.css";
 import { Icon } from "@iconify/react";
+import { Button, OptimizedImage } from "@/shared/ui";
 import { NAV_ITEMS } from "../constants/adminNav.constants";
 
 export default function AdminSidebar({
@@ -19,7 +20,7 @@ export default function AdminSidebar({
         <div className={styles.logo}>
           {co("logo") ? (
             <div className={styles.customLogo}>
-              <img src={co("logo")} alt={co("name")} />
+              <OptimizedImage src={co("logo")} alt={co("name")} />
             </div>
           ) : (
             <div className={styles.logoIcon}>
@@ -72,15 +73,17 @@ export default function AdminSidebar({
           <Icon icon="carbon:globe" className={`${styles.navIcon} w-4.5 h-4.5`} />
           {sidebarOpen && <span>View Website</span>}
         </a>
-        <button
-          className={`${styles.navItem} ${styles.logout}`}
+        <Button
+          variant="ghost"
+          size="sm"
+          className={`${styles.navItem} ${styles.logout} !w-full !justify-start !text-left !px-3.5 !py-2.5 !h-auto border-0 text-[var(--color-error)] hover:bg-rose-500/10 hover:text-rose-600 transition-colors`}
           title="Logout"
           data-label="Logout"
           onClick={logout}
+          icon={<Icon icon="carbon:logout" className="w-4 h-4 mr-2" />}
         >
-          <Icon icon="carbon:logout" className={`${styles.navIcon} w-4.5 h-4.5`} />
           {sidebarOpen && <span>Logout</span>}
-        </button>
+        </Button>
       </div>
     </aside>
   );

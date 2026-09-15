@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion as Motion } from "framer-motion";
+import { motion as Motion } from "motion/react";
 import { Icon } from "@iconify/react";
 import { OptimizedImage } from "@/shared/ui";
 import { useProducts } from "@/shared/hooks/useProducts";
-import { getImg } from "@/shared/utils/productUtils";
+import { getImg } from "@/features/products";
 
 const DEFAULT_SPECIFICATIONS = [
   { title: "Waterproof", icon: "carbon:rain-drop" },
@@ -316,7 +316,7 @@ export default function ProductsShowcase() {
                       className="flex items-center gap-1.5 bg-black/55 backdrop-blur-md px-3 py-1.5 rounded-[var(--radius-btn,8px)] border border-white/20 shadow-xs text-[var(--brand-primary)]"
                     >
                       {renderFeatureIcon(iconName, feat.title)}
-                      <span className="!text-[#E7EBE8] text-[11px] sm:text-xs font-semibold">{feat.title}</span>
+                      <span className="!text-[#F4F5F7] text-[11px] sm:text-xs font-semibold">{feat.title}</span>
                     </Motion.div>
                   );
                 })}

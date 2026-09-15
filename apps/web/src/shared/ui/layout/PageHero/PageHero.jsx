@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion as Motion } from "framer-motion";
+import { motion as Motion } from "motion/react";
 import { Icon } from "@iconify/react";
 import styles from "./PageHero.module.css";
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon } from "@iconify/react";
+import { Input, Textarea } from "@/shared/ui";
 import cStyles from "../styles/SiteContent.module.css";
 
 export default function SectionEditor({
@@ -42,30 +43,32 @@ export default function SectionEditor({
 
               return (
                 <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: isFullWidth ? "1 / -1" : "span 1" }}>
-                  <label className={cStyles.formLabel}>{f.label}</label>
                   {f.type === "textarea" ? (
-                    <textarea 
-                      className={cStyles.formTextarea} 
+                    <Textarea 
+                      label={f.label}
                       rows={3} 
                       value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
                       onChange={setM(f.key)} 
                       placeholder={f.placeholder} 
                     />
                   ) : f.type === "checkbox" ? (
-                    <label className={cStyles.toggleRow}>
-                      <span className={cStyles.toggleSwitch}>
-                        <input 
-                          type="checkbox" 
-                          checked={cms[f.key] === "1" || cms[f.key] === undefined} 
-                          onChange={(e) => setM(f.key)({ target: { value: e.target.checked ? "1" : "0" } })} 
-                        />
-                        <span className={cStyles.toggleSlider} />
-                      </span>
-                      <span className={cStyles.toggleLabelText}>{f.checkboxLabel || "Enable feature / section"}</span>
-                    </label>
+                    <div>
+                      <label className={cStyles.formLabel}>{f.label}</label>
+                      <label className={cStyles.toggleRow}>
+                        <span className={cStyles.toggleSwitch}>
+                          <input 
+                            type="checkbox" 
+                            checked={cms[f.key] === "1" || cms[f.key] === undefined} 
+                            onChange={(e) => setM(f.key)({ target: { value: e.target.checked ? "1" : "0" } })} 
+                          />
+                          <span className={cStyles.toggleSlider} />
+                        </span>
+                        <span className={cStyles.toggleLabelText}>{f.checkboxLabel || "Enable feature / section"}</span>
+                      </label>
+                    </div>
                   ) : (
-                    <input 
-                      className={cStyles.formInput} 
+                    <Input 
+                      label={f.label}
                       type="text" 
                       value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
                       onChange={setM(f.key)} 

@@ -1,29 +1,19 @@
 /**
  * Auth Validators
  */
-function validateLogin(data) {
-  const errors = {};
-  if (!data.username || typeof data.username !== 'string' || !data.username.trim()) {
-    errors.username = "Username is required";
-  }
-  if (!data.password || typeof data.password !== 'string' || !data.password.trim()) {
-    errors.password = "Password is required";
-  }
-  return errors;
-}
+const { z } = require("zod");
 
-function validateChangePassword(data) {
-  const errors = {};
-  if (!data.currentPassword || typeof data.currentPassword !== 'string' || !data.currentPassword.trim()) {
-    errors.currentPassword = "Current password is required";
-  }
-  if (!data.newPassword || typeof data.newPassword !== 'string' || data.newPassword.length < 6) {
-    errors.newPassword = "New password must be at least 6 characters long";
-  }
-  return errors;
-}
+const loginSchema = z.object({
+  username: z.string({ required_error: "Username is required" }).trim().min(1, "Username is required"),
+  password: z.string({ required_error: "Password is required" }).trim().min(1, "Password is required"),
+});
+
+const changePasswordSchema = z.object({
+  currentPassword: z.string({ required_error: "Current password is required" }).trim().min(1, "Current password is required"),
+  newPassword: z.string({ required_error: "New password is required" }).trim().min(6, "New password must be at least 6 characters long"),
+});
 
 module.exports = {
-  validateLogin,
-  validateChangePassword
+  validateLogin: loginSchema,
+  validateChangePassword: changePasswordSchema
 };

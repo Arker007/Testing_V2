@@ -6,13 +6,14 @@ const express = require("express");
 const router = express.Router();
 const authController = require("./auth.controller");
 const validate = require("../../middleware/validate");
+const { authLimiter } = require("../../middleware/rateLimiter");
 const { validateLogin, validateChangePassword } = require("./auth.validator");
 
 /**
  * POST /api/auth/login
  * Authenticate user
  */
-router.post("/login", validate(validateLogin), (req, res) =>
+router.post("/login", authLimiter, validate(validateLogin), (req, res) =>
   authController.login(req, res)
 );
 
@@ -20,7 +21,7 @@ router.post("/login", validate(validateLogin), (req, res) =>
  * PUT /api/auth/password
  * Change admin password
  */
-router.put("/password", validate(validateChangePassword), (req, res) =>
+router.put("/password", authLimiter, validate(validateChangePassword), (req, res) =>
   authController.changePassword(req, res)
 );
 

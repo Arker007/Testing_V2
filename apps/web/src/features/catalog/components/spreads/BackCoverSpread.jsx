@@ -96,7 +96,7 @@ export function getBackCoverSpread({
             <div
               style={{ fontSize: "14px", fontWeight: 700, color: "var(--color-warning)" }}
             >
-              B2B CUSTOM ORDERS
+              BULK & CUSTOM ORDERS
             </div>
             <div
               style={{

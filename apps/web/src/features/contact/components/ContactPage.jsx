@@ -11,7 +11,7 @@ import {
 export default function ContactPage() {
   const { co } = useSite();
   useDocumentTitle(
-    "Contact Us - Fast B2B Quotes & Product Inquiry",
+    "Contact Us - Get a Quote or Ask a Question",
     `Contact ${co("name", "VISHAL ENTERPRISE")} in Ankleshwar, Gujarat for quick quotes on recycled plastic pallets, granules, crates, and custom manufacturing.`
   );
 

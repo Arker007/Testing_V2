@@ -3,14 +3,12 @@
   background: var(--bg-canvas);
   padding: var(--space-section-py) 0;
   border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
 }
 
 :global([data-theme="dark"]) .industriesSection,
 :global(.dark) .industriesSection {
   background: var(--bg-canvas) !important;
   border-top-color: var(--border-subtle) !important;
-  border-bottom-color: var(--border-subtle) !important;
 }
 
 .sectionHeader {

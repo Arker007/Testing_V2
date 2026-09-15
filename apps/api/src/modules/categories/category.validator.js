@@ -1,14 +1,16 @@
 /**
- * Category Validators
+ * Category Validator
  */
-function validateCategory(data) {
-  const errors = {};
-  if (!data.name || typeof data.name !== 'string' || !data.name.trim()) {
-    errors.name = "Category name is required";
-  }
-  return errors;
-}
+const { z } = require("zod");
+
+const categorySchema = z.object({
+  name: z.string({ required_error: "Category name is required" }).trim().min(1, "Category name is required"),
+  slug: z.string().trim().optional().nullable(),
+  description: z.string().trim().optional().nullable(),
+  image: z.string().trim().optional().nullable(),
+  fields: z.union([z.string(), z.array(z.any())]).optional().nullable(),
+}).passthrough();
 
 module.exports = {
-  validateCategory
+  validateCategory: categorySchema
 };

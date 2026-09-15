@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion as Motion } from "framer-motion";
+import { motion as Motion } from "motion/react";
 import { Icon } from "@iconify/react";
 
 /**
@@ -33,12 +33,16 @@ export default function Button({
   disabled = false,
   loading = false,
   loadingText,
+  fullWidth = false,
+  fullwidth = false,
   className = "",
   style = {},
   onClick,
   type = "button",
   ...props
 }) {
+  const isFullWidth = fullWidth || fullwidth;
+
   const sizeClasses = {
     sm: "min-h-[var(--btn-h-sm,34px)] px-[var(--btn-px-sm,0.875rem)] py-[var(--btn-py-sm,0.375rem)] text-xs rounded-[var(--radius-btn,8px)] gap-1.5 font-semibold",
     md: "min-h-[var(--btn-h-md,42px)] px-[var(--btn-px-md,1.375rem)] py-[var(--btn-py-md,0.625rem)] text-sm rounded-[var(--radius-btn,8px)] gap-2 font-semibold",
@@ -103,6 +107,8 @@ export default function Button({
   );
 
   const combinedClasses = `${baseClasses} ${selectedSizeClass} ${selectedVariantClass} ${
+    isFullWidth ? "w-full" : ""
+  } ${
     !isInteractive ? "opacity-60 cursor-not-allowed pointer-events-none shadow-none" : ""
   } ${className}`.trim();
 
@@ -111,7 +117,7 @@ export default function Button({
       <Motion.div
         whileHover={isInteractive ? { scale: 1.02 } : undefined}
         whileTap={isInteractive ? { scale: 0.98 } : undefined}
-        className="inline-block"
+        className={isFullWidth ? "w-full block" : "inline-block"}
       >
         <Link
           to={isInteractive ? to || "/" : "#"}
@@ -134,7 +140,7 @@ export default function Button({
       <Motion.div
         whileHover={isInteractive ? { scale: 1.02 } : undefined}
         whileTap={isInteractive ? { scale: 0.98 } : undefined}
-        className="inline-block"
+        className={isFullWidth ? "w-full block" : "inline-block"}
       >
         <a
           href={isInteractive ? href || to : "#"}

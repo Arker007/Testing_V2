@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-import { QuoteButton, CtaCard } from "@/shared/ui";
+import { CtaCard, QuoteButton } from "@/shared/ui";
 import { useSite } from "../../../../shared/context/SiteContext";
 import styles from "./Cta.module.css";
 
@@ -25,28 +25,28 @@ export default function HomeCtaSection() {
                 <div className={styles.testimonialAuthorBox}>
                   <div
                     style={{
-                      width: "48px",
-                      height: "48px",
-                      borderRadius: "50%",
-                      background: "var(--navy)",
-                      color: "var(--white)",
-                      display: "grid",
-                      placeItems: "center",
-                      fontWeight: "800",
-                      fontSize: "0.875rem",
-                    }}
-                  >
-                    {c("home_testimonial_initials", "PM")}
-                  </div>
-                  <div>
-                    <div className={styles.authorName}>{c("home_testimonial_name", "Procurement Manager")}</div>
-                    <p className={styles.authorMeta}>{c("home_testimonial_company", "National Logistics Hub")}</p>
-                  </div>
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "50%",
+                    background: "var(--navy)",
+                    color: "var(--white)",
+                    display: "grid",
+                    placeItems: "center",
+                    fontWeight: "800",
+                    fontSize: "0.875rem",
+                  }}
+                >
+                  {c("home_testimonial_initials", "PM")}
+                </div>
+                <div>
+                  <div className={styles.authorName}>{c("home_testimonial_name", "Procurement Manager")}</div>
+                  <p className={styles.authorMeta}>{c("home_testimonial_company", "National Logistics Hub")}</p>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
       )}
 
       {c("show_home_cta", "1") !== "0" && (
@@ -54,13 +54,18 @@ export default function HomeCtaSection() {
           <CtaCard
             badge={c("home_cta_eyebrow", "Direct Factory Supply")}
             badgeVariant="brand"
+            badgeIcon="carbon:industry"
             title={c("home_cta_title", "Looking for Durable Recycled Plastic Products?")}
             subtitle={c(
               "home_cta_subtitle",
               "Contact our team today for custom sizing, product specifications, and bulk pricing details."
             )}
           >
-            <QuoteButton to="/contact" text={c("home_cta_btn", "Request a Quote")} size="large" className="shadow-md" />
+            <QuoteButton
+              to="/contact"
+              text={c("home_cta_btn", "Request a Quote")}
+              className="shadow-sm"
+            />
           </CtaCard>
         </section>
       )}

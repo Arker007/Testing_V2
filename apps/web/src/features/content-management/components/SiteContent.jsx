@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import styles from "../../admin/styles/AdminTable.module.css";
+import { Button, SearchInput, StatusToggle } from "@/shared/ui";
 import cStyles from "../styles/SiteContent.module.css";
 
 // Sub-components
@@ -43,27 +43,19 @@ export default function SiteContent() {
   useEffect(() => {
     if (!setHeaderActions || loading) return;
     setHeaderActions(
-      <button
+      <Button
         type="submit"
         form={tab === "company" ? "company-form" : "cms-form"}
-        className={styles.actionBtnPrimary}
+        variant="primary"
+        size="md"
         disabled={saving}
-        style={{ minWidth: 150 }}
+        loading={saving}
+        loadingText="Saving…"
+        icon={saved ? <Icon icon="carbon:checkmark-filled" className="w-4 h-4 mr-1.5" /> : <Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
+        className="min-w-[150px]"
       >
-        {saving ? (
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-            <Icon icon="carbon:renew" className="w-4 h-4 animate-spin" /> Saving…
-          </span>
-        ) : saved ? (
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-            <Icon icon="carbon:checkmark-filled" className="w-4 h-4" /> Saved!
-          </span>
-        ) : (
-          <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-            <Icon icon="carbon:save" className="w-4 h-4" /> Save Changes
-          </span>
-        )}
-      </button>
+        {saved ? "Saved!" : "Save Changes"}
+      </Button>
     );
     return () => setHeaderActions(null);
   }, [tab, saving, saved, loading, setHeaderActions]);
@@ -73,15 +65,14 @@ export default function SiteContent() {
     if (!key) return null;
     const isOn = cms[key] !== "0";
     return (
-      <label style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", userSelect: "none" }}>
-        <span style={{ fontSize: "11px", fontWeight: 700, color: isOn ? "var(--brand)" : "var(--gray-400)", minWidth: 28 }}>{isOn ? "ON" : "OFF"}</span>
-        <span style={{ position: "relative", display: "inline-flex", width: 40, height: 22 }}>
-          <input type="checkbox" style={{ opacity: 0, width: 0, height: 0, position: "absolute" }} checked={isOn} onChange={() => handleToggleSection(sectionName)} />
-          <span style={{ position: "absolute", inset: 0, borderRadius: 22, backgroundColor: isOn ? "var(--brand)" : "var(--gray-200)", transition: "background-color 0.2s" }}>
-            <span style={{ position: "absolute", top: 3, left: isOn ? 21 : 3, width: 16, height: 16, borderRadius: "50%", backgroundColor: "var(--white)", transition: "left 0.2s", boxShadow: "0 1px 3px rgba(0,0,0,0.15)" }} />
-          </span>
-        </span>
-      </label>
+      <StatusToggle
+        checked={isOn}
+        onChange={() => handleToggleSection(sectionName)}
+        showStatusLabel
+        onLabel="ON"
+        offLabel="OFF"
+        size="sm"
+      />
     );
   };
 
@@ -144,35 +135,14 @@ export default function SiteContent() {
               </div>
             )}
 
-            <div style={{ position: "relative" }}>
-              <Icon icon="carbon:search" className="text-slate-400 w-3.5 h-3.5" style={{ position: "absolute", left: "10px", top: "50%", transform: "translateY(-50%)" }} />
-              <input 
-                type="text" 
-                placeholder="Filter settings..." 
-                value={searchFieldQuery} 
-                onChange={e => setSearchFieldQuery(e.target.value)}
-                style={{ 
-                  background: "var(--gray-50)", 
-                  border: "1px solid var(--gray-200)", 
-                  borderRadius: "var(--radius-admin, 8px)", 
-                  padding: "6px 12px 6px 30px", 
-                  fontSize: "0.8rem", 
-                  fontWeight: 500,
-                  width: "180px",
-                  outline: "none"
-                }}
-                className="focus:border-[var(--brand)] focus:bg-white transition-all"
+            <div className="w-48">
+              <SearchInput
+                placeholder="Filter settings..."
+                value={searchFieldQuery}
+                onChange={(e) => setSearchFieldQuery(e.target.value)}
+                onClear={() => setSearchFieldQuery("")}
+                size="sm"
               />
-              {searchFieldQuery && (
-                <button 
-                  type="button" 
-                  onClick={() => setSearchFieldQuery("")} 
-                  style={{ position: "absolute", right: "8px", top: "50%", transform: "translateY(-50%)", border: "none", background: "none", color: "var(--muted)", cursor: "pointer", display: "flex", alignItems: "center" }}
-                  title="Clear filter"
-                >
-                  <Icon icon="carbon:close-outline" className="w-3.5 h-3.5" />
-                </button>
-              )}
             </div>
           </div>
         </div>
@@ -193,26 +163,18 @@ export default function SiteContent() {
                 <Icon icon="carbon:security" className="w-4 h-4 text-emerald-600" />
                 <span>All profile adjustments auto-validate before sync.</span>
               </div>
-              <button
+              <Button
                 type="submit"
-                className={styles.actionBtnPrimary}
+                variant="primary"
+                size="md"
                 disabled={saving}
-                style={{ minWidth: 150 }}
+                loading={saving}
+                loadingText="Saving…"
+                icon={saved ? <Icon icon="carbon:checkmark-filled" className="w-4 h-4 mr-1.5" /> : <Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
+                className="min-w-[150px]"
               >
-                {saving ? (
-                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                    <Icon icon="carbon:renew" className="w-4 h-4 animate-spin" /> Saving…
-                  </span>
-                ) : saved ? (
-                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                    <Icon icon="carbon:checkmark-filled" className="w-4 h-4" /> Saved!
-                  </span>
-                ) : (
-                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                    <Icon icon="carbon:save" className="w-4 h-4" /> Save Profile
-                  </span>
-                )}
-              </button>
+                {saved ? "Saved!" : "Save Profile"}
+              </Button>
             </div>
           </form>
         ) : (
@@ -233,26 +195,18 @@ export default function SiteContent() {
                 <Icon icon="carbon:security" className="w-4 h-4 text-emerald-600" />
                 <span>Modifications apply live to public website upon save.</span>
               </div>
-              <button
+              <Button
                 type="submit"
-                className={styles.actionBtnPrimary}
+                variant="primary"
+                size="md"
                 disabled={saving}
-                style={{ minWidth: 150 }}
+                loading={saving}
+                loadingText="Saving…"
+                icon={saved ? <Icon icon="carbon:checkmark-filled" className="w-4 h-4 mr-1.5" /> : <Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
+                className="min-w-[150px]"
               >
-                {saving ? (
-                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                    <Icon icon="carbon:renew" className="w-4 h-4 animate-spin" /> Saving…
-                  </span>
-                ) : saved ? (
-                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                    <Icon icon="carbon:checkmark-filled" className="w-4 h-4" /> Saved!
-                  </span>
-                ) : (
-                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                    <Icon icon="carbon:save" className="w-4 h-4" /> Save Section
-                  </span>
-                )}
-              </button>
+                {saved ? "Saved!" : "Save Section"}
+              </Button>
             </div>
           </form>
         )}

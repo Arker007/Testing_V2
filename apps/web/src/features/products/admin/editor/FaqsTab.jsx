@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import { Input, Textarea } from "@/shared/ui";
 import styles from "../../../admin/styles/AdminTable.module.css";
 
 export default function FaqsTab({ form, setForm }) {
@@ -19,85 +20,37 @@ export default function FaqsTab({ form, setForm }) {
         product page.
       </p>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+      <div className="flex flex-col gap-6">
         {form.faqs.map((faq, idx) => (
           <div
             key={idx}
-            style={{
-              borderBottom: "1px solid var(--border-subtle)",
-              paddingBottom: "20px",
-            }}
+            className="border-b border-[var(--border-subtle)] pb-5 space-y-3"
           >
-            <div className="form-group" style={{ marginBottom: "10px" }}>
-              <label
-                className="form-label"
-                style={{
-                  fontWeight: 700,
-                  fontSize: "13px",
-                  display: "block",
-                  color: "var(--ink)",
-                  marginBottom: "6px",
-                }}
-              >
-                Question {idx + 1}:
-              </label>
-              <input
-                className="form-input"
-                style={{
-                  width: "100%",
-                  padding: "10px",
-                  borderRadius: "var(--radius-admin, 8px)",
-                  border: "1px solid var(--border-default)",
-                  fontWeight: 600,
-                  background: "var(--bg-surface)",
-                  color: "var(--text-primary)",
-                }}
-                value={faq.question}
-                onChange={(e) =>
-                  setForm((prev) => {
-                    const copy = [...prev.faqs];
-                    copy[idx] = { ...copy[idx], question: e.target.value };
-                    return { ...prev, faqs: copy };
-                  })
-                }
-              />
-            </div>
-            <div className="form-group">
-              <label
-                className="form-label"
-                style={{
-                  fontWeight: 600,
-                  fontSize: "12px",
-                  display: "block",
-                  color: "var(--muted)",
-                  marginBottom: "4px",
-                }}
-              >
-                Answer:
-              </label>
-              <textarea
-                className="form-textarea"
-                style={{
-                  width: "100%",
-                  padding: "10px",
-                  borderRadius: "var(--radius-admin, 8px)",
-                  border: "1px solid var(--border-default)",
-                  background: "var(--bg-surface)",
-                  color: "var(--text-primary)",
-                  fontFamily: "inherit",
-                }}
-                rows={2}
-                value={faq.answer}
-                onChange={(e) =>
-                  setForm((prev) => {
-                    const copy = [...prev.faqs];
-                    copy[idx] = { ...copy[idx], answer: e.target.value };
-                    return { ...prev, faqs: copy };
-                  })
-                }
-                placeholder="Enter FAQ answer..."
-              />
-            </div>
+            <Input
+              label={`Question ${idx + 1}:`}
+              value={faq.question}
+              onChange={(e) =>
+                setForm((prev) => {
+                  const copy = [...prev.faqs];
+                  copy[idx] = { ...copy[idx], question: e.target.value };
+                  return { ...prev, faqs: copy };
+                })
+              }
+              placeholder="Enter FAQ question..."
+            />
+            <Textarea
+              label="Answer:"
+              rows={3}
+              value={faq.answer}
+              onChange={(e) =>
+                setForm((prev) => {
+                  const copy = [...prev.faqs];
+                  copy[idx] = { ...copy[idx], answer: e.target.value };
+                  return { ...prev, faqs: copy };
+                })
+              }
+              placeholder="Enter FAQ answer..."
+            />
           </div>
         ))}
       </div>

@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../styles/Dashboard.module.css";
-import { InteractiveHoverButton } from "../../../registry/magicui/interactive-hover-button";
+import { Button, Alert, Badge, OptimizedImage, Card } from "@/shared/ui";
 import { Icon } from "@iconify/react";
+import { ProductService } from "../../products/services/product.service";
+import { CategoryService } from "../../products/services/category.service";
+import { StatsService } from "../services/stats.service";
 
 function formatRelativeTime(dateStr) {
   if (!dateStr) return "";
@@ -21,18 +24,18 @@ function formatRelativeTime(dateStr) {
 
 function StatCard({ iconName, label, value, href }) {
   if (!iconName) return null;
-  const card = (
-    <div className={styles.stat}>
-      <div className={styles.statIcon}>
-        <Icon icon={iconName} className="w-5 h-5" />
+  const content = (
+    <Card className="flex items-center gap-4 p-5 hover:border-[var(--brand-primary)] transition-all">
+      <div className="w-12 h-12 rounded-xl bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] flex items-center justify-center shrink-0">
+        <Icon icon={iconName} className="w-6 h-6" />
       </div>
-      <div className={styles.statInfo}>
-        <div className={styles.statLabel}>{label}</div>
-        <div className={styles.statVal}>{value ?? "-"}</div>
+      <div>
+        <div className="text-xs font-semibold text-[var(--text-muted)] tracking-wider uppercase">{label}</div>
+        <div className="text-2xl font-bold text-[var(--text-primary)] mt-0.5">{value ?? "-"}</div>
       </div>
-    </div>
+    </Card>
   );
-  return href ? <Link to={href} className={styles.statLink}>{card}</Link> : card;
+  return href ? <Link to={href} className="block no-underline">{content}</Link> : content;
 }
 
 export default function Dashboard() {
@@ -46,10 +49,11 @@ export default function Dashboard() {
   const [sysLoading, setSysLoading] = useState(true);
 
   useEffect(() => {
-    const h = { Authorization: `Bearer ${localStorage.getItem("admin_token")}` };
+    const token = localStorage.getItem("admin_token");
+    const h = { Authorization: `Bearer ${token}` };
     Promise.all([
-      fetch("/api/stats", { headers: h }).then((r) => r.json()).catch(() => { setStatsError(true); return null; }),
-      fetch("/api/products", { headers: h }).then((r) => r.json()).catch(() => ({ products: [] })),
+      StatsService.getSummary(token).then((r) => r || (() => { setStatsError(true); return null; })()),
+      ProductService.getProducts().catch(() => ({ products: [] })),
       fetch("/api/inquiries", { headers: h }).then((r) => r.json()).catch(() => []),
     ]).then(([s, p, i]) => {
       setStats(s);
@@ -59,8 +63,8 @@ export default function Dashboard() {
 
     const t0 = Date.now();
     Promise.all([
-      fetch("/api/products", { headers: h }).then((r) => ({ ok: r.ok, ms: Date.now() - t0 })).catch(() => ({ ok: false, ms: null })),
-      fetch("/api/categories", { headers: h }).then((r) => ({ ok: r.ok })).catch(() => ({ ok: false })),
+      ProductService.getProducts().then(() => ({ ok: true, ms: Date.now() - t0 })).catch(() => ({ ok: false, ms: null })),
+      CategoryService.getAll().then(() => ({ ok: true })).catch(() => ({ ok: false })),
       fetch("/api/inquiries", { headers: h }).then((r) => ({ ok: r.ok })).catch(() => ({ ok: false })),
     ]).then(([api, cats, inqs]) => {
       setSysStatus({ api, cats, inqs, time: new Date() });
@@ -77,33 +81,45 @@ export default function Dashboard() {
           <h2 className={styles.heroTitle}>{greeting}, Admin</h2>
           <p className={styles.heroSub}>Monitor key metrics, sync listings, and handle inquiries.</p>
         </div>
-        <div className={styles.heroActions} style={{ display: "flex", gap: "12px", alignItems: "center" }}>
-          <InteractiveHoverButton onClick={() => navigate("/admin/products?new=1")} className="font-bold shadow-sm">
+        <div className="flex gap-3 items-center">
+          <Button
+            variant="primary"
+            size="md"
+            icon={<Icon icon="carbon:add" className="w-4 h-4 mr-1.5" />}
+            onClick={() => navigate("/admin/products?new=1")}
+          >
             Add Product
-          </InteractiveHoverButton>
-          <InteractiveHoverButton onClick={() => navigate("/admin/categories?new=1")} className="font-bold shadow-sm">
+          </Button>
+          <Button
+            variant="outline"
+            size="md"
+            icon={<Icon icon="carbon:add" className="w-4 h-4 mr-1.5" />}
+            onClick={() => navigate("/admin/categories?new=1")}
+          >
             Add Category
-          </InteractiveHoverButton>
+          </Button>
         </div>
       </section>
 
       {statsError && (
-        <div className={styles.alert}>
-          <Icon icon="carbon:warning-alt" className="w-4 h-4 inline mr-2 text-rose-500" /> Core services are uncommunicative. check API status.
+        <div className="mb-6">
+          <Alert variant="error">
+            Core services are uncommunicative. Check backend API status.
+          </Alert>
         </div>
       )}
 
-      <section className={styles.statsRow}>
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
         <StatCard iconName="carbon:cube" label="Products Listed" value={loading ? "..." : stats?.products ?? 0} href="/admin/products" />
         <StatCard iconName="carbon:tag" label="Total Categories" value={loading ? "..." : stats?.categories ?? 0} href="/admin/categories" />
         <StatCard iconName="carbon:email" label="Inquiries Logged" value={loading ? "..." : inquiries.length} href="/admin/inquiries" />
       </section>
 
       <section className={styles.grid2}>
-        <article className={styles.panel}>
+        <Card className="p-6">
           <div className={styles.panelHead}>
             <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Icon icon="carbon:cube" className="w-4.5 h-4.5" /> Recent Catalog Products
+              <Icon icon="carbon:cube" className="w-4.5 h-4.5 text-[var(--brand-primary)]" /> Recent Catalog Products
             </h3>
             <Link to="/admin/products" className={styles.link}>See all</Link>
           </div>
@@ -114,7 +130,11 @@ export default function Dashboard() {
               return (
                 <div key={p.id} className={styles.listRow}>
                   <div className={styles.listThumb}>
-                    {img ? <img src={img} alt="" /> : <Icon icon="carbon:image" className="w-4.5 h-4.5 text-slate-400" />}
+                    {img ? (
+                      <OptimizedImage src={img} alt={p.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <Icon icon="carbon:image" className="w-4.5 h-4.5 text-slate-400" />
+                    )}
                   </div>
                   <div className={styles.listInfo}>
                     <div className={styles.listName}>{p.name}</div>
@@ -125,12 +145,12 @@ export default function Dashboard() {
               );
             })
           )}
-        </article>
+        </Card>
 
-        <article className={styles.panel}>
+        <Card className="p-6">
           <div className={styles.panelHead}>
             <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Icon icon="carbon:email" className="w-4.5 h-4.5" /> Recent Inquiries Timeline
+              <Icon icon="carbon:email" className="w-4.5 h-4.5 text-[var(--brand-primary)]" /> Recent Inquiries Timeline
             </h3>
             <Link to="/admin/inquiries" className={styles.link}>See all</Link>
           </div>
@@ -141,7 +161,7 @@ export default function Dashboard() {
                 return (
                   <div key={inq.id ?? idx} className={styles.activityItem}>
                     <div className={styles.timelineTrack}>
-                      <div className={styles.timelineDot} style={{ background: isProduct ? "var(--brand)" : "var(--text-primary)" }} />
+                      <div className={styles.timelineDot} style={{ background: isProduct ? "var(--brand-primary)" : "var(--text-primary)" }} />
                       {idx < inquiries.length - 1 && <div className={styles.timelineLine} />}
                     </div>
                     <div className={styles.activityCard}>
@@ -150,25 +170,22 @@ export default function Dashboard() {
                         <span className={styles.activityTime}>{formatRelativeTime(inq.created_at)}</span>
                       </div>
                       <p className={styles.activitySnippet}>{inq.message || ""}</p>
-                      <span className={styles.activityBadge} style={{
-                        background: isProduct ? "var(--brand-light)" : "var(--bg-surface)",
-                        color: isProduct ? "var(--brand-dark)" : "var(--text-primary)"
-                      }}>
+                      <Badge variant={isProduct ? "brand" : "neutral"} size="xs">
                         {isProduct ? "Product Quote" : "General Query"}
-                      </span>
+                      </Badge>
                     </div>
                   </div>
                 );
               })}
             </div>
           )}
-        </article>
+        </Card>
       </section>
 
-      <section className={styles.panel}>
+      <Card className="p-6 mt-6">
         <div className={styles.panelHead}>
           <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <Icon icon="carbon:data-base" className="w-4.5 h-4.5" /> System Service Metrics
+            <Icon icon="carbon:data-base" className="w-4.5 h-4.5 text-[var(--brand-primary)]" /> System Service Metrics
           </h3>
           {sysStatus && <span className={styles.healthTime}>Refreshed at {sysStatus.time.toLocaleTimeString("en-IN")}</span>}
         </div>
@@ -178,7 +195,7 @@ export default function Dashboard() {
           <StatusRow label="Categories Matrix" ok={sysStatus?.cats?.ok} loading={sysLoading} detail={sysStatus?.cats?.ok ? `${stats?.categories ?? 0} groups` : "Locked"} iconName="carbon:tag" />
           <StatusRow label="Inquiries Stream" ok={sysStatus?.inqs?.ok} loading={sysLoading} detail={sysStatus?.inqs?.ok ? "Live" : "Unreachable"} iconName="carbon:email" />
         </div>
-      </section>
+      </Card>
     </div>
   );
 }

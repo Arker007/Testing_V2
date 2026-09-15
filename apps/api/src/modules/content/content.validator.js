@@ -2,15 +2,12 @@
  * Content Validator
  * Validation middleware for CMS content endpoints.
  */
+const { z } = require("zod");
 
-function validateContentUpdate(req, res, next) {
-  const updates = req.body;
-  if (!updates || typeof updates !== "object" || Array.isArray(updates)) {
-    return res.status(400).json({ error: "Body must be a key/value object" });
-  }
-  next();
-}
+const contentSchema = z.record(z.any()).refine((data) => {
+  return typeof data === "object" && data !== null && !Array.isArray(data);
+}, { message: "Body must be a key/value object" });
 
 module.exports = {
-  validateContentUpdate,
+  validateContentUpdate: contentSchema,
 };

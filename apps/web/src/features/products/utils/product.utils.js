@@ -118,7 +118,14 @@ export function getDimensionsStr(p) {
   if (specs && specs.Dimensions) return specs.Dimensions;
   if (specs && specs.dimensions) return specs.dimensions;
   if (specs && specs.Size) return specs.Size;
-  return "1,030 mm x 1,240 mm";
+
+  const cat = String(p.category_name || p.category || p.category_title || "").toLowerCase();
+  if (cat.includes("lumber") || cat.includes("profile") || cat.includes("plank") || cat.includes("lu-")) {
+    return "90 mm × 90 mm (Custom L)";
+  }
+  if (cat.includes("bench")) return "1,500 mm × 600 mm × 750 mm";
+  if (cat.includes("table")) return "1,800 mm × 900 mm × 760 mm";
+  return "1,030 mm × 1,240 mm";
 }
 
 export function getWeightStr(p) {
@@ -210,6 +217,9 @@ export function getProductCardSpecs(product, propStaticLoad) {
     const stdLength = specs["Standard Length"] || specs.Length || specs.length || "8 - 12 ft";
     const material = specs.Material || "100% HDPE";
 
+    let polymerVal = material.replace(/Composite|Polymer|Recycled/gi, "").trim() || "HDPE";
+    if (polymerVal.includes("Polyolefin")) polymerVal = "HDPE / PP";
+
     return [
       {
         label: "Weight",
@@ -224,13 +234,13 @@ export function getProductCardSpecs(product, propStaticLoad) {
         title: "Standard Lengths Available",
       },
       {
-        label: "Polymer",
-        value: material.replace("Composite", "").trim() || "100% HDPE",
+        label: "Material",
+        value: polymerVal,
         icon: "solar:leaf-linear",
         title: "Raw Material Polymer",
       },
       {
-        label: "Durability",
+        label: "Feature",
         value: "Rot Proof",
         icon: "solar:shield-check-linear",
         title: "100% Weather and Rot Resistance",

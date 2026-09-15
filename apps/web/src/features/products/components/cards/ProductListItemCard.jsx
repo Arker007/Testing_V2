@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Icon } from "@iconify/react";
-import { OptimizedImage } from "@/shared/ui";
+import { OptimizedImage, Badge } from "@/shared/ui";
 import {
   getDimensionsStr,
   getSkuCode,
@@ -78,7 +78,7 @@ export default function ProductListItemCard({
       <div className={styles.listCardDetails}>
         <div className={styles.skuRow}>
           <span className={styles.skuCode}>{sku}</span>
-          {isCustomizable && <span className={styles.customBadge}>Customizable</span>}
+          {isCustomizable && <Badge variant="outline" size="xs">Customizable</Badge>}
         </div>
 
         <h3 className={styles.listCardSkuTitle}>
@@ -130,11 +130,11 @@ export default function ProductListItemCard({
           type="button"
           onClick={() => onQuickView?.(product)}
           className={styles.datasheetTextLink}
-          title={`View Technical Data Sheet for ${title}`}
-          aria-label={`View Technical Data Sheet for ${title}`}
+          title={`View Product Specs for ${title}`}
+          aria-label={`View Product Specs for ${title}`}
         >
           <Icon icon="solar:document-text-linear" className="w-4 h-4 mr-1.5" />
-          <span className={styles.datasheetText}>Technical Data Sheet</span>
+          <span className={styles.datasheetText}>Product Specs</span>
         </button>
       </div>
     </motion.article>

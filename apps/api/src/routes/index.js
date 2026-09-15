@@ -1,11 +1,11 @@
 /**
  * Central API Router
- * Combines all feature modules
+ * Combines all feature modules via their public facades
  */
 const express = require("express");
 const rateLimit = require("express-rate-limit");
 const router = express.Router();
-const { requireAuth } = require("../middleware/auth");
+const { requireAuth } = require("../middleware");
 
 function getClientIp(req) {
   const forwarded = req.headers["forwarded"];
@@ -63,7 +63,7 @@ const authLimiter = rateLimit({
 // Apply general rate limit to all API routes
 router.use(generalLimiter);
 
-// Guard mutating endpoints by default.
+// Guard mutating endpoints by default
 router.use((req, res, next) => {
   const isWriteMethod = ["POST", "PUT", "PATCH", "DELETE"].includes(req.method);
   if (!isWriteMethod) return next();
@@ -74,7 +74,7 @@ router.use((req, res, next) => {
   return requireAuth(req, res, next);
 });
 
-// Apply contact limiter only to public POST submissions.
+// Apply contact limiter only to public POST submissions
 router.use((req, res, next) => {
   const isPublicSubmission =
     req.method === "POST" &&
@@ -84,27 +84,28 @@ router.use((req, res, next) => {
   return contactLimiter(req, res, next);
 });
 
-// Import route modules from feature folders
-const productsRouter = require("../modules/products/product.routes");
-const categoriesRouter = require("../modules/categories/category.routes");
-const authRouter = require("../modules/auth/auth.routes");
-const contentRouter = require("../modules/content/content.routes");
-const companyRouter = require("../modules/company/company.routes");
-const inquiriesRouter = require("../modules/inquiries/inquiry.routes");
-const uploadRouter = require("../modules/uploads/upload.routes");
-const mediaRouter = require("../modules/media/media.routes");
-const statsRouter = require("../modules/stats/stats.routes");
+// Import route modules from feature public facades
+const products = require("../modules/products");
+const categories = require("../modules/categories");
+const auth = require("../modules/auth");
+const content = require("../modules/content");
+const company = require("../modules/company");
+const inquiries = require("../modules/inquiries");
+const uploads = require("../modules/uploads");
+const media = require("../modules/media");
+const stats = require("../modules/stats");
 
-// Mount routes
-router.use("/products", productsRouter);
-router.use("/categories", categoriesRouter);
+// Mount domain routes
+router.use("/products/categories", categories.routes); // Backward-compatibility alias
+router.use("/categories", categories.routes);
+router.use("/products", products.routes);
 router.use("/auth/login", authLimiter);
-router.use("/auth", authRouter);
-router.use("/content", contentRouter);
-router.use("/company", companyRouter);
-router.use("/", inquiriesRouter); // /api/inquiries, /api/contact
-router.use("/upload", uploadRouter);
-router.use("/", mediaRouter); // /api/media, /api/certifications
-router.use("/", statsRouter); // /api/stats
+router.use("/auth", auth.routes);
+router.use("/content", content.routes);
+router.use("/company", company.routes);
+router.use("/", inquiries.routes); // /api/inquiries, /api/contact
+router.use("/upload", uploads.routes);
+router.use("/", media.routes); // /api/media, /api/certifications
+router.use("/", stats.routes); // /api/stats
 
 module.exports = router;

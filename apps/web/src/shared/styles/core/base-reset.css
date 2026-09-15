@@ -85,6 +85,16 @@ ol {
   outline: none;
 }
 
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+}
+
 /* ==========================================================================
    BASE HEADING & ELEMENT TYPOGRAPHY (7-Tier Scale)
    ========================================================================== */
@@ -168,22 +178,22 @@ select {
 
 @media (max-width: 768px) {
   h1 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
     line-height: var(--line-height-tight);
   }
 
   h2 {
-    font-size: var(--font-size-2xl);
-    line-height: var(--line-height-heading);
-  }
-
-  h3 {
     font-size: var(--font-size-xl);
     line-height: var(--line-height-heading);
   }
 
-  h4 {
+  h3 {
     font-size: var(--font-size-lg);
+    line-height: var(--line-height-heading);
+  }
+
+  h4 {
+    font-size: var(--font-size-base);
     line-height: var(--line-height-heading);
   }
 

@@ -2,7 +2,8 @@ import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 import { Icon } from "@iconify/react";
-import styles from "../styles/contact.module.css";
+import { Button, Tooltip } from "@/shared/ui";
+import styles from "../styles/contact-info-cards.module.css";
 
 export const ContactInfoItem = React.memo(function ContactInfoItem({
   icon: IconComponent,
@@ -31,31 +32,37 @@ export const ContactInfoItem = React.memo(function ContactInfoItem({
       </div>
       <div style={{ flexGrow: 1 }}>
         <div className={styles.infoLabel}>
-          {label}
+          <span>{label}</span>
           {copyKey && (
-            <button
-              type="button"
-              className={styles.copyIconBtn}
-              onClick={() => handleCopy(value, copyKey)}
-              title={`Copy ${label}`}
-            >
-              {copiedKey === copyKey ? (
-                <motion.div
-                  initial={{ scale: 0.6, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                >
-                  <Icon icon="carbon:checkmark" className="w-3.5 h-3.5 text-[var(--brand-dark)]" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  whileHover={{ scale: 1.15 }}
-                  whileTap={{ scale: 0.85 }}
-                >
-                  <Icon icon="carbon:copy" className="w-3.5 h-3.5" />
-                </motion.div>
-              )}
-            </button>
+            <Tooltip content={copiedKey === copyKey ? "Copied!" : `Copy ${label}`}>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="!min-h-[24px] !h-6 !w-6 !p-0 ml-1 rounded-md text-[var(--text-muted)] hover:text-[var(--text-primary)]"
+                onClick={() => handleCopy(value, copyKey)}
+                aria-label={`Copy ${label}`}
+              >
+                {copiedKey === copyKey ? (
+                  <motion.span
+                    initial={{ scale: 0.6, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="inline-flex items-center justify-center text-[var(--brand-dark)]"
+                  >
+                    <Icon icon="carbon:checkmark" className="w-3.5 h-3.5" />
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    whileHover={{ scale: 1.15 }}
+                    whileTap={{ scale: 0.85 }}
+                    className="inline-flex items-center justify-center"
+                  >
+                    <Icon icon="carbon:copy" className="w-3.5 h-3.5" />
+                  </motion.span>
+                )}
+              </Button>
+            </Tooltip>
           )}
         </div>
         <div className={styles.infoVal}>{value}</div>

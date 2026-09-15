@@ -1,12 +1,21 @@
 # Dependencies
 node_modules
+apps/web/node_modules
 frontend/node_modules
 
 # VCS / editor
 .git
+.github
 .vscode
 .idea
 
-# Logs
+# Documentation & Tests
+docs
+tests
+apps/api/test
+
+# Logs & Cache
 *.log
 npm-debug.log*
+storage/cache/*
+storage/temp/*

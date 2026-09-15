@@ -1,45 +1,36 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import { Input, Textarea } from "@/shared/ui";
 import cStyles from "../styles/SiteContent.module.css";
 
 export const TimelineModalFields = React.memo(function TimelineModalFields({ data, onChange }) {
   return (
     <>
       <div className={cStyles.formGroup}>
-        <label className={cStyles.formLabel}>
-          <Icon icon="carbon:calendar" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
-          Year / Milestone Period *
-        </label>
-        <input
-          className={cStyles.formInput}
+        <Input
+          label="Year / Milestone Period *"
           required
           value={data.year || ""}
           onChange={(e) => onChange("year", e.target.value)}
           placeholder="e.g. 2018 or 2024–Present"
+          leftIcon="carbon:calendar"
         />
       </div>
 
       <div className={cStyles.formGroup}>
-        <label className={cStyles.formLabel}>
-          <Icon icon="carbon:flag" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
-          Strategic Milestone Title *
-        </label>
-        <input
-          className={cStyles.formInput}
+        <Input
+          label="Strategic Milestone Title *"
           required
           value={data.title || ""}
           onChange={(e) => onChange("title", e.target.value)}
           placeholder="e.g. Nationwide Distribution & Export Expansion"
+          leftIcon="carbon:flag"
         />
       </div>
 
       <div className={cStyles.formGroup}>
-        <label className={cStyles.formLabel}>
-          <Icon icon="carbon:notebook" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
-          Descriptive Detail & Key Accomplishments
-        </label>
-        <textarea
-          className={cStyles.formTextarea}
+        <Textarea
+          label="Descriptive Detail & Key Accomplishments"
           rows={3}
           value={data.desc || ""}
           onChange={(e) => onChange("desc", e.target.value)}

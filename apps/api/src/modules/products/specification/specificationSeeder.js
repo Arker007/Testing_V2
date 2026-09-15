@@ -38,11 +38,20 @@ function inferProductType(input) {
 }
 
 function normalizeSpecifications(specs) {
-  if (!specs || typeof specs !== "object") return {};
+  if (!specs) return {};
+  let parsed = specs;
+  if (typeof specs === "string") {
+    try {
+      parsed = JSON.parse(specs);
+    } catch {
+      return {};
+    }
+  }
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return {};
   return Object.fromEntries(
-    Object.entries(specs)
-      .filter(([k, v]) => k && v !== null && v !== undefined && String(v).trim() !== "")
-      .map(([k, v]) => [k, String(v).trim()]),
+    Object.entries(parsed)
+      .filter(([k, v]) => String(k).trim() !== "" && v !== null && v !== undefined && String(v).trim() !== "")
+      .map(([k, v]) => [String(k).trim(), String(v).trim()]),
   );
 }
 
@@ -76,7 +85,7 @@ function inferSpecifications(input = {}) {
 }
 
 function ensureSpecifications(input = {}, existingSpecs = {}) {
-  const cleanExisting = normalizeSpecifications(existingSpecs);
+  const cleanExisting = normalizeSpecifications(existingSpecs || input?.specifications);
   if (Object.keys(cleanExisting).length > 0) return cleanExisting;
   return inferSpecifications(input);
 }

@@ -1,0 +1,246 @@
+/* Contact Workflow Steps & Trusted Partners Styles */
+
+/* ── Workflow Steps Section ── */
+.workflowSection {
+  background: var(--navy, #0f172a);
+  padding: 5rem 0;
+  color: #ffffff;
+  position: relative;
+}
+
+.sectionHeaderCenter {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.sectionTitleLight {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.sectionDescLight {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.workflowGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+}
+
+.workflowCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.75rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+  position: relative;
+  overflow: hidden;
+}
+
+.workflowCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 3px;
+  background: var(--brand-primary, #059669);
+  opacity: 0.6;
+  border-radius: 0 0 2px 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.workflowCard:hover::before {
+  width: 100%;
+  opacity: 1;
+  background: var(--brand-primary, #059669);
+}
+
+.workflowCard:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--brand-primary, #059669);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 16px rgba(5, 150, 105, 0.2);
+}
+
+.workflowCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.workflowNum {
+  font-family: var(--font-display, inherit);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--brand-primary, #059669);
+  line-height: 1;
+}
+
+.stepArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-primary, #059669);
+  opacity: 0.5;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.workflowCard:hover .stepArrow {
+  color: var(--brand-primary, #059669);
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+@media (max-width: 1024px) {
+  .stepArrow {
+    display: none;
+  }
+}
+
+.workflowTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.workflowDesc {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── Trusted Companies Logos Section ── */
+.trustedCompanies {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px dashed var(--border-subtle);
+  text-align: center;
+}
+
+.companiesTitle {
+  font-family: var(--font-display, inherit);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  font-weight: 700;
+}
+
+.companiesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 1.75rem;
+}
+
+.companyBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  cursor: default;
+}
+
+.companyBadge:hover {
+  transform: translateY(-2px);
+  background: var(--bg-surface);
+  border-color: var(--brand-primary);
+  color: var(--text-primary);
+  box-shadow: 0 6px 16px rgba(0, 135, 62, 0.12);
+}
+
+.companyBadge svg {
+  color: var(--text-muted);
+  transition: color 0.25s ease;
+}
+
+.companyBadge:hover svg {
+  color: var(--brand-primary);
+}
+
+/* ── Responsive Scaling ── */
+@media (max-width: 1024px) {
+  .workflowGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .workflowGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .workflowGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Dark Mode Adaptations ── */
+:global([data-theme="dark"]) .trustedCompanies,
+:global(.dark) .trustedCompanies,
+html.dark .trustedCompanies {
+  border-top-color: var(--border-default) !important;
+}
+
+:global([data-theme="dark"]) .companiesTitle,
+:global(.dark) .companiesTitle,
+html.dark .companiesTitle {
+  color: var(--text-muted) !important;
+}
+
+:global([data-theme="dark"]) .companyBadge,
+:global(.dark) .companyBadge,
+html.dark .companyBadge {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-subtle) !important;
+  color: var(--text-secondary) !important;
+}
+
+:global([data-theme="dark"]) .companyBadge:hover,
+:global(.dark) .companyBadge:hover,
+html.dark .companyBadge:hover {
+  background: var(--bg-surface-secondary) !important;
+  border-color: var(--brand-primary) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 6px 16px rgba(0, 135, 62, 0.16) !important;
+}
+
+:global([data-theme="dark"]) .companyBadge svg,
+:global(.dark) .companyBadge svg,
+html.dark .companyBadge svg {
+  color: var(--text-muted) !important;
+}
+
+:global([data-theme="dark"]) .companyBadge:hover svg,
+:global(.dark) .companyBadge:hover svg,
+html.dark .companyBadge:hover svg {
+  color: var(--brand-primary) !important;
+}

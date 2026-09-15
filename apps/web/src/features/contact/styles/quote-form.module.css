@@ -1,0 +1,427 @@
+/* Quote Request & Contact Form Styles */
+
+.mainSection {
+  position: relative;
+  background: var(--bg-page, var(--gray-50));
+  overflow: hidden;
+  padding: 4.5rem 0;
+  min-height: calc(100vh - var(--nav-h, 70px) - 100px);
+}
+
+/* Background Subtle Accents */
+.bgSlantBright {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(circle at 80% 10%, var(--brand-glow-subtle, rgba(22, 163, 74, 0.06)) 0%, transparent 60%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bgSlantDark {
+  display: none;
+}
+
+/* Dots Decoration Pattern */
+.dotsPattern {
+  position: absolute;
+  left: 2%;
+  bottom: 5%;
+  width: 120px;
+  height: 120px;
+  z-index: 3;
+  opacity: 0.08;
+  background-image: radial-gradient(var(--navy, #0f172a) 2px, transparent 2px);
+  background-size: 14px 14px;
+  pointer-events: none;
+}
+
+/* Layout Grid */
+.grid {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* White Enquiry Card (Left Column) */
+.enquiryCard {
+  background: var(--bg-surface);
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-md);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow var(--motion-duration-fast, 300ms) ease,
+              border-color var(--motion-duration-fast, 300ms) ease;
+}
+
+.enquiryCard:hover {
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Card Header */
+.formHeader {
+  margin-bottom: 2rem;
+}
+
+.formEyebrowContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.formEyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--brand-primary);
+}
+
+.formEyebrowLine {
+  height: 2px;
+  width: 24px;
+  background-color: var(--brand-primary);
+}
+
+.formTitle {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.greenText {
+  color: var(--brand-primary);
+}
+
+.formSubText {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.formStepHeading {
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.625rem 0;
+  padding: 0;
+}
+
+/* Form Fields */
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.inputFieldWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  color: var(--brand-primary);
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.customInput,
+.customSelect,
+.customTextarea {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.6rem;
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  background: var(--bg-surface-secondary);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: all 0.2s ease;
+  appearance: none;
+}
+
+.customSelect {
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%233FAE5A' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 14px;
+}
+
+.customTextarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.customInput:focus,
+.customSelect:focus,
+.customTextarea:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  background: var(--bg-surface-secondary);
+  box-shadow: none;
+}
+
+/* Phone Layout Row */
+.phoneInputRow {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0.75rem;
+}
+
+.phonePrefixSelect {
+  width: 100%;
+  padding: 0.8rem 1.75rem 0.8rem 0.75rem;
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  background: var(--bg-surface-secondary);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  background-size: 10px;
+}
+
+.phonePrefixSelect:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  background: var(--bg-surface-secondary);
+}
+
+/* Action Area */
+.actionArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.privacyNote {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.privacyIcon {
+  color: var(--brand-primary);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Success Feedback Box */
+.successBox {
+  text-align: center;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.successBox h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  margin: 0;
+}
+
+.successBox p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.successBtn {
+  background: var(--brand-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.successBtn:hover {
+  filter: brightness(1.08);
+}
+
+/* Remove all focus rings and focus-visible outlines on enquiry form inputs */
+:global(#enquiry-card) input,
+:global(#enquiry-card) select,
+:global(#enquiry-card) textarea,
+:global(#productService),
+:global(#enquiry-card) input:focus,
+:global(#enquiry-card) select:focus,
+:global(#enquiry-card) textarea:focus,
+:global(#productService):focus,
+:global(#enquiry-card) input:focus-visible,
+:global(#enquiry-card) select:focus-visible,
+:global(#enquiry-card) textarea:focus-visible,
+:global(#productService):focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Responsive Scaling */
+@media (max-width: 991px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .enquiryCard {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .customInput,
+  .customSelect,
+  .customTextarea,
+  .phonePrefixSelect {
+    font-size: 1rem !important;
+    min-height: 44px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .row2 {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .actionArea {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .privacyNote {
+    justify-content: center;
+  }
+}
+
+/* ── Dark Mode Adaptations ── */
+:global([data-theme="dark"]) .mainSection,
+:global(.dark) .mainSection,
+html.dark .mainSection {
+  background: var(--dark-page, #0b0f17) !important;
+  color: var(--text-primary) !important;
+}
+
+:global([data-theme="dark"]) .enquiryCard,
+:global(.dark) .enquiryCard,
+html.dark .enquiryCard {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-default) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  color: var(--text-primary) !important;
+}
+
+:global([data-theme="dark"]) .privacyNote,
+:global(.dark) .privacyNote,
+html.dark .privacyNote {
+  color: var(--text-muted) !important;
+}
+
+:global([data-theme="dark"]) .inputIcon,
+:global(.dark) .inputIcon,
+html.dark .inputIcon {
+  color: var(--brand-primary) !important;
+}
+
+:global([data-theme="dark"]) .formTitle,
+:global(.dark) .formTitle,
+html.dark .formTitle {
+  color: var(--text-primary) !important;
+}
+
+:global([data-theme="dark"]) .formSubText,
+:global(.dark) .formSubText,
+html.dark .formSubText {
+  color: var(--text-secondary) !important;
+}
+
+:global([data-theme="dark"]) .formStepHeading,
+:global(.dark) .formStepHeading,
+html.dark .formStepHeading {
+  color: var(--text-primary) !important;
+}
+
+:global([data-theme="dark"]) .customInput,
+:global([data-theme="dark"]) .customSelect,
+:global([data-theme="dark"]) .customTextarea,
+:global([data-theme="dark"]) .phonePrefixSelect,
+:global(.dark) .customInput,
+:global(.dark) .customSelect,
+:global(.dark) .customTextarea,
+:global(.dark) .phonePrefixSelect,
+html.dark .customInput,
+html.dark .customSelect,
+html.dark .customTextarea,
+html.dark .phonePrefixSelect {
+  background: var(--bg-surface-secondary) !important;
+  border-color: var(--border-default) !important;
+  color: var(--text-primary) !important;
+}
+
+:global([data-theme="dark"]) .customInput:focus,
+:global([data-theme="dark"]) .customSelect:focus,
+:global([data-theme="dark"]) .customTextarea:focus,
+:global([data-theme="dark"]) .phonePrefixSelect:focus,
+:global(.dark) .customInput:focus,
+:global(.dark) .customSelect:focus,
+:global(.dark) .customTextarea:focus,
+:global(.dark) .phonePrefixSelect:focus,
+html.dark .customInput:focus,
+html.dark .customSelect:focus,
+html.dark .customTextarea:focus,
+html.dark .phonePrefixSelect:focus {
+  background: var(--bg-surface-secondary) !important;
+  border-color: var(--brand-primary) !important;
+  box-shadow: none !important;
+}

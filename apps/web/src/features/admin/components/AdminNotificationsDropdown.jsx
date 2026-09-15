@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import { Button } from "@/shared/ui";
 
 export default function AdminNotificationsDropdown({
   showNotifDropdown,
@@ -47,27 +48,20 @@ export default function AdminNotificationsDropdown({
           </span>
         </div>
         {unreadCount > 0 && (
-          <button
+          <Button
+            variant="ghost"
+            size="sm"
             onClick={() => {
               setUnreadCount(0);
               setNotifications((prev) =>
                 prev.map((n) => ({ ...n, read: true }))
               );
             }}
-            style={{
-              fontSize: "0.75rem",
-              fontWeight: 700,
-              color: "var(--text-brand)",
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              gap: "4px",
-            }}
+            className="!h-auto !py-1 !px-2 !text-xs font-bold text-[var(--brand-primary)] hover:bg-transparent"
+            icon={<Icon icon="carbon:checkmark" className="w-3.5 h-3.5 mr-1" />}
           >
-            <Icon icon="carbon:checkmark" className="w-3.5 h-3.5" /> Mark read
-          </button>
+            Mark read
+          </Button>
         )}
       </div>
 
@@ -179,27 +173,18 @@ export default function AdminNotificationsDropdown({
           textAlign: "center",
         }}
       >
-        <button
+        <Button
+          variant="ghost"
+          size="sm"
           onClick={() => {
             navigate("/admin/inquiries");
             setShowNotifDropdown(false);
           }}
-          style={{
-            background: "none",
-            border: "none",
-            fontSize: "0.75rem",
-            fontWeight: 700,
-            color: "var(--text-secondary)",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "6px",
-            width: "100%",
-          }}
+          className="!w-full !text-xs !py-1.5 font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+          icon={<Icon icon="carbon:activity" className="w-3.5 h-3.5 mr-1.5" />}
         >
-          <Icon icon="carbon:activity" className="w-3.5 h-3.5" /> View all system logs
-        </button>
+          View all system logs
+        </Button>
       </div>
     </div>
   );

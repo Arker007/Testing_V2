@@ -34,10 +34,10 @@ export default function Badge({
   ...props
 }) {
   const sizeClasses = {
-    xs: "px-2 py-0.5 text-[10px] gap-1 leading-normal font-bold",
-    sm: "px-2.5 py-1 text-[11px] gap-1.5 leading-normal font-bold",
-    md: "px-3 py-1.5 text-xs gap-1.5 leading-normal font-bold",
-    lg: "px-3.5 py-1.5 text-xs sm:text-sm gap-2 leading-normal font-bold",
+    xs: "px-2 py-0.5 text-xs gap-1 leading-normal font-semibold",
+    sm: "px-2.5 py-1 text-xs gap-1.5 leading-normal font-semibold",
+    md: "px-3 py-1.5 text-xs gap-1.5 leading-normal font-semibold",
+    lg: "px-3.5 py-1.5 text-xs sm:text-sm gap-2 leading-normal font-semibold",
   };
 
   const iconSizes = {
@@ -89,7 +89,7 @@ export default function Badge({
   };
 
   const baseClasses =
-    "inline-flex items-center font-bold tracking-wider uppercase whitespace-normal sm:whitespace-nowrap max-w-full break-words transition-colors select-none";
+    "inline-flex items-center font-semibold tracking-wide whitespace-normal sm:whitespace-nowrap max-w-full break-words transition-colors select-none";
 
   const selectedSizeClass = sizeClasses[size] || sizeClasses.md;
   const selectedShapeClass = shapeClasses[shape] || shapeClasses.pill;

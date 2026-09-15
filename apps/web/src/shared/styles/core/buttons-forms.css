@@ -411,8 +411,8 @@ button.btn::after {
 .form-select:focus,
 .form-textarea:focus {
   border-color: var(--brand-primary);
-  outline: 2px solid var(--brand-primary);
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: none;
 }
 
 /* ─── Data Tables ────────────────────────────────────────── */

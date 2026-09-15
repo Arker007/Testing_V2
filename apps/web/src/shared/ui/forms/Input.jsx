@@ -40,6 +40,9 @@ const Input = forwardRef(function Input(
     className = "",
     inputClassName = "",
     id,
+    fullWidth: _fullWidth,
+    fullwidth: _fullwidth,
+    isFullWidth: _isFullWidth,
     ...props
   },
   ref

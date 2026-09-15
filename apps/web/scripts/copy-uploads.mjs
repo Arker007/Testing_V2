@@ -5,7 +5,9 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const frontendRoot = path.resolve(__dirname, "..");
-const source = path.resolve(frontendRoot, "../..", "uploads");
+const primarySource = path.resolve(frontendRoot, "../..", "storage", "uploads");
+const fallbackSource = path.resolve(frontendRoot, "../..", "uploads");
+const source = fs.existsSync(primarySource) ? primarySource : fallbackSource;
 const destination = path.resolve(frontendRoot, "dist", "uploads");
 
 if (!fs.existsSync(source)) {

@@ -1,0 +1,10 @@
+const { INQUIRY_STATUS, INQUIRY_TYPE } = require("./inquiry.enums");
+const { PRODUCT_STATUS, PRODUCT_AVAILABILITY, MEASUREMENT_UNITS } = require("./product.enums");
+
+module.exports = {
+  INQUIRY_STATUS,
+  INQUIRY_TYPE,
+  PRODUCT_STATUS,
+  PRODUCT_AVAILABILITY,
+  MEASUREMENT_UNITS,
+};

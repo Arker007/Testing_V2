@@ -26,6 +26,10 @@ export const EMPTY_PRODUCT = {
   published: true,
 };
 
+import { CategoryService } from "@/features/categories";
+import { ProductService } from "../../services/product.service";
+
+
 export function useProductEditor(id, isNew) {
   const navigate = useNavigate();
   const toast = useToast();
@@ -36,16 +40,12 @@ export function useProductEditor(id, isNew) {
   const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
-    const headers = {
-      Authorization: `Bearer ${localStorage.getItem("admin_token")}`,
-    };
-    fetch("/api/categories", { headers })
-      .then((r) => r.json())
+    CategoryService.getAll()
       .then((c) => setCategories(c.categories || c || []));
 
     if (!isNew) {
       setLoading(true);
-      fetch(`/api/products/${id}`, { headers })
+      ProductService.getProductById(id)
         .then((r) => r.json())
         .then((p) => {
           if (p.error) {

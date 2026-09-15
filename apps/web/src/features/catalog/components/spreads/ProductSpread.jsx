@@ -169,7 +169,7 @@ export function getProductSpread({
           </div>
 
           <div className={styles.bottomApplicationBox}>
-            <div className={styles.specBoxHeader}>Ideal B2B Applications</div>
+            <div className={styles.specBoxHeader}>Ideal Uses</div>
             <p>
               {prod.applications ||
                 specs["Applications"] ||
@@ -211,7 +211,7 @@ export function getProductSpread({
 
           <div className={styles.notesContainerBox}>
             <div className={styles.notesHeaderTitle}>
-              Standard B2B Terms & Customization
+              Wholesale Terms & Customization
             </div>
             <ul>
               <li>

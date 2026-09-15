@@ -1,0 +1,124 @@
+/* Embedded Map Section Styles */
+
+.mapSectionWrapper {
+  margin-top: 2.5rem;
+  background: var(--bg-surface);
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mapHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.mapTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.mapIconCircle {
+  width: 42px;
+  height: 42px;
+  background: var(--brand-soft, #E8F5EE);
+  color: var(--brand-primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 135, 62, 0.15);
+}
+
+.mapTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 0.2rem 0;
+}
+
+.mapAddress {
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.mapDirectionsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--brand-primary);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.mapDirectionsBtn:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 4px 14px var(--brand-glow-subtle);
+}
+
+.mapIframeFrame {
+  width: 100%;
+  height: 380px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface-secondary);
+}
+
+.mapIframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ── Dark Mode Adaptations ── */
+:global([data-theme="dark"]) .mapSectionWrapper,
+:global(.dark) .mapSectionWrapper,
+html.dark .mapSectionWrapper {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-subtle) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+:global([data-theme="dark"]) .mapTitle,
+:global(.dark) .mapTitle,
+html.dark .mapTitle {
+  color: var(--text-primary) !important;
+}
+
+:global([data-theme="dark"]) .mapAddress,
+:global(.dark) .mapAddress,
+html.dark .mapAddress {
+  color: var(--text-secondary) !important;
+}
+
+:global([data-theme="dark"]) .mapIconCircle,
+:global(.dark) .mapIconCircle,
+html.dark .mapIconCircle {
+  background: rgba(0, 135, 62, 0.2) !important;
+  border-color: rgba(0, 135, 62, 0.3) !important;
+  color: var(--brand-primary) !important;
+}
+
+:global([data-theme="dark"]) .mapIframeFrame,
+:global(.dark) .mapIframeFrame,
+html.dark .mapIframeFrame {
+  border-color: var(--border-subtle) !important;
+  background: var(--bg-surface-secondary) !important;
+}

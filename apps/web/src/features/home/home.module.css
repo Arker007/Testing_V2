@@ -7,7 +7,6 @@
   background: var(--bg-light, var(--neutral-100));
   padding: 3.5rem 0 3rem 0;
   border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
 }
 
 :global([data-theme="dark"]) .categoriesSection,
@@ -15,5 +14,4 @@
 html.dark .categoriesSection {
   background: var(--bg-canvas, var(--neutral-950)) !important;
   border-top-color: var(--border-subtle) !important;
-  border-bottom-color: var(--border-subtle) !important;
 }

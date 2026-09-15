@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../../../shared/context/SiteContext";
-import { Card, Badge } from "@/shared/ui";
+import { Card, Badge, SectionHeader } from "@/shared/ui";
 
 export default function SustainabilitySection() {
   const { c, co } = useSite();
@@ -34,49 +34,41 @@ export default function SustainabilitySection() {
 
           {/* Right Content */}
           <div className="flex flex-col gap-4">
-            <div>
-              <div className="mb-4">
-                <Badge
-                  variant="eyebrow"
-                  size="lg"
-                  icon="carbon:recycle"
-                >
-                  {c("home_about_eyebrow", "Our Environmental Impact")}
-                </Badge>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight">
-                {c("home_about_title", "Replacing Wood. Saving Forests.")}
-              </h2>
-            </div>
-            <p className="text-slate-700 dark:text-slate-200 text-sm sm:text-base font-normal leading-relaxed">
-              {c(
+            <SectionHeader
+              eyebrow={c("home_about_eyebrow", "Our Environmental Impact")}
+              eyebrowIcon="carbon:recycle"
+              title={c("home_about_title", "Replacing Wood. Saving Forests.")}
+              subtitle={c(
                 "home_about_desc",
                 `At ${co("name", "VISHAL ENTERPRISE")}, we turn recycled plastic into high-durability products. This prevents plastic waste from reaching landfills and provides strong, rot-proof alternatives to traditional wood without requiring toxic chemical treatments.`
               )}
-            </p>
+              align="left"
+              size="sm"
+              className="!mb-0"
+            />
 
             <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-2">
-              <div className="bg-[var(--brand-primary)]/5 dark:bg-white/5 border border-[var(--brand-primary)]/20 dark:border-white/10 p-3 sm:p-4 rounded-card text-center shadow-2xs transition-all duration-200 hover:border-[var(--brand-primary)]/50 hover:bg-[var(--brand-primary)]/10 hover:-translate-y-0.5">
+              <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:shadow-md p-3 sm:p-4 rounded-[var(--radius-card,8px)] text-center shadow-2xs transition-all duration-300 hover:-translate-y-1">
                 <div className="text-xl sm:text-2xl font-black text-[var(--brand-primary)]">
                   {c("home_about_stat1_number", "20+")}
                 </div>
-                <div className="text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mt-1">
+                <div className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mt-1">
                   {c("home_about_stat1_label", "Years Experience")}
                 </div>
               </div>
-              <div className="bg-[var(--brand-primary)]/5 dark:bg-white/5 border border-[var(--brand-primary)]/20 dark:border-white/10 p-3 sm:p-4 rounded-card text-center shadow-2xs transition-all duration-200 hover:border-[var(--brand-primary)]/50 hover:bg-[var(--brand-primary)]/10 hover:-translate-y-0.5">
+              <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:shadow-md p-3 sm:p-4 rounded-[var(--radius-card,8px)] text-center shadow-2xs transition-all duration-300 hover:-translate-y-1">
                 <div className="text-xl sm:text-2xl font-black text-[var(--brand-primary)]">
                   {c("home_about_stat2_number", "1000+")}
                 </div>
-                <div className="text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mt-1">
+                <div className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mt-1">
                   {c("home_about_stat2_label", "Satisfied Clients")}
                 </div>
               </div>
-              <div className="bg-[var(--brand-primary)]/5 dark:bg-white/5 border border-[var(--brand-primary)]/20 dark:border-white/10 p-3 sm:p-4 rounded-card text-center shadow-2xs transition-all duration-200 hover:border-[var(--brand-primary)]/50 hover:bg-[var(--brand-primary)]/10 hover:-translate-y-0.5">
+              <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:shadow-md p-3 sm:p-4 rounded-[var(--radius-card,8px)] text-center shadow-2xs transition-all duration-300 hover:-translate-y-1">
                 <div className="text-xl sm:text-2xl font-black text-[var(--brand-primary)]">
                   {c("home_about_stat3_number", "1500+")}
                 </div>
-                <div className="text-xs font-semibold text-slate-600 dark:text-slate-300 uppercase tracking-wider mt-1">
+                <div className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mt-1">
                   {c("home_about_stat3_label", "Tons Recycled")}
                 </div>
               </div>

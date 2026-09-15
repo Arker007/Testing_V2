@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import { Input, Button, Badge, OptimizedImage } from "@/shared/ui";
 import styles from "../../../admin/styles/AdminTable.module.css";
 
 export default function ImagesTab({
@@ -29,55 +30,21 @@ export default function ImagesTab({
         listed acts as the primary showcase image.
       </p>
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "16px",
-          marginBottom: "24px",
-        }}
-      >
+      <div className="flex flex-col gap-4 mb-6">
         {form.images.map((imgItem, i) => {
           const displaySrc = imgItem.local || imgItem.url || "";
           return (
             <div
               key={i}
-              style={{
-                display: "flex",
-                gap: "16px",
-                padding: "16px",
-                border: "1px solid var(--border)",
-                borderRadius: "var(--radius-admin, 8px)",
-                backgroundColor: "var(--bg-card)",
-                alignItems: "center",
-                position: "relative",
-              }}
+              className="flex flex-col sm:flex-row gap-4 p-4 border border-[var(--border)] rounded-lg bg-[var(--bg-surface)] items-start sm:items-center relative"
             >
               {/* Thumbnail Preview */}
-              <div
-                style={{
-                  width: "80px",
-                  height: "80px",
-                  borderRadius: "var(--radius-admin, 8px)",
-                  overflow: "hidden",
-                  backgroundColor: "var(--bg-surface)",
-                  border: "1px solid var(--border)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  position: "relative",
-                  flexShrink: 0,
-                }}
-              >
+              <div className="w-20 h-20 rounded-lg overflow-hidden bg-[var(--bg-surface-secondary)] border border-[var(--border)] flex items-center justify-center relative shrink-0">
                 {displaySrc ? (
-                  <img
+                  <OptimizedImage
                     src={displaySrc}
                     alt=""
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
+                    className="w-full h-full object-cover"
                   />
                 ) : (
                   <Icon
@@ -86,146 +53,71 @@ export default function ImagesTab({
                   />
                 )}
                 {i === 0 && (
-                  <span
-                    style={{
-                      position: "absolute",
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      backgroundColor: "var(--brand)",
-                      color: "var(--white)",
-                      fontSize: "0.625rem",
-                      fontWeight: 700,
-                      textAlign: "center",
-                      padding: "2px 0",
-                      textTransform: "uppercase",
-                    }}
-                  >
+                  <span className="absolute bottom-0 inset-x-0 bg-[var(--brand-primary)] text-white text-[10px] font-bold text-center py-0.5 uppercase tracking-wide">
                     Primary
                   </span>
                 )}
               </div>
 
               {/* Path & URL Inputs */}
-              <div
-                style={{
-                  flexGrow: 1,
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "10px",
-                }}
-              >
-                <div
-                  style={{ display: "flex", gap: "12px", alignItems: "center" }}
-                >
-                  <span
-                    style={{
-                      fontSize: "0.75rem",
-                      fontWeight: 600,
-                      color: "var(--text-muted)",
-                      width: "95px",
-                    }}
-                  >
+              <div className="flex-1 flex flex-col gap-2.5 w-full">
+                <div className="flex gap-3 items-center">
+                  <span className="text-xs font-semibold text-[var(--text-muted)] w-24 shrink-0">
                     Local Upload:
                   </span>
-                  <span
-                    style={{
-                      fontSize: "0.8125rem",
-                      color: imgItem.local ? "var(--text-primary)" : "var(--text-muted)",
-                      fontFamily: "monospace",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                      maxWidth: "280px",
-                    }}
-                  >
+                  <span className="text-xs text-[var(--text-primary)] font-mono truncate max-w-[240px]">
                     {imgItem.local ? imgItem.local.split("/").pop() : "None"}
                   </span>
-                  <label
-                    style={{
-                      fontSize: "0.6875rem",
-                      fontWeight: 700,
-                      color: "var(--brand-dark)",
-                      cursor: "pointer",
-                      padding: "4px 8px",
-                      border: "1px solid var(--brand-border)",
-                      borderRadius: "var(--radius-admin, 8px)",
-                      backgroundColor: "var(--brand-glow-subtle)",
-                      marginLeft: "auto",
-                    }}
-                  >
+                  <label className="ml-auto cursor-pointer">
                     <input
                       type="file"
                       accept="image/*"
                       onChange={(e) => handleSingleImageReplace(e, i)}
                       style={{ display: "none" }}
                     />
-                    {imgItem.local ? "Replace File" : "Upload File"}
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded border border-[var(--border)] bg-[var(--bg-surface-secondary)] hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] transition-colors">
+                      {imgItem.local ? "Replace File" : "Upload File"}
+                    </span>
                   </label>
                 </div>
 
-                <div
-                  style={{ display: "flex", gap: "12px", alignItems: "center" }}
-                >
-                  <span
-                    style={{
-                      fontSize: "0.75rem",
-                      fontWeight: 600,
-                      color: "var(--text-muted)",
-                      width: "95px",
-                    }}
-                  >
+                <div className="flex gap-3 items-center">
+                  <span className="text-xs font-semibold text-[var(--text-muted)] w-24 shrink-0">
                     External URL:
                   </span>
-                  <input
-                    type="text"
-                    placeholder="Enter external/direct URL (e.g. https://...)"
-                    value={imgItem.url || ""}
-                    onChange={(e) => handleImageUrlChange(e.target.value, i)}
-                    className={styles.formInput}
-                    style={{
-                      flexGrow: 1,
-                      padding: "6px 12px",
-                      fontSize: "0.8125rem",
-                    }}
-                  />
+                  <div className="flex-1">
+                    <Input
+                      type="text"
+                      placeholder="Enter external/direct URL (e.g. https://...)"
+                      value={imgItem.url || ""}
+                      onChange={(e) => handleImageUrlChange(e.target.value, i)}
+                    />
+                  </div>
                 </div>
               </div>
 
               {/* Action buttons */}
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "8px",
-                  justifyContent: "center",
-                  alignItems: "flex-end",
-                  flexShrink: 0,
-                  marginLeft: "12px",
-                }}
-              >
-                <button
+              <div className="flex sm:flex-col gap-2 justify-center items-end shrink-0 sm:ml-3">
+                <Button
                   type="button"
+                  variant="ghost"
+                  size="sm"
                   onClick={() => handleDeleteImage(i)}
-                  className={styles.delBtn}
+                  className="!p-1.5 !h-auto text-rose-500 hover:text-rose-700 hover:bg-rose-500/10 rounded-lg"
                   title="Delete Image Slot"
                 >
                   <Icon icon="carbon:trash-can" className="w-4 h-4" />
-                </button>
+                </Button>
                 {i > 0 && (
-                  <button
+                  <Button
                     type="button"
+                    variant="outline"
+                    size="sm"
                     onClick={() => handleMakePrimary(i)}
-                    className={styles.actionBtnSecondary}
-                    style={{
-                      height: "28px",
-                      padding: "0 10px",
-                      fontSize: "0.6875rem",
-                      fontWeight: 700,
-                    }}
+                    className="!text-xs !h-7 !px-2.5"
                   >
                     Set Primary
-                  </button>
+                  </Button>
                 )}
               </div>
             </div>
@@ -234,17 +126,8 @@ export default function ImagesTab({
       </div>
 
       {/* Action row to add brand-new slots */}
-      <div style={{ display: "flex", gap: "12px" }}>
-        <label
-          className={styles.actionBtnSecondary}
-          style={{
-            padding: "8px 16px",
-            cursor: "pointer",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-          }}
-        >
+      <div className="flex flex-wrap gap-3">
+        <label className="cursor-pointer">
           <input
             type="file"
             accept="image/*"
@@ -252,21 +135,19 @@ export default function ImagesTab({
             onChange={handleImageUpload}
             style={{ display: "none" }}
           />
-          <Icon icon="carbon:upload" className="w-4 h-4" /> Upload Multiple Images
+          <span className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg border border-[var(--border)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] transition-colors shadow-sm">
+            <Icon icon="carbon:upload" className="w-4 h-4" /> Upload Multiple Images
+          </span>
         </label>
-        <button
+        <Button
           type="button"
-          className={styles.actionBtnSecondary}
-          style={{
-            padding: "8px 16px",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-          }}
+          variant="outline"
+          size="md"
+          icon={<Icon icon="carbon:link" className="w-4 h-4 mr-1.5" />}
           onClick={handleAddBlankImage}
         >
-          <Icon icon="carbon:link" className="w-4 h-4" /> Add External Image URL Only
-        </button>
+          Add External Image URL Only
+        </Button>
       </div>
     </div>
   );

@@ -6,6 +6,8 @@ import iStyles from '../styles/Inquiries.module.css';
 import { normalizeInquiry } from '../../../shared/utils/parsers';
 import { Spinner, EmptyState, WhatsAppButton, BackHeader } from "@/shared/ui";
 
+import { InquiryService } from '../services/inquiry.service';
+
 export default function AdminInquiryDetail() {
     const { source, id } = useParams();
     const [inquiries, setInquiries] = useState([]);
@@ -13,9 +15,8 @@ export default function AdminInquiryDetail() {
 
     useEffect(() => {
         setLoading(true);
-        const headers = { Authorization: `Bearer ${localStorage.getItem('admin_token')}` };
-        fetch('/api/inquiries', { headers })
-            .then((r) => r.json())
+        const token = localStorage.getItem('admin_token');
+        InquiryService.getAll(token)
             .then((d) => setInquiries(Array.isArray(d) ? d : d.inquiries || []))
             .catch(() => setInquiries([]))
             .finally(() => setLoading(false));

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
 import useDocumentTitle from "../../../../shared/hooks/useDocumentTitle";
 import { useProducts } from "../../hooks/useProducts";
@@ -16,7 +16,7 @@ import ProductListSkeletonCard from "../cards/ProductListSkeletonCard";
 import QuickViewModal from "../quick-view/QuickViewModal";
 import ProcurementAdvantage from "./ProcurementAdvantage";
 import ProcurementCtaBand from "./ProcurementCtaBand";
-import { BackToTop, InquiryModal, Pagination } from "../../../../shared/ui";
+import { BackToTop, InquiryModal, Pagination, Button, Divider } from "../../../../shared/ui";
 import { applicationOptions } from "../../constants";
 import {
   getImg,

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import styles from "../styles/AdminTable.module.css";
-import { Spinner, useToast } from "@/shared/ui";
+import { Input, Button, Alert, Card, useToast } from "@/shared/ui";
 
 export default function AdminSettings() {
   const [form, setForm] = useState({ current: "", next: "", confirm: "" });
@@ -59,36 +59,71 @@ export default function AdminSettings() {
         <p className={styles.count}>Account Settings</p>
       </div>
 
-      <div className={`${styles.card} ${styles.settingsCard}`}>
-        <div className={styles.settingsHead}>
-          <div className={styles.settingsTitleRow}>
-            <div className={styles.settingsIcon}><Icon icon="carbon:password" className="w-5 h-5 text-emerald-600" /></div>
-            <h2 className={styles.settingsTitle}>Update Password</h2>
+      <Card className="max-w-2xl p-6">
+        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[var(--border-subtle)]">
+          <div className="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
+            <Icon icon="carbon:password" className="w-5 h-5" />
           </div>
-          <p className={styles.settingsSub}>Enter your current password to set a new password for your account.</p>
+          <div>
+            <h2 className="text-lg font-bold text-[var(--text-primary)]">Update Password</h2>
+            <p className="text-sm text-[var(--text-muted)]">Enter your current password to set a new password for your account.</p>
+          </div>
         </div>
 
-        {status === "success" && <div className={styles.alertSuccess}><Icon icon="carbon:checkmark-outline" className="w-4 h-4 inline mr-1" /> Password updated successfully.</div>}
-        {errorMsg && <div role="alert" className={styles.alertError}><Icon icon="carbon:warning-alt" className="w-4 h-4 inline mr-1" /> {errorMsg}</div>}
+        {status === "success" && (
+          <Alert status="success" variant="subtle" className="mb-4">
+            Password updated successfully.
+          </Alert>
+        )}
+        {errorMsg && (
+          <Alert status="danger" variant="subtle" className="mb-4">
+            {errorMsg}
+          </Alert>
+        )}
 
-        <form onSubmit={handleSubmit}>
-          <div className={styles.formGroup}>
-            <label htmlFor="currentPwd" className={styles.formLabel}>Current Password</label>
-            <input id="currentPwd" type="password" className={styles.formInput} required autoComplete="current-password" value={form.current} onChange={f("current")} />
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <Input
+            id="currentPwd"
+            type="password"
+            label="Current Password"
+            required
+            autoComplete="current-password"
+            value={form.current}
+            onChange={f("current")}
+          />
+          <Input
+            id="newPwd"
+            type="password"
+            label="New Password"
+            required
+            autoComplete="new-password"
+            value={form.next}
+            onChange={f("next")}
+            placeholder="At least 6 characters"
+          />
+          <Input
+            id="confirmPwd"
+            type="password"
+            label="Confirm New Password"
+            required
+            autoComplete="new-password"
+            value={form.confirm}
+            onChange={f("confirm")}
+          />
+          <div className="pt-2">
+            <Button
+              type="submit"
+              variant="primary"
+              size="md"
+              loading={status === "saving"}
+              loadingText="Saving password..."
+              icon={<Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
+            >
+              Save Password
+            </Button>
           </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="newPwd" className={styles.formLabel}>New Password</label>
-            <input id="newPwd" type="password" className={styles.formInput} required autoComplete="new-password" value={form.next} onChange={f("next")} placeholder="At least 6 characters" />
-          </div>
-          <div className={`${styles.formGroup} ${styles.settingsFormTail}`}>
-            <label htmlFor="confirmPwd" className={styles.formLabel}>Confirm New Password</label>
-            <input id="confirmPwd" type="password" className={styles.formInput} required autoComplete="new-password" value={form.confirm} onChange={f("confirm")} />
-          </div>
-          <button type="submit" className={`${styles.actionBtnPrimary} ${styles.settingsSubmit}`} disabled={status === "saving"}>
-            {status === "saving" ? <><Icon icon="carbon:renew" className="w-4 h-4 animate-spin mr-1 inline" /> Saving password...</> : <><Icon icon="carbon:save" className="w-4 h-4 mr-1 inline" /> Save Password</>}
-          </button>
         </form>
-      </div>
+      </Card>
     </div>
   );
 }

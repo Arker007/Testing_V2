@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import { Button } from "@/shared/ui";
 import styles from "../styles/AdminCatalog.module.css";
 import CatalogSidebar from "./CatalogSidebar";
 import { pad } from "../utils/catalog.utils";
@@ -26,22 +27,24 @@ export default function AdminCatalog() {
     if (!setHeaderActions) return;
     setHeaderActions(
       <div style={{ display: "flex", gap: "10px" }}>
-        <button
+        <Button
           type="button"
-          className={splitView ? styles.toolbarBtnActive : styles.toolbarBtn}
+          variant={splitView ? "secondary" : "outline"}
+          size="sm"
           onClick={() => setSplitView((prev) => !prev)}
+          icon={<Icon icon={splitView ? "carbon:view-off" : "carbon:view"} className="w-4 h-4 mr-1" />}
         >
-          <Icon icon={splitView ? "carbon:view-off" : "carbon:view"} className="w-4 h-4 inline mr-1" />
           {splitView ? "Hide Template" : "Show Template Spread"}
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
-          className={styles.toolbarBtnPrimary}
+          variant="primary"
+          size="sm"
           onClick={() => window.print()}
+          icon={<Icon icon="carbon:printer" className="w-4 h-4 mr-1" />}
         >
-          <Icon icon="carbon:printer" className="w-4 h-4 inline mr-1" />
           Print / Save PDF
-        </button>
+        </Button>
       </div>
     );
     return () => setHeaderActions(null);
@@ -88,31 +91,35 @@ export default function AdminCatalog() {
       <main className={styles.viewport}>
         <div className={styles.toolbar}>
           <div className={styles.toolbarLeft}>
-            <button
+            <Button
               type="button"
-              className={styles.toolbarBtn}
+              variant="outline"
+              size="sm"
               disabled={activeSpreadIdx === 0}
               onClick={() => setActiveSpreadIdx((idx) => Math.max(0, idx - 1))}
+              icon={<Icon icon="carbon:chevron-left" className="w-4 h-4 mr-1" />}
             >
-              <Icon icon="carbon:chevron-left" className="w-4 h-4 inline mr-1" /> Prev
-            </button>
+              Prev
+            </Button>
 
             <span className={styles.pageIndicator}>
               Spread {activeSpreadIdx + 1} of {spreads.length}
             </span>
 
-            <button
+            <Button
               type="button"
-              className={styles.toolbarBtn}
+              variant="outline"
+              size="sm"
               disabled={activeSpreadIdx === spreads.length - 1}
               onClick={() =>
                 setActiveSpreadIdx((idx) =>
                   Math.min(spreads.length - 1, idx + 1)
                 )
               }
+              icon={<Icon icon="carbon:chevron-right" className="w-4 h-4 ml-1 order-last" />}
             >
-              Next <Icon icon="carbon:chevron-right" className="w-4 h-4 inline ml-1" />
-            </button>
+              Next
+            </Button>
           </div>
 
           <div className={styles.toolbarRight}>
