@@ -16,6 +16,8 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "Collection & Sourcing",
       brief: "Collected from trusted partners and sources.",
       desc: "We collect post-consumer and post-industrial plastic waste from verified partners to ensure clean, high-density, and high-quality raw materials.",
+      stepIconName: "carbon:trash-can",
+      image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "Verified Partners", desc: "Ensuring reliable source and transparency." },
         { label: "Responsible Sourcing", desc: "Ethical collection with minimal environmental impact." },
@@ -41,6 +43,8 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "Polymer Grade Separation",
       brief: "Sorting by type and separating impurities.",
       desc: "Waste is sorted meticulously into different polymer grades (HDPE, LDPE, PP) using high-precision optical scanners and skilled manual separation.",
+      stepIconName: "carbon:layers",
+      image: "https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "Grade Integrity", desc: "Separation by density and chemical composition." },
         { label: "Impurity Filter", desc: "Eliminating non-plastic materials, paper, and metal." },
@@ -66,6 +70,8 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "Washing & Decontamination",
       brief: "Deep cleaning to remove contaminants and labels.",
       desc: "Shredded plastic flakes undergo rigorous high-speed friction washes and eco-friendly hot chemical treatments to strip adhesive, dirt, and organic matter.",
+      stepIconName: "carbon:magic-wand",
+      image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "Friction Washing", desc: "High-speed scrubbing of deep particle layers." },
         { label: "Decontamination", desc: "Elimination of heavy contaminants and micro-impurities." },
@@ -91,6 +97,8 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "High-Pressure Molding",
       brief: "Melted and extruded into strong, durable profiles.",
       desc: "Cleaned flakes are melted under computerized, uniform thermal profiles and forced through custom industrial dies under extreme high pressure.",
+      stepIconName: "carbon:fire",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "Zero Voids", desc: "High pressure prevents structural air bubbles or cavities." },
         { label: "Custom Profiles", desc: "Molded dynamically into solid rectangular & round sections." },
@@ -116,6 +124,8 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "Structural Solidification",
       brief: "Cooled for dimensional stability and strength.",
       desc: "The molten plastic sections enter specialized temperature-regulated water-cooling chambers to solidify evenly and lock in dimensional accuracy.",
+      stepIconName: "carbon:snowflake",
+      image: "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "Symmetric Cool Down", desc: "Eliminates warping, bending, or inner thermal stresses." },
         { label: "Precision Calibration", desc: "Maintains absolute length, thickness, and width tolerances." },
@@ -141,6 +151,8 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "Load & Quality Check",
       brief: "Rigorous testing to ensure strength and reliability.",
       desc: "Samples from each production run undergo systematic mechanical load testing, UV degradation studies, and water absorption analysis.",
+      stepIconName: "carbon:security",
+      image: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "Flexural Load Test", desc: "Ensures heavy load-bearing capacities without breakage." },
         { label: "Weather Endurance", desc: "Guarantees 50+ years of life in extreme outdoor environments." },
@@ -166,6 +178,8 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "Dispatch & Delivery",
       brief: "Final products ready for delivery to you.",
       desc: "Approved sections are cut to custom sizes, sorted on heavy duty eco-friendly pallets, and prepared for express dispatch to sites worldwide.",
+      stepIconName: "carbon:checkmark-outline",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "On-Demand Sizing", desc: "Precision cutting eliminates on-site fabrication labor." },
         { label: "Eco Palleting", desc: "Secured on durable, circular-plastic structural pallets." },
@@ -243,11 +257,11 @@ export default function ProcessSection({ className = "" }) {
         
         {/* Section Title Header */}
         <SectionHeader
-          eyebrow="Circular Supply Chain"
+          eyebrow={c("process_eyebrow", "Circular Supply Chain")}
           eyebrowIcon={<Icon icon="carbon:renew" className="w-4 h-4 animate-spin-slow" />}
-          title="Our Manufacturing Process"
+          title={c("process_title", "Our Manufacturing Process")}
           highlightText="Process"
-          subtitle="From responsible plastic waste to high-performance products — every step is engineered for quality, sustainability, and long-term impact."
+          subtitle={c("process_subtitle", "From responsible plastic waste to high-performance products — every step is engineered for quality, sustainability, and long-term impact.")}
           size="lg"
           className="mb-16"
         />
@@ -509,20 +523,34 @@ export default function ProcessSection({ className = "" }) {
           <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/10 dark:bg-[var(--brand-primary)]/5 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center relative z-10">
             
-            {/* Column A: Left side 3D Icon Container */}
-            <div className="lg:col-span-3 flex justify-center items-center">
-              <div className="relative p-6 bg-slate-100 dark:bg-surface-secondary rounded-btn border border-slate-200 dark:border-subtle shadow-inner">
-                {steps[activeStep].activeIcon}
-                <div className="absolute -bottom-2 right-4 bg-[var(--brand-primary)] text-slate-950 px-3 py-1 rounded-badge text-xs font-black tracking-tight shadow-md">
-                  Step {steps[activeStep].num}
+            {/* Column A: Left side Step Image Card */}
+            <div className="lg:col-span-4 flex justify-center items-center w-full">
+              <div className="relative w-full h-52 sm:h-60 rounded-[var(--radius-card,8px)] overflow-hidden border border-slate-200 dark:border-subtle shadow-md bg-slate-950 group">
+                <img
+                  src={steps[activeStep].image}
+                  alt={`${steps[activeStep].title} - ${steps[activeStep].subtitle}`}
+                  className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent pointer-events-none" />
+                <div className="absolute top-3 left-3 w-10 h-10 rounded-[var(--radius-btn,8px)] bg-black/60 backdrop-blur-md border border-white/20 text-[var(--brand-primary)] flex items-center justify-center shadow-md">
+                  <Icon icon={steps[activeStep].stepIconName} className="w-5 h-5" />
+                </div>
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                  <span className="text-white text-xs font-bold truncate max-w-[140px] drop-shadow-sm">
+                    {steps[activeStep].subtitle}
+                  </span>
+                  <span className="bg-[var(--brand-primary)] text-slate-950 px-2.5 py-1 rounded-[var(--radius-sm,6px)] text-xs font-black tracking-tight shadow-md">
+                    Step {steps[activeStep].num}
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* Column B: Center step text details */}
-            <div className="lg:col-span-5 flex flex-col justify-center items-start">
+            <div className="lg:col-span-4 flex flex-col justify-center items-start">
               <Badge
                 variant="eyebrow"
                 size="sm"

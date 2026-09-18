@@ -108,7 +108,7 @@ export default function ProductDetailView() {
       </nav>
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-10 space-y-12 sm:space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-10 pb-16 lg:pb-20 space-y-12 sm:space-y-16">
         {/* Core Layout Grid: Reordered on mobile (Gallery -> Specs & CTA -> Detailed Tabs) and 7/5 cols on desktop */}
         <section className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-14 items-start">
           {/* 1. Gallery Viewport: Order 1 on mobile, 7 cols on desktop */}

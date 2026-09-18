@@ -26,3 +26,9 @@ test("Inquiry mapper normalizes phone and company from message correctly", () =>
   assert.equal(normalized.company, "ABC Corp");
   assert.equal(normalized.message, "Need 500 units quote");
 });
+
+test("Inquiry service rejects invalid inquiry types", async () => {
+  const res = await inquiryModule.service.deleteInquiry("unknown_type_xyz", "123");
+  assert.equal(res.status, 400);
+  assert.ok(res.error);
+});

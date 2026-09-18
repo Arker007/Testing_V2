@@ -43,10 +43,26 @@ router.get("/inquiries", (req, res) =>
 
 /**
  * DELETE /api/inquiries/:type/:id
- * Delete an inquiry or contact message
+ * Delete an inquiry or contact message by type and id
  */
 router.delete("/inquiries/:type/:id", (req, res) =>
   inquiryController.deleteInquiry(req, res)
+);
+
+/**
+ * DELETE /api/inquiries/:id
+ * Delete an inquiry or contact message by id (with optional source/type query)
+ */
+router.delete("/inquiries/:id", (req, res) =>
+  inquiryController.deleteInquiry(req, res)
+);
+
+/**
+ * DELETE /api/contact/:id
+ * Delete a contact message by id
+ */
+router.delete("/contact/:id", (req, res) =>
+  inquiryController.deleteContactMessage(req, res)
 );
 
 module.exports = router;

@@ -140,7 +140,8 @@ html.dark .dotsPatternRightBottom,
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
+  width: 44px;
+  min-width: 44px;
   height: 64px;
 }
 
@@ -541,14 +542,16 @@ html.dark .dotsPatternRightBottom,
 .paginationTrack {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
 }
 
 .paginationDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 4px;
-  background: var(--gray-300);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  background: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -557,12 +560,22 @@ html.dark .dotsPatternRightBottom,
   position: relative;
 }
 
-.paginationDot:hover:not(.paginationDotActive) {
+.paginationDot::after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--gray-300);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.paginationDot:hover:not(.paginationDotActive)::after {
   background: var(--gray-400);
   transform: scale(1.25);
 }
 
-.paginationDotActive {
+.paginationDotActive::after {
   width: 26px;
   height: 8px;
   border-radius: 4px;

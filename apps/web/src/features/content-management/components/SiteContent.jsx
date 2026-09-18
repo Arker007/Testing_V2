@@ -76,15 +76,20 @@ export default function SiteContent() {
     );
   };
 
-  const getSubSectionStatusBadge = (sec) => {
+  const getSubSectionStatusBadge = (sec, isSelected = false) => {
     const key = getSectionToggleKey(sec);
     if (!key) return null;
     const isOn = cms[key] !== "0";
+    const badgeClass = isSelected
+      ? (isOn ? cStyles.nodeBadgeOnActive : cStyles.nodeBadgeOffActive)
+      : (isOn ? cStyles.nodeBadgeOn : cStyles.nodeBadgeOff);
+    const dotClass = isSelected
+      ? (isOn ? cStyles.statusDotOnActive : cStyles.statusDotOffActive)
+      : (isOn ? cStyles.statusDotOn : cStyles.statusDotOff);
+
     return (
-      <span className={cStyles.nodeBadge} style={{ 
-        background: isOn ? "var(--brand-glow-subtle)" : "var(--gray-100)",
-        color: isOn ? "var(--brand-dark)" : "var(--muted)",
-      }}>
+      <span className={`${cStyles.nodeBadge} ${badgeClass}`}>
+        <span className={`${cStyles.statusDot} ${dotClass}`} />
         {isOn ? "ON" : "OFF"}
       </span>
     );

@@ -447,45 +447,115 @@
    10. FEATURE CARDS & BRAND PILLS
    -------------------------------------------------------------------------- */
 .feature-card-item {
-  background-color: var(--bg-canvas);
-  padding: 1.75rem;
+  padding: 1.5rem;
   border-radius: var(--radius-card, 8px);
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  transition: all var(--motion-fast, 200ms) var(--ease-standard);
+  position: relative;
+  overflow: hidden;
 }
 
 :root[data-theme="dark"] .feature-card-item,
 :root.dark .feature-card-item,
 html.dark .feature-card-item {
   background-color: var(--bg-surface);
-  border-color: var(--border, rgba(242, 242, 242, 0.12));
+  border-color: var(--border-subtle);
 }
 
 .feature-card-item:hover {
-  transform: translateY(-0.375rem);
-  border-color: rgba(107, 191, 84, 0.5);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  border-color: var(--border-brand);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
 }
 
 .feature-icon-wrapper {
-  width: 3rem;
-  height: 3rem;
-  border-radius: var(--radius-md, 8px);
-  background-color: rgba(107, 191, 84, 0.1);
-  color: var(--text-brand);
-  border: 1px solid rgba(107, 191, 84, 0.2);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-btn, 8px);
+  background: var(--brand-soft);
+  color: var(--brand-primary);
+  border: 1px solid var(--border-brand);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0;
+  transition: transform var(--motion-fast, 200ms) var(--ease-standard);
 }
 
 :root[data-theme="dark"] .feature-icon-wrapper,
 :root.dark .feature-icon-wrapper,
 html.dark .feature-icon-wrapper {
-  color: var(--text-brand);
-  background-color: rgba(107, 191, 84, 0.15);
-  border-color: rgba(107, 191, 84, 0.3);
+  background: var(--brand-soft);
+  color: var(--brand-primary);
+  border-color: var(--border-brand);
+}
+
+.feature-card-item:hover .feature-icon-wrapper {
+  transform: scale(1.05);
+}
+
+.feature-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm, 6px);
+  background: var(--bg-surface-secondary);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.feature-card-media {
+  width: 100%;
+  height: 140px;
+  border-radius: var(--radius-sm, 6px);
+  overflow: hidden;
+  position: relative;
+  background: var(--bg-surface-secondary);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 0.125rem;
+}
+
+.feature-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--motion-normal, 300ms) var(--ease-standard);
+}
+
+.feature-card-item:hover .feature-card-media img {
+  transform: scale(1.05);
+}
+
+.feature-card-item h3 {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.feature-card-item p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
 }
 
 .badge-pill-accent {

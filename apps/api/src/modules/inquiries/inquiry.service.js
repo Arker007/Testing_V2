@@ -47,8 +47,8 @@ class InquiryService {
   /**
    * Get all contact form messages.
    */
-  async getAllContactMessages() {
-    const rows = await inquiryRepository.findAllContactMessages();
+  async getAllContactMessages(limit = 100, offset = 0) {
+    const rows = await inquiryRepository.findAllContactMessages(limit, offset);
     const messages = rows.map((row) => inquiryMapper.normalizeInquiryData(row));
     return { messages };
   }
@@ -74,29 +74,40 @@ class InquiryService {
   /**
    * Get all inquiries (both product inquiries & contact messages combined).
    */
-  async getAllInquiries() {
+  async getAllInquiries(limit = 100, offset = 0) {
     const [inqRows, msgRows] = await Promise.all([
-      inquiryRepository.findAllInquiries(),
-      inquiryRepository.findAllContactMessagesAsInquiries(),
+      inquiryRepository.findAllInquiries(limit, offset),
+      inquiryRepository.findAllContactMessagesAsInquiries(limit, offset),
     ]);
 
     const combined = [...inqRows, ...msgRows]
-      .map((row) => inquiryMapper.normalizeInquiryData(row))
-      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+      .slice(0, limit)
+      .map((row) => inquiryMapper.normalizeInquiryData(row));
 
-    return { inquiries: combined };
+    return { inquiries: combined, limit, offset };
   }
 
   /**
    * Delete inquiry by type and id.
    */
   async deleteInquiry(type, id) {
-    if (type === "contact_form") {
+    const normType = String(type || "").toLowerCase().trim();
+
+    if (normType === "contact_form" || normType === "contact" || normType === "message") {
       const result = await inquiryRepository.deleteContactMessage(id);
-      return { success: true, changes: result.changes };
-    } else if (type === "product_inquiry") {
+      return { success: true, changes: result.changes, type: "contact_form" };
+    } else if (normType === "product_inquiry" || normType === "inquiry" || normType === "product") {
       const result = await inquiryRepository.deleteInquiry(id);
-      return { success: true, changes: result.changes };
+      return { success: true, changes: result.changes, type: "product_inquiry" };
+    } else if (!normType) {
+      // Fallback if type not specified: try product inquiry first, then contact message
+      const inqRes = await inquiryRepository.deleteInquiry(id);
+      if (inqRes && inqRes.changes > 0) {
+        return { success: true, changes: inqRes.changes, type: "product_inquiry" };
+      }
+      const msgRes = await inquiryRepository.deleteContactMessage(id);
+      return { success: true, changes: msgRes.changes, type: "contact_form" };
     } else {
       return { error: "Invalid inquiry type", status: 400 };
     }

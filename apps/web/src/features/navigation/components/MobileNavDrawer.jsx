@@ -3,7 +3,7 @@ import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "motion/react";
-import { Button } from "@/shared/ui";
+import { Button, QuoteButton } from "@/shared/ui";
 import { useSite } from "../../../shared/context/SiteContext";
 import styles from "../styles/navbar.module.css";
 
@@ -145,7 +145,7 @@ export default function MobileNavDrawer({
             >
               <span>Products</span>
               <Icon
-                icon="carbon:chevron-down"
+                icon="solar:alt-arrow-down-linear"
                 className={`w-4 h-4 transition-transform duration-200 ${
                   mobileProductsOpen ? "rotate-180" : ""
                 }`}
@@ -269,18 +269,12 @@ export default function MobileNavDrawer({
 
         {/* Full-width CTA Button at Bottom */}
         <div className="pt-4 mt-auto">
-          <Button
-            variant="primary"
-            fullWidth
-            size="lg"
-            onClick={() => {
-              setOpen(false);
-              navigate("/contact?quote=1");
-            }}
-          >
-            <span>Request a Quote</span>
-            <Icon icon="carbon:arrow-right" className="w-4 h-4 ml-2 inline" />
-          </Button>
+          <QuoteButton
+            to="/contact?quote=1"
+            onClick={() => setOpen(false)}
+            text="Request a Quote"
+            className="w-full !justify-center !py-3"
+          />
         </div>
           </motion.div>
         </>

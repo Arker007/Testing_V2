@@ -15,7 +15,7 @@ export default function ContactHero() {
       ]}
       tag={c("contact_hero_badge", "Direct Factory Sales Desk")}
       tagIcon="carbon:headset"
-      title="Commercial Procurement & Engineering Support"
+      title={c("contact_hero_title", "Commercial Procurement & Engineering Support")}
       description={c(
         "contact_hero_sub",
         "Request volume pricing, custom extruded profiles, or schedule plant dispatches directly with our Ankleshwar manufacturing facility."

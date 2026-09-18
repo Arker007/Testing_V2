@@ -1,7 +1,9 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { Navbar, MobileBottomNav, Footer } from "../../features/navigation";
-import { ScrollProgressBar, TimedInquiryModal } from "@/shared/ui";
+import { ScrollProgressBar } from "@/shared/ui";
+
+const TimedInquiryModal = lazy(() => import("../../shared/ui/overlays/TimedInquiryModal"));
 
 export default function PublicLayout() {
   const { pathname } = useLocation();
@@ -9,24 +11,6 @@ export default function PublicLayout() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [pathname]);
-
-  // FIX: Detect active scroll motion to dynamically pause hover layout recalculations
-  useEffect(() => {
-    let scrollTimeout;
-    const handleScroll = () => {
-      document.body.classList.add("is-scrolling");
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        document.body.classList.remove("is-scrolling");
-      }, 150); // timeout matches typical scroll-wheel end latency
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(scrollTimeout);
-    };
-  }, []);
 
   useEffect(() => {
     const targets = Array.from(
@@ -84,12 +68,14 @@ export default function PublicLayout() {
       </a>
       <ScrollProgressBar />
       <Navbar />
-      <div id="main-content">
+      <main id="main-content">
         <Outlet />
-      </div>
+      </main>
       <Footer />
       <MobileBottomNav />
-      <TimedInquiryModal />
+      <Suspense fallback={null}>
+        <TimedInquiryModal />
+      </Suspense>
     </>
   );
 }

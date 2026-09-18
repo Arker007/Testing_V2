@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { motion as Motion, AnimatePresence } from "motion/react";
@@ -22,56 +22,66 @@ const iconMap = {
   Waves: "carbon:rain-drop"
 };
 
-const slides = [
-  {
-    category: "Recycled Plastic Lumber",
-    badge: "MANUFACTURER & SUPPLIER",
-    titleLime: "RECYCLED",
-    titleWhite: "PLASTIC LUMBER",
-    desc: "Premium grade recycled polymer profiles engineered to replace wood and metal. Zero rot, zero splinter, and maintenance-free durability built for fifty-plus years of structural performance.",
-    image: "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
-    fallbackSrc: recycledPlasticProfiles,
-    features: [
-      { icon: "ShieldCheck", title: "DURABLE", text: "Built for long lasting structural performance" },
-      { icon: "Droplets", title: "WEATHERPROOF", text: "Zero rot, zero splinter, moisture resistant" },
-      { icon: "Wrench", title: "HIGH STRENGTH", text: "High load capacity for demanding builds" },
-      { icon: "Leaf", title: "ECO FRIENDLY", text: "100% recycled polymer profile material" }
-    ]
-  },
-  {
-    category: "Industrial Plastic Pallets",
-    badge: "MANUFACTURER & SUPPLIER",
-    titleLime: "HEAVY-DUTY",
-    titleWhite: "PLASTIC PALLETS",
-    desc: "High-capacity, injection-molded and extruded plastic pallets designed for efficient warehousing, industrial logistics, and reliable international sea freight shipping.",
-    image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
-    fallbackSrc: highLoadCapacity,
-    features: [
-      { icon: "ShieldCheck", title: "HEAVY DUTY", text: "Withstands heavy static & dynamic loads" },
-      { icon: "Droplets", title: "CHEMICAL RESIST", text: "Resistant to acids, alkalis, and oils" },
-      { icon: "Plane", title: "EXPORT READY", text: "Naturally phytosanitary exempt (ISPM-15)" },
-      { icon: "Leaf", title: "SUSTAINABLE", text: "Fully recyclable at end of lifecycle" }
-    ]
-  },
-  {
-    category: "Outdoor Benches & Tables",
-    badge: "MANUFACTURER & SUPPLIER",
-    titleLime: "WEATHERPROOF",
-    titleWhite: "GARDEN BENCHES",
-    desc: "Durable, heavy-duty outdoor seating systems perfect for garden, commercial, and public spaces. Built to withstand all weather conditions and last for years.",
-    image: "/uploads/products/categories/garden-bench-1770446422580-0.webp",
-    fallbackSrc: weatherResistantBg,
-    features: [
-      { icon: "ShieldCheck", title: "WEATHERPROOF", text: "Engineered to perform in all weather conditions" },
-      { icon: "Link2", title: "RUSTPROOF", text: "Corrosion-resistant for enhanced durability" },
-      { icon: "Eye", title: "MODERN DESIGN", text: "Aesthetic and functional for all environments" },
-      { icon: "Leaf", title: "ECO FRIENDLY", text: "Non-toxic, eco-friendly & safe for all use" }
-    ]
-  }
-];
-
 export default function HomeHeroMobile() {
   const { c, co } = useSite();
+
+  const slides = useMemo(() => [
+    {
+      category: c("home_slide1_category", "Recycled Plastic Lumber"),
+      badge: c("home_slide1_badge", "MANUFACTURER & SUPPLIER"),
+      titleLime: c("home_slide1_title_accent", "RECYCLED"),
+      titleWhite: c("home_slide1_title_main", "PLASTIC LUMBER"),
+      desc: c(
+        "home_slide1_desc",
+        "Premium grade recycled polymer profiles engineered to replace wood and metal. Zero rot, zero splinter, and maintenance-free durability built for fifty-plus years of structural performance."
+      ),
+      image: "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
+      fallbackSrc: recycledPlasticProfiles,
+      features: [
+        { icon: "ShieldCheck", title: c("home_slide1_f1_title", "DURABLE"), text: c("home_slide1_f1_desc", "Built for long lasting structural performance") },
+        { icon: "Droplets", title: c("home_slide1_f2_title", "WEATHERPROOF"), text: c("home_slide1_f2_desc", "Zero rot, zero splinter, moisture resistant") },
+        { icon: "Wrench", title: c("home_slide1_f3_title", "HIGH STRENGTH"), text: c("home_slide1_f3_desc", "High load capacity for demanding builds") },
+        { icon: "Leaf", title: c("home_slide1_f4_title", "ECO FRIENDLY"), text: c("home_slide1_f4_desc", "100% recycled polymer profile material") }
+      ]
+    },
+    {
+      category: c("home_slide2_category", "Industrial Plastic Pallets"),
+      badge: c("home_slide2_badge", "MANUFACTURER & SUPPLIER"),
+      titleLime: c("home_slide2_title_accent", "HEAVY-DUTY"),
+      titleWhite: c("home_slide2_title_main", "PLASTIC PALLETS"),
+      desc: c(
+        "home_slide2_desc",
+        "High-capacity, injection-molded and extruded plastic pallets designed for efficient warehousing, industrial logistics, and reliable international sea freight shipping."
+      ),
+      image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
+      fallbackSrc: highLoadCapacity,
+      features: [
+        { icon: "ShieldCheck", title: c("home_slide2_f1_title", "HEAVY DUTY"), text: c("home_slide2_f1_desc", "Withstands heavy static & dynamic loads") },
+        { icon: "Droplets", title: c("home_slide2_f2_title", "CHEMICAL RESIST"), text: c("home_slide2_f2_desc", "Resistant to acids, alkalis, and oils") },
+        { icon: "Plane", title: c("home_slide2_f3_title", "EXPORT READY"), text: c("home_slide2_f3_desc", "Naturally phytosanitary exempt (ISPM-15)") },
+        { icon: "Leaf", title: c("home_slide2_f4_title", "SUSTAINABLE"), text: c("home_slide2_f4_desc", "Fully recyclable at end of lifecycle") }
+      ]
+    },
+    {
+      category: c("home_slide3_category", "Outdoor Benches & Tables"),
+      badge: c("home_slide3_badge", "MANUFACTURER & SUPPLIER"),
+      titleLime: c("home_slide3_title_accent", "WEATHERPROOF"),
+      titleWhite: c("home_slide3_title_main", "GARDEN BENCHES"),
+      desc: c(
+        "home_slide3_desc",
+        "Durable, heavy-duty outdoor seating systems perfect for garden, commercial, and public spaces. Built to withstand all weather conditions and last for years."
+      ),
+      image: "/uploads/products/categories/garden-bench-1770446422580-0.webp",
+      fallbackSrc: weatherResistantBg,
+      features: [
+        { icon: "ShieldCheck", title: c("home_slide3_f1_title", "WEATHERPROOF"), text: c("home_slide3_f1_desc", "Engineered to perform in all weather conditions") },
+        { icon: "Link2", title: c("home_slide3_f2_title", "RUSTPROOF"), text: c("home_slide3_f2_desc", "Corrosion-resistant for enhanced durability") },
+        { icon: "Eye", title: c("home_slide3_f3_title", "MODERN DESIGN"), text: c("home_slide3_f3_desc", "Aesthetic and functional for all environments") },
+        { icon: "Leaf", title: c("home_slide3_f4_title", "ECO FRIENDLY"), text: c("home_slide3_f4_desc", "Non-toxic, eco-friendly & safe for all use") }
+      ]
+    }
+  ], [c]);
+
   const [current, setCurrent] = useState(1);
   
   useEffect(() => {
@@ -79,7 +89,7 @@ export default function HomeHeroMobile() {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 7000);
     return () => clearInterval(timer);
-  }, [current]);
+  }, [current, slides.length]);
 
   if (c("show_hero", "1") === "0") return null;
 
@@ -92,8 +102,8 @@ export default function HomeHeroMobile() {
   };
 
   const activeSlide = slides[current];
-  const companyPhone = co("phone", "+91 98986 86379");
-  const cleanedPhone = companyPhone.replace(/\s+/g, "");
+  const heroPhone = c("hero_assistance_phone", co("phone", "+91 98986 86379"));
+  const cleanedPhone = heroPhone.replace(/\s+/g, "");
 
   return (
     <section className="relative w-full bg-[#10141b] bg-navy dark-context min-h-screen flex flex-col pt-8 pb-8 font-sans" id="home-hero-mobile">
@@ -230,8 +240,10 @@ export default function HomeHeroMobile() {
                                 src={slide.image}
                                 fallbackSrc={slide.fallbackSrc}
                                 alt={slide.titleWhite}
-                                loading="eager"
+                                loading={idx === current ? "eager" : "lazy"}
                                 fetchPriority={idx === current ? "high" : "low"}
+                                width="500"
+                                height="520"
                                 style={{
                                   width: "100%",
                                   height: "100%",
@@ -274,21 +286,25 @@ export default function HomeHeroMobile() {
               </div>
 
               {/* Pagination Dots */}
-              <div className="flex justify-center items-center gap-2 mb-6">
-                <div className="inline-flex items-center justify-center gap-2 bg-[#0c1524]/60 backdrop-blur-md border border-white/12 rounded-[8px] py-1.5 px-4.5 shadow-[0_4px_16px_var(--shadow-md,rgba(0,0,0,0.3))]">
+              <div className="flex justify-center items-center gap-1 mb-6">
+                <div className="inline-flex items-center justify-center gap-0.5 bg-[#0c1524]/60 backdrop-blur-md border border-white/12 rounded-[8px] py-1 px-2.5 shadow-[0_4px_16px_var(--shadow-md,rgba(0,0,0,0.3))]">
                   {slides.map((_, idx) => (
                     <Motion.button
                       key={idx}
                       onClick={() => setCurrent(idx)}
-                      whileHover={{ scale: 1.3 }}
-                      whileTap={{ scale: 0.8 }}
-                      className={`h-2 rounded-full cursor-pointer transition-all duration-300 outline-none p-0 border-none ${
-                        idx === current 
-                          ? "w-6 bg-gradient-to-r from-[var(--brand)] to-[var(--brand-600)]" 
-                          : "w-2 bg-[#d1d5db]/70"
-                      }`}
+                      whileHover={{ scale: 1.15 }}
+                      whileTap={{ scale: 0.85 }}
+                      className="min-w-[36px] min-h-[36px] inline-flex items-center justify-center cursor-pointer outline-none p-0 border-none bg-transparent"
                       aria-label={`Go to slide ${idx + 1}`}
-                    />
+                    >
+                      <span
+                        className={`h-2 rounded-full transition-all duration-300 block ${
+                          idx === current 
+                            ? "w-6 bg-gradient-to-r from-[var(--brand)] to-[var(--brand-600)]" 
+                            : "w-2 bg-[#d1d5db]/70"
+                        }`}
+                      />
+                    </Motion.button>
                   ))}
                 </div>
               </div>
@@ -306,7 +322,7 @@ export default function HomeHeroMobile() {
                   className="inline-block w-fit"
                 >
                   <Link to="/products" className="exploreBtnGlobal">
-                    <span>EXPLORE PRODUCTS</span>
+                    <span>{c("hero_cta_primary", "EXPLORE PRODUCTS")}</span>
                     <Icon icon="carbon:arrow-right" className="exploreBtnArrowGlobal" />
                   </Link>
                 </Motion.div>
@@ -353,9 +369,9 @@ export default function HomeHeroMobile() {
             </div>
             
             <div className="flex flex-col gap-0.5">
-              <span className="text-[#0f1319] text-[10px] font-extrabold tracking-widest uppercase">NEED ASSISTANCE?</span>
+              <span className="text-[#0f1319] text-[10px] font-extrabold tracking-widest uppercase">{c("hero_assistance_title", "NEED ASSISTANCE?")}</span>
               <span className="text-slate-500 text-[9.5px] font-medium leading-snug max-w-[140px]">
-                Our team is ready to help you find the right solution.
+                {c("hero_assistance_sub", "Our team is ready to help you find the right solution.")}
               </span>
             </div>
           </div>
@@ -365,7 +381,7 @@ export default function HomeHeroMobile() {
             className="flex items-center justify-center gap-1.5 bg-[#0f1319] border border-[#0f1319] !text-white py-2 px-3 rounded-[8px] text-[10px] font-extrabold uppercase transition hover:bg-[var(--brand)] hover:border-[var(--brand)] hover:!text-[#0f1319] shrink-0"
           >
             <Icon icon="carbon:phone" className="w-3.5 h-3.5 !text-white" />
-            <span className="!text-white">CONTACT US</span>
+            <span className="!text-white">{c("hero_assistance_btn", "CONTACT US")}</span>
           </a>
         </div>
       </div>

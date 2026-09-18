@@ -36,7 +36,7 @@ export const INDUSTRIES_DATA = [
   {
     id: "infrastructure",
     title: "Infrastructure",
-    desc: "Civic walkways, bridge decking, railway sleepers, and sound abatement panels.",
+    desc: "High-load civic walkways, marine boardwalks, bridge sub-structures, and acoustic barrier walls designed for salt-mist and flood resilience.",
     image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1000&auto=format&fit=crop",
     delay: 0.05,
     cardType: "standard",
@@ -47,7 +47,7 @@ export const INDUSTRIES_DATA = [
   {
     id: "municipal",
     title: "Municipal Parks",
-    desc: "Weatherproof park benches, picnic tables, trash receptacles, and bollards.",
+    desc: "Vandal-resistant outdoor park benches, heavy-duty picnic tables, anti-corrosion trash receptacles, and bollards for civic parks and public spaces.",
     image: "https://images.unsplash.com/photo-1519974719765-e6559eac2575?q=80&w=1000&auto=format&fit=crop",
     delay: 0.1,
     cardType: "standard",
@@ -58,7 +58,7 @@ export const INDUSTRIES_DATA = [
   {
     id: "agriculture",
     title: "Agriculture",
-    desc: "Rot-proof greenhouse benching, raised garden beds, and livestock fencing.",
+    desc: "Chemical-resistant greenhouse benches, raised garden beds, rot-proof irrigation platforms, and durable livestock fencing that never splinters.",
     image: "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?q=80&w=1000&auto=format&fit=crop",
     delay: 0.15,
     cardType: "wide",
@@ -95,7 +95,7 @@ export const INDUSTRIES_DATA = [
   {
     id: "residential",
     title: "Residential",
-    desc: "Low-maintenance deck substructures, garden fences, and outdoor patio furniture.",
+    desc: "Premium weather-resistant deck substructures, perimeter privacy fences, pergola framing, and outdoor patio furnishings engineered for 30+ year lifespan.",
     image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=1200&auto=format&fit=crop",
     delay: 0.3,
     cardType: "wideRow",

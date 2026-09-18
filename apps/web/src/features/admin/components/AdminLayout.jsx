@@ -164,7 +164,7 @@ export default function AdminLayout() {
       />
 
       {/* Primary Workspace Panel */}
-      <div className={`${styles.main} ${!sidebarOpen ? styles.mainCollapsed : ""}`}>
+      <main className={`${styles.main} ${!sidebarOpen ? styles.mainCollapsed : ""}`}>
         <AdminTopBar
           sidebarOpen={sidebarOpen}
           setSidebarOpen={setSidebarOpen}
@@ -194,7 +194,7 @@ export default function AdminLayout() {
         <div className={styles.content}>
           <Outlet context={{ setHeaderActions }} />
         </div>
-      </div>
+      </main>
     </div>
   );
 }

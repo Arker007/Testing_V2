@@ -141,14 +141,14 @@ export default function ContactFormSection() {
                 {/* Step 1: Select Product */}
                 <div className="space-y-2.5">
                   <div className="flex items-start gap-2.5">
-                    <div className="w-6 h-6 sm:w-6.5 sm:h-6.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                       1
                     </div>
                     <div>
-                      <h2 className="text-[22px] font-bold text-[var(--text-primary)] leading-tight">
+                      <h2 className={`${styles.stepTitle} !text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight`}>
                         Product / Requirement
                       </h2>
-                      <p className="text-[14px] text-[var(--text-secondary)] mt-0.5">
+                      <p className={`${styles.stepSubTitle} !text-xs text-[var(--text-secondary)] mt-0.5`}>
                         Select the product category that best matches your requirement.
                       </p>
                     </div>
@@ -195,14 +195,14 @@ export default function ContactFormSection() {
                 {/* Step 2: Contact Details */}
                 <div className="space-y-2.5">
                   <div className="flex items-start gap-2.5">
-                    <div className="w-6 h-6 sm:w-6.5 sm:h-6.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                       2
                     </div>
                     <div>
-                      <h2 className="text-[22px] font-bold text-[var(--text-primary)] leading-tight">
+                      <h2 className={`${styles.stepTitle} !text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight`}>
                         Your Details
                       </h2>
-                      <p className="text-[15px] text-[var(--text-secondary)] mt-0.5">
+                      <p className={`${styles.stepSubTitle} !text-xs text-[var(--text-secondary)] mt-0.5`}>
                         Let us know how to get in touch with you.
                       </p>
                     </div>
@@ -248,14 +248,14 @@ export default function ContactFormSection() {
                             onChange={f("phonePrefix")}
                             aria-label="Country phone code"
                           >
-                            <option value="+91" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+91 (IN)</option>
-                            <option value="+1" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+1 (US)</option>
-                            <option value="+44" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+44 (UK)</option>
-                            <option value="+971" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+971 (UAE)</option>
-                            <option value="+966" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+966 (KSA)</option>
-                            <option value="+65" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+65 (SG)</option>
-                            <option value="+49" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+49 (DE)</option>
-                            <option value="+61" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+61 (AU)</option>
+                            <option value="+91" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+91</option>
+                            <option value="+1" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+1</option>
+                            <option value="+44" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+44</option>
+                            <option value="+971" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+971</option>
+                            <option value="+966" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+966</option>
+                            <option value="+65" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+65</option>
+                            <option value="+49" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+49</option>
+                            <option value="+61" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+61</option>
                           </select>
                           <Icon icon="solar:alt-arrow-down-bold" className="w-2.5 h-2.5 text-[var(--text-muted)] absolute right-1.5 pointer-events-none z-0" />
                         </div>
@@ -289,14 +289,14 @@ export default function ContactFormSection() {
                 {/* Step 3: Requirement Details */}
                 <div className="space-y-2.5">
                   <div className="flex items-start gap-2.5">
-                    <div className="w-6 h-6 sm:w-6.5 sm:h-6.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs sm:text-sm flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                       3
                     </div>
                     <div>
-                      <h2 className="text-[22px] font-bold text-[var(--text-primary)] leading-tight">
+                      <h2 className={`${styles.stepTitle} !text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight`}>
                         Requirement Details
                       </h2>
-                      <p className="text-[15px] text-[var(--text-secondary)] mt-0.5">
+                      <p className={`${styles.stepSubTitle} !text-xs text-[var(--text-secondary)] mt-0.5`}>
                         Help us understand your requirement better.
                       </p>
                     </div>

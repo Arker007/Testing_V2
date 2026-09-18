@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useMemo } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
 import { Badge } from "@/shared/ui";
@@ -151,7 +152,49 @@ export default function ProductFilterSidebar({
   isMobileFilterOpen,
   setIsMobileFilterOpen,
   applyLoadFilter,
+  filteredCount,
 }) {
+  // Compute total active filters count for the badge
+  const activeFiltersCount = useMemo(() => {
+    let count = 0;
+    count += selectedCategories?.length || 0;
+    count += selectedAttributes?.length || 0;
+    count += selectedDimensions?.length || 0;
+    if (dynamicLoadRange && (dynamicLoadRange[0] > 1000 || dynamicLoadRange[1] < 9000)) count++;
+    if (staticLoadRange && (staticLoadRange[0] > 1000 || staticLoadRange[1] < 15000)) count++;
+    if (rackLoadRange && (rackLoadRange[0] > 500 || rackLoadRange[1] < 1500)) count++;
+    if (isCustom) count++;
+    return count;
+  }, [
+    selectedCategories,
+    selectedAttributes,
+    selectedDimensions,
+    dynamicLoadRange,
+    staticLoadRange,
+    rackLoadRange,
+    isCustom,
+  ]);
+
+  // Lock body scroll & handle Escape key when mobile filter drawer is open
+  React.useEffect(() => {
+    if (!isMobileFilterOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setIsMobileFilterOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [isMobileFilterOpen, setIsMobileFilterOpen]);
+
   // Normalize dynamic category items (filtering out categories with 0 items)
   const dynamicCategories = useMemo(() => {
     let list = [];
@@ -264,35 +307,368 @@ export default function ProductFilterSidebar({
     }
   };
 
+  const renderFilterSections = () => (
+    <>
+      {/* 1. CATEGORY */}
+      <div className={styles.accordionSection}>
+        <button
+          type="button"
+          className={styles.accordionHeaderBtn}
+          onClick={() => toggleSection("category")}
+          aria-expanded={sectionsOpen.category}
+        >
+          <span className={styles.accordionTitle}>Category</span>
+          <Icon
+            icon="solar:alt-arrow-down-linear"
+            className={`${styles.accordionChevron} ${
+              sectionsOpen.category
+                ? styles.accordionChevronOpen
+                : styles.accordionChevronClosed
+            }`}
+          />
+        </button>
+
+        <AnimatePresence initial={false}>
+          {sectionsOpen.category && (
+            <motion.div
+              className={styles.accordionContent}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              {dynamicCategories.map((cat) => {
+                const isChecked =
+                  selectedCategories.includes(cat.id) ||
+                  selectedCategories.includes(cat.name) ||
+                  selectedCategories.includes(cat.key);
+                const rawCount =
+                  categoryCounts[cat.name] ??
+                  categoryCounts[cat.id] ??
+                  categoryCounts[cat.key];
+                const count = typeof rawCount === "number" ? rawCount : 0;
+                const hasCount = count > 0;
+
+                return (
+                  <label
+                    key={cat.key}
+                    className={`${styles.checkboxRow} ${!hasCount ? styles.checkboxRowEmpty : ""}`}
+                  >
+                    <input
+                      type="checkbox"
+                      className={styles.checkboxInputHidden}
+                      checked={isChecked}
+                      onChange={() => toggleCategory(cat.name)}
+                    />
+                    <span
+                      className={`${styles.customCheckboxSquare} ${
+                        isChecked ? styles.customCheckboxChecked : ""
+                      }`}
+                    >
+                      {isChecked && <CheckboxCheck />}
+                    </span>
+                    <span className={styles.checkboxLabelText}>
+                      {cat.name}
+                    </span>
+                    <span
+                      className={`${styles.categoryCountBadge} ${
+                        !hasCount ? styles.categoryCountBadgeZero : ""
+                      }`}
+                    >
+                      {count}
+                    </span>
+                  </label>
+                );
+              })}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* 2. ATTRIBUTES */}
+      <div className={styles.accordionSection}>
+        <button
+          type="button"
+          className={styles.accordionHeaderBtn}
+          onClick={() => toggleSection("attributes")}
+          aria-expanded={sectionsOpen.attributes}
+        >
+          <span className={styles.accordionTitle}>Attributes</span>
+          <Icon
+            icon="solar:alt-arrow-down-linear"
+            className={`${styles.accordionChevron} ${
+              sectionsOpen.attributes
+                ? styles.accordionChevronOpen
+                : styles.accordionChevronClosed
+            }`}
+          />
+        </button>
+
+        <AnimatePresence initial={false}>
+          {sectionsOpen.attributes && (
+            <motion.div
+              className={styles.accordionContent}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              {ATTRIBUTE_ITEMS.map((attr) => {
+                const isChecked = selectedAttributes.includes(attr);
+                return (
+                  <label key={attr} className={styles.checkboxRow}>
+                    <input
+                      type="checkbox"
+                      className={styles.checkboxInputHidden}
+                      checked={isChecked}
+                      onChange={() => toggleAttribute(attr)}
+                    />
+                    <span
+                      className={`${styles.customCheckboxSquare} ${
+                        isChecked ? styles.customCheckboxChecked : ""
+                      }`}
+                    >
+                      {isChecked && <CheckboxCheck />}
+                    </span>
+                    <span className={styles.checkboxLabelText}>{attr}</span>
+                  </label>
+                );
+              })}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* 3. DIMENSIONS */}
+      <div className={styles.accordionSection}>
+        <button
+          type="button"
+          className={styles.accordionHeaderBtn}
+          onClick={() => toggleSection("dimensions")}
+          aria-expanded={sectionsOpen.dimensions}
+        >
+          <span className={styles.accordionTitle}>Dimensions</span>
+          <Icon
+            icon="solar:alt-arrow-down-linear"
+            className={`${styles.accordionChevron} ${
+              sectionsOpen.dimensions
+                ? styles.accordionChevronOpen
+                : styles.accordionChevronClosed
+            }`}
+          />
+        </button>
+
+        <AnimatePresence initial={false}>
+          {sectionsOpen.dimensions && (
+            <motion.div
+              className={styles.accordionContent}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              {DIMENSION_ITEMS.map((dim) => {
+                const isChecked = selectedDimensions.includes(dim);
+                return (
+                  <label key={dim} className={styles.checkboxRow}>
+                    <input
+                      type="checkbox"
+                      className={styles.checkboxInputHidden}
+                      checked={isChecked}
+                      onChange={() => toggleDimension(dim)}
+                    />
+                    <span
+                      className={`${styles.customCheckboxSquare} ${
+                        isChecked ? styles.customCheckboxChecked : ""
+                      }`}
+                    >
+                      {isChecked && <CheckboxCheck />}
+                    </span>
+                    <span className={styles.checkboxLabelText}>{dim}</span>
+                  </label>
+                );
+              })}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* 4. MAX DYNAMIC LOAD */}
+      <div className={styles.accordionSection}>
+        <button
+          type="button"
+          className={styles.accordionHeaderBtn}
+          onClick={() => toggleSection("dynamicLoad")}
+          aria-expanded={sectionsOpen.dynamicLoad}
+        >
+          <span className={styles.accordionTitle}>Max Dynamic Load</span>
+          <Icon
+            icon="solar:alt-arrow-down-linear"
+            className={`${styles.accordionChevron} ${
+              sectionsOpen.dynamicLoad
+                ? styles.accordionChevronOpen
+                : styles.accordionChevronClosed
+            }`}
+          />
+        </button>
+
+        <AnimatePresence initial={false}>
+          {sectionsOpen.dynamicLoad && (
+            <motion.div
+              className={styles.accordionContent}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <p className="text-[11px] text-[var(--text-muted)] -mt-1 mb-2">Weight supported during forklift transport</p>
+              <RangeSliderWidget
+                min={1000}
+                max={9000}
+                step={500}
+                value={dynamicLoadRange}
+                onChange={setDynamicLoadRange}
+                onApply={(range) => {
+                  if (applyLoadFilter) applyLoadFilter("dynamic", range);
+                }}
+                unit="kg"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* 5. MAX STATIC LOAD */}
+      <div className={styles.accordionSection}>
+        <button
+          type="button"
+          className={styles.accordionHeaderBtn}
+          onClick={() => toggleSection("staticLoad")}
+          aria-expanded={sectionsOpen.staticLoad}
+        >
+          <span className={styles.accordionTitle}>Max Static Load</span>
+          <Icon
+            icon="solar:alt-arrow-down-linear"
+            className={`${styles.accordionChevron} ${
+              sectionsOpen.staticLoad
+                ? styles.accordionChevronOpen
+                : styles.accordionChevronClosed
+            }`}
+          />
+        </button>
+
+        <AnimatePresence initial={false}>
+          {sectionsOpen.staticLoad && (
+            <motion.div
+              className={styles.accordionContent}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <p className="text-[11px] text-[var(--text-muted)] -mt-1 mb-2">Stationary floor storage capacity</p>
+              <RangeSliderWidget
+                min={1000}
+                max={15000}
+                step={500}
+                value={staticLoadRange}
+                onChange={setStaticLoadRange}
+                onApply={(range) => {
+                  if (applyLoadFilter) applyLoadFilter("static", range);
+                }}
+                unit="kg"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* 6. MAX RACK LOAD */}
+      <div className={styles.accordionSection}>
+        <button
+          type="button"
+          className={styles.accordionHeaderBtn}
+          onClick={() => toggleSection("rackLoad")}
+          aria-expanded={sectionsOpen.rackLoad}
+        >
+          <span className={styles.accordionTitle}>Max Rack Load</span>
+          <Icon
+            icon="solar:alt-arrow-down-linear"
+            className={`${styles.accordionChevron} ${
+              sectionsOpen.rackLoad
+                ? styles.accordionChevronOpen
+                : styles.accordionChevronClosed
+            }`}
+          />
+        </button>
+
+        <AnimatePresence initial={false}>
+          {sectionsOpen.rackLoad && (
+            <motion.div
+              className={styles.accordionContent}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <p className="text-[11px] text-[var(--text-muted)] -mt-1 mb-2">High-bay unsupported beam rack capacity</p>
+              <RangeSliderWidget
+                min={500}
+                max={1500}
+                step={100}
+                value={rackLoadRange}
+                onChange={setRackLoadRange}
+                onApply={(range) => {
+                  if (applyLoadFilter) applyLoadFilter("rack", range);
+                }}
+                unit="kg"
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* 7. CUSTOM PROFILES TOGGLE */}
+      <div className={styles.customToggleSection}>
+        <label className={styles.customToggleLabel}>
+          <input
+            type="checkbox"
+            className={styles.checkboxInputHidden}
+            checked={isCustom}
+            onChange={(e) => setIsCustom && setIsCustom(e.target.checked)}
+          />
+          <span
+            className={`${styles.customCheckboxSquare} ${
+              isCustom ? styles.customCheckboxChecked : ""
+            }`}
+          >
+            {isCustom && <CheckboxCheck />}
+          </span>
+          <div className={styles.customToggleTextGroup}>
+            <span className={styles.customToggleTitle}>Custom / Bespoke Profiles</span>
+            <span className={styles.customToggleSubtitle}>Show customizable OEM molds only</span>
+          </div>
+        </label>
+      </div>
+    </>
+  );
+
   return (
     <>
-      {/* Mobile Drawer Backdrop */}
-      <AnimatePresence>
-        {isMobileFilterOpen && (
-          <motion.div
-            className={styles.mobileDrawerBackdrop}
-            onClick={() => setIsMobileFilterOpen(false)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          />
-        )}
-      </AnimatePresence>
-
-      {/* Sidebar / Mobile Drawer Container */}
+      {/* Desktop Sidebar (Rendered inside catalog grid layout, hidden on mobile) */}
       <aside
         id="product-filter-sidebar"
-        className={`${styles.sidebarPanel} ${
-          isMobileFilterOpen ? styles.mobileDrawerOpen : ""
-        }`}
+        className={styles.desktopSidebarPanel}
       >
         <div className={styles.sidebarInner}>
           {/* Sidebar Top Header */}
           <div className={styles.sidebarHeader}>
             <h2 className={styles.filterMainHeading}>
               <Icon icon="solar:filter-linear" className={styles.filterHeadingIcon} />
-              <span>Filter</span>
+              <span>Filters</span>
+              {activeFiltersCount > 0 && (
+                <span className={styles.filterActiveCountBadge}>{activeFiltersCount}</span>
+              )}
             </h2>
 
             <div className={styles.headerActions}>
@@ -309,389 +685,115 @@ export default function ProductFilterSidebar({
                   {areAllCollapsed ? "Expand All" : "Collapse All"}
                 </span>
                 <Icon
-                  icon={areAllCollapsed ? "carbon:chevron-down" : "carbon:chevron-up"}
+                  icon={areAllCollapsed ? "solar:alt-arrow-down-linear" : "solar:alt-arrow-up-linear"}
                   className={styles.collapseActionIcon}
                 />
-              </motion.button>
-
-              {/* Mobile Drawer Close Button */}
-              <motion.button
-                type="button"
-                className={styles.mobileCloseBtn}
-                onClick={() => setIsMobileFilterOpen(false)}
-                aria-label="Close filters"
-                whileTap={{ scale: 0.9 }}
-              >
-                <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
               </motion.button>
             </div>
           </div>
 
           <div className={styles.sidebarContentBody}>
-            {/* 1. CATEGORY */}
-            <div className={styles.accordionSection}>
-              <button
-                type="button"
-                className={styles.accordionHeaderBtn}
-                onClick={() => toggleSection("category")}
-                aria-expanded={sectionsOpen.category}
-              >
-                <span className={styles.accordionTitle}>Category</span>
-                <Icon
-                  icon="carbon:chevron-down"
-                  className={`${styles.accordionChevron} ${
-                    sectionsOpen.category
-                      ? styles.accordionChevronOpen
-                      : styles.accordionChevronClosed
-                  }`}
-                />
-              </button>
-
-              <AnimatePresence initial={false}>
-                {sectionsOpen.category && (
-                  <motion.div
-                    className={styles.accordionContent}
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {dynamicCategories.map((cat) => {
-                      const isChecked =
-                        selectedCategories.includes(cat.id) ||
-                        selectedCategories.includes(cat.name) ||
-                        selectedCategories.includes(cat.key);
-                      const rawCount =
-                        categoryCounts[cat.name] ??
-                        categoryCounts[cat.id] ??
-                        categoryCounts[cat.key];
-                      const count = typeof rawCount === "number" ? rawCount : 0;
-                      const hasCount = count > 0;
-
-                      return (
-                        <label
-                          key={cat.key}
-                          className={`${styles.checkboxRow} ${!hasCount ? styles.checkboxRowEmpty : ""}`}
-                        >
-                          <input
-                            type="checkbox"
-                            className={styles.checkboxInputHidden}
-                            checked={isChecked}
-                            onChange={() => toggleCategory(cat.name)}
-                          />
-                          <span
-                            className={`${styles.customCheckboxSquare} ${
-                              isChecked ? styles.customCheckboxChecked : ""
-                            }`}
-                          >
-                            {isChecked && <CheckboxCheck />}
-                          </span>
-                          <span className={styles.checkboxLabelText}>
-                            {cat.name}
-                          </span>
-                          <span
-                            className={`${styles.categoryCountBadge} ${
-                              !hasCount ? styles.categoryCountBadgeZero : ""
-                            }`}
-                          >
-                            {count}
-                          </span>
-                        </label>
-                      );
-                    })}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* 2. ATTRIBUTES */}
-            <div className={styles.accordionSection}>
-              <button
-                type="button"
-                className={styles.accordionHeaderBtn}
-                onClick={() => toggleSection("attributes")}
-                aria-expanded={sectionsOpen.attributes}
-              >
-                <span className={styles.accordionTitle}>Attributes</span>
-                <Icon
-                  icon="carbon:chevron-down"
-                  className={`${styles.accordionChevron} ${
-                    sectionsOpen.attributes
-                      ? styles.accordionChevronOpen
-                      : styles.accordionChevronClosed
-                  }`}
-                />
-              </button>
-
-              <AnimatePresence initial={false}>
-                {sectionsOpen.attributes && (
-                  <motion.div
-                    className={styles.accordionContent}
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {ATTRIBUTE_ITEMS.map((attr) => {
-                      const isChecked = selectedAttributes.includes(attr);
-                      return (
-                        <label key={attr} className={styles.checkboxRow}>
-                          <input
-                            type="checkbox"
-                            className={styles.checkboxInputHidden}
-                            checked={isChecked}
-                            onChange={() => toggleAttribute(attr)}
-                          />
-                          <span
-                            className={`${styles.customCheckboxSquare} ${
-                              isChecked ? styles.customCheckboxChecked : ""
-                            }`}
-                          >
-                            {isChecked && <CheckboxCheck />}
-                          </span>
-                          <span className={styles.checkboxLabelText}>{attr}</span>
-                        </label>
-                      );
-                    })}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* 3. DIMENSIONS */}
-            <div className={styles.accordionSection}>
-              <button
-                type="button"
-                className={styles.accordionHeaderBtn}
-                onClick={() => toggleSection("dimensions")}
-                aria-expanded={sectionsOpen.dimensions}
-              >
-                <span className={styles.accordionTitle}>Dimensions</span>
-                <Icon
-                  icon="carbon:chevron-down"
-                  className={`${styles.accordionChevron} ${
-                    sectionsOpen.dimensions
-                      ? styles.accordionChevronOpen
-                      : styles.accordionChevronClosed
-                  }`}
-                />
-              </button>
-
-              <AnimatePresence initial={false}>
-                {sectionsOpen.dimensions && (
-                  <motion.div
-                    className={styles.accordionContent}
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {DIMENSION_ITEMS.map((dim) => {
-                      const isChecked = selectedDimensions.includes(dim);
-                      return (
-                        <label key={dim} className={styles.checkboxRow}>
-                          <input
-                            type="checkbox"
-                            className={styles.checkboxInputHidden}
-                            checked={isChecked}
-                            onChange={() => toggleDimension(dim)}
-                          />
-                          <span
-                            className={`${styles.customCheckboxSquare} ${
-                              isChecked ? styles.customCheckboxChecked : ""
-                            }`}
-                          >
-                            {isChecked && <CheckboxCheck />}
-                          </span>
-                          <span className={styles.checkboxLabelText}>{dim}</span>
-                        </label>
-                      );
-                    })}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* 4. MAX DYNAMIC LOAD */}
-            <div className={styles.accordionSection}>
-              <button
-                type="button"
-                className={styles.accordionHeaderBtn}
-                onClick={() => toggleSection("dynamicLoad")}
-                aria-expanded={sectionsOpen.dynamicLoad}
-              >
-                <span className={styles.accordionTitle}>Max Dynamic Load</span>
-                <Icon
-                  icon="carbon:chevron-down"
-                  className={`${styles.accordionChevron} ${
-                    sectionsOpen.dynamicLoad
-                      ? styles.accordionChevronOpen
-                      : styles.accordionChevronClosed
-                  }`}
-                />
-              </button>
-
-              <AnimatePresence initial={false}>
-                {sectionsOpen.dynamicLoad && (
-                  <motion.div
-                    className={styles.accordionContent}
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <RangeSliderWidget
-                      min={1000}
-                      max={9000}
-                      step={500}
-                      value={dynamicLoadRange}
-                      onChange={setDynamicLoadRange}
-                      onApply={(range) => {
-                        if (applyLoadFilter) applyLoadFilter("dynamic", range);
-                      }}
-                      unit="kg"
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* 5. MAX STATIC LOAD */}
-            <div className={styles.accordionSection}>
-              <button
-                type="button"
-                className={styles.accordionHeaderBtn}
-                onClick={() => toggleSection("staticLoad")}
-                aria-expanded={sectionsOpen.staticLoad}
-              >
-                <span className={styles.accordionTitle}>Max Static Load</span>
-                <Icon
-                  icon="carbon:chevron-down"
-                  className={`${styles.accordionChevron} ${
-                    sectionsOpen.staticLoad
-                      ? styles.accordionChevronOpen
-                      : styles.accordionChevronClosed
-                  }`}
-                />
-              </button>
-
-              <AnimatePresence initial={false}>
-                {sectionsOpen.staticLoad && (
-                  <motion.div
-                    className={styles.accordionContent}
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <RangeSliderWidget
-                      min={1000}
-                      max={15000}
-                      step={500}
-                      value={staticLoadRange}
-                      onChange={setStaticLoadRange}
-                      onApply={(range) => {
-                        if (applyLoadFilter) applyLoadFilter("static", range);
-                      }}
-                      unit="kg"
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* 6. MAX RACK LOAD */}
-            <div className={styles.accordionSection}>
-              <button
-                type="button"
-                className={styles.accordionHeaderBtn}
-                onClick={() => toggleSection("rackLoad")}
-                aria-expanded={sectionsOpen.rackLoad}
-              >
-                <span className={styles.accordionTitle}>Max Rack Load</span>
-                <Icon
-                  icon="carbon:chevron-down"
-                  className={`${styles.accordionChevron} ${
-                    sectionsOpen.rackLoad
-                      ? styles.accordionChevronOpen
-                      : styles.accordionChevronClosed
-                  }`}
-                />
-              </button>
-
-              <AnimatePresence initial={false}>
-                {sectionsOpen.rackLoad && (
-                  <motion.div
-                    className={styles.accordionContent}
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <RangeSliderWidget
-                      min={500}
-                      max={1500}
-                      step={100}
-                      value={rackLoadRange}
-                      onChange={setRackLoadRange}
-                      onApply={(range) => {
-                        if (applyLoadFilter) applyLoadFilter("rack", range);
-                      }}
-                      unit="kg"
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* 7. CUSTOM PROFILES TOGGLE */}
-            <div className={styles.customToggleSection}>
-              <label className={styles.customToggleLabel}>
-                <input
-                  type="checkbox"
-                  className={styles.checkboxInputHidden}
-                  checked={isCustom}
-                  onChange={(e) => setIsCustom && setIsCustom(e.target.checked)}
-                />
-                <span
-                  className={`${styles.customCheckboxSquare} ${
-                    isCustom ? styles.customCheckboxChecked : ""
-                  }`}
-                >
-                  {isCustom && <CheckboxCheck />}
-                </span>
-                <div className={styles.customToggleTextGroup}>
-                  <span className={styles.customToggleTitle}>Custom / Bespoke Profiles</span>
-                  <span className={styles.customToggleSubtitle}>Show customizable OEM molds only</span>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          {/* Mobile Drawer Footer */}
-          <div className={styles.mobileDrawerFooter}>
-            {hasActiveFilters && (
-              <motion.button
-                type="button"
-                className={styles.mobileDrawerResetBtn}
-                onClick={resetFilters}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Icon icon="carbon:renew" className="w-3.5 h-3.5" />
-                <span>Reset</span>
-              </motion.button>
-            )}
-            <motion.button
-              type="button"
-              className={styles.mobileDrawerApplyBtn}
-              onClick={() => setIsMobileFilterOpen(false)}
-              whileTap={{ scale: 0.97 }}
-            >
-              Apply Filters
-            </motion.button>
+            {renderFilterSections()}
           </div>
         </div>
       </aside>
+
+      {/* Mobile Drawer (Portaled to document.body to break free from layout stacking context) */}
+      {typeof document !== "undefined" &&
+        createPortal(
+          <AnimatePresence>
+            {isMobileFilterOpen && (
+              <div className={styles.mobileDrawerWrapper}>
+                {/* Backdrop */}
+                <motion.div
+                  className={styles.mobileDrawerBackdrop}
+                  onClick={() => setIsMobileFilterOpen(false)}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  aria-hidden="true"
+                />
+
+                {/* Drawer Container Panel */}
+                <motion.aside
+                  id="product-filter-mobile-drawer"
+                  className={styles.mobileDrawerPanel}
+                  role="dialog"
+                  aria-modal="true"
+                  aria-label="Filter Products"
+                  initial={{ x: "100%" }}
+                  animate={{ x: 0 }}
+                  exit={{ x: "100%" }}
+                  transition={{ type: "spring", damping: 30, stiffness: 320 }}
+                >
+                  {/* Top Mobile Header */}
+                  <div className={styles.mobileDrawerHeader}>
+                    <div className={styles.mobileDrawerTitleGroup}>
+                      <Icon icon="solar:tuning-2-linear" className={styles.mobileDrawerHeadingIcon} />
+                      <h2 className={styles.mobileDrawerTitle}>Filters</h2>
+                      {activeFiltersCount > 0 && (
+                        <span className={styles.filterActiveCountBadge}>{activeFiltersCount}</span>
+                      )}
+                    </div>
+
+                    <div className={styles.mobileDrawerHeaderActions}>
+                      {hasActiveFilters && (
+                        <button
+                          type="button"
+                          className={styles.mobileDrawerClearTextBtn}
+                          onClick={resetFilters}
+                        >
+                          Clear all
+                        </button>
+                      )}
+                      <motion.button
+                        type="button"
+                        className={styles.mobileDrawerCloseBtn}
+                        onClick={() => setIsMobileFilterOpen(false)}
+                        aria-label="Close filters"
+                        whileTap={{ scale: 0.9 }}
+                      >
+                        <Icon icon="solar:close-linear" className="w-5 h-5" />
+                      </motion.button>
+                    </div>
+                  </div>
+
+                  {/* Scrollable Content Body */}
+                  <div className={styles.mobileDrawerBody}>
+                    {renderFilterSections()}
+                  </div>
+
+                  {/* Pinned Bottom Action Footer */}
+                  <div className={styles.mobileDrawerFooter}>
+                    {hasActiveFilters && (
+                      <motion.button
+                        type="button"
+                        className={styles.mobileDrawerResetBtn}
+                        onClick={resetFilters}
+                        whileTap={{ scale: 0.96 }}
+                      >
+                        <Icon icon="solar:restart-linear" className="w-4 h-4" />
+                        <span>Reset</span>
+                      </motion.button>
+                    )}
+                    <motion.button
+                      type="button"
+                      className={styles.mobileDrawerApplyBtn}
+                      onClick={() => setIsMobileFilterOpen(false)}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      {filteredCount !== undefined
+                        ? `Show ${filteredCount} ${filteredCount === 1 ? "Product" : "Products"}`
+                        : "Apply Filters"}
+                    </motion.button>
+                  </div>
+                </motion.aside>
+              </div>
+            )}
+          </AnimatePresence>,
+          document.body
+        )}
     </>
   );
 }

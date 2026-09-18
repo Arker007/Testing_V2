@@ -15,30 +15,30 @@
 /* Left Panel: Section Tree Map navigation */
 .treeNav,
 .outlinePanel {
-  flex: 0 0 280px;
-  background: var(--surface-card);
-  border-radius: var(--radius-admin, 8px);
-  border: 1px solid var(--border);
-  padding: 16px;
+  flex: 0 0 300px;
+  background: var(--surface-card, #ffffff);
+  border-radius: 12px;
+  border: 1px solid var(--border, rgba(5, 40, 63, 0.08));
+  padding: 14px 10px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  box-shadow: var(--shadow-sm);
+  gap: 4px;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.05));
   height: 100%;
   overflow-y: auto;
 }
 
 .treeTitle {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--ink);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 6px 12px;
+  padding: 2px 6px 10px;
   border-bottom: 1px solid var(--border-subtle, rgba(5, 40, 63, 0.06));
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .treeCountBadge {
@@ -109,28 +109,30 @@
 }
 
 .filterTabBtn {
-  padding: 5px 10px;
-  border-radius: var(--radius-admin, 8px);
-  font-size: 0.72rem;
-  font-weight: 650;
-  background: var(--bg-page);
-  color: var(--text-muted);
-  border: 1px solid var(--border);
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--bg-page, #f3f7fa);
+  color: var(--text-muted, #64748b);
+  border: 1px solid var(--border, rgba(5, 40, 63, 0.08));
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.15s ease;
 }
 
 .filterTabBtn:hover {
-  color: var(--ink);
-  border-color: var(--brand);
+  color: var(--ink, #05283f);
+  background: #e9eff4;
+  border-color: rgba(5, 40, 63, 0.15);
 }
 
 .filterTabBtnActive {
-  background: var(--brand) !important;
-  color: var(--ink) !important;
-  font-weight: 750;
-  border-color: var(--brand-dark, var(--brand)) !important;
+  background: var(--ink, #05283f) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  border-color: var(--ink, #05283f) !important;
+  box-shadow: 0 1px 4px rgba(5, 40, 63, 0.15);
 }
 
 .treeNav::-webkit-scrollbar,
@@ -145,90 +147,164 @@
 
 .treeNav::-webkit-scrollbar-thumb,
 .outlinePanel::-webkit-scrollbar-thumb {
-  background: var(--navy-subtle);
+  background: var(--border, rgba(5, 40, 63, 0.12));
   border-radius: 4px;
 }
 
 .treeNav::-webkit-scrollbar-thumb:hover,
 .outlinePanel::-webkit-scrollbar-thumb:hover {
-  background: var(--navy-subtle);
+  background: var(--border-hover, rgba(5, 40, 63, 0.25));
 }
 
 .treeHeader {
-  font-size: 0.68rem;
-  font-weight: 700;
+  font-size: 0.65rem;
+  font-weight: 750;
   text-transform: uppercase;
-  color: var(--muted);
-  letter-spacing: 0.06em;
-  margin: 14px 8px 4px;
+  color: var(--text-muted, #64748b);
+  letter-spacing: 0.08em;
+  margin: 12px 6px 4px;
+  padding-bottom: 2px;
 }
 
 .treeHeader:first-of-type {
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 .treeNode {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 14px;
-  border-radius: var(--radius-admin, 8px);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--ink);
+  gap: 8px;
+  padding: 8px 10px;
+  margin-bottom: 3px;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 550;
+  color: var(--ink, #05283f);
   cursor: pointer;
   background: transparent;
-  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  transition: all 0.16s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
 }
 
 .treeNode:hover {
-  background: var(--brand-light);
-  color: var(--brand-dark);
+  background: var(--bg-page, #f3f7fa);
+  color: var(--ink, #05283f);
 }
 
 .treeNodeActive {
-  background: var(--brand-light) !important;
-  color: var(--ink) !important;
-  font-weight: 700;
-  border-left: 3px solid var(--brand);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  background: var(--ink, #05283f) !important;
+  color: #ffffff !important;
+  font-weight: 650;
+  border-color: var(--ink, #05283f) !important;
+  box-shadow: 0 2px 8px rgba(5, 40, 63, 0.16);
+}
+
+.treeNodeActive:hover {
+  background: #0a3552 !important;
+}
+
+.treeIcon {
+  color: var(--text-muted, #64748b);
+  transition: color 0.15s ease;
+}
+
+.treeNode:hover .treeIcon {
+  color: var(--ink, #05283f);
+}
+
+.treeIconActive {
+  color: var(--brand, #c8ff00) !important;
 }
 
 .treeSubNode {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px 8px 24px;
-  border-radius: var(--radius-admin, 8px);
-  font-size: 0.8rem;
-  color: var(--muted);
+  padding: 7px 10px 7px 22px;
+  margin-bottom: 2px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: var(--text-muted, #64748b);
   cursor: pointer;
   background: transparent;
-  transition: all 0.2s ease;
+  transition: all 0.16s ease;
 }
 
 .treeSubNode:hover {
-  background: var(--brand-light);
-  color: var(--ink);
+  background: var(--bg-page, #f3f7fa);
+  color: var(--ink, #05283f);
 }
 
 .treeSubNodeActive {
-  background: var(--brand-light) !important;
-  color: var(--ink) !important;
-  font-weight: 700;
-  border-left: 3px solid var(--brand);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  background: var(--ink, #05283f) !important;
+  color: #ffffff !important;
+  font-weight: 650;
+  box-shadow: 0 2px 6px rgba(5, 40, 63, 0.14);
 }
 
 .nodeBadge {
-  font-size: 0.6rem;
-  font-weight: 800;
-  padding: 2px 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.625rem;
+  font-weight: 750;
+  padding: 1.5px 6px;
   border-radius: 9999px;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  transition: all 0.15s ease;
+}
+
+.nodeBadgeOn {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #d1fae5;
+}
+
+.nodeBadgeOff {
+  background: #f1f5f9;
+  color: #94a3b8;
+  border: 1px solid #e2e8f0;
+}
+
+.nodeBadgeOnActive {
+  background: rgba(200, 255, 0, 0.2);
+  color: var(--brand, #c8ff00);
+  border: 1px solid rgba(200, 255, 0, 0.4);
+}
+
+.nodeBadgeOffActive {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.statusDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.statusDotOn {
+  background: #10b981;
+}
+
+.statusDotOff {
+  background: #94a3b8;
+}
+
+.statusDotOnActive {
+  background: var(--brand, #c8ff00);
+  box-shadow: 0 0 4px var(--brand, #c8ff00);
+}
+
+.statusDotOffActive {
+  background: rgba(255, 255, 255, 0.45);
 }
 
 /* Right Panel: Focused Form Editor Sheet */
@@ -272,7 +348,7 @@
 }
 
 .editorTitle {
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--ink);
@@ -306,6 +382,19 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  user-select: none;
+}
+
+.fieldKeyBadge {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background: var(--bg-page);
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle, rgba(5, 40, 63, 0.08));
+  margin-left: auto;
 }
 
 .formInput {
@@ -828,6 +917,181 @@
   border-color: var(--brand);
   color: var(--brand-dark);
   background: var(--brand-light);
+}
+
+/* Hero Section Dedicated Editor Styles */
+.heroSubNav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle, rgba(5, 40, 63, 0.08));
+}
+
+.heroSubBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: var(--radius-admin, 8px);
+  font-size: 0.8125rem;
+  font-weight: 650;
+  background: var(--bg-card, #ffffff);
+  color: var(--text-muted);
+  border: 1px solid var(--border, rgba(5, 40, 63, 0.1));
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.heroSubBtn:hover {
+  color: var(--ink);
+  border-color: var(--brand);
+  background: var(--brand-light, rgba(200, 255, 0, 0.08));
+}
+
+.heroSubBtnActive {
+  background: var(--ink, #05283f) !important;
+  color: #ffffff !important;
+  border-color: var(--ink, #05283f) !important;
+  box-shadow: 0 2px 8px rgba(5, 40, 63, 0.16);
+}
+
+.heroSubBtnActive .heroSubBadge {
+  background: var(--brand, #c8ff00);
+  color: #05283f;
+}
+
+.heroSubBadge {
+  font-size: 0.6875rem;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  background: var(--bg-page, #f3f7fa);
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.heroPreviewCard {
+  background: linear-gradient(135deg, #05283f 0%, #0a3d5f 100%);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(5, 40, 63, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroPreviewHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.heroPreviewBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  background: rgba(200, 255, 0, 0.15);
+  border: 1px solid rgba(200, 255, 0, 0.35);
+  color: var(--brand, #c8ff00);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.heroPreviewTitle {
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 4px 0 2px 0;
+  font-family: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: baseline;
+}
+
+.heroPreviewAccent {
+  color: var(--brand, #c8ff00);
+}
+
+.heroPreviewMain {
+  color: #ffffff;
+}
+
+.heroPreviewDesc {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.45;
+  margin: 0;
+  max-width: 680px;
+}
+
+.heroSectionCard {
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border-subtle, rgba(5, 40, 63, 0.08));
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.heroSectionCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 750;
+  color: var(--ink, #05283f);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-subtle, rgba(5, 40, 63, 0.06));
+}
+
+.heroFeatureGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 768px) {
+  .heroFeatureGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.heroFeatureCard {
+  background: var(--bg-page, #f8fafc);
+  border: 1px solid var(--border-subtle, rgba(5, 40, 63, 0.08));
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.15s ease;
+}
+
+.heroFeatureCard:focus-within {
+  border-color: var(--brand, #c8ff00);
+  background: #ffffff;
+}
+
+.heroFeatureCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink, #05283f);
 }
 
 @media (max-width: 900px) {

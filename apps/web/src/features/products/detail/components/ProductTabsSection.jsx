@@ -340,53 +340,60 @@ export default function ProductTabsSection({
           })}
         </div>
 
-        {/* Metric / Imperial Unit Toggle Switch with Accessible Pill Indicator */}
-        <div
-          role="radiogroup"
-          aria-label="Unit of measurement"
-          className="relative inline-flex items-center rounded-[var(--radius-lg,8px)] border border-[var(--border-default)] bg-[var(--bg-surface-secondary)] p-1 shadow-2xs my-1 shrink-0"
-        >
-          <button
-            type="button"
-            role="radio"
-            aria-checked={unit === "metric"}
-            onClick={() => setUnit("metric")}
-            className={`relative z-10 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-[calc(var(--radius-lg,8px)-4px)] text-xs sm:text-sm font-semibold transition-colors cursor-pointer inline-flex items-center justify-center leading-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] ${
-              unit === "metric"
-                ? "text-white font-bold"
-                : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-            }`}
+        {/* Metric / Imperial Unit Toggle Switch (Visible on Technical Specifications) or Certified Quality Badge */}
+        {activeTab === "specs" ? (
+          <div
+            role="radiogroup"
+            aria-label="Unit of measurement"
+            className="relative inline-flex items-center rounded-[var(--radius-lg,8px)] border border-[var(--border-default)] bg-[var(--bg-surface-secondary)] p-1 shadow-2xs my-1 shrink-0"
           >
-            {unit === "metric" && (
-              <MotionDiv
-                layoutId="activeUnitIndicator"
-                className="absolute inset-0 bg-[var(--brand-primary)] rounded-[calc(var(--radius-lg,8px)-4px)] -z-10 shadow-xs"
-                transition={{ type: "spring", stiffness: 500, damping: 35 }}
-              />
-            )}
-            <span>Metric (mm / kg)</span>
-          </button>
-          <button
-            type="button"
-            role="radio"
-            aria-checked={unit === "imperial"}
-            onClick={() => setUnit("imperial")}
-            className={`relative z-10 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-[calc(var(--radius-lg,8px)-4px)] text-xs sm:text-sm font-semibold transition-colors cursor-pointer inline-flex items-center justify-center leading-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] ${
-              unit === "imperial"
-                ? "text-white font-bold"
-                : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-            }`}
-          >
-            {unit === "imperial" && (
-              <MotionDiv
-                layoutId="activeUnitIndicator"
-                className="absolute inset-0 bg-[var(--brand-primary)] rounded-[calc(var(--radius-lg,8px)-4px)] -z-10 shadow-xs"
-                transition={{ type: "spring", stiffness: 500, damping: 35 }}
-              />
-            )}
-            <span>Imperial (in / lb)</span>
-          </button>
-        </div>
+            <button
+              type="button"
+              role="radio"
+              aria-checked={unit === "metric"}
+              onClick={() => setUnit("metric")}
+              className={`relative z-10 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-[calc(var(--radius-lg,8px)-4px)] text-xs sm:text-sm font-semibold transition-colors cursor-pointer inline-flex items-center justify-center leading-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] ${
+                unit === "metric"
+                  ? "text-white font-bold"
+                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+              }`}
+            >
+              {unit === "metric" && (
+                <MotionDiv
+                  layoutId="activeUnitIndicator"
+                  className="absolute inset-0 bg-[var(--brand-primary)] rounded-[calc(var(--radius-lg,8px)-4px)] -z-10 shadow-xs"
+                  transition={{ type: "spring", stiffness: 500, damping: 35 }}
+                />
+              )}
+              <span>Metric (mm / kg)</span>
+            </button>
+            <button
+              type="button"
+              role="radio"
+              aria-checked={unit === "imperial"}
+              onClick={() => setUnit("imperial")}
+              className={`relative z-10 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-[calc(var(--radius-lg,8px)-4px)] text-xs sm:text-sm font-semibold transition-colors cursor-pointer inline-flex items-center justify-center leading-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] ${
+                unit === "imperial"
+                  ? "text-white font-bold"
+                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+              }`}
+            >
+              {unit === "imperial" && (
+                <MotionDiv
+                  layoutId="activeUnitIndicator"
+                  className="absolute inset-0 bg-[var(--brand-primary)] rounded-[calc(var(--radius-lg,8px)-4px)] -z-10 shadow-xs"
+                  transition={{ type: "spring", stiffness: 500, damping: 35 }}
+                />
+              )}
+              <span>Imperial (in / lb)</span>
+            </button>
+          </div>
+        ) : (
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[var(--radius-lg,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] text-xs font-semibold text-[var(--text-secondary)] my-1 shrink-0">
+            <Icon icon="solar:verified-check-bold" className="w-4 h-4 text-[var(--brand-primary)] dark:text-emerald-400" />
+            <span>ISPM-15 Exempt & ISO 9001 QA</span>
+          </div>
+        )}
       </div>
 
       {/* 2. Content Viewport with Motion Transitions */}
@@ -454,73 +461,142 @@ export default function ProductTabsSection({
 
             {/* TAB 2: MATERIALS */}
             {activeTab === "materials" && (
-              <div className="space-y-8">
-                {product.description ? (
-                  <div
-                    className="prose prose-slate dark:prose-invert max-w-[75ch] text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed"
-                    dangerouslySetInnerHTML={{
-                      __html: DOMPurify.sanitize(product.description),
-                    }}
-                  />
-                ) : (
-                  <p className="text-[var(--text-secondary)] text-sm sm:text-base max-w-[75ch] leading-relaxed">
-                    Industrial composite formulation engineered from 100% recycled high-density
-                    polyethylene (HDPE) and polypropylene (PP) matrices. Designed for structural
-                    rigidity, high cyclic impact resistance, and zero moisture degradation.
-                  </p>
-                )}
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 pt-6 border-t border-[var(--border-subtle)]">
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-sm font-bold text-[var(--text-primary)]">
-                      <Icon icon="solar:shield-check-linear" className="w-5 h-5 text-[var(--brand-primary)] dark:text-emerald-400 shrink-0" />
-                      <span>Chemical & Rot Immunity</span>
+              <div className="space-y-6">
+                {/* 1. Formulation Overview Card */}
+                <div className="p-5 sm:p-6 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center shrink-0">
+                      <Icon icon="solar:layers-minimalistic-bold" className="w-5 h-5" />
                     </div>
-                    <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
-                      Zero absorption rate (0.00%). Impervious to acids, alkalis, oils, industrial solvents, and fungal rot.
-                    </p>
+                    <div>
+                      <h3 className="text-base font-bold text-[var(--text-primary)]">
+                        Polymer Formulation & Material Matrix
+                      </h3>
+                      <p className="text-xs text-[var(--text-muted)]">
+                        Engineered high-density circular thermoplastic compound
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-sm font-bold text-[var(--text-primary)]">
-                      <Icon icon="solar:sun-2-linear" className="w-5 h-5 text-[var(--brand-primary)] dark:text-emerald-400 shrink-0" />
-                      <span>UV Weathering Stabilization</span>
-                    </div>
-                    <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
-                      Compounded with hindered amine light stabilizers (HALS) and carbon black to prevent outdoor sun embrittlement.
+                  {product.description ? (
+                    <div
+                      className="prose prose-slate dark:prose-invert max-w-none text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed"
+                      dangerouslySetInnerHTML={{
+                        __html: DOMPurify.sanitize(product.description),
+                      }}
+                    />
+                  ) : (
+                    <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed">
+                      Industrial composite formulation engineered from 100% recycled high-density
+                      polyethylene (HDPE) and polypropylene (PP) matrices. Designed for structural
+                      rigidity, high cyclic impact resistance, and zero moisture degradation.
                     </p>
-                  </div>
+                  )}
 
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-sm font-bold text-[var(--text-primary)]">
-                      <Icon icon="solar:leaf-linear" className="w-5 h-5 text-[var(--brand-primary)] dark:text-emerald-400 shrink-0" />
-                      <span>Circular ESG Compliance</span>
-                    </div>
-                    <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
-                      100% recycled industrial feedstocks divert plastics from landfills. Fully recyclable at end of service life.
-                    </p>
+                  {/* Material Specs Quick Pills */}
+                  <div className="flex flex-wrap gap-2 pt-2 border-t border-[var(--border-subtle)]">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-primary)]">
+                      <Icon icon="solar:shield-check-bold" className="w-3.5 h-3.5 text-emerald-500" />
+                      100% Recycled HDPE / PP
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-primary)]">
+                      <Icon icon="solar:drop-bold" className="w-3.5 h-3.5 text-blue-500" />
+                      0.00% Water Absorption
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-primary)]">
+                      <Icon icon="solar:plain-bold" className="w-3.5 h-3.5 text-amber-500" />
+                      ISPM-15 Exempt (No Fumigation)
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-primary)]">
+                      <Icon icon="solar:leaf-bold" className="w-3.5 h-3.5 text-teal-500" />
+                      100% Circular Lifecycle
+                    </span>
                   </div>
                 </div>
 
+                {/* 2. Key Resilience Properties (3 Bento Grid Cards) */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
+                        <Icon icon="solar:shield-check-bold" className="w-5 h-5" />
+                      </div>
+                      <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
+                        Chemical & Rot Immunity
+                      </h4>
+                      <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                        Zero absorption rate (0.00%). Impervious to acids, alkalis, oils, industrial solvents, and fungal decay.
+                      </p>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-[11px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+                      <span>Standard</span>
+                      <span className="text-[var(--text-primary)]">ASTM D543</span>
+                    </div>
+                  </div>
+
+                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
+                        <Icon icon="solar:sun-2-bold" className="w-5 h-5" />
+                      </div>
+                      <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
+                        UV Weathering Stabilization
+                      </h4>
+                      <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                        Compounded with hindered amine light stabilizers (HALS) and carbon black to prevent outdoor sun embrittlement.
+                      </p>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-[11px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+                      <span>Rating</span>
+                      <span className="text-[var(--text-primary)]">Outdoor 50+ Yrs</span>
+                    </div>
+                  </div>
+
+                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center mb-3">
+                        <Icon icon="solar:leaf-bold" className="w-5 h-5" />
+                      </div>
+                      <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
+                        Circular ESG Compliance
+                      </h4>
+                      <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                        100% recycled industrial feedstocks divert plastics from landfills. Fully recyclable at end of service life.
+                      </p>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-[11px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+                      <span>Lifecycle</span>
+                      <span className="text-[var(--text-primary)]">Zero Carbon Net</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. Engineering Attributes & Standards Grid */}
                 {features.length > 0 && (
-                  <div className="pt-6 border-t border-[var(--border-subtle)]">
-                    <h4 className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider mb-4">
-                      Engineering Attributes
-                    </h4>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pl-0">
+                  <div className="space-y-3 pt-2">
+                    <div className="flex items-center gap-2.5 pb-1">
+                      <div className="w-7 h-7 rounded-md bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center shrink-0">
+                        <Icon icon="solar:checklist-minimalistic-bold" className="w-4 h-4" />
+                      </div>
+                      <h4 className="text-sm sm:text-base font-bold text-[var(--text-primary)]">
+                        Engineering Attributes & Standards
+                      </h4>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                       {features.map((feat, idx) => (
-                        <li
+                        <div
                           key={idx}
-                          className="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--text-secondary)] list-none"
+                          className="p-3.5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex items-start gap-3 shadow-2xs"
                         >
-                          <Icon
-                            icon="solar:check-circle-linear"
-                            className="w-4 h-4 text-[var(--brand-primary)] dark:text-emerald-400 shrink-0 mt-0.5"
-                          />
-                          <span className="font-medium text-[var(--text-primary)]">{feat}</span>
-                        </li>
+                          <div className="w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <Icon icon="solar:check-circle-bold" className="w-3.5 h-3.5" />
+                          </div>
+                          <span className="font-semibold text-xs sm:text-sm text-[var(--text-primary)] leading-snug">
+                            {feat}
+                          </span>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 )}
               </div>
@@ -529,44 +605,68 @@ export default function ProductTabsSection({
             {/* TAB 3: APPLICATIONS */}
             {activeTab === "applications" && (
               <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-[var(--text-primary)] font-bold text-sm sm:text-base">
-                      <Icon icon="solar:box-minimalistic-linear" className="w-5 h-5 text-[var(--brand-primary)] dark:text-emerald-400 shrink-0" />
-                      <h4>Automated AS/RS Racking</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center mb-3">
+                        <Icon icon="solar:box-minimalistic-bold" className="w-5 h-5" />
+                      </div>
+                      <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
+                        Automated AS/RS Racking
+                      </h4>
+                      <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                        High-bay storage rackable up to 1,000 kg with minimal beam deflection. Smooth runner profiles optimized for automated conveyor sensors.
+                      </p>
                     </div>
-                    <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
-                      High-bay storage rackable up to 1,000 kg with minimal beam deflection. Smooth runner profiles optimized for automated conveyor sensors.
-                    </p>
+                    <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-[11px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+                      <span>Racking SLA</span>
+                      <span className="text-[var(--text-primary)]">1,000 kg</span>
+                    </div>
                   </div>
 
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-[var(--text-primary)] font-bold text-sm sm:text-base">
-                      <Icon icon="solar:snowflake-linear" className="w-5 h-5 text-[var(--brand-primary)] dark:text-emerald-400 shrink-0" />
-                      <h4>Cold Storage & Freezers</h4>
+                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
+                        <Icon icon="solar:snowflake-bold" className="w-5 h-5" />
+                      </div>
+                      <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
+                        Cold Storage & Freezers
+                      </h4>
+                      <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                        Maintains structural integrity and ductile toughness down to -30°C without cracking, brittle fracture, or frost absorption.
+                      </p>
                     </div>
-                    <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
-                      Maintains structural integrity and ductile toughness down to -30°C without cracking, brittle fracture, or frost absorption.
-                    </p>
+                    <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-[11px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+                      <span>Temp Range</span>
+                      <span className="text-[var(--text-primary)]">-30°C to +60°C</span>
+                    </div>
                   </div>
 
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-[var(--text-primary)] font-bold text-sm sm:text-base">
-                      <Icon icon="solar:plane-linear" className="w-5 h-5 text-[var(--brand-primary)] dark:text-emerald-400 shrink-0" />
-                      <h4>Global Export & Shipping</h4>
+                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
+                        <Icon icon="solar:plain-bold" className="w-5 h-5" />
+                      </div>
+                      <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
+                        Global Export & Shipping
+                      </h4>
+                      <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                        Zero phytosanitary fumigation required (ISPM-15 exempt). Approved for rapid customs border clearance across EU, US, and Asian ports.
+                      </p>
                     </div>
-                    <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
-                      Zero phytosanitary fumigation required (ISPM-15 exempt). Approved for rapid customs border clearance across EU, US, and Asian ports.
-                    </p>
+                    <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between text-[11px] font-bold text-[var(--text-muted)] uppercase tracking-wider">
+                      <span>Customs</span>
+                      <span className="text-[var(--text-primary)]">Fumigation Free</span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm text-[var(--text-secondary)]">
+                <div className="p-4 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm text-[var(--text-secondary)]">
                   <span>
-                    <strong>Direct Dispatch:</strong> Ex-factory Ankleshwar GIDC Industrial Estate, Gujarat. Full truckload (FTL) and consolidated consignments available.
+                    <strong className="text-[var(--text-primary)]">Direct Dispatch:</strong> Ex-factory Ankleshwar GIDC Industrial Estate, Gujarat. Full truckload (FTL) and consolidated consignments available.
                   </span>
-                  <span className="font-mono font-bold text-[var(--text-primary)] shrink-0">
-                    Port of Exit: Nhava Sheva / Hazira
+                  <span className="font-mono font-bold text-[var(--text-primary)] shrink-0 px-2.5 py-1 rounded bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
+                    Port: Nhava Sheva / Hazira
                   </span>
                 </div>
               </div>

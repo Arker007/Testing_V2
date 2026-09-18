@@ -5,7 +5,7 @@
   min-height: 100vh;
   background-color: var(--bg-light);
   padding: 24px;
-  font-family: var(--font-admin, 'Plus Jakarta Sans', sans-serif);
+  font-family: var(--font-sans, 'DM Sans', sans-serif);
 }
 
 .card {

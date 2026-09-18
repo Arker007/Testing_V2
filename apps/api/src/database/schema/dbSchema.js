@@ -118,6 +118,30 @@ function getTableSchemas(hashedPassword) {
       sql: `INSERT OR IGNORE INTO users (username, password, role) VALUES (?, ?, ?)`,
       args: ["admin", hashedPassword, "admin"],
     },
+    {
+      sql: `CREATE INDEX IF NOT EXISTS idx_products_category ON products(category)`,
+      args: [],
+    },
+    {
+      sql: `CREATE INDEX IF NOT EXISTS idx_products_published ON products(published)`,
+      args: [],
+    },
+    {
+      sql: `CREATE INDEX IF NOT EXISTS idx_products_created_at ON products(created_at DESC)`,
+      args: [],
+    },
+    {
+      sql: `CREATE INDEX IF NOT EXISTS idx_categories_slug ON categories(slug)`,
+      args: [],
+    },
+    {
+      sql: `CREATE INDEX IF NOT EXISTS idx_inquiries_created_at ON inquiries(created_at DESC)`,
+      args: [],
+    },
+    {
+      sql: `CREATE INDEX IF NOT EXISTS idx_contact_messages_created_at ON contact_messages(created_at DESC)`,
+      args: [],
+    },
   ];
 }
 

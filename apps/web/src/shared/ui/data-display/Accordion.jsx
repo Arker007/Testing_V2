@@ -65,14 +65,16 @@ export function AccordionItem({
           <span
             className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
               isOpen
-                ? "bg-[var(--brand-primary)] text-slate-950 shadow-xs"
-                : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] group-hover:bg-[var(--bg-surface-tertiary)]"
+                ? "bg-[var(--brand-primary)] text-[var(--brand-btn-text,#0f141a)] shadow-xs"
+                : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] border border-[var(--border-subtle)] group-hover:border-[var(--brand-border)] group-hover:text-[var(--brand-primary)] group-hover:bg-[var(--bg-surface-tertiary)]"
             }`}
             aria-hidden="true"
           >
             <Icon
-              icon="carbon:chevron-down"
-              className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "rotate-180" : "rotate-0"}`}
+              icon="solar:alt-arrow-down-bold"
+              className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                isOpen ? "rotate-180" : "rotate-0"
+              }`}
             />
           </span>
         </button>

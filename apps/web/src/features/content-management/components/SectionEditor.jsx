@@ -1,9 +1,11 @@
 import React from 'react';
 import { Icon } from "@iconify/react";
 import { Input, Textarea } from "@/shared/ui";
+import HeroSectionEditor from "./HeroSectionEditor";
 import cStyles from "../styles/SiteContent.module.css";
 
 export default function SectionEditor({
+  activeSub,
   selectedCmsGroup,
   cms,
   setCms,
@@ -13,6 +15,18 @@ export default function SectionEditor({
   const setM = (key) => (e) => setCms((p) => ({ ...p, [key]: e.target.value }));
 
   if (!selectedCmsGroup) return null;
+
+  // Render specialized high-craft Hero Editor for Homepage Hero
+  if (selectedCmsGroup.section === "Homepage Hero" || activeSub === "home_hero") {
+    return (
+      <HeroSectionEditor
+        cms={cms}
+        setCms={setCms}
+        isCmsGroupEnabled={isCmsGroupEnabled}
+        searchFieldQuery={searchFieldQuery}
+      />
+    );
+  }
 
   const rawFields = selectedCmsGroup.fields[0]?.type === "checkbox" && selectedCmsGroup.fields[0]?.isHeader 
     ? selectedCmsGroup.fields.slice(1) 
@@ -44,19 +58,31 @@ export default function SectionEditor({
               return (
                 <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: isFullWidth ? "1 / -1" : "span 1" }}>
                   {f.type === "textarea" ? (
-                    <Textarea 
-                      label={f.label}
-                      rows={3} 
-                      value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
-                      onChange={setM(f.key)} 
-                      placeholder={f.placeholder} 
-                    />
+                    <div>
+                      <label htmlFor={`field-${f.key}`} className={cStyles.formLabel}>
+                        <Icon icon="carbon:text-align-left" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+                        <span>{f.label}</span>
+                        <span className={cStyles.fieldKeyBadge}>{f.key}</span>
+                      </label>
+                      <Textarea 
+                        id={`field-${f.key}`}
+                        rows={3} 
+                        value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
+                        onChange={setM(f.key)} 
+                        placeholder={f.placeholder} 
+                      />
+                    </div>
                   ) : f.type === "checkbox" ? (
                     <div>
-                      <label className={cStyles.formLabel}>{f.label}</label>
+                      <label className={cStyles.formLabel}>
+                        <Icon icon="carbon:checkbox-checked" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+                        <span>{f.label}</span>
+                        <span className={cStyles.fieldKeyBadge}>{f.key}</span>
+                      </label>
                       <label className={cStyles.toggleRow}>
                         <span className={cStyles.toggleSwitch}>
                           <input 
+                            id={`field-${f.key}`}
                             type="checkbox" 
                             checked={cms[f.key] === "1" || cms[f.key] === undefined} 
                             onChange={(e) => setM(f.key)({ target: { value: e.target.checked ? "1" : "0" } })} 
@@ -67,13 +93,20 @@ export default function SectionEditor({
                       </label>
                     </div>
                   ) : (
-                    <Input 
-                      label={f.label}
-                      type="text" 
-                      value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
-                      onChange={setM(f.key)} 
-                      placeholder={f.placeholder} 
-                    />
+                    <div>
+                      <label htmlFor={`field-${f.key}`} className={cStyles.formLabel}>
+                        <Icon icon="carbon:string-text" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+                        <span>{f.label}</span>
+                        <span className={cStyles.fieldKeyBadge}>{f.key}</span>
+                      </label>
+                      <Input 
+                        id={`field-${f.key}`}
+                        type="text" 
+                        value={cms[f.key] !== undefined ? cms[f.key] : f.placeholder || ""} 
+                        onChange={setM(f.key)} 
+                        placeholder={f.placeholder} 
+                      />
+                    </div>
                   )}
                 </div>
               );

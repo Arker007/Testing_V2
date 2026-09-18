@@ -63,7 +63,7 @@ export default function Badge({
     "hero-badge":
       "bg-[var(--hero-badge-bg)] border border-[var(--hero-badge-border)] text-[var(--hero-badge-text)] backdrop-blur-xs shadow-xs font-bold",
     dark:
-      "bg-[var(--hero-badge-bg)] border border-[var(--hero-badge-border)] text-[var(--hero-badge-text)] backdrop-blur-xs shadow-xs font-bold",
+      "bg-black/60 border border-white/20 text-white backdrop-blur-md shadow-xs font-bold",
     status:
       "bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs font-bold",
     success:

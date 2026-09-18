@@ -107,6 +107,7 @@ export default function SiteContentSidebar({
                     }}
                     role="button"
                     tabIndex={0}
+                    title={sec.label}
                     onKeyDown={(e) => {
                       if (e.key === "Enter" || e.key === " ") {
                         setTab(sec.tab);
@@ -118,17 +119,16 @@ export default function SiteContentSidebar({
                       style={{
                         display: "flex",
                         alignItems: "center",
-                        gap: "8px",
+                        gap: "9px",
                         minWidth: 0,
+                        flex: 1,
                         overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        whiteSpace: "nowrap",
                       }}
                     >
                       <Icon
                         icon={sec.icon || "carbon:document"}
                         className={`w-4 h-4 flex-shrink-0 ${
-                          isSelected ? "text-emerald-700" : "text-emerald-600"
+                          isSelected ? cStyles.treeIconActive : cStyles.treeIcon
                         }`}
                       />
                       <span
@@ -142,8 +142,8 @@ export default function SiteContentSidebar({
                       </span>
                     </span>
                     {sec.hasToggle && getSubSectionStatusBadge && (
-                      <span style={{ marginLeft: "8px", flexShrink: 0 }}>
-                        {getSubSectionStatusBadge(sec.key)}
+                      <span style={{ marginLeft: "6px", flexShrink: 0 }}>
+                        {getSubSectionStatusBadge(sec.key, isSelected)}
                       </span>
                     )}
                   </div>

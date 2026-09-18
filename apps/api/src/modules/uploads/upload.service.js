@@ -23,51 +23,51 @@ class UploadService {
       : null;
     const uploadsDir = uploadRepository.getUploadsDir();
 
-    const processedUrls = await Promise.all(
-      files.map(async (f, index) => {
-        const originalPath = f.path;
-        let finalPath = originalPath;
-        let filename = f.filename;
-        const ext = path.extname(f.originalname);
-        const timestamp = Date.now();
-        const uniqueId = Math.round(Math.random() * 1e5);
+    const processedUrls = [];
+    for (let index = 0; index < files.length; index++) {
+      const f = files[index];
+      const originalPath = f.path;
+      let finalPath = originalPath;
+      let filename = f.filename;
+      const ext = path.extname(f.originalname);
+      const timestamp = Date.now();
+      const uniqueId = Math.round(Math.random() * 1e5);
 
-        let baseName;
-        if (itemName) {
-          baseName = `${itemName}-${timestamp}-${index}`;
-        } else if (category) {
-          baseName = `${category}-${timestamp}-${uniqueId}`;
-        } else {
-          baseName = `${timestamp}-${uniqueId}`;
-        }
+      let baseName;
+      if (itemName) {
+        baseName = `${itemName}-${timestamp}-${index}`;
+      } else if (category) {
+        baseName = `${category}-${timestamp}-${uniqueId}`;
+      } else {
+        baseName = `${timestamp}-${uniqueId}`;
+      }
 
-        if (category) {
-          const categoryDir = path.join(uploadsDir, category);
-          uploadRepository.ensureDir(categoryDir);
+      if (category) {
+        const categoryDir = path.join(uploadsDir, category);
+        uploadRepository.ensureDir(categoryDir);
 
-          const newFilename = `${baseName}${ext}`;
-          const newPath = path.join(categoryDir, newFilename);
+        const newFilename = `${baseName}${ext}`;
+        const newPath = path.join(categoryDir, newFilename);
 
-          uploadRepository.renameFile(originalPath, newPath);
-          finalPath = newPath;
-          filename = `${category}/${newFilename}`;
-        } else {
-          const newFilename = `${baseName}${ext}`;
-          const newPath = path.join(uploadsDir, newFilename);
-          uploadRepository.renameFile(originalPath, newPath);
-          finalPath = newPath;
-          filename = newFilename;
-        }
+        uploadRepository.renameFile(originalPath, newPath);
+        finalPath = newPath;
+        filename = `${category}/${newFilename}`;
+      } else {
+        const newFilename = `${baseName}${ext}`;
+        const newPath = path.join(uploadsDir, newFilename);
+        uploadRepository.renameFile(originalPath, newPath);
+        finalPath = newPath;
+        filename = newFilename;
+      }
 
-        const result = await uploadRepository.optimizeImage(
-          finalPath,
-          category,
-          filename
-        );
+      const result = await uploadRepository.optimizeImage(
+        finalPath,
+        category,
+        filename
+      );
 
-        return uploadMapper.toDomain(result.finalPath, category);
-      })
-    );
+      processedUrls.push(uploadMapper.toDomain(result.finalPath, category));
+    }
 
     return uploadMapper.toUploadResponse(processedUrls);
   }

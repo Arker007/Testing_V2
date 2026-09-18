@@ -7,6 +7,8 @@ export default function OptimizedImage({
   alt,
   className,
   style,
+  width,
+  height,
   sizes = "(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw",
   onError: customOnError,
   fallbackSrc,
@@ -52,39 +54,15 @@ export default function OptimizedImage({
 
   const finalSrc = hasError || !initialUrl ? activeFallback : initialUrl;
 
-  // Check if initialUrl is a local upload and no error has occurred yet
-  const isLocalUpload = !hasError && typeof initialUrl === "string" && initialUrl.includes("/uploads/");
-
-  if (isLocalUpload) {
-    const cleanPath = initialUrl.replace(/(_thumb|_medium|_large)?\.(png|jpe?g|gif|webp)$/i, "");
-    const baseSrc = cleanPath + ".webp";
-    const thumbSrc = cleanPath + "_thumb.webp";
-    const mediumSrc = cleanPath + "_medium.webp";
-
-    return (
-      <img
-        src={finalSrc}
-        srcSet={`${thumbSrc} 400w, ${mediumSrc} 800w, ${baseSrc} 1920w`}
-        sizes={sizes}
-        alt={alt || "Product"}
-        className={className}
-        style={style}
-        loading={loading}
-        decoding={decoding}
-        fetchPriority={fetchPriority}
-        referrerPolicy="no-referrer"
-        onError={handleError}
-        {...props}
-      />
-    );
-  }
-
   return (
     <img
       src={finalSrc}
-      alt={alt || "Product"}
+      alt={alt || "Industrial Plastic Product"}
       className={className}
       style={style}
+      width={width}
+      height={height}
+      sizes={sizes}
       loading={loading}
       decoding={decoding}
       fetchPriority={fetchPriority}

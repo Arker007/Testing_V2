@@ -6,7 +6,7 @@ export default function FeaturesTrustRow() {
   const { c } = useSite();
 
   return (
-    <div className="mt-8 md:mt-16 border border-[var(--border-subtle)] rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] p-6 md:p-8 shadow-[var(--shadow-sm)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+    <div className="mt-8 md:mt-10 border border-[var(--border-subtle)] rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] p-6 md:p-8 shadow-[var(--shadow-sm)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
       {/* Value 1 */}
       <div className="flex items-start gap-4 group cursor-default transition-all duration-300 hover:-translate-y-1">
         <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">

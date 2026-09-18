@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { motion as Motion, AnimatePresence } from "motion/react";
@@ -23,98 +23,75 @@ const iconMap = {
   Waves: "carbon:rain-drop"
 };
 
-const slides = [
-  {
-    category: "Recycled Plastic Lumber",
-    badge: "Manufacturer & Supplier",
-    titleLime: "RECYCLED",
-    titleWhite: "PLASTIC LUMBER",
-    desc: "Premium grade recycled polymer profiles engineered to replace wood and metal. Zero rot, zero splinter, and maintenance-free durability built for fifty-plus years of structural performance.",
-    image: "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
-    fallbackSrc: recycledPlasticProfiles,
-    features: [
-      { icon: "ShieldCheck", title: "DURABLE", text: "Built for long lasting structural performance" },
-      { icon: "Droplets", title: "WEATHERPROOF", text: "Zero rot, zero splinter, moisture resistant" },
-      { icon: "Wrench", title: "HIGH STRENGTH", text: "High load capacity for demanding builds" },
-      { icon: "Leaf", title: "ECO FRIENDLY", text: "100% recycled polymer profile material" }
-    ]
-  },
-  {
-    category: "Industrial Plastic Pallets",
-    badge: "Manufacturer & Supplier",
-    titleLime: "HEAVY-DUTY",
-    titleWhite: "PLASTIC PALLETS",
-    desc: "High-capacity, injection-molded and extruded plastic pallets designed for efficient warehousing, industrial logistics, and reliable international sea freight shipping.",
-    image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
-    fallbackSrc: highLoadCapacity,
-    features: [
-      { icon: "ShieldCheck", title: "HEAVY DUTY", text: "Withstands heavy static & dynamic loads" },
-      { icon: "Droplets", title: "CHEMICAL RESIST", text: "Resistant to acids, alkalis, and oils" },
-      { icon: "Plane", title: "EXPORT READY", text: "Naturally phytosanitary exempt (ISPM-15)" },
-      { icon: "Leaf", title: "SUSTAINABLE", text: "Fully recyclable at end of lifecycle" }
-    ]
-  },
-  {
-    category: "Outdoor Benches & Tables",
-    badge: "Manufacturer & Supplier",
-    titleLime: "WEATHERPROOF",
-    titleWhite: "GARDEN BENCHES",
-    desc: "Durable, heavy-duty outdoor seating systems perfect for garden, commercial, and public spaces. Built to withstand all weather conditions and last for years.",
-    image: "/uploads/products/categories/garden-bench-1770446422580-0.webp",
-    fallbackSrc: weatherResistantBg,
-    features: [
-      { icon: "ShieldCheck", title: "WEATHERPROOF", text: "Engineered to perform in all weather conditions" },
-      { icon: "Link2", title: "RUSTPROOF", text: "Corrosion-resistant for enhanced durability" },
-      { icon: "Eye", title: "MODERN DESIGN", text: "Aesthetic and functional for all environments" },
-      { icon: "Leaf", title: "ECO FRIENDLY", text: "Non-toxic, eco-friendly & safe for all use" }
-    ]
-  }
-];
-
 export default function HomeHero() {
   const { c, co } = useSite();
+
+  const slides = useMemo(() => [
+    {
+      category: c("home_slide1_category", "Recycled Plastic Lumber"),
+      badge: c("home_slide1_badge", "Manufacturer & Supplier"),
+      titleLime: c("home_slide1_title_accent", "RECYCLED"),
+      titleWhite: c("home_slide1_title_main", "PLASTIC LUMBER"),
+      desc: c(
+        "home_slide1_desc",
+        "Premium grade recycled polymer profiles engineered to replace wood and metal. Zero rot, zero splinter, and maintenance-free durability built for fifty-plus years of structural performance."
+      ),
+      image: "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
+      fallbackSrc: recycledPlasticProfiles,
+      features: [
+        { icon: "ShieldCheck", title: c("home_slide1_f1_title", "DURABLE"), text: c("home_slide1_f1_desc", "Built for long lasting structural performance") },
+        { icon: "Droplets", title: c("home_slide1_f2_title", "WEATHERPROOF"), text: c("home_slide1_f2_desc", "Zero rot, zero splinter, moisture resistant") },
+        { icon: "Wrench", title: c("home_slide1_f3_title", "HIGH STRENGTH"), text: c("home_slide1_f3_desc", "High load capacity for demanding builds") },
+        { icon: "Leaf", title: c("home_slide1_f4_title", "ECO FRIENDLY"), text: c("home_slide1_f4_desc", "100% recycled polymer profile material") },
+      ],
+    },
+    {
+      category: c("home_slide2_category", "Industrial Plastic Pallets"),
+      badge: c("home_slide2_badge", "Manufacturer & Supplier"),
+      titleLime: c("home_slide2_title_accent", "HEAVY-DUTY"),
+      titleWhite: c("home_slide2_title_main", "PLASTIC PALLETS"),
+      desc: c(
+        "home_slide2_desc",
+        "High-capacity, injection-molded and extruded plastic pallets designed for efficient warehousing, industrial logistics, and reliable international sea freight shipping."
+      ),
+      image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
+      fallbackSrc: highLoadCapacity,
+      features: [
+        { icon: "ShieldCheck", title: c("home_slide2_f1_title", "HEAVY DUTY"), text: c("home_slide2_f1_desc", "Withstands heavy static & dynamic loads") },
+        { icon: "Droplets", title: c("home_slide2_f2_title", "CHEMICAL RESIST"), text: c("home_slide2_f2_desc", "Resistant to acids, alkalis, and oils") },
+        { icon: "Plane", title: c("home_slide2_f3_title", "EXPORT READY"), text: c("home_slide2_f3_desc", "Naturally phytosanitary exempt (ISPM-15)") },
+        { icon: "Leaf", title: c("home_slide2_f4_title", "SUSTAINABLE"), text: c("home_slide2_f4_desc", "Fully recyclable at end of lifecycle") },
+      ],
+    },
+    {
+      category: c("home_slide3_category", "Outdoor Benches & Tables"),
+      badge: c("home_slide3_badge", "Manufacturer & Supplier"),
+      titleLime: c("home_slide3_title_accent", "WEATHERPROOF"),
+      titleWhite: c("home_slide3_title_main", "GARDEN BENCHES"),
+      desc: c(
+        "home_slide3_desc",
+        "Durable, heavy-duty outdoor seating systems perfect for garden, commercial, and public spaces. Built to withstand all weather conditions and last for years."
+      ),
+      image: "/uploads/products/categories/garden-bench-1770446422580-0.webp",
+      fallbackSrc: weatherResistantBg,
+      features: [
+        { icon: "ShieldCheck", title: c("home_slide3_f1_title", "WEATHERPROOF"), text: c("home_slide3_f1_desc", "Engineered to perform in all weather conditions") },
+        { icon: "Link2", title: c("home_slide3_f2_title", "RUSTPROOF"), text: c("home_slide3_f2_desc", "Corrosion-resistant for enhanced durability") },
+        { icon: "Eye", title: c("home_slide3_f3_title", "MODERN DESIGN"), text: c("home_slide3_f3_desc", "Aesthetic and functional for all environments") },
+        { icon: "Leaf", title: c("home_slide3_f4_title", "ECO FRIENDLY"), text: c("home_slide3_f4_desc", "Non-toxic, eco-friendly & safe for all use") },
+      ],
+    },
+  ], [c]);
+
   const [current, setCurrent] = useState(2); // Default to Slide 3 (Weatherproof Garden Benches matching reference)
-  const heroRef = useRef(null);
-  const hexagonRef = useRef(null);
-  const [chevronTop, setChevronTop] = useState(null);
 
   // Auto-advance logic (resets timer when current changes)
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 7000);
+    }, 8000);
     return () => clearInterval(timer);
-  }, [current]);
-
-  // Dynamically calculate the vertical center of the hexagon card relative to the hero section
-  useEffect(() => {
-    const updateChevronPosition = () => {
-      if (!heroRef.current || !hexagonRef.current) return;
-      const heroRect = heroRef.current.getBoundingClientRect();
-      const hexRect = hexagonRef.current.getBoundingClientRect();
-      const centerY = hexRect.top - heroRect.top + hexRect.height / 2;
-      setChevronTop(centerY);
-    };
-
-    updateChevronPosition();
-    const rafId = requestAnimationFrame(updateChevronPosition);
-    window.addEventListener("resize", updateChevronPosition);
-
-    let ro;
-    if (typeof ResizeObserver !== "undefined") {
-      ro = new ResizeObserver(() => {
-        updateChevronPosition();
-      });
-      if (heroRef.current) ro.observe(heroRef.current);
-      if (hexagonRef.current) ro.observe(hexagonRef.current);
-    }
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      window.removeEventListener("resize", updateChevronPosition);
-      if (ro) ro.disconnect();
-    };
-  }, []);
+  }, [current, slides.length]);
 
   if (c("show_hero", "1") === "0") return null;
 
@@ -127,11 +104,11 @@ export default function HomeHero() {
   };
 
   const activeSlide = slides[current];
-  const companyPhone = co("phone", "+91 98986 86379");
-  const cleanedPhone = companyPhone.replace(/\s+/g, "");
+  const heroPhone = c("hero_assistance_phone", co("phone", "+91 98986 86379"));
+  const cleanedPhone = heroPhone.replace(/\s+/g, "");
 
   return (
-    <section className={styles.hero} id="home-hero-redesign" ref={heroRef}>
+    <section className={styles.hero} id="home-hero-redesign">
       {/* Background Diagonal Split Elements */}
       <div className={styles.slantBgGreen} />
       <div className={styles.slantBgDark} />
@@ -141,25 +118,25 @@ export default function HomeHero() {
       <div className={styles.dotsPatternRightTop} />
       <div className={styles.dotsPatternRightBottom} />
 
-      {/* Navigation Chevron Buttons aligned vertically in center of Hexagon Card */}
-      <Motion.button
+      {/* Navigation Chevron Buttons aligned vertically via CSS */}
+      <button
         id="hero-chevron-prev"
+        type="button"
         onClick={handlePrev}
         className={`${styles.chevronBtn} ${styles.chevronBtnLeft}`}
-        style={chevronTop !== null ? { top: `${chevronTop}px` } : undefined}
         aria-label="Previous Slide"
       >
         <Icon icon="carbon:chevron-left" className="w-5 h-5 text-white" />
-      </Motion.button>
-      <Motion.button
+      </button>
+      <button
         id="hero-chevron-next"
+        type="button"
         onClick={handleNext}
         className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
-        style={chevronTop !== null ? { top: `${chevronTop}px` } : undefined}
         aria-label="Next Slide"
       >
         <Icon icon="carbon:chevron-right" className="w-5 h-5 text-white" />
-      </Motion.button>
+      </button>
 
       <div className="container relative z-10">
         <div className={styles.heroGrid}>
@@ -253,7 +230,7 @@ export default function HomeHero() {
                 className="inline-block"
               >
                 <Link to="/products" className="exploreBtnGlobal">
-                  <span>EXPLORE PRODUCTS</span>
+                  <span>{c("hero_cta_primary", "EXPLORE PRODUCTS")}</span>
                   <Icon icon="carbon:arrow-right" className="exploreBtnArrowGlobal" />
                 </Link>
               </Motion.div>
@@ -270,7 +247,6 @@ export default function HomeHero() {
               <div
                 id="hero-product-hexagon-frame"
                 className={styles.productFrameWrapper}
-                ref={hexagonRef}
               >
                 {/* Hexagonal Geometric SVG Frame with Full-Screen Clipped Image and 3D Pedestal Stage */}
                 <svg
@@ -364,7 +340,7 @@ export default function HomeHero() {
                               src={slide.image}
                               fallbackSrc={slide.fallbackSrc}
                               alt={slide.titleWhite}
-                              loading="eager"
+                              loading={idx === current ? "eager" : "lazy"}
                               fetchPriority={idx === current ? "high" : "low"}
                               width="500"
                               height="500"
@@ -429,9 +405,9 @@ export default function HomeHero() {
                     <Icon icon="carbon:headset" className="w-5 h-5 text-white" />
                   </div>
                   <div className={styles.assistanceTextGroup}>
-                    <span className={styles.assistanceLabel}>NEED ASSISTANCE?</span>
+                    <span className={styles.assistanceLabel}>{c("hero_assistance_title", "NEED ASSISTANCE?")}</span>
                     <span className={styles.assistanceSub}>
-                      Our team is ready to help you find the right solution.
+                      {c("hero_assistance_sub", "Our team is ready to help you find the right solution.")}
                     </span>
                   </div>
                   <Motion.a
@@ -441,7 +417,7 @@ export default function HomeHero() {
                     whileTap={{ scale: 0.95 }}
                   >
                     <Icon icon="carbon:phone" className="w-3.5 h-3.5 text-inherit" />
-                    <span>CONTACT US</span>
+                    <span>{c("hero_assistance_btn", "CONTACT US")}</span>
                   </Motion.a>
                 </Motion.div>
               </div>

@@ -326,8 +326,10 @@ html.dark .linkActive:hover {
   background: var(--surface-secondary);
   border: 1px solid var(--border-default);
   border-radius: 8px !important;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 44px;
+  min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -376,8 +378,10 @@ html.dark .mobileMenuBtn:hover {
   background: var(--surface-secondary);
   border: 1px solid var(--border-default);
   border-radius: 8px !important;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 44px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -878,7 +882,7 @@ html.dark .megaMenuCategoryItemActive .megaMenuCategoryChevron {
 .megaMenuProductSpec {
   font-size: 0.72rem;
   color: var(--text-muted);
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-sans);
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
@@ -1022,7 +1026,7 @@ html.dark .megaMenuProductLink:hover {
   white-space: nowrap;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-sans);
   flex-shrink: 0;
   align-self: flex-start;
   margin-top: 2px;
@@ -1444,7 +1448,7 @@ html.dark .suggestionAllBtn:hover {
 .suggestionSku {
   font-size: 0.7rem;
   color: var(--text-muted, var(--neutral-400));
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-family: var(--font-sans);
 }
 
 .suggestionItemArrow {

@@ -11,7 +11,9 @@ class ProductController {
   async getAllProducts(req, res) {
     try {
       const isAdmin = !!req.headers.authorization;
-      const result = await productService.getAllProducts(isAdmin);
+      const limit = parseInt(req.query.limit, 10) || 1000;
+      const offset = parseInt(req.query.offset, 10) || 0;
+      const result = await productService.getAllProducts(isAdmin, limit, offset);
 
       if (result.fromCache) {
         res.setHeader("Cache-Control", "public, max-age=30, stale-while-revalidate=300");

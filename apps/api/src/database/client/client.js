@@ -169,12 +169,10 @@ async function initDatabase() {
 
   liveShim = makeShim(client);
 
-  try {
-    await syncCategoryFields(db);
-    console.log("📊 Category spec templates auto-synchronized with product specs.");
-  } catch (syncErr) {
-    console.error("⚠️ Failed to auto-sync category fields:", syncErr.message);
-  }
+  // Run in background so it doesn't block server startup
+  syncCategoryFields(db)
+    .then(() => console.log("📊 Category spec templates auto-synchronized with product specs."))
+    .catch((syncErr) => console.error("⚠️ Failed to auto-sync category fields:", syncErr.message));
 
   console.log("✅ Database initialized successfully");
   return client;

@@ -49,6 +49,38 @@
   white-space: nowrap;
 }
 
+.labelDesktop {
+  display: inline;
+}
+
+.labelMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .labelDesktop {
+    display: none;
+  }
+  .labelMobile {
+    display: inline;
+  }
+}
+
+.compactTrigger {
+  height: 42px !important;
+  min-height: 42px !important;
+  padding: 0 0.625rem !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+.compactChevron {
+  width: 1rem !important;
+  height: 1rem !important;
+  margin-left: 0.25rem !important;
+}
+
 .categoryCountBadge {
   display: inline-flex;
   align-items: center;
@@ -184,15 +216,15 @@
 }
 
 @media (max-width: 768px) {
-  .customSelectTrigger {
+  .customSelectTrigger:not(.compactTrigger) {
     min-height: 44px;
     font-size: 1rem;
     padding: 0.75rem 1rem;
   }
 
   .customSelectDropdownWrapper {
-    min-width: 100%;
-    left: 0;
+    min-width: 180px;
+    right: 0;
   }
 
   .customSelectOption {

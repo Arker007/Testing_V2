@@ -77,6 +77,43 @@ export default function Footer() {
 
   const waLink = `https://wa.me/${co("whatsapp", "919898686379").replace(/\D/g, "")}`;
 
+  const SOCIAL_CHANNELS = [
+    {
+      id: "whatsapp",
+      name: "WhatsApp",
+      icon: "simple-icons:whatsapp",
+      url: waLink,
+    },
+    {
+      id: "linkedin",
+      name: "LinkedIn",
+      icon: "simple-icons:linkedin",
+      url: co("linkedin") || "https://www.linkedin.com/company/vishal-enterprise",
+    },
+    {
+      id: "instagram",
+      name: "Instagram",
+      icon: "simple-icons:instagram",
+      url: co("instagram") || "https://www.instagram.com/vishalenterprise",
+    },
+    {
+      id: "youtube",
+      name: "YouTube",
+      icon: "simple-icons:youtube",
+      url: co("youtube") || "https://www.youtube.com/@vishalenterprise",
+    },
+    ...(co("facebook")
+      ? [
+          {
+            id: "facebook",
+            name: "Facebook",
+            icon: "simple-icons:facebook",
+            url: co("facebook"),
+          },
+        ]
+      : []),
+  ];
+
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
@@ -122,47 +159,30 @@ export default function Footer() {
             <span>{co("gstin") ? `GSTIN: ${co("gstin")}` : c("cert_gst", "GSTIN: 24AXCPS0336E1ZV")}</span>
           </div>
 
-          <div className={styles.socials}>
-            {co("whatsapp", "919898686379") && (
-              <a
-                href={waLink}
-                className={styles.social}
-                aria-label="WhatsApp"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon icon="logos:whatsapp-icon" className="text-lg" />
-              </a>
-            )}
-            {co("email") && (
-              <a
-                href={`mailto:${co("email")}`}
-                className={styles.social}
-                aria-label="Email"
-              >
-                <Icon icon="carbon:email" className="text-lg" />
-              </a>
-            )}
-            {co("phone") && (
-              <a
-                href={`tel:${co("phone").replace(/\s/g, "")}`}
-                className={styles.social}
-                aria-label="Phone"
-              >
-                <Icon icon="carbon:phone" className="text-lg" />
-              </a>
-            )}
-            {co("linkedin") && (
-              <a
-                href={co("linkedin")}
-                className={styles.social}
-                aria-label="LinkedIn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon icon="logos:linkedin-icon" className="text-lg" />
-              </a>
-            )}
+          <div className={styles.socialsSection}>
+            <span className={styles.socialsHeading}>Social Media</span>
+            <div className={styles.socialsGrid}>
+              {SOCIAL_CHANNELS.map((item) => (
+                <a
+                  key={item.id}
+                  href={item.url}
+                  className={`${styles.socialCard} ${styles[`social_${item.id}`]}`}
+                  aria-label={item.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id={`footer-social-${item.id}`}
+                >
+                  <span className={styles.socialIconWrap}>
+                    <Icon icon={item.icon} className={styles.socialIcon} />
+                  </span>
+                  <span className={styles.socialName}>
+                    {item.name}
+                    <span className={styles.socialUnderline} />
+                  </span>
+                  <Icon icon="solar:arrow-right-up-linear" className={styles.socialArrow} />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 

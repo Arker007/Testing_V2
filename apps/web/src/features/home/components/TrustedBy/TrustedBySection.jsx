@@ -8,10 +8,8 @@ export default function TrustedBySection() {
 
   if (c("show_trusted_by", "1") === "0") return null;
 
-  // Duplicate 4 cycles of the authentic brand list to ensure seamless infinite looping on any viewport width
+  // Duplicate 2 cycles of the authentic brand list for seamless 50% infinite translation
   const tickerItems = [
-    ...BRAND_COMPANIES,
-    ...BRAND_COMPANIES,
     ...BRAND_COMPANIES,
     ...BRAND_COMPANIES,
   ];
@@ -30,23 +28,21 @@ export default function TrustedBySection() {
 
       {/* Infinite Horizontal Marquee Ticker: Animated From Right to Left (pauses on hover) */}
       <div className={styles.tickerWrapper}>
-        <div className={styles.tickerTrack} aria-hidden="false">
+        <div className={styles.tickerTrack} aria-hidden="true">
           {tickerItems.map((item, idx) => (
             <div
               key={`${item.id}-${idx}`}
               className={styles.logoBadge}
               style={{ "--brand-hover-color": item.color }}
               title={item.name}
-              aria-label={item.name}
             >
               <svg
                 viewBox={item.viewBox || "0 0 24 24"}
                 className={`${styles.brandSvg} ${item.isWide ? styles.brandSvgWide : ""}`}
-                role="img"
-                aria-label={item.name}
+                aria-hidden="true"
+                focusable="false"
                 fill="currentColor"
               >
-                <title>{item.name}</title>
                 <path d={item.path} />
               </svg>
               <span className={styles.brandName}>{item.name}</span>

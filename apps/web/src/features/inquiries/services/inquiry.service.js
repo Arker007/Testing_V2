@@ -20,9 +20,22 @@ export const InquiryService = {
     return api.put(`/inquiries/${id}/status`, { status }, { headers });
   },
 
-  async delete(id, token) {
+  async delete(id, sourceOrToken, maybeToken) {
+    let source = null;
+    let token = null;
+    if (typeof sourceOrToken === "string" && (sourceOrToken === "contact_form" || sourceOrToken === "product_inquiry")) {
+      source = sourceOrToken;
+      token = maybeToken;
+    } else if (typeof sourceOrToken === "object" && sourceOrToken?.source) {
+      source = sourceOrToken.source;
+      token = maybeToken;
+    } else {
+      token = sourceOrToken;
+    }
+
     const headers = token ? { Authorization: `Bearer ${token}` } : {};
-    return api.delete(`/inquiries/${id}`, { headers });
+    const url = source ? `/inquiries/${source}/${id}` : `/inquiries/${id}`;
+    return api.delete(url, { headers });
   }
 };
 

@@ -14,20 +14,21 @@ class ProductService {
   /**
    * Get list of all products.
    */
-  async getAllProducts(isAdmin) {
+  async getAllProducts(isAdmin, limit = 50, offset = 0) {
+    const cacheKey = `products_${limit}_${offset}`;
     if (!isAdmin) {
-      const cached = getCache("products");
+      const cached = getCache(cacheKey);
       if (cached) {
         return { fromCache: true, data: cached };
       }
     }
 
-    const rows = await productRepository.findAll(isAdmin);
+    const { rows, total } = await productRepository.findAll(isAdmin, limit, offset);
     const products = rows.map(productMapper.toDomain);
-    const payload = { products };
+    const payload = { products, total, limit, offset };
 
     if (!isAdmin) {
-      setCache("products", payload, PRODUCTS_TTL);
+      setCache(cacheKey, payload, PRODUCTS_TTL);
     }
 
     return { fromCache: false, data: payload };

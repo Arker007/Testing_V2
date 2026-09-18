@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import styles from "../styles/navbar.module.css";
 import { ProductService } from "../../products/services/product.service";
 import { CategoryService } from "../../categories";
+import { QuoteButton } from "@/shared/ui";
 
 // Solar icon mapping for standard category slugs & naming patterns
 const CATEGORY_ICONS = {
@@ -615,7 +616,7 @@ export default function MegaMenu({
       : [];
 
     if (matched.length > 0) {
-      return matched.map((p) => ({
+      return matched.slice(0, 6).map((p) => ({
         id: p.id,
         name: p.name,
         badge: p.badge || p.type || getItemBadge(p.name),
@@ -666,7 +667,7 @@ export default function MegaMenu({
   <meta charset="utf-8"/>
   <title>Vishal Enterprise - ${catName} Catalog</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 40px; color: #0f172a; line-height: 1.6; max-width: 800px; margin: 0 auto; }
+    body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 40px; color: #0f172a; line-height: 1.6; max-width: 800px; margin: 0 auto; }
     .header { border-bottom: 2px solid #16532d; padding-bottom: 16px; margin-bottom: 24px; }
     h1 { color: #16532d; margin: 0 0 4px 0; font-size: 24px; letter-spacing: -0.02em; }
     .subtitle { color: #475569; font-size: 14px; margin: 0; }
@@ -870,14 +871,14 @@ export default function MegaMenu({
                                 {product.name}
                               </span>
                               {product.spec && (
-                                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
+                                <span className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                                   {product.spec}
                                 </span>
                               )}
                             </div>
                             <div className="flex items-center gap-3 shrink-0">
                               {product.badge && (
-                                <span className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] font-bold font-mono px-2 py-0.5 rounded tracking-wider uppercase border border-slate-200/60 dark:border-slate-700/60">
+                                <span className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase border border-slate-200/60 dark:border-slate-700/60">
                                   {product.badge}
                                 </span>
                               )}
@@ -944,24 +945,22 @@ export default function MegaMenu({
 
                   {/* Actions */}
                   <div className="flex flex-col gap-2.5 pt-2">
-                    <Link
-                      to="/contact"
+                    <QuoteButton
+                      to="/contact?quote=custom"
                       onClick={handleLinkClick}
-                      className="w-full bg-[#15803d] hover:bg-[#166534] text-white text-sm font-semibold py-2.5 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors shadow-xs"
-                    >
-                      <span>Request Custom RFQ</span>
-                      <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
-                    </Link>
+                      text="Request Custom RFQ"
+                      className="w-full !justify-center !text-sm !py-2.5"
+                    />
 
                     <button
                       type="button"
                       onClick={handleDownloadCatalog}
-                      className="w-full text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-[#15803d] dark:hover:text-emerald-400 flex items-center justify-center gap-1.5 py-1 transition-colors cursor-pointer"
+                      className="w-full text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-[var(--brand-primary)] dark:hover:text-emerald-400 flex items-center justify-center gap-1.5 py-1 transition-colors cursor-pointer"
                       aria-label={`Download ${activeCategoryData.name} Catalog`}
                     >
                       <Icon
                         icon="solar:download-minimalistic-linear"
-                        className="w-4 h-4 text-[#15803d] dark:text-emerald-400"
+                        className="w-4 h-4 text-[var(--brand-primary)] dark:text-emerald-400"
                       />
                       <span>Download {activeCategoryData.name} Catalog</span>
                     </button>

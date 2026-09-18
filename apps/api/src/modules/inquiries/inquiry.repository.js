@@ -42,11 +42,11 @@ class InquiryRepository {
   /**
    * Get all contact messages.
    */
-  async findAllContactMessages() {
+  async findAllContactMessages(limit = 100, offset = 0) {
     return new Promise((resolve, reject) => {
       db.all(
-        "SELECT * FROM contact_messages ORDER BY created_at DESC",
-        [],
+        "SELECT * FROM contact_messages ORDER BY created_at DESC LIMIT ? OFFSET ?",
+        [limit, offset],
         (err, rows) => {
           if (err) return reject(err);
           resolve(rows || []);
@@ -58,15 +58,17 @@ class InquiryRepository {
   /**
    * Get all product inquiries with product name.
    */
-  async findAllInquiries() {
+  async findAllInquiries(limit = 100, offset = 0) {
     return new Promise((resolve, reject) => {
       db.all(
         `
         SELECT i.*, p.name as product_name, 'product_inquiry' as source
         FROM inquiries i
         LEFT JOIN products p ON i.product_id = p.id
+        ORDER BY i.created_at DESC
+        LIMIT ? OFFSET ?
         `,
-        [],
+        [limit, offset],
         (err, rows) => {
           if (err) return reject(err);
           resolve(rows || []);
@@ -78,11 +80,11 @@ class InquiryRepository {
   /**
    * Get all contact messages formatted as inquiry source.
    */
-  async findAllContactMessagesAsInquiries() {
+  async findAllContactMessagesAsInquiries(limit = 100, offset = 0) {
     return new Promise((resolve, reject) => {
       db.all(
-        `SELECT id, name, email, subject as product_name, message, created_at, 'contact_form' as source FROM contact_messages`,
-        [],
+        `SELECT id, name, email, subject as product_name, message, created_at, 'contact_form' as source FROM contact_messages ORDER BY created_at DESC LIMIT ? OFFSET ?`,
+        [limit, offset],
         (err, rows) => {
           if (err) return reject(err);
           resolve(rows || []);

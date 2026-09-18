@@ -105,7 +105,7 @@ html[data-theme="dark"] {
   --hero-gradient: linear-gradient(135deg, var(--bg-base) 0%, var(--bg-surface) 100%);
   --hero-badge-bg: rgba(107, 191, 84, 0.15);
   --hero-badge-border: rgba(107, 191, 84, 0.35);
-  --hero-badge-text: var(--brand-400);
+  --hero-badge-text: #86EFAC;
   --bg-glass: rgba(22, 28, 36, 0.90);
   --bg-glass-card: rgba(30, 37, 48, 0.95);
   --bg-dark-overlay: rgba(15, 20, 26, 0.70);

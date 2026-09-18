@@ -61,11 +61,13 @@ export default function QuoteButton({
     );
   }
 
+  const isFullWidth = className.includes("w-full");
+
   return (
     <Motion.div
-      whileHover={isInteractive ? { scale: 1.03 } : undefined}
-      whileTap={isInteractive ? { scale: 0.97 } : undefined}
-      className="inline-block"
+      whileHover={isInteractive ? { scale: 1.02 } : undefined}
+      whileTap={isInteractive ? { scale: 0.98 } : undefined}
+      className={isFullWidth ? "w-full block" : "inline-block"}
     >
       <Link
         to={isInteractive ? to : "#"}

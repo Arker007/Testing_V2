@@ -13,6 +13,7 @@ import {
     Badge,
     Button,
     CustomSelect,
+    useToast,
 } from "@/shared/ui";
 
 import { InquiryService } from '../services/inquiry.service';
@@ -25,6 +26,7 @@ export default function AdminInquiries() {
     const [search, setSearch] = useState('');
     const [sourceFilter, setSourceFilter] = useState('all');
     const [activeItem, setActiveItem] = useState(null);
+    const toast = useToast();
 
     const load = useCallback(() => {
         setLoading(true);
@@ -39,16 +41,21 @@ export default function AdminInquiries() {
 
     const confirmDelete = async () => {
         if (!itemToDelete) return;
-        const { id } = itemToDelete;
-        setDeleting(id);
+        const { id, source } = itemToDelete;
+        const deleteKey = `${source}-${id}`;
+        setDeleting(deleteKey);
         try {
             const token = localStorage.getItem('admin_token');
-            // The API expects /inquiries/:id but legacy frontend used /inquiries/:source/:id
-            // the router in api/app.js routes `/api/inquiries/:id` properly.
-            await InquiryService.delete(id, token);
+            await InquiryService.delete(id, source, token);
+            if (activeItem?.id === id && activeItem?.source === source) {
+                setActiveItem(null);
+            }
+            toast.success("Inquiry deleted successfully");
             load();
-        } catch { alert('Delete failed'); }
-        finally {
+        } catch (err) {
+            console.error('Delete inquiry failed:', err);
+            toast.error(err.message || 'Failed to delete inquiry. Please try again.');
+        } finally {
             setDeleting(null);
             setItemToDelete(null);
         }
@@ -102,61 +109,65 @@ export default function AdminInquiries() {
                             description="Try adjusting your search terms or filter selection."
                             size="sm"
                         />
-                    ) : filteredInquiries.map(inq => (
-                        <div 
-                            key={inq.id} 
-                            className={`${styles.trow} ${activeItem?.id === inq.id && activeItem?.source === inq.source ? styles.trowActive || '' : ''}`} 
-                            style={{ gridTemplateColumns: '2fr 1.5fr 1.4fr 1fr 120px', cursor: 'pointer' }}
-                            onClick={(e) => {
-                                if (e.target.closest('a') || e.target.closest('button')) return;
-                                setActiveItem(inq);
-                            }}
-                        >
-                            <div className={iStyles.nameCell}>
-                                <div className={styles.prodName}>{inq.name || '—'}</div>
-                                <div className={iStyles.previewText}>
-                                    {inq.message || 'No text snippet provided.'}
+                    ) : filteredInquiries.map(inq => {
+                        const rowKey = `${inq.source}-${inq.id}`;
+                        const isDeletingThis = deleting === rowKey || deleting === inq.id;
+                        return (
+                            <div 
+                                key={rowKey} 
+                                className={`${styles.trow} ${activeItem?.id === inq.id && activeItem?.source === inq.source ? styles.trowActive || '' : ''}`} 
+                                style={{ gridTemplateColumns: '2fr 1.5fr 1.4fr 1fr 120px', cursor: 'pointer' }}
+                                onClick={(e) => {
+                                    if (e.target.closest('a') || e.target.closest('button')) return;
+                                    setActiveItem(inq);
+                                }}
+                            >
+                                <div className={iStyles.nameCell}>
+                                    <div className={styles.prodName}>{inq.name || '—'}</div>
+                                    <div className={iStyles.previewText}>
+                                        {inq.message || 'No text snippet provided.'}
+                                    </div>
+                                    <div className={iStyles.metaLine}>
+                                        {inq.phone && <span><Icon icon="carbon:phone" className="w-3.5 h-3.5 inline mr-1" /> {inq.phone}</span>}
+                                        {inq.company && <span><Icon icon="carbon:industry" className="w-3.5 h-3.5 inline mr-1" /> {inq.company}</span>}
+                                    </div>
                                 </div>
-                                <div className={iStyles.metaLine}>
-                                    {inq.phone && <span><Icon icon="carbon:phone" className="w-3.5 h-3.5 inline mr-1" /> {inq.phone}</span>}
-                                    {inq.company && <span><Icon icon="carbon:industry" className="w-3.5 h-3.5 inline mr-1" /> {inq.company}</span>}
+                                <div className={iStyles.contactCell}>
+                                    <div className={iStyles.fieldLabel}>Email</div>
+                                    <div className={styles.muted} style={{ fontSize: '0.8125rem' }}>{inq.email || '—'}</div>
                                 </div>
-                            </div>
-                            <div className={iStyles.contactCell}>
-                                <div className={iStyles.fieldLabel}>Email</div>
-                                <div className={styles.muted} style={{ fontSize: '0.8125rem' }}>{inq.email || '—'}</div>
-                            </div>
-                            <div className={iStyles.productCell}>
-                                <span className={iStyles.productName}>{inq.productName || inq.product_name || '—'}</span>
-                                <Badge
-                                    variant={inq.source === 'contact_form' ? 'brand' : 'neutral'}
-                                    size="sm"
-                                >
-                                    {inq.source === 'contact_form' ? 'General Form' : 'B2B Product Asset'}
-                                </Badge>
-                            </div>
-                            <div className={iStyles.dateCell}>
-                                <span className={styles.muted}>{inq.created_at ? new Date(inq.created_at).toLocaleDateString('en-IN') : '—'}</span>
-                            </div>
-                            <div className={styles.rowActions} style={{ justifyContent: 'center' }}>
-                                <Link to={`/admin/inquiries/${inq.source}/${inq.id}`} title="View Inquiry">
-                                    <Button variant="ghost" size="sm" className="!p-1.5 !h-auto text-slate-500 hover:text-slate-800">
-                                        <Icon icon="carbon:view" className="w-4 h-4" />
+                                <div className={iStyles.productCell}>
+                                    <span className={iStyles.productName}>{inq.productName || inq.product_name || '—'}</span>
+                                    <Badge
+                                        variant={inq.source === 'contact_form' ? 'brand' : 'neutral'}
+                                        size="sm"
+                                    >
+                                        {inq.source === 'contact_form' ? 'General Form' : 'B2B Product Asset'}
+                                    </Badge>
+                                </div>
+                                <div className={iStyles.dateCell}>
+                                    <span className={styles.muted}>{inq.created_at ? new Date(inq.created_at).toLocaleDateString('en-IN') : '—'}</span>
+                                </div>
+                                <div className={styles.rowActions} style={{ justifyContent: 'center' }}>
+                                    <Link to={`/admin/inquiries/${inq.source}/${inq.id}`} title="View Inquiry">
+                                        <Button variant="ghost" size="sm" className="!p-1.5 !h-auto text-slate-500 hover:text-slate-800">
+                                            <Icon icon="carbon:view" className="w-4 h-4" />
+                                        </Button>
+                                    </Link>
+                                    <Button
+                                        variant="ghost"
+                                        size="sm"
+                                        className="!p-1.5 !h-auto text-rose-500 hover:text-rose-700 hover:bg-rose-500/10"
+                                        onClick={() => setItemToDelete({ id: inq.id, source: inq.source })}
+                                        disabled={isDeletingThis}
+                                        title="Delete Inquiry"
+                                    >
+                                        {isDeletingThis ? <Spinner size="sm" /> : <Icon icon="carbon:trash-can" className="w-4 h-4" />}
                                     </Button>
-                                </Link>
-                                <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    className="!p-1.5 !h-auto text-rose-500 hover:text-rose-700 hover:bg-rose-500/10"
-                                    onClick={() => setItemToDelete({ id: inq.id, source: inq.source })}
-                                    disabled={deleting === inq.id}
-                                    title="Delete Inquiry"
-                                >
-                                    {deleting === inq.id ? <Spinner size="sm" /> : <Icon icon="carbon:trash-can" className="w-4 h-4" />}
-                                </Button>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
             </div>
 
             {/* Delete Confirmation Modal */}

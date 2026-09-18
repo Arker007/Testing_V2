@@ -37,6 +37,7 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.13.0",
+    "react-virtuoso": "^4.18.13",
     "sharp": "0.32.6",
     "simple-icons": "^16.31.0",
     "zod": "^4.6.1"

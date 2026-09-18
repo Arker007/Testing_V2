@@ -1,5 +1,6 @@
 import React from "react";
 import useDocumentTitle from "../../../shared/hooks/useDocumentTitle";
+import useMediaQuery from "../../../shared/hooks/useMediaQuery";
 import { useSite } from "../../../shared/context/SiteContext";
 import styles from "../home.module.css";
 import ProductsShowcase from "./ProductsShowcase";
@@ -15,6 +16,7 @@ import {
 
 export default function HomePage() {
   const { c, co } = useSite();
+  const isMobile = useMediaQuery("(max-width: 767px)");
 
   useDocumentTitle(
     c("meta_home_title", `${co("name", "VISHAL ENTERPRISE")} | Recycled Plastic Manufacturer India`),
@@ -26,12 +28,7 @@ export default function HomePage() {
 
   return (
     <div className={styles.main}>
-      <div className="hidden md:block">
-        <HomeHero />
-      </div>
-      <div className="block md:hidden">
-        <HomeHeroMobile />
-      </div>
+      {isMobile ? <HomeHeroMobile /> : <HomeHero />}
       <TrustedBySection />
 
       {/* Product Categories Grid */}
@@ -39,7 +36,7 @@ export default function HomePage() {
         <section className={styles.categoriesSection}>
           <div className="container">
             <SectionHeader
-              eyebrow="Product Ecosystem"
+              eyebrow={c("categories_eyebrow", "Product Ecosystem")}
               title={c("categories_title", "High-Performance Recycled Alternatives")}
               subtitle={c(
                 "categories_subtitle",

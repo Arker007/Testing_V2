@@ -79,8 +79,13 @@ export default function CompanyForm({
             if (f.type === "textarea") {
               return (
                 <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: "1 / -1" }}>
+                  <label htmlFor={`company-${f.key}`} className={cStyles.formLabel}>
+                    <Icon icon="carbon:text-align-left" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+                    <span>{f.label}</span>
+                    <span className={cStyles.fieldKeyBadge}>{f.key}</span>
+                  </label>
                   <Textarea
-                    label={f.label}
+                    id={`company-${f.key}`}
                     rows={3}
                     placeholder={f.placeholder}
                     value={val}
@@ -92,8 +97,13 @@ export default function CompanyForm({
 
             return (
               <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: f.key === "address" || f.key === "description" ? "1 / -1" : "span 1" }}>
+                <label htmlFor={`company-${f.key}`} className={cStyles.formLabel}>
+                  <Icon icon="carbon:string-text" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+                  <span>{f.label}</span>
+                  <span className={cStyles.fieldKeyBadge}>{f.key}</span>
+                </label>
                 <Input
-                  label={f.label}
+                  id={`company-${f.key}`}
                   type="text"
                   placeholder={f.placeholder}
                   value={val}

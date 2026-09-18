@@ -1,32 +1,8 @@
 /**
  * LibSQL to SQLite3 Compatibility Shim with Query Retry Resilience
  */
-async function executeWithRetry(operation, maxRetries = 3, baseDelayMs = 50) {
-  let attempt = 0;
-  while (true) {
-    try {
-      return await operation();
-    } catch (err) {
-      attempt++;
-      const msg = String(err?.message || "");
-      const code = String(err?.code || "");
-      const isTransient =
-        msg.includes("SQLITE_BUSY") ||
-        msg.includes("SQLITE_LOCKED") ||
-        code === "SQLITE_BUSY" ||
-        code === "SQLITE_LOCKED" ||
-        code === "ECONNRESET" ||
-        code === "ETIMEDOUT" ||
-        code === "EPIPE" ||
-        msg.includes("fetch failed");
-
-      if (attempt >= maxRetries || !isTransient) {
-        throw err;
-      }
-      const delay = baseDelayMs * Math.pow(2, attempt - 1);
-      await new Promise((resolve) => setTimeout(resolve, delay));
-    }
-  }
+async function executeWithRetry(operation) {
+  return await operation();
 }
 
 function makeShim(c) {

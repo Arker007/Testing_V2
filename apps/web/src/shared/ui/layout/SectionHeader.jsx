@@ -22,6 +22,7 @@ import Badge from "../data-display/Badge";
  */
 export default function SectionHeader({
   eyebrow,
+  badge,
   eyebrowIcon,
   eyebrowVariant = "eyebrow",
   title,
@@ -37,6 +38,7 @@ export default function SectionHeader({
   ...props
 }) {
   const effectiveSubtitle = subtitle || description;
+  const effectiveEyebrow = eyebrow || badge;
 
   const alignClasses =
     align === "left"
@@ -87,14 +89,14 @@ export default function SectionHeader({
       className={`flex flex-col mb-8 md:mb-12 max-w-3xl ${alignClasses} ${className}`.trim()}
       {...props}
     >
-      {eyebrow && (
+      {effectiveEyebrow && (
         <div className="mb-4">
-          {typeof eyebrow === "string" ? (
+          {typeof effectiveEyebrow === "string" ? (
             <Badge variant={eyebrowVariant} size="lg" icon={eyebrowIcon}>
-              {eyebrow}
+              {effectiveEyebrow}
             </Badge>
           ) : (
-            eyebrow
+            effectiveEyebrow
           )}
         </div>
       )}

@@ -414,55 +414,57 @@ export default function ProductCatalog() {
       {/* Hero Header */}
       <ProductsHero activeCategory={selectedCategory} />
 
-      <div className="container pt-6 pb-12">
-        {/* Mobile Horizontal Quick Category Bar */}
-        <MobileCategoryBar
-          categoryOptions={categoryOptions}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-          setSelectedCategories={setSelectedCategories}
-          categoryCounts={categoryCounts}
-        />
+      <div className="container pt-6 sm:pt-8 pb-12 sm:pb-16 space-y-12 sm:space-y-16">
+        {/* 1. Main Catalog Workspace Section */}
+        <div className="flex flex-col gap-5 sm:gap-6">
+          {/* Mobile Horizontal Quick Category Bar */}
+          <MobileCategoryBar
+            categoryOptions={categoryOptions}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+            setSelectedCategories={setSelectedCategories}
+            categoryCounts={categoryCounts}
+          />
 
-        {/* Search & Toolbar Control Box */}
-        <ProductSearchHeader
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          sortBy={sortBy}
-          setSortBy={setSortBy}
-          viewMode={viewMode}
-          setViewMode={setViewMode}
-          filteredCount={filteredProducts.length}
-          totalCount={products.length}
-          currentPage={currentPage}
-          itemsPerPage={ITEMS_PER_PAGE}
-          hasActiveFilters={hasActiveFilters}
-          resetFilters={resetFilters}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-          minStaticLoad={minStaticLoad}
-          setMinStaticLoad={setMinStaticLoad}
-          selectedApplication={selectedApplication}
-          setSelectedApplication={setSelectedApplication}
-          selectedCategories={selectedCategories}
-          setSelectedCategories={setSelectedCategories}
-          selectedAttributes={selectedAttributes}
-          setSelectedAttributes={setSelectedAttributes}
-          selectedDimensions={selectedDimensions}
-          setSelectedDimensions={setSelectedDimensions}
-          activeDynamicFilter={activeDynamicFilter}
-          setActiveDynamicFilter={setActiveDynamicFilter}
-          activeStaticFilter={activeStaticFilter}
-          setActiveStaticFilter={setActiveStaticFilter}
-          activeRackFilter={activeRackFilter}
-          setActiveRackFilter={setActiveRackFilter}
-          isCustom={isCustom}
-          setIsCustom={setIsCustom}
-          setIsMobileFilterOpen={setIsMobileFilterOpen}
-        />
+          {/* Search & Toolbar Control Box */}
+          <ProductSearchHeader
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+            viewMode={viewMode}
+            setViewMode={setViewMode}
+            filteredCount={filteredProducts.length}
+            totalCount={products.length}
+            currentPage={currentPage}
+            itemsPerPage={ITEMS_PER_PAGE}
+            hasActiveFilters={hasActiveFilters}
+            resetFilters={resetFilters}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+            minStaticLoad={minStaticLoad}
+            setMinStaticLoad={setMinStaticLoad}
+            selectedApplication={selectedApplication}
+            setSelectedApplication={setSelectedApplication}
+            selectedCategories={selectedCategories}
+            setSelectedCategories={setSelectedCategories}
+            selectedAttributes={selectedAttributes}
+            setSelectedAttributes={setSelectedAttributes}
+            selectedDimensions={selectedDimensions}
+            setSelectedDimensions={setSelectedDimensions}
+            activeDynamicFilter={activeDynamicFilter}
+            setActiveDynamicFilter={setActiveDynamicFilter}
+            activeStaticFilter={activeStaticFilter}
+            setActiveStaticFilter={setActiveStaticFilter}
+            activeRackFilter={activeRackFilter}
+            setActiveRackFilter={setActiveRackFilter}
+            isCustom={isCustom}
+            setIsCustom={setIsCustom}
+            setIsMobileFilterOpen={setIsMobileFilterOpen}
+          />
 
-        {/* Main Catalog 2-Column Layout */}
-        <div className={styles.catalogLayout}>
+          {/* Main Catalog 2-Column Layout */}
+          <div className={styles.catalogLayout}>
           <ProductFilterSidebar
             categories={sidebarCategories}
             categoryCounts={categoryCounts}
@@ -485,6 +487,7 @@ export default function ProductCatalog() {
             isMobileFilterOpen={isMobileFilterOpen}
             setIsMobileFilterOpen={setIsMobileFilterOpen}
             applyLoadFilter={applyLoadFilter}
+            filteredCount={filteredProducts.length}
           />
 
           <section className={styles.mainCatalogArea} id="catalog-products-section">
@@ -756,7 +759,7 @@ export default function ProductCatalog() {
 
         {/* Pagination Controls - Centered across container */}
         {totalPages > 1 && (
-          <div className="mt-8 mb-6 flex justify-center w-full" id="catalog-pagination">
+          <div className="mt-4 sm:mt-6 flex justify-center w-full" id="catalog-pagination">
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}
@@ -771,11 +774,12 @@ export default function ProductCatalog() {
             />
           </div>
         )}
+        </div>
 
-        {/* Procurement Advantage Section */}
+        {/* 2. Procurement Advantage Section */}
         <ProcurementAdvantage />
 
-        {/* CTA Band */}
+        {/* 3. Procurement CTA Band Section */}
         <ProcurementCtaBand />
       </div>
 

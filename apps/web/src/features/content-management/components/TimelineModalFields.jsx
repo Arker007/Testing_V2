@@ -7,8 +7,13 @@ export const TimelineModalFields = React.memo(function TimelineModalFields({ dat
   return (
     <>
       <div className={cStyles.formGroup}>
+        <label htmlFor="timeline-year" className={cStyles.formLabel}>
+          <Icon icon="carbon:calendar" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+          <span>Year / Milestone Period</span>
+          <span className="text-red-500 font-bold ml-0.5">*</span>
+        </label>
         <Input
-          label="Year / Milestone Period *"
+          id="timeline-year"
           required
           value={data.year || ""}
           onChange={(e) => onChange("year", e.target.value)}
@@ -18,8 +23,13 @@ export const TimelineModalFields = React.memo(function TimelineModalFields({ dat
       </div>
 
       <div className={cStyles.formGroup}>
+        <label htmlFor="timeline-title" className={cStyles.formLabel}>
+          <Icon icon="carbon:flag" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+          <span>Strategic Milestone Title</span>
+          <span className="text-red-500 font-bold ml-0.5">*</span>
+        </label>
         <Input
-          label="Strategic Milestone Title *"
+          id="timeline-title"
           required
           value={data.title || ""}
           onChange={(e) => onChange("title", e.target.value)}
@@ -29,8 +39,12 @@ export const TimelineModalFields = React.memo(function TimelineModalFields({ dat
       </div>
 
       <div className={cStyles.formGroup}>
+        <label htmlFor="timeline-desc" className={cStyles.formLabel}>
+          <Icon icon="carbon:text-align-left" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+          <span>Descriptive Detail & Key Accomplishments</span>
+        </label>
         <Textarea
-          label="Descriptive Detail & Key Accomplishments"
+          id="timeline-desc"
           rows={3}
           value={data.desc || ""}
           onChange={(e) => onChange("desc", e.target.value)}

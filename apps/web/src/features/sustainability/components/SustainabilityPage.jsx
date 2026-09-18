@@ -56,33 +56,63 @@ export default function SustainabilityPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             <div className="feature-card-item">
-              <div className="feature-icon-wrapper">
-                <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L4.5 12.5H7.5L3.5 17.5H8V22H16V17.5H20.5L16.5 12.5H19.5L12 2Z" />
-                </svg>
+              <div className="feature-card-media">
+                <img
+                  src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=800&auto=format&fit=crop"
+                  alt="Preserved forest ecosystems saved from timber harvesting"
+                  referrerPolicy="no-referrer"
+                />
               </div>
-              <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">Zero Deforestation</h3>
-              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+              <div className="feature-card-top">
+                <div className="feature-icon-wrapper">
+                  <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L4.5 12.5H7.5L3.5 17.5H8V22H16V17.5H20.5L16.5 12.5H19.5L12 2Z" />
+                  </svg>
+                </div>
+                <span className="feature-tag">1.5 Trees / Ton</span>
+              </div>
+              <h3>Zero Deforestation</h3>
+              <p>
                 Every ton of our recycled plastic lumber saves approximately 1.5 mature trees, preventing critical soil erosion and protecting vital biodiverse forest habitats.
               </p>
             </div>
 
             <div className="feature-card-item">
-              <div className="feature-icon-wrapper">
-                <Icon icon="carbon:recycle" className="w-6 h-6" />
+              <div className="feature-card-media">
+                <img
+                  src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=800&auto=format&fit=crop"
+                  alt="Low-energy recycling technology cutting carbon emissions"
+                  referrerPolicy="no-referrer"
+                />
               </div>
-              <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">Carbon Avoidance</h3>
-              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+              <div className="feature-card-top">
+                <div className="feature-icon-wrapper">
+                  <Icon icon="carbon:recycle" className="w-6 h-6" />
+                </div>
+                <span className="feature-tag">88% Less Energy</span>
+              </div>
+              <h3>Carbon Avoidance</h3>
+              <p>
                 Reprocessing existing polymer waste consumes up to 88% less energy and creates significantly lower greenhouse gas emissions compared to compiling virgin plastic.
               </p>
             </div>
 
             <div className="feature-card-item">
-              <div className="feature-icon-wrapper">
-                <Icon icon="carbon:globe" className="w-6 h-6" />
+              <div className="feature-card-media">
+                <img
+                  src="https://images.unsplash.com/photo-1605600659873-d808a13e4d2a?q=80&w=800&auto=format&fit=crop"
+                  alt="Closed-loop recycled plastic pellets and circular materials"
+                  referrerPolicy="no-referrer"
+                />
               </div>
-              <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">100% Recyclable</h3>
-              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+              <div className="feature-card-top">
+                <div className="feature-icon-wrapper">
+                  <Icon icon="carbon:globe" className="w-6 h-6" />
+                </div>
+                <span className="feature-tag">Zero Landfill</span>
+              </div>
+              <h3>100% Recyclable</h3>
+              <p>
                 Our materials are engineered for true circularity. At the end of their multi-decade lifespans, they can be completely reground and remolded again.
               </p>
             </div>

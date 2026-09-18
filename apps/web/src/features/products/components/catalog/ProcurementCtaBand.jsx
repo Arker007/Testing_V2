@@ -4,7 +4,7 @@ import { QuoteButton, CtaCard } from "@/shared/ui";
 
 export default function ProcurementCtaBand() {
   return (
-    <section className="pt-8 pb-4 cta-section">
+    <section className="cta-section w-full">
       <CtaCard
         badge="Fast Response"
         badgeVariant="brand"

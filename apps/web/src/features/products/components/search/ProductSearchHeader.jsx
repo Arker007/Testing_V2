@@ -152,7 +152,7 @@ export default function ProductSearchHeader({
   if (minStaticLoad > 0) {
     activeTags.push({
       key: "min-load",
-      label: `Min Load: ${minStaticLoad.toLocaleString()} kg`,
+      label: `${minStaticLoad.toLocaleString()}+ kg Load`,
       clear: () => setMinStaticLoad(0),
     });
   }
@@ -179,10 +179,10 @@ export default function ProductSearchHeader({
 
   return (
     <div className={styles.topControlCard}>
-      {/* Search Input Row */}
+      {/* Search Input & Controls Row */}
       <div className={styles.searchRow}>
         <div className={styles.searchBoxWrapper}>
-          <Icon icon="carbon:search" className={styles.searchIcon} />
+          <Icon icon="solar:magnifer-linear" className={styles.searchIcon} />
           <input
             id="product-search-input-field"
             type="text"
@@ -204,23 +204,25 @@ export default function ProductSearchHeader({
                 exit={{ opacity: 0, scale: 0.8 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Icon icon="carbon:close" className="w-4 h-4" />
+                <Icon icon="solar:close-linear" className="w-4 h-4" />
               </motion.button>
             )}
           </AnimatePresence>
         </div>
 
         <div className={styles.controlsRightGroup}>
-          {/* Mobile Filter Toggle */}
+          {/* Mobile Filter Toggle Button with Badge Count (Matching Image 2) */}
           <motion.button
             type="button"
             className={styles.mobileFilterToggleBtn}
             onClick={() => setIsMobileFilterOpen(true)}
             whileTap={{ scale: 0.95 }}
           >
-            <Icon icon="carbon:settings-adjust" className="w-4 h-4" />
+            <Icon icon="solar:tuning-2-linear" className="w-4 h-4" />
             <span>Filters</span>
-            {hasActiveFilters && <span className={styles.filterDotBadge} />}
+            {activeTags.length > 0 && (
+              <span className={styles.filterCountBadge}>{activeTags.length}</span>
+            )}
           </motion.button>
 
           {/* Sort Select */}
@@ -230,10 +232,11 @@ export default function ProductSearchHeader({
               onChange={setSortBy}
               options={sortByOptions}
               placeholder="Sort By"
+              size="compact"
             />
           </div>
 
-          {/* View Switcher */}
+          {/* View Switcher (Matching Image 2) */}
           <div className={styles.viewModeSwitcher}>
             <motion.button
               type="button"
@@ -243,7 +246,7 @@ export default function ProductSearchHeader({
               aria-label="Grid View"
               whileTap={{ scale: 0.9 }}
             >
-              <Icon icon="carbon:grid" className="w-4 h-4" />
+              <Icon icon="solar:widget-4-bold" className="w-4 h-4" />
             </motion.button>
             <motion.button
               type="button"
@@ -253,47 +256,92 @@ export default function ProductSearchHeader({
               aria-label="List View"
               whileTap={{ scale: 0.9 }}
             >
-              <Icon icon="carbon:list" className="w-4 h-4" />
+              <Icon icon="solar:list-bold" className="w-4 h-4" />
             </motion.button>
           </div>
         </div>
       </div>
 
-      {/* Persistent Quick Search Shortcut Chips */}
-      <div className={styles.quickSearchPillsRow}>
-        <span className={styles.quickSearchLabel}>Quick Filters:</span>
-        {QUICK_SEARCH_SUGGESTIONS.map((sug, i) => {
-          const isSelected = sug.cat
-            ? (sug.matchCat || [sug.cat]).includes(selectedCategory)
-            : sug.load
-            ? minStaticLoad === sug.load
-            : false;
-
-          return (
-            <motion.button
-              key={i}
+      {/* Applied Filters Section (Matching Image 2) */}
+      {activeTags.length > 0 && (
+        <div className={styles.appliedFiltersSection}>
+          <div className={styles.appliedFiltersHeader}>
+            <span className={styles.appliedFiltersTitle}>Applied filters:</span>
+            <button
               type="button"
-              className={`${styles.quickSearchPillBtn} ${isSelected ? styles.quickSearchPillBtnActive : ""}`}
-              onClick={() => {
-                if (sug.cat) {
-                  setSelectedCategory(isSelected ? "All" : sug.cat);
-                }
-                if (sug.load) {
-                  setMinStaticLoad(isSelected ? 0 : sug.load);
-                }
-              }}
-              whileTap={{ scale: 0.94 }}
+              onClick={resetFilters}
+              className={styles.clearAllUnderlineBtn}
+              title="Clear all active filters"
             >
-              <span>{sug.label}</span>
-              {isSelected && (
-                <Icon icon="carbon:close" className="w-3.5 h-3.5 ml-1 text-current opacity-75" />
-              )}
-            </motion.button>
-          );
-        })}
-      </div>
+              Clear all
+            </button>
+          </div>
 
-      {/* Results Count & Active Filter Tags Bar - Grouped Together on the Left */}
+          <div className={styles.appliedFiltersTrack}>
+            <AnimatePresence>
+              {activeTags.map((tag) => (
+                <motion.span
+                  key={tag.key}
+                  className={styles.appliedFilterChip}
+                  initial={{ opacity: 0, scale: 0.88, y: -2 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.88, y: -2 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <span className={styles.appliedFilterChipText}>{tag.label}</span>
+                  <button
+                    type="button"
+                    onClick={tag.clear}
+                    className={styles.appliedFilterChipRemove}
+                    title={`Remove ${tag.label}`}
+                    aria-label={`Remove ${tag.label}`}
+                  >
+                    <Icon icon="solar:close-linear" className="w-3.5 h-3.5" />
+                  </button>
+                </motion.span>
+              ))}
+            </AnimatePresence>
+          </div>
+        </div>
+      )}
+
+      {/* Quick Search Shortcut Chips (Shown when no active filters, matching Image 1) */}
+      {activeTags.length === 0 && (
+        <div className={styles.quickSearchPillsRow}>
+          <span className={styles.quickSearchLabel}>QUICK FILTERS:</span>
+          {QUICK_SEARCH_SUGGESTIONS.map((sug, i) => {
+            const isSelected = sug.cat
+              ? (sug.matchCat || [sug.cat]).includes(selectedCategory)
+              : sug.load
+              ? minStaticLoad === sug.load
+              : false;
+
+            return (
+              <motion.button
+                key={i}
+                type="button"
+                className={`${styles.quickSearchPillBtn} ${isSelected ? styles.quickSearchPillBtnActive : ""}`}
+                onClick={() => {
+                  if (sug.cat) {
+                    setSelectedCategory(isSelected ? "All" : sug.cat);
+                  }
+                  if (sug.load) {
+                    setMinStaticLoad(isSelected ? 0 : sug.load);
+                  }
+                }}
+                whileTap={{ scale: 0.94 }}
+              >
+                <span>{sug.label}</span>
+                {isSelected && (
+                  <Icon icon="solar:close-linear" className="w-3.5 h-3.5 ml-1 text-current opacity-75" />
+                )}
+              </motion.button>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Results Count Bar */}
       <div className={styles.resultsBar}>
         <div className={styles.resultsLeftGroup}>
           <div className={styles.resultsText}>
@@ -310,49 +358,6 @@ export default function ProductSearchHeader({
               <span className={styles.totalText}> (filtered from {totalCount} total)</span>
             )}
           </div>
-
-          {activeTags.length > 0 && (
-            <div className={styles.activeTagContainer}>
-              <AnimatePresence>
-                {activeTags.map((tag) => (
-                  <motion.span
-                    key={tag.key}
-                    className={styles.filterTagPill}
-                    initial={{ opacity: 0, scale: 0.85, y: -2 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.85, y: -2 }}
-                    transition={{ duration: 0.15 }}
-                  >
-                    <span className={styles.filterTagText}>{tag.label}</span>
-                    <motion.button
-                      type="button"
-                      onClick={tag.clear}
-                      className={styles.tagRemoveBtn}
-                      title={`Remove ${tag.label}`}
-                      aria-label={`Remove ${tag.label}`}
-                      whileTap={{ scale: 0.8 }}
-                    >
-                      <Icon icon="carbon:close-filled" className="w-4 h-4" />
-                    </motion.button>
-                  </motion.span>
-                ))}
-              </AnimatePresence>
-
-              {/* Show Clear All only if 2 or more active filters are applied */}
-              {activeTags.length >= 2 && (
-                <motion.button
-                  type="button"
-                  onClick={resetFilters}
-                  className={styles.resetAllLinkBtn}
-                  title="Clear all active filters"
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Icon icon="carbon:renew" className="w-3.5 h-3.5" />
-                  <span>Clear All</span>
-                </motion.button>
-              )}
-            </div>
-          )}
         </div>
       </div>
     </div>

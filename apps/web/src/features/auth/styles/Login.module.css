@@ -1,266 +1,489 @@
 /* ==========================================================================
-   VENTIXE STYLE: ADMIN AUTHORIZATION PORTAL
+   VISHAL ENTERPRISE: ADMIN AUTHENTICATION PORTAL
    ========================================================================== */
 
 .page {
   display: flex;
   min-height: 100vh;
-  background-color: var(--gray-100);
+  width: 100%;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Brand left split panel layout */
+/* --------------------------------------------------------------------------
+   Brand Showcase Panel (Left Side)
+   -------------------------------------------------------------------------- */
 .brand {
-  flex: 0 0 42%;
+  flex: 0 0 44%;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
+  background: linear-gradient(160deg, #090e17 0%, #0d1522 50%, #111d2e 100%);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 48px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3.5rem 3.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.brandBg {
+.brandGrid {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 30%, var(--brand-glow-subtle) 0%, transparent 70%);
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.brandGlow {
+  position: absolute;
+  top: 15%;
+  left: -10%;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0) 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.brandGlowSecondary {
+  position: absolute;
+  bottom: 10%;
+  right: -5%;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, rgba(14, 165, 233, 0) 70%);
+  filter: blur(40px);
   pointer-events: none;
 }
 
 .brandContent {
   position: relative;
-  max-width: 400px;
+  z-index: 2;
+  max-width: 480px;
 }
 
-.logo {
+.brandTop {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 48px;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
 }
 
-.logoIcon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md, 8px);
-  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+.brandLogoIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--ink);
-  font-size: 1.1rem;
-  box-shadow: var(--shadow-md), var(--brand-glow);
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 800;
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.logoName {
-  font-family: var(--font-admin, var(--font-sans));
-  font-weight: 700;
-  color: var(--white);
-  font-size: 1.2rem;
-  line-height: 1.2;
-}
-
-.logoSub {
-  font-size: 0.7rem;
-  color: var(--gray-400);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.brandTitle {
-  font-family: var(--font-admin, var(--font-sans));
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-
-.brandDesc {
-  font-size: 0.95rem;
-  color: var(--gray-400);
-  line-height: 1.6;
-  margin-bottom: 32px;
-}
-
-.features {
+.brandLogoText {
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
-.feature {
+.brandName {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.brandTagline {
+  font-size: 0.725rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.brandBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #34d399;
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.brandHeadline {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #f8fafc;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+}
+
+.brandHeadlineAccent {
+  color: #10b981;
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brandDescription {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: #94a3b8;
+  margin-bottom: 2.5rem;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.875rem 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.featureItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.featureIconWrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  shrink: 0;
+}
+
+.featureTitle {
   font-size: 0.875rem;
-  color: var(--bg-glass);
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 2px;
 }
 
-.feature i {
-  color: var(--brand);
+.featureDesc {
+  font-size: 0.775rem;
+  color: #94a3b8;
+  line-height: 1.45;
 }
 
-/* Verification form right workspace panel */
+.brandFooter {
+  position: relative;
+  z-index: 2;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.statusIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulseGreen 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes pulseGreen {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.complianceText {
+  font-size: 0.725rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Authentication Form Panel (Right Side)
+   -------------------------------------------------------------------------- */
 .formPanel {
   flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--gray-100);
-  padding: 48px 32px;
-}
-
-.formWrap {
-  width: 100%;
-  max-width: 400px;
-  background: var(--surface-card);
-  padding: 40px;
-  border-radius: var(--radius-lg, 12px);
-  border: 1px solid var(--border-default);
-  box-shadow: var(--shadow-card);
-}
-
-.formTitle {
-  font-family: var(--font-admin, var(--font-sans));
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--gray-800);
-  margin-bottom: 6px;
-}
-
-.formSub {
-  font-size: 0.875rem;
-  color: var(--gray-400);
-  margin-bottom: 32px;
-}
-
-.form {
-  display: flex;
   flex-direction: column;
-  gap: 16px;
-}
-
-.inputWrap {
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-canvas);
+  padding: 2.5rem 2rem;
   position: relative;
 }
 
-.inputIcon {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--gray-400);
-  font-size: 0.875rem;
-}
-
-.paddedInput {
+.formTopBar {
   width: 100%;
-  padding: 12px 16px 12px 44px !important;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-input, 8px);
-  font-size: 0.875rem;
-  outline: none;
-  background-color: var(--white);
-  transition: border-color var(--motion-fast) var(--ease-standard);
-}
-
-.paddedInput:focus {
-  border-color: var(--brand);
-}
-
-.eye {
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--gray-400);
-  font-size: 0.875rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-}
-
-.eye:hover {
-  color: var(--brand-dark);
-}
-
-.errorBox {
+  max-width: 460px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
-  border-radius: var(--radius-md, 8px);
-  background: var(--danger-bg);
-  border: 1px solid var(--danger-border);
-  color: var(--danger-text);
-  font-size: 0.875rem;
-  font-weight: 500;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  color: var(--brand-primary);
+  transform: translateX(-2px);
+}
+
+.securityBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  background-color: var(--bg-surface-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.cardWrap {
+  width: 100%;
+  max-width: 460px;
+  margin: auto 0;
+}
+
+.authCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 18px;
+  box-shadow: 
+    0 10px 25px -5px rgba(0, 0, 0, 0.04),
+    0 20px 40px -15px rgba(0, 0, 0, 0.06);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.authCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-primary) 0%, #059669 100%);
+}
+
+.formHeader {
+  margin-bottom: 1.75rem;
+}
+
+.headerTag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.formTitle {
+  font-size: 1.625rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.formSubtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.optionsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -0.25rem;
+}
+
+.troubleLink {
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.troubleLink:hover {
+  text-decoration: underline;
+  opacity: 0.9;
 }
 
 .submitBtn {
-  background-color: var(--brand-primary);
-  color: var(--brand-btn-text);
-  border: none;
-  padding: 12px;
-  border-radius: var(--radius-btn, 8px);
+  margin-top: 0.5rem;
+}
+
+/* Demo Credentials Assistant Pill */
+.demoAssistant {
+  margin-top: 1.5rem;
+  padding: 0.875rem 1rem;
+  background: var(--bg-surface-secondary);
+  border: 1px dashed var(--border-default);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.demoInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.demoLabel {
+  font-size: 0.725rem;
   font-weight: 700;
-  font-size: 0.875rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.demoCreds {
+  font-size: 0.725rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono, monospace);
+}
+
+.fillDemoBtn {
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
   cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: background-color var(--motion-fast) var(--ease-standard);
-  margin-top: 8px;
+  gap: 0.3rem;
 }
 
-.submitBtn:hover {
-  background-color: var(--brand-hover);
-  color: var(--brand-btn-text);
+.fillDemoBtn:hover {
+  background: var(--brand-soft);
+  border-color: var(--brand-primary);
 }
 
-.back {
-  margin-top: 24px;
+.panelFooter {
+  width: 100%;
+  max-width: 460px;
   text-align: center;
-  font-size: 0.875rem;
+  margin-top: 2rem;
 }
 
-.back a {
-  color: var(--gray-400);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: color var(--motion-fast) var(--ease-standard);
+.disclaimer {
+  font-size: 0.725rem;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
-.back a:hover {
-  color: var(--brand-dark);
+/* --------------------------------------------------------------------------
+   Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .brand {
+    flex: 0 0 40%;
+    padding: 2.5rem 2rem;
+  }
+  .brandHeadline {
+    font-size: 1.875rem;
+  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .page {
     flex-direction: column;
   }
   .brand {
-    flex: 0 0 auto;
-    padding: 32px 24px;
-  }
-  .features {
     display: none;
   }
-  .brandTitle {
-    font-size: 1.75rem;
-  }
   .formPanel {
-    padding: 24px 16px;
+    padding: 2rem 1.25rem;
+    min-height: 100vh;
   }
-  .formWrap {
-    border: none;
-    box-shadow: none;
-    padding: 24px 16px;
+  .authCard {
+    padding: 1.75rem 1.5rem;
+    border-radius: 16px;
+  }
+  .formTopBar {
+    margin-bottom: 1.5rem;
   }
 }

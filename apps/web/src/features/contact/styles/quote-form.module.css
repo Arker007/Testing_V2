@@ -125,6 +125,27 @@
   padding: 0;
 }
 
+.stepTitle {
+  font-size: 0.875rem !important; /* 14px */
+  line-height: 1.25rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin: 0 !important;
+}
+
+@media (min-width: 640px) {
+  .stepTitle {
+    font-size: 1rem !important; /* 16px */
+  }
+}
+
+.stepSubTitle {
+  font-size: 0.75rem !important; /* 12px */
+  line-height: 1rem !important;
+  color: var(--text-secondary) !important;
+  margin: 0.125rem 0 0 0 !important;
+}
+
 /* Form Fields */
 .contactForm {
   display: flex;

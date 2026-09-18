@@ -8,15 +8,27 @@ class ProductRepository {
   /**
    * Find all products (filtered by published state for non-admins).
    */
-  async findAll(isAdmin) {
-    const sql = isAdmin
-      ? `SELECT p.*, c.name AS category_name FROM products p LEFT JOIN categories c ON c.id = p.category ORDER BY p.created_at DESC`
-      : `SELECT p.*, c.name AS category_name FROM products p LEFT JOIN categories c ON c.id = p.category WHERE (p.published = 1 OR p.published IS NULL) ORDER BY p.created_at DESC`;
+  async findAll(isAdmin, limit = 50, offset = 0) {
+    const whereClause = isAdmin ? "" : "WHERE (p.published = 1 OR p.published IS NULL)";
+    const countSql = `SELECT COUNT(*) as total FROM products p ${whereClause}`;
+    const sql = `
+      SELECT p.*, c.name AS category_name 
+      FROM products p 
+      LEFT JOIN categories c ON c.id = p.category 
+      ${whereClause} 
+      ORDER BY p.created_at DESC 
+      LIMIT ? OFFSET ?
+    `;
 
     return new Promise((resolve, reject) => {
-      db.all(sql, [], (err, rows) => {
-        if (err) return reject(err);
-        resolve(rows || []);
+      db.get(countSql, [], (countErr, countRow) => {
+        if (countErr) return reject(countErr);
+        const total = countRow ? countRow.total : 0;
+
+        db.all(sql, [limit, offset], (err, rows) => {
+          if (err) return reject(err);
+          resolve({ rows: rows || [], total });
+        });
       });
     });
   }

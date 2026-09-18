@@ -2,7 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import { Icon } from "@iconify/react";
 import styles from "./CustomSelect.module.css";
 
-export default function CustomSelect({ value, onChange, options = [], placeholder, className = "", style }) {
+export default function CustomSelect({
+  value,
+  onChange,
+  options = [],
+  placeholder,
+  className = "",
+  style,
+  size = "default",
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
 
@@ -26,14 +34,21 @@ export default function CustomSelect({ value, onChange, options = [], placeholde
     >
       <button
         type="button"
-        className={styles.customSelectTrigger}
+        className={`${styles.customSelectTrigger} ${size === "compact" ? styles.compactTrigger : ""}`}
         onClick={() => setIsOpen(!isOpen)}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
         <span className={styles.triggerLabelWrapper}>
           <span className={styles.triggerLabel}>
-            {selectedOption ? selectedOption.label : placeholder}
+            {selectedOption?.shortLabel ? (
+              <>
+                <span className={styles.labelDesktop}>{selectedOption.label}</span>
+                <span className={styles.labelMobile}>{selectedOption.shortLabel}</span>
+              </>
+            ) : (
+              selectedOption ? selectedOption.label : placeholder
+            )}
           </span>
           {selectedOption && selectedOption.badge !== undefined && (
             <span className={styles.categoryCountBadge}>
@@ -43,7 +58,7 @@ export default function CustomSelect({ value, onChange, options = [], placeholde
         </span>
         <Icon
           icon="solar:alt-arrow-down-linear"
-          className={`${styles.selectChevron} ${isOpen ? styles.chevronRotate : ""}`}
+          className={`${styles.selectChevron} ${size === "compact" ? styles.compactChevron : ""} ${isOpen ? styles.chevronRotate : ""}`}
         />
       </button>
 

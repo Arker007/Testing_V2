@@ -24,6 +24,7 @@
   width: 100%;
   overflow: hidden;
   padding: 0.5rem 0;
+  transform: translate3d(0, 0, 0);
   /* Smooth horizontal gradient fade on left and right edges */
   mask-image: linear-gradient(
     to right,
@@ -48,6 +49,7 @@
   gap: 1.5rem;
   width: max-content;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
   /* Animate continuously from right to left (0 to -50%) */
   animation: marqueeRightToLeft 42s linear infinite;
 }

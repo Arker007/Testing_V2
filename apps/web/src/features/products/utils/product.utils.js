@@ -346,3 +346,97 @@ export function getHeadline(p) {
   if (p.description) return p.description.slice(0, 130) + "...";
   return "High-performance recycled plastic product engineered for industrial durability.";
 }
+
+export function getProductCardBadge(product) {
+  if (product?.badge) return String(product.badge).toUpperCase();
+  const title = String(product?.name || product?.title || "").toLowerCase();
+  if (title.includes("heavy duty") || title.includes("heavy-duty")) return "HEAVY DUTY";
+  if (title.includes("stackable")) return "STACKABLE";
+  if (title.includes("hygienic") || title.includes("clean room")) return "HYGIENIC";
+  if (title.includes("rackable")) return "RACKABLE";
+  if (title.includes("reversible")) return "REVERSIBLE";
+  if (title.includes("export") || title.includes("euro")) return "EXPORT GRADE";
+  if (title.includes("medium duty") || title.includes("medium-duty")) return "MEDIUM DUTY";
+  if (title.includes("light duty") || title.includes("light-duty")) return "LIGHT DUTY";
+  if (title.includes("spill") || title.includes("containment")) return "SPILL SAFE";
+  if (title.includes("flat") || title.includes("solid")) return "SOLID DECK";
+  if (title.includes("perforated") || title.includes("mesh")) return "VENTILATED";
+
+  const rawCat = product?.category_name || product?.category || product?.category_title || product?.type || "";
+  if (rawCat) {
+    const cleaned = String(rawCat).replace(/[-_]/g, " ").trim();
+    if (cleaned.toLowerCase() === "pallets" || cleaned.toLowerCase() === "pallet") return "PLASTIC PALLET";
+    if (cleaned.toLowerCase() === "garden bench" || cleaned.toLowerCase() === "benches") return "GARDEN BENCH";
+    return cleaned.toUpperCase();
+  }
+  return "HEAVY DUTY";
+}
+
+export function getProductShortDesc(product) {
+  if (product?.short_description) return product.short_description;
+  if (product?.headline) return product.headline;
+  if (product?.description) {
+    const plain = product.description.replace(/[#*`_]/g, "").trim();
+    const firstSentence = plain.split(/[.!?]\s/)[0];
+    if (firstSentence && firstSentence.length <= 85) {
+      return firstSentence.endsWith(".") ? firstSentence : `${firstSentence}.`;
+    }
+    return plain.slice(0, 80).trim() + "...";
+  }
+
+  const title = String(product?.name || product?.title || "").toLowerCase();
+  if (title.includes("heavy duty")) return "High load capacity for demanding industrial use.";
+  if (title.includes("stackable")) return "Space-saving design for efficient storage & logistics.";
+  if (title.includes("hygienic")) return "Ideal for food, pharma and clean environments.";
+  if (title.includes("rackable")) return "Engineered for high-bay warehouse pallet racking.";
+  if (title.includes("bench")) return "Durable all-weather outdoor seating made from recycled HDPE.";
+  if (title.includes("lumber")) return "Rot-proof, splinter-free structural recycled plastic timber.";
+  return "High-performance recycled plastic product engineered for industrial use.";
+}
+
+export function getMobileLoadSpec(product, propStaticLoad) {
+  const staticVal =
+    propStaticLoad !== undefined && propStaticLoad > 0
+      ? propStaticLoad
+      : getStaticLoadKg(product);
+
+  if (staticVal && staticVal > 0) {
+    return `${Number(staticVal).toLocaleString()}+ kg Load`;
+  }
+
+  const specs = product?.specifications || product?.specs || {};
+  const sLoad =
+    specs["Static Load"] ||
+    specs["static_load"] ||
+    specs["Load Capacity"] ||
+    specs["load_capacity"];
+  if (sLoad) {
+    const num = String(sLoad).replace(/[^0-9]/g, "");
+    if (num && Number(num) > 0) {
+      return `${Number(num).toLocaleString()}+ kg Load`;
+    }
+  }
+
+  return "3,000+ kg Load";
+}
+
+export function getMobileDimSpec(product, propDimStr) {
+  const rawDim =
+    propDimStr ||
+    getDimensionsStr(product) ||
+    product?.dimensions ||
+    "1200 × 1000 mm";
+  const clean = String(rawDim)
+    .replace(/\s*\([Ll]\s*[x×]\s*[Ww]\s*[x×]\s*[Hh]\)/g, "")
+    .replace(/\s*[xX]\s*/g, " × ")
+    .replace(/\s*\([Cc]ustomizable\)/g, "")
+    .trim();
+
+  const match = clean.match(/(\d+)\s*×\s*(\d+)(?:\s*×\s*\d+)?\s*(mm)?/i);
+  if (match) {
+    return `${match[1]} × ${match[2]} mm`;
+  }
+
+  return clean || "1200 × 1000 mm";
+}
+

@@ -2,20 +2,29 @@ import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { useSite } from '../../../shared/context/SiteContext';
-import { Input, Button, Alert, Card, CardContent } from '@/shared/ui';
+import { Input, Button, Alert, FormField, Checkbox } from '@/shared/ui';
 import styles from '../styles/Login.module.css';
-
 import { AuthService } from '../services/auth.service';
 
 export default function AdminLogin() {
     const { co } = useSite();
     const [form, setForm] = useState({ username: '', password: '' });
+    const [rememberMe, setRememberMe] = useState(false);
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [showPw, setShowPw] = useState(false);
     const navigate = useNavigate();
 
+    const companyName = co?.("name", "VISHAL ENTERPRISE") || "VISHAL ENTERPRISE";
+
     useEffect(() => {
+        // Pre-fill remembered username if previously saved
+        const savedUser = localStorage.getItem('admin_remembered_username');
+        if (savedUser) {
+            setForm(prev => ({ ...prev, username: savedUser }));
+            setRememberMe(true);
+        }
+
         const token = localStorage.getItem('admin_token');
         if (!token) return;
 
@@ -32,128 +41,265 @@ export default function AdminLogin() {
             });
     }, [navigate]);
 
-    const handleSubmit = async e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         setLoading(true);
+
         try {
-            const data = await AuthService.login(form.username, form.password);
+            const data = await AuthService.login(form.username.trim(), form.password);
             if (data && data.token) {
                 localStorage.setItem('admin_token', data.token);
+                if (rememberMe) {
+                    localStorage.setItem('admin_remembered_username', form.username.trim());
+                } else {
+                    localStorage.removeItem('admin_remembered_username');
+                }
                 navigate('/admin/dashboard', { replace: true });
             } else {
-                setError(data.message || data.error || 'Invalid gateway parameters provided.');
+                setError(data?.message || data?.error || 'Invalid username or password. Please verify your credentials.');
             }
         } catch (err) {
-            setError(err.message || 'Connection failure encountered with validation firewall.');
+            setError(err.message || 'Authentication failed. Please check your credentials or network connection.');
         } finally {
             setLoading(false);
         }
     };
 
+    const handleFillDemo = () => {
+        setForm({ username: 'admin', password: 'admin123' });
+        setError('');
+    };
+
     return (
         <div className={styles.page}>
-            {/* Left brand showcase panel view */}
-            <div className={styles.brand}>
-                <div className={styles.brandBg} />
+            {/* Left Brand & Platform Showcase Panel */}
+            <aside className={styles.brand} aria-label="Brand Overview">
+                <div className={styles.brandGrid} />
+                <div className={styles.brandGlow} />
+                <div className={styles.brandGlowSecondary} />
+
                 <div className={styles.brandContent}>
-                    <div className={styles.logo}>
-                        <div className={styles.logoIcon}>{co("name", "VISHAL ENTERPRISE").charAt(0).toUpperCase()}</div>
-                        <div>
-                            <div className={styles.logoName}>{co("name", "VISHAL ENTERPRISE")}</div>
-                            <div className={styles.logoSub}>Control Terminal</div>
+                    {/* Top Identity */}
+                    <div className={styles.brandTop}>
+                        <div className={styles.brandLogoIcon}>
+                            {companyName.charAt(0).toUpperCase()}
+                        </div>
+                        <div className={styles.brandLogoText}>
+                            <span className={styles.brandName}>{companyName}</span>
+                            <span className={styles.brandTagline}>Operations & Administration</span>
                         </div>
                     </div>
-                    <h1 className={styles.brandTitle}>Operations Center</h1>
-                    <p className={styles.brandDesc}>Sync configuration profiles, monitor incoming inquiries, and manage enterprise material catalogs.</p>
-                    <div className={styles.features}>
-                        {['Recycled Pallet Inventory Matrices', 'B2B Inquiry Live Streams', 'Taxonomy Architecture Controls', 'High-Fidelity Diagnostics'].map(f => (
-                            <div key={f} className={styles.feature}>
-                                <Icon icon="carbon:certificate" className="text-emerald-500 w-4 h-4" />
-                                <span>{f}</span>
+
+                    {/* Authority Tag & Hero Headline */}
+                    <div className={styles.brandBadge}>
+                        <Icon icon="solar:shield-check-bold" className="w-3.5 h-3.5" />
+                        <span>Authorized Access Only</span>
+                    </div>
+
+                    <h1 className={styles.brandHeadline}>
+                        Enterprise Polymer <br />
+                        <span className={styles.brandHeadlineAccent}>Management Console</span>
+                    </h1>
+
+                    <p className={styles.brandDescription}>
+                        Centralized control for industrial pallet inventories, technical specifications, incoming wholesale inquiries, and production lead tracking.
+                    </p>
+
+                    {/* Operational Highlights */}
+                    <div className={styles.featureList}>
+                        <div className={styles.featureItem}>
+                            <div className={styles.featureIconWrap}>
+                                <Icon icon="solar:box-minimalistic-bold-duotone" className="w-5 h-5" />
                             </div>
-                        ))}
+                            <div>
+                                <div className={styles.featureTitle}>Catalog & Inventory Control</div>
+                                <div className={styles.featureDesc}>
+                                    Real-time matrix for heavy-duty pallets, structural lumber, and outdoor municipal seating.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={styles.featureItem}>
+                            <div className={styles.featureIconWrap}>
+                                <Icon icon="solar:inbox-line-bold-duotone" className="w-5 h-5" />
+                            </div>
+                            <div>
+                                <div className={styles.featureTitle}>Direct RFQ & Inquiry Dispatch</div>
+                                <div className={styles.featureDesc}>
+                                    Instant review and response workflow for customer quote requests and custom tooling inquiries.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={styles.featureItem}>
+                            <div className={styles.featureIconWrap}>
+                                <Icon icon="solar:shield-keyhole-bold-duotone" className="w-5 h-5" />
+                            </div>
+                            <div>
+                                <div className={styles.featureTitle}>Audit-Grade Security</div>
+                                <div className={styles.featureDesc}>
+                                    Encrypted session authentication, IP rate-limiting, and protected administrative endpoints.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {/* Right credentials input workspace view */}
-            <div className={styles.formPanel}>
-                <div className={styles.formWrap}>
-                    <Card variant="elevated" className="border-[var(--border-subtle)] bg-[var(--bg-surface)]">
-                        <CardContent className="p-8">
-                            <h2 className={styles.formTitle}>Terminal Sign In</h2>
-                            <p className={styles.formSub}>Provide access variables to open connection</p>
-
-                            <form onSubmit={handleSubmit} className="space-y-4 mt-6">
-                                <div className="space-y-1.5">
-                                    <label htmlFor="login-username" className="block text-xs font-semibold text-[var(--text-primary)]">
-                                        Username Address
-                                    </label>
-                                    <Input
-                                        id="login-username"
-                                        type="text"
-                                        placeholder="Enter authorization user..."
-                                        required
-                                        value={form.username}
-                                        onChange={e => setForm(f => ({ ...f, username: e.target.value }))}
-                                        leftIcon="carbon:user"
-                                    />
-                                </div>
-
-                                <div className="space-y-1.5">
-                                    <label htmlFor="login-password" className="block text-xs font-semibold text-[var(--text-primary)]">
-                                        Password Cipher
-                                    </label>
-                                    <Input
-                                        id="login-password"
-                                        type={showPw ? 'text' : 'password'}
-                                        placeholder="••••••••"
-                                        required
-                                        value={form.password}
-                                        onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
-                                        leftIcon="carbon:password"
-                                        rightIcon={
-                                            <button
-                                                type="button"
-                                                className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer"
-                                                onClick={() => setShowPw(v => !v)}
-                                                tabIndex={-1}
-                                                aria-label={showPw ? "Hide password" : "Show password"}
-                                            >
-                                                <Icon icon={showPw ? "carbon:view-off" : "carbon:view"} className="w-4 h-4" />
-                                            </button>
-                                        }
-                                    />
-                                </div>
-
-                                {error && (
-                                    <Alert status="danger" variant="subtle" className="text-xs">
-                                        {error}
-                                    </Alert>
-                                )}
-
-                                <Button
-                                    type="submit"
-                                    variant="primary"
-                                    loading={loading}
-                                    loadingText="Resolving Verification..."
-                                    className="w-full mt-2"
-                                    icon={<Icon icon="carbon:login" className="w-4 h-4 mr-1.5 inline" />}
-                                >
-                                    Connect Node
-                                </Button>
-                            </form>
-
-                            <p className={`${styles.back} mt-6`}>
-                                <Link to="/" className="inline-flex items-center text-xs text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
-                                    <Icon icon="carbon:arrow-left" className="w-4 h-4 mr-1" /> Back to Website
-                                </Link>
-                            </p>
-                        </CardContent>
-                    </Card>
+                {/* Bottom Trust & Status Section */}
+                <div className={styles.brandFooter}>
+                    <div className={styles.statusIndicator}>
+                        <span className={styles.pulseDot} />
+                        <span>System Status: All services operational</span>
+                    </div>
+                    <div className={styles.complianceText}>
+                        <Icon icon="solar:lock-keyhole-minimalistic-linear" className="w-3.5 h-3.5" />
+                        <span>256-Bit SSL Encrypted • ISO 9001:2015 Manufacturing Standard</span>
+                    </div>
                 </div>
-            </div>
+            </aside>
+
+            {/* Right Authentication Form Panel */}
+            <main className={styles.formPanel}>
+                {/* Top Nav Bar */}
+                <header className={styles.formTopBar}>
+                    <Link to="/" className={styles.backLink} title="Return to public website">
+                        <Icon icon="solar:arrow-left-linear" className="w-4 h-4" />
+                        <span>Back to Website</span>
+                    </Link>
+                    <span className={styles.securityBadge}>
+                        <Icon icon="solar:lock-keyhole-bold" className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                        <span>Admin Gateway</span>
+                    </span>
+                </header>
+
+                {/* Center Form Card */}
+                <div className={styles.cardWrap}>
+                    <div className={styles.authCard}>
+                        <div className={styles.formHeader}>
+                            <span className={styles.headerTag}>Portal Authentication</span>
+                            <h2 className={styles.formTitle}>Welcome Back</h2>
+                            <p className={styles.formSubtitle}>
+                                Sign in with your administrative credentials to manage your enterprise operations.
+                            </p>
+                        </div>
+
+                        <form onSubmit={handleSubmit} className={styles.authForm}>
+                            {/* Username Field */}
+                            <FormField label="Username or Email" htmlFor="login-username" required>
+                                <Input
+                                    id="login-username"
+                                    type="text"
+                                    size="md"
+                                    placeholder="e.g. admin"
+                                    required
+                                    autoFocus
+                                    autoComplete="username"
+                                    value={form.username}
+                                    onChange={(e) => setForm((f) => ({ ...f, username: e.target.value }))}
+                                    leftIcon="solar:user-linear"
+                                />
+                            </FormField>
+
+                            {/* Password Field */}
+                            <FormField label="Password" htmlFor="login-password" required>
+                                <Input
+                                    id="login-password"
+                                    type={showPw ? 'text' : 'password'}
+                                    size="md"
+                                    placeholder="Enter your password"
+                                    required
+                                    autoComplete="current-password"
+                                    value={form.password}
+                                    onChange={(e) => setForm((f) => ({ ...f, password: e.target.value }))}
+                                    leftIcon="solar:lock-password-linear"
+                                    rightIcon={
+                                        <button
+                                            type="button"
+                                            className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer"
+                                            onClick={() => setShowPw((v) => !v)}
+                                            tabIndex={-1}
+                                            aria-label={showPw ? 'Hide password' : 'Show password'}
+                                        >
+                                            <Icon
+                                                icon={showPw ? 'solar:eye-closed-linear' : 'solar:eye-linear'}
+                                                className="w-4 h-4"
+                                            />
+                                        </button>
+                                    }
+                                />
+                            </FormField>
+
+                            {/* Utility Options Row: Remember Me */}
+                            <div className={styles.optionsRow}>
+                                <Checkbox
+                                    id="login-remember"
+                                    size="sm"
+                                    checked={rememberMe}
+                                    onChange={(e) => setRememberMe(e.target.checked)}
+                                    label={<span className="text-xs text-[var(--text-secondary)] font-medium">Remember username</span>}
+                                />
+                                <span className="text-[11px] text-[var(--text-muted)] font-medium">
+                                    Encrypted TLS 1.3
+                                </span>
+                            </div>
+
+                            {/* Error Alert */}
+                            {error && (
+                                <Alert status="danger" variant="subtle" className="text-xs py-2.5">
+                                    <div className="flex items-start gap-1.5">
+                                        <Icon icon="solar:danger-triangle-linear" className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                                        <span>{error}</span>
+                                    </div>
+                                </Alert>
+                            )}
+
+                            {/* Submit Button */}
+                            <Button
+                                type="submit"
+                                variant="primary"
+                                size="md"
+                                loading={loading}
+                                loadingText="Authenticating..."
+                                className={`w-full font-bold shadow-sm ${styles.submitBtn}`}
+                                icon={<Icon icon="solar:login-2-linear" className="w-4 h-4 mr-1.5 inline" />}
+                            >
+                                Sign In to Admin Console
+                            </Button>
+                        </form>
+
+                        {/* Demo Helper Pill */}
+                        <div className={styles.demoAssistant}>
+                            <div className={styles.demoInfo}>
+                                <span className={styles.demoLabel}>
+                                    <Icon icon="solar:key-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
+                                    Default Access Credentials
+                                </span>
+                                <span className={styles.demoCreds}>
+                                    Username: <strong>admin</strong> • Pass: <strong>admin123</strong>
+                                </span>
+                            </div>
+                            <button
+                                type="button"
+                                onClick={handleFillDemo}
+                                className={styles.fillDemoBtn}
+                                title="Quickly fill test credentials"
+                            >
+                                <Icon icon="solar:magic-stick-3-linear" className="w-3 h-3" />
+                                Auto-Fill
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom Legal / Security Notice */}
+                <footer className={styles.panelFooter}>
+                    <p className={styles.disclaimer}>
+                        This administrative portal is restricted to authorized personnel of {companyName}.
+                        All authentication events and access requests are logged and monitored for compliance.
+                    </p>
+                </footer>
+            </main>
         </div>
     );
 }

@@ -18,6 +18,8 @@ import {
 import { ProductService } from "../services/product.service";
 import { CategoryService } from "../services/category.service";
 
+import { Virtuoso } from "react-virtuoso";
+
 export default function AdminProducts() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -144,73 +146,76 @@ export default function AdminProducts() {
             size="sm"
           />
         ) : (
-          filtered.map((p) => {
-            let img = null;
-            try { img = JSON.parse(p.image)?.[0]; } catch { img = p.image; }
-            const isLive = p.published !== null && p.published !== undefined && Number(p.published) !== 0;
-            return (
-              <div
-                key={p.id}
-                className={`${styles.trow} ${activeItem?.id === p.id ? styles.trowActive || "" : ""}`}
-                style={{ gridTemplateColumns: "2.2fr 1fr 1fr 1fr 1fr auto", cursor: "pointer" }}
-                onClick={(e) => {
-                  if (e.target.closest("a") || e.target.closest("button") || e.target.closest("input") || e.target.closest('[role="switch"]')) return;
-                  setActiveItem(p);
-                }}
-              >
-                <div className={styles.prodCell}>
-                  <div className={styles.thumb}>
-                    {img ? (
-                      <OptimizedImage src={img} alt={p.name} className="w-full h-full object-cover rounded" />
-                    ) : (
-                      <Icon icon="carbon:image" className="w-4 h-4 text-slate-400" />
-                    )}
+          <Virtuoso
+            style={{ height: 'calc(100vh - 250px)' }}
+            data={filtered}
+            itemContent={(index, p) => {
+              let img = null;
+              try { img = JSON.parse(p.image)?.[0]; } catch { img = p.image; }
+              const isLive = p.published !== null && p.published !== undefined && Number(p.published) !== 0;
+              return (
+                <div
+                  className={`${styles.trow} ${activeItem?.id === p.id ? styles.trowActive || "" : ""}`}
+                  style={{ gridTemplateColumns: "2.2fr 1fr 1fr 1fr 1fr auto", cursor: "pointer" }}
+                  onClick={(e) => {
+                    if (e.target.closest("a") || e.target.closest("button") || e.target.closest("input") || e.target.closest('[role="switch"]')) return;
+                    setActiveItem(p);
+                  }}
+                >
+                  <div className={styles.prodCell}>
+                    <div className={styles.thumb}>
+                      {img ? (
+                        <OptimizedImage src={img} alt={p.name} className="w-full h-full object-cover rounded" />
+                      ) : (
+                        <Icon icon="carbon:image" className="w-4 h-4 text-slate-400" />
+                      )}
+                    </div>
+                    <div>
+                      <div className={styles.prodName}>{p.name}</div>
+                      {p.description && <div className={styles.prodSub}>{toPlainPreview(p.description)}</div>}
+                    </div>
                   </div>
-                  <div>
-                    <div className={styles.prodName}>{p.name}</div>
-                    {p.description && <div className={styles.prodSub}>{toPlainPreview(p.description)}</div>}
-                  </div>
-                </div>
-                <span>
-                  <Badge variant="neutral" size="sm">
-                    {p.category_name || "Unassigned"}
-                  </Badge>
-                </span>
-                <span onClick={(e) => e.stopPropagation()}>
-                  <StatusToggle
-                    checked={isLive}
-                    onChange={(checked) => handleTogglePublish(p, checked)}
-                    disabled={togglingId === p.id}
-                    size="sm"
-                    showStatusLabel
-                    onLabel="Live"
-                    offLabel="Draft"
-                  />
-                </span>
-                <span className={styles.muted}>{p.moq || "—"}</span>
-                <span className={styles.muted}>
-                  {p.created_at ? new Date(p.created_at).toLocaleDateString("en-IN") : "—"}
-                </span>
-                <div className={styles.rowActions}>
-                  <Link to={`/admin/products/${p.id}`} title="Edit Product">
-                    <Button variant="ghost" size="sm" className="!p-1.5 !h-auto text-slate-500 hover:text-slate-800">
-                      <Icon icon="carbon:edit" className="w-4 h-4" />
+                  <span>
+                    <Badge variant="neutral" size="sm">
+                      {p.category_name || "Unassigned"}
+                    </Badge>
+                  </span>
+                  <span onClick={(e) => e.stopPropagation()}>
+                    <StatusToggle
+                      checked={isLive}
+                      onChange={(checked) => handleTogglePublish(p, checked)}
+                      disabled={togglingId === p.id}
+                      size="sm"
+                      showStatusLabel
+                      onLabel="Live"
+                      offLabel="Draft"
+                    />
+                  </span>
+                  <span className={styles.muted}>{p.moq || "—"}</span>
+                  <span className={styles.muted}>
+                    {p.created_at ? new Date(p.created_at).toLocaleDateString("en-IN") : "—"}
+                  </span>
+                  <div className={styles.rowActions}>
+                    <Link to={`/admin/products/${p.id}`} title="Edit Product">
+                      <Button variant="ghost" size="sm" className="!p-1.5 !h-auto text-slate-500 hover:text-slate-800">
+                        <Icon icon="carbon:edit" className="w-4 h-4" />
+                      </Button>
+                    </Link>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="!p-1.5 !h-auto text-rose-500 hover:text-rose-700 hover:bg-rose-500/10"
+                      onClick={() => setConfirmDelete(p.id)}
+                      title="Delete Product"
+                      disabled={deleting === p.id}
+                    >
+                      {deleting === p.id ? <Spinner size="sm" /> : <Icon icon="carbon:trash-can" className="w-4 h-4" />}
                     </Button>
-                  </Link>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="!p-1.5 !h-auto text-rose-500 hover:text-rose-700 hover:bg-rose-500/10"
-                    onClick={() => setConfirmDelete(p.id)}
-                    title="Delete Product"
-                    disabled={deleting === p.id}
-                  >
-                    {deleting === p.id ? <Spinner size="sm" /> : <Icon icon="carbon:trash-can" className="w-4 h-4" />}
-                  </Button>
+                  </div>
                 </div>
-              </div>
-            );
-          })
+              );
+            }}
+          />
         )}
       </div>
 

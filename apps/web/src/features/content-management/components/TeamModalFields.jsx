@@ -39,8 +39,13 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
       </div>
 
       <div className={cStyles.formGroup}>
+        <label htmlFor="team-member-name" className={cStyles.formLabel}>
+          <Icon icon="carbon:user" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+          <span>Full Representative Name</span>
+          <span className="text-red-500 font-bold ml-0.5">*</span>
+        </label>
         <Input
-          label="Full Representative Name *"
+          id="team-member-name"
           required
           value={data.name || ""}
           onChange={(e) => {
@@ -59,8 +64,13 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
       </div>
 
       <div className={cStyles.formGroup}>
+        <label htmlFor="team-member-role" className={cStyles.formLabel}>
+          <Icon icon="carbon:portfolio" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+          <span>Functional Role Title</span>
+          <span className="text-red-500 font-bold ml-0.5">*</span>
+        </label>
         <Input
-          label="Functional Role Title *"
+          id="team-member-role"
           required
           value={data.role || ""}
           onChange={(e) => onChange("role", e.target.value)}
@@ -71,8 +81,13 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
         <div className={cStyles.formGroup}>
+          <label htmlFor="team-member-init" className={cStyles.formLabel}>
+            <Icon icon="carbon:tag" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+            <span>Avatar Initials (Max 2)</span>
+            <span className="text-red-500 font-bold ml-0.5">*</span>
+          </label>
           <Input
-            label="Avatar Initials (Max 2) *"
+            id="team-member-init"
             required
             maxLength={2}
             value={data.init || ""}

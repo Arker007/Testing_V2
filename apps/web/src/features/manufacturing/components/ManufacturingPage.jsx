@@ -26,7 +26,7 @@ export default function ManufacturingPage() {
         ]}
         tag={c("mfg_hero_tag", "High-Precision Polymer Processing")}
         tagIcon="carbon:settings"
-        title="High-Pressure Polymer Extrusion & Quality Control"
+        title={c("mfg_hero_title", "High-Pressure Polymer Extrusion & Quality Control")}
         description={c(
           "mfg_hero_sub",
           "Our Gujarat-based manufacturing facility utilizes advanced automated polymer sorting, decontamination, and high-pressure extrusion to convert waste into durable structural profiles."
@@ -56,31 +56,61 @@ export default function ManufacturingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="feature-card-item">
-              <div className="feature-icon-wrapper">
-                <Icon icon="carbon:chip" className="w-6 h-6" />
+              <div className="feature-card-media">
+                <img
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop"
+                  alt="Automated computerized extrusion and thermal processing"
+                  referrerPolicy="no-referrer"
+                />
               </div>
-              <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">Advanced Automation</h3>
-              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+              <div className="feature-card-top">
+                <div className="feature-icon-wrapper">
+                  <Icon icon="carbon:chip" className="w-6 h-6" />
+                </div>
+                <span className="feature-tag">Automated QA</span>
+              </div>
+              <h3>Advanced Automation</h3>
+              <p>
                 Computer-controlled thermal profiles and raw material blending ensure uniform structural density across all profiles, eliminating inner cavities or weaknesses.
               </p>
             </div>
 
             <div className="feature-card-item">
-              <div className="feature-icon-wrapper">
-                <Icon icon="carbon:certificate" className="w-6 h-6" />
+              <div className="feature-card-media">
+                <img
+                  src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=800&auto=format&fit=crop"
+                  alt="Standardized testing protocols for structural tolerance"
+                  referrerPolicy="no-referrer"
+                />
               </div>
-              <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">Quality & GST Compliance Check</h3>
-              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+              <div className="feature-card-top">
+                <div className="feature-icon-wrapper">
+                  <Icon icon="carbon:certificate" className="w-6 h-6" />
+                </div>
+                <span className="feature-tag">ISO 9001:2015</span>
+              </div>
+              <h3>Quality & GST Compliance Check</h3>
+              <p>
                 Standardized testing protocols verify flexural strength, tensile tolerance, UV stability, and stress-crack resistance under extreme industrial applications.
               </p>
             </div>
 
             <div className="feature-card-item">
-              <div className="feature-icon-wrapper">
-                <Icon icon="carbon:flash" className="w-6 h-6" />
+              <div className="feature-card-media">
+                <img
+                  src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?q=80&w=800&auto=format&fit=crop"
+                  alt="Non-toxic chemical-free agricultural recycled lumber"
+                  referrerPolicy="no-referrer"
+                />
               </div>
-              <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">Zero Chemical Toxins</h3>
-              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+              <div className="feature-card-top">
+                <div className="feature-icon-wrapper">
+                  <Icon icon="carbon:flash" className="w-6 h-6" />
+                </div>
+                <span className="feature-tag">RoHS Compliant</span>
+              </div>
+              <h3>Zero Chemical Toxins</h3>
+              <p>
                 Unlike pressure-treated timber, our physical extrusion process requires no harmful chemical impregnations, rendering products perfectly safe for agricultural use.
               </p>
             </div>

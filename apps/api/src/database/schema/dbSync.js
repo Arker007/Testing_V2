@@ -4,9 +4,9 @@
 
 async function syncCategoryFields(dbInstance) {
   return new Promise((resolve) => {
-    dbInstance.all("SELECT * FROM categories", [], (err, categories) => {
-      if (err || !categories) return resolve();
-      dbInstance.all("SELECT * FROM products", [], (pErr, products) => {
+    dbInstance.all("SELECT id, fields FROM categories", [], (err, categories) => {
+      if (err || !categories || categories.length === 0) return resolve();
+      dbInstance.all("SELECT category, specifications FROM products WHERE specifications IS NOT NULL AND specifications != '{}'", [], (pErr, products) => {
         if (pErr || !products) return resolve();
         
         let pending = categories.length;

@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import PublicLayout from "../layouts/PublicLayout";
-import Home from "../../pages/Home";
 import Spinner from "../../shared/ui/feedback/Spinner";
 
 // Helper for dynamic imports with automatic retry upon Vite module updates/network glitches
@@ -24,6 +23,7 @@ const lazyRetry = (componentImport) =>
   });
 
 // Public pages — code-split, load only when the route is visited
+const Home = lazyRetry(() => import("../../pages/Home"));
 const About = lazyRetry(() => import("../../pages/About"));
 const Products = lazyRetry(() => import("../../pages/Products"));
 const ProductDetail = lazyRetry(() => import("../../pages/ProductDetail"));

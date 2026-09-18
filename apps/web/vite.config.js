@@ -38,11 +38,11 @@ export default defineConfig(({ mode }) => {
       },
     },
     build: {
-      target: "es2018", // modern browsers — smaller output than es5
+      target: "es2022", // modern browsers — substantially smaller, faster native execution
       cssCodeSplit: true, // each route chunk gets only the CSS it needs
       reportCompressedSize: false, // skip gzip stat pass → faster builds
       assetsInlineLimit: 4096, // inline assets < 4 kB as base64
-      chunkSizeWarningLimit: 500,
+      chunkSizeWarningLimit: 600,
       rollupOptions: {
         output: {
           manualChunks(id) {
@@ -55,6 +55,17 @@ export default defineConfig(({ mode }) => {
             }
             // Router
             if (id.includes("node_modules/react-router")) return "router";
+            
+            // Animation library
+            if (id.includes("node_modules/framer-motion") || id.includes("node_modules/motion")) {
+              return "motion-vendor";
+            }
+
+            // Icons library
+            if (id.includes("node_modules/@iconify")) {
+              return "icons-vendor";
+            }
+
             // All admin pages → one lazy chunk, never fetched by public visitors
             if (
               id.includes("/features/admin/") ||
@@ -69,8 +80,9 @@ export default defineConfig(({ mode }) => {
               id.includes("/pages/admin/") ||
               id.includes("/pages/LoginPage") ||
               id.includes("/components/admin/")
-            )
+            ) {
               return "admin";
+            }
           },
         },
       },
