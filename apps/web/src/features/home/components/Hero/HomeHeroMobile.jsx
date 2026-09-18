@@ -22,8 +22,21 @@ const iconMap = {
   Waves: "carbon:rain-drop"
 };
 
+const getOptimizedMobileHeroImage = (imgSrc) => {
+  if (!imgSrc) return "";
+  if (imgSrc.includes(".webp") && !imgSrc.includes("_medium.webp") && !imgSrc.includes("_thumb.webp")) {
+    return imgSrc.replace(".webp", "_medium.webp");
+  }
+  return imgSrc;
+};
+
 export default function HomeHeroMobile() {
   const { c, co } = useSite();
+  const [isFirstRender, setIsFirstRender] = useState(true);
+
+  useEffect(() => {
+    setIsFirstRender(false);
+  }, []);
 
   const slides = useMemo(() => [
     {
@@ -105,6 +118,12 @@ export default function HomeHeroMobile() {
   const heroPhone = c("hero_assistance_phone", co("phone", "+91 98986 86379"));
   const cleanedPhone = heroPhone.replace(/\s+/g, "");
 
+  const Wrapper = isFirstRender ? "div" : Motion.div;
+  const FeaturesGridWrapper = isFirstRender ? "div" : Motion.div;
+  const ChevronButton = isFirstRender ? "button" : Motion.button;
+  const DotButton = isFirstRender ? "button" : Motion.button;
+  const MainLink = isFirstRender ? "div" : Motion.div;
+
   return (
     <section className="relative w-full bg-[#10141b] bg-navy dark-context min-h-screen flex flex-col pt-8 pb-8 font-sans" id="home-hero-mobile">
       
@@ -123,18 +142,22 @@ export default function HomeHeroMobile() {
           {/* Badge */}
           <div className="inline-flex items-center gap-[0.75rem] bg-[var(--neutral-950,#0a0a0a)] border border-white/12 py-2 pl-3 pr-5 mb-5 w-fit shadow-[0_4px_16px_var(--shadow-md,rgba(0,0,0,0.3))] backdrop-blur-md rounded-[8px]">
             <div className="flex items-center justify-center bg-transparent text-[var(--brand)] pr-3 border-r border-white/12 rounded-none">
-              <Icon icon="carbon:industry" className="w-6 h-6" />
+              <svg className="w-6 h-6" viewBox="0 0 32 32" fill="currentColor">
+                <path d="M28 26V10a2 2 0 00-2-2h-4V4a2 2 0 00-2-2h-8a2 2 0 00-2 2v4H4a2 2 0 00-2 2v16a2 2 0 002 2h24a2 2 0 002-2zM12 4h8v4h-8zm-8 6h16v16H4zm22 16h-4V10h4z" />
+              </svg>
             </div>
             <span className="text-[0.8rem] font-extrabold tracking-[0.05em] text-white uppercase">{activeSlide.badge}</span>
           </div>
 
           <AnimatePresence mode="wait" initial={false}>
-            <Motion.div
+            <Wrapper
               key={current}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.35 }}
+              {...(isFirstRender ? {} : {
+                initial: { opacity: 0, y: 15 },
+                animate: { opacity: 1, y: 0 },
+                exit: { opacity: 0, y: -15 },
+                transition: { duration: 0.35 }
+              })}
               className="flex flex-col w-full"
             >
               {/* Title */}
@@ -152,15 +175,17 @@ export default function HomeHeroMobile() {
               {/* Centered Hexagon Product Card */}
               <div className="w-full flex justify-between items-center my-6 h-[260px] relative z-10 px-1">
                 {/* Left Chevron Button (Desktop Style) */}
-                <Motion.button
+                <ChevronButton
                   id="mobile-hero-chevron-prev"
                   type="button"
                   onClick={handlePrev}
                   className={`${styles.chevronBtn} ${styles.chevronBtnLeft}`}
                   aria-label="Previous Slide"
                 >
-                  <Icon icon="carbon:chevron-left" className="w-5 h-5 text-white" />
-                </Motion.button>
+                  <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="currentColor">
+                    <path d="M20 24l-8-8 8-8 1.4 1.4L14.8 16l6.6 6.6z" />
+                  </svg>
+                </ChevronButton>
 
                 <div className="mx-auto w-[250px] h-[260px] pointer-events-none">
                   <svg
@@ -227,7 +252,7 @@ export default function HomeHeroMobile() {
                                 inset: 0,
                                 opacity: idx === current ? 1 : 0,
                                 pointerEvents: idx === current ? "auto" : "none",
-                                transition: "opacity 0.4s ease-in-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+                                transition: isFirstRender ? "none" : "opacity 0.4s ease-in-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
                                 transform: idx === current ? "translateY(0) scale(1)" : "translateY(8px) scale(0.97)",
                                 display: "flex",
                                 alignItems: "center",
@@ -237,7 +262,7 @@ export default function HomeHeroMobile() {
                               }}
                             >
                               <OptimizedImage
-                                src={slide.image}
+                                src={getOptimizedMobileHeroImage(slide.image)}
                                 fallbackSrc={slide.fallbackSrc}
                                 alt={slide.titleWhite}
                                 loading={idx === current ? "eager" : "lazy"}
@@ -274,26 +299,30 @@ export default function HomeHeroMobile() {
                 </div>
 
                 {/* Right Chevron Button (Desktop Style) */}
-                <Motion.button
+                <ChevronButton
                   id="mobile-hero-chevron-next"
                   type="button"
                   onClick={handleNext}
                   className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
                   aria-label="Next Slide"
                 >
-                  <Icon icon="carbon:chevron-right" className="w-5 h-5 text-white" />
-                </Motion.button>
+                  <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="currentColor">
+                    <path d="M12 8l8 8-8 8-1.4-1.4 6.6-6.6-6.6-6.6z" />
+                  </svg>
+                </ChevronButton>
               </div>
 
               {/* Pagination Dots */}
               <div className="flex justify-center items-center gap-1 mb-6">
                 <div className="inline-flex items-center justify-center gap-0.5 bg-[#0c1524]/60 backdrop-blur-md border border-white/12 rounded-[8px] py-1 px-2.5 shadow-[0_4px_16px_var(--shadow-md,rgba(0,0,0,0.3))]">
                   {slides.map((_, idx) => (
-                    <Motion.button
+                    <DotButton
                       key={idx}
                       onClick={() => setCurrent(idx)}
-                      whileHover={{ scale: 1.15 }}
-                      whileTap={{ scale: 0.85 }}
+                      {...(isFirstRender ? {} : {
+                        whileHover: { scale: 1.15 },
+                        whileTap: { scale: 0.85 }
+                      })}
                       className="min-w-[36px] min-h-[36px] inline-flex items-center justify-center cursor-pointer outline-none p-0 border-none bg-transparent"
                       aria-label={`Go to slide ${idx + 1}`}
                     >
@@ -304,7 +333,7 @@ export default function HomeHeroMobile() {
                             : "w-2 bg-[#d1d5db]/70"
                         }`}
                       />
-                    </Motion.button>
+                    </DotButton>
                   ))}
                 </div>
               </div>
@@ -316,30 +345,36 @@ export default function HomeHeroMobile() {
 
               {/* Button */}
               <div className="flex justify-center w-full mt-2">
-                <Motion.div
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
+                <MainLink
+                  {...(isFirstRender ? {} : {
+                    whileHover: { scale: 1.03 },
+                    whileTap: { scale: 0.98 }
+                  })}
                   className="inline-block w-fit"
                 >
                   <Link to="/products" className="exploreBtnGlobal">
                     <span>{c("hero_cta_primary", "EXPLORE PRODUCTS")}</span>
-                    <Icon icon="carbon:arrow-right" className="exploreBtnArrowGlobal" />
+                    <svg className="exploreBtnArrowGlobal" viewBox="0 0 32 32" fill="currentColor">
+                      <path d="M18 15.5l6.5-6.5-6.5-6.5-1.4 1.4 4.1 4.1H4v2h16.7l-4.1 4.1z" />
+                    </svg>
                   </Link>
-                </Motion.div>
+                </MainLink>
               </div>
-            </Motion.div>
+            </Wrapper>
           </AnimatePresence>
           
         </div>
 
         {/* Features Grid */}
         <AnimatePresence mode="wait">
-          <Motion.div
+          <FeaturesGridWrapper
             key={current}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
+            {...(isFirstRender ? {} : {
+              initial: { opacity: 0, y: 10 },
+              animate: { opacity: 1, y: 0 },
+              exit: { opacity: 0, y: -10 },
+              transition: { duration: 0.3 }
+            })}
             className="grid grid-cols-1 gap-4 mb-10 sm:grid-cols-2"
           >
             <div className="grid grid-cols-2 gap-2.5 col-span-1 sm:col-span-2">
@@ -358,14 +393,16 @@ export default function HomeHeroMobile() {
                 );
               })}
             </div>
-          </Motion.div>
+          </FeaturesGridWrapper>
         </AnimatePresence>
 
         {/* Floating Assistance Card */}
         <div className="flex flex-row items-center justify-between gap-2 bg-white border border-[#E2E8F0] py-3 px-3.5 rounded-[8px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] mb-8 w-full max-w-full">
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-[38px] h-[38px] rounded-[8px] bg-[var(--brand)] shrink-0">
-              <Icon icon="carbon:headset" className="w-[20px] h-[20px] text-white" />
+              <svg className="w-[20px] h-[20px] text-white" viewBox="0 0 32 32" fill="currentColor">
+                <path d="M16 2a11 11 0 00-11 11v8h2v-8a9 9 0 0118 0v8h2v-8A11 11 0 0016 2zm13 22a1 1 0 01-1 1h-3a1 1 0 01-1-1v-4a1 1 0 011-1h3a1 1 0 011 1zm-22 0a1 1 0 01-1 1H4a1 1 0 01-1-1v-4a1 1 0 011-1h3a1 1 0 011 1z" />
+              </svg>
             </div>
             
             <div className="flex flex-col gap-0.5">
@@ -380,7 +417,9 @@ export default function HomeHeroMobile() {
             href={`tel:${cleanedPhone}`}
             className="flex items-center justify-center gap-1.5 bg-[#0f1319] border border-[#0f1319] !text-white py-2 px-3 rounded-[8px] text-[10px] font-extrabold uppercase transition hover:bg-[var(--brand)] hover:border-[var(--brand)] hover:!text-[#0f1319] shrink-0"
           >
-            <Icon icon="carbon:phone" className="w-3.5 h-3.5 !text-white" />
+            <svg className="w-3.5 h-3.5 !text-white" viewBox="0 0 32 32" fill="currentColor">
+              <path d="M26 29h-1a22.09 22.09 0 01-22-22V6a3 3 0 013-3h5a1 1 0 011 .72l1.63 6.13a1 1 0 01-.34 1l-3.32 2.5A16.07 16.07 0 0015.65 19l2.5-3.32a1 1 0 011-.34l6.13 1.63a1 1 0 01.72 1.09v5a3 3 0 01-3 3z" />
+            </svg>
             <span className="!text-white">{c("hero_assistance_btn", "CONTACT US")}</span>
           </a>
         </div>

@@ -55,21 +55,31 @@ export default function Navbar() {
 
   useEffect(() => {
     const pf = window.__prefetch || {};
-    const productsPromise =
-      pf.products || ProductService.getProducts();
     const categoriesPromise =
       pf.categories || CategoryService.getAll();
 
-    Promise.all([productsPromise, categoriesPromise])
-      .then(([pd, cd]) => {
-        if (pd?.products && Array.isArray(pd.products)) {
-          setProducts(pd.products);
-        }
+    // Load categories immediately to render main navigation
+    categoriesPromise
+      .then((cd) => {
         if (cd?.categories && Array.isArray(cd.categories)) {
           setCategories(cd.categories);
         }
       })
-      .catch((err) => console.error("Error loading products/categories:", err));
+      .catch((err) => console.error("Error loading categories:", err));
+
+    // Defer products catalog loading to keep the main-thread completely free during load
+    const timer = setTimeout(() => {
+      const productsPromise = pf.products || ProductService.getProducts();
+      productsPromise
+        .then((pd) => {
+          if (pd?.products && Array.isArray(pd.products)) {
+            setProducts(pd.products);
+          }
+        })
+        .catch((err) => console.error("Error loading products:", err));
+    }, 1200);
+
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -119,6 +129,8 @@ export default function Navbar() {
                     alt={co("name", "VISHAL ENTERPRISE")}
                     className={styles.logoImg}
                     onError={() => setLogoError(true)}
+                    width="40"
+                    height="40"
                   />
                 ) : (
                   <div className={styles.logoIcon}>
@@ -255,10 +267,15 @@ export default function Navbar() {
                   animate={{ rotate: 0, opacity: 1 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Icon
-                    icon={open ? "carbon:close" : "carbon:menu"}
-                    className="w-5 h-5"
-                  />
+                  {open ? (
+                    <svg className="w-5 h-5" viewBox="0 0 32 32" fill="currentColor">
+                      <path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16z" />
+                    </svg>
+                  ) : (
+                    <svg className="w-5 h-5" viewBox="0 0 32 32" fill="currentColor">
+                      <path d="M4 6h24v2H4zm0 18h24v2H4zm0-9h24v2H4z" />
+                    </svg>
+                  )}
                 </Motion.div>
               </Motion.button>
             </div>

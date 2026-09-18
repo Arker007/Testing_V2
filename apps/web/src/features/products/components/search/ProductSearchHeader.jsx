@@ -182,7 +182,7 @@ export default function ProductSearchHeader({
       {/* Search Input & Controls Row */}
       <div className={styles.searchRow}>
         <div className={styles.searchBoxWrapper}>
-          <Icon icon="solar:magnifer-linear" className={styles.searchIcon} />
+          <Icon icon="carbon:search" className={styles.searchIcon} />
           <input
             id="product-search-input-field"
             type="text"
@@ -204,7 +204,7 @@ export default function ProductSearchHeader({
                 exit={{ opacity: 0, scale: 0.8 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Icon icon="solar:close-linear" className="w-4 h-4" />
+                <Icon icon="carbon:close" className="w-4 h-4" />
               </motion.button>
             )}
           </AnimatePresence>
@@ -218,7 +218,7 @@ export default function ProductSearchHeader({
             onClick={() => setIsMobileFilterOpen(true)}
             whileTap={{ scale: 0.95 }}
           >
-            <Icon icon="solar:tuning-2-linear" className="w-4 h-4" />
+            <Icon icon="carbon:filter" className="w-4 h-4" />
             <span>Filters</span>
             {activeTags.length > 0 && (
               <span className={styles.filterCountBadge}>{activeTags.length}</span>
@@ -246,7 +246,7 @@ export default function ProductSearchHeader({
               aria-label="Grid View"
               whileTap={{ scale: 0.9 }}
             >
-              <Icon icon="solar:widget-4-bold" className="w-4 h-4" />
+              <Icon icon="carbon:grid" className="w-4 h-4" />
             </motion.button>
             <motion.button
               type="button"
@@ -256,7 +256,7 @@ export default function ProductSearchHeader({
               aria-label="List View"
               whileTap={{ scale: 0.9 }}
             >
-              <Icon icon="solar:list-bold" className="w-4 h-4" />
+              <Icon icon="carbon:list" className="w-4 h-4" />
             </motion.button>
           </div>
         </div>
@@ -296,7 +296,7 @@ export default function ProductSearchHeader({
                     title={`Remove ${tag.label}`}
                     aria-label={`Remove ${tag.label}`}
                   >
-                    <Icon icon="solar:close-linear" className="w-3.5 h-3.5" />
+                    <Icon icon="carbon:close" className="w-3.5 h-3.5" />
                   </button>
                 </motion.span>
               ))}
@@ -333,7 +333,7 @@ export default function ProductSearchHeader({
               >
                 <span>{sug.label}</span>
                 {isSelected && (
-                  <Icon icon="solar:close-linear" className="w-3.5 h-3.5 ml-1 text-current opacity-75" />
+                  <Icon icon="carbon:close" className="w-3.5 h-3.5 ml-1 text-current opacity-75" />
                 )}
               </motion.button>
             );

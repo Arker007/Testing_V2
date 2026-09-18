@@ -112,7 +112,7 @@ export default function SectionHeader({
       )}
 
       {accentLine && (
-        <div className={`h-1 w-16 bg-[var(--brand-primary,#059669)] rounded-full my-3 ${align === "center" ? "mx-auto" : ""}`} />
+        <div className={`h-[2px] w-12 bg-[var(--brand-primary,#059669)] rounded-full my-4 ${align === "center" ? "mx-auto" : ""}`} />
       )}
 
       {effectiveSubtitle && (

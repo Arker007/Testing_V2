@@ -103,12 +103,12 @@ export default function ProductListItemCard({
 
           <div className={styles.mobileListSpecsRow}>
             <div className={styles.mobileListSpecItem}>
-              <Icon icon="solar:bag-linear" className={styles.mobileListSpecIcon} />
+              <Icon icon="carbon:box" className={styles.mobileListSpecIcon} />
               <span>{mobileLoadStr}</span>
             </div>
             <span className={styles.mobileListSpecDivider}>|</span>
             <div className={styles.mobileListSpecItem}>
-              <Icon icon="solar:maximize-square-2-linear" className={styles.mobileListSpecIcon} />
+              <Icon icon="carbon:maximize" className={styles.mobileListSpecIcon} />
               <span>{mobileDimStr}</span>
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function ProductListItemCard({
           title={`View details for ${title}`}
           aria-label={`View details for ${title}`}
         >
-          <Icon icon="solar:arrow-right-linear" className={styles.mobileListActionIcon} />
+          <Icon icon="carbon:arrow-right" className={styles.mobileListActionIcon} />
         </Link>
       </div>
 
@@ -156,7 +156,7 @@ export default function ProductListItemCard({
           {/* Dimensions Standalone Block */}
           <div className={styles.dimBlock}>
             <div className={styles.dimIconWrap}>
-              <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+              <Icon icon="carbon:box" className="w-4 h-4 text-slate-700 dark:text-slate-300" />
             </div>
             <div className={styles.dimContent}>
               <span className={styles.dimLabel}>Dimensions</span>
@@ -185,7 +185,7 @@ export default function ProductListItemCard({
         <div className={styles.listCardActions}>
           <Link to={`/products/${product.id}`} className={styles.primaryViewBtn}>
             <span>View product</span>
-            <Icon icon="solar:arrow-right-linear" className={`w-4 h-4 ml-1 ${styles.primaryViewArrow}`} />
+            <Icon icon="carbon:arrow-right" className={`w-4 h-4 ml-1 ${styles.primaryViewArrow}`} />
           </Link>
 
           <button
@@ -195,7 +195,7 @@ export default function ProductListItemCard({
             title={`View Product Specs for ${title}`}
             aria-label={`View Product Specs for ${title}`}
           >
-            <Icon icon="solar:document-text-linear" className="w-4 h-4 mr-1.5" />
+            <Icon icon="carbon:document" className="w-4 h-4 mr-1.5" />
             <span className={styles.datasheetText}>Product Specs</span>
           </button>
         </div>

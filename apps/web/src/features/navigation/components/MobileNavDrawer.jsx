@@ -145,7 +145,7 @@ export default function MobileNavDrawer({
             >
               <span>Products</span>
               <Icon
-                icon="solar:alt-arrow-down-linear"
+                icon="carbon:chevron-down"
                 className={`w-4 h-4 transition-transform duration-200 ${
                   mobileProductsOpen ? "rotate-180" : ""
                 }`}

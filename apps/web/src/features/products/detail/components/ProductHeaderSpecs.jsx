@@ -64,17 +64,17 @@ export default function ProductHeaderSpecs({
 
   const highlights = [
     {
-      icon: "solar:box-minimalistic-linear",
+      icon: "carbon:box",
       line1: isPallet ? "High Load" : isLumber ? "High Impact" : "Heavy Duty",
       line2: isPallet ? "Capacity" : isLumber ? "Strength" : "Performance",
     },
     {
-      icon: "solar:shield-check-linear",
+      icon: "carbon:security",
       line1: "Durable &",
       line2: "Long Lasting",
     },
     {
-      icon: "solar:refresh-circle-linear",
+      icon: "carbon:renew",
       line1: "Sustainable",
       line2: "& Recycled",
     },
@@ -244,7 +244,7 @@ export default function ProductHeaderSpecs({
         <span>Item: {itemCode}</span>
         <span className="text-[var(--border-default)]">|</span>
         <span className="inline-flex items-center gap-1 text-[var(--brand-primary)] dark:text-emerald-400 font-semibold">
-          <Icon icon="solar:check-circle-bold" className="w-3.5 h-3.5" />
+          <Icon icon="carbon:checkmark-filled" className="w-3.5 h-3.5" />
           <span>{certBadge}</span>
         </span>
       </div>
@@ -310,7 +310,7 @@ export default function ProductHeaderSpecs({
           className="sm:col-span-7 min-h-[46px] bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] active:scale-[0.99] text-white font-bold text-sm sm:text-base px-5 rounded-[var(--radius-btn,8px)] flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm hover:shadow-md"
         >
           <span>Request a Quote</span>
-          <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
+          <Icon icon="carbon:arrow-right" className="w-4 h-4" />
         </button>
 
         <button
@@ -319,7 +319,7 @@ export default function ProductHeaderSpecs({
           className="sm:col-span-5 min-h-[46px] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] active:scale-[0.99] text-[var(--text-primary)] hover:text-[var(--brand-primary)] font-bold text-xs sm:text-sm px-4 rounded-[var(--radius-btn,8px)] flex items-center justify-center gap-1.5 border border-[var(--border-default)] transition-all cursor-pointer shadow-2xs hover:border-[var(--brand-primary)]"
         >
           <Icon
-            icon="solar:download-linear"
+            icon="carbon:download"
             className="w-4 h-4 text-[var(--brand-primary)] dark:text-emerald-400 shrink-0"
           />
           <span>Datasheet (PDF)</span>
@@ -331,7 +331,7 @@ export default function ProductHeaderSpecs({
         {/* Row 1: Min Order (MOQ) */}
         <div className="flex items-center justify-between py-2.5 text-xs sm:text-sm">
           <div className="flex items-center gap-2 text-[var(--text-secondary)] font-medium">
-            <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+            <Icon icon="carbon:box" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
             <span>Min. Order (MOQ)</span>
           </div>
           <span className="font-bold text-[var(--text-primary)] text-right">
@@ -342,7 +342,7 @@ export default function ProductHeaderSpecs({
         {/* Row 2: Lead Time */}
         <div className="flex items-center justify-between py-2.5 text-xs sm:text-sm">
           <div className="flex items-center gap-2 text-[var(--text-secondary)] font-medium">
-            <Icon icon="solar:clock-circle-linear" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+            <Icon icon="carbon:time" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
             <span>Lead Time</span>
           </div>
           <span className="font-bold text-[var(--text-primary)] text-right">
@@ -353,7 +353,7 @@ export default function ProductHeaderSpecs({
         {/* Row 3: Load Capacity */}
         <div className="flex items-center justify-between py-2.5 text-xs sm:text-sm gap-2">
           <div className="flex items-center gap-2 text-[var(--text-secondary)] font-medium shrink-0">
-            <Icon icon="solar:chart-2-linear" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+            <Icon icon="carbon:chart-line" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
             <span>Load Capacity</span>
           </div>
           <span className="font-medium text-[var(--text-primary)] text-right text-[11px] sm:text-xs md:text-sm">
@@ -364,7 +364,7 @@ export default function ProductHeaderSpecs({
         {/* Row 4: Forklift Handling */}
         <div className="flex items-center justify-between py-2.5 text-xs sm:text-sm">
           <div className="flex items-center gap-2 text-[var(--text-secondary)] font-medium">
-            <Icon icon="solar:delivery-linear" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
+            <Icon icon="carbon:delivery" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
             <span>Forklift Handling</span>
           </div>
           <span className="font-bold text-[var(--text-primary)] text-right">

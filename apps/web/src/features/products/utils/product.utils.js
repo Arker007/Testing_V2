@@ -188,25 +188,25 @@ export function getProductCardSpecs(product, propStaticLoad) {
       {
         label: "Weight",
         value: weightVal,
-        icon: "solar:scale-linear",
+        icon: "carbon:scale",
         title: "Tare Weight",
       },
       {
         label: "Static",
         value: staticVal > 0 ? `${staticVal.toLocaleString()} kg` : "8,000 kg",
-        icon: "solar:shield-check-linear",
+        icon: "carbon:security",
         title: "Static Load Capacity",
       },
       {
         label: "Dynamic",
         value: dynamicVal > 0 ? `${dynamicVal.toLocaleString()} kg` : "1,300 kg",
-        icon: "solar:transfer-horizontal-linear",
+        icon: "carbon:arrows-horizontal",
         title: "Dynamic Load Capacity",
       },
       {
         label: "Racking",
         value: rackVal > 0 ? `${rackVal.toLocaleString()} kg` : "500 kg",
-        icon: "solar:layers-minimalistic-linear",
+        icon: "carbon:layers",
         title: "Rack Load Capacity",
       },
     ];
@@ -224,25 +224,25 @@ export function getProductCardSpecs(product, propStaticLoad) {
       {
         label: "Weight",
         value: weightVal,
-        icon: "solar:scale-linear",
+        icon: "carbon:scale",
         title: "Weight per Linear Meter",
       },
       {
         label: "Length",
         value: stdLength,
-        icon: "solar:ruler-angular-linear",
+        icon: "carbon:ruler",
         title: "Standard Lengths Available",
       },
       {
         label: "Material",
         value: polymerVal,
-        icon: "solar:leaf-linear",
+        icon: "carbon:recycle",
         title: "Raw Material Polymer",
       },
       {
         label: "Feature",
         value: "Rot Proof",
-        icon: "solar:shield-check-linear",
+        icon: "carbon:security",
         title: "100% Weather and Rot Resistance",
       },
     ];
@@ -257,25 +257,25 @@ export function getProductCardSpecs(product, propStaticLoad) {
       {
         label: "Capacity",
         value: seating,
-        icon: "solar:users-group-rounded-linear",
+        icon: "carbon:group",
         title: "Seating Capacity",
       },
       {
         label: "Weight",
         value: weightVal,
-        icon: "solar:scale-linear",
+        icon: "carbon:scale",
         title: "Unit Net Weight",
       },
       {
         label: "Material",
         value: frame.replace("Composite", "").trim() || "HDPE Planks",
-        icon: "solar:leaf-linear",
+        icon: "carbon:recycle",
         title: "Frame & Plank Material",
       },
       {
         label: "Weather",
         value: "UV Shield",
-        icon: "solar:shield-check-linear",
+        icon: "carbon:security",
         title: "UV-Resistant All-Weather Plastic",
       },
     ];
@@ -287,25 +287,25 @@ export function getProductCardSpecs(product, propStaticLoad) {
     {
       label: "Weight",
       value: weightVal,
-      icon: "solar:scale-linear",
+      icon: "carbon:scale",
       title: "Product Weight",
     },
     {
       label: "Material",
       value: specs.Material || "Recycled HDPE",
-      icon: "solar:leaf-linear",
+      icon: "carbon:recycle",
       title: "Polymer Composition",
     },
     {
       label: "Profile",
       value: product.type || "Industrial",
-      icon: "solar:box-minimalistic-linear",
+      icon: "carbon:box",
       title: "Product Category Profile",
     },
     {
       label: "Grade",
       value: "Commercial",
-      icon: "solar:shield-check-linear",
+      icon: "carbon:security",
       title: "Manufacturing Quality Grade",
     },
   ];

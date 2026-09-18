@@ -195,11 +195,11 @@ export default function ProductCard({
           {/* Quick Specifications Strip for buyers */}
           <div className="flex flex-col gap-1.5 py-1 text-xs">
             <div className="flex items-center gap-1.5 text-[var(--text-secondary)] font-medium">
-              <Icon icon="solar:box-minimalistic-linear" className="w-3.5 h-3.5 text-[var(--brand-primary,#059669)] shrink-0" />
+              <Icon icon="carbon:box" className="w-3.5 h-3.5 text-[var(--brand-primary,#059669)] shrink-0" />
               <span className="truncate">{cleanDimStr}</span>
             </div>
             <div className="flex items-center gap-1.5 text-[var(--text-muted)]">
-              <Icon icon="solar:shield-check-linear" className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <Icon icon="carbon:security" className="w-3.5 h-3.5 text-slate-400 shrink-0" />
               <span className="truncate">{loadStr}</span>
             </div>
           </div>
@@ -272,7 +272,7 @@ export default function ProductCard({
         {/* Dimensions Standalone Block */}
         <div className={styles.dimBlock}>
           <div className={styles.dimIconWrap}>
-            <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+            <Icon icon="carbon:box" className="w-4 h-4 text-slate-700 dark:text-slate-300" />
           </div>
           <div className={styles.dimContent}>
             <span className={styles.dimLabel}>Dimensions</span>
@@ -302,7 +302,7 @@ export default function ProductCard({
         <div className={styles.gridCardActions}>
           <Link to={`/products/${product.id}`} className={styles.primaryViewBtn}>
             <span>View product</span>
-            <Icon icon="solar:arrow-right-linear" className={`w-4 h-4 ml-1 ${styles.primaryViewArrow}`} />
+            <Icon icon="carbon:arrow-right" className={`w-4 h-4 ml-1 ${styles.primaryViewArrow}`} />
           </Link>
 
           <button
@@ -312,7 +312,7 @@ export default function ProductCard({
             title={`View Product Specs for ${title}`}
             aria-label={`View Product Specs for ${title}`}
           >
-            <Icon icon="solar:document-text-linear" className="w-4 h-4 mr-1.5" />
+            <Icon icon="carbon:document" className="w-4 h-4 mr-1.5" />
             <span className={styles.datasheetText}>Product Specs</span>
           </button>
         </div>

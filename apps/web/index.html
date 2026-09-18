@@ -108,7 +108,6 @@
   <!-- Kick off API fetches immediately, before React bundle even loads -->
   <script>
     window.__prefetch = {
-      products: fetch('/api/products').then(r => r.json()).catch(() => null),
       categories: fetch('/api/categories').then(r => r.json()).catch(() => null),
       company: fetch('/api/company').then(r => r.json()).catch(() => null),
       content: fetch('/api/content').then(r => r.json()).catch(() => null),

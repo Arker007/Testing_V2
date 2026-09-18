@@ -126,6 +126,8 @@ export default function Footer() {
                 alt={co("name", "VISHAL ENTERPRISE")}
                 className={styles.logoImg}
                 onError={() => setLogoError(true)}
+                width="48"
+                height="48"
               />
             ) : (
               <div className={styles.logoIcon}>
@@ -179,7 +181,7 @@ export default function Footer() {
                     {item.name}
                     <span className={styles.socialUnderline} />
                   </span>
-                  <Icon icon="solar:arrow-right-up-linear" className={styles.socialArrow} />
+                  <Icon icon="carbon:arrow-up-right" className={styles.socialArrow} />
                 </a>
               ))}
             </div>
@@ -192,6 +194,8 @@ export default function Footer() {
             type="button"
             className={`${styles.heading} ${styles.accordionHeader}`}
             onClick={() => toggleSection("products")}
+            aria-expanded={openSections.products}
+            aria-label="Toggle Products navigation links"
           >
             <span>Our Products</span>
             <Icon
@@ -220,6 +224,8 @@ export default function Footer() {
             type="button"
             className={`${styles.heading} ${styles.accordionHeader}`}
             onClick={() => toggleSection("quick")}
+            aria-expanded={openSections.quick}
+            aria-label="Toggle Quick Links navigation links"
           >
             <span>Quick Links</span>
             <Icon
@@ -248,6 +254,8 @@ export default function Footer() {
             type="button"
             className={`${styles.heading} ${styles.accordionHeader}`}
             onClick={() => toggleSection("contact")}
+            aria-expanded={openSections.contact}
+            aria-label="Toggle Contact Information"
           >
             <span>Contact Us</span>
             <Icon

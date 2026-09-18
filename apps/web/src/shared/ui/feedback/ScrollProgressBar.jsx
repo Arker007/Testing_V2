@@ -4,14 +4,22 @@ export default function ScrollProgressBar() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalHeight > 0) {
-        const scrollPercent = (window.scrollY / totalHeight) * 100;
-        // Clamp between 0 and 100
-        setProgress(Math.min(100, Math.max(0, scrollPercent)));
-      } else {
-        setProgress(0);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (totalHeight > 0) {
+            const scrollPercent = (window.scrollY / totalHeight) * 100;
+            // Clamp between 0 and 100
+            setProgress(Math.min(100, Math.max(0, scrollPercent)));
+          } else {
+            setProgress(0);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

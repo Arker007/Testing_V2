@@ -24,7 +24,7 @@ export default function ContactWorkflowSection() {
                 <div className={`${styles.workflowNum} font-mono tabular-nums`}>{step.num}</div>
                 {index < WORKFLOW_STEPS.length - 1 && (
                   <span className={styles.stepArrow} aria-hidden="true">
-                    <Icon icon="solar:alt-arrow-right-bold" className="w-4 h-4" />
+                    <Icon icon="carbon:chevron-right" className="w-4 h-4" />
                   </span>
                 )}
               </div>

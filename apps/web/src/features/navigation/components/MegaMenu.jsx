@@ -8,35 +8,35 @@ import { ProductService } from "../../products/services/product.service";
 import { CategoryService } from "../../categories";
 import { QuoteButton } from "@/shared/ui";
 
-// Solar icon mapping for standard category slugs & naming patterns
+// IBM Carbon icon mapping for standard category slugs & naming patterns
 const CATEGORY_ICONS = {
-  "plastic-pallets": "solar:box-minimalistic-linear",
-  "plastic-lumber": "solar:ruler-angular-linear",
-  "garden-bench": "solar:armchair-linear",
-  "plastic-table": "solar:tuning-square-2-linear",
-  "garden-fence": "solar:shield-check-linear",
-  "outdoor-furniture": "solar:sofa-2-linear",
-  "custom-products": "solar:widget-2-linear",
+  "plastic-pallets": "carbon:box",
+  "plastic-lumber": "carbon:layers",
+  "garden-bench": "carbon:seat",
+  "plastic-table": "carbon:table",
+  "garden-fence": "carbon:security",
+  "outdoor-furniture": "carbon:sun",
+  "custom-products": "carbon:settings",
 };
 
 const getCategoryIcon = (slug = "", name = "") => {
   const s = slug.toLowerCase();
   if (CATEGORY_ICONS[s]) return CATEGORY_ICONS[s];
   const n = `${slug} ${name}`.toLowerCase();
-  if (n.includes("pallet")) return "solar:box-minimalistic-linear";
+  if (n.includes("pallet")) return "carbon:box";
   if (n.includes("lumber") || n.includes("profile") || n.includes("plank"))
-    return "solar:ruler-angular-linear";
+    return "carbon:layers";
   if (n.includes("bench") || n.includes("seating"))
-    return "solar:armchair-linear";
+    return "carbon:seat";
   if (n.includes("table") || n.includes("picnic") || n.includes("dining"))
-    return "solar:tuning-square-2-linear";
+    return "carbon:table";
   if (n.includes("fence") || n.includes("fencing"))
-    return "solar:shield-check-linear";
+    return "carbon:security";
   if (n.includes("furniture"))
-    return "solar:sofa-2-linear";
+    return "carbon:sun";
   if (n.includes("custom") || n.includes("molded") || n.includes("part"))
-    return "solar:widget-2-linear";
-  return "solar:box-minimalistic-linear";
+    return "carbon:settings";
+  return "carbon:box";
 };
 
 // Fallback category catalog ensuring complete layout representation
@@ -45,7 +45,7 @@ const DEFAULT_CATEGORIES = [
     id: "plastic-pallets",
     slug: "plastic-pallets",
     name: "Plastic Pallets",
-    icon: "solar:box-minimalistic-linear",
+    icon: "carbon:box",
     eyebrow: "PLASTIC PALLETS",
     description:
       "Durable, weather-resistant plastic pallets for industrial, export and high-performance applications.",
@@ -92,7 +92,7 @@ const DEFAULT_CATEGORIES = [
     id: "plastic-lumber",
     slug: "plastic-lumber",
     name: "Plastic Lumber",
-    icon: "solar:ruler-angular-linear",
+    icon: "carbon:layers",
     eyebrow: "PLASTIC LUMBER",
     description:
       "Structural profiles, heavy posts, decking, and tongue-groove battens for construction & industry.",
@@ -139,7 +139,7 @@ const DEFAULT_CATEGORIES = [
     id: "garden-bench",
     slug: "garden-bench",
     name: "Garden Benches",
-    icon: "solar:armchair-linear",
+    icon: "carbon:seat",
     eyebrow: "GARDEN BENCHES",
     description:
       "Park, society, municipal, and heritage benches engineered with maintenance-free recycled polymer.",
@@ -186,7 +186,7 @@ const DEFAULT_CATEGORIES = [
     id: "plastic-table",
     slug: "plastic-table",
     name: "Recycled Plastic Tables",
-    icon: "solar:tuning-square-2-linear",
+    icon: "carbon:table",
     eyebrow: "RECYCLED PLASTIC TABLES",
     description:
       "Heavy-duty outdoor picnic tables, park dining sets, and commercial courtyard furniture.",
@@ -226,7 +226,7 @@ const DEFAULT_CATEGORIES = [
     id: "custom-products",
     slug: "custom-products",
     name: "Custom Products",
-    icon: "solar:widget-2-linear",
+    icon: "carbon:settings",
     eyebrow: "CUSTOM PRODUCTS",
     description:
       "Bespoke industrial fabrications, custom molds, machinery skids, and tailor-made plastic components.",
@@ -731,7 +731,7 @@ export default function MegaMenu({
       >
         <span>Products</span>
         <Icon
-          icon="solar:alt-arrow-down-linear"
+          icon="carbon:chevron-down"
           className={`w-3.5 h-3.5 ml-1 inline transition-transform duration-200 ${
             isOpen ? "rotate-180 text-[var(--brand-primary)]" : ""
           }`}
@@ -785,7 +785,7 @@ export default function MegaMenu({
                         >
                           <div className="flex items-center gap-2.5 min-w-0">
                             <Icon
-                              icon={cat.icon || "solar:box-minimalistic-linear"}
+                              icon={cat.icon || "carbon:box"}
                               className={`w-4.5 h-4.5 shrink-0 ${
                                 isActive
                                   ? "text-[#15803d] dark:text-emerald-400"
@@ -795,7 +795,7 @@ export default function MegaMenu({
                             <span className="truncate">{cat.name}</span>
                           </div>
                           <Icon
-                            icon="solar:alt-arrow-right-linear"
+                            icon="carbon:chevron-right"
                             className={`w-3.5 h-3.5 shrink-0 transition-transform ${
                               isActive
                                 ? "text-[#15803d] dark:text-emerald-400 translate-x-0.5"
@@ -810,7 +810,7 @@ export default function MegaMenu({
                   {/* Sustainability Commitment Box (Bottom Left) */}
                   <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col items-start gap-1">
                     <Icon
-                      icon="solar:leaf-linear"
+                      icon="carbon:recycle"
                       className="w-5 h-5 text-[#15803d] dark:text-emerald-400 mb-1"
                     />
                     <p className="text-xs font-bold text-slate-900 dark:text-slate-100 leading-snug">
@@ -883,7 +883,7 @@ export default function MegaMenu({
                                 </span>
                               )}
                               <Icon
-                                icon="solar:alt-arrow-right-linear"
+                                icon="carbon:chevron-right"
                                 className="w-4 h-4 text-slate-400 group-hover:text-[#15803d] dark:group-hover:text-emerald-400 group-hover:translate-x-0.5 transition-all"
                               />
                             </div>
@@ -901,7 +901,7 @@ export default function MegaMenu({
                       className="inline-flex items-center gap-1.5 text-sm font-bold text-[#15803d] dark:text-emerald-400 hover:underline transition-all"
                     >
                       <span>View all {activeCategoryData.name}</span>
-                      <Icon icon="solar:arrow-right-linear" className="w-4 h-4" />
+                      <Icon icon="carbon:arrow-right" className="w-4 h-4" />
                     </Link>
                   </div>
                 </div>
@@ -959,7 +959,7 @@ export default function MegaMenu({
                       aria-label={`Download ${activeCategoryData.name} Catalog`}
                     >
                       <Icon
-                        icon="solar:download-minimalistic-linear"
+                        icon="carbon:download"
                         className="w-4 h-4 text-[var(--brand-primary)] dark:text-emerald-400"
                       />
                       <span>Download {activeCategoryData.name} Catalog</span>

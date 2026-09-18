@@ -216,7 +216,7 @@ export default function ContactFormSection() {
                         required
                         type="text"
                         size="sm"
-                        leftIcon="solar:user-linear"
+                        leftIcon="carbon:user"
                         placeholder="Full name"
                         value={form.fullName || ""}
                         onChange={f("fullName")}
@@ -230,7 +230,7 @@ export default function ContactFormSection() {
                         required
                         type="email"
                         size="sm"
-                        leftIcon="solar:letter-linear"
+                        leftIcon="carbon:email"
                         placeholder="name@company.com"
                         value={form.email || ""}
                         onChange={f("email")}
@@ -257,7 +257,7 @@ export default function ContactFormSection() {
                             <option value="+49" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+49</option>
                             <option value="+61" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+61</option>
                           </select>
-                          <Icon icon="solar:alt-arrow-down-bold" className="w-2.5 h-2.5 text-[var(--text-muted)] absolute right-1.5 pointer-events-none z-0" />
+                          <Icon icon="carbon:chevron-down" className="w-2.5 h-2.5 text-[var(--text-muted)] absolute right-1.5 pointer-events-none z-0" />
                         </div>
                         <input
                           id="phone"
@@ -277,7 +277,7 @@ export default function ContactFormSection() {
                         id="company"
                         type="text"
                         size="sm"
-                        leftIcon="solar:buildings-2-linear"
+                        leftIcon="carbon:enterprise"
                         placeholder="Company name"
                         value={form.company || ""}
                         onChange={f("company")}
@@ -310,7 +310,7 @@ export default function ContactFormSection() {
                           id="estimatedVolume"
                           type="text"
                           size="sm"
-                          leftIcon="solar:box-linear"
+                          leftIcon="carbon:box"
                           placeholder="e.g. 500 units"
                           value={form.estimatedVolume || ""}
                           onChange={f("estimatedVolume")}
@@ -323,7 +323,7 @@ export default function ContactFormSection() {
                           id="targetApplication"
                           type="text"
                           size="sm"
-                          leftIcon="solar:settings-minimalistic-linear"
+                          leftIcon="carbon:settings"
                           placeholder="e.g. Warehouse, Outdoor"
                           value={form.targetApplication || ""}
                           onChange={f("targetApplication")}
@@ -335,7 +335,7 @@ export default function ContactFormSection() {
                     <FormField label="Specifications or Message" htmlFor="message" required>
                       <div className="relative">
                         <div className="absolute top-2.5 left-2.5 pointer-events-none text-[var(--text-muted)] z-10">
-                          <Icon icon="solar:pen-linear" className="w-3.5 h-3.5" />
+                          <Icon icon="carbon:edit" className="w-3.5 h-3.5" />
                         </div>
                         <Textarea
                           id="message"
@@ -370,7 +370,7 @@ export default function ContactFormSection() {
                     loading={status === "sending" || status === "loading"}
                     loadingText="Sending..."
                     className="w-full sm:w-auto shrink-0 font-bold min-h-[40px] text-xs sm:text-sm px-5 shadow-2xs"
-                    icon={<Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5 ml-1 inline" />}
+                    icon={<Icon icon="carbon:arrow-right" className="w-3.5 h-3.5 ml-1 inline" />}
                     id="submit-message-btn"
                   >
                     Send Quote Request
@@ -379,7 +379,7 @@ export default function ContactFormSection() {
                   {/* Secure Info Badge - Clean Unboxed Layout */}
                   <div className="flex items-center gap-2.5 px-1 py-1 text-left sm:border-l sm:border-[var(--border-subtle)] sm:pl-4">
                     <div className="text-[var(--brand-primary)] dark:text-emerald-400 shrink-0">
-                      <Icon icon="solar:shield-check-bold" className="w-5 h-5" />
+                      <Icon icon="carbon:security" className="w-5 h-5" />
                     </div>
                     <div className="text-[11px] leading-tight">
                       <span className="block font-bold text-[var(--text-primary)]">Your information is secure.</span>
@@ -422,7 +422,7 @@ export default function ContactFormSection() {
                   id="info-card-person"
                 >
                   <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
-                    <Icon icon="solar:user-linear" className="w-5 h-5" />
+                    <Icon icon="carbon:user" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
                     <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Sales & Technical Contact</span>
@@ -437,7 +437,7 @@ export default function ContactFormSection() {
                   id="info-card-address"
                 >
                   <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
-                    <Icon icon="solar:map-point-linear" className="w-5 h-5" />
+                    <Icon icon="carbon:location" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
@@ -450,12 +450,12 @@ export default function ContactFormSection() {
                       >
                         {copiedCardKey === "address" ? (
                           <>
-                            <Icon icon="solar:check-circle-bold" className="w-3 h-3 text-emerald-600" />
+                            <Icon icon="carbon:checkmark-filled" className="w-3 h-3 text-emerald-600" />
                             <span className="text-emerald-600 font-semibold">Copied</span>
                           </>
                         ) : (
                           <>
-                            <Icon icon="solar:copy-bold" className="w-3 h-3" />
+                            <Icon icon="carbon:copy" className="w-3 h-3" />
                             <span>Copy</span>
                           </>
                         )}
@@ -473,7 +473,7 @@ export default function ContactFormSection() {
                   id="info-card-mobile"
                 >
                   <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
-                    <Icon icon="solar:phone-linear" className="w-5 h-5" />
+                    <Icon icon="carbon:phone" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
@@ -486,12 +486,12 @@ export default function ContactFormSection() {
                       >
                         {copiedCardKey === "phone" ? (
                           <>
-                            <Icon icon="solar:check-circle-bold" className="w-3 h-3 text-emerald-600" />
+                            <Icon icon="carbon:checkmark-filled" className="w-3 h-3 text-emerald-600" />
                             <span className="text-emerald-600 font-semibold">Copied</span>
                           </>
                         ) : (
                           <>
-                            <Icon icon="solar:copy-bold" className="w-3 h-3" />
+                            <Icon icon="carbon:copy" className="w-3 h-3" />
                             <span>Copy</span>
                           </>
                         )}
@@ -504,7 +504,7 @@ export default function ContactFormSection() {
                           href={`tel:${phoneVal.replace(/\s+/g, "")}`}
                         >
                           <span>{phoneVal}</span>
-                          <Icon icon="solar:alt-arrow-right-bold" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
+                          <Icon icon="carbon:chevron-right" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                         </a>
                       </h3>
                     </div>
@@ -518,7 +518,7 @@ export default function ContactFormSection() {
                   id="info-card-email"
                 >
                   <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
-                    <Icon icon="solar:letter-linear" className="w-5 h-5" />
+                    <Icon icon="carbon:email" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
@@ -531,12 +531,12 @@ export default function ContactFormSection() {
                       >
                         {copiedCardKey === "email" ? (
                           <>
-                            <Icon icon="solar:check-circle-bold" className="w-3 h-3 text-emerald-600" />
+                            <Icon icon="carbon:checkmark-filled" className="w-3 h-3 text-emerald-600" />
                             <span className="text-emerald-600 font-semibold">Copied</span>
                           </>
                         ) : (
                           <>
-                            <Icon icon="solar:copy-bold" className="w-3 h-3" />
+                            <Icon icon="carbon:copy" className="w-3 h-3" />
                             <span>Copy</span>
                           </>
                         )}
@@ -548,7 +548,7 @@ export default function ContactFormSection() {
                         href={`mailto:${emailVal}`}
                       >
                         <span>{emailVal}</span>
-                        <Icon icon="solar:alt-arrow-right-bold" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
+                        <Icon icon="carbon:chevron-right" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
                       </a>
                     </h3>
                     <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5 leading-relaxed">For purchase orders, RFQs, and bulk inquiries.</p>
@@ -561,14 +561,14 @@ export default function ContactFormSection() {
                   id="info-card-gstin"
                 >
                   <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
-                    <Icon icon="solar:document-text-linear" className="w-5 h-5" />
+                    <Icon icon="carbon:document" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-1.5">
                         <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Goods & Services Tax (GSTIN)</span>
                         <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/60 px-1.5 py-0.2 rounded border border-emerald-300 dark:border-emerald-700">
-                          <Icon icon="solar:verified-check-bold" className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-400" />
+                          <Icon icon="carbon:checkmark-filled" className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-400" />
                           <span>Verified</span>
                         </span>
                       </div>
@@ -580,12 +580,12 @@ export default function ContactFormSection() {
                       >
                         {copiedCardKey === "gstin" ? (
                           <>
-                            <Icon icon="solar:check-circle-bold" className="w-3 h-3 text-emerald-600" />
+                            <Icon icon="carbon:checkmark-filled" className="w-3 h-3 text-emerald-600" />
                             <span className="text-emerald-600 font-semibold">Copied</span>
                           </>
                         ) : (
                           <>
-                            <Icon icon="solar:copy-bold" className="w-3 h-3" />
+                            <Icon icon="carbon:copy" className="w-3 h-3" />
                             <span>Copy</span>
                           </>
                         )}
@@ -603,7 +603,7 @@ export default function ContactFormSection() {
                 >
                   <div className="flex items-center gap-3.5">
                     <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
-                      <Icon icon="solar:headphones-round-linear" className="w-5 h-5" />
+                      <Icon icon="carbon:headphones" className="w-5 h-5" />
                     </div>
                     <div>
                       <h4 className="text-xs sm:text-sm font-extrabold text-[var(--text-primary)]">Need Immediate Assistance?</h4>
@@ -614,7 +614,7 @@ export default function ContactFormSection() {
                     className="px-4 py-2 bg-[var(--brand-primary)] text-white hover:bg-[var(--brand-hover)] text-xs font-bold flex items-center gap-1.5 transition-colors whitespace-nowrap rounded-lg no-underline cursor-pointer shadow-xs"
                     href={`tel:${phoneVal.replace(/\s+/g, "")}`}
                   >
-                    <Icon icon="solar:phone-calling-bold" className="w-3.5 h-3.5 text-white" />
+                    <Icon icon="carbon:phone-incoming" className="w-3.5 h-3.5 text-white" />
                     <span>Call Sales Now</span>
                   </a>
                 </div>

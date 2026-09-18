@@ -390,7 +390,7 @@ export default function ProductTabsSection({
           </div>
         ) : (
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[var(--radius-lg,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] text-xs font-semibold text-[var(--text-secondary)] my-1 shrink-0">
-            <Icon icon="solar:verified-check-bold" className="w-4 h-4 text-[var(--brand-primary)] dark:text-emerald-400" />
+            <Icon icon="carbon:checkmark-filled" className="w-4 h-4 text-[var(--brand-primary)] dark:text-emerald-400" />
             <span>ISPM-15 Exempt & ISO 9001 QA</span>
           </div>
         )}
@@ -445,7 +445,7 @@ export default function ProductTabsSection({
                 {/* Operating Range / Compliance Notice Box */}
                 <div className="p-3.5 sm:p-4 rounded-[var(--radius-lg,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex items-center gap-3 text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
                   <Icon
-                    icon="solar:temperature-linear"
+                    icon="carbon:temperature"
                     className="w-5 h-5 text-[var(--brand-primary)] shrink-0"
                   />
                   <p>
@@ -466,7 +466,7 @@ export default function ProductTabsSection({
                 <div className="p-5 sm:p-6 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center shrink-0">
-                      <Icon icon="solar:layers-minimalistic-bold" className="w-5 h-5" />
+                      <Icon icon="carbon:layers" className="w-5 h-5" />
                     </div>
                     <div>
                       <h3 className="text-base font-bold text-[var(--text-primary)]">
@@ -496,19 +496,19 @@ export default function ProductTabsSection({
                   {/* Material Specs Quick Pills */}
                   <div className="flex flex-wrap gap-2 pt-2 border-t border-[var(--border-subtle)]">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-primary)]">
-                      <Icon icon="solar:shield-check-bold" className="w-3.5 h-3.5 text-emerald-500" />
+                      <Icon icon="carbon:security" className="w-3.5 h-3.5 text-emerald-500" />
                       100% Recycled HDPE / PP
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-primary)]">
-                      <Icon icon="solar:drop-bold" className="w-3.5 h-3.5 text-blue-500" />
+                      <Icon icon="carbon:water" className="w-3.5 h-3.5 text-blue-500" />
                       0.00% Water Absorption
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-primary)]">
-                      <Icon icon="solar:plain-bold" className="w-3.5 h-3.5 text-amber-500" />
+                      <Icon icon="carbon:send" className="w-3.5 h-3.5 text-amber-500" />
                       ISPM-15 Exempt (No Fumigation)
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-primary)]">
-                      <Icon icon="solar:leaf-bold" className="w-3.5 h-3.5 text-teal-500" />
+                      <Icon icon="carbon:recycle" className="w-3.5 h-3.5 text-teal-500" />
                       100% Circular Lifecycle
                     </span>
                   </div>
@@ -519,7 +519,7 @@ export default function ProductTabsSection({
                   <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
                     <div>
                       <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
-                        <Icon icon="solar:shield-check-bold" className="w-5 h-5" />
+                        <Icon icon="carbon:security" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
                         Chemical & Rot Immunity
@@ -537,7 +537,7 @@ export default function ProductTabsSection({
                   <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
                     <div>
                       <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
-                        <Icon icon="solar:sun-2-bold" className="w-5 h-5" />
+                        <Icon icon="carbon:sun" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
                         UV Weathering Stabilization
@@ -555,7 +555,7 @@ export default function ProductTabsSection({
                   <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
                     <div>
                       <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center mb-3">
-                        <Icon icon="solar:leaf-bold" className="w-5 h-5" />
+                        <Icon icon="carbon:recycle" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
                         Circular ESG Compliance
@@ -576,7 +576,7 @@ export default function ProductTabsSection({
                   <div className="space-y-3 pt-2">
                     <div className="flex items-center gap-2.5 pb-1">
                       <div className="w-7 h-7 rounded-md bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center shrink-0">
-                        <Icon icon="solar:checklist-minimalistic-bold" className="w-4 h-4" />
+                        <Icon icon="carbon:list-checked" className="w-4 h-4" />
                       </div>
                       <h4 className="text-sm sm:text-base font-bold text-[var(--text-primary)]">
                         Engineering Attributes & Standards
@@ -589,7 +589,7 @@ export default function ProductTabsSection({
                           className="p-3.5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex items-start gap-3 shadow-2xs"
                         >
                           <div className="w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
-                            <Icon icon="solar:check-circle-bold" className="w-3.5 h-3.5" />
+                            <Icon icon="carbon:checkmark-filled" className="w-3.5 h-3.5" />
                           </div>
                           <span className="font-semibold text-xs sm:text-sm text-[var(--text-primary)] leading-snug">
                             {feat}
@@ -609,7 +609,7 @@ export default function ProductTabsSection({
                   <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
                     <div>
                       <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center mb-3">
-                        <Icon icon="solar:box-minimalistic-bold" className="w-5 h-5" />
+                        <Icon icon="carbon:box" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
                         Automated AS/RS Racking
@@ -627,7 +627,7 @@ export default function ProductTabsSection({
                   <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
                     <div>
                       <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
-                        <Icon icon="solar:snowflake-bold" className="w-5 h-5" />
+                        <Icon icon="carbon:snowflake" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
                         Cold Storage & Freezers
@@ -645,7 +645,7 @@ export default function ProductTabsSection({
                   <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
                     <div>
                       <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
-                        <Icon icon="solar:plain-bold" className="w-5 h-5" />
+                        <Icon icon="carbon:delivery" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
                         Global Export & Shipping
@@ -679,7 +679,7 @@ export default function ProductTabsSection({
                   <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-[var(--radius-card,6px)] bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] dark:text-emerald-400 flex items-center justify-center shrink-0">
-                        <Icon icon="solar:document-text-linear" className="w-5 h-5" />
+                        <Icon icon="carbon:document" className="w-5 h-5" />
                       </div>
                       <div>
                         <div className="text-sm font-bold text-[var(--text-primary)]">
@@ -695,7 +695,7 @@ export default function ProductTabsSection({
                       onClick={handleDownloadDatasheet}
                       className="px-3.5 py-1.5 rounded-[var(--radius-btn,6px)] text-xs font-semibold bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
                     >
-                      <Icon icon="solar:download-linear" className="w-3.5 h-3.5" />
+                      <Icon icon="carbon:download" className="w-3.5 h-3.5" />
                       <span>Download</span>
                     </button>
                   </div>
@@ -703,7 +703,7 @@ export default function ProductTabsSection({
                   <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-[var(--radius-card,6px)] bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] dark:text-emerald-400 flex items-center justify-center shrink-0">
-                        <Icon icon="solar:shield-check-linear" className="w-5 h-5" />
+                        <Icon icon="carbon:security" className="w-5 h-5" />
                       </div>
                       <div>
                         <div className="text-sm font-bold text-[var(--text-primary)]">
@@ -719,7 +719,7 @@ export default function ProductTabsSection({
                       onClick={handleDownloadDatasheet}
                       className="px-3.5 py-1.5 rounded-[var(--radius-btn,6px)] text-xs font-semibold border border-[var(--border-default)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
                     >
-                      <Icon icon="solar:eye-linear" className="w-3.5 h-3.5" />
+                      <Icon icon="carbon:view" className="w-3.5 h-3.5" />
                       <span>View</span>
                     </button>
                   </div>
@@ -727,7 +727,7 @@ export default function ProductTabsSection({
                   <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-[var(--radius-card,6px)] bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] dark:text-emerald-400 flex items-center justify-center shrink-0">
-                        <Icon icon="solar:box-linear" className="w-5 h-5" />
+                        <Icon icon="carbon:box" className="w-5 h-5" />
                       </div>
                       <div>
                         <div className="text-sm font-bold text-[var(--text-primary)]">
@@ -743,7 +743,7 @@ export default function ProductTabsSection({
                       onClick={handleDownloadDatasheet}
                       className="px-3.5 py-1.5 rounded-[var(--radius-btn,6px)] text-xs font-semibold border border-[var(--border-default)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
                     >
-                      <Icon icon="solar:download-linear" className="w-3.5 h-3.5" />
+                      <Icon icon="carbon:download" className="w-3.5 h-3.5" />
                       <span>Download</span>
                     </button>
                   </div>
@@ -751,7 +751,7 @@ export default function ProductTabsSection({
                   <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-[var(--radius-card,6px)] bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] dark:text-emerald-400 flex items-center justify-center shrink-0">
-                        <Icon icon="solar:diploma-verified-linear" className="w-5 h-5" />
+                        <Icon icon="carbon:certificate" className="w-5 h-5" />
                       </div>
                       <div>
                         <div className="text-sm font-bold text-[var(--text-primary)]">
@@ -767,7 +767,7 @@ export default function ProductTabsSection({
                       onClick={handleDownloadDatasheet}
                       className="px-3.5 py-1.5 rounded-[var(--radius-btn,6px)] text-xs font-semibold border border-[var(--border-default)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
                     >
-                      <Icon icon="solar:eye-linear" className="w-3.5 h-3.5" />
+                      <Icon icon="carbon:view" className="w-3.5 h-3.5" />
                       <span>View</span>
                     </button>
                   </div>

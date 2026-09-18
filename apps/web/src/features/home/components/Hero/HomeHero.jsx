@@ -23,8 +23,21 @@ const iconMap = {
   Waves: "carbon:rain-drop"
 };
 
+const getOptimizedHeroImage = (imgSrc) => {
+  if (!imgSrc) return "";
+  if (imgSrc.includes(".webp") && !imgSrc.includes("_medium.webp") && !imgSrc.includes("_thumb.webp")) {
+    return imgSrc.replace(".webp", "_medium.webp");
+  }
+  return imgSrc;
+};
+
 export default function HomeHero() {
   const { c, co } = useSite();
+  const [isFirstRender, setIsFirstRender] = useState(true);
+
+  useEffect(() => {
+    setIsFirstRender(false);
+  }, []);
 
   const slides = useMemo(() => [
     {
@@ -107,6 +120,14 @@ export default function HomeHero() {
   const heroPhone = c("hero_assistance_phone", co("phone", "+91 98986 86379"));
   const cleanedPhone = heroPhone.replace(/\s+/g, "");
 
+  const LeftGroupWrapper = isFirstRender ? "div" : Motion.div;
+  const FeaturePanelWrapper = isFirstRender ? "div" : Motion.div;
+  const FeatureColumnWrapper = isFirstRender ? "div" : Motion.div;
+  const CtaWrapper = isFirstRender ? "div" : Motion.div;
+  const DotButton = isFirstRender ? "button" : Motion.button;
+  const AssistanceCardWrapper = isFirstRender ? "div" : Motion.div;
+  const AssistanceBtnWrapper = isFirstRender ? "a" : Motion.a;
+
   return (
     <section className={styles.hero} id="home-hero-redesign">
       {/* Background Diagonal Split Elements */}
@@ -143,12 +164,14 @@ export default function HomeHero() {
           {/* Left Content Column */}
           <div className={styles.heroLeft}>
             <AnimatePresence mode="wait" initial={false}>
-              <Motion.div
+              <LeftGroupWrapper
                 key={current}
-                initial={{ opacity: 0, x: -16 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 12 }}
-                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                {...(isFirstRender ? {} : {
+                  initial: { opacity: 0, x: -16 },
+                  animate: { opacity: 1, x: 0 },
+                  exit: { opacity: 0, x: 12 },
+                  transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] }
+                })}
                 className={styles.heroLeftTopGroup}
               >
                 {/* Manufacturer Badge */}
@@ -175,40 +198,44 @@ export default function HomeHero() {
                 <p className={styles.description}>
                   {activeSlide.desc}
                 </p>
-              </Motion.div>
+              </LeftGroupWrapper>
             </AnimatePresence>
 
             {/* Feature Panel */}
             <AnimatePresence mode="wait" initial={false}>
-              <Motion.div
+              <FeaturePanelWrapper
                 key={`features-${current}`}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: {
-                    opacity: 1,
-                    transition: {
-                      staggerChildren: 0.06,
+                {...(isFirstRender ? {} : {
+                  initial: "hidden",
+                  animate: "visible",
+                  exit: "hidden",
+                  variants: {
+                    hidden: { opacity: 0 },
+                    visible: {
+                      opacity: 1,
+                      transition: {
+                        staggerChildren: 0.06,
+                      },
                     },
-                  },
-                }}
+                  }
+                })}
                 className={styles.featurePanel}
               >
                 {activeSlide.features.map((feat, idx) => {
                   const iconName = iconMap[feat.icon] || "carbon:security";
                   return (
-                    <Motion.div
+                    <FeatureColumnWrapper
                       key={idx}
-                      variants={{
-                        hidden: { opacity: 0, y: 12 },
-                        visible: {
-                          opacity: 1,
-                          y: 0,
-                          transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
-                        },
-                      }}
+                      {...(isFirstRender ? {} : {
+                        variants: {
+                          hidden: { opacity: 0, y: 12 },
+                          visible: {
+                            opacity: 1,
+                            y: 0,
+                            transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+                          },
+                        }
+                      })}
                       className={styles.featureColumn}
                     >
                       <div className={styles.featureIconRing}>
@@ -216,24 +243,26 @@ export default function HomeHero() {
                       </div>
                       <span className={styles.featureTitle}>{feat.title}</span>
                       <p className={styles.featureDesc}>{feat.text}</p>
-                    </Motion.div>
+                    </FeatureColumnWrapper>
                   );
                 })}
-              </Motion.div>
+              </FeaturePanelWrapper>
             </AnimatePresence>
 
             {/* CTA Row & Decorative Slashes */}
             <div className={styles.ctaRow}>
-              <Motion.div
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
+              <CtaWrapper
+                {...(isFirstRender ? {} : {
+                  whileHover: { scale: 1.03 },
+                  whileTap: { scale: 0.98 }
+                })}
                 className="inline-block"
               >
                 <Link to="/products" className="exploreBtnGlobal">
                   <span>{c("hero_cta_primary", "EXPLORE PRODUCTS")}</span>
                   <Icon icon="carbon:arrow-right" className="exploreBtnArrowGlobal" />
                 </Link>
-              </Motion.div>
+              </CtaWrapper>
               <div className={styles.decorativeSlashes} aria-hidden="true">
                 <span>/</span><span>/</span><span>/</span><span>/</span>
                 <span>/</span><span>/</span><span>/</span><span>/</span>
@@ -327,7 +356,7 @@ export default function HomeHero() {
                               inset: 0,
                               opacity: idx === current ? 1 : 0,
                               pointerEvents: idx === current ? "auto" : "none",
-                              transition: "opacity 0.4s ease-in-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+                              transition: isFirstRender ? "none" : "opacity 0.4s ease-in-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
                               transform: idx === current ? "translateY(0) scale(1)" : "translateY(8px) scale(0.97)",
                               display: "flex",
                               alignItems: "center",
@@ -337,7 +366,7 @@ export default function HomeHero() {
                             }}
                           >
                             <OptimizedImage
-                              src={slide.image}
+                              src={getOptimizedHeroImage(slide.image)}
                               fallbackSrc={slide.fallbackSrc}
                               alt={slide.titleWhite}
                               loading={idx === current ? "eager" : "lazy"}
@@ -380,11 +409,13 @@ export default function HomeHero() {
                 <div className={styles.paginationDots}>
                   <div className={styles.paginationTrack}>
                     {slides.map((slide, idx) => (
-                      <Motion.button
+                      <DotButton
                         key={idx}
                         onClick={() => setCurrent(idx)}
-                        whileHover={{ scale: 1.3 }}
-                        whileTap={{ scale: 0.8 }}
+                        {...(isFirstRender ? {} : {
+                          whileHover: { scale: 1.3 },
+                          whileTap: { scale: 0.8 }
+                        })}
                         className={`${styles.paginationDot} ${
                           idx === current ? styles.paginationDotActive : ""
                         }`}
@@ -396,10 +427,12 @@ export default function HomeHero() {
                 </div>
 
                 {/* Floating Assistance Card */}
-                <Motion.div
+                <AssistanceCardWrapper
                   className={styles.assistanceCard}
-                  whileHover={{ y: -3, boxShadow: "var(--shadow-lg)" }}
-                  transition={{ type: "spring", stiffness: 350, damping: 20 }}
+                  {...(isFirstRender ? {} : {
+                    whileHover: { y: -3, boxShadow: "var(--shadow-lg)" },
+                    transition: { type: "spring", stiffness: 350, damping: 20 }
+                  })}
                 >
                   <div className={styles.assistanceIconCircle}>
                     <Icon icon="carbon:headset" className="w-5 h-5 text-white" />
@@ -410,16 +443,18 @@ export default function HomeHero() {
                       {c("hero_assistance_sub", "Our team is ready to help you find the right solution.")}
                     </span>
                   </div>
-                  <Motion.a
+                  <AssistanceBtnWrapper
                     href={`tel:${cleanedPhone}`}
                     className={styles.assistanceBtn}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    {...(isFirstRender ? {} : {
+                      whileHover: { scale: 1.05 },
+                      whileTap: { scale: 0.95 }
+                    })}
                   >
                     <Icon icon="carbon:phone" className="w-3.5 h-3.5 text-inherit" />
                     <span>{c("hero_assistance_btn", "CONTACT US")}</span>
-                  </Motion.a>
-                </Motion.div>
+                  </AssistanceBtnWrapper>
+                </AssistanceCardWrapper>
               </div>
             </div>
           </div>

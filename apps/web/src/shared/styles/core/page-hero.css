@@ -12,6 +12,9 @@
   background: var(--hero-gradient);
   border-bottom: 4px solid var(--brand-primary);
   color: var(--text-inverse);
+  --hero-badge-bg: var(--brand-glow) !important;
+  --hero-badge-border: var(--brand-border) !important;
+  --hero-badge-text: var(--brand-hover) !important;
 }
 
 @media (max-width: 768px) {

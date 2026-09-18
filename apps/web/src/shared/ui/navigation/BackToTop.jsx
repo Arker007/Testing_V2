@@ -21,27 +21,37 @@ export default function BackToTop({
   const [isVisible, setIsVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const handleScroll = useCallback(() => {
-    const currentScrollY = window.scrollY || document.documentElement.scrollTop;
-    const totalHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
+  useEffect(() => {
+    let ticking = false;
 
+    const handleScrollThrottled = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY || document.documentElement.scrollTop;
+          const totalHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
+
+          setIsVisible(currentScrollY > threshold);
+
+          if (totalHeight > 0) {
+            const progress = Math.min(100, Math.max(0, (currentScrollY / totalHeight) * 100));
+            setScrollProgress(progress);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScrollThrottled, { passive: true });
+    // Initial call
+    const currentScrollY = window.scrollY || document.documentElement.scrollTop;
     setIsVisible(currentScrollY > threshold);
 
-    if (totalHeight > 0) {
-      const progress = Math.min(100, Math.max(0, (currentScrollY / totalHeight) * 100));
-      setScrollProgress(progress);
-    }
-  }, [threshold]);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScrollThrottled);
     };
-  }, [handleScroll]);
+  }, [threshold]);
 
   const scrollToTop = () => {
     window.scrollTo({

@@ -1,7 +1,7 @@
 /**
  * MegaMenu Catalog Data & Hierarchy
  * Structured for the redesigned category sidebar + 3-column sub-group layout
- * Conforms to AGENTS.md icon standard: @iconify/react with solar:* icons
+ * Conforms to AGENTS.md icon standard: @iconify/react with carbon:* icons
  */
 
 export const MEGA_MENU_CATEGORIES = [
@@ -9,7 +9,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "plastic-pallets",
     id: "plastic-pallets",
     name: "Plastic Pallets",
-    icon: "solar:box-minimalistic-linear",
+    icon: "carbon:box",
     description: "ISPM-15 export, heavy racking, euro, and chemical pallets",
     columns: [
       {
@@ -114,7 +114,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "plastic-lumber",
     id: "plastic-lumber",
     name: "Plastic Lumber",
-    icon: "solar:layers-minimalistic-linear",
+    icon: "carbon:layers",
     description: "Structural profiles, heavy posts, decking, and tongue-groove battens",
     columns: [
       {
@@ -220,7 +220,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "garden-bench",
     id: "garden-bench",
     name: "Garden Benches",
-    icon: "solar:armchair-linear",
+    icon: "carbon:seat",
     description: "Park, society, municipal, and heritage benches",
     columns: [
       {
@@ -323,7 +323,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "plastic-table",
     id: "plastic-table",
     name: "Recycled Plastic Tables",
-    icon: "solar:widget-2-linear",
+    icon: "carbon:table",
     description: "Picnic sets, dining ensembles, and park game tables",
     columns: [
       {
@@ -427,7 +427,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "custom-products",
     id: "custom-products",
     name: "Custom Products",
-    icon: "solar:tuning-square-linear",
+    icon: "carbon:settings",
     description: "Bespoke molded parts, wear strips, and CNC components",
     columns: [
       {
@@ -530,7 +530,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "outdoor-furniture",
     id: "outdoor-furniture",
     name: "Outdoor Furniture",
-    icon: "solar:sun-linear",
+    icon: "carbon:sun",
     description: "Chairs, loungers, planters, and community amenities",
     columns: [
       {
@@ -608,7 +608,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "garden-fence",
     id: "garden-fence",
     name: "Garden Fence",
-    icon: "solar:shield-check-linear",
+    icon: "carbon:security",
     description: "Maintenance-free perimeter and residential fencing",
     columns: [
       {

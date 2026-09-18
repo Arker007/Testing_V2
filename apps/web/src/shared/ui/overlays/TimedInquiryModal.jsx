@@ -385,7 +385,7 @@ export default function TimedInquiryModal() {
                         required
                         type="text"
                         size="sm"
-                        leftIcon="solar:user-linear"
+                        leftIcon="carbon:user"
                         placeholder="Full name"
                         value={form.fullName || ""}
                         onChange={handleChange("fullName")}
@@ -399,7 +399,7 @@ export default function TimedInquiryModal() {
                         required
                         type="email"
                         size="sm"
-                        leftIcon="solar:letter-linear"
+                        leftIcon="carbon:email"
                         placeholder="name@company.com"
                         value={form.email || ""}
                         onChange={handleChange("email")}
@@ -427,7 +427,7 @@ export default function TimedInquiryModal() {
                             <option value="+61" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+61</option>
                           </select>
                           <Icon
-                            icon="solar:alt-arrow-down-bold"
+                            icon="carbon:chevron-down"
                             className="w-2.5 h-2.5 text-[var(--text-muted)] absolute right-1.5 pointer-events-none z-0"
                           />
                         </div>
@@ -449,7 +449,7 @@ export default function TimedInquiryModal() {
                         id="modalCompany"
                         type="text"
                         size="sm"
-                        leftIcon="solar:buildings-2-linear"
+                        leftIcon="carbon:enterprise"
                         placeholder="Company name"
                         value={form.company || ""}
                         onChange={handleChange("company")}
@@ -482,7 +482,7 @@ export default function TimedInquiryModal() {
                           id="modalEstimatedVolume"
                           type="text"
                           size="sm"
-                          leftIcon="solar:box-linear"
+                          leftIcon="carbon:box"
                           placeholder="e.g. 500 units"
                           value={form.estimatedVolume || ""}
                           onChange={handleChange("estimatedVolume")}
@@ -495,7 +495,7 @@ export default function TimedInquiryModal() {
                           id="modalTargetApplication"
                           type="text"
                           size="sm"
-                          leftIcon="solar:settings-minimalistic-linear"
+                          leftIcon="carbon:settings"
                           placeholder="e.g. Warehouse, Outdoor"
                           value={form.targetApplication || ""}
                           onChange={handleChange("targetApplication")}
@@ -507,7 +507,7 @@ export default function TimedInquiryModal() {
                     <FormField label="Specifications or Message" htmlFor="modalMessage" required>
                       <div className="relative">
                         <div className="absolute top-2.5 left-2.5 pointer-events-none text-[var(--text-muted)] z-10">
-                          <Icon icon="solar:pen-linear" className="w-3.5 h-3.5" />
+                          <Icon icon="carbon:edit" className="w-3.5 h-3.5" />
                         </div>
                         <Textarea
                           id="modalMessage"
@@ -542,7 +542,7 @@ export default function TimedInquiryModal() {
                     loading={status === "sending"}
                     loadingText="Sending..."
                     className="w-full sm:w-auto shrink-0 font-bold min-h-[40px] text-xs sm:text-sm px-5 shadow-2xs"
-                    icon={<Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5 ml-1 inline" />}
+                    icon={<Icon icon="carbon:arrow-right" className="w-3.5 h-3.5 ml-1 inline" />}
                     id="modal-submit-quote-btn"
                   >
                     Send Quote Request
@@ -551,7 +551,7 @@ export default function TimedInquiryModal() {
                   {/* Secure Info Badge */}
                   <div className="flex items-center gap-2.5 px-1 py-1 text-left sm:border-l sm:border-[var(--border-subtle)] sm:pl-4">
                     <div className="text-[var(--brand-primary)] dark:text-emerald-400 shrink-0">
-                      <Icon icon="solar:shield-check-bold" className="w-5 h-5" />
+                      <Icon icon="carbon:security" className="w-5 h-5" />
                     </div>
                     <div className="text-[11px] leading-tight">
                       <span className="block font-bold text-[var(--text-primary)]">

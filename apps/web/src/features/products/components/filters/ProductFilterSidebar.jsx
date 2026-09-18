@@ -319,7 +319,7 @@ export default function ProductFilterSidebar({
         >
           <span className={styles.accordionTitle}>Category</span>
           <Icon
-            icon="solar:alt-arrow-down-linear"
+            icon="carbon:chevron-down"
             className={`${styles.accordionChevron} ${
               sectionsOpen.category
                 ? styles.accordionChevronOpen
@@ -395,7 +395,7 @@ export default function ProductFilterSidebar({
         >
           <span className={styles.accordionTitle}>Attributes</span>
           <Icon
-            icon="solar:alt-arrow-down-linear"
+            icon="carbon:chevron-down"
             className={`${styles.accordionChevron} ${
               sectionsOpen.attributes
                 ? styles.accordionChevronOpen
@@ -449,7 +449,7 @@ export default function ProductFilterSidebar({
         >
           <span className={styles.accordionTitle}>Dimensions</span>
           <Icon
-            icon="solar:alt-arrow-down-linear"
+            icon="carbon:chevron-down"
             className={`${styles.accordionChevron} ${
               sectionsOpen.dimensions
                 ? styles.accordionChevronOpen
@@ -503,7 +503,7 @@ export default function ProductFilterSidebar({
         >
           <span className={styles.accordionTitle}>Max Dynamic Load</span>
           <Icon
-            icon="solar:alt-arrow-down-linear"
+            icon="carbon:chevron-down"
             className={`${styles.accordionChevron} ${
               sectionsOpen.dynamicLoad
                 ? styles.accordionChevronOpen
@@ -548,7 +548,7 @@ export default function ProductFilterSidebar({
         >
           <span className={styles.accordionTitle}>Max Static Load</span>
           <Icon
-            icon="solar:alt-arrow-down-linear"
+            icon="carbon:chevron-down"
             className={`${styles.accordionChevron} ${
               sectionsOpen.staticLoad
                 ? styles.accordionChevronOpen
@@ -593,7 +593,7 @@ export default function ProductFilterSidebar({
         >
           <span className={styles.accordionTitle}>Max Rack Load</span>
           <Icon
-            icon="solar:alt-arrow-down-linear"
+            icon="carbon:chevron-down"
             className={`${styles.accordionChevron} ${
               sectionsOpen.rackLoad
                 ? styles.accordionChevronOpen
@@ -664,7 +664,7 @@ export default function ProductFilterSidebar({
           {/* Sidebar Top Header */}
           <div className={styles.sidebarHeader}>
             <h2 className={styles.filterMainHeading}>
-              <Icon icon="solar:filter-linear" className={styles.filterHeadingIcon} />
+              <Icon icon="carbon:filter" className={styles.filterHeadingIcon} />
               <span>Filters</span>
               {activeFiltersCount > 0 && (
                 <span className={styles.filterActiveCountBadge}>{activeFiltersCount}</span>
@@ -685,7 +685,7 @@ export default function ProductFilterSidebar({
                   {areAllCollapsed ? "Expand All" : "Collapse All"}
                 </span>
                 <Icon
-                  icon={areAllCollapsed ? "solar:alt-arrow-down-linear" : "solar:alt-arrow-up-linear"}
+                  icon={areAllCollapsed ? "carbon:chevron-down" : "carbon:chevron-up"}
                   className={styles.collapseActionIcon}
                 />
               </motion.button>
@@ -730,7 +730,7 @@ export default function ProductFilterSidebar({
                   {/* Top Mobile Header */}
                   <div className={styles.mobileDrawerHeader}>
                     <div className={styles.mobileDrawerTitleGroup}>
-                      <Icon icon="solar:tuning-2-linear" className={styles.mobileDrawerHeadingIcon} />
+                      <Icon icon="carbon:filter" className={styles.mobileDrawerHeadingIcon} />
                       <h2 className={styles.mobileDrawerTitle}>Filters</h2>
                       {activeFiltersCount > 0 && (
                         <span className={styles.filterActiveCountBadge}>{activeFiltersCount}</span>
@@ -754,7 +754,7 @@ export default function ProductFilterSidebar({
                         aria-label="Close filters"
                         whileTap={{ scale: 0.9 }}
                       >
-                        <Icon icon="solar:close-linear" className="w-5 h-5" />
+                        <Icon icon="carbon:close" className="w-5 h-5" />
                       </motion.button>
                     </div>
                   </div>
@@ -773,7 +773,7 @@ export default function ProductFilterSidebar({
                         onClick={resetFilters}
                         whileTap={{ scale: 0.96 }}
                       >
-                        <Icon icon="solar:restart-linear" className="w-4 h-4" />
+                        <Icon icon="carbon:restart" className="w-4 h-4" />
                         <span>Reset</span>
                       </motion.button>
                     )}

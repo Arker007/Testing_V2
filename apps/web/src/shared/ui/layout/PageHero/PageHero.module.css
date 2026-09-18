@@ -5,6 +5,9 @@
   background: var(--hero-gradient, linear-gradient(135deg, var(--neutral-950) 0%, var(--neutral-900) 100%));
   border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
   color: var(--white);
+  --hero-badge-bg: var(--brand-glow);
+  --hero-badge-border: var(--brand-border);
+  --hero-badge-text: var(--brand-hover);
 }
 
 @media (max-width: 768px) {

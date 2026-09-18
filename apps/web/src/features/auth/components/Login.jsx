@@ -93,7 +93,7 @@ export default function AdminLogin() {
 
                     {/* Authority Tag & Hero Headline */}
                     <div className={styles.brandBadge}>
-                        <Icon icon="solar:shield-check-bold" className="w-3.5 h-3.5" />
+                        <Icon icon="carbon:security" className="w-3.5 h-3.5" />
                         <span>Authorized Access Only</span>
                     </div>
 
@@ -110,7 +110,7 @@ export default function AdminLogin() {
                     <div className={styles.featureList}>
                         <div className={styles.featureItem}>
                             <div className={styles.featureIconWrap}>
-                                <Icon icon="solar:box-minimalistic-bold-duotone" className="w-5 h-5" />
+                                <Icon icon="carbon:box" className="w-5 h-5" />
                             </div>
                             <div>
                                 <div className={styles.featureTitle}>Catalog & Inventory Control</div>
@@ -122,7 +122,7 @@ export default function AdminLogin() {
 
                         <div className={styles.featureItem}>
                             <div className={styles.featureIconWrap}>
-                                <Icon icon="solar:inbox-line-bold-duotone" className="w-5 h-5" />
+                                <Icon icon="carbon:email" className="w-5 h-5" />
                             </div>
                             <div>
                                 <div className={styles.featureTitle}>Direct RFQ & Inquiry Dispatch</div>
@@ -134,7 +134,7 @@ export default function AdminLogin() {
 
                         <div className={styles.featureItem}>
                             <div className={styles.featureIconWrap}>
-                                <Icon icon="solar:shield-keyhole-bold-duotone" className="w-5 h-5" />
+                                <Icon icon="carbon:password" className="w-5 h-5" />
                             </div>
                             <div>
                                 <div className={styles.featureTitle}>Audit-Grade Security</div>
@@ -153,7 +153,7 @@ export default function AdminLogin() {
                         <span>System Status: All services operational</span>
                     </div>
                     <div className={styles.complianceText}>
-                        <Icon icon="solar:lock-keyhole-minimalistic-linear" className="w-3.5 h-3.5" />
+                        <Icon icon="carbon:locked" className="w-3.5 h-3.5" />
                         <span>256-Bit SSL Encrypted • ISO 9001:2015 Manufacturing Standard</span>
                     </div>
                 </div>
@@ -164,11 +164,11 @@ export default function AdminLogin() {
                 {/* Top Nav Bar */}
                 <header className={styles.formTopBar}>
                     <Link to="/" className={styles.backLink} title="Return to public website">
-                        <Icon icon="solar:arrow-left-linear" className="w-4 h-4" />
+                        <Icon icon="carbon:arrow-left" className="w-4 h-4" />
                         <span>Back to Website</span>
                     </Link>
                     <span className={styles.securityBadge}>
-                        <Icon icon="solar:lock-keyhole-bold" className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                        <Icon icon="carbon:locked" className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                         <span>Admin Gateway</span>
                     </span>
                 </header>
@@ -197,7 +197,7 @@ export default function AdminLogin() {
                                     autoComplete="username"
                                     value={form.username}
                                     onChange={(e) => setForm((f) => ({ ...f, username: e.target.value }))}
-                                    leftIcon="solar:user-linear"
+                                    leftIcon="carbon:user"
                                 />
                             </FormField>
 
@@ -212,7 +212,7 @@ export default function AdminLogin() {
                                     autoComplete="current-password"
                                     value={form.password}
                                     onChange={(e) => setForm((f) => ({ ...f, password: e.target.value }))}
-                                    leftIcon="solar:lock-password-linear"
+                                    leftIcon="carbon:password"
                                     rightIcon={
                                         <button
                                             type="button"
@@ -222,7 +222,7 @@ export default function AdminLogin() {
                                             aria-label={showPw ? 'Hide password' : 'Show password'}
                                         >
                                             <Icon
-                                                icon={showPw ? 'solar:eye-closed-linear' : 'solar:eye-linear'}
+                                                icon={showPw ? 'carbon:view-off' : 'carbon:view'}
                                                 className="w-4 h-4"
                                             />
                                         </button>
@@ -248,7 +248,7 @@ export default function AdminLogin() {
                             {error && (
                                 <Alert status="danger" variant="subtle" className="text-xs py-2.5">
                                     <div className="flex items-start gap-1.5">
-                                        <Icon icon="solar:danger-triangle-linear" className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                                        <Icon icon="carbon:warning" className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
                                         <span>{error}</span>
                                     </div>
                                 </Alert>
@@ -262,7 +262,7 @@ export default function AdminLogin() {
                                 loading={loading}
                                 loadingText="Authenticating..."
                                 className={`w-full font-bold shadow-sm ${styles.submitBtn}`}
-                                icon={<Icon icon="solar:login-2-linear" className="w-4 h-4 mr-1.5 inline" />}
+                                icon={<Icon icon="carbon:login" className="w-4 h-4 mr-1.5 inline" />}
                             >
                                 Sign In to Admin Console
                             </Button>
@@ -272,7 +272,7 @@ export default function AdminLogin() {
                         <div className={styles.demoAssistant}>
                             <div className={styles.demoInfo}>
                                 <span className={styles.demoLabel}>
-                                    <Icon icon="solar:key-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
+                                    <Icon icon="carbon:key" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                                     Default Access Credentials
                                 </span>
                                 <span className={styles.demoCreds}>
@@ -285,7 +285,7 @@ export default function AdminLogin() {
                                 className={styles.fillDemoBtn}
                                 title="Quickly fill test credentials"
                             >
-                                <Icon icon="solar:magic-stick-3-linear" className="w-3 h-3" />
+                                <Icon icon="carbon:magic-wand" className="w-3 h-3" />
                                 Auto-Fill
                             </button>
                         </div>
