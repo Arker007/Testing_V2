@@ -67,5 +67,4 @@ export { default as Kbd } from './data-display/Kbd';
 export { default as Divider } from './layout/Divider';
 export { default as SectionHeader } from './layout/SectionHeader';
 export { default as PageHeader } from './layout/PageHeader';
-export { default as AdminPageHeader } from './layout/AdminPageHeader';
 export { default as PageHero } from './layout/PageHero';

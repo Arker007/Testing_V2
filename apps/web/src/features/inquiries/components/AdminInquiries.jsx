@@ -4,8 +4,8 @@ import { Icon } from '@iconify/react';
 import styles from '../../admin/styles/AdminTable.module.css';
 import iStyles from '../styles/Inquiries.module.css';
 import { normalizeInquiry } from '../../../shared/utils/parsers';
+import AdminPageHeader from '@/shared/ui/layout/AdminPageHeader';
 import {
-    AdminPageHeader,
     EmptyState,
     ConfirmDialog,
     WhatsAppButton,

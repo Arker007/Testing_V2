@@ -65,24 +65,6 @@ export default defineConfig(({ mode }) => {
             if (id.includes("node_modules/@iconify")) {
               return "icons-vendor";
             }
-
-            // All admin pages → one lazy chunk, never fetched by public visitors
-            if (
-              id.includes("/features/admin/") ||
-              id.includes("/features/auth/") ||
-              id.includes("/features/catalog/") ||
-              id.includes("/features/categories/") ||
-              id.includes("/features/content-management/") ||
-              id.includes("/features/inquiries/") ||
-              id.includes("/features/media/") ||
-              id.includes("/features/products/admin/") ||
-              id.includes("/features/products/categories/") ||
-              id.includes("/pages/admin/") ||
-              id.includes("/pages/LoginPage") ||
-              id.includes("/components/admin/")
-            ) {
-              return "admin";
-            }
           },
         },
       },

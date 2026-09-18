@@ -2,8 +2,8 @@ import { useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import styles from "@/features/admin/styles/AdminTable.module.css";
+import AdminPageHeader from "@/shared/ui/layout/AdminPageHeader";
 import {
-  AdminPageHeader,
   StatusToggle,
   EmptyState,
   ConfirmDialog,

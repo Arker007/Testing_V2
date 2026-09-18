@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import styles from "../../admin/styles/AdminTable.module.css";
 import { toPlainPreview } from "../../../shared/utils/parsers";
+import AdminPageHeader from "@/shared/ui/layout/AdminPageHeader";
 import {
-  AdminPageHeader,
   StatusToggle,
   EmptyState,
   ConfirmDialog,

@@ -2,7 +2,8 @@ import { useEffect, useState, useCallback, useRef } from 'react';
 import { Icon } from '@iconify/react';
 import styles from '../../admin/styles/AdminTable.module.css';
 import mStyles from '../styles/Media.module.css';
-import { AdminPageHeader, EmptyState, Skeleton, Button, MediaLightboxModal } from "@/shared/ui";
+import AdminPageHeader from '@/shared/ui/layout/AdminPageHeader';
+import { EmptyState, Skeleton, Button, MediaLightboxModal } from "@/shared/ui";
 
 const getFileCategory = (url) => {
     if (!url) return 'general';

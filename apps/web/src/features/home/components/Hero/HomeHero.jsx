@@ -142,7 +142,7 @@ export default function HomeHero() {
         <div className={styles.heroGrid}>
           {/* Left Content Column */}
           <div className={styles.heroLeft}>
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" initial={false}>
               <Motion.div
                 key={current}
                 initial={{ opacity: 0, x: -16 }}
@@ -179,7 +179,7 @@ export default function HomeHero() {
             </AnimatePresence>
 
             {/* Feature Panel */}
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" initial={false}>
               <Motion.div
                 key={`features-${current}`}
                 initial="hidden"

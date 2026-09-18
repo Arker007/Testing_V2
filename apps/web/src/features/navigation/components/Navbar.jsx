@@ -17,7 +17,7 @@ import MobileNavDrawer from "./MobileNavDrawer";
 import NavbarSearch from "./NavbarSearch";
 import styles from "../styles/navbar.module.css";
 import { ProductService } from "../../products/services/product.service";
-import { CategoryService } from "../../categories";
+import { CategoryService } from "../../categories/services/category.service";
 
 
 export default function Navbar() {

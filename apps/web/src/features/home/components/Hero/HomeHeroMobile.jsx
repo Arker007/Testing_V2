@@ -82,7 +82,7 @@ export default function HomeHeroMobile() {
     }
   ], [c]);
 
-  const [current, setCurrent] = useState(1);
+  const [current, setCurrent] = useState(2);
   
   useEffect(() => {
     const timer = setInterval(() => {
@@ -128,7 +128,7 @@ export default function HomeHeroMobile() {
             <span className="text-[0.8rem] font-extrabold tracking-[0.05em] text-white uppercase">{activeSlide.badge}</span>
           </div>
 
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             <Motion.div
               key={current}
               initial={{ opacity: 0, y: 15 }}
