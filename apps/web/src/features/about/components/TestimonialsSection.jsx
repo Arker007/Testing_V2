@@ -31,9 +31,9 @@ export default function TestimonialsSection() {
         )}
       />
 
-      <Card variant="elevated" className="p-8 sm:p-12 lg:p-16 relative overflow-hidden border border-slate-200 dark:border-subtle">
+      <Card variant="elevated" className="p-8 sm:p-12 lg:p-16 relative overflow-hidden border border-[var(--border-subtle)]">
         {/* Background accent icon */}
-        <div className="absolute -bottom-10 -right-10 opacity-5 pointer-events-none text-slate-900 dark:text-white">
+        <div className="absolute -bottom-10 -right-10 opacity-5 pointer-events-none text-[var(--text-primary)]">
           <Icon icon="carbon:renew" className="w-96 h-96" />
         </div>
 
@@ -48,7 +48,7 @@ export default function TestimonialsSection() {
                 transition={{ duration: 0.3 }}
                 className="space-y-6"
               >
-                <p className="text-lg sm:text-xl text-slate-800 dark:text-slate-200 italic font-medium leading-relaxed">
+                <p className="text-lg sm:text-xl text-[var(--text-primary)] italic font-medium leading-relaxed">
                   "{testimonials[currentSlide].quote}"
                 </p>
 
@@ -60,10 +60,10 @@ export default function TestimonialsSection() {
                     referrerPolicy="no-referrer"
                   />
                   <div>
-                    <span className="block font-bold text-slate-900 dark:text-white text-base">
+                    <span className="block font-bold text-[var(--text-primary)] text-base">
                       {testimonials[currentSlide].author}
                     </span>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                    <p className="text-xs text-[var(--text-secondary)] font-medium">
                       {testimonials[currentSlide].role}
                     </p>
                   </div>
@@ -73,23 +73,23 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Controls */}
-          <div className="flex items-center gap-4 mt-8 pt-6 border-t border-slate-200 dark:border-[var(--border-subtle)]">
+          <div className="flex items-center gap-4 mt-8 pt-6 border-t border-[var(--border-subtle)]">
             <button
               type="button"
               onClick={prevSlide}
               aria-label="Previous testimonial"
-              className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-slate-200 dark:border-[var(--border-default)] hover:border-[var(--brand-primary)] dark:hover:border-[var(--brand-primary)] bg-white dark:bg-[var(--bg-surface-secondary)] hover:bg-[var(--brand-primary)] dark:hover:bg-[var(--brand-primary)] text-slate-700 dark:text-slate-200 hover:text-white dark:hover:text-[var(--navy-950)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+              className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-[var(--border-default)] hover:border-[var(--brand-primary)] bg-[var(--bg-surface)] hover:bg-[var(--brand-primary)] text-[var(--text-primary)] hover:text-[var(--action-primary-text)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
               <Icon icon="carbon:arrow-left" className="w-4 h-4" />
             </button>
-            <span className="text-xs font-bold text-slate-700 dark:text-slate-300 tracking-wider select-none font-mono">
-              0{currentSlide + 1} <span className="text-slate-400 dark:text-slate-500">/</span> 0{testimonials.length}
+            <span className="text-xs font-bold text-[var(--text-primary)] tracking-wider select-none font-mono">
+              0{currentSlide + 1} <span className="text-[var(--text-muted)]">/</span> 0{testimonials.length}
             </span>
             <button
               type="button"
               onClick={nextSlide}
               aria-label="Next testimonial"
-              className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-slate-200 dark:border-[var(--border-default)] hover:border-[var(--brand-primary)] dark:hover:border-[var(--brand-primary)] bg-white dark:bg-[var(--bg-surface-secondary)] hover:bg-[var(--brand-primary)] dark:hover:bg-[var(--brand-primary)] text-slate-700 dark:text-slate-200 hover:text-white dark:hover:text-[var(--navy-950)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+              className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-[var(--border-default)] hover:border-[var(--brand-primary)] bg-[var(--bg-surface)] hover:bg-[var(--brand-primary)] text-[var(--text-primary)] hover:text-[var(--action-primary-text)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
               <Icon icon="carbon:arrow-right" className="w-4 h-4" />
             </button>

@@ -223,348 +223,353 @@ export default function TimedInquiryModal() {
             exit={{ opacity: 0, scale: 0.95, y: 16 }}
             transition={{ type: "spring", damping: 28, stiffness: 360 }}
           >
-            {/* Close button */}
-            <button
-              type="button"
-              onClick={handleClose}
-              className={styles.closeBtn}
-              aria-label="Close inquiry dialog"
-            >
-              <Icon icon="carbon:close" className="w-5 h-5" />
-            </button>
-
-            {/* Header Section matching Contact Page */}
-            <header className="mb-4 sm:mb-5 pr-8">
-              <div className="flex items-center gap-2 mb-1.5">
-                <span className="w-4 h-[2px] bg-[var(--brand-primary)] inline-block shrink-0" />
-                <span className="text-[11px] font-bold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">
-                  GET A QUOTE
-                </span>
-              </div>
-              <h2
-                id="timed-inquiry-title"
-                className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight mb-1.5"
-              >
-                Request a <span className="text-[var(--brand-primary)]">Quote</span>
-              </h2>
-              <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed max-w-xl">
-                Share your requirements and our team will get back to you with the best solution and pricing for your business.
-              </p>
-            </header>
-
-            {status === "sent" ? (
-              <div className="text-center py-5 sm:py-6 flex flex-col items-center gap-2.5">
-                <div className="w-12 h-12 rounded-full bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20 flex items-center justify-center mx-auto mb-1 text-[var(--brand-primary)]">
-                  <Icon icon="carbon:checkmark" className="w-6 h-6" />
+            {/* Modal Header */}
+            <div className={styles.modalHeader}>
+              <div className="pr-4 min-w-0 flex-1">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-3.5 h-[2px] bg-[var(--brand-primary)] inline-block shrink-0 rounded-full" />
+                  <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.16em] text-emerald-600 dark:text-emerald-400 uppercase">
+                    GET A QUOTE
+                  </span>
                 </div>
-                <h3 className="text-[var(--text-primary)] font-bold text-lg">Quote Request Sent</h3>
-
-                {referenceId && (
-                  <div className="my-1.5 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
-                    <span className="text-xs text-[var(--text-muted)] font-mono">Ref:</span>
-                    <span className="text-xs font-mono font-semibold text-[var(--text-primary)]">
-                      {referenceId}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={handleCopyRef}
-                      className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer ml-0.5"
-                      title="Copy Reference Code"
-                      aria-label="Copy reference code"
-                    >
-                      <Icon
-                        icon={copiedRef ? "carbon:checkmark" : "carbon:copy"}
-                        className="w-4 h-4 text-[var(--brand-primary)]"
-                      />
-                    </button>
-                  </div>
-                )}
-
-                <p className="text-[var(--text-secondary)] text-xs sm:text-sm max-w-md leading-relaxed">
-                  Thank you. We have received your inquiry and will follow up with pricing shortly.
+                <h2
+                  id="timed-inquiry-title"
+                  className="text-lg sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight mb-1"
+                >
+                  Request a <span className="text-[var(--brand-primary)]">Quote</span>
+                </h2>
+                <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed max-w-lg">
+                  Share your requirements and our team will get back to you with the best solution and pricing for your business.
                 </p>
-                <div className="flex items-center gap-3 mt-3">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    onClick={handleResetForm}
-                  >
-                    Submit Another Request
-                  </Button>
-                  <Button
-                    type="button"
-                    variant="primary"
-                    size="sm"
-                    onClick={handleClose}
-                  >
-                    Done
-                  </Button>
-                </div>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                {/* Step 1: Select Product */}
-                <div className="space-y-2.5">
-                  <div className="flex items-start gap-2.5">
-                    <div className="w-6 h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
-                      1
-                    </div>
-                    <div>
-                      <h3 className="text-sm sm:text-base font-bold text-[var(--text-primary)] leading-tight">
-                        Product / Requirement
-                      </h3>
-                      <p className="text-xs text-[var(--text-secondary)] mt-0.5">
-                        Select the product category that best matches your requirement.
-                      </p>
-                    </div>
+
+              {/* Close button */}
+              <button
+                type="button"
+                onClick={handleClose}
+                className={styles.closeBtn}
+                aria-label="Close inquiry dialog"
+              >
+                <Icon icon="carbon:close" className="w-4 sm:w-5 h-4 sm:h-5" />
+              </button>
+            </div>
+
+            {/* Modal Scrollable Body */}
+            <div className={styles.modalScrollBody}>
+              {status === "sent" ? (
+                <div className="text-center py-6 sm:py-8 flex flex-col items-center gap-3">
+                  <div className="w-14 h-14 rounded-full bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20 flex items-center justify-center mx-auto mb-1 text-[var(--brand-primary)]">
+                    <Icon icon="carbon:checkmark" className="w-7 h-7" />
                   </div>
+                  <h3 className="text-[var(--text-primary)] font-bold text-xl">Quote Request Sent</h3>
 
-                  <div className="space-y-2.5 pt-0.5 pl-0 sm:pl-8">
-                    <CustomSelect
-                      value={form.productService || ""}
-                      onChange={(val) => handleChange("productService")(val)}
-                      options={productOptions}
-                      placeholder="Select product or requirement"
-                    />
-
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-0.5">
-                      {[
-                        "Industrial Pallets",
-                        "Plastic Lumber",
-                        "Garden Benches",
-                        "Custom Moulding",
-                      ].map((cat) => {
-                        const isSelected = form.productService === cat;
-                        return (
-                          <button
-                            key={cat}
-                            type="button"
-                            onClick={() => handleChange("productService")(cat)}
-                            className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-all cursor-pointer flex items-center justify-center gap-1 text-center ${
-                              isSelected
-                                ? "bg-[var(--bg-surface)] text-[var(--brand-primary)] border-2 border-[var(--brand-primary)] font-bold shadow-2xs"
-                                : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-default)] hover:border-[var(--brand-primary)]/40"
-                            }`}
-                          >
-                            <span>{cat}</span>
-                            {isSelected && (
-                              <Icon
-                                icon="carbon:checkmark"
-                                className="w-3 h-3 text-[var(--brand-primary)] shrink-0"
-                              />
-                            )}
-                          </button>
-                        );
-                      })}
+                  {referenceId && (
+                    <div className="my-1.5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
+                      <span className="text-xs text-[var(--text-muted)] font-mono">Ref:</span>
+                      <span className="text-xs font-mono font-semibold text-[var(--text-primary)]">
+                        {referenceId}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={handleCopyRef}
+                        className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer ml-0.5"
+                        title="Copy Reference Code"
+                        aria-label="Copy reference code"
+                      >
+                        <Icon
+                          icon={copiedRef ? "carbon:checkmark" : "carbon:copy"}
+                          className="w-4 h-4 text-[var(--brand-primary)]"
+                        />
+                      </button>
                     </div>
+                  )}
+
+                  <p className="text-[var(--text-secondary)] text-xs sm:text-sm max-w-md leading-relaxed">
+                    Thank you. We have received your inquiry and will follow up with pricing shortly.
+                  </p>
+                  <div className="flex items-center gap-3 mt-4">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={handleResetForm}
+                    >
+                      Submit Another Request
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="primary"
+                      size="sm"
+                      onClick={handleClose}
+                    >
+                      Done
+                    </Button>
                   </div>
                 </div>
-
-                {/* Step 2: Contact Details */}
-                <div className="space-y-2.5">
-                  <div className="flex items-start gap-2.5">
-                    <div className="w-6 h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
-                      2
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                  {/* Step 1: Select Product */}
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200 dark:border-emerald-800/40">
+                        1
+                      </div>
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-tight">
+                          Product / Requirement
+                        </h3>
+                        <p className="text-[11px] sm:text-xs text-[var(--text-secondary)] mt-0.5">
+                          Select the product category that best matches your requirement.
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-sm sm:text-base font-bold text-[var(--text-primary)] leading-tight">
-                        Your Details
-                      </h3>
-                      <p className="text-xs text-[var(--text-secondary)] mt-0.5">
-                        Let us know how to get in touch with you.
-                      </p>
+
+                    <div className="space-y-2 pt-0.5 pl-0 sm:pl-8">
+                      <CustomSelect
+                        value={form.productService || ""}
+                        onChange={(val) => handleChange("productService")(val)}
+                        options={productOptions}
+                        placeholder="Select product or requirement"
+                      />
+
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-0.5">
+                        {[
+                          "Industrial Pallets",
+                          "Plastic Lumber",
+                          "Garden Benches",
+                          "Custom Moulding",
+                        ].map((cat) => {
+                          const isSelected = form.productService === cat;
+                          return (
+                            <button
+                              key={cat}
+                              type="button"
+                              onClick={() => handleChange("productService")(cat)}
+                              className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-all cursor-pointer flex items-center justify-center gap-1 text-center ${
+                                isSelected
+                                  ? "bg-[var(--bg-surface)] text-[var(--brand-primary)] border-2 border-[var(--brand-primary)] font-bold shadow-2xs"
+                                  : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-default)] hover:border-[var(--brand-primary)]/40"
+                              }`}
+                            >
+                              <span className="truncate">{cat}</span>
+                              {isSelected && (
+                                <Icon
+                                  icon="carbon:checkmark"
+                                  className="w-3 h-3 text-[var(--brand-primary)] shrink-0"
+                                />
+                              )}
+                            </button>
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-0.5 pl-0 sm:pl-8">
-                    {/* Full Name */}
-                    <FormField label="Full Name" htmlFor="modalFullName" required>
-                      <Input
-                        id="modalFullName"
-                        required
-                        type="text"
-                        size="sm"
-                        leftIcon="carbon:user"
-                        placeholder="Full name"
-                        value={form.fullName || ""}
-                        onChange={handleChange("fullName")}
-                      />
-                    </FormField>
+                  {/* Step 2: Contact Details */}
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200 dark:border-emerald-800/40">
+                        2
+                      </div>
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-tight">
+                          Your Details
+                        </h3>
+                        <p className="text-[11px] sm:text-xs text-[var(--text-secondary)] mt-0.5">
+                          Let us know how to get in touch with you.
+                        </p>
+                      </div>
+                    </div>
 
-                    {/* Email Address */}
-                    <FormField label="Email Address" htmlFor="modalEmail" required>
-                      <Input
-                        id="modalEmail"
-                        required
-                        type="email"
-                        size="sm"
-                        leftIcon="carbon:email"
-                        placeholder="name@company.com"
-                        value={form.email || ""}
-                        onChange={handleChange("email")}
-                      />
-                    </FormField>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-0.5 pl-0 sm:pl-8">
+                      {/* Full Name */}
+                      <FormField label="Full Name" htmlFor="modalFullName" required>
+                        <Input
+                          id="modalFullName"
+                          required
+                          type="text"
+                          size="sm"
+                          leftIcon="carbon:user"
+                          placeholder="Full name"
+                          value={form.fullName || ""}
+                          onChange={handleChange("fullName")}
+                        />
+                      </FormField>
 
-                    {/* Phone Number */}
-                    <FormField label="Phone Number" htmlFor="modalPhone" required>
-                      <div className="flex items-center rounded-[var(--radius-input,6px)] border border-[var(--border-default)] bg-[var(--bg-surface)] focus-within:border-[var(--brand-primary)] focus-within:ring-2 focus-within:ring-[var(--brand-primary)]/20 transition-all overflow-hidden h-9 min-h-[36px]">
-                        <div className="relative flex items-center h-full shrink-0 border-r border-[var(--border-default)] bg-[var(--bg-surface-secondary)]">
-                          <select
-                            id="modalPhonePrefix"
-                            className="h-full pl-2.5 pr-5 bg-transparent appearance-none text-xs font-medium text-[var(--text-primary)] focus:outline-none cursor-pointer z-10"
-                            value={form.phonePrefix || "+91"}
-                            onChange={handleChange("phonePrefix")}
-                            aria-label="Country phone code"
-                          >
-                            <option value="+91" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+91</option>
-                            <option value="+1" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+1</option>
-                            <option value="+44" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+44</option>
-                            <option value="+971" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+971</option>
-                            <option value="+966" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+966</option>
-                            <option value="+65" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+65</option>
-                            <option value="+49" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+49</option>
-                            <option value="+61" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+61</option>
-                          </select>
-                          <Icon
-                            icon="carbon:chevron-down"
-                            className="w-2.5 h-2.5 text-[var(--text-muted)] absolute right-1.5 pointer-events-none z-0"
+                      {/* Email Address */}
+                      <FormField label="Email Address" htmlFor="modalEmail" required>
+                        <Input
+                          id="modalEmail"
+                          required
+                          type="email"
+                          size="sm"
+                          leftIcon="carbon:email"
+                          placeholder="name@company.com"
+                          value={form.email || ""}
+                          onChange={handleChange("email")}
+                        />
+                      </FormField>
+
+                      {/* Phone Number */}
+                      <FormField label="Phone Number" htmlFor="modalPhone" required>
+                        <div className="flex items-center rounded-[var(--radius-input,6px)] border border-[var(--border-default)] bg-[var(--bg-surface)] focus-within:border-[var(--brand-primary)] focus-within:ring-2 focus-within:ring-[var(--brand-primary)]/20 transition-all overflow-hidden h-9 min-h-[36px]">
+                          <div className="relative flex items-center h-full shrink-0 border-r border-[var(--border-default)] bg-[var(--bg-surface-secondary)]">
+                            <select
+                              id="modalPhonePrefix"
+                              className="h-full pl-2 sm:pl-2.5 pr-4 sm:pr-5 bg-transparent appearance-none text-xs font-medium text-[var(--text-primary)] focus:outline-none cursor-pointer z-10"
+                              value={form.phonePrefix || "+91"}
+                              onChange={handleChange("phonePrefix")}
+                              aria-label="Country phone code"
+                            >
+                              <option value="+91" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+91</option>
+                              <option value="+1" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+1</option>
+                              <option value="+44" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+44</option>
+                              <option value="+971" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+971</option>
+                              <option value="+966" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+966</option>
+                              <option value="+65" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+65</option>
+                              <option value="+49" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+49</option>
+                              <option value="+61" className="bg-[var(--bg-surface)] text-[var(--text-primary)]">+61</option>
+                            </select>
+                            <Icon
+                              icon="carbon:chevron-down"
+                              className="w-2.5 h-2.5 text-[var(--text-muted)] absolute right-1 pointer-events-none z-0"
+                            />
+                          </div>
+                          <input
+                            id="modalPhone"
+                            required
+                            type="tel"
+                            className="w-full h-full px-2.5 bg-transparent text-xs font-normal text-[var(--text-primary)] placeholder:text-[var(--text-disabled)] focus:outline-none"
+                            placeholder="Phone number"
+                            value={form.phone || ""}
+                            onChange={handleChange("phone")}
                           />
                         </div>
-                        <input
-                          id="modalPhone"
-                          required
-                          type="tel"
-                          className="w-full h-full px-2.5 bg-transparent text-xs font-normal text-[var(--text-primary)] placeholder:text-[var(--text-disabled)] focus:outline-none"
-                          placeholder="Phone number"
-                          value={form.phone || ""}
-                          onChange={handleChange("phone")}
+                      </FormField>
+
+                      {/* Company Name */}
+                      <FormField label="Company Name (Optional)" htmlFor="modalCompany">
+                        <Input
+                          id="modalCompany"
+                          type="text"
+                          size="sm"
+                          leftIcon="carbon:enterprise"
+                          placeholder="Company name"
+                          value={form.company || ""}
+                          onChange={handleChange("company")}
                         />
+                      </FormField>
+                    </div>
+                  </div>
+
+                  {/* Step 3: Requirement Details */}
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200 dark:border-emerald-800/40">
+                        3
                       </div>
-                    </FormField>
-
-                    {/* Company Name */}
-                    <FormField label="Company Name (Optional)" htmlFor="modalCompany">
-                      <Input
-                        id="modalCompany"
-                        type="text"
-                        size="sm"
-                        leftIcon="carbon:enterprise"
-                        placeholder="Company name"
-                        value={form.company || ""}
-                        onChange={handleChange("company")}
-                      />
-                    </FormField>
-                  </div>
-                </div>
-
-                {/* Step 3: Requirement Details */}
-                <div className="space-y-2.5">
-                  <div className="flex items-start gap-2.5">
-                    <div className="w-6 h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
-                      3
-                    </div>
-                    <div>
-                      <h3 className="text-sm sm:text-base font-bold text-[var(--text-primary)] leading-tight">
-                        Requirement Details
-                      </h3>
-                      <p className="text-xs text-[var(--text-secondary)] mt-0.5">
-                        Help us understand your requirement better.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2.5 pt-0.5 pl-0 sm:pl-8">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-                      {/* Estimated Quantity */}
-                      <FormField label="Estimated Quantity (Optional)" htmlFor="modalEstimatedVolume">
-                        <Input
-                          id="modalEstimatedVolume"
-                          type="text"
-                          size="sm"
-                          leftIcon="carbon:box"
-                          placeholder="e.g. 500 units"
-                          value={form.estimatedVolume || ""}
-                          onChange={handleChange("estimatedVolume")}
-                        />
-                      </FormField>
-
-                      {/* Target Application */}
-                      <FormField label="Target Application (Optional)" htmlFor="modalTargetApplication">
-                        <Input
-                          id="modalTargetApplication"
-                          type="text"
-                          size="sm"
-                          leftIcon="carbon:settings"
-                          placeholder="e.g. Warehouse, Outdoor"
-                          value={form.targetApplication || ""}
-                          onChange={handleChange("targetApplication")}
-                        />
-                      </FormField>
+                      <div>
+                        <h3 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-tight">
+                          Requirement Details
+                        </h3>
+                        <p className="text-[11px] sm:text-xs text-[var(--text-secondary)] mt-0.5">
+                          Help us understand your requirement better.
+                        </p>
+                      </div>
                     </div>
 
-                    {/* Specifications or Message */}
-                    <FormField label="Specifications or Message" htmlFor="modalMessage" required>
-                      <div className="relative">
-                        <div className="absolute top-2.5 left-2.5 pointer-events-none text-[var(--text-muted)] z-10">
-                          <Icon icon="carbon:edit" className="w-3.5 h-3.5" />
+                    <div className="space-y-2 pt-0.5 pl-0 sm:pl-8">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                        {/* Estimated Quantity */}
+                        <FormField label="Estimated Quantity (Optional)" htmlFor="modalEstimatedVolume">
+                          <Input
+                            id="modalEstimatedVolume"
+                            type="text"
+                            size="sm"
+                            leftIcon="carbon:box"
+                            placeholder="e.g. 500 units"
+                            value={form.estimatedVolume || ""}
+                            onChange={handleChange("estimatedVolume")}
+                          />
+                        </FormField>
+
+                        {/* Target Application */}
+                        <FormField label="Target Application (Optional)" htmlFor="modalTargetApplication">
+                          <Input
+                            id="modalTargetApplication"
+                            type="text"
+                            size="sm"
+                            leftIcon="carbon:settings"
+                            placeholder="e.g. Warehouse, Outdoor"
+                            value={form.targetApplication || ""}
+                            onChange={handleChange("targetApplication")}
+                          />
+                        </FormField>
+                      </div>
+
+                      {/* Specifications or Message */}
+                      <FormField label="Specifications or Message" htmlFor="modalMessage" required>
+                        <div className="relative">
+                          <div className="absolute top-2.5 left-2.5 pointer-events-none text-[var(--text-muted)] z-10">
+                            <Icon icon="carbon:edit" className="w-3.5 h-3.5" />
+                          </div>
+                          <Textarea
+                            id="modalMessage"
+                            required
+                            rows={2.5}
+                            maxLength={1000}
+                            showCount
+                            size="sm"
+                            className="pl-8 py-2 px-2.5 min-h-[75px] text-xs"
+                            placeholder="Specifications, dimensions, or notes..."
+                            value={form.message || ""}
+                            onChange={handleChange("message")}
+                          />
                         </div>
-                        <Textarea
-                          id="modalMessage"
-                          required
-                          rows={2.5}
-                          maxLength={1000}
-                          showCount
-                          size="sm"
-                          className="pl-8 py-2 px-2.5 min-h-[75px] text-xs"
-                          placeholder="Specifications, dimensions, or notes..."
-                          value={form.message || ""}
-                          onChange={handleChange("message")}
-                        />
+                      </FormField>
+                    </div>
+                  </div>
+
+                  {status === "error" && (
+                    <Alert status="danger" variant="subtle" className="text-xs">
+                      {errorMessage || "Submission failed. Please try again or contact us directly."}
+                    </Alert>
+                  )}
+
+                  {/* Bottom Action Buttons & Trust Badge */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-[var(--border-subtle)]">
+                    {/* Submit CTA */}
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      size="md"
+                      loading={status === "sending"}
+                      loadingText="Sending..."
+                      className="w-full sm:w-auto shrink-0 font-bold min-h-[40px] text-xs sm:text-sm px-5 shadow-2xs"
+                      icon={<Icon icon="carbon:arrow-right" className="w-3.5 h-3.5 ml-1 inline" />}
+                      id="modal-submit-quote-btn"
+                    >
+                      Send Quote Request
+                    </Button>
+
+                    {/* Secure Info Badge */}
+                    <div className="flex items-center gap-2.5 px-1 py-1 text-left sm:border-l sm:border-[var(--border-subtle)] sm:pl-4">
+                      <div className="text-[var(--brand-primary)] dark:text-emerald-400 shrink-0">
+                        <Icon icon="carbon:security" className="w-5 h-5" />
                       </div>
-                    </FormField>
-                  </div>
-                </div>
-
-                {status === "error" && (
-                  <Alert status="danger" variant="subtle" className="text-xs">
-                    {errorMessage || "Submission failed. Please try again or contact us directly."}
-                  </Alert>
-                )}
-
-                {/* Bottom Action Buttons & Trust Badge */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-[var(--border-subtle)]">
-                  {/* Submit CTA */}
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="md"
-                    loading={status === "sending"}
-                    loadingText="Sending..."
-                    className="w-full sm:w-auto shrink-0 font-bold min-h-[40px] text-xs sm:text-sm px-5 shadow-2xs"
-                    icon={<Icon icon="carbon:arrow-right" className="w-3.5 h-3.5 ml-1 inline" />}
-                    id="modal-submit-quote-btn"
-                  >
-                    Send Quote Request
-                  </Button>
-
-                  {/* Secure Info Badge */}
-                  <div className="flex items-center gap-2.5 px-1 py-1 text-left sm:border-l sm:border-[var(--border-subtle)] sm:pl-4">
-                    <div className="text-[var(--brand-primary)] dark:text-emerald-400 shrink-0">
-                      <Icon icon="carbon:security" className="w-5 h-5" />
-                    </div>
-                    <div className="text-[11px] leading-tight">
-                      <span className="block font-bold text-[var(--text-primary)]">
-                        Your information is secure.
-                      </span>
-                      <span className="block text-[var(--text-muted)] text-[10px] mt-0.5">
-                        We respect your privacy and never share your data.
-                      </span>
+                      <div className="text-[11px] leading-tight">
+                        <span className="block font-bold text-[var(--text-primary)]">
+                          Your information is secure.
+                        </span>
+                        <span className="block text-[var(--text-muted)] text-[10px] mt-0.5">
+                          We respect your privacy and never share your data.
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </form>
-            )}
+                </form>
+              )}
+            </div>
           </motion.div>
         </motion.div>
       )}

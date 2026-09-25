@@ -65,18 +65,46 @@ const DEFAULT_BENTO_PRODUCTS = [
   },
 ];
 
+const SIMPLIFIED_FEATURE_MAP = {
+  "ispm-15 exempt (zero fumigation needed for global export)": "Export Ready (No Fumigation)",
+  "ispm-15 exempt (zero fumigation needed)": "Export Ready (No Fumigation)",
+  "ispm-15 exempt (no fumigation required)": "Export Ready (No Fumigation)",
+  "ispm-15 exempt": "Export Ready (No Fumigation)",
+  "3 bottom runners with racking reinforcement": "Warehouse Rack Safe",
+  "anti-slip rubber grommets on deck and bottom": "Anti-Slip Rubber Grips",
+  "washable & chemical resistant surface": "Washable & Chemical Safe",
+  "conforms to standard european epal dimensions": "Standard Euro EPAL Size",
+  "nestable / stackable design saves up to 55% return freight": "Stackable (Saves 55% Space)",
+  "no nails or splinters to damage packed cartons": "No Nails or Splinters",
+  "100% recyclable circular economy product": "100% Recyclable",
+  "optimized square footprint for 4 standard barrels": "Fits 4 Standard Drums",
+  "conveyor-friendly solid runner underside": "Conveyor Safe Base",
+  "acid & alkali resistant inert polymer": "Acid & Chemical Proof",
+  "high uv stability for outdoor storage": "All-Weather Outdoor Safe",
+  "dual identical decking for safe tier stacking": "Reversible (Double-Sided)",
+  "highest static capacity (up to 6 tonnes)": "Heavy Load (Up to 6 Tons)",
+  "high torsional rigidity under forklift acceleration": "Forklift Friendly",
+  "long service life exceeding 10 years": "10+ Years Lifespan",
+};
+
+const simplifyFeatureText = (text) => {
+  if (!text || typeof text !== "string") return text;
+  const key = text.trim().toLowerCase();
+  return SIMPLIFIED_FEATURE_MAP[key] || text;
+};
+
 const renderFeatureIcon = (iconName, title = "") => {
   const name = (typeof iconName === "string" ? iconName : "").toLowerCase();
   const titleLower = title.toLowerCase();
 
-  if (name.includes("drop") || name.includes("water") || titleLower.includes("water")) {
+  if (name.includes("drop") || name.includes("water") || titleLower.includes("water") || titleLower.includes("export") || titleLower.includes("fumigation")) {
     return (
       <svg className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
       </svg>
     );
   }
-  if (name.includes("sun") || name.includes("uv") || titleLower.includes("uv") || titleLower.includes("sun")) {
+  if (name.includes("sun") || name.includes("uv") || titleLower.includes("uv") || titleLower.includes("sun") || titleLower.includes("rack")) {
     return (
       <svg className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0 stroke-current fill-none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="4" />
@@ -84,7 +112,7 @@ const renderFeatureIcon = (iconName, title = "") => {
       </svg>
     );
   }
-  if (name.includes("shield") || name.includes("termite") || name.includes("check") || titleLower.includes("termite") || titleLower.includes("shield")) {
+  if (name.includes("shield") || name.includes("termite") || name.includes("check") || titleLower.includes("termite") || titleLower.includes("shield") || titleLower.includes("grip") || titleLower.includes("anti-slip")) {
     return (
       <svg className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -92,7 +120,7 @@ const renderFeatureIcon = (iconName, title = "") => {
       </svg>
     );
   }
-  if (name.includes("wrench") || name.includes("maintenance") || name.includes("tool") || titleLower.includes("maintenance")) {
+  if (name.includes("wrench") || name.includes("maintenance") || name.includes("tool") || titleLower.includes("maintenance") || titleLower.includes("washable") || titleLower.includes("chemical")) {
     return (
       <svg className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
@@ -107,26 +135,28 @@ const getCardFeatures = (prod) => {
   if (prod && Array.isArray(prod.features) && prod.features.length > 0) {
     return prod.features.map((f, i) => {
       if (typeof f === "string") {
+        const title = simplifyFeatureText(f);
         const icons = [
           "carbon:rain-drop",
           "carbon:sun",
           "carbon:security",
           "carbon:tool-box",
         ];
-        return { title: f, icon: icons[i % icons.length] };
+        return { title, icon: icons[i % icons.length] };
       }
-      const title = f.title || f.label || f.name || f.key || "Feature";
+      const rawTitle = f.title || f.label || f.name || f.key || "Feature";
+      const title = simplifyFeatureText(rawTitle);
       let icon = f.icon;
       if (!icon) {
         const titleLower = title.toLowerCase();
         const keyLower = (f.key || "").toLowerCase();
         if (keyLower === "maintenance" || titleLower.includes("maintenance") || titleLower.includes("zero")) {
           icon = "carbon:tool-box";
-        } else if (keyLower === "waterproof" || titleLower.includes("water")) {
+        } else if (keyLower === "waterproof" || titleLower.includes("water") || titleLower.includes("export") || titleLower.includes("fumigation")) {
           icon = "carbon:rain-drop";
-        } else if (keyLower === "uv" || titleLower.includes("uv") || titleLower.includes("sun")) {
+        } else if (keyLower === "uv" || titleLower.includes("uv") || titleLower.includes("sun") || titleLower.includes("rack")) {
           icon = "carbon:sun";
-        } else if (keyLower === "termite" || titleLower.includes("termite") || titleLower.includes("shield")) {
+        } else if (keyLower === "termite" || titleLower.includes("termite") || titleLower.includes("shield") || titleLower.includes("grip") || titleLower.includes("anti-slip")) {
           icon = "carbon:security";
         } else {
           icon = "carbon:checkmark-outline";
@@ -167,12 +197,13 @@ const cardVariant = {
   hover: {
     y: -6,
     scale: 1.015,
-    borderColor: "rgba(107, 191, 84, 0.4)",
-    boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(107, 191, 84, 0.2)",
+    borderColor: "rgba(107, 191, 84, 0.45)",
+    boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.65), 0 0 20px -5px rgba(107, 191, 84, 0.25)",
     transition: {
-      type: "spring",
-      stiffness: 400,
-      damping: 25,
+      type: "tween",
+      duration: 0.12,
+      delay: 0,
+      ease: [0.16, 1, 0.3, 1],
     },
   },
 };

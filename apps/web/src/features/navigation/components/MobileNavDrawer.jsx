@@ -19,8 +19,20 @@ export default function MobileNavDrawer({
   categories,
   products,
 }) {
-  const { co } = useSite();
+  const { cms } = useSite();
+  const isPageVisible = (key) => cms?.[key] !== "0";
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (!open) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [open, setOpen]);
 
   return (
     <AnimatePresence>
@@ -28,12 +40,16 @@ export default function MobileNavDrawer({
         <>
           <motion.div
             className={styles.backdrop}
-            onClick={() => setOpen(false)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setOpen(false);
+            }}
             aria-hidden="true"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.18 }}
             style={{ backdropFilter: "blur(4px)", WebkitBackdropFilter: "blur(4px)" }}
           />
           <motion.div
@@ -42,47 +58,13 @@ export default function MobileNavDrawer({
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation menu"
-            initial={{ x: "-100%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: "-100%", opacity: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            initial={{ opacity: 0, scale: 0.96, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, y: -10 }}
+            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
           >
-        {/* Top Header inside Drawer: Logo & Close Button */}
-        <div className={styles.mobileCardHeader}>
-          <Link to="/" onClick={() => setOpen(false)} className={styles.logo}>
-            {co("logo") ? (
-              <img
-                src={co("logo")}
-                alt={co("name", "VISHAL ENTERPRISE")}
-                className={styles.logoImg}
-              />
-            ) : (
-              <div className={styles.logoIcon}>
-                {co("name", "VISHAL ENTERPRISE").charAt(0).toUpperCase()}
-              </div>
-            )}
-            <div className={styles.logoTextGroup}>
-              <span className={styles.logoNameLine1}>
-                {co("name", "VISHAL ENTERPRISE").trim().split(/\s+/)[0] || "VISHAL"}
-              </span>
-              <span className={styles.logoNameLine2}>
-                {co("name", "VISHAL ENTERPRISE").trim().split(/\s+/).slice(1).join(" ") || "ENTERPRISE"}
-              </span>
-            </div>
-          </Link>
-
-          <button
-            type="button"
-            className={styles.mobileCloseBtn}
-            onClick={() => setOpen(false)}
-            aria-label="Close menu"
-          >
-            <Icon icon="carbon:close-filled" className="w-6 h-6 text-slate-700 dark:text-slate-200" />
-          </button>
-        </div>
-
-        {/* Optional Search Bar */}
-        <form onSubmit={handleSearch} className={styles.dSearch}>
+            {/* Optional Search Bar */}
+            <form onSubmit={handleSearch} className={styles.dSearch}>
           <Icon icon="carbon:search" className="w-4 h-4 text-slate-400" />
           <input
             type="text"
@@ -109,24 +91,27 @@ export default function MobileNavDrawer({
             },
           }}
         >
-          <motion.div variants={{ hidden: { opacity: 0, x: -12 }, visible: { opacity: 1, x: 0 } }}>
-            <NavLink
-              to="/"
-              end
-              className={({ isActive }) =>
-                isActive ? `${styles.mCardLink} ${styles.mCardLinkActive}` : styles.mCardLink
-              }
-              onClick={() => setOpen(false)}
-            >
-              Home
-            </NavLink>
-          </motion.div>
+          {isPageVisible("nav_show_home") && (
+            <motion.div variants={{ hidden: { opacity: 0, x: -12 }, visible: { opacity: 1, x: 0 } }}>
+              <NavLink
+                to="/"
+                end
+                className={({ isActive }) =>
+                  isActive ? `${styles.mCardLink} ${styles.mCardLinkActive}` : styles.mCardLink
+                }
+                onClick={() => setOpen(false)}
+              >
+                Home
+              </NavLink>
+            </motion.div>
+          )}
 
           {/* Products Mobile Accordion */}
-          <motion.div
-            className={styles.dAccordion}
-            variants={{ hidden: { opacity: 0, x: -12 }, visible: { opacity: 1, x: 0 } }}
-          >
+          {isPageVisible("nav_show_products") && (
+            <motion.div
+              className={styles.dAccordion}
+              variants={{ hidden: { opacity: 0, x: -12 }, visible: { opacity: 1, x: 0 } }}
+            >
             <div
               role="button"
               tabIndex={0}
@@ -216,55 +201,64 @@ export default function MobileNavDrawer({
                 </motion.div>
               )}
             </AnimatePresence>
-          </motion.div>
+            </motion.div>
+          )}
 
-          <motion.div variants={{ hidden: { opacity: 0, x: -12 }, visible: { opacity: 1, x: 0 } }}>
-            <NavLink
-              to="/manufacturing"
-              className={({ isActive }) =>
-                isActive ? `${styles.mCardLink} ${styles.mCardLinkActive}` : styles.mCardLink
-              }
-              onClick={() => setOpen(false)}
-            >
-              Manufacturing
-            </NavLink>
-          </motion.div>
+          {isPageVisible("nav_show_manufacturing") && (
+            <motion.div variants={{ hidden: { opacity: 0, x: -12 }, visible: { opacity: 1, x: 0 } }}>
+              <NavLink
+                to="/manufacturing"
+                className={({ isActive }) =>
+                  isActive ? `${styles.mCardLink} ${styles.mCardLinkActive}` : styles.mCardLink
+                }
+                onClick={() => setOpen(false)}
+              >
+                Manufacturing
+              </NavLink>
+            </motion.div>
+          )}
 
-          <motion.div variants={{ hidden: { opacity: 0, x: -12 }, visible: { opacity: 1, x: 0 } }}>
-            <NavLink
-              to="/sustainability"
-              className={({ isActive }) =>
-                isActive ? `${styles.mCardLink} ${styles.mCardLinkActive}` : styles.mCardLink
-              }
-              onClick={() => setOpen(false)}
-            >
-              Sustainability
-            </NavLink>
-          </motion.div>
+          {isPageVisible("nav_show_sustainability") && (
+            <motion.div variants={{ hidden: { opacity: 0, x: -12 }, visible: { opacity: 1, x: 0 } }}>
+              <NavLink
+                to="/sustainability"
+                className={({ isActive }) =>
+                  isActive ? `${styles.mCardLink} ${styles.mCardLinkActive}` : styles.mCardLink
+                }
+                onClick={() => setOpen(false)}
+              >
+                Sustainability
+              </NavLink>
+            </motion.div>
+          )}
 
-          <motion.div variants={{ hidden: { opacity: 0, x: -12 }, visible: { opacity: 1, x: 0 } }}>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                isActive ? `${styles.mCardLink} ${styles.mCardLinkActive}` : styles.mCardLink
-              }
-              onClick={() => setOpen(false)}
-            >
-              About
-            </NavLink>
-          </motion.div>
+          {isPageVisible("nav_show_about") && (
+            <motion.div variants={{ hidden: { opacity: 0, x: -12 }, visible: { opacity: 1, x: 0 } }}>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? `${styles.mCardLink} ${styles.mCardLinkActive}` : styles.mCardLink
+                }
+                onClick={() => setOpen(false)}
+              >
+                About
+              </NavLink>
+            </motion.div>
+          )}
 
-          <motion.div variants={{ hidden: { opacity: 0, x: -12 }, visible: { opacity: 1, x: 0 } }}>
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                isActive ? `${styles.mCardLink} ${styles.mCardLinkActive}` : styles.mCardLink
-              }
-              onClick={() => setOpen(false)}
-            >
-              Contact
-            </NavLink>
-          </motion.div>
+          {isPageVisible("nav_show_contact") && (
+            <motion.div variants={{ hidden: { opacity: 0, x: -12 }, visible: { opacity: 1, x: 0 } }}>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? `${styles.mCardLink} ${styles.mCardLinkActive}` : styles.mCardLink
+                }
+                onClick={() => setOpen(false)}
+              >
+                Contact
+              </NavLink>
+            </motion.div>
+          )}
         </motion.div>
 
         {/* Full-width CTA Button at Bottom */}

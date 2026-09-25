@@ -116,10 +116,10 @@ button.btn:hover i.fa-chevron-left {
 .btn-primary,
 .btn--primary,
 .btn-shared-brand {
-  background-color: var(--brand-primary);
-  color: var(--brand-btn-text);
-  border: 1px solid var(--brand-primary);
-  border-radius: var(--radius-btn);
+  background-color: var(--action-primary-bg, var(--brand-green));
+  color: var(--action-primary-text, var(--brand-navy));
+  border: 1px solid var(--action-primary-bg, var(--brand-green));
+  border-radius: var(--radius-btn, 8px);
   font-weight: 700;
   box-shadow: var(--shadow-sm);
   transition: all var(--motion-fast) var(--ease-standard);
@@ -128,30 +128,30 @@ button.btn:hover i.fa-chevron-left {
 .btn-primary *,
 .btn--primary *,
 .btn-shared-brand * {
-  color: var(--brand-btn-text);
+  color: var(--action-primary-text, var(--brand-navy));
 }
 
 .btn-primary svg,
 .btn--primary svg,
 .btn-shared-brand svg {
-  stroke: var(--brand-btn-text);
-  color: var(--brand-btn-text);
+  stroke: var(--action-primary-text, var(--brand-navy));
+  color: var(--action-primary-text, var(--brand-navy));
 }
 
 .btn-primary:hover,
 .btn--primary:hover,
 .btn-shared-brand:hover:not(:disabled) {
-  background-color: var(--brand-hover);
-  color: var(--brand-btn-text);
-  border-color: var(--brand-hover);
+  background-color: var(--brand-hover, #8ED35A);
+  color: var(--action-primary-text, var(--brand-navy));
+  border-color: var(--brand-hover, #8ED35A);
   box-shadow: var(--shadow-md);
   transform: translateY(-1px);
 }
 
 .btn-primary:active,
 .btn--primary:active {
-  background-color: var(--brand-active);
-  color: var(--brand-btn-text);
+  background-color: var(--brand-active, #5FA530);
+  color: var(--action-primary-text, var(--brand-navy));
   transform: translateY(0);
 }
 
@@ -159,10 +159,10 @@ button.btn:hover i.fa-chevron-left {
 .btn-secondary,
 .btn--secondary,
 .btn-shared-navy {
-  background-color: var(--text-primary);
-  color: var(--text-inverse);
-  border: 1px solid var(--navy);
-  border-radius: var(--radius-btn);
+  background-color: var(--bg-surface, #FFFFFF);
+  color: var(--action-secondary-text, var(--brand-green-deep));
+  border: 1px solid var(--border-accent, var(--brand-green-deep));
+  border-radius: var(--radius-btn, 8px);
   font-weight: 600;
   box-shadow: var(--shadow-sm);
   transition: all var(--motion-fast) var(--ease-standard);
@@ -171,9 +171,9 @@ button.btn:hover i.fa-chevron-left {
 .btn-secondary:hover,
 .btn--secondary:hover,
 .btn-shared-navy:hover:not(:disabled) {
-  background-color: var(--navy-hover);
-  border-color: var(--navy-hover);
-  color: var(--white);
+  background-color: var(--state-selected-bg, var(--brand-green-soft));
+  border-color: var(--border-accent, var(--brand-green-deep));
+  color: var(--action-secondary-text, var(--brand-green-deep));
   box-shadow: var(--shadow-sm);
   transform: translateY(-1px);
 }
@@ -181,18 +181,18 @@ button.btn:hover i.fa-chevron-left {
 /* Outline Button */
 .btn-outline,
 .btn--outline {
-  border: 1px solid var(--border-default);
-  color: var(--text-primary);
-  background-color: var(--bg-surface);
-  border-radius: var(--radius-btn);
+  border: 1px solid var(--border-accent, var(--brand-green-deep));
+  color: var(--action-secondary-text, var(--brand-green-deep));
+  background-color: var(--bg-surface, #FFFFFF);
+  border-radius: var(--radius-btn, 8px);
   font-weight: 600;
 }
 
 .btn-outline:hover,
 .btn--outline:hover {
-  background-color: var(--bg-surface-secondary);
-  border-color: var(--border-strong);
-  color: var(--text-primary);
+  background-color: var(--state-selected-bg, var(--brand-green-soft));
+  border-color: var(--border-accent, var(--brand-green-deep));
+  color: var(--action-secondary-text, var(--brand-green-deep));
   transform: translateY(-1px);
 }
 
@@ -279,9 +279,9 @@ button.btn::after {
   gap: 0.75rem;
   min-height: var(--btn-h-md, 42px);
   padding: var(--btn-py-md, 0.625rem) var(--btn-px-md, 1.375rem);
-  background-color: var(--brand, var(--accent)) !important;
-  color: var(--brand-btn-text) !important;
-  border: 1px solid var(--brand, var(--accent)) !important;
+  background-color: var(--action-primary-bg, var(--brand-green)) !important;
+  color: var(--action-primary-text, var(--brand-navy)) !important;
+  border: 1px solid var(--action-primary-bg, var(--brand-green)) !important;
   border-radius: var(--radius-btn, 8px);
   font-size: var(--btn-font-md, 0.875rem);
   font-weight: 700;
@@ -294,9 +294,9 @@ button.btn::after {
 }
 
 .swipe-btn:hover {
-  background-color: var(--brand-hover) !important;
-  border-color: var(--brand-hover) !important;
-  color: var(--brand-btn-text) !important;
+  background-color: var(--brand-hover, #8ED35A) !important;
+  border-color: var(--brand-hover, #8ED35A) !important;
+  color: var(--action-primary-text, var(--brand-navy)) !important;
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
@@ -308,12 +308,12 @@ button.btn::after {
   transition: color var(--motion-fast) var(--ease-standard);
   pointer-events: none;
   font-weight: 700;
-  color: var(--navy-950) !important;
+  color: var(--action-primary-text, var(--brand-navy)) !important;
 }
 
 .swipe-btn:hover .btn-text,
 .swipe-btn:hover span {
-  color: var(--navy-950) !important;
+  color: var(--action-primary-text, var(--brand-navy)) !important;
 }
 
 .swipe-btn .btn-icon-bubble {
@@ -321,8 +321,8 @@ button.btn::after {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: var(--radius-md, 8px);
   z-index: 1;
   flex-shrink: 0;
@@ -331,7 +331,7 @@ button.btn::after {
 }
 
 .swipe-btn:hover .btn-icon-bubble {
-  transform: translateX(2px);
+  transform: translateX(3px);
 }
 
 .swipe-btn .btn-icon-bubble::before {
@@ -341,14 +341,13 @@ button.btn::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--white);
+  background-color: rgba(6, 26, 38, 0.12);
   border-radius: var(--radius-md, 8px);
-  transform: translateX(-300%);
+  transform: translateX(-200%);
   opacity: 0;
   transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
   z-index: 0;
   pointer-events: none;
-  box-shadow: var(--shadow-sm);
 }
 
 .swipe-btn:hover .btn-icon-bubble::before {
@@ -364,8 +363,8 @@ button.btn::after {
   height: 16px;
   display: block;
   margin: auto;
-  stroke: var(--navy-950) !important;
-  color: var(--navy-950) !important;
+  stroke: var(--action-primary-text, var(--brand-navy)) !important;
+  color: var(--action-primary-text, var(--brand-navy)) !important;
   transform: none;
   transition: stroke var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard);
   pointer-events: none;
@@ -374,8 +373,8 @@ button.btn::after {
 .swipe-btn:hover .btn-arrow-icon,
 .swipe-btn:hover svg {
   transform: none;
-  stroke: var(--navy-950) !important;
-  color: var(--navy-950) !important;
+  stroke: var(--action-primary-text, var(--brand-navy)) !important;
+  color: var(--action-primary-text, var(--brand-navy)) !important;
 }
 
 /* ─── Forms ──────────────────────────────────────────────── */

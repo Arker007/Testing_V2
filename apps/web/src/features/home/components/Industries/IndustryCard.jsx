@@ -4,7 +4,6 @@ import { motion } from "motion/react";
 import { OptimizedImage } from "@/shared/ui";
 import { Badge } from "@/shared/ui";
 import styles from "./Industries.module.css";
-import { industryCardVariant } from "../../constants/home.constants";
 
 export const IndustryCard = React.memo(function IndustryCard({ item }) {
   const {
@@ -23,12 +22,15 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
   if (cardType === "featured") {
     return (
       <motion.div
-        variants={industryCardVariant}
-        custom={delay}
-        initial="hidden"
-        whileInView="visible"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        whileHover="hover"
+        transition={{ delay, duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+        whileHover={{
+          y: -6,
+          scale: 1.015,
+          transition: { duration: 0.12, delay: 0, ease: [0.16, 1, 0.3, 1] }
+        }}
         className={`group ${styles.industryCard} ${styles.cardLargeDark} !p-5 sm:!p-6 flex flex-col justify-between relative overflow-hidden rounded-[var(--radius-card,8px)] border border-[var(--border-card)] bg-slate-950`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-slate-950">
@@ -41,7 +43,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[#5FBF50] text-slate-950 backdrop-blur-md border border-[#5FBF50] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+          <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
             <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
           {badgeText && (
@@ -63,12 +65,15 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
   if (cardType === "wideRow" || cardType === "wideRowHeader") {
     return (
       <motion.div
-        variants={industryCardVariant}
-        custom={delay}
-        initial="hidden"
-        whileInView="visible"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        whileHover="hover"
+        transition={{ delay, duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+        whileHover={{
+          y: -6,
+          scale: 1.015,
+          transition: { duration: 0.12, delay: 0, ease: [0.16, 1, 0.3, 1] }
+        }}
         className={`group ${styles.industryCard} ${spanClass ? styles[spanClass] : ""} !p-4 sm:!p-5 flex flex-col justify-between relative overflow-hidden rounded-[var(--radius-card,8px)] border border-[var(--border-card)] bg-slate-950`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-slate-950">
@@ -81,7 +86,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[#5FBF50] text-slate-950 backdrop-blur-md border border-[#5FBF50] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+          <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
             <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
           {cardType === "wideRowHeader" && badgeText && (
@@ -103,12 +108,15 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
   if (cardType === "wide" || cardType === "wideHeader") {
     return (
       <motion.div
-        variants={industryCardVariant}
-        custom={delay}
-        initial="hidden"
-        whileInView="visible"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        whileHover="hover"
+        transition={{ delay, duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+        whileHover={{
+          y: -6,
+          scale: 1.015,
+          transition: { duration: 0.12, delay: 0, ease: [0.16, 1, 0.3, 1] }
+        }}
         className={`group ${styles.industryCard} ${spanClass ? styles[spanClass] : ""} !p-4 sm:!p-5 flex flex-col justify-between relative overflow-hidden rounded-[var(--radius-card,8px)] border border-[var(--border-card)] bg-slate-950`}
       >
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-slate-950">
@@ -121,7 +129,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[#5FBF50] text-slate-950 backdrop-blur-md border border-[#5FBF50] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+          <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
             <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
           {cardType === "wideHeader" && badgeText && (
@@ -142,12 +150,15 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
   // Standard 1x1 Card
   return (
     <motion.div
-      variants={industryCardVariant}
-      custom={delay}
-      initial="hidden"
-      whileInView="visible"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      whileHover="hover"
+      transition={{ delay, duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+      whileHover={{
+        y: -6,
+        scale: 1.015,
+        transition: { duration: 0.12, delay: 0, ease: [0.16, 1, 0.3, 1] }
+      }}
       className={`group ${styles.industryCard} !p-4 sm:!p-5 flex flex-col justify-between relative overflow-hidden rounded-[var(--radius-card,8px)] border border-[var(--border-card)] bg-slate-950`}
     >
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-slate-950">
@@ -160,7 +171,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
       </div>
 
       <div className="relative z-10 flex items-center justify-between mb-4">
-        <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[#5FBF50] text-slate-950 backdrop-blur-md border border-[#5FBF50] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+        <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
           <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
         </div>
       </div>

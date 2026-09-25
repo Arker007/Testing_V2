@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
+import { Button } from "@/shared/ui";
 
 export default function ProductHeaderSpecs({
   product = {},
@@ -29,7 +30,7 @@ export default function ProductHeaderSpecs({
     product.code ||
     (isPallet ? "VE-PALLET" : isLumber ? "VE-LUMBER" : "VE-PROD");
 
-  const certBadge =
+  const _certBadge =
     product.certification ||
     product.specs?.["Certification"] ||
     product.specs?.["Phytosanitary Certification"] ||
@@ -52,7 +53,7 @@ export default function ProductHeaderSpecs({
   const dynamicLoad = product.dynamic_load || product.specs?.["Dynamic Load"] || "1,500 kg";
   const rackLoad = product.racking_load || product.specs?.["Racking Load"] || "1,000 kg";
 
-  const capacityValue = isPallet
+  const _capacityValue = isPallet
     ? `Static ${staticLoad.includes("kg") ? staticLoad : `${staticLoad} kg`} | Dynamic ${dynamicLoad.includes("kg") ? dynamicLoad : `${dynamicLoad} kg`} | Racking ${rackLoad.includes("kg") ? rackLoad : `${rackLoad} kg`}`
     : product.capacity || product.specs?.["Capacity"] || "Heavy Industrial Load Rating";
 
@@ -227,149 +228,138 @@ export default function ProductHeaderSpecs({
   return (
     <div
       id="product-detail-panel"
-      className="flex flex-col h-full py-1"
+      className="flex flex-col justify-between h-full py-1 space-y-5"
     >
-      {/* 1. Category Eyebrow */}
-      <div className="text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs tracking-wider uppercase mb-1">
-        {categoryLabel}
-      </div>
+      <div>
+        {/* 1. Category Eyebrow */}
+        <div className="text-[var(--text-brand)] font-extrabold text-xs tracking-widest uppercase mb-1.5">
+          {categoryLabel}
+        </div>
 
-      {/* 2. Main Product Title */}
-      <h1 className="text-2xl sm:text-3xl lg:text-[2rem] font-extrabold text-[var(--text-primary)] leading-[1.2] tracking-tight mb-2">
-        {product.name || "Heavy-Duty Rackable Plastic Pallet 1200x1000"}
-      </h1>
+        {/* 2. Main Product Title */}
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[var(--text-primary)] leading-tight tracking-tight mb-2">
+          {product.name || "Heavy-Duty Rackable Plastic Pallet 1200x1000"}
+        </h1>
 
-      {/* 3. Item Code & Certification Meta Line */}
-      <div className="flex items-center flex-wrap gap-2 text-xs text-[var(--text-muted)] font-medium mb-3.5">
-        <span>Item: {itemCode}</span>
-        <span className="text-[var(--border-default)]">|</span>
-        <span className="inline-flex items-center gap-1 text-[var(--brand-primary)] dark:text-emerald-400 font-semibold">
-          <Icon icon="carbon:checkmark-filled" className="w-3.5 h-3.5" />
-          <span>{certBadge}</span>
-        </span>
-      </div>
+        {/* 3. Subtitle Tagline */}
+        <div className="text-[11px] sm:text-xs font-mono font-bold tracking-widest text-[var(--text-muted)] uppercase mb-3.5">
+          ENGINEERED FOR INDUSTRIAL PERFORMANCE
+        </div>
 
-      {/* 4. Product Description */}
-      <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-4 max-w-2xl">
-        {descriptionText}
-      </p>
+        {/* 4. Product Description */}
+        <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed mb-6 max-w-2xl">
+          {descriptionText}
+        </p>
 
-      {/* 5. Three Feature Highlights with Card Grouping */}
-      <div className="grid grid-cols-3 gap-2 sm:gap-3 my-2">
-        {highlights.map((item, idx) => (
-          <div
-            key={idx}
-            className="flex items-center gap-2 p-2 sm:p-2.5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] transition-colors hover:border-[var(--border-default)]"
-          >
-            <Icon
-              icon={item.icon}
-              className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--brand-primary)] dark:text-emerald-400 shrink-0 stroke-[1.5]"
-            />
-            <div className="flex flex-col min-w-0">
-              <span className="font-bold text-[11px] sm:text-xs text-[var(--text-primary)] leading-tight truncate">
-                {item.line1}
-              </span>
-              <span className="font-semibold text-[10px] sm:text-[11px] text-[var(--text-secondary)] leading-tight truncate">
-                {item.line2}
-              </span>
+        {/* 5. Three Feature Highlights with Green Outline Icons */}
+        <div className="grid grid-cols-3 gap-3 my-5">
+          {highlights.map((item, idx) => (
+            <div
+              key={idx}
+              className="flex items-center gap-2.5 p-1"
+            >
+              <div className="w-9 h-9 rounded-[var(--radius-card,8px)] bg-transparent border border-[var(--border-brand)] text-[var(--text-brand)] flex items-center justify-center shrink-0">
+                <Icon
+                  icon={item.icon}
+                  className="w-5 h-5 text-[var(--text-brand)] shrink-0"
+                />
+              </div>
+              <div className="flex flex-col min-w-0">
+                <span className="font-bold text-xs text-[var(--text-primary)] leading-snug truncate">
+                  {item.line1}
+                </span>
+                <span className="font-semibold text-xs text-[var(--text-secondary)] leading-snug truncate">
+                  {item.line2}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Size Selector if multiple options */}
+        {sizeOptions?.length > 1 && (
+          <div className="flex items-center gap-2.5 my-3 pt-1">
+            <span className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider">
+              Size:
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {sizeOptions.map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  onClick={() => setSelectedSize(option)}
+                  className={`px-3 py-1 rounded-[var(--radius-card,8px)] text-xs font-semibold border transition-all cursor-pointer ${
+                    selectedSize === option
+                      ? "bg-[var(--brand-soft)] border-[var(--border-brand)] text-[var(--text-brand)] font-bold shadow-xs"
+                      : "bg-[var(--bg-surface)] text-[var(--text-secondary)] border-[var(--border-default)] hover:border-[var(--border-strong)]"
+                  }`}
+                >
+                  {option}
+                </button>
+              ))}
             </div>
           </div>
-        ))}
+        )}
+
+        {/* 6. Two Action Buttons */}
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 my-5">
+          <Button
+            type="button"
+            variant="primary"
+            onClick={() => setShowInquiry?.(true)}
+            className="sm:col-span-7 min-h-[48px] !w-full font-bold text-sm shadow-sm"
+            showArrow
+          >
+            Request a Quote
+          </Button>
+
+          <button
+            type="button"
+            onClick={handleDownloadDatasheet}
+            className="sm:col-span-5 min-h-[48px] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] hover:text-[var(--text-brand)] font-bold text-xs sm:text-sm px-4 rounded-[var(--radius-btn,8px)] flex items-center justify-center gap-2 border border-[var(--border-default)] transition-all cursor-pointer shadow-2xs hover:border-[var(--border-brand)]"
+          >
+            <Icon
+              icon="carbon:download"
+              className="w-4 h-4 text-[var(--text-brand)] shrink-0"
+            />
+            <span>Datasheet (PDF)</span>
+          </button>
+        </div>
       </div>
 
-      {/* Optional Size Selector if multiple sizes exist */}
-      {sizeOptions?.length > 1 && (
-        <div className="flex items-center gap-2.5 my-3 pt-1">
-          <span className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wider">
-            Size:
-          </span>
-          <div className="flex flex-wrap gap-2">
-            {sizeOptions.map((option) => (
-              <button
-                key={option}
-                type="button"
-                onClick={() => setSelectedSize(option)}
-                className={`px-3 py-1 rounded-md text-xs font-medium border transition-colors cursor-pointer ${
-                  selectedSize === option
-                    ? "bg-[var(--brand-primary)] border-[var(--brand-primary)] text-white"
-                    : "bg-[var(--bg-surface)] text-[var(--text-secondary)] border-[var(--border-default)] hover:border-[var(--border-strong)]"
-                }`}
-              >
-                {option}
-              </button>
-            ))}
+      {/* 7. Bottom Three Spec Indicators with Vertical Dividers */}
+      <div className="pt-4 border-t border-[var(--border-subtle)] grid grid-cols-3 divide-x divide-[var(--border-subtle)]">
+        {/* Item 1: MOQ */}
+        <div className="flex items-center gap-2.5 px-2 first:pl-0">
+          <div className="w-8 h-8 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] text-[var(--text-muted)] flex items-center justify-center shrink-0">
+            <Icon icon="carbon:view" className="w-4 h-4" />
+          </div>
+          <div className="flex flex-col min-w-0">
+            <span className="text-[11px] font-semibold text-[var(--text-muted)] truncate">Min. Order (MOQ)</span>
+            <span className="text-xs font-bold text-[var(--text-primary)] truncate">{moqValue}</span>
           </div>
         </div>
-      )}
 
-      {/* 6. Two Action Buttons with High-Conversion Visual Hierarchy */}
-      <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 my-4">
-        <button
-          type="button"
-          onClick={() => setShowInquiry?.(true)}
-          className="sm:col-span-7 min-h-[46px] bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] active:scale-[0.99] text-white font-bold text-sm sm:text-base px-5 rounded-[var(--radius-btn,8px)] flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm hover:shadow-md"
-        >
-          <span>Request a Quote</span>
-          <Icon icon="carbon:arrow-right" className="w-4 h-4" />
-        </button>
-
-        <button
-          type="button"
-          onClick={handleDownloadDatasheet}
-          className="sm:col-span-5 min-h-[46px] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] active:scale-[0.99] text-[var(--text-primary)] hover:text-[var(--brand-primary)] font-bold text-xs sm:text-sm px-4 rounded-[var(--radius-btn,8px)] flex items-center justify-center gap-1.5 border border-[var(--border-default)] transition-all cursor-pointer shadow-2xs hover:border-[var(--brand-primary)]"
-        >
-          <Icon
-            icon="carbon:download"
-            className="w-4 h-4 text-[var(--brand-primary)] dark:text-emerald-400 shrink-0"
-          />
-          <span>Datasheet (PDF)</span>
-        </button>
-      </div>
-
-      {/* 7. Four Specifications Rows with Clean Dividers */}
-      <div className="border-t border-[var(--border-subtle)] divide-y divide-[var(--border-subtle)] mt-1">
-        {/* Row 1: Min Order (MOQ) */}
-        <div className="flex items-center justify-between py-2.5 text-xs sm:text-sm">
-          <div className="flex items-center gap-2 text-[var(--text-secondary)] font-medium">
-            <Icon icon="carbon:box" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
-            <span>Min. Order (MOQ)</span>
+        {/* Item 2: Lead Time */}
+        <div className="flex items-center gap-2.5 px-3">
+          <div className="w-8 h-8 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] text-[var(--text-muted)] flex items-center justify-center shrink-0">
+            <Icon icon="carbon:time" className="w-4 h-4" />
           </div>
-          <span className="font-bold text-[var(--text-primary)] text-right">
-            {moqValue}
-          </span>
+          <div className="flex flex-col min-w-0">
+            <span className="text-[11px] font-semibold text-[var(--text-muted)] truncate">Lead Time</span>
+            <span className="text-xs font-bold text-[var(--text-primary)] truncate">{leadTimeValue}</span>
+          </div>
         </div>
 
-        {/* Row 2: Lead Time */}
-        <div className="flex items-center justify-between py-2.5 text-xs sm:text-sm">
-          <div className="flex items-center gap-2 text-[var(--text-secondary)] font-medium">
-            <Icon icon="carbon:time" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
-            <span>Lead Time</span>
+        {/* Item 3: Forklift Entry */}
+        <div className="flex items-center gap-2.5 px-3">
+          <div className="w-8 h-8 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] text-[var(--text-muted)] flex items-center justify-center shrink-0">
+            <Icon icon="carbon:delivery" className="w-4 h-4" />
           </div>
-          <span className="font-bold text-[var(--text-primary)] text-right">
-            {leadTimeValue}
-          </span>
-        </div>
-
-        {/* Row 3: Load Capacity */}
-        <div className="flex items-center justify-between py-2.5 text-xs sm:text-sm gap-2">
-          <div className="flex items-center gap-2 text-[var(--text-secondary)] font-medium shrink-0">
-            <Icon icon="carbon:chart-line" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
-            <span>Load Capacity</span>
+          <div className="flex flex-col min-w-0">
+            <span className="text-[11px] font-semibold text-[var(--text-muted)] truncate">Forklift Entry</span>
+            <span className="text-xs font-bold text-[var(--text-primary)] truncate">{handlingValue}</span>
           </div>
-          <span className="font-medium text-[var(--text-primary)] text-right text-[11px] sm:text-xs md:text-sm">
-            {capacityValue}
-          </span>
-        </div>
-
-        {/* Row 4: Forklift Handling */}
-        <div className="flex items-center justify-between py-2.5 text-xs sm:text-sm">
-          <div className="flex items-center gap-2 text-[var(--text-secondary)] font-medium">
-            <Icon icon="carbon:delivery" className="w-4 h-4 text-[var(--text-muted)] shrink-0" />
-            <span>Forklift Handling</span>
-          </div>
-          <span className="font-bold text-[var(--text-primary)] text-right">
-            {handlingValue}
-          </span>
         </div>
       </div>
     </div>

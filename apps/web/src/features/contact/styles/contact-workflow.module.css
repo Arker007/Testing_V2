@@ -2,7 +2,7 @@
 
 /* ── Workflow Steps Section ── */
 .workflowSection {
-  background: var(--navy, #0f172a);
+  background: var(--bg-dark, #061A26);
   padding: 5rem 0;
   color: #ffffff;
   position: relative;
@@ -55,7 +55,7 @@
   left: 0;
   width: 32px;
   height: 3px;
-  background: var(--brand-primary, #059669);
+  background: var(--brand-primary, var(--brand-green));
   opacity: 0.6;
   border-radius: 0 0 2px 0;
   transition: width 0.3s ease, opacity 0.3s ease;
@@ -64,14 +64,14 @@
 .workflowCard:hover::before {
   width: 100%;
   opacity: 1;
-  background: var(--brand-primary, #059669);
+  background: var(--brand-primary, var(--brand-green));
 }
 
 .workflowCard:hover {
   background: rgba(255, 255, 255, 0.09);
-  border-color: var(--brand-primary, #059669);
+  border-color: var(--brand-primary, var(--brand-green));
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 16px rgba(5, 150, 105, 0.2);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 16px rgba(120, 191, 69, 0.2);
 }
 
 .workflowCardHeader {
@@ -84,7 +84,7 @@
   font-family: var(--font-display, inherit);
   font-size: 1.5rem;
   font-weight: 900;
-  color: var(--brand-primary, #059669);
+  color: var(--brand-primary, var(--brand-green));
   line-height: 1;
 }
 
@@ -92,13 +92,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--brand-primary, #059669);
+  color: var(--brand-primary, var(--brand-green));
   opacity: 0.5;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .workflowCard:hover .stepArrow {
-  color: var(--brand-primary, #059669);
+  color: var(--brand-primary, var(--brand-green));
   opacity: 1;
   transform: translateX(3px);
 }

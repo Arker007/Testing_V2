@@ -53,7 +53,7 @@ export default function WhoWeAreSection() {
             className="group flex flex-col p-6 bg-[var(--bg-surface)] rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex items-center justify-between gap-3 mb-3">
-              <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] flex items-center justify-center text-[var(--brand-primary)] transition-transform duration-300 group-hover:scale-105 shrink-0">
+              <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
                 <Icon icon="carbon:target" className="w-6 h-6" />
               </div>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[var(--radius-sm,6px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-[0.6875rem] font-bold text-[var(--text-secondary)] tracking-wider">
@@ -61,7 +61,7 @@ export default function WhoWeAreSection() {
               </span>
             </div>
             <div>
-              <h3 className="text-[1.0625rem] font-bold text-[var(--text-primary)] mb-1.5 leading-snug group-hover:text-[var(--brand-primary)] transition-colors">
+              <h3 className="text-[1.0625rem] font-bold text-[var(--text-primary)] mb-1.5 leading-snug group-hover:text-[var(--text-brand)] transition-colors">
                 {c("about_mission_title", "Our Mission")}
               </h3>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal">
@@ -76,7 +76,7 @@ export default function WhoWeAreSection() {
             className="group flex flex-col p-6 bg-[var(--bg-surface)] rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex items-center justify-between gap-3 mb-3">
-              <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] flex items-center justify-center text-[var(--brand-primary)] transition-transform duration-300 group-hover:scale-105 shrink-0">
+              <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
                 <Icon icon="carbon:view" className="w-6 h-6" />
               </div>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[var(--radius-sm,6px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-[0.6875rem] font-bold text-[var(--text-secondary)] tracking-wider">
@@ -84,7 +84,7 @@ export default function WhoWeAreSection() {
               </span>
             </div>
             <div>
-              <h3 className="text-[1.0625rem] font-bold text-[var(--text-primary)] mb-1.5 leading-snug group-hover:text-[var(--brand-primary)] transition-colors">
+              <h3 className="text-[1.0625rem] font-bold text-[var(--text-primary)] mb-1.5 leading-snug group-hover:text-[var(--text-brand)] transition-colors">
                 {c("about_vision_title", "Our Vision")}
               </h3>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal">
@@ -99,7 +99,7 @@ export default function WhoWeAreSection() {
             className="group flex flex-col p-6 bg-[var(--bg-surface)] rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex items-center justify-between gap-3 mb-3">
-              <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] flex items-center justify-center text-[var(--brand-primary)] transition-transform duration-300 group-hover:scale-105 shrink-0">
+              <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
                 <Icon icon="carbon:badge" className="w-6 h-6" />
               </div>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[var(--radius-sm,6px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-[0.6875rem] font-bold text-[var(--text-secondary)] tracking-wider">
@@ -107,7 +107,7 @@ export default function WhoWeAreSection() {
               </span>
             </div>
             <div>
-              <h3 className="text-[1.0625rem] font-bold text-[var(--text-primary)] mb-1.5 leading-snug group-hover:text-[var(--brand-primary)] transition-colors">
+              <h3 className="text-[1.0625rem] font-bold text-[var(--text-primary)] mb-1.5 leading-snug group-hover:text-[var(--text-brand)] transition-colors">
                 {c("about_commitment_title", "Our Commitment")}
               </h3>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal">

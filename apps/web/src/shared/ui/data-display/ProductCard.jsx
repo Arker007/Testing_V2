@@ -62,7 +62,7 @@ function resolveProductImage(product, propImg) {
  * @param {number} [props.index=0] - Column stagger index
  * @param {string} [props.className=''] - Extra custom class
  */
-export default function ProductCard({
+function ProductCard({
   product,
   variant = "grid",
   img: propImg,
@@ -320,3 +320,6 @@ export default function ProductCard({
     </motion.article>
   );
 }
+
+export default React.memo(ProductCard);
+

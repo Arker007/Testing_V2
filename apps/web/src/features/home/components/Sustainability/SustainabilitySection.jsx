@@ -48,7 +48,7 @@ export default function SustainabilitySection() {
             />
 
             <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-2">
-              <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:shadow-md p-3 sm:p-4 rounded-[var(--radius-card,8px)] text-center shadow-2xs transition-all duration-300 hover:-translate-y-1">
+              <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:shadow-md p-3 sm:p-4 rounded-[var(--radius-card,8px)] text-center shadow-2xs transition-all duration-200 hover:-translate-y-0.5">
                 <div className="text-xl sm:text-2xl font-black text-[var(--brand-primary)]">
                   {c("home_about_stat1_number", "20+")}
                 </div>
@@ -56,7 +56,7 @@ export default function SustainabilitySection() {
                   {c("home_about_stat1_label", "Years Experience")}
                 </div>
               </div>
-              <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:shadow-md p-3 sm:p-4 rounded-[var(--radius-card,8px)] text-center shadow-2xs transition-all duration-300 hover:-translate-y-1">
+              <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:shadow-md p-3 sm:p-4 rounded-[var(--radius-card,8px)] text-center shadow-2xs transition-all duration-200 hover:-translate-y-0.5">
                 <div className="text-xl sm:text-2xl font-black text-[var(--brand-primary)]">
                   {c("home_about_stat2_number", "1000+")}
                 </div>
@@ -64,7 +64,7 @@ export default function SustainabilitySection() {
                   {c("home_about_stat2_label", "Satisfied Clients")}
                 </div>
               </div>
-              <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:shadow-md p-3 sm:p-4 rounded-[var(--radius-card,8px)] text-center shadow-2xs transition-all duration-300 hover:-translate-y-1">
+              <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:shadow-md p-3 sm:p-4 rounded-[var(--radius-card,8px)] text-center shadow-2xs transition-all duration-200 hover:-translate-y-0.5">
                 <div className="text-xl sm:text-2xl font-black text-[var(--brand-primary)]">
                   {c("home_about_stat3_number", "1500+")}
                 </div>

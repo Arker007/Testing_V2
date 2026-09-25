@@ -6,66 +6,84 @@ export default function FeaturesTrustRow() {
   const { c } = useSite();
 
   return (
-    <div className="mt-8 md:mt-10 border border-[var(--border-subtle)] rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] p-6 md:p-8 shadow-[var(--shadow-sm)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-      {/* Value 1 */}
-      <div className="flex items-start gap-4 group cursor-default transition-all duration-300 hover:-translate-y-1">
-        <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
-          <Icon icon="carbon:recycle" className="w-5 h-5" />
+    <section
+      className="bg-[var(--bg-surface)] rounded-[var(--radius-card,16px)] border border-[var(--border-subtle)] shadow-[var(--shadow-sm)] px-6 py-6 sm:px-8 sm:py-7"
+      data-purpose="bottom-metrics-ribbon"
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+        {/* Value 1: Sustainable Choice */}
+        <div className="lg:col-span-3 flex items-start space-x-4">
+          <div className="w-12 h-12 rounded-full bg-[var(--brand-soft)] border border-[var(--brand-border)] flex-shrink-0 flex items-center justify-center text-[var(--brand-primary)]">
+            <Icon icon="solar:leaf-bold" className="w-6 h-6" />
+          </div>
+          <div>
+            <h3 className="font-bold text-[var(--text-primary)] text-[15px] leading-snug">
+              {c("why_us_t1_title", "Sustainable Choice")}
+            </h3>
+            <p className="text-xs text-[var(--text-secondary)] mt-1 leading-normal">
+              {c("why_us_t1_desc", "Lower carbon footprint and environmentally responsible.")}
+            </p>
+          </div>
         </div>
-        <div>
-          <span className="block font-bold text-[var(--text-primary)] text-sm mb-1 group-hover:text-[var(--brand-primary)] transition-colors">
-            {c("why_us_t1_title", "Sustainable Choice")}
-          </span>
-          <p className="text-[var(--text-secondary)] text-xs leading-relaxed">
-            {c("why_us_t1_desc", "Low carbon footprint and environmentally responsible.")}
-          </p>
-        </div>
-      </div>
 
-      {/* Value 2 */}
-      <div className="flex items-start gap-4 group cursor-default transition-all duration-300 hover:-translate-y-1">
-        <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
-          <Icon icon="carbon:security" className="w-5 h-5" />
+        {/* Value 2: Corrosion Resistant */}
+        <div className="lg:col-span-3 flex items-start space-x-4">
+          <div className="w-12 h-12 rounded-full bg-[var(--brand-soft)] border border-[var(--brand-border)] flex-shrink-0 flex items-center justify-center text-[var(--brand-primary)]">
+            <Icon icon="solar:shield-check-bold" className="w-6 h-6" />
+          </div>
+          <div>
+            <h3 className="font-bold text-[var(--text-primary)] text-[15px] leading-snug">
+              {c("why_us_t2_title", "Corrosion Resistant")}
+            </h3>
+            <p className="text-xs text-[var(--text-secondary)] mt-1 leading-normal">
+              {c("why_us_t2_desc", "Resistant to chemicals, salt, and corrosion.")}
+            </p>
+          </div>
         </div>
-        <div>
-          <span className="block font-bold text-[var(--text-primary)] text-sm mb-1 group-hover:text-[var(--brand-primary)] transition-colors">
-            {c("why_us_t2_title", "Corrosion Proof")}
-          </span>
-          <p className="text-[var(--text-secondary)] text-xs leading-relaxed">
-            {c("why_us_t2_desc", "Resistant to chemicals, salt, and corrosion.")}
-          </p>
-        </div>
-      </div>
 
-      {/* Value 3 */}
-      <div className="flex items-start gap-4 group cursor-default transition-all duration-300 hover:-translate-y-1">
-        <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
-          <Icon icon="carbon:tool-box" className="w-5 h-5" />
+        {/* Value 3: Low Maintenance */}
+        <div className="lg:col-span-2 sm:col-span-1 flex items-start space-x-4">
+          <div className="w-12 h-12 rounded-full bg-[var(--brand-soft)] border border-[var(--brand-border)] flex-shrink-0 flex items-center justify-center text-[var(--brand-primary)]">
+            <Icon icon="solar:tuning-square-2-bold" className="w-6 h-6" />
+          </div>
+          <div>
+            <h3 className="font-bold text-[var(--text-primary)] text-[15px] leading-snug">
+              {c("why_us_t3_title", "Low Maintenance")}
+            </h3>
+            <p className="text-xs text-[var(--text-secondary)] mt-1 leading-normal">
+              {c("why_us_t3_desc", "No painting, no sealing, just long-lasting performance.")}
+            </p>
+          </div>
         </div>
-        <div>
-          <span className="block font-bold text-[var(--text-primary)] text-sm mb-1 group-hover:text-[var(--brand-primary)] transition-colors">
-            {c("why_us_t3_title", "Low Maintenance")}
-          </span>
-          <p className="text-[var(--text-secondary)] text-xs leading-relaxed">
-            {c("why_us_t3_desc", "No painting, no sealing, just long-lasting performance.")}
-          </p>
-        </div>
-      </div>
 
-      {/* Value 4 */}
-      <div className="flex items-start gap-4 group cursor-default transition-all duration-300 hover:-translate-y-1">
-        <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
-          <Icon icon="carbon:headset" className="w-5 h-5" />
+        {/* Value 4: Reliable Support */}
+        <div className="lg:col-span-3 flex items-start space-x-4">
+          <div className="w-12 h-12 rounded-full bg-[var(--brand-soft)] border border-[var(--brand-border)] flex-shrink-0 flex items-center justify-center text-[var(--brand-primary)]">
+            <Icon icon="solar:headphones-round-bold" className="w-6 h-6" />
+          </div>
+          <div>
+            <h3 className="font-bold text-[var(--text-primary)] text-[15px] leading-snug">
+              {c("why_us_t4_title", "Reliable Support")}
+            </h3>
+            <p className="text-xs text-[var(--text-secondary)] mt-1 leading-normal">
+              {c("why_us_t4_desc", "Expert guidance and dedicated customer support.")}
+            </p>
+          </div>
         </div>
-        <div>
-          <span className="block font-bold text-[var(--text-primary)] text-sm mb-1 group-hover:text-[var(--brand-primary)] transition-colors">
-            {c("why_us_t4_title", "Reliable Support")}
-          </span>
-          <p className="text-[var(--text-secondary)] text-xs leading-relaxed">
-            {c("why_us_t4_desc", "Expert guidance and dedicated customer support.")}
+
+        {/* Right Slogan Divider & Text */}
+        <div className="lg:col-span-1 border-t lg:border-t-0 lg:border-l border-[var(--border-subtle)] pt-4 lg:pt-0 lg:pl-5 flex flex-col justify-center">
+          <div className="w-6 h-[2px] bg-[var(--brand-primary)] mb-2 hidden lg:block" />
+          <p className="text-[10px] tracking-wider uppercase font-semibold text-[var(--text-muted)] leading-tight">
+            PEOPLE<br />
+            MATERIALS<br />
+            A CLEANER<br />
+            TOMORROW
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
+
+

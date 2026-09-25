@@ -16,7 +16,7 @@ export default function AboutPage() {
   );
 
   return (
-    <main className="bg-[var(--bg-canvas,#F2F2F2)] dark:bg-[var(--bg-canvas,#0f141a)] text-slate-800 dark:text-[#F2F2F2] min-h-screen pb-16 overflow-x-hidden">
+    <main className="bg-[var(--bg-canvas)] text-[var(--text-primary)] min-h-screen pb-16 overflow-x-hidden">
       <AboutHero />
       <WhoWeAreSection />
       <WhyChooseUsSection />

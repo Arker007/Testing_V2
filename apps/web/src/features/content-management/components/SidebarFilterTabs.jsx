@@ -1,7 +1,7 @@
 import React from "react";
 import cStyles from "../styles/SiteContent.module.css";
 
-const FILTER_GROUPS = ["All", "Profile", "Home", "Manufacturing", "Sustainability", "About", "Products", "Contact"];
+const FILTER_GROUPS = ["All", "Navigation", "Profile", "Home", "Manufacturing", "Sustainability", "About", "Products", "Contact"];
 
 export const SidebarFilterTabs = React.memo(function SidebarFilterTabs({
   activeFilterTab,

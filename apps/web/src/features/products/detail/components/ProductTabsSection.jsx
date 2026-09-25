@@ -31,11 +31,11 @@ export default function ProductTabsSection({
 
   // Standard engineering tab items matching the UI reference
   const tabItems = [
-    { key: "specs", label: "Technical Specifications" },
-    { key: "materials", label: "Materials" },
-    { key: "applications", label: "Applications" },
-    { key: "downloads", label: "Downloads" },
-    { key: "faq", label: "FAQ" },
+    { key: "specs", label: "Technical Specifications", icon: "carbon:document" },
+    { key: "materials", label: "Materials", icon: "carbon:layers" },
+    { key: "applications", label: "Applications", icon: "carbon:grid" },
+    { key: "downloads", label: "Downloads", icon: "carbon:download" },
+    { key: "faq", label: "FAQ", icon: "carbon:help" },
   ];
 
   // Map incoming tab aliases
@@ -211,6 +211,21 @@ export default function ProductTabsSection({
     ];
   };
 
+  const _getRowIcon = (param = "") => {
+    const p = param.toLowerCase();
+    if (p.includes("dimension") || p.includes("size")) return "carbon:cube";
+    if (p.includes("static")) return "carbon:align-box-bottom-center";
+    if (p.includes("dynamic")) return "carbon:delivery";
+    if (p.includes("racking") || p.includes("rack")) return "carbon:align-vertical-center";
+    if (p.includes("weight")) return "carbon:tag";
+    if (p.includes("material")) return "carbon:recycle";
+    if (p.includes("water") || p.includes("moisture")) return "carbon:water";
+    if (p.includes("density") || p.includes("modulus")) return "carbon:layers";
+    if (p.includes("weather")) return "carbon:sun";
+    if (p.includes("anchor") || p.includes("seating")) return "carbon:user";
+    return "carbon:information";
+  };
+
   const rows = getSpecificationRows();
 
   const handleDownloadDatasheet = () => {
@@ -298,15 +313,15 @@ export default function ProductTabsSection({
   return (
     <section
       id="product-tabs-section"
-      className="w-full pt-4 pb-2 transition-all duration-200"
+      className="w-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-[var(--radius-card,8px)] p-6 sm:p-8 shadow-xs transition-all duration-200"
     >
       {/* 1. Tab Navigation Bar with Rounded-Full Unit Toggle */}
-      <div className="flex flex-wrap items-center justify-between border-b border-[var(--border-subtle)] pb-0 gap-4 mb-6 sm:mb-7">
+      <div className="flex flex-wrap items-center justify-between border-b border-[var(--border-subtle)] pb-0 gap-4 mb-6 sm:mb-8">
         {/* Tab Links */}
         <div
           role="tablist"
           aria-label="Product Details and Specifications"
-          className="flex items-center gap-6 sm:gap-10 overflow-x-auto scrollbar-none -mb-px"
+          className="flex items-center gap-6 sm:gap-8 overflow-x-auto scrollbar-none -mb-px"
         >
           {tabItems.map((t, idx) => {
             const isActive = activeTab === t.key;
@@ -321,17 +336,23 @@ export default function ProductTabsSection({
                 tabIndex={isActive ? 0 : -1}
                 onClick={() => handleTabChange(t.key)}
                 onKeyDown={(e) => handleTabKeyDown(e, idx)}
-                className={`relative pb-3 text-sm sm:text-base whitespace-nowrap transition-colors cursor-pointer font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] rounded-t-sm ${
+                className={`relative pb-3.5 text-sm sm:text-base whitespace-nowrap transition-colors cursor-pointer font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] rounded-t-sm flex items-center gap-2 sm:gap-2.5 ${
                   isActive
-                    ? "text-[var(--brand-primary)]"
+                    ? "text-[var(--text-brand)]"
                     : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                 }`}
               >
+                <Icon
+                  icon={t.icon}
+                  className={`w-4.5 h-4.5 shrink-0 ${
+                    isActive ? "text-[var(--text-brand)]" : "text-[var(--text-muted)]"
+                  }`}
+                />
                 <span>{t.label}</span>
                 {isActive && (
                   <MotionSpan
                     layoutId="activeProductTabUnderline"
-                    className="absolute bottom-0 left-0 right-0 h-[3px] bg-[var(--brand-primary)]"
+                    className="absolute bottom-0 left-0 right-0 h-[3px] bg-[var(--text-brand)] rounded-[var(--radius-card,8px)]"
                     transition={{ type: "spring", stiffness: 450, damping: 35 }}
                   />
                 )}
@@ -340,57 +361,43 @@ export default function ProductTabsSection({
           })}
         </div>
 
-        {/* Metric / Imperial Unit Toggle Switch (Visible on Technical Specifications) or Certified Quality Badge */}
+        {/* Metric / Imperial Unit Toggle Switch */}
         {activeTab === "specs" ? (
           <div
             role="radiogroup"
             aria-label="Unit of measurement"
-            className="relative inline-flex items-center rounded-[var(--radius-lg,8px)] border border-[var(--border-default)] bg-[var(--bg-surface-secondary)] p-1 shadow-2xs my-1 shrink-0"
+            className="inline-flex items-center rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] p-1 shadow-2xs my-1 shrink-0"
           >
             <button
               type="button"
               role="radio"
               aria-checked={unit === "metric"}
               onClick={() => setUnit("metric")}
-              className={`relative z-10 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-[calc(var(--radius-lg,8px)-4px)] text-xs sm:text-sm font-semibold transition-colors cursor-pointer inline-flex items-center justify-center leading-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] ${
+              className={`px-4 py-1.5 rounded-[var(--radius-card,8px)] text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 unit === "metric"
-                  ? "text-white font-bold"
-                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                  ? "bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs font-extrabold"
+                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-semibold"
               }`}
             >
-              {unit === "metric" && (
-                <MotionDiv
-                  layoutId="activeUnitIndicator"
-                  className="absolute inset-0 bg-[var(--brand-primary)] rounded-[calc(var(--radius-lg,8px)-4px)] -z-10 shadow-xs"
-                  transition={{ type: "spring", stiffness: 500, damping: 35 }}
-                />
-              )}
-              <span>Metric (mm / kg)</span>
+              Metric (mm / kg)
             </button>
             <button
               type="button"
               role="radio"
               aria-checked={unit === "imperial"}
               onClick={() => setUnit("imperial")}
-              className={`relative z-10 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-[calc(var(--radius-lg,8px)-4px)] text-xs sm:text-sm font-semibold transition-colors cursor-pointer inline-flex items-center justify-center leading-normal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] ${
+              className={`px-4 py-1.5 rounded-[var(--radius-card,8px)] text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 unit === "imperial"
-                  ? "text-white font-bold"
-                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                  ? "bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs font-extrabold"
+                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-semibold"
               }`}
             >
-              {unit === "imperial" && (
-                <MotionDiv
-                  layoutId="activeUnitIndicator"
-                  className="absolute inset-0 bg-[var(--brand-primary)] rounded-[calc(var(--radius-lg,8px)-4px)] -z-10 shadow-xs"
-                  transition={{ type: "spring", stiffness: 500, damping: 35 }}
-                />
-              )}
-              <span>Imperial (in / lb)</span>
+              Imperial (in / lb)
             </button>
           </div>
         ) : (
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[var(--radius-lg,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] text-xs font-semibold text-[var(--text-secondary)] my-1 shrink-0">
-            <Icon icon="carbon:checkmark-filled" className="w-4 h-4 text-[var(--brand-primary)] dark:text-emerald-400" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[var(--radius-card,8px)] border border-[var(--border-brand)] bg-[var(--brand-soft)] text-xs font-bold text-[var(--text-brand)] my-1 shrink-0 shadow-xs">
+            <Icon icon="carbon:checkmark-filled" className="w-4 h-4 text-[var(--text-brand)]" />
             <span>ISPM-15 Exempt & ISO 9001 QA</span>
           </div>
         )}
@@ -409,52 +416,94 @@ export default function ProductTabsSection({
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
           >
-            {/* TAB 1: TECHNICAL SPECIFICATIONS (Table as in reference image) */}
+            {/* TAB 1: TECHNICAL SPECIFICATIONS (2-column layout matching image.png) */}
             {activeTab === "specs" && (
-              <div className="space-y-4">
-                {/* Table Card Container */}
-                <div className="w-full rounded-[var(--radius-lg,8px)] border border-[var(--border-default)] overflow-hidden bg-[var(--bg-surface)] shadow-2xs">
-                  <div className="w-full overflow-x-auto">
-                    <div className="min-w-[480px]">
-                      {/* Header Row */}
-                      <div className="grid grid-cols-12 bg-[var(--bg-surface-secondary)] border-b border-[var(--border-subtle)] py-3 px-6 sm:px-8 text-sm font-bold text-[var(--brand-primary)]">
-                        <div className="col-span-6">Parameter</div>
-                        <div className="col-span-6">Specification</div>
-                      </div>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                {/* Left Column (7 Cols): General Specifications Card & Table */}
+                <div className="lg:col-span-7 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] overflow-hidden shadow-xs">
+                  {/* Card Header */}
+                  <div className="p-5 sm:p-6 border-b border-[var(--border-subtle)] flex items-center justify-between flex-wrap gap-2">
+                    <h3 className="text-base font-bold text-[var(--text-primary)]">
+                      General Specifications
+                    </h3>
+                    <span className="text-xs text-[var(--text-muted)] font-normal">
+                      Key dimensions and physical properties of the pallet.
+                    </span>
+                  </div>
 
-                      {/* Table Body Rows */}
-                      <div className="divide-y divide-[var(--border-subtle)]">
-                        {rows.map((row, idx) => (
-                          <div
-                            key={idx}
-                            className="grid grid-cols-12 py-3 px-6 sm:px-8 items-center hover:bg-[var(--bg-surface-secondary)]/50 transition-colors"
-                          >
-                            <span className="col-span-6 text-sm text-[var(--text-secondary)] font-medium">
-                              {row.param}
-                            </span>
-                            <span className="col-span-6 text-sm text-[var(--text-primary)] font-bold">
-                              {row.value}
-                            </span>
-                          </div>
-                        ))}
+                  {/* Table Body Rows */}
+                  <div className="divide-y divide-[var(--border-subtle)]">
+                    {rows.concat({
+                      param: "Color Options",
+                      value: "Teak Brown, Charcoal Grey, Jet Black, Forest Green",
+                    }).map((row, idx) => (
+                      <div
+                        key={idx}
+                        className="grid grid-cols-12 items-center py-3.5 px-5 sm:px-6 hover:bg-[var(--bg-surface-secondary)]/40 transition-colors"
+                      >
+                        {/* Left Column: Parameter */}
+                        <div className="col-span-5 text-xs sm:text-sm font-medium text-[var(--text-secondary)]">
+                          {row.param}
+                        </div>
+
+                        {/* Right Column: Specification Value */}
+                        <div className="col-span-7 text-xs sm:text-sm font-bold text-[var(--text-primary)] text-left">
+                          {row.value}
+                        </div>
                       </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
 
-                {/* Operating Range / Compliance Notice Box */}
-                <div className="p-3.5 sm:p-4 rounded-[var(--radius-lg,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex items-center gap-3 text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
-                  <Icon
-                    icon="carbon:temperature"
-                    className="w-5 h-5 text-[var(--brand-primary)] shrink-0"
-                  />
-                  <p>
-                    Operating temperature range:{" "}
-                    <strong className="text-[var(--text-primary)] font-bold">
-                      {unit === "imperial" ? "-22°F to +140°F" : "-30°C to +60°C"}
-                    </strong>
-                    . Fully compliant with high-density AS/RS automated racking, cold storage blast freezers, and maritime container stuffing.
-                  </p>
+                {/* Right Column (5 Cols): 3 Stacked Feature Cards */}
+                <div className="lg:col-span-5 space-y-4">
+                  {/* Card 1: Operating Temperature Range */}
+                  <div className="p-5 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-start gap-4 shadow-xs">
+                    <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] flex items-center justify-center shrink-0">
+                      <Icon icon="carbon:temperature" className="w-5 h-5 text-[var(--text-brand)]" />
+                    </div>
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-bold text-[var(--text-primary)]">
+                        Operating Temperature Range
+                      </h4>
+                      <div className="text-sm font-extrabold text-[var(--text-primary)]">
+                        {unit === "imperial" ? "-22°F to +140°F" : "-30°C to +60°C"}
+                      </div>
+                      <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                        Suitable for cold storage, outdoor use, and harsh industrial environments.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card 2: Chemical & Weather Resistance */}
+                  <div className="p-5 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-start gap-4 shadow-xs">
+                    <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] flex items-center justify-center shrink-0">
+                      <Icon icon="carbon:security" className="w-5 h-5 text-[var(--text-brand)]" />
+                    </div>
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-bold text-[var(--text-primary)]">
+                        Chemical & Weather Resistance
+                      </h4>
+                      <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                        Resistant to moisture, UV, oils, and most industrial chemicals.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card 3: Environmental */}
+                  <div className="p-5 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-start gap-4 shadow-xs">
+                    <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] flex items-center justify-center shrink-0">
+                      <Icon icon="carbon:eco" className="w-5 h-5 text-[var(--text-brand)]" />
+                    </div>
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-bold text-[var(--text-primary)]">
+                        Environmental
+                      </h4>
+                      <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                        Made from 100% recycled HDPE. Supports sustainable material usage.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
@@ -465,7 +514,7 @@ export default function ProductTabsSection({
                 {/* 1. Formulation Overview Card */}
                 <div className="p-5 sm:p-6 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center shrink-0">
                       <Icon icon="carbon:layers" className="w-5 h-5" />
                     </div>
                     <div>
@@ -495,20 +544,20 @@ export default function ProductTabsSection({
 
                   {/* Material Specs Quick Pills */}
                   <div className="flex flex-wrap gap-2 pt-2 border-t border-[var(--border-subtle)]">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-primary)]">
-                      <Icon icon="carbon:security" className="w-3.5 h-3.5 text-emerald-500" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs text-xs font-semibold">
+                      <Icon icon="carbon:security" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                       100% Recycled HDPE / PP
                     </span>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-primary)]">
-                      <Icon icon="carbon:water" className="w-3.5 h-3.5 text-blue-500" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs text-xs font-semibold">
+                      <Icon icon="carbon:water" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                       0.00% Water Absorption
                     </span>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-primary)]">
-                      <Icon icon="carbon:send" className="w-3.5 h-3.5 text-amber-500" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs text-xs font-semibold">
+                      <Icon icon="carbon:send" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                       ISPM-15 Exempt (No Fumigation)
                     </span>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-xs font-semibold text-[var(--text-primary)]">
-                      <Icon icon="carbon:recycle" className="w-3.5 h-3.5 text-teal-500" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs text-xs font-semibold">
+                      <Icon icon="carbon:recycle" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                       100% Circular Lifecycle
                     </span>
                   </div>
@@ -516,9 +565,9 @@ export default function ProductTabsSection({
 
                 {/* 2. Key Resilience Properties (3 Bento Grid Cards) */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
+                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex flex-col justify-between shadow-xs">
                     <div>
-                      <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
+                      <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center mb-3">
                         <Icon icon="carbon:security" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
@@ -534,9 +583,9 @@ export default function ProductTabsSection({
                     </div>
                   </div>
 
-                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
+                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex flex-col justify-between shadow-xs">
                     <div>
-                      <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
+                      <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center mb-3">
                         <Icon icon="carbon:sun" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
@@ -552,9 +601,9 @@ export default function ProductTabsSection({
                     </div>
                   </div>
 
-                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
+                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex flex-col justify-between shadow-xs">
                     <div>
-                      <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center mb-3">
+                      <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center mb-3">
                         <Icon icon="carbon:recycle" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
@@ -575,7 +624,7 @@ export default function ProductTabsSection({
                 {features.length > 0 && (
                   <div className="space-y-3 pt-2">
                     <div className="flex items-center gap-2.5 pb-1">
-                      <div className="w-7 h-7 rounded-md bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center shrink-0">
+                      <div className="w-7 h-7 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center shrink-0">
                         <Icon icon="carbon:list-checked" className="w-4 h-4" />
                       </div>
                       <h4 className="text-sm sm:text-base font-bold text-[var(--text-primary)]">
@@ -586,10 +635,10 @@ export default function ProductTabsSection({
                       {features.map((feat, idx) => (
                         <div
                           key={idx}
-                          className="p-3.5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex items-start gap-3 shadow-2xs"
+                          className="p-3.5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex items-start gap-3 shadow-xs"
                         >
-                          <div className="w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
-                            <Icon icon="carbon:checkmark-filled" className="w-3.5 h-3.5" />
+                          <div className="w-5 h-5 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-2xs flex items-center justify-center shrink-0 mt-0.5">
+                            <Icon icon="carbon:checkmark-filled" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                           </div>
                           <span className="font-semibold text-xs sm:text-sm text-[var(--text-primary)] leading-snug">
                             {feat}
@@ -606,9 +655,9 @@ export default function ProductTabsSection({
             {activeTab === "applications" && (
               <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
+                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex flex-col justify-between shadow-xs">
                     <div>
-                      <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center mb-3">
+                      <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center mb-3">
                         <Icon icon="carbon:box" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
@@ -624,9 +673,9 @@ export default function ProductTabsSection({
                     </div>
                   </div>
 
-                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
+                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex flex-col justify-between shadow-xs">
                     <div>
-                      <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
+                      <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center mb-3">
                         <Icon icon="carbon:snowflake" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
@@ -642,9 +691,9 @@ export default function ProductTabsSection({
                     </div>
                   </div>
 
-                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] transition-all flex flex-col justify-between shadow-2xs">
+                  <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex flex-col justify-between shadow-xs">
                     <div>
-                      <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
+                      <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center mb-3">
                         <Icon icon="carbon:delivery" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
@@ -665,7 +714,7 @@ export default function ProductTabsSection({
                   <span>
                     <strong className="text-[var(--text-primary)]">Direct Dispatch:</strong> Ex-factory Ankleshwar GIDC Industrial Estate, Gujarat. Full truckload (FTL) and consolidated consignments available.
                   </span>
-                  <span className="font-mono font-bold text-[var(--text-primary)] shrink-0 px-2.5 py-1 rounded bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
+                  <span className="font-mono font-bold text-[var(--text-primary)] shrink-0 px-2.5 py-1 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)]">
                     Port: Nhava Sheva / Hazira
                   </span>
                 </div>
@@ -676,9 +725,9 @@ export default function ProductTabsSection({
             {activeTab === "downloads" && (
               <div className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors">
+                  <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors shadow-xs">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-[var(--radius-card,6px)] bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] dark:text-emerald-400 flex items-center justify-center shrink-0">
+                      <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center shrink-0">
                         <Icon icon="carbon:document" className="w-5 h-5" />
                       </div>
                       <div>
@@ -693,16 +742,16 @@ export default function ProductTabsSection({
                     <button
                       type="button"
                       onClick={handleDownloadDatasheet}
-                      className="px-3.5 py-1.5 rounded-[var(--radius-btn,6px)] text-xs font-semibold bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
+                      className="px-3.5 py-1.5 rounded-[var(--radius-card,8px)] text-xs font-bold bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-[var(--brand-btn-text)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0 shadow-2xs"
                     >
                       <Icon icon="carbon:download" className="w-3.5 h-3.5" />
                       <span>Download</span>
                     </button>
                   </div>
 
-                  <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors">
+                  <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors shadow-xs">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-[var(--radius-card,6px)] bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] dark:text-emerald-400 flex items-center justify-center shrink-0">
+                      <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center shrink-0">
                         <Icon icon="carbon:security" className="w-5 h-5" />
                       </div>
                       <div>
@@ -717,16 +766,16 @@ export default function ProductTabsSection({
                     <button
                       type="button"
                       onClick={handleDownloadDatasheet}
-                      className="px-3.5 py-1.5 rounded-[var(--radius-btn,6px)] text-xs font-semibold border border-[var(--border-default)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
+                      className="px-3.5 py-1.5 rounded-[var(--radius-card,8px)] text-xs font-bold border border-[var(--border-default)] hover:border-[var(--border-brand)] hover:bg-[var(--brand-soft)] text-[var(--text-primary)] hover:text-[var(--text-brand)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0 shadow-2xs"
                     >
-                      <Icon icon="carbon:view" className="w-3.5 h-3.5" />
+                      <Icon icon="carbon:view" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                       <span>View</span>
                     </button>
                   </div>
 
-                  <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors">
+                  <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors shadow-xs">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-[var(--radius-card,6px)] bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] dark:text-emerald-400 flex items-center justify-center shrink-0">
+                      <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center shrink-0">
                         <Icon icon="carbon:box" className="w-5 h-5" />
                       </div>
                       <div>
@@ -741,16 +790,16 @@ export default function ProductTabsSection({
                     <button
                       type="button"
                       onClick={handleDownloadDatasheet}
-                      className="px-3.5 py-1.5 rounded-[var(--radius-btn,6px)] text-xs font-semibold border border-[var(--border-default)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
+                      className="px-3.5 py-1.5 rounded-[var(--radius-card,8px)] text-xs font-bold bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-[var(--brand-btn-text)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0 shadow-2xs"
                     >
                       <Icon icon="carbon:download" className="w-3.5 h-3.5" />
                       <span>Download</span>
                     </button>
                   </div>
 
-                  <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-default)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors">
+                  <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors shadow-xs">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-[var(--radius-card,6px)] bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] dark:text-emerald-400 flex items-center justify-center shrink-0">
+                      <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center shrink-0">
                         <Icon icon="carbon:certificate" className="w-5 h-5" />
                       </div>
                       <div>
@@ -765,9 +814,9 @@ export default function ProductTabsSection({
                     <button
                       type="button"
                       onClick={handleDownloadDatasheet}
-                      className="px-3.5 py-1.5 rounded-[var(--radius-btn,6px)] text-xs font-semibold border border-[var(--border-default)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
+                      className="px-3.5 py-1.5 rounded-[var(--radius-card,8px)] text-xs font-bold border border-[var(--border-default)] hover:border-[var(--border-brand)] hover:bg-[var(--brand-soft)] text-[var(--text-primary)] hover:text-[var(--text-brand)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0 shadow-2xs"
                     >
-                      <Icon icon="carbon:view" className="w-3.5 h-3.5" />
+                      <Icon icon="carbon:view" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                       <span>View</span>
                     </button>
                   </div>

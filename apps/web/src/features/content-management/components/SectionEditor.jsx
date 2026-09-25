@@ -84,7 +84,7 @@ export default function SectionEditor({
                           <input 
                             id={`field-${f.key}`}
                             type="checkbox" 
-                            checked={cms[f.key] === "1" || cms[f.key] === undefined} 
+                            checked={f.defaultChecked === false ? cms[f.key] === "1" : cms[f.key] !== "0"} 
                             onChange={(e) => setM(f.key)({ target: { value: e.target.checked ? "1" : "0" } })} 
                           />
                           <span className={cStyles.toggleSlider} />

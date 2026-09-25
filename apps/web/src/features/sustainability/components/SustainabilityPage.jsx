@@ -17,7 +17,7 @@ export default function SustainabilityPage() {
   );
 
   return (
-    <main className="bg-[var(--bg-canvas,#F2F2F2)] dark:bg-[var(--bg-canvas,#0f141a)] text-slate-800 dark:text-[#F2F2F2] min-h-screen pb-16 overflow-x-hidden">
+    <main className="bg-[var(--bg-canvas)] text-[var(--text-primary)] min-h-screen pb-16 overflow-x-hidden">
       {/* Page Hero */}
       <PageHero
         breadcrumbs={[
@@ -40,7 +40,7 @@ export default function SustainabilityPage() {
       </div>
 
       {/* Core Sustainability Pillars */}
-      <section className="py-16 px-4 bg-slate-50 dark:bg-[var(--bg-canvas,#0f141a)] border-t border-slate-200 dark:border-[rgba(242,242,242,0.12)]">
+      <section className="py-16 px-4 bg-[var(--bg-surface-secondary)] border-t border-[var(--border-subtle)]">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <div className="mb-4">

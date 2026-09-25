@@ -1,5 +1,16 @@
 export const CMS_FIELDS = [
   {
+    section: "Navbar Pages",
+    fields: [
+      { key: "nav_show_home", label: "Home Page Link", type: "checkbox", checkboxLabel: "Show Home page in top navigation bar and mobile drawer" },
+      { key: "nav_show_products", label: "Products Catalog Link", type: "checkbox", checkboxLabel: "Show Products Catalog & Mega-Menu in top navigation bar and mobile drawer" },
+      { key: "nav_show_manufacturing", label: "Manufacturing Page Link", type: "checkbox", checkboxLabel: "Show Manufacturing page in top navigation bar and mobile drawer" },
+      { key: "nav_show_sustainability", label: "Sustainability Page Link", type: "checkbox", checkboxLabel: "Show Sustainability page in top navigation bar and mobile drawer" },
+      { key: "nav_show_about", label: "About Us Page Link", type: "checkbox", checkboxLabel: "Show About Us page in top navigation bar and mobile drawer" },
+      { key: "nav_show_contact", label: "Contact Page Link", type: "checkbox", checkboxLabel: "Show Contact page in top navigation bar and mobile drawer" },
+    ],
+  },
+  {
     section: "Homepage Hero",
     fields: [
       { key: "show_hero", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Hero Section" },
@@ -112,6 +123,7 @@ export const CMS_FIELDS = [
     section: "Homepage Process",
     fields: [
       { key: "show_process", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Manufacturing Process Section" },
+      { key: "nav_show_manufacturing", label: "Navbar Page Link", type: "checkbox", checkboxLabel: "Show Manufacturing link in navigation bar and mobile menu" },
       { key: "mfg_hero_tag", label: "Process Hero Badge", type: "text", placeholder: "High-Precision Polymer Processing" },
       { key: "mfg_hero_title", label: "Process Hero Title", type: "text", placeholder: "High-Pressure Polymer Extrusion & Quality Control" },
       { key: "mfg_hero_sub", label: "Process Hero Description", type: "textarea", placeholder: "Our Gujarat-based manufacturing facility utilizes advanced automated polymer sorting, decontamination, and high-pressure extrusion to convert waste into durable structural profiles." },
@@ -124,6 +136,7 @@ export const CMS_FIELDS = [
     section: "Homepage Sustainability",
     fields: [
       { key: "show_home_about", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Sustainability Impact Section" },
+      { key: "nav_show_sustainability", label: "Navbar Page Link", type: "checkbox", checkboxLabel: "Show Sustainability link in navigation bar and mobile menu" },
       { key: "home_about_eyebrow", label: "Eyebrow Tag", type: "text", placeholder: "Our Environmental Impact" },
       { key: "home_about_title", label: "Section Title", type: "text", placeholder: "Replacing Wood. Saving Forests." },
       { key: "home_about_desc", label: "Description Paragraph", type: "textarea", placeholder: "At VISHAL ENTERPRISE, we turn recycled plastic into high-durability products. This prevents plastic waste from reaching landfills and provides strong, rot-proof alternatives to traditional wood without requiring toxic chemical treatments." },
@@ -183,6 +196,7 @@ export const CMS_FIELDS = [
     section: "About Hero",
     fields: [
       { key: "about_hero_enabled", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Hero Header" },
+      { key: "nav_show_about", label: "Navbar Page Link", type: "checkbox", checkboxLabel: "Show About Us link in navigation bar and mobile menu" },
       { key: "about_hero_tag", label: "Tag / Badge", type: "text", placeholder: "Pioneering Recycled Polymer Extrusion" },
       { key: "about_hero_title", label: "Title", type: "text", placeholder: "About VISHAL ENTERPRISE" },
       { key: "about_hero_subtitle", label: "Subtitle", type: "textarea", placeholder: "Pioneering sustainable plastic manufacturing for over 15 years in Gujarat, India. Transforming polymer waste into high-density industrial lumber & profiles." },
@@ -236,6 +250,7 @@ export const CMS_FIELDS = [
   {
     section: "Products Page",
     fields: [
+      { key: "nav_show_products", label: "Navbar Page Link", type: "checkbox", checkboxLabel: "Show Products Catalog & Mega-Menu in navigation bar and mobile menu" },
       { key: "products_hero_tag", label: "Tag / Badge", type: "text", placeholder: "Industrial Polymer Products" },
       { key: "products_hero_title", label: "Page Title", type: "text", placeholder: "Recycled Plastic Pallet & Lumber Catalog" },
       { key: "products_hero_subtitle", label: "Page Subtitle", type: "textarea", placeholder: "Engineered industrial profiles, heavy-duty logistics pallets, municipal benches, and custom extruded sections manufactured from 100% recycled HDPE. Zero rot, termite-proof, and maintenance-free." },
@@ -245,6 +260,7 @@ export const CMS_FIELDS = [
     section: "Contact Hero",
     fields: [
       { key: "show_contact_hero", label: "Section Visibility", type: "checkbox", isHeader: true, checkboxLabel: "Show Hero Header" },
+      { key: "nav_show_contact", label: "Navbar Page Link", type: "checkbox", checkboxLabel: "Show Contact link in navigation bar and mobile menu" },
       { key: "contact_hero_badge", label: "Tag / Badge", type: "text", placeholder: "Direct Factory Sales Desk" },
       { key: "contact_hero_title", label: "Page Title", type: "text", placeholder: "Commercial Procurement & Engineering Support" },
       { key: "contact_hero_sub", label: "Subtitle", type: "textarea", placeholder: "Request volume pricing, custom extruded profiles, or schedule plant dispatches directly with our Ankleshwar manufacturing facility." },

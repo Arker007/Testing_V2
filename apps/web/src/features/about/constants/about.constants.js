@@ -3,19 +3,22 @@ export const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1
-    }
-  }
+      staggerChildren: 0.08,
+      delayChildren: 0.04,
+    },
+  },
 };
 
 export const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 16, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 100, damping: 15 }
-  }
+    transition: {
+      duration: 0.35,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
 };
 
 export const testimonials = [

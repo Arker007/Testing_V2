@@ -83,31 +83,43 @@
   }
 }
 
+:global([data-theme="dark"]) .mobileNav,
+:global(.dark) .mobileNav,
 :root[data-theme="dark"] .mobileNav,
-:root.dark .mobileNav {
-  background: var(--bg-surface-elevated, rgba(22, 28, 36, 0.95)) !important;
-  border-top-color: var(--border-subtle, rgba(255, 255, 255, 0.12)) !important;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.8) !important;
+html.dark .mobileNav {
+  background: var(--bg-surface-elevated, #132E40) !important;
+  border-top-color: var(--border-subtle) !important;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6) !important;
 }
 
+:global([data-theme="dark"]) .navItem,
+:global(.dark) .navItem,
 :root[data-theme="dark"] .navItem,
-:root.dark .navItem {
+html.dark .navItem {
   color: var(--text-secondary) !important;
 }
 
+:global([data-theme="dark"]) .navItem:hover,
+:global(.dark) .navItem:hover,
 :root[data-theme="dark"] .navItem:hover,
-:root.dark .navItem:hover,
+html.dark .navItem:hover,
+:global([data-theme="dark"]) .navItem.active,
+:global(.dark) .navItem.active,
 :root[data-theme="dark"] .navItem.active,
-:root.dark .navItem.active {
+html.dark .navItem.active {
   color: var(--text-brand) !important;
 }
 
+:global([data-theme="dark"]) .quoteItem,
+:global(.dark) .quoteItem,
 :root[data-theme="dark"] .quoteItem,
-:root.dark .quoteItem {
+html.dark .quoteItem {
   color: var(--text-primary) !important;
 }
 
+:global([data-theme="dark"]) .quoteItem.active,
+:global(.dark) .quoteItem.active,
 :root[data-theme="dark"] .quoteItem.active,
-:root.dark .quoteItem.active {
+html.dark .quoteItem.active {
   color: var(--text-brand) !important;
 }

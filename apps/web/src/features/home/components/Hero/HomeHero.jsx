@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useLayoutEffect, useMemo, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { motion as Motion, AnimatePresence } from "motion/react";
+import { motion as Motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { useSite } from "../../../../shared/context/SiteContext";
 import { OptimizedImage } from "@/shared/ui";
 import styles from "./Hero.module.css";
@@ -31,9 +31,98 @@ const getOptimizedHeroImage = (imgSrc) => {
   return imgSrc;
 };
 
+// Curated cinematic animation variants
+const textContainerVariants = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.04,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -8,
+    transition: {
+      duration: 0.22,
+      ease: [0.32, 0, 0.67, 0],
+    },
+  },
+};
+
+const badgeVariants = {
+  initial: { opacity: 0, y: -10, scale: 0.96 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const titlePartVariants = {
+  initial: { opacity: 0, y: 16, filter: "blur(4px)" },
+  animate: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const underlineVariants = {
+  initial: { opacity: 0, scaleX: 0, transformOrigin: "left" },
+  animate: {
+    opacity: 1,
+    scaleX: 1,
+    transformOrigin: "left",
+    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1], delay: 0.1 },
+  },
+};
+
+const descVariants = {
+  initial: { opacity: 0, y: 12 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: 0.15 },
+  },
+};
+
+const featurePanelVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.07,
+      delayChildren: 0.12,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.2 },
+  },
+};
+
+const featureItemVariants = {
+  hidden: { opacity: 0, y: 14, scale: 0.94 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 320,
+      damping: 24,
+    },
+  },
+};
+
 export default function HomeHero() {
   const { c, co } = useSite();
   const [isFirstRender, setIsFirstRender] = useState(true);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     setIsFirstRender(false);
@@ -98,6 +187,44 @@ export default function HomeHero() {
 
   const [current, setCurrent] = useState(2); // Default to Slide 3 (Weatherproof Garden Benches matching reference)
 
+  const heroRef = useRef(null);
+  const hexagonCardRef = useRef(null);
+  const [chevronTop, setChevronTop] = useState(null);
+
+  const updateChevronPosition = useCallback(() => {
+    if (!heroRef.current || !hexagonCardRef.current) return;
+    const heroRect = heroRef.current.getBoundingClientRect();
+    const cardRect = hexagonCardRef.current.getBoundingClientRect();
+    if (!heroRect.height || !cardRect.height) return;
+
+    // Measured the exact vertical center of the hexagonal product card dynamically relative to the hero section
+    const cardCenterY = cardRect.top + cardRect.height / 2;
+    setChevronTop(cardCenterY - heroRect.top);
+  }, []);
+
+  useLayoutEffect(() => {
+    updateChevronPosition();
+  }, [updateChevronPosition, current]);
+
+  useEffect(() => {
+    updateChevronPosition();
+    window.addEventListener("resize", updateChevronPosition);
+
+    let resizeObserver;
+    if (typeof ResizeObserver !== "undefined") {
+      resizeObserver = new ResizeObserver(() => {
+        updateChevronPosition();
+      });
+      if (heroRef.current) resizeObserver.observe(heroRef.current);
+      if (hexagonCardRef.current) resizeObserver.observe(hexagonCardRef.current);
+    }
+
+    return () => {
+      window.removeEventListener("resize", updateChevronPosition);
+      if (resizeObserver) resizeObserver.disconnect();
+    };
+  }, [updateChevronPosition]);
+
   // Auto-advance logic (resets timer when current changes)
   useEffect(() => {
     const timer = setInterval(() => {
@@ -120,16 +247,13 @@ export default function HomeHero() {
   const heroPhone = c("hero_assistance_phone", co("phone", "+91 98986 86379"));
   const cleanedPhone = heroPhone.replace(/\s+/g, "");
 
-  const LeftGroupWrapper = isFirstRender ? "div" : Motion.div;
-  const FeaturePanelWrapper = isFirstRender ? "div" : Motion.div;
-  const FeatureColumnWrapper = isFirstRender ? "div" : Motion.div;
-  const CtaWrapper = isFirstRender ? "div" : Motion.div;
-  const DotButton = isFirstRender ? "button" : Motion.button;
-  const AssistanceCardWrapper = isFirstRender ? "div" : Motion.div;
-  const AssistanceBtnWrapper = isFirstRender ? "a" : Motion.a;
-
   return (
-    <section className={styles.hero} id="home-hero-redesign">
+    <section
+      ref={heroRef}
+      className={styles.hero}
+      id="home-hero-redesign"
+      style={chevronTop != null ? { "--hero-chevron-top": `${chevronTop}px` } : undefined}
+    >
       {/* Background Diagonal Split Elements */}
       <div className={styles.slantBgGreen} />
       <div className={styles.slantBgDark} />
@@ -139,12 +263,13 @@ export default function HomeHero() {
       <div className={styles.dotsPatternRightTop} />
       <div className={styles.dotsPatternRightBottom} />
 
-      {/* Navigation Chevron Buttons aligned vertically via CSS */}
+      {/* Navigation Chevron Buttons */}
       <button
         id="hero-chevron-prev"
         type="button"
         onClick={handlePrev}
         className={`${styles.chevronBtn} ${styles.chevronBtnLeft}`}
+        style={chevronTop != null ? { top: `${chevronTop}px` } : undefined}
         aria-label="Previous Slide"
       >
         <Icon icon="carbon:chevron-left" className="w-5 h-5 text-white" />
@@ -154,6 +279,7 @@ export default function HomeHero() {
         type="button"
         onClick={handleNext}
         className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
+        style={chevronTop != null ? { top: `${chevronTop}px` } : undefined}
         aria-label="Next Slide"
       >
         <Icon icon="carbon:chevron-right" className="w-5 h-5 text-white" />
@@ -164,105 +290,98 @@ export default function HomeHero() {
           {/* Left Content Column */}
           <div className={styles.heroLeft}>
             <AnimatePresence mode="wait" initial={false}>
-              <LeftGroupWrapper
+              <Motion.div
                 key={current}
-                {...(isFirstRender ? {} : {
-                  initial: { opacity: 0, x: -16 },
-                  animate: { opacity: 1, x: 0 },
-                  exit: { opacity: 0, x: 12 },
-                  transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] }
-                })}
+                variants={textContainerVariants}
+                initial={isFirstRender ? false : "initial"}
+                animate="animate"
+                exit="exit"
                 className={styles.heroLeftTopGroup}
               >
                 {/* Manufacturer Badge */}
-                <div className={styles.badge}>
+                <Motion.div variants={badgeVariants} className={styles.badge}>
                   <div className={styles.badgeIconWrapper}>
                     <Icon icon="carbon:industry" className={styles.badgeIcon} />
                   </div>
                   <span className={styles.badgeText}>{activeSlide.badge}</span>
-                </div>
+                </Motion.div>
 
                 {/* Headline */}
                 <h1 className={styles.headline}>
-                  <span className={styles.titleLime}>{activeSlide.titleLime}</span>
-                  <span className={styles.titleWhite}>{activeSlide.titleWhite}</span>
+                  <Motion.span variants={titlePartVariants} className={styles.titleLime}>
+                    {activeSlide.titleLime}
+                  </Motion.span>
+                  <Motion.span variants={titlePartVariants} className={styles.titleWhite}>
+                    {activeSlide.titleWhite}
+                  </Motion.span>
                 </h1>
 
                 {/* Headline Underline Accent */}
-                <div className={styles.underlineAccent}>
+                <Motion.div variants={underlineVariants} className={styles.underlineAccent}>
                   <span className={styles.underlineLine} />
                   <span className={styles.underlineDot} />
-                </div>
+                </Motion.div>
 
                 {/* Description */}
-                <p className={styles.description}>
+                <Motion.p variants={descVariants} className={styles.description}>
                   {activeSlide.desc}
-                </p>
-              </LeftGroupWrapper>
+                </Motion.p>
+              </Motion.div>
             </AnimatePresence>
 
             {/* Feature Panel */}
             <AnimatePresence mode="wait" initial={false}>
-              <FeaturePanelWrapper
+              <Motion.div
                 key={`features-${current}`}
-                {...(isFirstRender ? {} : {
-                  initial: "hidden",
-                  animate: "visible",
-                  exit: "hidden",
-                  variants: {
-                    hidden: { opacity: 0 },
-                    visible: {
-                      opacity: 1,
-                      transition: {
-                        staggerChildren: 0.06,
-                      },
-                    },
-                  }
-                })}
+                variants={featurePanelVariants}
+                initial={isFirstRender ? false : "hidden"}
+                animate="visible"
+                exit="exit"
                 className={styles.featurePanel}
               >
                 {activeSlide.features.map((feat, idx) => {
                   const iconName = iconMap[feat.icon] || "carbon:security";
                   return (
-                    <FeatureColumnWrapper
+                    <Motion.div
                       key={idx}
-                      {...(isFirstRender ? {} : {
-                        variants: {
-                          hidden: { opacity: 0, y: 12 },
-                          visible: {
-                            opacity: 1,
-                            y: 0,
-                            transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
-                          },
-                        }
-                      })}
+                      variants={featureItemVariants}
+                      whileHover={shouldReduceMotion ? {} : { y: -3, transition: { duration: 0.2 } }}
                       className={styles.featureColumn}
                     >
-                      <div className={styles.featureIconRing}>
+                      <Motion.div
+                        whileHover={shouldReduceMotion ? {} : { scale: 1.1 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                        className={styles.featureIconRing}
+                      >
                         <Icon icon={iconName} className={styles.featureIcon} />
-                      </div>
+                      </Motion.div>
                       <span className={styles.featureTitle}>{feat.title}</span>
                       <p className={styles.featureDesc}>{feat.text}</p>
-                    </FeatureColumnWrapper>
+                    </Motion.div>
                   );
                 })}
-              </FeaturePanelWrapper>
+              </Motion.div>
             </AnimatePresence>
 
             {/* CTA Row & Decorative Slashes */}
             <div className={styles.ctaRow}>
-              <CtaWrapper
-                {...(isFirstRender ? {} : {
-                  whileHover: { scale: 1.03 },
-                  whileTap: { scale: 0.98 }
-                })}
+              <Motion.div
+                whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
+                whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 400, damping: 22 }}
                 className="inline-block"
               >
                 <Link to="/products" className="exploreBtnGlobal">
                   <span>{c("hero_cta_primary", "EXPLORE PRODUCTS")}</span>
-                  <Icon icon="carbon:arrow-right" className="exploreBtnArrowGlobal" />
+                  <Motion.span
+                    animate={shouldReduceMotion ? {} : { x: [0, 4, 0] }}
+                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                    className="inline-flex items-center"
+                  >
+                    <Icon icon="carbon:arrow-right" className="exploreBtnArrowGlobal" />
+                  </Motion.span>
                 </Link>
-              </CtaWrapper>
+              </Motion.div>
               <div className={styles.decorativeSlashes} aria-hidden="true">
                 <span>/</span><span>/</span><span>/</span><span>/</span>
                 <span>/</span><span>/</span><span>/</span><span>/</span>
@@ -274,29 +393,36 @@ export default function HomeHero() {
           <div className={styles.heroRight}>
             <div className={styles.productShowcase}>
               <div
+                ref={hexagonCardRef}
                 id="hero-product-hexagon-frame"
                 className={styles.productFrameWrapper}
               >
                 {/* Hexagonal Geometric SVG Frame with Full-Screen Clipped Image and 3D Pedestal Stage */}
-                <svg
+                <Motion.svg
                   className={styles.productFrameSvg}
                   viewBox="0 0 500 520"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  animate={shouldReduceMotion ? {} : { y: [0, -6, 0] }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 >
                   <defs>
                     {/* Radial Spotlight Gradient for Product Stage */}
                     <radialGradient id="stageSpotlight" cx="50%" cy="52%" r="50%">
-                      <stop offset="0%" stopColor="#5FBF50" stopOpacity="0.14" />
-                      <stop offset="50%" stopColor="#011A38" stopOpacity="0.04" />
+                      <stop offset="0%" stopColor="#78BF45" stopOpacity="0.14" />
+                      <stop offset="50%" stopColor="#061A26" stopOpacity="0.04" />
                       <stop offset="100%" stopColor="#F2F2F2" stopOpacity="0" />
                     </radialGradient>
 
                     {/* Floor Perspective Pedestal Shadow */}
                     <radialGradient id="floorShadowGrad" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stopColor="#0f141a" stopOpacity="0.28" />
-                      <stop offset="60%" stopColor="#0f141a" stopOpacity="0.08" />
-                      <stop offset="100%" stopColor="#0f141a" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#061A26" stopOpacity="0.28" />
+                      <stop offset="60%" stopColor="#061A26" stopOpacity="0.08" />
+                      <stop offset="100%" stopColor="#061A26" stopOpacity="0" />
                     </radialGradient>
 
                     <clipPath id="heroHexagonClip">
@@ -334,7 +460,7 @@ export default function HomeHero() {
                     strokeWidth="3"
                   />
 
-                  {/* Full-Screen Product Image Clipped to Hexagon */}
+                  {/* Full-Screen Product Image Clipped to Hexagon with Framer Motion Transition */}
                   <g clipPath="url(#heroHexagonClip)">
                     <foreignObject x="0" y="0" width="500" height="520">
                       <div style={{ width: "100%", height: "100%", backgroundColor: "var(--white)", position: "relative", overflow: "hidden" }}>
@@ -343,21 +469,24 @@ export default function HomeHero() {
                           style={{
                             position: "absolute",
                             inset: 0,
-                            background: "radial-gradient(circle at 50% 50%, rgba(152, 209, 42, 0.16) 0%, rgba(11, 47, 99, 0.04) 55%, transparent 75%)",
+                            background: "radial-gradient(circle at 50% 50%, rgba(120, 191, 69, 0.16) 0%, rgba(6, 26, 38, 0.04) 55%, transparent 75%)",
                             pointerEvents: "none",
                           }}
                         />
 
-                        {slides.map((slide, idx) => (
-                          <div
-                            key={idx}
+                        <AnimatePresence mode="wait" initial={false}>
+                          <Motion.div
+                            key={current}
+                            initial={isFirstRender ? false : { opacity: 0, scale: 0.88, y: 12, filter: "blur(6px)" }}
+                            animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
+                            exit={{ opacity: 0, scale: 1.08, y: -8, filter: "blur(4px)" }}
+                            transition={{
+                              duration: 0.55,
+                              ease: [0.16, 1, 0.3, 1],
+                            }}
                             style={{
                               position: "absolute",
                               inset: 0,
-                              opacity: idx === current ? 1 : 0,
-                              pointerEvents: idx === current ? "auto" : "none",
-                              transition: isFirstRender ? "none" : "opacity 0.4s ease-in-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
-                              transform: idx === current ? "translateY(0) scale(1)" : "translateY(8px) scale(0.97)",
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "center",
@@ -366,11 +495,11 @@ export default function HomeHero() {
                             }}
                           >
                             <OptimizedImage
-                              src={getOptimizedHeroImage(slide.image)}
-                              fallbackSrc={slide.fallbackSrc}
-                              alt={slide.titleWhite}
-                              loading={idx === current ? "eager" : "lazy"}
-                              fetchPriority={idx === current ? "high" : "low"}
+                              src={getOptimizedHeroImage(activeSlide.image)}
+                              fallbackSrc={activeSlide.fallbackSrc}
+                              alt={activeSlide.titleWhite}
+                              loading="eager"
+                              fetchPriority="high"
                               width="500"
                               height="500"
                               style={{
@@ -381,8 +510,8 @@ export default function HomeHero() {
                                 filter: "none",
                               }}
                             />
-                          </div>
-                        ))}
+                          </Motion.div>
+                        </AnimatePresence>
                       </div>
                     </foreignObject>
                   </g>
@@ -400,7 +529,7 @@ export default function HomeHero() {
                     stroke="var(--brand)"
                     strokeWidth="2.5"
                   />
-                </svg>
+                </Motion.svg>
               </div>
 
               {/* Bottom Controls Row: Pagination Dots + Assistance Card */}
@@ -409,13 +538,12 @@ export default function HomeHero() {
                 <div className={styles.paginationDots}>
                   <div className={styles.paginationTrack}>
                     {slides.map((slide, idx) => (
-                      <DotButton
+                      <Motion.button
                         key={idx}
                         onClick={() => setCurrent(idx)}
-                        {...(isFirstRender ? {} : {
-                          whileHover: { scale: 1.3 },
-                          whileTap: { scale: 0.8 }
-                        })}
+                        whileHover={shouldReduceMotion ? {} : { scale: 1.25 }}
+                        whileTap={shouldReduceMotion ? {} : { scale: 0.85 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 28 }}
                         className={`${styles.paginationDot} ${
                           idx === current ? styles.paginationDotActive : ""
                         }`}
@@ -427,34 +555,35 @@ export default function HomeHero() {
                 </div>
 
                 {/* Floating Assistance Card */}
-                <AssistanceCardWrapper
+                <Motion.div
                   className={styles.assistanceCard}
-                  {...(isFirstRender ? {} : {
-                    whileHover: { y: -3, boxShadow: "var(--shadow-lg)" },
-                    transition: { type: "spring", stiffness: 350, damping: 20 }
-                  })}
+                  whileHover={shouldReduceMotion ? {} : { y: -3, boxShadow: "var(--shadow-lg)" }}
+                  transition={{ type: "spring", stiffness: 350, damping: 20 }}
                 >
-                  <div className={styles.assistanceIconCircle}>
+                  <Motion.div
+                    className={styles.assistanceIconCircle}
+                    whileHover={shouldReduceMotion ? {} : { rotate: [0, -8, 8, 0] }}
+                    transition={{ duration: 0.4 }}
+                  >
                     <Icon icon="carbon:headset" className="w-5 h-5 text-white" />
-                  </div>
+                  </Motion.div>
                   <div className={styles.assistanceTextGroup}>
                     <span className={styles.assistanceLabel}>{c("hero_assistance_title", "NEED ASSISTANCE?")}</span>
                     <span className={styles.assistanceSub}>
                       {c("hero_assistance_sub", "Our team is ready to help you find the right solution.")}
                     </span>
                   </div>
-                  <AssistanceBtnWrapper
+                  <Motion.a
                     href={`tel:${cleanedPhone}`}
                     className={styles.assistanceBtn}
-                    {...(isFirstRender ? {} : {
-                      whileHover: { scale: 1.05 },
-                      whileTap: { scale: 0.95 }
-                    })}
+                    whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+                    whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 450, damping: 25 }}
                   >
                     <Icon icon="carbon:phone" className="w-3.5 h-3.5 text-inherit" />
                     <span>{c("hero_assistance_btn", "CONTACT US")}</span>
-                  </AssistanceBtnWrapper>
-                </AssistanceCardWrapper>
+                  </Motion.a>
+                </Motion.div>
               </div>
             </div>
           </div>

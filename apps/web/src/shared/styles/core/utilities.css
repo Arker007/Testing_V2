@@ -159,8 +159,8 @@
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  background: var(--brand, var(--brand-500)) !important;
-  color: var(--brand-btn-text, var(--neutral-950)) !important;
+  background: var(--action-primary-bg, var(--brand-green)) !important;
+  color: var(--action-primary-text, var(--brand-navy)) !important;
   font-size: var(--font-size-sm);
   font-weight: 800;
   text-transform: uppercase;
@@ -178,33 +178,33 @@
 
 .exploreBtnGlobal *,
 .exploreBtnGlobal span {
-  color: var(--brand-btn-text, var(--neutral-950)) !important;
+  color: var(--action-primary-text, var(--brand-navy)) !important;
 }
 
 .exploreBtnGlobal:hover {
-  background: var(--brand-hover, var(--brand-400)) !important;
-  color: var(--brand-btn-text, var(--neutral-950)) !important;
+  background: var(--brand-hover, #8ED35A) !important;
+  color: var(--action-primary-text, var(--brand-navy)) !important;
   transform: translateY(-2px);
   box-shadow: none;
 }
 
 .exploreBtnGlobal:hover *,
 .exploreBtnGlobal:hover span {
-  color: var(--brand-btn-text, var(--neutral-950)) !important;
+  color: var(--action-primary-text, var(--brand-navy)) !important;
 }
 
 .exploreBtnGlobal .exploreBtnArrowGlobal {
   width: 1.1rem;
   height: 1.1rem;
-  stroke: var(--brand-btn-text, var(--neutral-950)) !important;
-  color: var(--brand-btn-text, var(--neutral-950)) !important;
+  stroke: var(--action-primary-text, var(--brand-navy)) !important;
+  color: var(--action-primary-text, var(--brand-navy)) !important;
   transition: transform 0.25s ease;
 }
 
 .exploreBtnGlobal:hover .exploreBtnArrowGlobal {
   transform: translateX(5px);
-  stroke: var(--brand-btn-text, var(--neutral-950)) !important;
-  color: var(--brand-btn-text, var(--neutral-950)) !important;
+  stroke: var(--action-primary-text, var(--brand-navy)) !important;
+  color: var(--action-primary-text, var(--brand-navy)) !important;
 }
 
 @media (max-width: 640px) {

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { motion as Motion, AnimatePresence } from "motion/react";
+import { motion as Motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { useSite } from "../../../../shared/context/SiteContext";
 import { OptimizedImage } from "@/shared/ui";
 import styles from "./Hero.module.css";
@@ -30,9 +30,51 @@ const getOptimizedMobileHeroImage = (imgSrc) => {
   return imgSrc;
 };
 
+// Motion variants for mobile viewport
+const mobileTextContainerVariants = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.03,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -6,
+    transition: { duration: 0.2 },
+  },
+};
+
+const mobileTitleItemVariants = {
+  initial: { opacity: 0, y: 12 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const mobileFeaturesVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.05,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.2 },
+  },
+};
+
 export default function HomeHeroMobile() {
   const { c, co } = useSite();
   const [isFirstRender, setIsFirstRender] = useState(true);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     setIsFirstRender(false);
@@ -96,7 +138,9 @@ export default function HomeHeroMobile() {
   ], [c]);
 
   const [current, setCurrent] = useState(2);
-  
+  const heroRef = useRef(null);
+  const hexagonCardRef = useRef(null);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
@@ -118,15 +162,12 @@ export default function HomeHeroMobile() {
   const heroPhone = c("hero_assistance_phone", co("phone", "+91 98986 86379"));
   const cleanedPhone = heroPhone.replace(/\s+/g, "");
 
-  const Wrapper = isFirstRender ? "div" : Motion.div;
-  const FeaturesGridWrapper = isFirstRender ? "div" : Motion.div;
-  const ChevronButton = isFirstRender ? "button" : Motion.button;
-  const DotButton = isFirstRender ? "button" : Motion.button;
-  const MainLink = isFirstRender ? "div" : Motion.div;
-
   return (
-    <section className="relative w-full bg-[#10141b] bg-navy dark-context min-h-screen flex flex-col pt-8 pb-8 font-sans" id="home-hero-mobile">
-      
+    <section
+      ref={heroRef}
+      className="relative w-full bg-[#10141b] bg-navy dark-context min-h-screen flex flex-col pt-8 pb-8 font-sans overflow-hidden"
+      id="home-hero-mobile"
+    >
       {/* Top right dots pattern */}
       <div className="absolute top-4 right-4 grid grid-cols-4 gap-2 opacity-10 pointer-events-none z-0">
         {Array.from({ length: 16 }).map((_, i) => (
@@ -150,32 +191,34 @@ export default function HomeHeroMobile() {
           </div>
 
           <AnimatePresence mode="wait" initial={false}>
-            <Wrapper
+            <Motion.div
               key={current}
-              {...(isFirstRender ? {} : {
-                initial: { opacity: 0, y: 15 },
-                animate: { opacity: 1, y: 0 },
-                exit: { opacity: 0, y: -15 },
-                transition: { duration: 0.35 }
-              })}
+              variants={mobileTextContainerVariants}
+              initial={isFirstRender ? false : "initial"}
+              animate="animate"
+              exit="exit"
               className="flex flex-col w-full"
             >
               {/* Title */}
               <h1 className="text-[32px] sm:text-4xl font-black uppercase leading-[1.05] mb-4 tracking-tight">
-                <span className="text-[var(--brand)] block mb-1">{activeSlide.titleLime}</span>
-                <span className="text-white block">{activeSlide.titleWhite}</span>
+                <Motion.span variants={mobileTitleItemVariants} className="text-[var(--brand)] block mb-1">
+                  {activeSlide.titleLime}
+                </Motion.span>
+                <Motion.span variants={mobileTitleItemVariants} className="text-white block">
+                  {activeSlide.titleWhite}
+                </Motion.span>
               </h1>
 
               {/* Headline Underline Accent */}
-              <div className="flex items-center gap-2 mt-1 mb-6">
+              <Motion.div variants={mobileTitleItemVariants} className="flex items-center gap-2 mt-1 mb-6">
                 <span className="h-[3px] w-[90px] bg-[var(--brand)] rounded-sm" />
                 <span className="h-[7px] w-[7px] bg-[var(--brand)] rounded-full" />
-              </div>
+              </Motion.div>
 
-              {/* Centered Hexagon Product Card */}
-              <div className="w-full flex justify-between items-center my-6 h-[260px] relative z-10 px-1">
-                {/* Left Chevron Button (Desktop Style) */}
-                <ChevronButton
+              {/* Centered Hexagon Product Card with Navigation Chevrons */}
+              <div className="relative w-screen left-1/2 -translate-x-1/2 flex justify-center items-center my-6 h-[260px] z-10">
+                {/* Navigation Chevron Buttons pinned stably to screen edges */}
+                <button
                   id="mobile-hero-chevron-prev"
                   type="button"
                   onClick={handlePrev}
@@ -185,14 +228,35 @@ export default function HomeHeroMobile() {
                   <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="currentColor">
                     <path d="M20 24l-8-8 8-8 1.4 1.4L14.8 16l6.6 6.6z" />
                   </svg>
-                </ChevronButton>
+                </button>
+                <button
+                  id="mobile-hero-chevron-next"
+                  type="button"
+                  onClick={handleNext}
+                  className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
+                  aria-label="Next Slide"
+                >
+                  <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="currentColor">
+                    <path d="M12 8l8 8-8 8-1.4-1.4 6.6-6.6-6.6-6.6z" />
+                  </svg>
+                </button>
 
-                <div className="mx-auto w-[250px] h-[260px] pointer-events-none">
-                  <svg
+                <div
+                  ref={hexagonCardRef}
+                  id="mobile-hero-product-hexagon-frame"
+                  className="mx-auto w-[250px] h-[260px] pointer-events-none"
+                >
+                  <Motion.svg
                     className="w-full h-full drop-shadow-2xl"
                     viewBox="0 0 500 520"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    animate={shouldReduceMotion ? {} : { y: [0, -5, 0] }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
                   >
                     <defs>
                       <radialGradient id="stageSpotlight" cx="50%" cy="52%" r="50%">
@@ -232,7 +296,7 @@ export default function HomeHeroMobile() {
                       stroke="rgba(255, 255, 255, 0.95)"
                       strokeWidth="3"
                     />
-                    {/* Full-Screen Product Image Clipped to Hexagon */}
+                    {/* Full-Screen Product Image Clipped to Hexagon with Framer Motion */}
                     <g clipPath="url(#heroHexagonClipMobile)">
                       <foreignObject x="0" y="0" width="500" height="520">
                         <div className="w-full h-full bg-white relative overflow-hidden">
@@ -244,16 +308,19 @@ export default function HomeHeroMobile() {
                               pointerEvents: "none",
                             }}
                           />
-                          {slides.map((slide, idx) => (
-                            <div
-                              key={idx}
+                          <AnimatePresence mode="wait" initial={false}>
+                            <Motion.div
+                              key={current}
+                              initial={isFirstRender ? false : { opacity: 0, scale: 0.9, y: 10, filter: "blur(4px)" }}
+                              animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
+                              exit={{ opacity: 0, scale: 1.06, y: -6, filter: "blur(3px)" }}
+                              transition={{
+                                duration: 0.45,
+                                ease: [0.16, 1, 0.3, 1],
+                              }}
                               style={{
                                 position: "absolute",
                                 inset: 0,
-                                opacity: idx === current ? 1 : 0,
-                                pointerEvents: idx === current ? "auto" : "none",
-                                transition: isFirstRender ? "none" : "opacity 0.4s ease-in-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
-                                transform: idx === current ? "translateY(0) scale(1)" : "translateY(8px) scale(0.97)",
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
@@ -262,11 +329,11 @@ export default function HomeHeroMobile() {
                               }}
                             >
                               <OptimizedImage
-                                src={getOptimizedMobileHeroImage(slide.image)}
-                                fallbackSrc={slide.fallbackSrc}
-                                alt={slide.titleWhite}
-                                loading={idx === current ? "eager" : "lazy"}
-                                fetchPriority={idx === current ? "high" : "low"}
+                                src={getOptimizedMobileHeroImage(activeSlide.image)}
+                                fallbackSrc={activeSlide.fallbackSrc}
+                                alt={activeSlide.titleWhite}
+                                loading="eager"
+                                fetchPriority="high"
                                 width="500"
                                 height="520"
                                 style={{
@@ -277,8 +344,8 @@ export default function HomeHeroMobile() {
                                   filter: "none",
                                 }}
                               />
-                            </div>
-                          ))}
+                            </Motion.div>
+                          </AnimatePresence>
                         </div>
                       </foreignObject>
                     </g>
@@ -295,93 +362,86 @@ export default function HomeHeroMobile() {
                       stroke="var(--brand-primary, #6BBF54)"
                       strokeWidth="2.5"
                     />
-                  </svg>
+                  </Motion.svg>
                 </div>
-
-                {/* Right Chevron Button (Desktop Style) */}
-                <ChevronButton
-                  id="mobile-hero-chevron-next"
-                  type="button"
-                  onClick={handleNext}
-                  className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
-                  aria-label="Next Slide"
-                >
-                  <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M12 8l8 8-8 8-1.4-1.4 6.6-6.6-6.6-6.6z" />
-                  </svg>
-                </ChevronButton>
               </div>
 
-              {/* Pagination Dots */}
-              <div className="flex justify-center items-center gap-1 mb-6">
-                <div className="inline-flex items-center justify-center gap-0.5 bg-[#0c1524]/60 backdrop-blur-md border border-white/12 rounded-[8px] py-1 px-2.5 shadow-[0_4px_16px_var(--shadow-md,rgba(0,0,0,0.3))]">
-                  {slides.map((_, idx) => (
-                    <DotButton
-                      key={idx}
-                      onClick={() => setCurrent(idx)}
-                      {...(isFirstRender ? {} : {
-                        whileHover: { scale: 1.15 },
-                        whileTap: { scale: 0.85 }
-                      })}
-                      className="min-w-[36px] min-h-[36px] inline-flex items-center justify-center cursor-pointer outline-none p-0 border-none bg-transparent"
-                      aria-label={`Go to slide ${idx + 1}`}
-                    >
-                      <span
-                        className={`h-2 rounded-full transition-all duration-300 block ${
-                          idx === current 
-                            ? "w-6 bg-gradient-to-r from-[var(--brand)] to-[var(--brand-600)]" 
-                            : "w-2 bg-[#d1d5db]/70"
+              {/* Pagination Capsule matching desktop */}
+              <div className="flex justify-center items-center mb-6">
+                <div className={styles.paginationDots}>
+                  <div className={styles.paginationTrack}>
+                    {slides.map((slide, idx) => (
+                      <Motion.button
+                        key={idx}
+                        onClick={() => setCurrent(idx)}
+                        whileHover={shouldReduceMotion ? {} : { scale: 1.25 }}
+                        whileTap={shouldReduceMotion ? {} : { scale: 0.85 }}
+                        transition={{ type: "spring", stiffness: 500, damping: 28 }}
+                        className={`${styles.paginationDot} ${
+                          idx === current ? styles.paginationDotActive : ""
                         }`}
+                        aria-label={`Go to slide ${idx + 1}: ${slide.titleWhite}`}
+                        title={slide.titleWhite}
                       />
-                    </DotButton>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-[13px] text-slate-200 leading-relaxed mb-6 pr-2 font-medium">
+              <Motion.p
+                variants={mobileTitleItemVariants}
+                className="text-[13px] text-slate-200 leading-relaxed mb-6 pr-2 font-medium"
+              >
                 {activeSlide.desc}
-              </p>
+              </Motion.p>
 
               {/* Button */}
               <div className="flex justify-center w-full mt-2">
-                <MainLink
-                  {...(isFirstRender ? {} : {
-                    whileHover: { scale: 1.03 },
-                    whileTap: { scale: 0.98 }
-                  })}
+                <Motion.div
+                  whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
+                  whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 22 }}
                   className="inline-block w-fit"
                 >
                   <Link to="/products" className="exploreBtnGlobal">
                     <span>{c("hero_cta_primary", "EXPLORE PRODUCTS")}</span>
-                    <svg className="exploreBtnArrowGlobal" viewBox="0 0 32 32" fill="currentColor">
-                      <path d="M18 15.5l6.5-6.5-6.5-6.5-1.4 1.4 4.1 4.1H4v2h16.7l-4.1 4.1z" />
-                    </svg>
+                    <Motion.span
+                      animate={shouldReduceMotion ? {} : { x: [0, 3, 0] }}
+                      transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                      className="inline-flex items-center"
+                    >
+                      <svg className="exploreBtnArrowGlobal" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M18 15.5l6.5-6.5-6.5-6.5-1.4 1.4 4.1 4.1H4v2h16.7l-4.1 4.1z" />
+                      </svg>
+                    </Motion.span>
                   </Link>
-                </MainLink>
+                </Motion.div>
               </div>
-            </Wrapper>
+            </Motion.div>
           </AnimatePresence>
           
         </div>
 
         {/* Features Grid */}
         <AnimatePresence mode="wait">
-          <FeaturesGridWrapper
+          <Motion.div
             key={current}
-            {...(isFirstRender ? {} : {
-              initial: { opacity: 0, y: 10 },
-              animate: { opacity: 1, y: 0 },
-              exit: { opacity: 0, y: -10 },
-              transition: { duration: 0.3 }
-            })}
+            variants={mobileFeaturesVariants}
+            initial={isFirstRender ? false : "hidden"}
+            animate="visible"
+            exit="exit"
             className="grid grid-cols-1 gap-4 mb-10 sm:grid-cols-2"
           >
             <div className="grid grid-cols-2 gap-2.5 col-span-1 sm:col-span-2">
               {activeSlide.features.slice(0, 4).map((feat, idx) => {
                 const iconName = iconMap[feat.icon] || "carbon:security";
                 return (
-                  <div key={idx} className="p-2.5 sm:p-3 flex flex-row items-center gap-2.5 bg-[#1b2129] rounded-[8px]">
+                  <Motion.div
+                    key={idx}
+                    variants={mobileTitleItemVariants}
+                    className="p-2.5 sm:p-3 flex flex-row items-center gap-2.5 bg-[#1b2129] rounded-[8px]"
+                  >
                     <div className="w-[30px] h-[30px] shrink-0 rounded-full bg-[rgba(107,191,84,0.15)] text-[var(--brand)] border border-[rgba(107,191,84,0.3)] flex items-center justify-center">
                       <Icon icon={iconName} className="w-[15px] h-[15px] stroke-[1.5px]" />
                     </div>
@@ -389,15 +449,19 @@ export default function HomeHeroMobile() {
                       <span className="text-white text-[10px] uppercase font-extrabold tracking-wide leading-tight">{feat.title}</span>
                       <span className="text-slate-300 text-[9.5px] font-medium leading-snug mt-0.5">{feat.text}</span>
                     </div>
-                  </div>
+                  </Motion.div>
                 );
               })}
             </div>
-          </FeaturesGridWrapper>
+          </Motion.div>
         </AnimatePresence>
 
         {/* Floating Assistance Card */}
-        <div className="flex flex-row items-center justify-between gap-2 bg-white border border-[#E2E8F0] py-3 px-3.5 rounded-[8px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] mb-8 w-full max-w-full">
+        <Motion.div
+          whileHover={shouldReduceMotion ? {} : { y: -2 }}
+          transition={{ duration: 0.2 }}
+          className="flex flex-row items-center justify-between gap-2 bg-white border border-[#E2E8F0] py-3 px-3.5 rounded-[8px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] mb-8 w-full max-w-full"
+        >
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-[38px] h-[38px] rounded-[8px] bg-[var(--brand)] shrink-0">
               <svg className="w-[20px] h-[20px] text-white" viewBox="0 0 32 32" fill="currentColor">
@@ -413,16 +477,18 @@ export default function HomeHeroMobile() {
             </div>
           </div>
           
-          <a
+          <Motion.a
             href={`tel:${cleanedPhone}`}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 450, damping: 25 }}
             className="flex items-center justify-center gap-1.5 bg-[#0f1319] border border-[#0f1319] !text-white py-2 px-3 rounded-[8px] text-[10px] font-extrabold uppercase transition hover:bg-[var(--brand)] hover:border-[var(--brand)] hover:!text-[#0f1319] shrink-0"
           >
             <svg className="w-3.5 h-3.5 !text-white" viewBox="0 0 32 32" fill="currentColor">
               <path d="M26 29h-1a22.09 22.09 0 01-22-22V6a3 3 0 013-3h5a1 1 0 011 .72l1.63 6.13a1 1 0 01-.34 1l-3.32 2.5A16.07 16.07 0 0015.65 19l2.5-3.32a1 1 0 011-.34l6.13 1.63a1 1 0 01.72 1.09v5a3 3 0 01-3 3z" />
             </svg>
             <span className="!text-white">{c("hero_assistance_btn", "CONTACT US")}</span>
-          </a>
-        </div>
+          </Motion.a>
+        </Motion.div>
       </div>
     </section>
   );

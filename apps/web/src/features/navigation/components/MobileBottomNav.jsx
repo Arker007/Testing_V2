@@ -5,7 +5,8 @@ import styles from "../styles/mobile-bottom-nav.module.css";
 
 export default function MobileBottomNav() {
   const { pathname } = useLocation();
-  const { co, mobileMenuOpen, setMobileMenuOpen } = useSite();
+  const { co, cms, mobileMenuOpen, setMobileMenuOpen } = useSite();
+  const isPageVisible = (key) => cms?.[key] !== "0";
 
   // Do not show bottom nav on admin routes
   if (pathname.startsWith("/admin")) return null;
@@ -15,38 +16,46 @@ export default function MobileBottomNav() {
 
   return (
     <nav className={styles.mobileNav} aria-label="Mobile Navigation Bar">
-      <NavLink
-        to="/"
-        end
-        className={({ isActive }) =>
-          isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
-        }
-      >
-        <Icon icon="carbon:home" className="w-5 h-5 mb-0.5" />
-        <span>Home</span>
-      </NavLink>
+      {isPageVisible("nav_show_home") && (
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) =>
+            isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
+          }
+        >
+          <Icon icon="carbon:home" className="w-5 h-5 mb-0.5" />
+          <span>Home</span>
+        </NavLink>
+      )}
 
-      <NavLink
-        to="/products"
-        className={({ isActive }) =>
-          isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
-        }
-      >
-        <Icon icon="carbon:cube" className="w-5 h-5 mb-0.5" />
-        <span>Catalog</span>
-      </NavLink>
+      {isPageVisible("nav_show_products") && (
+        <NavLink
+          to="/products"
+          className={({ isActive }) =>
+            isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
+          }
+        >
+          <Icon icon="carbon:cube" className="w-5 h-5 mb-0.5" />
+          <span>Catalog</span>
+        </NavLink>
+      )}
 
       <button
         type="button"
         className={`${styles.navItem} ${mobileMenuOpen ? styles.active : ""}`}
-        onClick={() => setMobileMenuOpen((prev) => !prev)}
-        aria-label="Toggle Menu"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setMobileMenuOpen((prev) => !prev);
+        }}
+        aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
       >
         <Icon
           icon={mobileMenuOpen ? "carbon:close" : "carbon:menu"}
-          className="w-5 h-5 mb-0.5"
+          className="w-5 h-5 mb-0.5 pointer-events-none"
         />
-        <span>Menu</span>
+        <span>{mobileMenuOpen ? "Close" : "Menu"}</span>
       </button>
 
       <a
@@ -60,15 +69,17 @@ export default function MobileBottomNav() {
         <span>WhatsApp</span>
       </a>
 
-      <NavLink
-        to="/contact?quote=1"
-        className={({ isActive }) =>
-          isActive ? `${styles.navItem} ${styles.active} ${styles.quoteItem}` : `${styles.navItem} ${styles.quoteItem}`
-        }
-      >
-        <Icon icon="carbon:document" className="w-5 h-5 mb-0.5" />
-        <span>Quote</span>
-      </NavLink>
+      {isPageVisible("nav_show_contact") && (
+        <NavLink
+          to="/contact?quote=1"
+          className={({ isActive }) =>
+            isActive ? `${styles.navItem} ${styles.active} ${styles.quoteItem}` : `${styles.navItem} ${styles.quoteItem}`
+          }
+        >
+          <Icon icon="carbon:document" className="w-5 h-5 mb-0.5" />
+          <span>Quote</span>
+        </NavLink>
+      )}
     </nav>
   );
 }

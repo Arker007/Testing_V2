@@ -30,7 +30,8 @@ export default function Navbar() {
   const [products, setProducts] = useState([]);
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { co, mobileMenuOpen: open, setMobileMenuOpen: setOpen } = useSite();
+  const { co, cms, mobileMenuOpen: open, setMobileMenuOpen: setOpen } = useSite();
+  const isPageVisible = (key) => cms?.[key] !== "0";
 
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";
@@ -83,7 +84,17 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isScrolled = window.scrollY > 40;
+          setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -117,7 +128,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`${styles.headerContainer} ${scrolled ? styles.headerScrolled : ""}`}>
+      <header className={`${styles.headerContainer} ${scrolled ? styles.headerScrolled : ""} ${open ? styles.headerMenuOpen : ""}`}>
         <div className={`${styles.nav} ${scrolled ? styles.navShrink : ""}`}>
           <div className={styles.inner}>
             {/* Logo */}
@@ -153,57 +164,69 @@ export default function Navbar() {
               className={`${styles.links} ${isSearchExpanded ? styles.linksHidden : ""}`}
               aria-label="Main navigation"
             >
-              <NavLink
-                to="/"
-                end
-                className={({ isActive }) =>
-                  isActive ? `${styles.link} ${styles.linkActive}` : styles.link
-                }
-              >
-                Home
-              </NavLink>
+              {isPageVisible("nav_show_home") && (
+                <NavLink
+                  to="/"
+                  end
+                  className={({ isActive }) =>
+                    isActive ? `${styles.link} ${styles.linkActive}` : styles.link
+                  }
+                >
+                  Home
+                </NavLink>
+              )}
 
-              <MegaMenu
-                categories={categories}
-                products={products}
-                isProductsActive={isProductsActive}
-              />
+              {isPageVisible("nav_show_products") && (
+                <MegaMenu
+                  categories={categories}
+                  products={products}
+                  isProductsActive={isProductsActive}
+                />
+              )}
 
-              <NavLink
-                to="/manufacturing"
-                className={({ isActive }) =>
-                  isActive ? `${styles.link} ${styles.linkActive}` : styles.link
-                }
-              >
-                Manufacturing
-              </NavLink>
+              {isPageVisible("nav_show_manufacturing") && (
+                <NavLink
+                  to="/manufacturing"
+                  className={({ isActive }) =>
+                    isActive ? `${styles.link} ${styles.linkActive}` : styles.link
+                  }
+                >
+                  Manufacturing
+                </NavLink>
+              )}
 
-              <NavLink
-                to="/sustainability"
-                className={({ isActive }) =>
-                  isActive ? `${styles.link} ${styles.linkActive}` : styles.link
-                }
-              >
-                Sustainability
-              </NavLink>
+              {isPageVisible("nav_show_sustainability") && (
+                <NavLink
+                  to="/sustainability"
+                  className={({ isActive }) =>
+                    isActive ? `${styles.link} ${styles.linkActive}` : styles.link
+                  }
+                >
+                  Sustainability
+                </NavLink>
+              )}
 
-              <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  isActive ? `${styles.link} ${styles.linkActive}` : styles.link
-                }
-              >
-                About
-              </NavLink>
+              {isPageVisible("nav_show_about") && (
+                <NavLink
+                  to="/about"
+                  className={({ isActive }) =>
+                    isActive ? `${styles.link} ${styles.linkActive}` : styles.link
+                  }
+                >
+                  About
+                </NavLink>
+              )}
 
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  isActive ? `${styles.link} ${styles.linkActive}` : styles.link
-                }
-              >
-                Contact
-              </NavLink>
+              {isPageVisible("nav_show_contact") && (
+                <NavLink
+                  to="/contact"
+                  className={({ isActive }) =>
+                    isActive ? `${styles.link} ${styles.linkActive}` : styles.link
+                  }
+                >
+                  Contact
+                </NavLink>
+              )}
             </nav>
 
             {/* Action slots & Hamburger */}
@@ -255,10 +278,14 @@ export default function Navbar() {
               <Motion.button
                 type="button"
                 className={styles.mobileMenuBtn}
-                onClick={() => setOpen(!open)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setOpen((prev) => !prev);
+                }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                aria-label="Toggle navigation menu"
+                aria-label={open ? "Close navigation menu" : "Open navigation menu"}
                 aria-expanded={open}
               >
                 <Motion.div
@@ -268,11 +295,11 @@ export default function Navbar() {
                   transition={{ duration: 0.2 }}
                 >
                   {open ? (
-                    <svg className="w-5 h-5" viewBox="0 0 32 32" fill="currentColor">
+                    <svg className="w-5 h-5 pointer-events-none" viewBox="0 0 32 32" fill="currentColor">
                       <path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16z" />
                     </svg>
                   ) : (
-                    <svg className="w-5 h-5" viewBox="0 0 32 32" fill="currentColor">
+                    <svg className="w-5 h-5 pointer-events-none" viewBox="0 0 32 32" fill="currentColor">
                       <path d="M4 6h24v2H4zm0 18h24v2H4zm0-9h24v2H4z" />
                     </svg>
                   )}

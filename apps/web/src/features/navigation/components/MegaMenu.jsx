@@ -753,7 +753,7 @@ export default function MegaMenu({
               <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr_330px] gap-6 lg:gap-8 items-stretch min-h-[440px]">
                 
                 {/* 1. Left Column: Categories Sidebar & Bottom Sustainability Card */}
-                <div className="flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-200/80 dark:border-slate-800 pb-6 lg:pb-0 lg:pr-5">
+                <div className="flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--border-subtle)] pb-6 lg:pb-0 lg:pr-5">
                   {/* Category Nav List */}
                   <div
                     role="tablist"
@@ -776,10 +776,10 @@ export default function MegaMenu({
                           onClick={() => handleCategoryClick(cat.slug)}
                           onMouseEnter={() => handleCategoryMouseEnter(cat.slug)}
                           onKeyDown={(e) => handleSidebarKeyDown(e, idx)}
-                          className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-150 cursor-pointer text-left border ${
+                          className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-lg text-sm transition-all duration-150 cursor-pointer text-left border ${
                             isActive
-                              ? "bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border-[#bbf7d0] dark:border-emerald-800/60 border-l-[3.5px] border-l-[#15803d] dark:border-l-emerald-400 font-bold shadow-2xs"
-                              : "border-transparent text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800/60"
+                              ? "bg-[var(--brand-soft)] text-[var(--text-brand)] border-[var(--border-brand)] border-l-[3.5px] border-l-[var(--brand-primary)] font-bold shadow-2xs"
+                              : "border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] font-semibold"
                           }`}
                           title={`View ${cat.name}`}
                         >
@@ -788,8 +788,8 @@ export default function MegaMenu({
                               icon={cat.icon || "carbon:box"}
                               className={`w-4.5 h-4.5 shrink-0 ${
                                 isActive
-                                  ? "text-[#15803d] dark:text-emerald-400"
-                                  : "text-slate-500 dark:text-slate-400"
+                                  ? "text-[var(--text-brand)]"
+                                  : "text-[var(--text-muted)]"
                               }`}
                             />
                             <span className="truncate">{cat.name}</span>
@@ -798,8 +798,8 @@ export default function MegaMenu({
                             icon="carbon:chevron-right"
                             className={`w-3.5 h-3.5 shrink-0 transition-transform ${
                               isActive
-                                ? "text-[#15803d] dark:text-emerald-400 translate-x-0.5"
-                                : "text-slate-400 dark:text-slate-500"
+                                ? "text-[var(--text-brand)] translate-x-0.5"
+                                : "text-[var(--text-muted)]"
                             }`}
                           />
                         </button>
@@ -808,18 +808,18 @@ export default function MegaMenu({
                   </div>
 
                   {/* Sustainability Commitment Box (Bottom Left) */}
-                  <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col items-start gap-1">
+                  <div className="pt-6 mt-6 border-t border-[var(--border-subtle)] flex flex-col items-start gap-1">
                     <Icon
                       icon="carbon:recycle"
-                      className="w-5 h-5 text-[#15803d] dark:text-emerald-400 mb-1"
+                      className="w-5 h-5 text-[var(--text-brand)] mb-1"
                     />
-                    <p className="text-xs font-bold text-slate-900 dark:text-slate-100 leading-snug">
+                    <p className="text-xs font-bold text-[var(--text-primary)] leading-snug">
                       Durable products.
                       <br />
                       A cleaner tomorrow.
                     </p>
-                    <div className="w-7 h-[2px] bg-[#15803d] dark:bg-emerald-400 rounded-full my-1.5" />
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-normal">
+                    <div className="w-7 h-[2px] bg-[var(--brand-primary)] rounded-full my-1.5" />
+                    <p className="text-[11px] text-[var(--text-muted)] leading-normal">
                       Made from recycled plastic.
                       <br />
                       Built for a sustainable world.
@@ -841,19 +841,19 @@ export default function MegaMenu({
                   <div>
                     {/* Header */}
                     <div className="mb-4">
-                      <span className="block text-[11px] font-bold uppercase tracking-wider text-[#15803d] dark:text-emerald-400 mb-0.5">
+                      <span className="block text-[11px] font-bold uppercase tracking-wider text-[var(--text-brand)] mb-0.5">
                         {activeCategoryData.eyebrow}
                       </span>
-                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                      <h3 className="text-2xl font-bold text-[var(--text-primary)] tracking-tight">
                         {activeCategoryData.name}
                       </h3>
-                      <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed max-w-xl">
+                      <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1 leading-relaxed max-w-xl">
                         {activeCategoryData.description}
                       </p>
                     </div>
 
                     {/* Products List Rows */}
-                    <div className="divide-y divide-slate-100 dark:divide-slate-800/80">
+                    <div className="divide-y divide-[var(--border-subtle)]">
                       {displayProducts.map((product) => (
                         <div
                           key={product.id}
@@ -867,24 +867,24 @@ export default function MegaMenu({
                             className="flex items-center justify-between gap-3 group"
                           >
                             <div className="flex flex-col min-w-0 pr-2">
-                              <span className="text-sm font-bold text-slate-900 dark:text-slate-100 group-hover:text-[#15803d] dark:group-hover:text-emerald-400 transition-colors truncate">
+                              <span className="text-sm font-bold text-[var(--text-primary)] group-hover:text-[var(--text-brand)] transition-colors truncate">
                                 {product.name}
                               </span>
                               {product.spec && (
-                                <span className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                                <span className="text-xs text-[var(--text-muted)] mt-0.5">
                                   {product.spec}
                                 </span>
                               )}
                             </div>
                             <div className="flex items-center gap-3 shrink-0">
                               {product.badge && (
-                                <span className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase border border-slate-200/60 dark:border-slate-700/60">
+                                <span className="bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase border border-[var(--border-subtle)]">
                                   {product.badge}
                                 </span>
                               )}
                               <Icon
                                 icon="carbon:chevron-right"
-                                className="w-4 h-4 text-slate-400 group-hover:text-[#15803d] dark:group-hover:text-emerald-400 group-hover:translate-x-0.5 transition-all"
+                                className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-brand)] group-hover:translate-x-0.5 transition-all"
                               />
                             </div>
                           </Link>
@@ -898,7 +898,7 @@ export default function MegaMenu({
                     <Link
                       to={`/products?cat=${encodeURIComponent(activeCategorySlug)}`}
                       onClick={handleLinkClick}
-                      className="inline-flex items-center gap-1.5 text-sm font-bold text-[#15803d] dark:text-emerald-400 hover:underline transition-all"
+                      className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--text-brand)] hover:text-[var(--brand-hover)] hover:underline transition-all"
                     >
                       <span>View all {activeCategoryData.name}</span>
                       <Icon icon="carbon:arrow-right" className="w-4 h-4" />
@@ -907,20 +907,20 @@ export default function MegaMenu({
                 </div>
 
                 {/* 3. Right Column: Bespoke Manufacturing Spotlight & RFQ Card */}
-                <div className="bg-slate-50/75 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 rounded-xl p-5 flex flex-col justify-between gap-3.5 h-full">
+                <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] rounded-xl p-5 flex flex-col justify-between gap-3.5 h-full">
                   <div>
                     {/* Header Row */}
                     <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#15803d] dark:text-emerald-400">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-brand)]">
                         Bespoke & Bulk Supply
                       </span>
-                      <span className="text-[11px] font-medium text-slate-400 dark:text-slate-500">
+                      <span className="text-[11px] font-medium text-[var(--text-muted)]">
                         Factory Direct
                       </span>
                     </div>
 
                     {/* Image Preview Box */}
-                    <div className="w-full h-36 rounded-lg overflow-hidden border border-slate-200/60 dark:border-slate-700/60 bg-white dark:bg-slate-900 flex items-center justify-center relative shadow-2xs mb-3.5">
+                    <div className="w-full h-36 rounded-lg overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-center justify-center relative shadow-2xs mb-3.5">
                       <img
                         src={previewImageUrl}
                         alt={hoveredProduct?.name || activeCategoryData.name}
@@ -934,10 +934,10 @@ export default function MegaMenu({
                     </div>
 
                     {/* Content */}
-                    <h4 className="text-base font-bold text-slate-900 dark:text-white leading-snug mb-1.5">
+                    <h4 className="text-base font-bold text-[var(--text-primary)] leading-snug mb-1.5">
                       Need Custom Sizes or Heavy-Duty Specs?
                     </h4>
-                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                       We manufacture directly to your engineering drawings. Get custom
                       dimensions, specific color formulations, or large volume dispatch.
                     </p>
@@ -955,17 +955,17 @@ export default function MegaMenu({
                     <button
                       type="button"
                       onClick={handleDownloadCatalog}
-                      className="w-full text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-[var(--brand-primary)] dark:hover:text-emerald-400 flex items-center justify-center gap-1.5 py-1 transition-colors cursor-pointer"
+                      className="w-full text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-brand)] flex items-center justify-center gap-1.5 py-1 transition-colors cursor-pointer"
                       aria-label={`Download ${activeCategoryData.name} Catalog`}
                     >
                       <Icon
                         icon="carbon:download"
-                        className="w-4 h-4 text-[var(--brand-primary)] dark:text-emerald-400"
+                        className="w-4 h-4 text-[var(--text-brand)]"
                       />
                       <span>Download {activeCategoryData.name} Catalog</span>
                     </button>
 
-                    <div className="text-[10px] text-slate-400 dark:text-slate-500 text-center pt-2.5 border-t border-slate-200/60 dark:border-slate-700/40">
+                    <div className="text-[10px] text-[var(--text-muted)] text-center pt-2.5 border-t border-[var(--border-subtle)]">
                       Factory Direct • Gujarat Manufacturing • Bulk Supply
                     </div>
                   </div>

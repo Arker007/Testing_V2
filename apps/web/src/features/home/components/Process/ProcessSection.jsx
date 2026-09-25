@@ -25,15 +25,15 @@ export default function ProcessSection({ className = "" }) {
       ],
       color: "emerald",
       icon: (
-        <div className="relative w-16 h-16 bg-emerald-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-emerald-100 overflow-hidden shadow-inner">
-          <div className="absolute inset-0 bg-gradient-to-tr from-emerald-100/30 to-transparent" />
-          <Icon icon="carbon:trash-can" className="w-8 h-8 text-emerald-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-emerald-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
+        <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
+          <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
+          <Icon icon="carbon:trash-can" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-emerald-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-emerald-400/30 shadow-lg shadow-emerald-500/20">
-          <Icon icon="carbon:trash-can" className="w-12 h-12 text-white" />
+        <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
+          <Icon icon="carbon:trash-can" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     },
@@ -50,17 +50,17 @@ export default function ProcessSection({ className = "" }) {
         { label: "Impurity Filter", desc: "Eliminating non-plastic materials, paper, and metal." },
         { label: "Streamlined Prep", desc: "Ensuring uniform batch chemistry for optimal results." }
       ],
-      color: "blue",
+      color: "emerald",
       icon: (
-        <div className="relative w-16 h-16 bg-blue-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-blue-100 overflow-hidden shadow-inner">
-          <div className="absolute inset-0 bg-gradient-to-tr from-blue-100/30 to-transparent" />
-          <Icon icon="carbon:layers" className="w-8 h-8 text-blue-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-blue-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
+        <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
+          <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
+          <Icon icon="carbon:layers" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-blue-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-blue-400/30 shadow-lg shadow-blue-500/20">
-          <Icon icon="carbon:layers" className="w-12 h-12 text-white" />
+        <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
+          <Icon icon="carbon:layers" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     },
@@ -77,17 +77,17 @@ export default function ProcessSection({ className = "" }) {
         { label: "Decontamination", desc: "Elimination of heavy contaminants and micro-impurities." },
         { label: "Sanitized Feed", desc: "Resulting in pristine, food-safe grade polymer flakes." }
       ],
-      color: "sky",
+      color: "emerald",
       icon: (
-        <div className="relative w-16 h-16 bg-sky-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-sky-100 overflow-hidden shadow-inner">
-          <div className="absolute inset-0 bg-gradient-to-tr from-sky-100/30 to-transparent" />
-          <Icon icon="carbon:magic-wand" className="w-8 h-8 text-sky-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-sky-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
+        <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
+          <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
+          <Icon icon="carbon:magic-wand" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-sky-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-sky-400/30 shadow-lg shadow-sky-500/20">
-          <Icon icon="carbon:magic-wand" className="w-12 h-12 text-white" />
+        <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
+          <Icon icon="carbon:magic-wand" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     },
@@ -104,17 +104,17 @@ export default function ProcessSection({ className = "" }) {
         { label: "Custom Profiles", desc: "Molded dynamically into solid rectangular & round sections." },
         { label: "Enhanced Density", desc: "Compacted to exceed the structural density of typical wood." }
       ],
-      color: "indigo",
+      color: "emerald",
       icon: (
-        <div className="relative w-16 h-16 bg-indigo-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-indigo-100 overflow-hidden shadow-inner">
-          <div className="absolute inset-0 bg-gradient-to-tr from-indigo-100/30 to-transparent" />
-          <Icon icon="carbon:fire" className="w-8 h-8 text-indigo-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-indigo-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
+        <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
+          <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
+          <Icon icon="carbon:fire" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-indigo-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-indigo-400/30 shadow-lg shadow-indigo-500/20">
-          <Icon icon="carbon:fire" className="w-12 h-12 text-white" />
+        <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
+          <Icon icon="carbon:fire" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     },
@@ -131,17 +131,17 @@ export default function ProcessSection({ className = "" }) {
         { label: "Precision Calibration", desc: "Maintains absolute length, thickness, and width tolerances." },
         { label: "Surface Tempering", desc: "Provides an impact-resistant, non-slip textured finish." }
       ],
-      color: "teal",
+      color: "emerald",
       icon: (
-        <div className="relative w-16 h-16 bg-teal-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-teal-100 overflow-hidden shadow-inner">
-          <div className="absolute inset-0 bg-gradient-to-tr from-teal-100/30 to-transparent" />
-          <Icon icon="carbon:snowflake" className="w-8 h-8 text-teal-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-teal-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
+        <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
+          <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
+          <Icon icon="carbon:snowflake" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-teal-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-teal-400/30 shadow-lg shadow-teal-500/20">
-          <Icon icon="carbon:snowflake" className="w-12 h-12 text-white" />
+        <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
+          <Icon icon="carbon:snowflake" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     },
@@ -158,17 +158,17 @@ export default function ProcessSection({ className = "" }) {
         { label: "Weather Endurance", desc: "Guarantees 50+ years of life in extreme outdoor environments." },
         { label: "Quality & Compliance", desc: "Rigorous compliance checks verify structural grades." }
       ],
-      color: "violet",
+      color: "emerald",
       icon: (
-        <div className="relative w-16 h-16 bg-violet-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-violet-100 overflow-hidden shadow-inner">
-          <div className="absolute inset-0 bg-gradient-to-tr from-violet-100/30 to-transparent" />
-          <Icon icon="carbon:security" className="w-8 h-8 text-violet-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-violet-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
+        <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
+          <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
+          <Icon icon="carbon:security" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-violet-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-violet-400/30 shadow-lg shadow-violet-500/20">
-          <Icon icon="carbon:security" className="w-12 h-12 text-white" />
+        <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
+          <Icon icon="carbon:security" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     },
@@ -187,15 +187,15 @@ export default function ProcessSection({ className = "" }) {
       ],
       color: "emerald",
       icon: (
-        <div className="relative w-16 h-16 bg-emerald-50 rounded-[var(--radius-md,8px)] flex items-center justify-center border border-emerald-100 overflow-hidden shadow-inner">
-          <div className="absolute inset-0 bg-gradient-to-tr from-emerald-100/30 to-transparent" />
-          <Icon icon="carbon:checkmark-outline" className="w-8 h-8 text-emerald-600 relative z-10" />
-          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-emerald-400 rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
+        <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
+          <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
+          <Icon icon="carbon:checkmark-outline" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
-        <div className="relative w-28 h-28 bg-emerald-500 rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-emerald-400/30 shadow-lg shadow-emerald-500/20">
-          <Icon icon="carbon:checkmark-outline" className="w-12 h-12 text-white" />
+        <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
+          <Icon icon="carbon:checkmark-outline" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     }

@@ -61,14 +61,15 @@
 .infoCardIconCircle {
   width: 42px;
   height: 42px;
-  background: var(--brand-soft, #E8F5EE);
-  color: var(--brand-primary);
+  background: var(--brand-soft);
+  color: var(--text-brand);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid rgba(0, 135, 62, 0.15);
+  border: 1px solid var(--border-brand);
+  box-shadow: var(--shadow-xs);
 }
 
 .infoCardContent {
@@ -131,13 +132,15 @@
 .bannerIconCircle {
   width: 42px;
   height: 42px;
-  background: var(--brand-soft, #E8F5EE);
-  color: var(--brand-primary);
+  background: var(--brand-soft);
+  color: var(--text-brand);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  border: 1px solid var(--border-brand);
+  box-shadow: var(--shadow-xs);
 }
 
 .bannerTitle {
@@ -211,8 +214,10 @@
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: var(--brand-soft, #E8F5EE);
-  color: var(--brand-primary);
+  background: var(--brand-soft);
+  color: var(--text-brand);
+  border: 1px solid var(--border-brand);
+  box-shadow: var(--shadow-xs);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -343,11 +348,14 @@ html.dark .assistanceBanner {
 
 :global([data-theme="dark"]) .infoCardIconCircle,
 :global([data-theme="dark"]) .bannerIconCircle,
+:global([data-theme="dark"]) .infoIcon,
 :global(.dark) .infoCardIconCircle,
 :global(.dark) .bannerIconCircle,
+:global(.dark) .infoIcon,
 html.dark .infoCardIconCircle,
-html.dark .bannerIconCircle {
-  background: rgba(0, 135, 62, 0.2) !important;
-  border-color: rgba(0, 135, 62, 0.3) !important;
-  color: var(--brand-primary) !important;
+html.dark .bannerIconCircle,
+html.dark .infoIcon {
+  background: var(--brand-soft) !important;
+  border-color: var(--border-brand) !important;
+  color: var(--text-brand) !important;
 }

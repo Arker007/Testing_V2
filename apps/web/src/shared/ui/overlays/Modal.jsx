@@ -55,7 +55,7 @@ export default function Modal({
   const selectedSize = sizeClasses[size] || sizeClasses.md;
 
   const modalContent = (
-    <div className="fixed inset-0 z-[var(--z-modal,1300)] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-[var(--z-modal,1300)] flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-[var(--scrim-overlay,rgba(15,23,42,0.65))] backdrop-blur-xs transition-opacity animate-in fade-in duration-200"
@@ -64,11 +64,11 @@ export default function Modal({
 
       {/* Dialog Container */}
       <div
-        className={`relative w-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-[var(--radius-modal,16px)] shadow-[var(--shadow-modal)] overflow-hidden flex flex-col z-10 m-auto animate-in zoom-in-95 duration-200 ${selectedSize} ${className}`.trim()}
+        className={`relative w-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-[var(--radius-modal,16px)] shadow-[var(--shadow-modal)] overflow-hidden flex flex-col z-10 m-auto animate-in zoom-in-95 duration-200 max-h-[min(92vh,90dvh,820px)] ${selectedSize} ${className}`.trim()}
       >
         {/* Modal Header */}
         {(title || description) && (
-          <div className="flex items-start justify-between p-5 sm:p-6 border-b border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)]/50">
+          <div className="flex items-start justify-between p-4 sm:p-6 border-b border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)]/50 shrink-0">
             <div>
               {title && (
                 <h3 className="text-lg sm:text-xl font-bold text-[var(--text-primary)]">
@@ -85,7 +85,7 @@ export default function Modal({
               <button
                 type="button"
                 onClick={onClose}
-                className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/10 transition-colors ml-4 cursor-pointer focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:outline-none"
+                className="min-h-[40px] min-w-[40px] sm:min-h-[44px] sm:min-w-[44px] flex items-center justify-center p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/10 transition-colors ml-4 cursor-pointer focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:outline-none shrink-0"
                 aria-label="Close dialog"
               >
                 <Icon icon="carbon:close" className="w-5 h-5" />
@@ -98,7 +98,7 @@ export default function Modal({
           <button
             type="button"
             onClick={onClose}
-            className="absolute top-3 right-3 z-10 min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/10 transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:outline-none"
+            className="absolute top-3 right-3 z-10 min-h-[40px] min-w-[40px] sm:min-h-[44px] sm:min-w-[44px] flex items-center justify-center p-2 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg hover:bg-slate-100 dark:hover:bg-white/10 transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:outline-none"
             aria-label="Close dialog"
           >
             <Icon icon="carbon:close" className="w-5 h-5" />
@@ -106,11 +106,11 @@ export default function Modal({
         )}
 
         {/* Modal Content */}
-        <div className="p-5 sm:p-6 overflow-y-auto flex-1">{children}</div>
+        <div className="p-4 sm:p-6 overflow-y-auto flex-1 min-h-0 custom-modal-scrollbar">{children}</div>
 
         {/* Modal Footer */}
         {footer && (
-          <div className="p-4 sm:p-5 border-t border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)]/30 flex items-center justify-end gap-3">
+          <div className="p-3 sm:p-5 border-t border-[var(--border-subtle)] bg-[var(--bg-surface-elevated)]/30 flex items-center justify-end gap-3 shrink-0">
             {footer}
           </div>
         )}

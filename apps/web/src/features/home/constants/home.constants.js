@@ -130,24 +130,25 @@ export const bentoArrowVariants = {
 export const industryCardVariant = {
   hidden: { 
     opacity: 0, 
-    y: 20,
-    borderColor: "var(--border-card)"
+    y: 20
   },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    borderColor: "var(--border-card)",
     transition: {
       delay,
-      duration: 0.4,
+      duration: 0.35,
       ease: [0.25, 1, 0.5, 1]
     }
   }),
   hover: {
     y: -6,
     scale: 1.015,
-    borderColor: "rgba(95, 191, 80, 0.4)",
-    boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(95, 191, 80, 0.2)",
-    transition: { type: "spring", stiffness: 400, damping: 25 }
+    transition: {
+      type: "tween",
+      duration: 0.12,
+      delay: 0,
+      ease: [0.16, 1, 0.3, 1]
+    }
   }
 };

@@ -86,7 +86,7 @@ function ImageZoom({ src, alt, onOpenModal }) {
       />
 
       {isTouchDevice && (
-        <div className="absolute bottom-3 right-3 bg-black/60 text-white text-[11px] font-semibold px-2.5 py-1 rounded-full backdrop-blur-xs flex items-center gap-1 pointer-events-none z-20">
+        <div className="absolute bottom-3 right-3 bg-black/60 text-white text-[11px] font-semibold px-2.5 py-1 rounded-[var(--radius-card,8px)] backdrop-blur-xs flex items-center gap-1 pointer-events-none z-20">
           <Icon icon="carbon:maximize" className="w-3.5 h-3.5" />
           <span>Tap to expand</span>
         </div>
@@ -147,10 +147,35 @@ export default function ProductGallery({
       id="product-gallery-panel"
       onMouseEnter={() => onHoverChange?.(true)}
       onMouseLeave={() => onHoverChange?.(false)}
-      className="bg-[var(--bg-surface)] border border-[var(--border-default)] rounded-[var(--radius-card,8px)] p-4 sm:p-6 shadow-xs flex flex-col gap-5 transition-all duration-200"
+      className="flex flex-col md:flex-row gap-4 items-start w-full transition-all duration-200"
     >
-      {/* 1. Main Viewport */}
-      <div className="relative aspect-4/3 w-full bg-[var(--bg-surface-secondary)] rounded-[var(--radius-card,8px)] overflow-hidden flex items-center justify-center border border-[var(--border-subtle)]">
+      {/* 1. Left Vertical Thumbnails Column (Stacked vertically on desktop, horizontal scroll on mobile) */}
+      {images.length > 0 && (
+        <div className="flex md:flex-col gap-2.5 shrink-0 overflow-x-auto md:overflow-y-auto scrollbar-none w-full md:w-20 lg:w-24 order-2 md:order-1 justify-start">
+          {images.map((src, i) => (
+            <button
+              key={i}
+              type="button"
+              className={`w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-[var(--radius-card,8px)] overflow-hidden border-2 transition-all bg-[var(--bg-surface)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] ${
+                i === currentImgIdx
+                  ? "border-[var(--brand-primary)] ring-1 ring-[var(--brand-primary)] shadow-sm"
+                  : "border-[var(--border-subtle)] hover:border-[var(--border-strong)] opacity-70 hover:opacity-100"
+              }`}
+              onClick={() => setImg(i)}
+              aria-label={`View image ${i + 1} of ${productName}`}
+            >
+              <OptimizedImage
+                src={src}
+                alt={`${productName} thumbnail ${i + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* 2. Main Large Viewport */}
+      <div className="relative aspect-4/3 flex-1 w-full order-1 md:order-2 bg-[var(--bg-surface-secondary)] rounded-[var(--radius-card,8px)] overflow-hidden flex items-center justify-center border border-[var(--border-subtle)] shadow-xs">
         <div className="w-full h-full">
           {images[currentImgIdx] ? (
             <ImageZoom
@@ -166,17 +191,11 @@ export default function ProductGallery({
           )}
         </div>
 
-        {/* Certified Quality Badge */}
-        <div className="absolute top-3.5 left-3.5 bg-[var(--bg-surface-elevated)] text-[var(--text-primary)] px-3 py-1.5 rounded-[var(--radius-card,8px)] text-[10px] sm:text-xs font-bold flex items-center gap-1.5 backdrop-blur-xs shadow-xs border border-[var(--border-subtle)] z-30 pointer-events-none">
-          <Icon icon="carbon:security" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
-          <span>50+ Year Polymer Durability</span>
-        </div>
-
         {/* Fullscreen Modal Trigger */}
         {images[currentImgIdx] && (
           <button
             type="button"
-            className="absolute top-3.5 right-3.5 bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] w-11 h-11 min-w-[44px] min-h-[44px] rounded-[var(--radius-card,8px)] flex items-center justify-center transition-all shadow-xs border border-[var(--border-default)] cursor-pointer z-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95"
+            className="absolute top-3.5 right-3.5 bg-[var(--bg-surface)]/80 hover:bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] w-10 h-10 rounded-[var(--radius-card,8px)] flex items-center justify-center transition-all shadow-xs border border-[var(--border-default)] cursor-pointer z-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95"
             onClick={() => setShowImageModal(true)}
             aria-label="View image full screen"
             title="Expand Full View"
@@ -190,7 +209,7 @@ export default function ProductGallery({
           <>
             <button
               type="button"
-              className="absolute left-2 sm:left-3.5 top-1/2 -translate-y-1/2 w-11 h-11 min-w-[44px] min-h-[44px] rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)]/95 hover:bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)] flex items-center justify-center shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-90 z-30 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)] flex items-center justify-center shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-90 z-30 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
               onClick={(e) => {
                 e.stopPropagation();
                 handlePrevImage();
@@ -201,7 +220,7 @@ export default function ProductGallery({
             </button>
             <button
               type="button"
-              className="absolute right-2 sm:right-3.5 top-1/2 -translate-y-1/2 w-11 h-11 min-w-[44px] min-h-[44px] rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)]/95 hover:bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)] flex items-center justify-center shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-90 z-30 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)]/90 hover:bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)] flex items-center justify-center shadow-md backdrop-blur-sm transition-all hover:scale-105 active:scale-90 z-30 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
               onClick={(e) => {
                 e.stopPropagation();
                 handleNextImage();
@@ -212,67 +231,6 @@ export default function ProductGallery({
             </button>
           </>
         )}
-      </div>
-
-      {/* 2. Thumbnails Carousel */}
-      {images.length > 1 && (
-        <div className="flex items-center gap-2 sm:gap-3">
-          <button
-            type="button"
-            className="w-11 h-11 min-w-[44px] min-h-[44px] shrink-0 rounded-[var(--radius-card,8px)] border border-[var(--border-default)] bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:bg-[var(--bg-surface-secondary)] hover:text-[var(--text-primary)] flex items-center justify-center transition-all shadow-2xs cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95"
-            onClick={handlePrevImage}
-            aria-label="Previous thumbnail"
-          >
-            <Icon icon="carbon:chevron-left" className="w-4 h-4" />
-          </button>
-
-          <div className="flex-1 flex gap-2 overflow-x-auto py-1 scrollbar-none justify-center">
-            {images.map((src, i) => (
-              <button
-                key={i}
-                type="button"
-                className={`w-14 h-14 sm:w-16 sm:h-16 min-w-[48px] min-h-[48px] shrink-0 rounded-[var(--radius-card,8px)] overflow-hidden border-2 p-1 transition-all bg-[var(--bg-surface)] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] ${
-                  i === currentImgIdx
-                    ? "border-[var(--brand-primary)] shadow-xs ring-1 ring-[var(--brand-primary)]"
-                    : "border-[var(--border-default)] hover:border-[var(--border-strong)] opacity-80 hover:opacity-100"
-                }`}
-                onClick={() => setImg(i)}
-                aria-label={`View image ${i + 1} of ${productName}`}
-              >
-                <OptimizedImage
-                  src={src}
-                  alt={`${productName} thumbnail ${i + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </button>
-            ))}
-          </div>
-
-          <button
-            type="button"
-            className="w-11 h-11 min-w-[44px] min-h-[44px] shrink-0 rounded-[var(--radius-card,8px)] border border-[var(--border-default)] bg-[var(--bg-surface)] text-[var(--text-secondary)] hover:bg-[var(--bg-surface-secondary)] hover:text-[var(--text-primary)] flex items-center justify-center transition-all shadow-2xs cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95"
-            onClick={handleNextImage}
-            aria-label="Next thumbnail"
-          >
-            <Icon icon="carbon:chevron-right" className="w-4 h-4" />
-          </button>
-        </div>
-      )}
-
-      {/* 3. Factory Certified Standards Strip */}
-      <div className="grid grid-cols-3 gap-2.5 pt-4 border-t border-[var(--border-subtle)]">
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 p-2 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-center">
-          <Icon icon="carbon:certificate" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
-          <span className="text-[11px] font-bold text-[var(--text-primary)]">GST Registered</span>
-        </div>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 p-2 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-center">
-          <Icon icon="carbon:recycle" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
-          <span className="text-[11px] font-bold text-[var(--text-primary)]">100% Recycled</span>
-        </div>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 p-2 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-center">
-          <Icon icon="carbon:cube" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
-          <span className="text-[11px] font-bold text-[var(--text-primary)]">Export Exemption</span>
-        </div>
       </div>
     </div>
   );

@@ -370,7 +370,7 @@
 :global([data-theme="dark"]) .mainSection,
 :global(.dark) .mainSection,
 html.dark .mainSection {
-  background: var(--dark-page, #0b0f17) !important;
+  background: var(--bg-canvas, var(--brand-navy)) !important;
   color: var(--text-primary) !important;
 }
 

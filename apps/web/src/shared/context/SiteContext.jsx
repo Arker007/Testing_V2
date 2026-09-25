@@ -1,10 +1,18 @@
 import { createContext, useContext, useEffect, useState, useMemo, useCallback } from 'react'
 
-const SiteContext = createContext({})
+// eslint-disable-next-line react-refresh/only-export-components
+export const SiteContext = createContext({})
+// eslint-disable-next-line react-refresh/only-export-components
+export const SiteUIContext = createContext({})
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function useSite() {
     return useContext(SiteContext)
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function useSiteUI() {
+    return useContext(SiteUIContext)
 }
 
 export function SiteProvider({ children }) {
@@ -15,9 +23,9 @@ export function SiteProvider({ children }) {
 
     useEffect(() => {
         const pf = window.__prefetch || {}
-        const company  = pf.company  || fetch('/api/company').then(r => r.json()).catch(() => ({}))
-        const content  = pf.content  || fetch('/api/content').then(r => r.json()).catch(() => ({}))
-        Promise.all([company, content]).then(([co, cm]) => {
+        const companyPromise = pf.company || fetch('/api/company').then(r => r.json()).catch(() => ({}))
+        const contentPromise = pf.content || fetch('/api/content').then(r => r.json()).catch(() => ({}))
+        Promise.all([companyPromise, contentPromise]).then(([co, cm]) => {
             setCompany(co || {})
             const flat = {}
             Object.entries(cm || {}).forEach(([k, v]) => {
@@ -32,6 +40,11 @@ export function SiteProvider({ children }) {
     // Helper: get company value with fallback
     const co = useCallback((key, fallback = '') => company[key] || fallback, [company])
 
+    const uiValue = useMemo(() => ({
+        mobileMenuOpen,
+        setMobileMenuOpen
+    }), [mobileMenuOpen])
+
     const value = useMemo(() => ({
         company,
         cms,
@@ -43,8 +56,11 @@ export function SiteProvider({ children }) {
     }), [company, cms, c, co, ready, mobileMenuOpen])
 
     return (
-        <SiteContext.Provider value={value}>
-            {children}
-        </SiteContext.Provider>
+        <SiteUIContext.Provider value={uiValue}>
+            <SiteContext.Provider value={value}>
+                {children}
+            </SiteContext.Provider>
+        </SiteUIContext.Provider>
     )
 }
+

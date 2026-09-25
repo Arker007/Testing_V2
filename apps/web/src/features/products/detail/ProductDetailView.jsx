@@ -82,28 +82,48 @@ export default function ProductDetailView() {
   return (
     <main className="pt-0 pb-20 bg-[var(--bg-canvas)] text-[var(--text-primary)] min-h-screen">
       {/* Breadcrumb Navigation Header */}
-      <nav aria-label="Breadcrumb" className="border-b border-[var(--border-subtle)] py-3.5 bg-[var(--bg-surface)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center flex-wrap gap-2 text-xs sm:text-sm font-medium">
-          <Link to="/" className="text-[var(--text-secondary)] hover:text-[var(--brand-primary)] flex items-center gap-1 transition-colors">
-            <Icon icon="carbon:home" className="w-4 h-4" />
-            <span>Home</span>
-          </Link>
-          <Icon icon="carbon:chevron-right" className="w-3 h-3 text-[var(--text-muted)]" />
-          <Link to="/products" className="text-[var(--text-secondary)] hover:text-[var(--brand-primary)] transition-colors">
-            Catalog
-          </Link>
-          {categoryObj && (
-            <>
-              <Icon icon="carbon:chevron-right" className="w-3 h-3 text-[var(--text-muted)]" />
-              <Link to={`/products?cat=${categoryObj.id}`} className="text-[var(--text-secondary)] hover:text-[var(--brand-primary)] transition-colors">
-                {categoryObj.name}
-              </Link>
-            </>
-          )}
-          <Icon icon="carbon:chevron-right" className="w-3 h-3 text-[var(--text-muted)]" />
-          <span className="text-[var(--text-primary)] font-bold truncate max-w-[220px] sm:max-w-none">
-            {product.name}
-          </span>
+      <nav aria-label="Breadcrumb" className="border-b border-[var(--border-subtle)] py-3 bg-[var(--bg-surface)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between flex-wrap gap-3 text-xs sm:text-sm font-medium">
+          <div className="flex items-center flex-wrap gap-2">
+            <Link to="/" className="text-[var(--text-secondary)] hover:text-[var(--text-brand)] flex items-center gap-1 transition-colors">
+              <span>Home</span>
+            </Link>
+            <Icon icon="carbon:chevron-right" className="w-3 h-3 text-[var(--text-muted)]" />
+            <Link to="/products" className="text-[var(--text-secondary)] hover:text-[var(--text-brand)] transition-colors">
+              Products
+            </Link>
+            {categoryObj && (
+              <>
+                <Icon icon="carbon:chevron-right" className="w-3 h-3 text-[var(--text-muted)]" />
+                <Link to={`/products?cat=${categoryObj.id}`} className="text-[var(--text-secondary)] hover:text-[var(--text-brand)] transition-colors">
+                  {categoryObj.name}
+                </Link>
+              </>
+            )}
+            <Icon icon="carbon:chevron-right" className="w-3 h-3 text-[var(--text-muted)]" />
+            <span className="text-[var(--text-primary)] font-semibold truncate max-w-[200px] sm:max-w-none">
+              {product.name}
+            </span>
+          </div>
+
+          <div className="flex items-center gap-4 text-xs text-[var(--text-muted)] shrink-0">
+            <span>Item Code: <strong className="text-[var(--text-primary)] font-mono">{sku || "VE-PALLET-1200"}</strong></span>
+            <button
+              type="button"
+              onClick={() => {
+                if (navigator.share) {
+                  navigator.share({ title: product.name, url: window.location.href }).catch(() => {});
+                } else {
+                  navigator.clipboard.writeText(window.location.href);
+                  alert("Product link copied to clipboard!");
+                }
+              }}
+              className="inline-flex items-center gap-1.5 text-[var(--text-secondary)] hover:text-[var(--text-brand)] transition-colors cursor-pointer"
+            >
+              <Icon icon="carbon:share" className="w-4 h-4" />
+              <span>Share</span>
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -171,7 +191,7 @@ export default function ProductDetailView() {
               href={`tel:${phone.replace(/\s+/g, "")}`}
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-btn,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] hover:bg-[var(--bg-surface-tertiary)] hover:border-[var(--border-default)] text-[var(--text-primary)] text-sm font-bold transition-all shadow-2xs whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
-              <Icon icon="carbon:phone" className="w-4 h-4 text-[var(--brand-primary,#059669)] shrink-0" />
+              <Icon icon="carbon:phone" className="w-4 h-4 text-[var(--text-brand)] shrink-0" />
               <span>Call Sales Team</span>
             </a>
           </CtaCard>

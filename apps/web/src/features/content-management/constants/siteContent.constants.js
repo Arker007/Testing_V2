@@ -4,6 +4,9 @@ import { CMS_FIELDS } from "./cmsFields.constants";
 export { COMPANY_FIELDS, CMS_FIELDS };
 
 export const TAB_SECTIONS = {
+  "Navigation": [
+    "Navbar Pages"
+  ],
   "Home Page": [
     "Homepage Hero",
     "Homepage Trusted By",
@@ -51,6 +54,7 @@ export const SECTION_TOGGLE_KEYS = {
 };
 
 export const SECTION_DISPLAY_NAMES = {
+  "Navbar Pages": "Navigation Bar Pages",
   "Business Info": "Company Profile",
   "Contact Details": "Contact Details",
   "Social & Links": "Social Links",

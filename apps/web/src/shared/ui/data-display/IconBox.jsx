@@ -33,19 +33,21 @@ export default function IconBox({
 
   const variantClasses = {
     brand:
-      "bg-[var(--brand-primary)] text-[var(--navy-950)] font-black shadow-sm border border-[var(--brand-primary)]",
+      "bg-[var(--brand-soft)] text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold shadow-xs",
     success:
-      "bg-[var(--success-bg)] text-[var(--success-text)] border border-[var(--success-border)]",
+      "bg-[var(--brand-soft)] text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold shadow-xs",
     sky:
-      "bg-[var(--info-bg)] text-[var(--info-text)] border border-[var(--info-border)]",
+      "bg-[var(--brand-soft)] text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold shadow-xs",
     neutral:
       "bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] border border-[var(--border-subtle)]",
-    dark: "bg-[var(--navy-900)] text-[var(--text-on-dark)] border border-[var(--border-on-dark)]",
-    glass: "bg-white/10 backdrop-blur-md text-white border border-white/20",
+    dark:
+      "bg-[var(--brand-soft)] text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold shadow-xs",
+    glass:
+      "bg-[var(--brand-soft)] text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold shadow-xs",
     subtle:
-      "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] border border-[var(--border-subtle)]",
+      "bg-[var(--brand-soft)] text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold shadow-xs",
     outline:
-      "bg-transparent text-[var(--text-primary)] border border-[var(--border-default)]",
+      "bg-transparent text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold",
   };
 
   const selectedSize = sizeClasses[size] || sizeClasses.md;

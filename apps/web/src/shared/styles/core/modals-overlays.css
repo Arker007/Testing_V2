@@ -4,3 +4,32 @@
   inset: 0;
   z-index: 50;
 }
+
+/* Reusable contained scrollbar for modal bodies */
+.custom-modal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default, #cbd5e1) transparent;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.custom-modal-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-modal-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px 0;
+}
+
+.custom-modal-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--border-default, #cbd5e1);
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.custom-modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--brand-primary, #16a34a);
+}

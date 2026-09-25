@@ -48,7 +48,14 @@ function matchesDimension(productDim, filterDim) {
   return false;
 }
 
-function matchesAttribute(p, attr) {
+// Cache searchable text string on the product object to avoid repeated JSON.stringify on every filter pass
+const productSearchCache = new WeakMap();
+
+function getProductSearchableText(p) {
+  if (!p) return "";
+  let cached = productSearchCache.get(p);
+  if (cached !== undefined) return cached;
+
   const text = [
     p.name,
     p.type,
@@ -56,12 +63,18 @@ function matchesAttribute(p, attr) {
     p.applications,
     p.technical_blurb,
     Array.isArray(p.features) ? p.features.join(" ") : String(p.features || ""),
-    typeof p.specifications === "object" ? JSON.stringify(p.specifications) : String(p.specifications || ""),
+    p.specifications ? (typeof p.specifications === "object" ? Object.values(p.specifications).join(" ") : String(p.specifications)) : "",
   ]
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
 
+  productSearchCache.set(p, text);
+  return text;
+}
+
+function matchesAttribute(p, attr) {
+  const text = getProductSearchableText(p);
   const lowerAttr = attr.toLowerCase();
   if (lowerAttr === "nestable") {
     return text.includes("nestable") || text.includes("nest") || text.includes("stackable");

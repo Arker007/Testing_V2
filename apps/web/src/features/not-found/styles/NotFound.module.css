@@ -30,7 +30,7 @@
 .title {
   font-size: 2.2rem;
   font-weight: 800;
-  color: var(--dark);
+  color: var(--text-primary);
   margin-top: 0;
   margin-bottom: 16px;
   letter-spacing: -0.02em;
@@ -52,8 +52,8 @@
 }
 
 .btnPrimary {
-  background: var(--brand);
-  color: var(--dark);
+  background: var(--action-primary-bg, var(--brand-green));
+  color: var(--action-primary-text, var(--brand-navy));
   border: none;
   padding: 12px 24px;
   border-radius: var(--radius-md);
@@ -64,17 +64,18 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
 }
 
 .btnPrimary:hover {
-  background: var(--brand-dark);
+  background: var(--brand-hover, #8ED35A);
+  color: var(--action-primary-text, var(--brand-navy));
 }
 
 .btnOutline {
-  background: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--action-secondary-text, var(--brand-green-deep));
+  border: 1px solid var(--border-accent, var(--brand-green-deep));
   padding: 12px 24px;
   border-radius: var(--radius-md);
   font-size: 0.9rem;
@@ -88,6 +89,7 @@
 }
 
 .btnOutline:hover {
-  background: rgba(5, 40, 63, 0.02);
-  border-color: rgba(5, 40, 63, 0.25);
+  background: var(--state-selected-bg, var(--brand-green-soft));
+  border-color: var(--border-accent, var(--brand-green-deep));
+  color: var(--action-secondary-text, var(--brand-green-deep));
 }

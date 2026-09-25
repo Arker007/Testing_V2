@@ -48,13 +48,8 @@ export default function WhyChooseUsSection() {
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
             {/* Feature 1 */}
             <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/50 hover:bg-white/[0.07] rounded-[var(--radius-card,8px)] p-6 flex flex-col gap-3.5 shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-center justify-between gap-3">
-                <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <Icon icon="carbon:security" className="w-6 h-6" />
-                </div>
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[var(--radius-sm,6px)] bg-white/10 border border-white/15 text-[0.6875rem] font-bold text-slate-300 tracking-wider">
-                  Max Load SLA
-                </span>
+              <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <Icon icon="carbon:security" className="w-6 h-6" />
               </div>
               <div>
                 <h3 className="text-base font-bold text-white mb-1.5 leading-snug group-hover:text-[var(--brand-primary)] transition-colors">
@@ -68,13 +63,8 @@ export default function WhyChooseUsSection() {
 
             {/* Feature 2 */}
             <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/50 hover:bg-white/[0.07] rounded-[var(--radius-card,8px)] p-6 flex flex-col gap-3.5 shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-center justify-between gap-3">
-                <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <Icon icon="carbon:sun" className="w-6 h-6" />
-                </div>
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[var(--radius-sm,6px)] bg-white/10 border border-white/15 text-[0.6875rem] font-bold text-slate-300 tracking-wider">
-                  UV Tested
-                </span>
+              <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <Icon icon="carbon:sun" className="w-6 h-6" />
               </div>
               <div>
                 <h3 className="text-base font-bold text-white mb-1.5 leading-snug group-hover:text-[var(--brand-primary)] transition-colors">
@@ -88,13 +78,8 @@ export default function WhyChooseUsSection() {
 
             {/* Feature 3 */}
             <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/50 hover:bg-white/[0.07] rounded-[var(--radius-card,8px)] p-6 flex flex-col gap-3.5 shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-center justify-between gap-3">
-                <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <Icon icon="carbon:settings" className="w-6 h-6" />
-                </div>
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[var(--radius-sm,6px)] bg-white/10 border border-white/15 text-[0.6875rem] font-bold text-slate-300 tracking-wider">
-                  Zero Rot/Pest
-                </span>
+              <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <Icon icon="carbon:settings" className="w-6 h-6" />
               </div>
               <div>
                 <h3 className="text-base font-bold text-white mb-1.5 leading-snug group-hover:text-[var(--brand-primary)] transition-colors">
@@ -108,13 +93,8 @@ export default function WhyChooseUsSection() {
 
             {/* Feature 4 */}
             <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/50 hover:bg-white/[0.07] rounded-[var(--radius-card,8px)] p-6 flex flex-col gap-3.5 shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-center justify-between gap-3">
-                <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <Icon icon="carbon:recycle" className="w-6 h-6" />
-                </div>
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[var(--radius-sm,6px)] bg-white/10 border border-white/15 text-[0.6875rem] font-bold text-slate-300 tracking-wider">
-                  100% Circular
-                </span>
+              <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--brand-primary)] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <Icon icon="carbon:recycle" className="w-6 h-6" />
               </div>
               <div>
                 <h3 className="text-base font-bold text-white mb-1.5 leading-snug group-hover:text-[var(--brand-primary)] transition-colors">

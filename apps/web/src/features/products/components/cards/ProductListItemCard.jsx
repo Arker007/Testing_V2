@@ -15,7 +15,7 @@ import {
 } from "../../utils/product.utils";
 import styles from "../../products.module.css";
 
-export default function ProductListItemCard({
+function ProductListItemCard({
   product,
   img,
   staticLoad: propStaticLoad,
@@ -203,3 +203,6 @@ export default function ProductListItemCard({
     </motion.article>
   );
 }
+
+export default React.memo(ProductListItemCard);
+

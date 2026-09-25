@@ -9,53 +9,61 @@ html[data-theme="dark"] {
 
   /* === DARK THEME SEMANTIC TOKENS === */
   /* Base Surfaces & Backgrounds */
-  --bg-base: var(--neutral-950);
-  --bg-surface: var(--neutral-900);
-  --bg-surface-secondary: var(--neutral-800);
-  --bg-surface-tertiary: #26303d;
-  --bg-surface-elevated: var(--neutral-800);
-  --bg-dark-container: var(--neutral-900);
-  --bg-hero: linear-gradient(135deg, var(--neutral-950) 0%, #162232 100%);
+  --brand-navy: #061A26;
+  --bg-primary: #061A26;
+  --bg-canvas: var(--brand-navy);
+  --bg-base: var(--brand-navy);
+  --bg-page: var(--brand-navy);
+  --bg-default: var(--brand-navy);
+  --bg-dark: var(--brand-navy);
+  --bg-dark-container: var(--brand-navy);
+  --dark-page: var(--brand-navy);
+  --bg-section: var(--brand-navy);
+
+  --bg-surface: #0A2233;
+  --bg-surface-secondary: #132E40;
+  --bg-surface-tertiary: #1D3F57;
+  --bg-surface-elevated: #132E40;
+  --bg-subtle: #0A2233;
+  --bg-hero: linear-gradient(135deg, #061A26 0%, #092333 60%, #0F3249 100%);
+  --hero-bg: #061A26;
+  --hero-gradient: linear-gradient(135deg, #061A26 0%, #092333 60%, #0F3249 100%);
   --bg-grid-overlay: rgba(255, 255, 255, 0.04);
-  --bg-nav: rgba(22, 28, 36, 0.90);
-  --bg-canvas: var(--bg-base);
-  --bg-default: var(--bg-canvas);
-  --bg-page: var(--bg-canvas);
-  --bg-subtle: var(--bg-surface-secondary);
+  --bg-nav: rgba(6, 26, 38, 0.95);
 
   /* Brand & Accent Colors */
-  --primary: var(--brand-500);
+  --primary: var(--brand-green);
   --primary-hover: var(--brand-400);
-  --primary-muted: rgba(107, 191, 84, 0.15);
-  --primary-text: var(--brand-500);
+  --primary-muted: rgba(120, 191, 69, 0.16);
+  --primary-text: var(--brand-green);
 
-  --brand-primary: var(--brand-500);
+  --brand-primary: var(--brand-green);
   --brand-hover: var(--brand-400);
   --brand-active: var(--brand-600);
-  --brand-soft: rgba(107, 191, 84, 0.15);
-  --brand-border: rgba(107, 191, 84, 0.35);
-  --brand-glow: rgba(107, 191, 84, 0.25);
-  --brand-glow-subtle: rgba(107, 191, 84, 0.10);
+  --brand-soft: rgba(120, 191, 69, 0.15);
+  --brand-border: rgba(120, 191, 69, 0.35);
+  --brand-glow: rgba(120, 191, 69, 0.25);
+  --brand-glow-subtle: rgba(120, 191, 69, 0.10);
 
   /* Typography Colors */
-  --text-primary: #f4f6f8;
-  --text-secondary: #cbd5e1;
-  --text-muted: #a8b6cc;
+  --text-primary: #FFFFFF;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
   --text-inverse: #FFFFFF;
   --text-inverse-secondary: rgba(255, 255, 255, 0.85);
   --text-inverse-muted: rgba(255, 255, 255, 0.65);
   --text-on-dark: #FFFFFF;
-  --text-on-dark-secondary: #D8DEDA;
+  --text-on-dark-secondary: #CBD5E1;
   --text-disabled: #64748B;
-  --text-brand: var(--brand-500);
+  --text-brand: #8ED35A;
 
   /* Borders & Dividers */
-  --border-subtle: rgba(255, 255, 255, 0.16);
-  --border-default: rgba(255, 255, 255, 0.22);
-  --border-medium: rgba(255, 255, 255, 0.28);
-  --border-strong: rgba(255, 255, 255, 0.36);
-  --border-brand: rgba(107, 191, 84, 0.35);
-  --border-accent: rgba(107, 191, 84, 0.35);
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-default: rgba(255, 255, 255, 0.18);
+  --border-medium: rgba(255, 255, 255, 0.24);
+  --border-strong: rgba(255, 255, 255, 0.32);
+  --border-brand: rgba(142, 211, 90, 0.40);
+  --border-accent: rgba(142, 211, 90, 0.40);
   --border-on-dark: rgba(255, 255, 255, 0.16);
   --divider: var(--border-subtle);
 

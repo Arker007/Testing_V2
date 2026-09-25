@@ -1,4 +1,6 @@
 export const ALL_SECTIONS_LIST = [
+  { key: "Navbar Pages", label: "Navigation Bar Pages", group: "Navigation", icon: "carbon:menu", tab: "Navigation", hasToggle: false },
+
   { key: "Business Info", label: "Company Profile", group: "Profile", icon: "carbon:enterprise", tab: "company" },
   { key: "Contact Details", label: "Contact Details", group: "Profile", icon: "carbon:phone", tab: "company" },
   { key: "Social & Links", label: "Social Links", group: "Profile", icon: "carbon:share", tab: "company" },

@@ -33,27 +33,28 @@
   position: relative;
   overflow: hidden;
   min-height: 280px;
-  box-shadow: var(--shadow-sm);
-  transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out;
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.35);
+  transition: box-shadow 0.12s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
 }
 
 :global([data-theme="dark"]) .industryCard,
 :global(.dark) .industryCard {
   background: var(--bg-surface) !important;
   border: 1px solid var(--border-card) !important;
-  box-shadow: var(--shadow-sm) !important;
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.45) !important;
   color: var(--text-secondary) !important;
 }
 
 .industryCard:hover {
-  border-color: var(--brand-primary);
-  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(95, 191, 80, 0.55) !important;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px -4px rgba(95, 191, 80, 0.28) !important;
 }
 
 :global([data-theme="dark"]) .industryCard:hover,
 :global(.dark) .industryCard:hover {
-  border-color: var(--brand-primary) !important;
-  box-shadow: var(--shadow-card-hover) !important;
+  border-color: rgba(95, 191, 80, 0.55) !important;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px -4px rgba(95, 191, 80, 0.28) !important;
 }
 
 .indCardHeader {
@@ -146,7 +147,7 @@
   background: var(--bg-surface) !important;
   color: var(--text-primary) !important;
   border: 1px solid var(--border-card) !important;
-  box-shadow: var(--shadow-card-hover) !important;
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.45) !important;
 }
 
 .cardLargeDark .indName {
@@ -186,7 +187,7 @@
   background: var(--bg-surface) !important;
   color: var(--text-primary) !important;
   border: 1px solid var(--border-card) !important;
-  box-shadow: var(--shadow-card-hover) !important;
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.45) !important;
 }
 
 .cardLargeLight .indName {

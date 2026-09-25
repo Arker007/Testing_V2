@@ -141,7 +141,7 @@ export default function ContactFormSection() {
                 {/* Step 1: Select Product */}
                 <div className="space-y-2.5">
                   <div className="flex items-start gap-2.5">
-                    <div className="w-6 h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                       1
                     </div>
                     <div>
@@ -175,15 +175,15 @@ export default function ContactFormSection() {
                             key={cat}
                             type="button"
                             onClick={() => f("productService")({ target: { value: cat } })}
-                            className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-all cursor-pointer flex items-center justify-center gap-1 text-center ${
+                            className={`px-2.5 py-1.5 rounded-md text-xs transition-all cursor-pointer flex items-center justify-center gap-1 text-center ${
                               isSelected
-                                ? "bg-[var(--bg-surface)] text-[var(--brand-primary)] border-2 border-[var(--brand-primary)] font-bold shadow-2xs"
-                                : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-default)] hover:border-[var(--brand-primary)]/40"
+                                ? "bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] font-bold shadow-xs"
+                                : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-default)] hover:border-[var(--border-brand)]/60 font-medium"
                             }`}
                           >
                             <span>{cat}</span>
                             {isSelected && (
-                              <Icon icon="carbon:checkmark" className="w-3 h-3 text-[var(--brand-primary)] shrink-0" />
+                              <Icon icon="carbon:checkmark" className="w-3 h-3 text-[var(--text-brand)] shrink-0" />
                             )}
                           </button>
                         );
@@ -195,7 +195,7 @@ export default function ContactFormSection() {
                 {/* Step 2: Contact Details */}
                 <div className="space-y-2.5">
                   <div className="flex items-start gap-2.5">
-                    <div className="w-6 h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                       2
                     </div>
                     <div>
@@ -289,7 +289,7 @@ export default function ContactFormSection() {
                 {/* Step 3: Requirement Details */}
                 <div className="space-y-2.5">
                   <div className="flex items-start gap-2.5">
-                    <div className="w-6 h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                       3
                     </div>
                     <div>
@@ -378,8 +378,8 @@ export default function ContactFormSection() {
 
                   {/* Secure Info Badge - Clean Unboxed Layout */}
                   <div className="flex items-center gap-2.5 px-1 py-1 text-left sm:border-l sm:border-[var(--border-subtle)] sm:pl-4">
-                    <div className="text-[var(--brand-primary)] dark:text-emerald-400 shrink-0">
-                      <Icon icon="carbon:security" className="w-5 h-5" />
+                    <div className="w-7 h-7 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] flex items-center justify-center shrink-0">
+                      <Icon icon="carbon:security" className="w-4 h-4" />
                     </div>
                     <div className="text-[11px] leading-tight">
                       <span className="block font-bold text-[var(--text-primary)]">Your information is secure.</span>
@@ -421,7 +421,7 @@ export default function ContactFormSection() {
                   className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm"
                   id="info-card-person"
                 >
-                  <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-[8px] bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
                     <Icon icon="carbon:user" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
@@ -436,7 +436,7 @@ export default function ContactFormSection() {
                   className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm group"
                   id="info-card-address"
                 >
-                  <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-[8px] bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
                     <Icon icon="carbon:location" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
@@ -472,7 +472,7 @@ export default function ContactFormSection() {
                   className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm"
                   id="info-card-mobile"
                 >
-                  <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-[8px] bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
                     <Icon icon="carbon:phone" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
@@ -517,7 +517,7 @@ export default function ContactFormSection() {
                   className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm"
                   id="info-card-email"
                 >
-                  <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-[8px] bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
                     <Icon icon="carbon:email" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
@@ -560,7 +560,7 @@ export default function ContactFormSection() {
                   className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm"
                   id="info-card-gstin"
                 >
-                  <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-[8px] bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
                     <Icon icon="carbon:document" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
@@ -602,7 +602,7 @@ export default function ContactFormSection() {
                   id="assistance-banner"
                 >
                   <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-[8px] bg-[#eef8ef] dark:bg-emerald-950/40 text-[#15803d] dark:text-emerald-400 border border-[#bbf7d0] dark:border-emerald-800/60 flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-[8px] bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
                       <Icon icon="carbon:headphones" className="w-5 h-5" />
                     </div>
                     <div>
