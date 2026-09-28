@@ -116,20 +116,30 @@ export default function NavbarSearch({
       }`}
       ref={containerRef}
     >
-      <form
+      <motion.form
         onSubmit={handleSubmit}
         className={`${styles.search} ${
           isExpanded ? styles.searchExpanded : styles.searchCollapsed
         }`}
+        whileHover={!isExpanded ? { scale: 1.1 } : undefined}
+        whileTap={!isExpanded ? { scale: 0.9 } : undefined}
+        transition={{ duration: 0.12, ease: "easeOut" }}
       >
-        <button
+        <motion.button
           type={isExpanded ? "submit" : "button"}
           onClick={handleIconClick}
           className={styles.searchSubmitBtn}
+          whileHover={{ scale: isExpanded ? 1.15 : 1 }}
+          whileTap={{ scale: 0.9 }}
           aria-label={isExpanded ? "Submit search" : "Open search bar"}
         >
-          <Icon icon="carbon:search" className="w-5 h-5 shrink-0" />
-        </button>
+          <motion.div
+            whileHover={{ rotate: 12, scale: 1.1 }}
+            transition={{ duration: 0.12, ease: "easeOut" }}
+          >
+            <Icon icon="carbon:search" className="w-5 h-5 shrink-0" />
+          </motion.div>
+        </motion.button>
 
         <input
           id="navbar-search-input"
@@ -167,7 +177,7 @@ export default function NavbarSearch({
             </svg>
           </button>
         )}
-      </form>
+      </motion.form>
 
       {/* Professional Live Suggestions Dropdown */}
       <AnimatePresence>

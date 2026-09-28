@@ -165,6 +165,147 @@ export function getHeadline(p) {
   return "High-performance recycled plastic product engineered for industrial durability.";
 }
 
+export function simplifyFeature(text) {
+  if (!text || typeof text !== "string") return text || "";
+  const t = text.trim().toLowerCase();
+
+  // 1. Export & Pallet specific features
+  if (t.includes("ispm-15") || t.includes("ispm15") || t.includes("export ready") || t.includes("fumigation")) {
+    return "Export Ready";
+  }
+  if (t.includes("warehouse rack safe") || t.includes("racking reinforcement")) {
+    return "Rack Safe";
+  }
+  if (t.includes("anti-slip rubber grips") || t.includes("grommets") || t.includes("anti-slip surface")) {
+    return "Anti-Slip";
+  }
+  if (t.includes("washable & chemical safe") || t.includes("washable & chemical resistant") || t.includes("easily pressure washed")) {
+    return "Chemical Safe";
+  }
+  if (t.includes("european epal") || t.includes("conforms to standard european")) {
+    return "Euro EPAL Size";
+  }
+  if (t.includes("nestable / stackable") || t.includes("stackable design")) {
+    return "Stackable";
+  }
+  if (t.includes("no nails or splinters") || t.includes("zero splinters") || t.includes("safe barefoot walking")) {
+    return "Splinter-Free";
+  }
+  if (t.includes("100% recyclable")) {
+    return "100% Recyclable";
+  }
+  if (t.includes("square footprint") || t.includes("standard barrels") || t.includes("fits 4 standard")) {
+    return "Fits 4 Drums";
+  }
+  if (t.includes("conveyor-friendly") || t.includes("conveyor safe")) {
+    return "Conveyor Safe";
+  }
+  if (t.includes("acid & alkali") || t.includes("chemical proof") || t.includes("resistant to chlorine")) {
+    return "Chemical Proof";
+  }
+  if (t.includes("uv stability") || t.includes("uv stabilized") || t.includes("high uv stability")) {
+    return "UV Resistant";
+  }
+  if (t.includes("dual identical decking") || t.includes("reversible")) {
+    return "Reversible";
+  }
+  if (t.includes("highest static capacity") || t.includes("extreme point loads") || t.includes("heavy weight capacity")) {
+    return "Heavy Duty";
+  }
+  if (t.includes("forklift")) {
+    return "Forklift Safe";
+  }
+  if (t.includes("10 years") || t.includes("10+ years")) {
+    return "10+ Yr Lifespan";
+  }
+  if (t.includes("50+ year") || t.includes("fifty-plus")) {
+    return "50+ Yr Lifespan";
+  }
+
+  // 2. Outdoor Furniture / Lumber specific
+  if (t.includes("never rot") || t.includes("rot proof") || t.includes("rotting") || t.includes("zero rot")) {
+    return "Rot-Proof";
+  }
+  if (t.includes("termite")) {
+    return "Termite-Proof";
+  }
+  if (t.includes("zero maintenance") || t.includes("no maintenance") || t.includes("never needs painting") || t.includes("zero painting")) {
+    return "Maintenance-Free";
+  }
+  if (t.includes("works with standard carpentry") || t.includes("standard carpentry")) {
+    return "Easy to Install";
+  }
+  if (t.includes("paint-free color") || t.includes("color formulated solid")) {
+    return "Solid Color";
+  }
+  if (t.includes("buried in soil") || t.includes("ground contact")) {
+    return "Ground Contact Safe";
+  }
+  if (t.includes("sea water") || t.includes("marine") || t.includes("salt air")) {
+    return "Marine Grade";
+  }
+  if (t.includes("no chemical leaching") || t.includes("non-toxic")) {
+    return "Non-Toxic";
+  }
+  if (t.includes("graffiti") || t.includes("vandalism")) {
+    return "Easy Clean";
+  }
+  if (t.includes("does not warp") || t.includes("warp-proof")) {
+    return "Warp-Proof";
+  }
+  if (t.includes("chew-resistant") || t.includes("horses & livestock will not chew") || t.includes("crib-proof")) {
+    return "Animal Safe";
+  }
+  if (t.includes("weatherproof") || t.includes("all-weather")) {
+    return "Weatherproof";
+  }
+  if (t.includes("tipping") || t.includes("prevents tipping") || t.includes("anti-theft & tip proof")) {
+    return "Tip-Proof";
+  }
+  if (t.includes("heavyweight") || t.includes("anti-theft")) {
+    return "Anti-Theft";
+  }
+  if (t.includes("draining") || t.includes("self-draining")) {
+    return "Self-Draining";
+  }
+  if (t.includes("rounded ergonomic") || t.includes("ergonomic edges")) {
+    return "Ergonomic Edges";
+  }
+  if (t.includes("circular economy") || t.includes("100% recycled")) {
+    return "100% Recycled";
+  }
+  if (t.includes("food-safe") || t.includes("wipe clean")) {
+    return "Food Safe";
+  }
+  if (t.includes("stain proof") || t.includes("stain-resistant")) {
+    return "Stain Proof";
+  }
+  if (t.includes("will not rust") || t.includes("rustproof") || t.includes("never rusts")) {
+    return "Rustproof";
+  }
+  if (t.includes("leveling glides")) {
+    return "Leveling Glides";
+  }
+  if (t.includes("hospitality grade") || t.includes("commercial grade")) {
+    return "Commercial Grade";
+  }
+  if (t.includes("compact footprint") || t.includes("space saving")) {
+    return "Space Saving";
+  }
+  if (t.includes("wind resistant") || t.includes("resists high wind")) {
+    return "Wind Resistant";
+  }
+  if (t.includes("custom extrusion") || t.includes("custom molding") || t.includes("zero tooling")) {
+    return "Custom Sizes";
+  }
+  if (t.includes("precision manufacturing") || t.includes("high precision")) {
+    return "High Precision";
+  }
+
+  // Capitalize first letter of each word if not matched
+  return text.split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(" ");
+}
+
 export default {
   getImg,
   getStaticLoadKg,
@@ -174,4 +315,5 @@ export default {
   getWeightStr,
   getSkuCode,
   getHeadline,
+  simplifyFeature,
 };

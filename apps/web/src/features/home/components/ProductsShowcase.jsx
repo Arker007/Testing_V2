@@ -4,7 +4,7 @@ import { motion as Motion } from "motion/react";
 import { Icon } from "@iconify/react";
 import { OptimizedImage } from "@/shared/ui";
 import { useProducts } from "@/shared/hooks/useProducts";
-import { getImg } from "@/features/products";
+import { getImg, simplifyFeature } from "@/features/products";
 
 const DEFAULT_SPECIFICATIONS = [
   { title: "Waterproof", icon: "carbon:rain-drop" },
@@ -65,32 +65,8 @@ const DEFAULT_BENTO_PRODUCTS = [
   },
 ];
 
-const SIMPLIFIED_FEATURE_MAP = {
-  "ispm-15 exempt (zero fumigation needed for global export)": "Export Ready (No Fumigation)",
-  "ispm-15 exempt (zero fumigation needed)": "Export Ready (No Fumigation)",
-  "ispm-15 exempt (no fumigation required)": "Export Ready (No Fumigation)",
-  "ispm-15 exempt": "Export Ready (No Fumigation)",
-  "3 bottom runners with racking reinforcement": "Warehouse Rack Safe",
-  "anti-slip rubber grommets on deck and bottom": "Anti-Slip Rubber Grips",
-  "washable & chemical resistant surface": "Washable & Chemical Safe",
-  "conforms to standard european epal dimensions": "Standard Euro EPAL Size",
-  "nestable / stackable design saves up to 55% return freight": "Stackable (Saves 55% Space)",
-  "no nails or splinters to damage packed cartons": "No Nails or Splinters",
-  "100% recyclable circular economy product": "100% Recyclable",
-  "optimized square footprint for 4 standard barrels": "Fits 4 Standard Drums",
-  "conveyor-friendly solid runner underside": "Conveyor Safe Base",
-  "acid & alkali resistant inert polymer": "Acid & Chemical Proof",
-  "high uv stability for outdoor storage": "All-Weather Outdoor Safe",
-  "dual identical decking for safe tier stacking": "Reversible (Double-Sided)",
-  "highest static capacity (up to 6 tonnes)": "Heavy Load (Up to 6 Tons)",
-  "high torsional rigidity under forklift acceleration": "Forklift Friendly",
-  "long service life exceeding 10 years": "10+ Years Lifespan",
-};
-
 const simplifyFeatureText = (text) => {
-  if (!text || typeof text !== "string") return text;
-  const key = text.trim().toLowerCase();
-  return SIMPLIFIED_FEATURE_MAP[key] || text;
+  return simplifyFeature(text);
 };
 
 const renderFeatureIcon = (iconName, title = "") => {

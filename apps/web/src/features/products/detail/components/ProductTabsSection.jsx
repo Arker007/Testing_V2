@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { simplifyFeature } from "@/shared/utils/productUtils";
 import DOMPurify from "dompurify";
 import { motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
@@ -641,7 +642,7 @@ export default function ProductTabsSection({
                             <Icon icon="carbon:checkmark-filled" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                           </div>
                           <span className="font-semibold text-xs sm:text-sm text-[var(--text-primary)] leading-snug">
-                            {feat}
+                            {simplifyFeature(feat)}
                           </span>
                         </div>
                       ))}

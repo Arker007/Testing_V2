@@ -1,10 +1,10 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../../shared/context/SiteContext";
 import { testimonials } from "../constants";
-import { Card } from "@/shared/ui";
+import { Card, SectionHeader } from "@/shared/ui";
 
 export default function TestimonialsSection() {
   const { c } = useSite();
@@ -20,162 +20,82 @@ export default function TestimonialsSection() {
     setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
-  const current = testimonials[currentSlide];
-
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-[var(--bg-canvas)] transition-colors">
-      <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          {/* Left Column: Testimonial Card */}
-          <div className="lg:col-span-6">
-            <Card
-              variant="default"
-              className="p-6 sm:p-8 lg:p-10 rounded-2xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col justify-between min-h-[300px] sm:min-h-[320px]"
-            >
-              {/* Quote Content with Animation */}
-              <div className="relative">
-                {/* Quote Icon */}
-                <div className="mb-3 text-[var(--text-primary)] select-none">
-                  <Icon icon="solar:quote-down-bold" className="w-8 h-8 text-[var(--text-primary)]/80" />
-                </div>
+    <section className="container py-16 md:py-20">
+      <SectionHeader
+        eyebrow={c("about_testimonials_eyebrow", "Client Feedback")}
+        title={c("about_testimonials_title", "Trusted by Procurement & Logistics Leaders")}
+        subtitle={c(
+          "about_testimonials_subtitle",
+          "What our enterprise partners across India say about our recycled plastic products and service reliability."
+        )}
+      />
 
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentSlide}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.25 }}
-                  >
-                    <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed font-normal">
-                      &ldquo;{current.quote}&rdquo;
-                    </p>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* Bottom Navigation & Author Details */}
-              <div className="flex items-center justify-between pt-6 sm:pt-8 mt-6 border-t border-[var(--border-subtle)]/60">
-                {/* Previous Button */}
-                <button
-                  type="button"
-                  onClick={prevSlide}
-                  aria-label="Previous testimonial"
-                  className="w-9 h-9 rounded-full border border-[var(--border-default)] hover:border-[var(--brand-primary)] bg-[var(--bg-surface)] hover:bg-[var(--brand-soft)] text-[var(--text-secondary)] hover:text-[var(--text-brand)] flex items-center justify-center transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95 shrink-0"
-                >
-                  <Icon icon="solar:alt-arrow-left-linear" className="w-4 h-4" />
-                </button>
-
-                {/* Author Info */}
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentSlide}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="flex items-center gap-3 px-2 text-left"
-                  >
-                    <div className="w-11 h-11 rounded-full bg-slate-800 dark:bg-slate-700 text-white flex items-center justify-center shrink-0 shadow-xs">
-                      <Icon icon={current.icon || "solar:buildings-2-bold"} className="w-5 h-5 text-slate-100" />
-                    </div>
-                    <div>
-                      <span className="block font-bold text-sm sm:text-base text-[var(--text-primary)] leading-tight">
-                        {current.role}
-                      </span>
-                      <span className="block text-xs sm:text-sm text-[var(--text-secondary)] mt-0.5">
-                        {current.company}
-                      </span>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-
-                {/* Next Button */}
-                <button
-                  type="button"
-                  onClick={nextSlide}
-                  aria-label="Next testimonial"
-                  className="w-9 h-9 rounded-full border border-[var(--border-default)] hover:border-[var(--brand-primary)] bg-[var(--bg-surface)] hover:bg-[var(--brand-soft)] text-[var(--text-secondary)] hover:text-[var(--text-brand)] flex items-center justify-center transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95 shrink-0"
-                >
-                  <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4" />
-                </button>
-              </div>
-            </Card>
-          </div>
-
-          {/* Right Column: Copy & High-Impact Stats */}
-          <div className="lg:col-span-6 space-y-6 sm:space-y-8">
-            <div>
-              {/* Eyebrow */}
-              <div className="flex items-center gap-2 mb-2.5">
-                <span className="w-4 h-[2px] bg-[var(--brand-primary)] inline-block shrink-0 rounded-full" />
-                <span className="text-[11px] sm:text-xs font-bold tracking-[0.16em] text-[var(--brand-primary)] uppercase">
-                  {c("about_testimonials_eyebrow", "CLIENT TESTIMONIALS")}
-                </span>
-              </div>
-
-              {/* Title */}
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight mb-3">
-                {c("about_testimonials_title", "Trusted by industry leaders")}
-              </h2>
-
-              {/* Subtitle / Description */}
-              <p className="text-xs sm:text-sm lg:text-base text-[var(--text-secondary)] leading-relaxed max-w-xl">
-                {c(
-                  "about_testimonials_subtitle",
-                  "Leading manufacturers, logistics companies and industrial businesses rely on our recycled plastic pallets for durability, performance and a cleaner, more sustainable future."
-                )}
-              </p>
-            </div>
-
-            {/* Stats Row with Vertical Dividers */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-2">
-              {/* Stat 1 */}
-              <div className="flex flex-col items-center sm:items-start text-center sm:text-left pr-2 sm:pr-4 border-r border-[var(--border-subtle)]">
-                <div className="w-10 h-10 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3 border border-emerald-200/60 dark:border-emerald-800/40">
-                  <Icon icon="solar:box-minimalistic-outline" className="w-5 h-5" />
-                </div>
-                <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight">
-                  {c("stat_businesses_served", "500+")}
-                </div>
-                <div className="text-[11px] sm:text-xs text-[var(--text-secondary)] font-medium mt-1">
-                  Businesses Served
-                </div>
-              </div>
-
-              {/* Stat 2 */}
-              <div className="flex flex-col items-center sm:items-start text-center sm:text-left px-2 sm:px-4 border-r border-[var(--border-subtle)]">
-                <div className="w-10 h-10 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3 border border-emerald-200/60 dark:border-emerald-800/40">
-                  <Icon icon="solar:delivery-outline" className="w-5 h-5" />
-                </div>
-                <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight">
-                  {c("stat_pallets_supplied", "10M+")}
-                </div>
-                <div className="text-[11px] sm:text-xs text-[var(--text-secondary)] font-medium mt-1">
-                  Pallets Supplied
-                </div>
-              </div>
-
-              {/* Stat 3 */}
-              <div className="flex flex-col items-center sm:items-start text-center sm:text-left pl-2 sm:pl-4">
-                <div className="w-10 h-10 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3 border border-emerald-200/60 dark:border-emerald-800/40">
-                  <Icon icon="solar:restart-circle-outline" className="w-5 h-5" />
-                </div>
-                <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight">
-                  {c("stat_recycled_material", "100%")}
-                </div>
-                <div className="text-[11px] sm:text-xs text-[var(--text-secondary)] font-medium mt-1">
-                  Recycled Material
-                </div>
-              </div>
-            </div>
-
-          </div>
-
+      <Card variant="elevated" className="p-8 sm:p-12 lg:p-16 relative overflow-hidden border border-[var(--border-subtle)]">
+        {/* Background accent icon */}
+        <div className="absolute -bottom-10 -right-10 opacity-5 pointer-events-none text-[var(--text-primary)]">
+          <Icon icon="carbon:renew" className="w-96 h-96" />
         </div>
-      </div>
+
+        <div className="max-w-3xl relative z-10">
+          <div className="min-h-[160px] flex flex-col justify-between">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-6"
+              >
+                <p className="text-lg sm:text-xl text-[var(--text-primary)] italic font-medium leading-relaxed">
+                  "{testimonials[currentSlide].quote}"
+                </p>
+
+                <div className="flex items-center gap-4 pt-2">
+                  <img
+                    src={testimonials[currentSlide].avatar}
+                    alt={testimonials[currentSlide].author}
+                    className="w-12 h-12 rounded-avatar object-cover border-2 border-[var(--brand-primary)] shadow-sm"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div>
+                    <span className="block font-bold text-[var(--text-primary)] text-base">
+                      {testimonials[currentSlide].author}
+                    </span>
+                    <p className="text-xs text-[var(--text-secondary)] font-medium">
+                      {testimonials[currentSlide].role}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Controls */}
+          <div className="flex items-center gap-4 mt-8 pt-6 border-t border-[var(--border-subtle)]">
+            <button
+              type="button"
+              onClick={prevSlide}
+              aria-label="Previous testimonial"
+              className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-[var(--border-default)] hover:border-[var(--brand-primary)] bg-[var(--bg-surface)] hover:bg-[var(--brand-primary)] text-[var(--text-primary)] hover:text-[var(--action-primary-text)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+            >
+              <Icon icon="carbon:arrow-left" className="w-4 h-4" />
+            </button>
+            <span className="text-xs font-bold text-[var(--text-primary)] tracking-wider select-none font-mono">
+              0{currentSlide + 1} <span className="text-[var(--text-muted)]">/</span> 0{testimonials.length}
+            </span>
+            <button
+              type="button"
+              onClick={nextSlide}
+              aria-label="Next testimonial"
+              className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-[var(--border-default)] hover:border-[var(--brand-primary)] bg-[var(--bg-surface)] hover:bg-[var(--brand-primary)] text-[var(--text-primary)] hover:text-[var(--action-primary-text)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+            >
+              <Icon icon="carbon:arrow-right" className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </Card>
     </section>
   );
 }
-
