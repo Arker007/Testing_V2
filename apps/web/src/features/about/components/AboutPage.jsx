@@ -5,7 +5,6 @@ import {
   WhoWeAreSection,
   WhyChooseUsSection,
   ExperienceBanner,
-  TestimonialsSection,
   AboutCtaSection,
 } from "../";
 
@@ -21,7 +20,6 @@ export default function AboutPage() {
       <WhoWeAreSection />
       <WhyChooseUsSection />
       <ExperienceBanner />
-      <TestimonialsSection />
       <AboutCtaSection />
     </main>
   );

@@ -94,12 +94,12 @@ export default function AdminLogin() {
                     {/* Authority Tag & Hero Headline */}
                     <div className={styles.brandBadge}>
                         <Icon icon="carbon:security" className="w-3.5 h-3.5" />
-                        <span>Authorized Access Only</span>
+                        <span>Authorized access only</span>
                     </div>
 
                     <h1 className={styles.brandHeadline}>
                         Enterprise Polymer <br />
-                        <span className={styles.brandHeadlineAccent}>Management Console</span>
+                        <span className={styles.brandHeadlineAccent}>Management console</span>
                     </h1>
 
                     <p className={styles.brandDescription}>
@@ -113,7 +113,7 @@ export default function AdminLogin() {
                                 <Icon icon="carbon:box" className="w-5 h-5" />
                             </div>
                             <div>
-                                <div className={styles.featureTitle}>Catalog & Inventory Control</div>
+                                <div className={styles.featureTitle}>Catalog and inventory control</div>
                                 <div className={styles.featureDesc}>
                                     Real-time matrix for heavy-duty pallets, structural lumber, and outdoor municipal seating.
                                 </div>
@@ -125,7 +125,7 @@ export default function AdminLogin() {
                                 <Icon icon="carbon:email" className="w-5 h-5" />
                             </div>
                             <div>
-                                <div className={styles.featureTitle}>Direct RFQ & Inquiry Dispatch</div>
+                                <div className={styles.featureTitle}>Direct inquiry dispatch</div>
                                 <div className={styles.featureDesc}>
                                     Instant review and response workflow for customer quote requests and custom tooling inquiries.
                                 </div>
@@ -137,7 +137,7 @@ export default function AdminLogin() {
                                 <Icon icon="carbon:password" className="w-5 h-5" />
                             </div>
                             <div>
-                                <div className={styles.featureTitle}>Audit-Grade Security</div>
+                                <div className={styles.featureTitle}>Audit-grade security</div>
                                 <div className={styles.featureDesc}>
                                     Encrypted session authentication, IP rate-limiting, and protected administrative endpoints.
                                 </div>
@@ -150,11 +150,11 @@ export default function AdminLogin() {
                 <div className={styles.brandFooter}>
                     <div className={styles.statusIndicator}>
                         <span className={styles.pulseDot} />
-                        <span>System Status: All services operational</span>
+                        <span>System status: All services operational</span>
                     </div>
                     <div className={styles.complianceText}>
                         <Icon icon="carbon:locked" className="w-3.5 h-3.5" />
-                        <span>256-Bit SSL Encrypted • ISO 9001:2015 Manufacturing Standard</span>
+                        <span>256-bit SSL encrypted • ISO 9001:2015 manufacturing standard</span>
                     </div>
                 </div>
             </aside>
@@ -165,11 +165,11 @@ export default function AdminLogin() {
                 <header className={styles.formTopBar}>
                     <Link to="/" className={styles.backLink} title="Return to public website">
                         <Icon icon="carbon:arrow-left" className="w-4 h-4" />
-                        <span>Back to Website</span>
+                        <span>Return to website</span>
                     </Link>
                     <span className={styles.securityBadge}>
                         <Icon icon="carbon:locked" className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                        <span>Admin Gateway</span>
+                        <span>Admin gateway</span>
                     </span>
                 </header>
 
@@ -177,16 +177,16 @@ export default function AdminLogin() {
                 <div className={styles.cardWrap}>
                     <div className={styles.authCard}>
                         <div className={styles.formHeader}>
-                            <span className={styles.headerTag}>Portal Authentication</span>
-                            <h2 className={styles.formTitle}>Welcome Back</h2>
+                            <span className={styles.headerTag}>Portal authentication</span>
+                            <h2 className={styles.formTitle}>Welcome back</h2>
                             <p className={styles.formSubtitle}>
-                                Sign in with your administrative credentials to manage your enterprise operations.
+                                Sign in with your administrator credentials to manage your operations.
                             </p>
                         </div>
 
                         <form onSubmit={handleSubmit} className={styles.authForm}>
                             {/* Username Field */}
-                            <FormField label="Username or Email" htmlFor="login-username" required>
+                            <FormField label="Username or email" htmlFor="login-username" required>
                                 <Input
                                     id="login-username"
                                     type="text"
@@ -207,7 +207,7 @@ export default function AdminLogin() {
                                     id="login-password"
                                     type={showPw ? 'text' : 'password'}
                                     size="md"
-                                    placeholder="Enter your password"
+                                    placeholder="Enter password"
                                     required
                                     autoComplete="current-password"
                                     value={form.password}
@@ -260,11 +260,11 @@ export default function AdminLogin() {
                                 variant="primary"
                                 size="md"
                                 loading={loading}
-                                loadingText="Authenticating..."
+                                loadingText="Signing in..."
                                 className={`w-full font-bold shadow-sm ${styles.submitBtn}`}
                                 icon={<Icon icon="carbon:login" className="w-4 h-4 mr-1.5 inline" />}
                             >
-                                Sign In to Admin Console
+                                Sign in
                             </Button>
                         </form>
 
@@ -273,7 +273,7 @@ export default function AdminLogin() {
                             <div className={styles.demoInfo}>
                                 <span className={styles.demoLabel}>
                                     <Icon icon="carbon:key" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
-                                    Default Access Credentials
+                                    Default credentials
                                 </span>
                                 <span className={styles.demoCreds}>
                                     Username: <strong>admin</strong> • Pass: <strong>admin123</strong>
@@ -283,10 +283,10 @@ export default function AdminLogin() {
                                 type="button"
                                 onClick={handleFillDemo}
                                 className={styles.fillDemoBtn}
-                                title="Quickly fill test credentials"
+                                title="Auto-fill test credentials"
                             >
                                 <Icon icon="carbon:magic-wand" className="w-3 h-3" />
-                                Auto-Fill
+                                Auto-fill
                             </button>
                         </div>
                     </div>

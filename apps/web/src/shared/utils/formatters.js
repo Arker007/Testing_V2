@@ -29,18 +29,33 @@ export function formatRelativeTime(dateStr) {
 }
 
 /**
- * Format currency to Indian Rupees (INR)
+ * Format currency to Indian Rupees (INR) with standardized 2 decimal precision
  */
-export function formatCurrency(amount) {
+export function formatCurrency(amount, decimals = 2) {
   const numericAmount = Number(amount);
   if (isNaN(numericAmount)) return "₹0.00";
   return new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: "INR",
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
   }).format(numericAmount);
+}
+
+/**
+ * Format comparable numerical values with standardized decimal precision for Gestalt visual alignment
+ */
+export function formatNumber(val, decimals = 2) {
+  const numeric = Number(val);
+  if (isNaN(numeric)) return val;
+  return new Intl.NumberFormat("en-IN", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  }).format(numeric);
 }
 
 export default {
   formatRelativeTime,
-  formatCurrency
+  formatCurrency,
+  formatNumber,
 };

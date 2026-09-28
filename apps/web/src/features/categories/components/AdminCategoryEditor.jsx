@@ -59,11 +59,11 @@ export default function AdminCategoryEditor() {
         size="md"
         disabled={saving}
         loading={saving}
-        loadingText="Syncing…"
+        loadingText="Saving..."
         icon={<Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
         className="min-w-[150px]"
       >
-        Save Category
+        Save category
       </Button>
     );
     return () => setHeaderActions(null);
@@ -102,7 +102,7 @@ export default function AdminCategoryEditor() {
     } catch (err) { alert(err.message || "A network error occurred. Please try again."); } finally { setSaving(false); }
   };
 
-  if (loading) return <div className={styles.loadingState}><Icon icon="carbon:renew" className="w-5 h-5 animate-spin inline mr-2" /> Loading Category Editor...</div>;
+  if (loading) return <div className={styles.loadingState}><Icon icon="carbon:renew" className="w-5 h-5 animate-spin inline mr-2" /> Loading category editor...</div>;
 
   return (
     <div className={styles.dashboard}>
@@ -111,7 +111,7 @@ export default function AdminCategoryEditor() {
           <Icon icon="carbon:arrow-left" className="w-4 h-4 mr-1 inline" /> Back
         </Button>
         <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--gray-800)", margin: 0 }}>
-          {isNew ? "Add New Category" : `Edit Category: ${form.name}`}
+          {isNew ? "Add new category" : `Edit category: ${form.name}`}
         </h2>
       </div>
 
@@ -119,9 +119,9 @@ export default function AdminCategoryEditor() {
         <form id="category-editor-form" onSubmit={handleSave}>
           <div className={styles.formGrid} style={{ gridTemplateColumns: "1.4fr 0.6fr" }}>
             <div className="space-y-4">
-              <div className={styles.formSectionTitle}><Icon icon="carbon:information" className="w-4 h-4 mr-1 inline" /> Category Details</div>
+              <div className={styles.formSectionTitle}><Icon icon="carbon:information" className="w-4 h-4 mr-1 inline" /> Category details</div>
               <Input
-                label="Category Name *"
+                label="Category name *"
                 required
                 value={form.name}
                 onChange={f("name")}
@@ -135,15 +135,15 @@ export default function AdminCategoryEditor() {
                 placeholder="Enter category description..."
               />
 
-              <div className={styles.formSectionTitle} style={{ marginTop: "32px" }}><Icon icon="carbon:list-checked" className="w-4 h-4 mr-1 inline" /> Specifications Fields Template</div>
-              <p style={{ fontSize: "0.8125rem", color: "var(--text-muted)", marginBottom: "16px" }}>Define custom fields (e.g. dimensions, material) that products in this category will use.</p>
+              <div className={styles.formSectionTitle} style={{ marginTop: "32px" }}><Icon icon="carbon:list-checked" className="w-4 h-4 mr-1 inline" /> Specification fields template</div>
+              <p style={{ fontSize: "0.8125rem", color: "var(--text-muted)", marginBottom: "16px" }}>Define custom specification fields (such as dimensions or material) for products in this category.</p>
               
               {form.fields.length > 0 && (
                 <div style={{ display: "grid", gridTemplateColumns: "auto 1fr 1fr 1fr auto", gap: "8px", marginBottom: "8px", paddingBottom: "8px", borderBottom: "1px solid var(--border-subtle)" }}>
-                  <span style={{ width: "36px", fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)", textAlign: "center" }}>Grip</span>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)" }}>Field Name (Key)</span>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)" }}>Display Label</span>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)" }}>Placeholder</span>
+                  <span style={{ width: "36px", fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)", textAlign: "center" }}>Order</span>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)" }}>Field key</span>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)" }}>Display label</span>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-muted)" }}>Placeholder text</span>
                   <span style={{ width: "36px" }} />
                 </div>
               )}
@@ -192,7 +192,7 @@ export default function AdminCategoryEditor() {
                     size="sm"
                     className="!p-1.5 !h-auto text-rose-500 hover:text-rose-700 hover:bg-rose-500/10 rounded-lg"
                     onClick={() => setForm(p => ({ ...p, fields: p.fields.filter((_, idx) => idx !== i) }))}
-                    title="Remove Field"
+                    title="Remove field"
                   >
                     <Icon icon="carbon:trash-can" className="w-4 h-4" />
                   </Button>
@@ -204,13 +204,13 @@ export default function AdminCategoryEditor() {
                 size="sm"
                 onClick={() => setForm(p => ({ ...p, fields: [...p.fields, { name: "", label: "", type: "text", placeholder: "" }] }))}
               >
-                <Icon icon="carbon:add-alt" className="w-4 h-4 mr-1.5 inline" /> Add Custom Field
+                <Icon icon="carbon:add-alt" className="w-4 h-4 mr-1.5 inline" /> Add custom field
               </Button>
             </div>
 
             <div>
               <div className={styles.formSectionTitle}>
-                <Icon icon="carbon:image" className="w-4 h-4 mr-1 inline" /> Category Image
+                <Icon icon="carbon:image" className="w-4 h-4 mr-1 inline" /> Category image
               </div>
               <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginBottom: "16px" }}>Upload a thumbnail image to represent this category in the catalog.</p>
               <div className={styles.imgSection}>
@@ -236,7 +236,7 @@ export default function AdminCategoryEditor() {
                       className="w-40 h-32 !flex !flex-col items-center justify-center gap-2 border-dashed border-2 border-[var(--border)] hover:border-[var(--brand-primary)] bg-[var(--bg-surface-secondary)]/50 rounded-lg"
                     >
                       <Icon icon="carbon:add-alt" className="w-6 h-6 text-[var(--text-muted)]" />
-                      <span className="text-xs font-semibold text-[var(--text-secondary)]">Add Image</span>
+                      <span className="text-xs font-semibold text-[var(--text-secondary)]">Add image</span>
                     </Button>
                   )}
                 </div>
@@ -258,7 +258,7 @@ export default function AdminCategoryEditor() {
               icon={<Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
               className="min-w-[160px]"
             >
-              Save Category
+              Save category
             </Button>
           </div>
         </form>

@@ -8,7 +8,7 @@ export default function ExperienceBanner() {
   if (c("about_cert_enabled", "1") === "0") return null;
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full cta-section">
+    <section className="container py-10 w-full cta-section">
       <CtaCard
         badge={c("experience_banner_badge", "Industrial Standards & Quality")}
         badgeVariant="brand"

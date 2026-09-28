@@ -63,11 +63,11 @@ export default function SpecRow({
 
       <div className="flex items-center gap-1.5 shrink-0">
         {variant === "badge-value" ? (
-          <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-[var(--brand-soft)] text-[#1E622A] dark:text-[#6BBF54] border border-[var(--brand-border)]">
+          <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-[var(--brand-soft)] text-[#1E622A] dark:text-[#6BBF54] border border-[var(--brand-border)] tabular-nums text-right">
             {value} {unit}
           </span>
         ) : (
-          <span className="font-semibold text-[var(--text-primary)]">
+          <span className="font-semibold text-[var(--text-primary)] tabular-nums text-right">
             {value}
             {unit && <span className="font-normal text-[var(--text-muted)] ml-1">{unit}</span>}
           </span>

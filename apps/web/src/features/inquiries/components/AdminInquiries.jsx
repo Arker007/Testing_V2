@@ -73,7 +73,7 @@ export default function AdminInquiries() {
     return (
         <div>
             <AdminPageHeader
-                title="Client Inquiries"
+                title="Client inquiries"
                 count={filteredInquiries.length}
                 countLabel="inquiries"
                 search={search}
@@ -84,13 +84,13 @@ export default function AdminInquiries() {
                     <div className="w-56">
                         <CustomSelect
                             options={[
-                                { value: 'all', label: 'All Channels' },
-                                { value: 'contact_form', label: 'Contact Form' },
-                                { value: 'product_inquiry', label: 'Product Inquiries' },
+                                { value: 'all', label: 'All channels' },
+                                { value: 'contact_form', label: 'Contact form' },
+                                { value: 'product_inquiry', label: 'Product inquiries' },
                             ]}
                             value={sourceFilter}
                             onChange={(val) => setSourceFilter(val)}
-                            placeholder="All Channels"
+                            placeholder="All channels"
                         />
                     </div>
                 }
@@ -98,7 +98,7 @@ export default function AdminInquiries() {
 
             <div className={styles.card}>
                 <div className={styles.thead} style={{ gridTemplateColumns: '2fr 1.5fr 1.4fr 1fr 120px' }}>
-                    <span>Client / Message</span><span>Contact Info</span><span>Context Origin</span><span>Date</span><span style={{ textAlign: 'center' }}>Actions</span>
+                    <span>Client and message</span><span>Contact info</span><span>Source</span><span>Date</span><span style={{ textAlign: 'center' }}>Actions</span>
                 </div>
 
                 {loading ? [1, 2, 3, 4].map(i => <div key={i} className={styles.skeleRow} />) :
@@ -115,7 +115,7 @@ export default function AdminInquiries() {
                         return (
                             <div 
                                 key={rowKey} 
-                                className={`${styles.trow} ${activeItem?.id === inq.id && activeItem?.source === inq.source ? styles.trowActive || '' : ''}`} 
+                                className={`${styles.trow} ${activeItem?.id === inq.id && activeItem?.source === inq.source ? styles.trowActive || '' : ''} ${isDeletingThis ? styles.rowDeleting : ''}`} 
                                 style={{ gridTemplateColumns: '2fr 1.5fr 1.4fr 1fr 120px', cursor: 'pointer' }}
                                 onClick={(e) => {
                                     if (e.target.closest('a') || e.target.closest('button')) return;
@@ -128,8 +128,8 @@ export default function AdminInquiries() {
                                         {inq.message || 'No text snippet provided.'}
                                     </div>
                                     <div className={iStyles.metaLine}>
-                                        {inq.phone && <span><Icon icon="carbon:phone" className="w-3.5 h-3.5 inline mr-1" /> {inq.phone}</span>}
-                                        {inq.company && <span><Icon icon="carbon:industry" className="w-3.5 h-3.5 inline mr-1" /> {inq.company}</span>}
+                                        {inq.phone && <span><Icon icon="solar:phone-linear" className="w-3.5 h-3.5 inline mr-1" /> {inq.phone}</span>}
+                                        {inq.company && <span><Icon icon="solar:buildings-2-linear" className="w-3.5 h-3.5 inline mr-1" /> {inq.company}</span>}
                                     </div>
                                 </div>
                                 <div className={iStyles.contactCell}>
@@ -142,16 +142,16 @@ export default function AdminInquiries() {
                                         variant={inq.source === 'contact_form' ? 'brand' : 'neutral'}
                                         size="sm"
                                     >
-                                        {inq.source === 'contact_form' ? 'General Form' : 'B2B Product Asset'}
+                                        {inq.source === 'contact_form' ? 'Contact form' : 'Product page'}
                                     </Badge>
                                 </div>
                                 <div className={iStyles.dateCell}>
                                     <span className={styles.muted}>{inq.created_at ? new Date(inq.created_at).toLocaleDateString('en-IN') : '—'}</span>
                                 </div>
                                 <div className={styles.rowActions} style={{ justifyContent: 'center' }}>
-                                    <Link to={`/admin/inquiries/${inq.source}/${inq.id}`} title="View Inquiry">
+                                    <Link to={`/admin/inquiries/${inq.source}/${inq.id}`} title="View inquiry">
                                         <Button variant="ghost" size="sm" className="!p-1.5 !h-auto text-slate-500 hover:text-slate-800">
-                                            <Icon icon="carbon:view" className="w-4 h-4" />
+                                            <Icon icon="solar:eye-linear" className="w-4 h-4" />
                                         </Button>
                                     </Link>
                                     <Button
@@ -160,9 +160,9 @@ export default function AdminInquiries() {
                                         className="!p-1.5 !h-auto text-rose-500 hover:text-rose-700 hover:bg-rose-500/10"
                                         onClick={() => setItemToDelete({ id: inq.id, source: inq.source })}
                                         disabled={isDeletingThis}
-                                        title="Delete Inquiry"
+                                        title="Delete inquiry"
                                     >
-                                        {isDeletingThis ? <Spinner size="sm" /> : <Icon icon="carbon:trash-can" className="w-4 h-4" />}
+                                        {isDeletingThis ? <Spinner size="sm" /> : <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />}
                                     </Button>
                                 </div>
                             </div>
@@ -175,7 +175,7 @@ export default function AdminInquiries() {
                 isOpen={!!itemToDelete}
                 onClose={() => setItemToDelete(null)}
                 onConfirm={confirmDelete}
-                title="Delete Inquiry?"
+                title="Delete inquiry?"
                 message="Are you sure you want to delete this inquiry permanently? This action cannot be undone."
                 confirmText="Delete"
                 loading={!!deleting}
@@ -184,17 +184,17 @@ export default function AdminInquiries() {
             {/* Right Slide Preview Drawer */}
             <div className={`${styles.previewDrawer} ${activeItem ? styles.previewDrawerActive : ''}`}>
                 <div className={styles.drawerHeader}>
-                    <h2 className={styles.drawerTitle}>Inquiry Details</h2>
+                    <h2 className={styles.drawerTitle}>Inquiry details</h2>
                     <button className={styles.drawerCloseBtn} onClick={() => setActiveItem(null)}>
-                        <Icon icon="carbon:close-outline" className="w-5 h-5" />
+                        <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
                     </button>
                 </div>
                 {activeItem && (
                     <div className={styles.drawerBody}>
                         <div>
-                            <span className={styles.drawerLabel}>Client Name</span>
+                            <span className={styles.drawerLabel}>Client name</span>
                             <div className={styles.drawerValue} style={{ fontSize: '1.05rem', fontWeight: '700', marginTop: 4 }}>
-                                {activeItem.name || 'Anonymous Inquiry'}
+                                {activeItem.name || 'Anonymous inquiry'}
                             </div>
                         </div>
                         {activeItem.company && (
@@ -225,8 +225,9 @@ export default function AdminInquiries() {
                                 <Badge
                                     variant={activeItem.source === 'contact_form' ? 'brand' : 'neutral'}
                                     size="sm"
+                                    className="normal-case"
                                 >
-                                    {activeItem.source === 'contact_form' ? 'Contact Form' : 'Product Page'}
+                                    {activeItem.source === 'contact_form' ? 'Contact form' : 'Product page'}
                                 </Badge>
                             </div>
                         </div>
@@ -241,7 +242,7 @@ export default function AdminInquiries() {
                         <div>
                             <span className={styles.drawerLabel}>Message</span>
                             <div className={styles.drawerValueTextarea} style={{ marginTop: 4 }}>
-                                {activeItem.message || 'No message content.'}
+                                {activeItem.message || 'No message provided.'}
                             </div>
                         </div>
                         <div style={{ marginTop: 'auto', paddingTop: 16, borderTop: '1px solid var(--border)', display: 'flex', gap: 12 }}>

@@ -48,11 +48,20 @@ export default function Tooltip({
     right: "left-full top-1/2 -translate-y-1/2 ml-2",
   };
 
-  const variantClasses = {
-    dark: "bg-[var(--neutral-950)] text-white border border-white/10 shadow-lg",
-    light: "bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)] shadow-md",
-    brand: "bg-[var(--brand-primary)] text-slate-950 border border-[var(--brand-primary)] font-bold shadow-md",
+  const placementShadows = {
+    top: "shadow-[var(--shadow-2-up)]",
+    bottom: "shadow-[var(--shadow-2-down)]",
+    left: "shadow-[var(--shadow-2-left)]",
+    right: "shadow-[var(--shadow-2-right)]",
   };
+
+  const variantClasses = {
+    dark: "bg-[var(--neutral-950)] text-white border border-white/10",
+    light: "bg-[var(--bg-surface)] text-[var(--text-primary)] border border-[var(--border-default)]",
+    brand: "bg-[var(--brand-primary)] text-slate-950 border border-[var(--brand-primary)] font-bold",
+  };
+
+  const currentShadow = placementShadows[placement] || placementShadows.top;
 
   return (
     <div
@@ -67,7 +76,7 @@ export default function Tooltip({
       {isVisible && (
         <div
           role="tooltip"
-          className={`absolute z-50 px-2.5 py-1 text-xs rounded-[var(--radius-sm,4px)] whitespace-nowrap pointer-events-none transition-all duration-150 animate-fadeIn ${
+          className={`absolute z-50 px-2.5 py-1 text-xs rounded-[var(--radius-sm,4px)] whitespace-nowrap pointer-events-none transition-all duration-150 animate-fadeIn ${currentShadow} ${
             placementClasses[placement] || placementClasses.top
           } ${variantClasses[variant] || variantClasses.dark} ${className}`.trim()}
         >

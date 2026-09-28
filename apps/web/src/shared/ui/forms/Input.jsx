@@ -48,9 +48,9 @@ const Input = forwardRef(function Input(
   ref
 ) {
   const sizeClasses = {
-    sm: "h-9 min-h-[36px] text-base sm:text-xs px-2.5",
-    md: "h-11 min-h-[44px] text-base sm:text-sm px-3.5",
-    lg: "h-12 min-h-[48px] text-base px-4",
+    sm: "h-9 min-h-[36px] text-base md:text-xs px-2.5",
+    md: "h-11 min-h-[44px] text-base md:text-sm px-3.5",
+    lg: "h-12 min-h-[48px] text-base md:text-base px-4",
   };
 
   const iconSizes = {
@@ -104,7 +104,7 @@ const Input = forwardRef(function Input(
 
   return (
     <div
-      className={`relative inline-flex items-center w-full transition-all ${currentVariant ? variantClasses[currentVariant] : variantClasses.outline} ${currentRadius} ${
+      className={`relative inline-flex items-center w-full shadow-none transition-all ${currentVariant ? variantClasses[currentVariant] : variantClasses.outline} ${currentRadius} ${
         disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""
       } ${className}`.trim()}
     >
@@ -133,7 +133,7 @@ const Input = forwardRef(function Input(
 
       {isLoading && (
         <div className="pr-3 flex items-center">
-          <Icon icon="carbon:circle-dash" className={`${currentIconSize} animate-spin text-[var(--brand-primary)]`} />
+          <Icon icon="solar:refresh-circle-linear" className={`${currentIconSize} animate-spin text-[var(--brand-primary)]`} />
         </div>
       )}
 
@@ -145,7 +145,7 @@ const Input = forwardRef(function Input(
           className="pr-2.5 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer"
           aria-label="Clear value"
         >
-          <Icon icon="carbon:close-filled" className={currentIconSize} />
+          <Icon icon="solar:close-circle-bold" className={currentIconSize} />
         </button>
       )}
 

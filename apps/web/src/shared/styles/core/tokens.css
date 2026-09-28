@@ -86,14 +86,25 @@
   --radius-pill: var(--radius-pill);
   --radius-admin: var(--radius-admin);
 
-  /* Shadows */
-  --shadow-xs: var(--shadow-xs);
-  --shadow-sm: var(--shadow-sm);
-  --shadow-md: var(--shadow-md);
-  --shadow-lg: var(--shadow-lg);
-  --shadow-xl: var(--shadow-xl);
-  --shadow-2xl: var(--shadow-2xl);
-  --shadow-card: var(--shadow-sm);
+  /* Preline UI Semantic State Bridges */
+  --color-primary: var(--brand-primary);
+  --color-primary-hover: var(--brand-hover);
+  --color-primary-active: var(--brand-active);
+  --color-primary-focus: var(--brand-primary);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+  --color-info: var(--color-info);
+
+  /* Shadows (Calibrated Natural Elevation Hierarchy) */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --shadow-3-down: 0 6px 16px -8px rgba(0, 0, 0, 0.08), 0 9px 28px 0 rgba(0, 0, 0, 0.05), 0 12px 48px 16px rgba(0, 0, 0, 0.03);
 }
 
 /* ==========================================================================
@@ -180,30 +191,54 @@
   --brand-800: #1B470F;
   --brand-900: #12300A;
 
-  /* 1.4 Status & Feedback Color Primitives */
-  --success-50:  #F4FAEE;
-  --success-100: #DDEFD2;
-  --success-500: #245D15;
-  --success-600: #245D15;
-  --success-700: #1B470F;
+  /* 1.4 Status & Feedback Color Primitives (Ant Design Systematic HSB Palettes) */
+  /* Functional Success (Polar Green) */
+  --success-50:  #F6FFED;
+  --success-100: #D9F7BE;
+  --success-200: #B7EB8F;
+  --success-300: #95DE64;
+  --success-400: #73D13D;
+  --success-500: #52C41A;
+  --success-600: #389E0D;
+  --success-700: #237804;
+  --success-800: #135200;
+  --success-900: #092B00;
 
-  --warning-50:  #FFF7E6;
-  --warning-100: #FFEAA7;
-  --warning-500: #B45309;
-  --warning-600: #92400E;
-  --warning-700: #78350F;
+  /* Functional Warning (Sunset Gold) */
+  --warning-50:  #FFFBE6;
+  --warning-100: #FFE58F;
+  --warning-200: #FFD666;
+  --warning-300: #FFC069;
+  --warning-400: #FFA940;
+  --warning-500: #FA8C16;
+  --warning-600: #D46B08;
+  --warning-700: #AD4E00;
+  --warning-800: #873800;
+  --warning-900: #612500;
 
-  --danger-50:  #FEF2F2;
-  --danger-100: #FEE2E2;
-  --danger-500: #DC2626;
-  --danger-600: #B91C1C;
-  --danger-700: #991B1B;
+  /* Functional Danger / Error (Dust Red) */
+  --danger-50:  #FFF1F0;
+  --danger-100: #FFCCC7;
+  --danger-200: #FFA39E;
+  --danger-300: #FF7875;
+  --danger-400: #FF4D4F;
+  --danger-500: #F5222D;
+  --danger-600: #CF1322;
+  --danger-700: #A8071A;
+  --danger-800: #820014;
+  --danger-900: #5C0011;
 
-  --info-50:  #EFF6FF;
-  --info-100: #DBEAFE;
-  --info-500: #2563EB;
-  --info-600: #1D4ED8;
-  --info-700: #1E40AF;
+  /* Functional Info (Daybreak Blue) */
+  --info-50:  #E6F4FF;
+  --info-100: #BAE0FF;
+  --info-200: #91CAFF;
+  --info-300: #69B1FF;
+  --info-400: #4096FF;
+  --info-500: #1677FF;
+  --info-600: #0958D9;
+  --info-700: #003EB3;
+  --info-800: #002C8C;
+  --info-900: #001D66;
 
   --white: #FFFFFF;
   --black: #000000;
@@ -211,13 +246,13 @@
 
   /* Status Color Aliases */
   --color-success-light: var(--success-600);
-  --color-success-dark:  var(--brand-green);
+  --color-success-dark:  var(--success-400);
   --color-warning-light: var(--warning-600);
-  --color-warning-dark:  #FBBF24;
+  --color-warning-dark:  var(--warning-400);
   --color-danger-light:  var(--danger-600);
-  --color-danger-dark:   #F87171;
+  --color-danger-dark:   var(--danger-400);
   --color-info-light:    var(--info-600);
-  --color-info-dark:     #60A5FA;
+  --color-info-dark:     var(--info-400);
 
   /* 1.5 Semantic Surface Colors */
   --bg-canvas:            var(--bg-primary);
@@ -234,7 +269,7 @@
   /* 1.6 Semantic Typography Colors */
   --charcoal-900:           var(--brand-navy);
   --charcoal-body:          var(--text-secondary);
-  --text-muted:             var(--neutral-500);
+  --text-muted:             #475569; /* Slate-600: 5.1:1 on #F2F2F2, WCAG AA compliant */
   --text-disabled:          var(--neutral-400);
   --text-inverse-secondary: var(--text-inverse-muted);
   --text-on-dark:           var(--text-inverse);
@@ -269,23 +304,33 @@
   --color-info-bg: var(--info-bg);
   --color-info:    var(--info-500);
 
-  --success-bg:     var(--brand-green-soft);
-  --success-border: rgba(36, 93, 21, 0.25);
-  --success-text:   var(--brand-green-deep);
+  --success-bg:     var(--success-50);
+  --success-border: var(--success-200);
+  --success-text:   var(--success-700);
 
   --warning-bg:     var(--warning-50);
-  --warning-border: rgba(180, 83, 9, 0.25);
-  --warning-text:   var(--warning-600);
+  --warning-border: var(--warning-200);
+  --warning-text:   var(--warning-700);
 
   --danger-bg:      var(--danger-50);
-  --danger-border:  rgba(220, 38, 38, 0.25);
+  --danger-border:  var(--danger-200);
   --danger-text:    var(--danger-600);
 
   --info-bg:        var(--info-50);
-  --info-border:    rgba(37, 99, 235, 0.25);
+  --info-border:    var(--info-200);
   --info-text:      var(--info-600);
 
-  /* 1.10 Overlays & Special Surfaces */
+  /* 1.10 AntV Enterprise Data Visualization Tokens */
+  --chart-cat-1: var(--brand-primary);
+  --chart-cat-2: var(--info-500);
+  --chart-cat-3: var(--success-500);
+  --chart-cat-4: var(--warning-500);
+  --chart-cat-5: #722ED1;
+  --chart-cat-6: #13C2C2;
+  --chart-cat-7: var(--danger-500);
+  --chart-cat-8: #2F54EB;
+
+  /* 1.11 Overlays & Special Surfaces */
   --hero-bg: var(--brand-navy);
   --hero-gradient: linear-gradient(135deg, #061A26 0%, #092333 55%, #0F3249 100%);
   --bg-hero: var(--hero-gradient);
@@ -325,7 +370,11 @@
   --space-macro-md:   var(--space-9);  /* 64px - Major section rhythm */
   --space-macro-lg:   var(--space-10); /* 96px - High-impact section breathing room / footer separation */
 
-  /* 2.3 Semantic Spacing Tiers */
+  /* 2.3 Semantic Spacing Tiers & Gestalt Proximity Levels */
+  --space-proximity-small:  var(--space-2);       /* 8px  - Level 1: Closely related elements (labels, icons, titles) */
+  --space-proximity-medium: var(--space-4);       /* 16px - Level 2: Related content groups (form fields, card items) */
+  --space-proximity-large:  var(--space-5);       /* 24px - Level 3: Distinct sections (form steps, card padding, action rows) */
+  --space-proximity-xlarge: var(--space-6);       /* 32px - Major block separation (y = 8 + 8n) */
   --space-control-gap:  var(--space-micro-md); /* 8px - Icon/Label inline gap */
   --space-control-px:   var(--space-comp-md);  /* 16px - Control horizontal padding */
   --space-control-py:   var(--space-micro-md); /* 8px - Control vertical padding */
@@ -336,51 +385,76 @@
   --space-grid-gap:     var(--space-comp-lg);  /* 24px - Standard grid item gap */
 
   /* ========================================================================
-     3. TYPOGRAPHY SYSTEM (Systematic Modular Scale & Semantic Mapping)
+     3. TYPOGRAPHY SYSTEM (Ant Design Dynamic Order & Pentatonic Scale)
      ======================================================================== */
-  /* 3.1 Font Families & Workhorse Font Selection (High X-Height, Audited Legibility) */
-  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-admin: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* 3.1 Font Families (Ant Design Native System Fallback Stack) */
+  --font-family-ant: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: "DM Sans", var(--font-family-ant);
+  --font-admin: var(--font-family-ant);
   --font-family-primary: var(--font-sans);
-  --font-family-admin: var(--font-admin);
-  --font-family-stack: var(--font-sans);
+  --font-family-admin: var(--font-family-ant);
+  --font-family-stack: var(--font-family-ant);
   --font-heading: var(--font-sans);
   --font-display: var(--font-sans);
   --font-body: var(--font-sans);
-  --font-mono: var(--font-sans);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-  /* 3.2 Modular Scale: 1.25x Major Third Mathematical Progression (Base: 16px) */
-  /* Ratio: 1.250 | Base = 1.0rem (16px) */
-  --type-scale-ratio: 1.25;
-  --font-size-2xs: 0.6875rem;   /* 11px - Micro indicators, sub-badges */
-  --font-size-xs: 0.75rem;      /* 12px - Captions, legal, timestamps, meta (min legible UI size) */
-  --font-size-sm: 0.8125rem;    /* 13px - Subtext, secondary labels, table data */
-  --font-size-base: 1rem;       /* 16px - Base body text, inputs, buttons (Base Unit) */
-  --font-size-md: var(--font-size-base); /* Compatibility alias */
-  --font-size-lg: 1.25rem;      /* 20px - (16 * 1.25^1) Subheadings, card titles */
-  --font-size-xl: 1.5rem;       /* 24px - (16 * 1.25^2 rounded) Component titles, section subheads */
-  --font-size-2xl: 1.875rem;    /* 30px - (16 * 1.25^3) Section titles (H2) */
-  --font-size-3xl: 2.375rem;    /* 38px - (16 * 1.25^4) Page titles (H1) */
-  --font-size-4xl: 3rem;        /* 48px - (16 * 1.25^5) Hero display headlines */
-  --font-size-5xl: 3.75rem;     /* 60px - (16 * 1.25^6) Major landing display */
+  /* 3.2 Ant Design 10-Tier Pentatonic Font Scale & Paired Line Heights (font-size + 8px) */
+  --font-size-1:  12px; --line-height-1:  20px; /* 12 + 8: Captions, meta, timestamps */
+  --font-size-2:  14px; --line-height-2:  22px; /* 14 + 8: Ant Design Base Font Size */
+  --font-size-3:  16px; --line-height-3:  24px; /* 16 + 8: Secondary body / lead text */
+  --font-size-4:  20px; --line-height-4:  28px; /* 20 + 8: Subheadings, card titles */
+  --font-size-5:  24px; --line-height-5:  32px; /* 24 + 8: Section subheads (H3) */
+  --font-size-6:  30px; --line-height-6:  38px; /* 30 + 8: Section titles (H2) */
+  --font-size-7:  38px; --line-height-7:  46px; /* 38 + 8: Page titles (H1) */
+  --font-size-8:  46px; --line-height-8:  54px; /* 46 + 8: Display titles */
+  --font-size-9:  56px; --line-height-9:  64px; /* 56 + 8: Hero headlines */
+  --font-size-10: 68px; --line-height-10: 76px; /* 68 + 8: Ultra landing display */
 
-  /* 3.3 Font Weights (Strategic Contrast & Skip-Weight Rules) */
-  --font-weight-light: 300;     /* Pairs with Semi-Bold (600) */
-  --font-weight-regular: 400;   /* Pairs with Bold (700) for high contrast */
-  --font-weight-base: 400;
-  --font-weight-medium: 500;    /* Standalone chips, badges, interactive labels */
-  --font-weight-semibold: 600;  /* Subheadings, category headers */
-  --font-weight-bold: 700;      /* Primary headings, dominant actions */
-  --font-weight-extrabold: 800; /* High-impact metrics */
-  --font-weight-black: 900;     /* Hero display titles */
+  /* Base Anchors (Ant Design Canonical 14/22) */
+  --font-size-base: 14px;
+  --line-height-base: 22px;
+  --font-size-sm: 12px;
+  --line-height-sm: 20px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 38px;
+  --font-size-5xl: 46px;
+  --font-size-6xl: 56px;
+  --font-size-xs: 12px;
+  --font-size-2xs: 11px;
 
-  /* 3.4 Proportional Leading (Line Height Optimization) */
-  --line-height-display: 1.15;  /* 1.1 – 1.2 (Tight): Grabs instant attention, tightly grouped */
-  --line-height-heading: 1.25;  /* 1.2 – 1.3 (Snug): Subheadings categorizing content */
-  --line-height-tight: 1.15;    /* Compatibility alias */
-  --line-height-body: 1.55;     /* 1.4 – 1.6 (Loose): Long-form reading comprehension */
-  --line-height-relaxed: 1.6;   /* Loose editorial reading */
-  --line-height-caption: 1.35;  /* 1.3 – 1.4: Supporting context, timestamps, microcopy */
+  /* 3.3 Font Weights (Ant Design Restraint: 400 Regular, 500 Medium, 600 Semibold, 700 Bold) */
+  --font-weight-regular:  400; /* Body text, table entries */
+  --font-weight-base:     400;
+  --font-weight-medium:   500; /* Tabs, chips, badges, button labels */
+  --font-weight-semibold: 600; /* English titles, subheadings, table headers */
+  --font-weight-bold:     700; /* Display titles, high-contrast anchors */
+  --font-weight-extrabold: 700; /* Controlled alias */
+  --font-weight-black:     700; /* Controlled alias */
+
+  /* 3.4 Line Height Ratios */
+  --line-height-display: 1.15;
+  --line-height-heading: 1.25;
+  --line-height-tight:   1.15;
+  --line-height-body:    calc(22 / 14); /* 1.5714 */
+  --line-height-relaxed: 1.6;
+  --line-height-caption: calc(20 / 12); /* 1.6667 */
+
+  /* 3.5 Ant Design Typography Colors (WCAG AAA >= 7:1 Contrast) */
+  --color-text-heading:    #061A26; /* Primary heading text (AAA > 12:1) */
+  --color-text:            #1E293B; /* Primary body text (AAA > 10:1) */
+  --color-text-secondary:  #475569; /* Secondary descriptive text (AAA >= 7:1) */
+  --color-text-disabled:   #94A3B8; /* Disabled placeholder text */
+  --color-border:          #D6E0E3;
+  --color-split:           #E2E8F0;
+  --color-bg-layout:       #F2F2F2;
+
+  /* Tabular Figures (Ant Design Numeric Vertical Alignment) */
+  --font-variant-numeric: tabular-nums;
 
   /* 3.5 Semantic Functional Token Mapping (Purpose-Driven Styles) */
   /* Display / Hero */
@@ -446,24 +520,49 @@
   --tracking-wide:    0.05em;
 
   /* ========================================================================
-     4. SHADOW & ELEVATION SYSTEM (Simulated Depth & Z-Index Mapping)
+     4. SHADOW & ELEVATION SYSTEM (Ant Design 4.0 Physical Height Hierarchy)
      ======================================================================== */
-  /* 4.1 Shadow Scale (Light Mode Authoritative - Multi-Layered Soft Ambient Occlusion) */
+  /* 4.0 Layer 0 (Ground - Inputs, flat resting containers) */
   --shadow-none: none;
-  --shadow-xs:   0 1px 2px 0 rgba(15, 23, 42, 0.04);
-  --shadow-sm:   0 2px 4px 0 rgba(15, 23, 42, 0.06), 0 1px 2px 0 rgba(15, 23, 42, 0.04);
-  --shadow-md:   0 6px 16px -2px rgba(15, 23, 42, 0.08), 0 3px 6px -2px rgba(15, 23, 42, 0.04);
-  --shadow-lg:   0 12px 28px -4px rgba(15, 23, 42, 0.09), 0 6px 12px -2px rgba(15, 23, 42, 0.04);
-  --shadow-xl:   0 20px 36px -6px rgba(15, 23, 42, 0.11), 0 10px 18px -4px rgba(15, 23, 42, 0.05);
-  --shadow-2xl:  0 28px 48px -8px rgba(15, 23, 42, 0.14), 0 12px 24px -6px rgba(15, 23, 42, 0.05);
+  --shadow-0:    none;
 
-  /* 4.2 Component Shadows */
-  --shadow-card:       var(--shadow-sm);
-  --shadow-card-hover: var(--shadow-md);
-  --shadow-dropdown:   var(--shadow-lg);
-  --shadow-popover:    var(--shadow-lg);
-  --shadow-modal:      var(--shadow-xl);
-  --shadow-toast:      var(--shadow-2xl);
+  /* 4.1 Layer 1 (Low Level - Floating state on manipulation: Card hover, Button focus/hover) */
+  --shadow-1-up:    0 -1px 2px -2px rgba(0, 0, 0, 0.16), 0 -3px 6px 0 rgba(0, 0, 0, 0.12), 0 -5px 12px 4px rgba(0, 0, 0, 0.09);
+  --shadow-1-down:  0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
+  --shadow-1-left:  -1px 0 2px -2px rgba(0, 0, 0, 0.16), -3px 0 6px 0 rgba(0, 0, 0, 0.12), -5px 0 12px 4px rgba(0, 0, 0, 0.09);
+  --shadow-1-right: 1px 0 2px -2px rgba(0, 0, 0, 0.16), 3px 0 6px 0 rgba(0, 0, 0, 0.12), 5px 0 12px 4px rgba(0, 0, 0, 0.09);
+
+  /* 4.2 Layer 2 (Medium Level - Dependent Floating Panels: Dropdown menus, Popovers, Tooltips) */
+  --shadow-2-up:    0 -3px 6px -4px rgba(0, 0, 0, 0.12), 0 -6px 16px 0 rgba(0, 0, 0, 0.08), 0 -9px 28px 8px rgba(0, 0, 0, 0.05);
+  --shadow-2-down:  0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  --shadow-2-left:  -3px 0 6px -4px rgba(0, 0, 0, 0.12), -6px 0 16px 0 rgba(0, 0, 0, 0.08), -9px 0 28px 8px rgba(0, 0, 0, 0.05);
+  --shadow-2-right: 3px 0 6px -4px rgba(0, 0, 0, 0.12), 6px 0 16px 0 rgba(0, 0, 0, 0.08), 9px 0 28px 8px rgba(0, 0, 0, 0.05);
+
+  /* 4.3 Layer 3 (High Level - Independent Movement: Dialog boxes, Modals, Lightbox, Drawers) */
+  --shadow-3-up:    0 -6px 16px -8px rgba(0, 0, 0, 0.08), 0 -9px 28px 0 rgba(0, 0, 0, 0.05), 0 -12px 48px 16px rgba(0, 0, 0, 0.03);
+  --shadow-3-down:  0 6px 16px -8px rgba(0, 0, 0, 0.08), 0 9px 28px 0 rgba(0, 0, 0, 0.05), 0 12px 48px 16px rgba(0, 0, 0, 0.03);
+  --shadow-3-left:  -6px 0 16px -8px rgba(0, 0, 0, 0.08), -9px 0 28px 0 rgba(0, 0, 0, 0.05), -12px 0 48px 16px rgba(0, 0, 0, 0.03);
+  --shadow-3-right: 6px 0 16px -8px rgba(0, 0, 0, 0.08), 9px 0 28px 0 rgba(0, 0, 0, 0.05), 12px 0 48px 16px rgba(0, 0, 0, 0.03);
+
+  /* 4.4 Semantic Component Mapping (Calibrated Natural Scale) */
+  --shadow-3-down-core: 0 6px 16px -8px rgba(0, 0, 0, 0.08);
+  --shadow-xs:         0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm:         0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --shadow-md:         0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg:         0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-xl:         0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --shadow-2xl:        0 25px 50px -12px rgba(0, 0, 0, 0.15);
+
+  --shadow-card:       0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --shadow-dropdown:   0 4px 14px 0 rgba(0, 0, 0, 0.09);
+  --shadow-popover:    0 4px 14px 0 rgba(0, 0, 0, 0.09);
+  --shadow-tooltip:    0 2px 8px 0 rgba(0, 0, 0, 0.12);
+  --shadow-modal:      var(--shadow-3-down);
+  --shadow-drawer:     var(--shadow-3-down);
+  --shadow-toast:      0 8px 24px 0 rgba(0, 0, 0, 0.12);
+  --shadow-panel:      0 4px 12px 0 rgba(0, 0, 0, 0.08);
+  --shadow-table:      0 1px 3px 0 rgba(0, 0, 0, 0.06);
 
   /* 4.3 Z-Index Hierarchy (Strict Mathematical Priority Mapping) */
   --z-deep:            -1;   /* Depressed layers, canvas backgrounds */
@@ -501,7 +600,7 @@
   /* 5.2 Component Radii */
   --radius-control:  var(--radius-sm);
   --radius-btn:      var(--radius-md);
-  --radius-icon:     var(--radius-md);
+  --radius-icon:     var(--radius-lg, 8px);
   --radius-input:    var(--radius-md);
   --radius-badge:    var(--radius-sm);
   --radius-tab:      var(--radius-sm);
@@ -539,14 +638,89 @@
   --ease-in-out:     cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out-cubic:  cubic-bezier(0.215, 0.61, 0.355, 1);
 
-  /* 5.4 Containers & Layout Dimensions */
+  /* 5.4 Ant Design Layout System (Canvas, Adaptation, Raster & Common Scales) */
+  /* 5.4.1 Unified Canvas Dimension (Canonical 1440 Design Board & Content Area) */
+  --canvas-dimension:      1440px; /* Unified organization design board width */
+  --canvas-content-width:  1168px; /* Canonical 1440 Top-Bottom 24-grid content area */
+  --canvas-max-width:      1440px; /* Max canvas scaling ceiling */
+
+  /* 5.4.2 Mainstream Display Resolution Adaptations */
+  --screen-xs:   480px;
+  --screen-sm:   576px;
+  --screen-md:   768px;
+  --screen-lg:   992px;
+  --screen-1024: 1024px;
+  --screen-xl:   1200px;
+  --screen-1280: 1280px;
+  --screen-1366: 1366px;
+  --screen-1440: 1440px;
+  --screen-1920: 1920px;
+
+  /* 5.4.3 Adaptation Metrics */
+  /* Left-Right Layout Adaptation (Fixed Left Nav, Fluid Right Work Area) */
+  --layout-sidebar-width:     256px; /* 32 * 8px standard 8-fold unit */
+  --layout-sidebar-collapsed:  80px; /* 10 * 8px */
+  --layout-topbar-height:      72px; /* 9 * 8px */
+  --layout-admin-breakpoint: 1024px;
+
+  /* Top-Bottom Layout Adaptation (Marginal Blanking Minimums + Centered Content) */
+  --margin-blanking-min:       24px; /* Minimum marginal blanking area on sides */
+  --margin-blanking-desktop:   32px; /* Standard marginal blanking area on desktop */
+  --margin-blanking-1440:     136px; /* (1440 - 1168) / 2 = 136px canonical side blanking */
+
+  /* 5.4.4 Raster 24-Grid Fixed Gutters */
+  --gutter-base:  8px;
+  --gutter-sm:   16px;
+  --gutter-md:   24px; /* Canonical 24-grid gutter */
+  --gutter-lg:   32px;
+  --gutter-xl:   40px;
+  --gutter-2xl:  48px;
+
+  /* 5.4.5 UI Common Scales (Ant Design 8-Fold Dynamic Rhythm Arrays) */
+  /* Array 1: Component & Micro-Scale (Multiples of 8) */
+  --scale-8:     8px;
+  --scale-16:   16px;
+  --scale-24:   24px;
+  --scale-32:   32px;
+  --scale-40:   40px;
+  --scale-48:   48px;
+  --scale-56:   56px;
+  --scale-64:   64px;
+  --scale-72:   72px;
+  --scale-80:   80px;
+  --scale-88:   88px;
+  --scale-96:   96px;
+  --scale-104: 104px;
+  --scale-112: 112px;
+  --scale-120: 120px;
+  --scale-128: 128px;
+
+  /* Array 2: Macro & Spatial Layout Scale */
+  --scale-160:  160px;
+  --scale-192:  192px;
+  --scale-256:  256px;
+  --scale-320:  320px;
+  --scale-384:  384px;
+  --scale-480:  480px;
+  --scale-576:  576px;
+  --scale-640:  640px;
+  --scale-720:  720px;
+  --scale-800:  800px;
+  --scale-960:  960px;
+  --scale-1152: 1152px;
+  --scale-1168: 1168px;
+  --scale-1200: 1200px;
+  --scale-1440: 1440px;
+  --scale-1920: 1920px;
+
+  /* Legacy Container Bridges */
   --container-xl: 1280px;
-  --container-lg: 1120px;
+  --container-lg: 1168px;
   --container-md: 1024px;
   --container-sm: 768px;
   --nav-h: 72px;
-  --header-offset: 84px;
-  --mega-menu-max-h: calc(100dvh - var(--header-offset, 84px) - 1.5rem);
+  --header-offset: 80px;
+  --mega-menu-max-h: calc(100dvh - var(--header-offset, 80px) - 1.5rem);
   --navbar-radius: 8px;
   --mega-menu-radius: var(--navbar-radius, 8px);
   --mega-menu-promo-bg: var(--brand-50);
@@ -555,16 +729,16 @@
   --mega-menu-banner-border: var(--border-subtle);
   --mega-menu-banner-hover: var(--neutral-200);
   --mega-menu-banner-py: 12px;
-  --mega-menu-banner-px: 20px;
-  --mega-menu-grid: 210px repeat(5, minmax(130px, 1fr));
+  --mega-menu-banner-px: 16px;
+  --mega-menu-grid: 208px repeat(5, minmax(128px, 1fr));
   --mega-menu-gap: 1.25rem;
   --mega-menu-col-divider: var(--border-subtle);
   --mega-menu-col-px: 0.875rem;
   --section-py: 4rem;
 
-  /* 5.5 Button Sizing Scale */
-  --btn-h-sm: 34px;
-  --btn-h-md: 42px;
+  /* 5.5 Button Sizing Scale (Aligned to 8-Point Even Units) */
+  --btn-h-sm: 32px;
+  --btn-h-md: 40px;
   --btn-h-lg: 48px;
   --btn-px-sm: 0.875rem;
   --btn-py-sm: 0.375rem;

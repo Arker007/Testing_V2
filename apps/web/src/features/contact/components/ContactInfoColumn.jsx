@@ -42,7 +42,7 @@ export default function ContactInfoColumn({
 
       <div className={styles.infoItems}>
         <ContactInfoItem
-          iconName="carbon:location"
+          iconName="solar:map-point-linear"
           label="Factory Address"
           value={addr}
           copyKey="addr"
@@ -55,7 +55,7 @@ export default function ContactInfoColumn({
         />
 
         <ContactInfoItem
-          iconName="carbon:phone"
+          iconName="solar:phone-calling-linear"
           label="Sales Phone"
           value={phone}
           copyKey="phone"
@@ -68,7 +68,7 @@ export default function ContactInfoColumn({
         />
 
         <ContactInfoItem
-          iconName="carbon:email"
+          iconName="solar:letter-linear"
           label="Email Address"
           value={email}
           copyKey="email"
@@ -81,7 +81,7 @@ export default function ContactInfoColumn({
         />
 
         <ContactInfoItem
-          iconName="carbon:time"
+          iconName="solar:clock-circle-linear"
           label="Working Hours"
           value="Monday – Saturday: 9:00 AM – 6:00 PM"
           iconAnimation={{

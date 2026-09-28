@@ -83,7 +83,7 @@ export default function ProductDetailView() {
     <main className="pt-0 pb-20 bg-[var(--bg-canvas)] text-[var(--text-primary)] min-h-screen">
       {/* Breadcrumb Navigation Header */}
       <nav aria-label="Breadcrumb" className="border-b border-[var(--border-subtle)] py-3 bg-[var(--bg-surface)]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between flex-wrap gap-3 text-xs sm:text-sm font-medium">
+        <div className="container flex items-center justify-between flex-wrap gap-3 text-xs sm:text-sm font-medium">
           <div className="flex items-center flex-wrap gap-2">
             <Link to="/" className="text-[var(--text-secondary)] hover:text-[var(--text-brand)] flex items-center gap-1 transition-colors">
               <span>Home</span>
@@ -128,7 +128,7 @@ export default function ProductDetailView() {
       </nav>
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-10 pb-16 lg:pb-20 space-y-12 sm:space-y-16">
+      <div className="container mt-6 sm:mt-10 pb-16 lg:pb-20 space-y-12 sm:space-y-16">
         {/* Core Layout Grid: Reordered on mobile (Gallery -> Specs & CTA -> Detailed Tabs) and 7/5 cols on desktop */}
         <section className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-14 items-start">
           {/* 1. Gallery Viewport: Order 1 on mobile, 7 cols on desktop */}

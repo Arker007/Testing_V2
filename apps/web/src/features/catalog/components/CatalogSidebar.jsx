@@ -18,21 +18,21 @@ export default function CatalogSidebar({
       <div className={styles.sidebarHeader}>
         <h2 className={styles.sidebarTitle}>
           <Icon icon="carbon:book" className="w-5 h-5 text-[var(--brand)]" />
-          Catalog Setup
+          Catalog setup
         </h2>
       </div>
 
       <div className={styles.sidebarSection}>
         <div className="space-y-4">
           <Input
-            label="Catalog Title"
+            label="Catalog title"
             value={catalogTitle}
             onChange={(e) => setCatalogTitle(e.target.value)}
             placeholder="e.g. Recycled Pallets Catalog"
           />
 
           <Input
-            label="Calendar Year / Vol"
+            label="Calendar year and volume"
             value={catalogYear}
             onChange={(e) => setCatalogYear(e.target.value)}
             placeholder="e.g. 2024 | 25"
@@ -41,17 +41,17 @@ export default function CatalogSidebar({
 
         <div className={`${styles.formGroup} mt-4`}>
           <div className={styles.sectionTitle}>
-            <span>Included Products</span>
+            <span>Included products</span>
             <Button
               type="button"
               variant="ghost"
               size="xs"
               onClick={handleSelectAll}
-              className="text-xs uppercase font-bold"
+              className="text-xs font-semibold"
             >
               {selectedProductIds.length === products.length
-                ? "Deselect All"
-                : "Select All"}
+                ? "Deselect all"
+                : "Select all"}
             </Button>
           </div>
 
@@ -79,7 +79,7 @@ export default function CatalogSidebar({
           onClick={() => window.print()}
           icon={<Icon icon="carbon:printer" className="w-4 h-4 mr-1.5" />}
         >
-          Export PDF Catalog
+          Export PDF catalog
         </Button>
       </div>
     </aside>

@@ -76,7 +76,7 @@ export default function ContactFormSection() {
       <div className={styles.bgSlantDark} />
       <div className={`${styles.dotsPattern} dark:opacity-10`} />
 
-      <div className="container max-w-7xl mx-auto relative z-10">
+      <div className="container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* BEGIN: RequestAQuoteForm */}
           <Card
@@ -140,18 +140,13 @@ export default function ContactFormSection() {
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                 {/* Step 1: Select Product */}
                 <div className="space-y-2.5">
-                  <div className="flex items-start gap-2.5">
-                    <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0">
                       1
                     </div>
-                    <div>
-                      <h2 className={`${styles.stepTitle} !text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight`}>
-                        Product / Requirement
-                      </h2>
-                      <p className={`${styles.stepSubTitle} !text-xs text-[var(--text-secondary)] mt-0.5`}>
-                        Select the product category that best matches your requirement.
-                      </p>
-                    </div>
+                    <h2 className={`${styles.stepTitle} !text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight`}>
+                      Product / Requirement
+                    </h2>
                   </div>
                   
                   <div className="space-y-2.5 pt-0.5 pl-0 sm:pl-9">
@@ -194,18 +189,13 @@ export default function ContactFormSection() {
 
                 {/* Step 2: Contact Details */}
                 <div className="space-y-2.5">
-                  <div className="flex items-start gap-2.5">
-                    <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0">
                       2
                     </div>
-                    <div>
-                      <h2 className={`${styles.stepTitle} !text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight`}>
-                        Your Details
-                      </h2>
-                      <p className={`${styles.stepSubTitle} !text-xs text-[var(--text-secondary)] mt-0.5`}>
-                        Let us know how to get in touch with you.
-                      </p>
-                    </div>
+                    <h2 className={`${styles.stepTitle} !text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight`}>
+                      Your Details
+                    </h2>
                   </div>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-0.5 pl-0 sm:pl-9">
@@ -272,7 +262,7 @@ export default function ContactFormSection() {
                     </FormField>
 
                     {/* Company Name */}
-                    <FormField label="Company Name (Optional)" htmlFor="company">
+                    <FormField label="Company Name" htmlFor="company">
                       <Input
                         id="company"
                         type="text"
@@ -288,24 +278,19 @@ export default function ContactFormSection() {
 
                 {/* Step 3: Requirement Details */}
                 <div className="space-y-2.5">
-                  <div className="flex items-start gap-2.5">
-                    <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0">
                       3
                     </div>
-                    <div>
-                      <h2 className={`${styles.stepTitle} !text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight`}>
-                        Requirement Details
-                      </h2>
-                      <p className={`${styles.stepSubTitle} !text-xs text-[var(--text-secondary)] mt-0.5`}>
-                        Help us understand your requirement better.
-                      </p>
-                    </div>
+                    <h2 className={`${styles.stepTitle} !text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight`}>
+                      Requirement Details
+                    </h2>
                   </div>
                   
                   <div className="space-y-2.5 pt-0.5 pl-0 sm:pl-9">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                       {/* Estimated Quantity */}
-                      <FormField label="Estimated Quantity (Optional)" htmlFor="estimatedVolume">
+                      <FormField label="Estimated Quantity" htmlFor="estimatedVolume">
                         <Input
                           id="estimatedVolume"
                           type="text"
@@ -318,7 +303,7 @@ export default function ContactFormSection() {
                       </FormField>
 
                       {/* Target Application */}
-                      <FormField label="Target Application (Optional)" htmlFor="targetApplication">
+                      <FormField label="Target Application" htmlFor="targetApplication">
                         <Input
                           id="targetApplication"
                           type="text"
@@ -332,14 +317,13 @@ export default function ContactFormSection() {
                     </div>
 
                     {/* Specifications or Message */}
-                    <FormField label="Specifications or Message" htmlFor="message" required>
+                    <FormField label="Specifications or Message" htmlFor="message">
                       <div className="relative">
                         <div className="absolute top-2.5 left-2.5 pointer-events-none text-[var(--text-muted)] z-10">
                           <Icon icon="carbon:edit" className="w-3.5 h-3.5" />
                         </div>
                         <Textarea
                           id="message"
-                          required
                           rows={2.5}
                           maxLength={1000}
                           showCount
@@ -378,8 +362,8 @@ export default function ContactFormSection() {
 
                   {/* Secure Info Badge - Clean Unboxed Layout */}
                   <div className="flex items-center gap-2.5 px-1 py-1 text-left sm:border-l sm:border-[var(--border-subtle)] sm:pl-4">
-                    <div className="w-7 h-7 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] flex items-center justify-center shrink-0">
-                      <Icon icon="carbon:security" className="w-4 h-4" />
+                    <div className="w-7 h-7 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center shrink-0">
+                      <Icon icon="solar:shield-check-linear" className="w-4 h-4" />
                     </div>
                     <div className="text-[11px] leading-tight">
                       <span className="block font-bold text-[var(--text-primary)]">Your information is secure.</span>
@@ -421,8 +405,8 @@ export default function ContactFormSection() {
                   className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm"
                   id="info-card-person"
                 >
-                  <div className="w-10 h-10 rounded-[8px] bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
-                    <Icon icon="carbon:user" className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
+                    <Icon icon="solar:user-linear" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
                     <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Sales & Technical Contact</span>
@@ -436,8 +420,8 @@ export default function ContactFormSection() {
                   className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm group"
                   id="info-card-address"
                 >
-                  <div className="w-10 h-10 rounded-[8px] bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
-                    <Icon icon="carbon:location" className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
+                    <Icon icon="solar:map-point-linear" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
@@ -472,8 +456,8 @@ export default function ContactFormSection() {
                   className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm"
                   id="info-card-mobile"
                 >
-                  <div className="w-10 h-10 rounded-[8px] bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
-                    <Icon icon="carbon:phone" className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
+                    <Icon icon="solar:phone-calling-linear" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
@@ -517,8 +501,8 @@ export default function ContactFormSection() {
                   className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm"
                   id="info-card-email"
                 >
-                  <div className="w-10 h-10 rounded-[8px] bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
-                    <Icon icon="carbon:email" className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
+                    <Icon icon="solar:letter-linear" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
@@ -560,8 +544,8 @@ export default function ContactFormSection() {
                   className="bg-[var(--bg-surface)] p-4 sm:p-4.5 border border-[var(--border-subtle)] shadow-xs flex items-start gap-3.5 rounded-xl transition-all duration-200 hover:border-[var(--border-default)] hover:shadow-sm"
                   id="info-card-gstin"
                 >
-                  <div className="w-10 h-10 rounded-[8px] bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
-                    <Icon icon="carbon:document" className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
+                    <Icon icon="solar:document-text-linear" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
@@ -602,8 +586,8 @@ export default function ContactFormSection() {
                   id="assistance-banner"
                 >
                   <div className="flex items-center gap-3.5">
-                    <div className="w-10 h-10 rounded-[8px] bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
-                      <Icon icon="carbon:headphones" className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] border border-[var(--border-brand)] shadow-xs flex items-center justify-center shrink-0">
+                      <Icon icon="solar:headphones-round-linear" className="w-5 h-5" />
                     </div>
                     <div>
                       <h4 className="text-xs sm:text-sm font-extrabold text-[var(--text-primary)]">Need Immediate Assistance?</h4>
@@ -628,7 +612,7 @@ export default function ContactFormSection() {
         <Card variant="default" className="mt-10 p-6 border border-[var(--border-subtle)] rounded-xl shadow-sm" id="embedded-map-container">
           <div className={mapStyles.mapHeader}>
             <div className={mapStyles.mapTitleGroup}>
-              <IconBox icon="carbon:location" variant="brand" size="md" />
+              <IconBox icon="solar:map-point-linear" variant="brand" size="md" />
               <div>
                 <span className="block font-bold text-[var(--text-primary)] text-base">Find Our Manufacturing Facility</span>
                 <p className="text-xs text-[var(--text-muted)] mt-0.5">{address}</p>

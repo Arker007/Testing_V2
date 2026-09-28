@@ -43,7 +43,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+          <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-105">
             <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
           {badgeText && (
@@ -86,7 +86,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+          <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-105">
             <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
           {cardType === "wideRowHeader" && badgeText && (
@@ -129,7 +129,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+          <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-105">
             <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
           </div>
           {cardType === "wideHeader" && badgeText && (
@@ -171,7 +171,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
       </div>
 
       <div className="relative z-10 flex items-center justify-between mb-4">
-        <div className="w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-md transition-all duration-300">
+        <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-105">
           <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
         </div>
       </div>

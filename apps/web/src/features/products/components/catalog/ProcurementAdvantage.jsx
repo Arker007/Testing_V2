@@ -5,19 +5,19 @@ import styles from "../../products.module.css";
 
 const procurementItems = [
   {
-    icon: "carbon:security",
+    icon: "solar:shield-check-linear",
     tag: "±0.5mm QA",
     title: "Dimensional Tolerance Control",
     desc: "Extrusion section control to maintain exact cross-section dimensions and structural density across volume orders.",
   },
   {
-    icon: "carbon:layers",
+    icon: "solar:layers-linear",
     tag: "Pan-India SLA",
     title: "Scheduled Batch Dispatch",
     desc: "Streamlined inventory and logistics support for recurring OEM production schedules and dependable pan-India distribution.",
   },
   {
-    icon: "carbon:badge",
+    icon: "solar:diploma-verified-linear",
     tag: "Engineering QA",
     title: "Technical Consultation",
     desc: "Direct access to polymer extrusion engineers to determine exact load calculations, FEA analysis, and custom profile selection.",

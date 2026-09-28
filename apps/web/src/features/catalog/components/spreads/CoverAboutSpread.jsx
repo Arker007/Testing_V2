@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import styles from "../../styles/AdminCatalog.module.css";
 
 export function getCoverAboutSpread({
@@ -68,7 +69,7 @@ export function getCoverAboutSpread({
           <div className={styles.gridItemYellow} />
 
           <div className={styles.gridItemWatermark}>
-            <i className="fa-solid fa-recycle" />
+            <Icon icon="carbon:recycle" className="w-10 h-10 text-emerald-600/30" />
           </div>
           <div className={`${styles.gridItem} ${styles.gridItemSpan2}`}>
             <img
@@ -154,7 +155,7 @@ export function getCoverAboutSpread({
                   color: "var(--white)",
                 }}
               >
-                <i className="fa-solid fa-seedling" />
+                <Icon icon="carbon:sprout" className="w-5 h-5 text-white" />
               </div>
               <div
                 style={{

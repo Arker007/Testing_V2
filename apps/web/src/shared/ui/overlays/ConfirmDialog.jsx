@@ -30,18 +30,18 @@ export default function ConfirmDialog({
 }) {
   const variantConfig = {
     danger: {
-      icon: "carbon:trash-can",
-      iconBg: "bg-rose-100 text-rose-600 dark:bg-rose-500/20 dark:text-rose-400",
+      icon: "solar:trash-bin-trash-bold",
+      iconBg: "bg-[var(--danger-bg)] text-[var(--danger-text)] border border-[var(--danger-border)]",
       btnVariant: "danger"
     },
     warning: {
-      icon: "carbon:warning-filled",
-      iconBg: "bg-amber-100 text-amber-600 dark:bg-amber-500/20 dark:text-amber-400",
+      icon: "solar:danger-triangle-bold",
+      iconBg: "bg-[var(--warning-bg)] text-[var(--warning-text)] border border-[var(--warning-border)]",
       btnVariant: "warning"
     },
     brand: {
-      icon: "carbon:information-filled",
-      iconBg: "bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400",
+      icon: "solar:info-circle-bold",
+      iconBg: "bg-[var(--info-bg)] text-[var(--info-text)] border border-[var(--info-border)]",
       btnVariant: "primary"
     },
   };

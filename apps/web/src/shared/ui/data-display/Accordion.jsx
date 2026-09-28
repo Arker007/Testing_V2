@@ -71,7 +71,7 @@ export function AccordionItem({
             aria-hidden="true"
           >
             <Icon
-              icon="carbon:chevron-down"
+              icon="solar:alt-arrow-down-linear"
               className={`w-4 h-4 transition-transform duration-300 ${
                 isOpen ? "rotate-180" : "rotate-0"
               }`}
@@ -151,7 +151,7 @@ export default function Accordion({
   if (!items || items.length === 0) return null;
 
   return (
-    <div className={`space-y-3.5 ${className}`.trim()}>
+    <div className={`space-y-4 ${className}`.trim()}>
       {items.map((item, idx) => {
         const titleText = item.title || item.q || item.question || "";
         const bodyContent = item.content || item.a || item.answer || null;

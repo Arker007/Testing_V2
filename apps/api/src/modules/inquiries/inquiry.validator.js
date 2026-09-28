@@ -14,9 +14,6 @@ function validateInquiry(data) {
       errors.email = "Invalid email format";
     }
   }
-  if (!data.message || typeof data.message !== 'string' || !data.message.trim()) {
-    errors.message = "Message is required";
-  }
   return errors;
 }
 

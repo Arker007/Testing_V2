@@ -3,27 +3,47 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../../shared/context/SiteContext";
-import { testimonials } from "../constants";
 import { Card } from "@/shared/ui";
+
+const HOME_TESTIMONIALS = [
+  {
+    quote: "Vishal Enterprise has been a reliable partner for our pallet requirements. The quality and durability of their recycled plastic pallets have helped us improve our handling operations while supporting our sustainability goals.",
+    role: "Procurement Manager",
+    company: "Pharma Company",
+    icon: "solar:buildings-2-bold"
+  },
+  {
+    quote: "Switching to Vishal's high-density eco-friendly pallets and crates has helped us meet our rigorous sustainability targets while ensuring safe, damage-free transit of goods across India.",
+    role: "Supply Chain Director",
+    company: "Logistics Enterprise",
+    icon: "solar:box-minimalistic-bold"
+  },
+  {
+    quote: "Highly consistent quality and prompt factory delivery. Their engineering excellence truly reflects in the structural load capacity and longevity of their custom heavy-duty pallets.",
+    role: "Operations Head",
+    company: "Industrial Manufacturing Ltd.",
+    icon: "solar:factory-bold"
+  }
+];
 
 export default function TestimonialsSection() {
   const { c } = useSite();
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  if (c("about_testimonials_enabled", "1") === "0") return null;
+  if (c("home_testimonials_enabled", "1") === "0") return null;
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+    setCurrentSlide((prev) => (prev + 1) % HOME_TESTIMONIALS.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentSlide((prev) => (prev - 1 + HOME_TESTIMONIALS.length) % HOME_TESTIMONIALS.length);
   };
 
-  const current = testimonials[currentSlide];
+  const current = HOME_TESTIMONIALS[currentSlide];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-[var(--bg-canvas)] transition-colors">
+    <section className="py-14 sm:py-18 lg:py-24 bg-[var(--bg-canvas)] transition-colors border-t border-[var(--border-subtle)]/40">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
@@ -111,19 +131,19 @@ export default function TestimonialsSection() {
               <div className="flex items-center gap-2 mb-2.5">
                 <span className="w-4 h-[2px] bg-[var(--brand-primary)] inline-block shrink-0 rounded-full" />
                 <span className="text-[11px] sm:text-xs font-bold tracking-[0.16em] text-[var(--brand-primary)] uppercase">
-                  {c("about_testimonials_eyebrow", "CLIENT TESTIMONIALS")}
+                  {c("testimonials_eyebrow", "CLIENT TESTIMONIALS")}
                 </span>
               </div>
 
               {/* Title */}
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight mb-3">
-                {c("about_testimonials_title", "Trusted by industry leaders")}
+                {c("testimonials_title", "Trusted by industry leaders")}
               </h2>
 
               {/* Subtitle / Description */}
               <p className="text-xs sm:text-sm lg:text-base text-[var(--text-secondary)] leading-relaxed max-w-xl">
                 {c(
-                  "about_testimonials_subtitle",
+                  "testimonials_subtitle",
                   "Leading manufacturers, logistics companies and industrial businesses rely on our recycled plastic pallets for durability, performance and a cleaner, more sustainable future."
                 )}
               </p>
@@ -178,4 +198,3 @@ export default function TestimonialsSection() {
     </section>
   );
 }
-

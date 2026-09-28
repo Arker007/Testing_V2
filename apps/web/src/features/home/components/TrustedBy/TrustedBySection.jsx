@@ -20,7 +20,7 @@ export default function TrustedBySection() {
       className={styles.trustedBy}
       aria-label="Trusted Enterprise Partners"
     >
-      <div className="container mx-auto px-4">
+      <div className="container">
         <p className={styles.trustedHeading}>
           {c("trusted_title", "Trusted by Leading Industrial & Logistics Enterprises")}
         </p>

@@ -7,7 +7,7 @@ import AdminSidebar from "./AdminSidebar";
 import AdminTopBar from "./AdminTopBar";
 import AdminCommandPalette from "./AdminCommandPalette";
 
-const MOBILE_BREAKPOINT = 900;
+const MOBILE_BREAKPOINT = 1024;
 
 const INITIAL_NOTIFICATIONS = [
   {

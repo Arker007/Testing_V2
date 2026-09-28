@@ -112,38 +112,38 @@ function ProductCard({
     // 2. Dynamic contextual badge instead of repeating "Verified Spec" on every card
     let badgeText = product.badge || "";
     let badgeVariant = "brand";
-    let badgeIcon = "carbon:certificate";
+    let badgeIcon = "solar:verified-check-linear";
 
     if (!badgeText) {
       const lowerTitle = (title || "").toLowerCase();
       if (lowerTitle.includes("rackable")) {
         badgeText = "Rackable";
         badgeVariant = "brand";
-        badgeIcon = "carbon:layers";
+        badgeIcon = "solar:layers-linear";
       } else if (lowerTitle.includes("export") || lowerTitle.includes("euro")) {
         badgeText = "Export Grade";
         badgeVariant = "info";
-        badgeIcon = "carbon:delivery-truck";
+        badgeIcon = "solar:delivery-linear";
       } else if (lowerTitle.includes("reversible")) {
         badgeText = "Reversible";
         badgeVariant = "neutral";
-        badgeIcon = "carbon:arrows-vertical";
+        badgeIcon = "solar:sort-vertical-linear";
       } else if (lowerTitle.includes("2-way")) {
         badgeText = "2-Way Entry";
         badgeVariant = "neutral";
-        badgeIcon = "carbon:direction-fork";
+        badgeIcon = "solar:branching-paths-down-linear";
       } else if (lowerTitle.includes("4-way")) {
         badgeText = "4-Way Entry";
         badgeVariant = "brand";
-        badgeIcon = "carbon:arrows-horizontal";
+        badgeIcon = "solar:transfer-horizontal-linear";
       } else if (lowerTitle.includes("heavy-duty") || lowerTitle.includes("heavy duty")) {
         badgeText = "Heavy Duty";
         badgeVariant = "brand";
-        badgeIcon = "carbon:shield-check";
+        badgeIcon = "solar:shield-check-linear";
       } else if (product.verified !== false) {
         badgeText = "Factory Direct";
         badgeVariant = "success";
-        badgeIcon = "carbon:checkmark-outline";
+        badgeIcon = "solar:verified-check-linear";
       }
     }
 
@@ -159,7 +159,7 @@ function ProductCard({
     return (
       <Link
         to={`/products/${product.id}`}
-        className={`group flex flex-col bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--bg-surface,#1e2530)] border border-[var(--border-default)] rounded-[12px] p-3 shadow-xs hover:shadow-md hover:border-[var(--brand-primary,#059669)] transition-all duration-300 no-underline ${className}`.trim()}
+        className={`group flex flex-col bg-[var(--bg-surface)] border border-[var(--border-subtle)] rounded-[12px] p-3 shadow-[var(--shadow-3-down)] hover:border-[var(--brand-primary)] hover:shadow-[var(--shadow-3-down)] transition-all duration-300 no-underline ${className}`.trim()}
       >
         {/* Inset Inner Image Card */}
         <div className="relative aspect-4/3 w-full bg-[var(--bg-surface-secondary)] dark:bg-slate-900/60 rounded-[8px] overflow-hidden border border-[var(--border-subtle)] flex items-center justify-center">
@@ -178,7 +178,7 @@ function ProductCard({
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 block"
             />
           ) : (
-            <Icon icon="carbon:image" className="w-10 h-10 text-[var(--text-muted)]" />
+            <Icon icon="solar:gallery-minimalistic-linear" className="w-10 h-10 text-[var(--text-muted)]" />
           )}
         </div>
 
@@ -195,11 +195,11 @@ function ProductCard({
           {/* Quick Specifications Strip for buyers */}
           <div className="flex flex-col gap-1.5 py-1 text-xs">
             <div className="flex items-center gap-1.5 text-[var(--text-secondary)] font-medium">
-              <Icon icon="carbon:box" className="w-3.5 h-3.5 text-[var(--brand-primary,#059669)] shrink-0" />
+              <Icon icon="solar:box-linear" className="w-3.5 h-3.5 text-[var(--brand-primary,#059669)] shrink-0" />
               <span className="truncate">{cleanDimStr}</span>
             </div>
             <div className="flex items-center gap-1.5 text-[var(--text-muted)]">
-              <Icon icon="carbon:security" className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <Icon icon="solar:shield-check-linear" className="w-3.5 h-3.5 text-slate-400 shrink-0" />
               <span className="truncate">{loadStr}</span>
             </div>
           </div>
@@ -217,7 +217,7 @@ function ProductCard({
 
             <span className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-[var(--radius-btn,6px)] bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] text-xs font-semibold group-hover:bg-[var(--brand-primary,#059669)] group-hover:text-white transition-all shrink-0">
               <span>Specs</span>
-              <Icon icon="carbon:arrow-right" className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </span>
           </div>
         </div>
@@ -231,7 +231,7 @@ function ProductCard({
 
   return (
     <motion.article
-      className={`${styles.gridCard || "flex flex-col bg-white dark:bg-surface rounded-card border border-slate-200/90 dark:border-subtle overflow-hidden shadow-xs hover:shadow-card-hover hover:border-[var(--brand-primary)]/50 transition-all duration-300"} ${className}`.trim()}
+      className={`${styles.gridCard || "flex flex-col bg-[var(--bg-surface)] rounded-card border border-[var(--border-subtle)] overflow-hidden shadow-[var(--shadow-3-down)] hover:border-[var(--brand-primary)]/50 transition-all duration-300"} ${className}`.trim()}
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "60px 0px" }}
@@ -251,7 +251,7 @@ function ProductCard({
               className={styles.gridCardImg}
             />
           ) : (
-            <Icon icon="carbon:image" className="w-10 h-10 text-[var(--text-muted)]" />
+            <Icon icon="solar:gallery-minimalistic-linear" className="w-10 h-10 text-[var(--text-muted)]" />
           )}
         </div>
         {categoryName && <span className={styles.catTag}>{categoryName}</span>}
@@ -260,7 +260,7 @@ function ProductCard({
       <div className={styles.gridCardDetails}>
         <div className={styles.skuRow}>
           <span className={styles.skuCode}>{sku}</span>
-          {isCustomizable && <Badge variant="outline" size="xs">Customizable</Badge>}
+          {isCustomizable && <span className={styles.customBadge}>Customizable</span>}
         </div>
 
         <h3 className={styles.gridCardSkuTitle}>
@@ -269,40 +269,38 @@ function ProductCard({
           </Link>
         </h3>
 
-        {/* Dimensions Standalone Block */}
-        <div className={styles.dimBlock}>
-          <div className={styles.dimIconWrap}>
-            <Icon icon="carbon:box" className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+        {/* Ant Design Unified Specification Panel */}
+        <div className={styles.specPanel}>
+          <div className={styles.specDimRow}>
+            <span className={styles.specDimLabel}>
+              <Icon icon="solar:box-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
+              Dimensions
+            </span>
+            <span className={styles.specDimValue} title={cleanDimStr}>{cleanDimStr}</span>
           </div>
-          <div className={styles.dimContent}>
-            <span className={styles.dimLabel}>Dimensions</span>
-            <span className={styles.dimValue} title={cleanDimStr}>{cleanDimStr}</span>
-          </div>
-        </div>
 
-        <hr className={styles.cardDivider} />
-
-        {/* 2x2 Specs Bento Grid */}
-        {specsList.length > 0 && (
-          <div className={styles.bentoGrid}>
-            {specsList.map((item, i) => (
-              <div key={item.label || i} className={styles.bentoItem}>
-                <div className={styles.bentoIconWrap}>
-                  <Icon icon={item.icon} className="w-3.5 h-3.5 text-slate-600 dark:text-slate-300" />
-                </div>
-                <div className={styles.bentoContent}>
-                  <span className={styles.bentoLabel} title={item.title || item.label}>{item.label}</span>
-                  <span className={styles.bentoValue} title={item.value}>{item.value}</span>
-                </div>
+          {specsList.length > 0 && (
+            <>
+              <div className={styles.specDivider} />
+              <div className={styles.specMetricsGrid}>
+                {specsList.map((item, i) => (
+                  <div key={item.label || i} className={styles.specMetricItem}>
+                    <span className={styles.specMetricHeader} title={item.title || item.label}>
+                      <Icon icon={item.icon} className="w-3 h-3 text-[var(--brand-primary)]/80 shrink-0" />
+                      {item.label}
+                    </span>
+                    <span className={styles.specMetricValue} title={item.value}>{item.value}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        )}
+            </>
+          )}
+        </div>
 
         <div className={styles.gridCardActions}>
           <Link to={`/products/${product.id}`} className={styles.primaryViewBtn}>
-            <span>View product</span>
-            <Icon icon="carbon:arrow-right" className={`w-4 h-4 ml-1 ${styles.primaryViewArrow}`} />
+            <span>View Product</span>
+            <Icon icon="solar:arrow-right-linear" className={`w-4 h-4 ml-1 ${styles.primaryViewArrow}`} />
           </Link>
 
           <button
@@ -312,7 +310,7 @@ function ProductCard({
             title={`View Product Specs for ${title}`}
             aria-label={`View Product Specs for ${title}`}
           >
-            <Icon icon="carbon:document" className="w-4 h-4 mr-1.5" />
+            <Icon icon="solar:document-text-linear" className="w-3.5 h-3.5 mr-1.5" />
             <span className={styles.datasheetText}>Product Specs</span>
           </button>
         </div>

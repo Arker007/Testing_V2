@@ -7,10 +7,39 @@ import { sortByOptions } from "../../constants";
 import styles from "../../products.module.css";
 
 const QUICK_SEARCH_SUGGESTIONS = [
-  { label: "Plastic Pallets", cat: "Plastic Pallets", matchCat: ["Plastic Pallets", "Pallets"] },
-  { label: "Lumber / Sections", cat: "Recycled Plastic Lumber", matchCat: ["Recycled Plastic Lumber"] },
-  { label: "Garden Benches", cat: "Outdoor Benches & Furniture", matchCat: ["Outdoor Benches & Furniture", "Garden Benches", "Benches"] },
-  { label: "3,000+ kg Load", load: 3000 },
+  {
+    id: "pallets",
+    label: "Plastic Pallets",
+    type: "category",
+    value: "Plastic Pallets",
+    matchCat: ["Plastic Pallets", "plastic-pallets", "Pallets"],
+  },
+  {
+    id: "lumber",
+    label: "Plastic Lumber",
+    type: "category",
+    value: "Plastic Lumber",
+    matchCat: ["Plastic Lumber", "plastic-lumber", "Recycled Plastic Lumber", "Lumber"],
+  },
+  {
+    id: "benches",
+    label: "Garden Benches",
+    type: "category",
+    value: "Garden Benches",
+    matchCat: ["Garden Benches", "garden-bench", "Benches", "Outdoor Benches & Furniture", "Outdoor Benches"],
+  },
+  {
+    id: "rackable",
+    label: "Rackable",
+    type: "attribute",
+    value: "Rackable",
+  },
+  {
+    id: "load-3000",
+    label: "3,000+ kg Load",
+    type: "load",
+    value: 3000,
+  },
 ];
 
 export default function ProductSearchHeader({
@@ -182,7 +211,7 @@ export default function ProductSearchHeader({
       {/* Search Input & Controls Row */}
       <div className={styles.searchRow}>
         <div className={styles.searchBoxWrapper}>
-          <Icon icon="carbon:search" className={styles.searchIcon} />
+          <Icon icon="solar:magnifer-linear" className={styles.searchIcon} />
           <input
             id="product-search-input-field"
             type="text"
@@ -204,7 +233,7 @@ export default function ProductSearchHeader({
                 exit={{ opacity: 0, scale: 0.8 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <Icon icon="carbon:close" className="w-4 h-4" />
+                <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
               </motion.button>
             )}
           </AnimatePresence>
@@ -218,7 +247,7 @@ export default function ProductSearchHeader({
             onClick={() => setIsMobileFilterOpen(true)}
             whileTap={{ scale: 0.95 }}
           >
-            <Icon icon="carbon:filter" className="w-4 h-4" />
+            <Icon icon="solar:settings-linear" className="w-4 h-4" />
             <span>Filters</span>
             {activeTags.length > 0 && (
               <span className={styles.filterCountBadge}>{activeTags.length}</span>
@@ -246,7 +275,7 @@ export default function ProductSearchHeader({
               aria-label="Grid View"
               whileTap={{ scale: 0.9 }}
             >
-              <Icon icon="carbon:grid" className="w-4 h-4" />
+              <Icon icon="solar:widget-2-linear" className="w-4 h-4" />
             </motion.button>
             <motion.button
               type="button"
@@ -256,17 +285,121 @@ export default function ProductSearchHeader({
               aria-label="List View"
               whileTap={{ scale: 0.9 }}
             >
-              <Icon icon="carbon:list" className="w-4 h-4" />
+              <Icon icon="solar:list-linear" className="w-4 h-4" />
             </motion.button>
           </div>
         </div>
       </div>
 
-      {/* Applied Filters Section (Matching Image 2) */}
-      {activeTags.length > 0 && (
-        <div className={styles.appliedFiltersSection}>
-          <div className={styles.appliedFiltersHeader}>
-            <span className={styles.appliedFiltersTitle}>Applied filters:</span>
+      {/* Unified Zero-Layout-Shift Filter Strip (Single-tier horizontal row for Quick Filters & Applied Filters) */}
+      <div className={styles.filterStripRow}>
+        <span className={styles.quickSearchLabel}>QUICK FILTERS:</span>
+        <div className={styles.quickSearchTrack}>
+          {QUICK_SEARCH_SUGGESTIONS.map((sug) => {
+            let isSelected = false;
+            if (sug.type === "category") {
+              const isTop = selectedCategory === sug.value || (sug.matchCat && sug.matchCat.some((c) => c.toLowerCase() === (selectedCategory || "").toLowerCase()));
+              const isSidebar = selectedCategories.includes(sug.value) || (sug.matchCat && selectedCategories.some((c) => sug.matchCat.some((m) => m.toLowerCase() === c.toLowerCase())));
+              isSelected = isTop || isSidebar;
+            } else if (sug.type === "attribute") {
+              isSelected = selectedAttributes.includes(sug.value);
+            } else if (sug.type === "load") {
+              isSelected = minStaticLoad === sug.value;
+            }
+
+            const handleClick = () => {
+              if (sug.type === "category") {
+                if (isSelected) {
+                  if (setSelectedCategory && selectedCategory === sug.value) setSelectedCategory("All");
+                  if (setSelectedCategories) {
+                    setSelectedCategories((prev) =>
+                      prev.filter((c) => c !== sug.value && !sug.matchCat?.some((m) => m.toLowerCase() === c.toLowerCase()))
+                    );
+                  }
+                } else {
+                  if (setSelectedCategories) {
+                    setSelectedCategories((prev) => {
+                      const base = selectedCategory && selectedCategory !== "All" && !prev.includes(selectedCategory)
+                        ? [...prev, selectedCategory]
+                        : [...prev];
+                      return base.includes(sug.value) ? base : [...base, sug.value];
+                    });
+                  }
+                  if (setSelectedCategory) setSelectedCategory("All");
+                }
+              } else if (sug.type === "attribute") {
+                if (setSelectedAttributes) {
+                  setSelectedAttributes((prev) =>
+                    isSelected ? prev.filter((a) => a !== sug.value) : [...prev, sug.value]
+                  );
+                }
+              } else if (sug.type === "load") {
+                if (setMinStaticLoad) {
+                  setMinStaticLoad(isSelected ? 0 : sug.value);
+                }
+              }
+            };
+
+            return (
+              <motion.button
+                key={sug.id || sug.label}
+                type="button"
+                className={`${styles.quickSearchPillBtn} ${isSelected ? styles.quickSearchPillBtnActive : ""}`}
+                onClick={handleClick}
+                whileTap={{ scale: 0.94 }}
+                title={`Filter by ${sug.label}`}
+              >
+                <span>{sug.label}</span>
+                {isSelected && (
+                  <Icon icon="solar:close-circle-linear" className="w-3.5 h-3.5 ml-1 text-current opacity-80" />
+                )}
+              </motion.button>
+            );
+          })}
+
+          {/* Additional Applied Filters Not Represented by Quick Filter Bar (e.g. Search Query, Dimensions, Custom Sliders) */}
+          {activeTags
+            .filter((tag) => {
+              const isCoveredByQuickFilter = QUICK_SEARCH_SUGGESTIONS.some((sug) => {
+                if (sug.type === "category") {
+                  return (
+                    (tag.key.startsWith("cat-") || tag.key.startsWith("top-cat-")) &&
+                    (tag.label === sug.value || sug.matchCat?.some((m) => m.toLowerCase() === tag.label.toLowerCase()))
+                  );
+                }
+                if (sug.type === "attribute") {
+                  return tag.key === `attr-${sug.value}` || tag.label === sug.value;
+                }
+                if (sug.type === "load") {
+                  return tag.key === "min-load";
+                }
+                return false;
+              });
+              return !isCoveredByQuickFilter;
+            })
+            .map((tag) => (
+              <motion.span
+                key={tag.key}
+                className={styles.appliedFilterChip}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.12 }}
+              >
+                <span className={styles.appliedFilterChipText}>{tag.label}</span>
+                <button
+                  type="button"
+                  onClick={tag.clear}
+                  className={styles.appliedFilterChipRemove}
+                  title={`Remove ${tag.label}`}
+                  aria-label={`Remove ${tag.label}`}
+                >
+                  <Icon icon="solar:close-circle-linear" className="w-3.5 h-3.5" />
+                </button>
+              </motion.span>
+            ))}
+
+          {hasActiveFilters && (
             <button
               type="button"
               onClick={resetFilters}
@@ -275,71 +408,9 @@ export default function ProductSearchHeader({
             >
               Clear all
             </button>
-          </div>
-
-          <div className={styles.appliedFiltersTrack}>
-            <AnimatePresence>
-              {activeTags.map((tag) => (
-                <motion.span
-                  key={tag.key}
-                  className={styles.appliedFilterChip}
-                  initial={{ opacity: 0, scale: 0.88, y: -2 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.88, y: -2 }}
-                  transition={{ duration: 0.15 }}
-                >
-                  <span className={styles.appliedFilterChipText}>{tag.label}</span>
-                  <button
-                    type="button"
-                    onClick={tag.clear}
-                    className={styles.appliedFilterChipRemove}
-                    title={`Remove ${tag.label}`}
-                    aria-label={`Remove ${tag.label}`}
-                  >
-                    <Icon icon="carbon:close" className="w-3.5 h-3.5" />
-                  </button>
-                </motion.span>
-              ))}
-            </AnimatePresence>
-          </div>
+          )}
         </div>
-      )}
-
-      {/* Quick Search Shortcut Chips (Shown when no active filters, matching Image 1) */}
-      {activeTags.length === 0 && (
-        <div className={styles.quickSearchPillsRow}>
-          <span className={styles.quickSearchLabel}>QUICK FILTERS:</span>
-          {QUICK_SEARCH_SUGGESTIONS.map((sug, i) => {
-            const isSelected = sug.cat
-              ? (sug.matchCat || [sug.cat]).includes(selectedCategory)
-              : sug.load
-              ? minStaticLoad === sug.load
-              : false;
-
-            return (
-              <motion.button
-                key={i}
-                type="button"
-                className={`${styles.quickSearchPillBtn} ${isSelected ? styles.quickSearchPillBtnActive : ""}`}
-                onClick={() => {
-                  if (sug.cat) {
-                    setSelectedCategory(isSelected ? "All" : sug.cat);
-                  }
-                  if (sug.load) {
-                    setMinStaticLoad(isSelected ? 0 : sug.load);
-                  }
-                }}
-                whileTap={{ scale: 0.94 }}
-              >
-                <span>{sug.label}</span>
-                {isSelected && (
-                  <Icon icon="carbon:close" className="w-3.5 h-3.5 ml-1 text-current opacity-75" />
-                )}
-              </motion.button>
-            );
-          })}
-        </div>
-      )}
+      </div>
 
       {/* Results Count Bar */}
       <div className={styles.resultsBar}>

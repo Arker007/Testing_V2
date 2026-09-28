@@ -1,6 +1,8 @@
 import React, { useState, useCallback } from "react";
+import { motion as Motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
 import { ToastContext } from "./useToast";
+import { transitionFast, transitionBase } from "@/shared/constants/motion.constants";
 
 /**
  * Toast Provider wrapping application or layout to manage notification toasts.
@@ -35,9 +37,11 @@ export function ToastProvider({ children }) {
       {children}
       {/* Toast Container */}
       <div className="fixed bottom-5 right-5 z-[var(--z-toast,1400)] flex flex-col gap-2.5 max-w-sm w-full pointer-events-none px-4 sm:px-0">
-        {toasts.map((t) => (
-          <ToastItem key={t.id} toast={t} onClose={() => removeToast(t.id)} />
-        ))}
+        <AnimatePresence>
+          {toasts.map((t) => (
+            <ToastItem key={t.id} toast={t} onClose={() => removeToast(t.id)} />
+          ))}
+        </AnimatePresence>
       </div>
     </ToastContext.Provider>
   );
@@ -45,10 +49,10 @@ export function ToastProvider({ children }) {
 
 export function ToastItem({ toast, onClose }) {
   const icons = {
-    success: "carbon:checkmark-filled",
-    error: "carbon:warning-filled",
-    warning: "carbon:warning-filled",
-    info: "carbon:information-square-filled",
+    success: "solar:check-circle-bold",
+    error: "solar:danger-triangle-bold",
+    warning: "solar:danger-triangle-bold",
+    info: "solar:info-circle-bold",
   };
 
   const stylesMap = {
@@ -66,8 +70,12 @@ export function ToastItem({ toast, onClose }) {
   };
 
   return (
-    <div
-      className={`pointer-events-auto flex items-center justify-between p-3.5 rounded-xl border shadow-[var(--shadow-toast)] backdrop-blur-md transition-all animate-in slide-in-from-bottom-5 duration-200 ${stylesMap[toast.type] || stylesMap.info}`}
+    <Motion.div
+      initial={{ opacity: 0, y: 12, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1, transition: transitionBase }}
+      exit={{ opacity: 0, y: 8, scale: 0.95, transition: transitionFast }}
+      layout
+      className={`pointer-events-auto flex items-center justify-between p-3.5 rounded-xl border shadow-[var(--shadow-toast)] backdrop-blur-md ${stylesMap[toast.type] || stylesMap.info}`}
     >
       <div className="flex items-center gap-2.5 min-w-0">
         <Icon
@@ -84,9 +92,9 @@ export function ToastItem({ toast, onClose }) {
         className="p-1 text-slate-400 hover:text-white rounded-lg transition-colors ml-2 cursor-pointer shrink-0"
         aria-label="Dismiss toast"
       >
-        <Icon icon="carbon:close" className="w-4 h-4" />
+        <Icon icon="solar:close-circle-linear" className="w-4 h-4" />
       </button>
-    </div>
+    </Motion.div>
   );
 }
 

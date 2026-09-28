@@ -27,12 +27,12 @@ export default function Alert({
   children,
 }) {
   const statusIcons = {
-    info: "carbon:information-filled",
-    success: "carbon:checkmark-filled",
-    warning: "carbon:warning-filled",
-    danger: "carbon:close-filled",
-    brand: "carbon:recycle",
-    neutral: "carbon:notification-filled",
+    info: "solar:info-circle-bold",
+    success: "solar:check-circle-bold",
+    warning: "solar:danger-triangle-bold",
+    danger: "solar:close-circle-bold",
+    brand: "solar:leaf-bold",
+    neutral: "solar:bell-bold",
   };
 
   const statusSubtle = {

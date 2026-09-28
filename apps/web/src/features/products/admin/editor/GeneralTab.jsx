@@ -11,7 +11,7 @@ export default function GeneralTab({
   handlePricingChange,
 }) {
   const categoryOptions = [
-    { value: "", label: "Select Category" },
+    { value: "", label: "Select category" },
     ...categories.map((c) => ({ value: String(c.id), label: c.name })),
   ];
 
@@ -19,7 +19,7 @@ export default function GeneralTab({
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
       <div className="md:col-span-2">
         <Input
-          label="Product Name *"
+          label="Product name *"
           required
           value={form.name}
           onChange={f("name")}
@@ -29,19 +29,19 @@ export default function GeneralTab({
 
       <div className="md:col-span-1">
         <label className="block text-xs font-semibold text-[var(--text-secondary)] mb-1.5">
-          Product Category *
+          Product category *
         </label>
         <CustomSelect
           options={categoryOptions}
           value={String(form.category || "")}
           onChange={(val) => setForm((p) => ({ ...p, category: val }))}
-          placeholder="Select Category"
+          placeholder="Select category"
         />
       </div>
 
       <div className="md:col-span-1">
         <Input
-          label="Original Price (MRP)"
+          label="Original price (MRP)"
           value={form.oldPrice}
           onChange={(e) => handlePricingChange("oldPrice", e.target.value)}
           placeholder="e.g. 1500"
@@ -59,7 +59,7 @@ export default function GeneralTab({
 
       <div className="md:col-span-1">
         <Input
-          label="Selling Price (Auto-Calculated)"
+          label="Selling price (calculated)"
           disabled
           value={form.price}
         />
@@ -67,7 +67,7 @@ export default function GeneralTab({
 
       <div className="md:col-span-3">
         <label className={styles.formLabel}>
-          Product Description
+          Product description
         </label>
         <RichTextEditor
           value={form.description}

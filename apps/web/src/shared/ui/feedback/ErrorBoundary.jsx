@@ -37,9 +37,9 @@ export default class ErrorBoundary extends Component {
             <div className={styles.iconWrap}>
               <Icon icon="carbon:warning-alt" className="w-8 h-8 text-rose-500" />
             </div>
-            <h1 className={styles.title}>Something Went Wrong</h1>
+            <h1 className={styles.title}>Something went wrong</h1>
             <p className={styles.message}>
-              An unexpected error occurred. Please reload the page or try again later.
+              An unexpected error occurred while loading this page. Please try refreshing or return to the homepage.
             </p>
             {this.state.error?.message && (
               <pre className={styles.debug}>
@@ -48,10 +48,10 @@ export default class ErrorBoundary extends Component {
             )}
             <div className={styles.actions}>
               <button className={styles.btnPrimary} onClick={() => window.location.reload()}>
-                <Icon icon="carbon:renew" className="w-4 h-4 mr-1.5 inline" /> Reload Page
+                <Icon icon="carbon:renew" className="w-4 h-4 mr-1.5 inline" /> Reload page
               </button>
               <a href="/" className={styles.btnOutline}>
-                <Icon icon="carbon:home" className="w-4 h-4 mr-1.5 inline" /> Go Home
+                <Icon icon="carbon:home" className="w-4 h-4 mr-1.5 inline" /> Return to home
               </a>
             </div>
           </div>

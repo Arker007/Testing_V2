@@ -67,47 +67,54 @@ html[data-theme="dark"] {
   --border-on-dark: rgba(255, 255, 255, 0.16);
   --divider: var(--border-subtle);
 
-  /* ✨ Elevation & Shadows (Dark Mode Authoritative Scale) */
+  /* ✨ Elevation & Shadows (Dark Mode Calibrated Hierarchy) */
   --shadow-none: none;
-  --shadow-sm:   0 2px 8px rgba(0, 0, 0, 0.28);
-  --shadow-md:   0 8px 24px rgba(0, 0, 0, 0.38);
-  --shadow-lg:   0 16px 48px rgba(0, 0, 0, 0.48);
-  --shadow-xl:   0 24px 60px rgba(0, 0, 0, 0.60);
+  --shadow-3-down: 0 6px 16px -8px rgba(0, 0, 0, 0.45), 0 9px 28px 0 rgba(0, 0, 0, 0.35), 0 12px 48px 16px rgba(0, 0, 0, 0.25);
+  --shadow-3-down-core: 0 6px 16px -8px rgba(0, 0, 0, 0.45);
+  --shadow-xs:   0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  --shadow-sm:   0 1px 3px 0 rgba(0, 0, 0, 0.35), 0 1px 2px -1px rgba(0, 0, 0, 0.25);
+  --shadow-md:   0 4px 8px -1px rgba(0, 0, 0, 0.35), 0 2px 4px -2px rgba(0, 0, 0, 0.25);
+  --shadow-lg:   0 10px 20px -3px rgba(0, 0, 0, 0.45), 0 4px 8px -4px rgba(0, 0, 0, 0.30);
+  --shadow-xl:   0 20px 30px -5px rgba(0, 0, 0, 0.50), 0 8px 12px -6px rgba(0, 0, 0, 0.35);
 
   /* Component Elevation Bridges */
-  --shadow-card:       var(--shadow-sm);
-  --shadow-card-hover: var(--shadow-md);
-  --shadow-dropdown:   var(--shadow-lg);
-  --shadow-popover:    var(--shadow-lg);
-  --shadow-modal:      var(--shadow-xl);
+  --shadow-card:       0 2px 8px 0 rgba(0, 0, 0, 0.35);
+  --shadow-card-hover: 0 8px 24px -4px rgba(0, 0, 0, 0.50);
+  --shadow-dropdown:   0 6px 16px 0 rgba(0, 0, 0, 0.50);
+  --shadow-popover:    0 6px 16px 0 rgba(0, 0, 0, 0.50);
+  --shadow-modal:      var(--shadow-3-down);
+  --shadow-drawer:     var(--shadow-3-down);
+  --shadow-toast:      0 8px 24px 0 rgba(0, 0, 0, 0.50);
+  --shadow-panel:      0 4px 12px 0 rgba(0, 0, 0, 0.40);
+  --shadow-table:      0 2px 8px 0 rgba(0, 0, 0, 0.35);
 
-  /* 🟢 Status Feedback Semantics (Dark Mode) */
-  --color-success: var(--brand-500);
-  --color-warning: var(--color-warning-dark);
-  --color-danger:  var(--color-danger-dark);
-  --color-error:   var(--color-danger-dark);
-  --color-info:    var(--color-info-dark);
+  /* 🟢 Status Feedback Semantics (Dark Mode - Ant Design Natural HSB) */
+  --color-success: #52C41A;
+  --color-warning: #FA8C16;
+  --color-danger:  #F5222D;
+  --color-error:   #F5222D;
+  --color-info:    #1677FF;
 
   --color-error-bg: var(--danger-bg);
   --color-success-bg: var(--success-bg);
   --color-warning-bg: var(--warning-bg);
   --color-info-bg: var(--info-bg);
 
-  --success-bg:     rgba(107, 191, 84, 0.15);
-  --success-border: rgba(107, 191, 84, 0.35);
-  --success-text:   var(--brand-500);
+  --success-bg:     rgba(82, 196, 26, 0.16);
+  --success-border: rgba(82, 196, 26, 0.35);
+  --success-text:   #95DE64;
 
-  --warning-bg:     rgba(251, 191, 36, 0.12);
-  --warning-border: rgba(251, 191, 36, 0.30);
-  --warning-text:   var(--color-warning-dark);
+  --warning-bg:     rgba(250, 140, 22, 0.16);
+  --warning-border: rgba(250, 140, 22, 0.35);
+  --warning-text:   #FFC069;
 
-  --danger-bg:      rgba(248, 113, 113, 0.12);
-  --danger-border:  rgba(248, 113, 113, 0.30);
-  --danger-text:    var(--color-danger-dark);
+  --danger-bg:      rgba(245, 34, 45, 0.16);
+  --danger-border:  rgba(245, 34, 45, 0.35);
+  --danger-text:    #FF7875;
 
-  --info-bg:        rgba(96, 165, 250, 0.12);
-  --info-border:    rgba(96, 165, 250, 0.30);
-  --info-text:      var(--color-info-dark);
+  --info-bg:        rgba(22, 119, 255, 0.16);
+  --info-border:    rgba(22, 119, 255, 0.35);
+  --info-text:      #69B1FF;
 
   /* Overlays & Special */
   --hero-gradient: linear-gradient(135deg, var(--bg-base) 0%, var(--bg-surface) 100%);

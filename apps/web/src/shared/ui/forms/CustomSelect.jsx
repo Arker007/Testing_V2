@@ -57,7 +57,7 @@ export default function CustomSelect({
           )}
         </span>
         <Icon
-          icon="carbon:chevron-down"
+          icon="solar:alt-arrow-down-linear"
           className={`${styles.selectChevron} ${size === "compact" ? styles.compactChevron : ""} ${isOpen ? styles.chevronRotate : ""}`}
         />
       </button>
@@ -84,7 +84,7 @@ export default function CustomSelect({
                       <span className={styles.categoryCountBadge}>{option.badge}</span>
                     )}
                   </div>
-                  {isSelected && <Icon icon="carbon:checkmark" className={styles.checkIcon} />}
+                  {isSelected && <Icon icon="solar:check-read-bold" className={styles.checkIcon} />}
                 </li>
               );
             })}

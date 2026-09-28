@@ -31,6 +31,7 @@ export default function AdminProducts() {
   const [confirmDelete, setConfirmDelete] = useState(null);
   const [activeItem, setActiveItem] = useState(null);
   const [togglingId, setTogglingId] = useState(null);
+  const [modifiedId, setModifiedId] = useState(null);
 
   const load = useCallback(() => {
     setLoading(true);
@@ -73,6 +74,8 @@ export default function AdminProducts() {
       setProducts((prev) =>
         prev.map((p) => (p.id === id ? { ...p, published: nextPublished } : p))
       );
+      setModifiedId(id);
+      setTimeout(() => setModifiedId((prev) => (prev === id ? null : prev)), 2000);
     } catch {
       // Revert / refresh on failure
       load();
@@ -92,29 +95,29 @@ export default function AdminProducts() {
   return (
     <div className={styles.dashboard}>
       <AdminPageHeader
-        title="Product Catalog"
+        title="Products"
         count={filtered.length}
         countLabel="products"
         search={search}
         onSearchChange={(e) => setSearch(e.target.value)}
         onSearchClear={() => setSearch("")}
-        searchPlaceholder="Search catalog products..."
+        searchPlaceholder="Search products..."
         filter={
           <div className="w-56">
             <CustomSelect
               options={[
-                { value: "all", label: "All Categories" },
+                { value: "all", label: "All categories" },
                 ...categories.map((c) => ({ value: String(c.id), label: c.name })),
               ]}
               value={catFilter}
               onChange={(val) => setCatFilter(val)}
-              placeholder="All Categories"
+              placeholder="All categories"
             />
           </div>
         }
         actions={
           <InteractiveHoverButton onClick={() => navigate("/admin/products/new")} className="font-bold shadow-sm">
-            Add Product
+            Add product
           </InteractiveHoverButton>
         }
       />
@@ -124,22 +127,22 @@ export default function AdminProducts() {
         <div className={styles.thead} style={{ gridTemplateColumns: "2.2fr 1fr 1fr 1fr 1fr auto" }}>
           <span>Product</span>
           <span>Category</span>
-          <span>Publish Status</span>
-          <span>MOQ</span>
-          <span>Date Added</span>
+          <span>Status</span>
+          <span>Minimum order</span>
+          <span>Date added</span>
           <span style={{ textDirection: "rtl", paddingRight: "16px" }}>Actions</span>
         </div>
         {loading ? (
           [1, 2, 3, 4, 5].map((i) => <div key={i} className={styles.skeleRow} />)
         ) : filtered.length === 0 ? (
           <EmptyState
-            icon="carbon:box"
-            title={search || catFilter !== "all" ? "No products match your search filters." : "No products found."}
-            description={!search && catFilter === "all" ? "Start by adding your first product to the enterprise catalog." : "Try clearing your search query or selecting a different category."}
+            icon="solar:box-minimalistic-linear"
+            title={search || catFilter !== "all" ? "No products match your search filters" : "No products found"}
+            description={!search && catFilter === "all" ? "Start by adding your first product to the catalog." : "Try clearing your search query or selecting a different category."}
             action={
               !search && catFilter === "all" ? (
                 <InteractiveHoverButton onClick={() => navigate("/admin/products/new")} className="font-bold shadow-sm">
-                  Add First Product
+                  Add product
                 </InteractiveHoverButton>
               ) : undefined
             }
@@ -155,7 +158,7 @@ export default function AdminProducts() {
               const isLive = p.published !== null && p.published !== undefined && Number(p.published) !== 0;
               return (
                 <div
-                  className={`${styles.trow} ${activeItem?.id === p.id ? styles.trowActive || "" : ""}`}
+                  className={`${styles.trow} ${activeItem?.id === p.id ? styles.trowActive || "" : ""} ${modifiedId === p.id ? styles.rowModifiedHighlight : ""} ${deleting === p.id ? styles.rowDeleting : ""}`}
                   style={{ gridTemplateColumns: "2.2fr 1fr 1fr 1fr 1fr auto", cursor: "pointer" }}
                   onClick={(e) => {
                     if (e.target.closest("a") || e.target.closest("button") || e.target.closest("input") || e.target.closest('[role="switch"]')) return;
@@ -167,7 +170,7 @@ export default function AdminProducts() {
                       {img ? (
                         <OptimizedImage src={img} alt={p.name} className="w-full h-full object-cover rounded" />
                       ) : (
-                        <Icon icon="carbon:image" className="w-4 h-4 text-slate-400" />
+                        <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4 text-slate-400" />
                       )}
                     </div>
                     <div>
@@ -196,9 +199,9 @@ export default function AdminProducts() {
                     {p.created_at ? new Date(p.created_at).toLocaleDateString("en-IN") : "—"}
                   </span>
                   <div className={styles.rowActions}>
-                    <Link to={`/admin/products/${p.id}`} title="Edit Product">
+                    <Link to={`/admin/products/${p.id}`} title="Edit product">
                       <Button variant="ghost" size="sm" className="!p-1.5 !h-auto text-slate-500 hover:text-slate-800">
-                        <Icon icon="carbon:edit" className="w-4 h-4" />
+                        <Icon icon="solar:pen-linear" className="w-4 h-4" />
                       </Button>
                     </Link>
                     <Button
@@ -206,10 +209,10 @@ export default function AdminProducts() {
                       size="sm"
                       className="!p-1.5 !h-auto text-rose-500 hover:text-rose-700 hover:bg-rose-500/10"
                       onClick={() => setConfirmDelete(p.id)}
-                      title="Delete Product"
+                      title="Delete product"
                       disabled={deleting === p.id}
                     >
-                      {deleting === p.id ? <Spinner size="sm" /> : <Icon icon="carbon:trash-can" className="w-4 h-4" />}
+                      {deleting === p.id ? <Spinner size="sm" /> : <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />}
                     </Button>
                   </div>
                 </div>
@@ -223,18 +226,18 @@ export default function AdminProducts() {
         isOpen={!!confirmDelete}
         onClose={() => setConfirmDelete(null)}
         onConfirm={() => handleDelete(confirmDelete)}
-        title="Delete Product?"
+        title="Delete product?"
         message="Are you sure you want to delete this product from your catalog? This action cannot be undone."
-        confirmText="Delete Product"
+        confirmText="Delete product"
         loading={!!deleting}
       />
 
       {/* Right Slide Preview Drawer */}
       <div className={`${styles.previewDrawer} ${activeItem ? styles.previewDrawerActive : ""}`}>
         <div className={styles.drawerHeader}>
-          <h2 className={styles.drawerTitle}>Product Preview</h2>
+          <h2 className={styles.drawerTitle}>Product preview</h2>
           <button className={styles.drawerCloseBtn} onClick={() => setActiveItem(null)}>
-            <Icon icon="carbon:close" className="w-5 h-5" />
+            <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
           </button>
         </div>
         {activeItem && (
@@ -251,7 +254,7 @@ export default function AdminProducts() {
               ) : null;
             })()}
             <div>
-              <span className={styles.drawerLabel}>Product Name</span>
+              <span className={styles.drawerLabel}>Product name</span>
               <div className={styles.drawerValue} style={{ fontSize: "1.05rem", fontWeight: "700", marginTop: 4 }}>{activeItem.name}</div>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
@@ -264,24 +267,24 @@ export default function AdminProducts() {
                 </div>
               </div>
               <div>
-                <span className={styles.drawerLabel}>Minimum Order</span>
+                <span className={styles.drawerLabel}>Minimum order</span>
                 <div className={styles.drawerValue} style={{ marginTop: 4 }}>{activeItem.moq || "—"}</div>
               </div>
             </div>
             <div>
-              <span className={styles.drawerLabel}>Detailed Description</span>
+              <span className={styles.drawerLabel}>Detailed description</span>
               <div className={styles.drawerValueTextarea} style={{ marginTop: 4 }}>
                 {toPlainPreview(activeItem.description, 1000) || "No description provided."}
               </div>
             </div>
             <div style={{ marginTop: "auto", paddingTop: 16, borderTop: "1px solid var(--border)", display: "flex", gap: 12 }}>
               <Link to={`/admin/products/${activeItem.id}`} style={{ flex: 1, textDecoration: "none" }}>
-                <Button variant="primary" size="md" className="w-full justify-center" icon={<Icon icon="carbon:edit" className="w-4 h-4 mr-1.5" />}>
-                  Full Editor
+                <Button variant="primary" size="md" className="w-full justify-center" icon={<Icon icon="solar:pen-linear" className="w-4 h-4 mr-1.5" />}>
+                  Edit full details
                 </Button>
               </Link>
               <Button variant="outline" size="md" style={{ flex: 1 }} className="justify-center" onClick={() => setActiveItem(null)}>
-                Dismiss
+                Close
               </Button>
             </div>
           </div>

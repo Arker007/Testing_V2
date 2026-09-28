@@ -69,7 +69,7 @@ export default function AdminProductEditor() {
             style={{ accentColor: "var(--brand-primary)", transform: "scale(1.2)" }}
           />
           <span style={{ fontSize: "13px", fontWeight: 700, color: form.published ? "var(--brand-primary)" : "var(--text-muted)" }}>
-            Show in Catalog
+            Show in catalog
           </span>
         </label>
         <Button
@@ -79,11 +79,11 @@ export default function AdminProductEditor() {
           size="md"
           disabled={saving || uploading}
           loading={saving}
-          loadingText="Syncing…"
+          loadingText="Saving..."
           icon={<Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
           className="min-w-[150px]"
         >
-          Save Product
+          Save product
         </Button>
       </div>
     );
@@ -115,7 +115,7 @@ export default function AdminProductEditor() {
   if (loading) {
     return (
       <div className={styles.loadingState}>
-        <Icon icon="carbon:renew" className="w-5 h-5 animate-spin inline mr-2" /> Loading Product Editor...
+        <Icon icon="carbon:renew" className="w-5 h-5 animate-spin inline mr-2" /> Loading product editor...
       </div>
     );
   }
@@ -127,7 +127,7 @@ export default function AdminProductEditor() {
           <Icon icon="carbon:arrow-left" className="w-4 h-4 mr-1 inline" /> Back
         </Button>
         <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--gray-800)", margin: 0 }}>
-          {isNew ? "Add New Product" : `Edit Product: ${form.name}`}
+          {isNew ? "Add new product" : `Edit product: ${form.name}`}
         </h2>
       </div>
 
@@ -136,10 +136,10 @@ export default function AdminProductEditor() {
           {/* Tab Selector Headers */}
           <div className="flex gap-2 border-b border-[var(--border-subtle)] pb-3 mb-6 flex-wrap">
             {[
-              { id: "general", label: "Core Details", icon: "carbon:information" },
-              { id: "media", label: "Image Gallery", icon: "carbon:image" },
-              { id: "specs", label: "Technical Specs", icon: "carbon:settings" },
-              { id: "faqs", label: "FAQ Templates", icon: "carbon:help" },
+              { id: "general", label: "Core details", icon: "carbon:information" },
+              { id: "media", label: "Image gallery", icon: "carbon:image" },
+              { id: "specs", label: "Technical specifications", icon: "carbon:settings" },
+              { id: "faqs", label: "FAQs", icon: "carbon:help" },
             ].map((t) => (
               <button
                 key={t.id}
@@ -204,7 +204,7 @@ export default function AdminProductEditor() {
               <StatusToggle
                 checked={Boolean(form.published)}
                 onChange={(checked) => setForm((p) => ({ ...p, published: checked }))}
-                label="Visible on Website"
+                label="Visible in catalog"
                 size="md"
               />
               <Button
@@ -217,7 +217,7 @@ export default function AdminProductEditor() {
                 icon={<Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
                 className="min-w-[150px]"
               >
-                Save Product
+                Save product
               </Button>
             </div>
           </div>

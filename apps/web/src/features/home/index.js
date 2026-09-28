@@ -7,6 +7,7 @@ export { default as IndustryValueProps } from "./components/Industries/IndustryV
 export { default as ProcessSection } from "./components/Process/ProcessSection";
 export { default as ProductsShowcase } from "./components/ProductsShowcase";
 export { default as SustainabilitySection } from "./components/Sustainability/SustainabilitySection";
+export { default as TestimonialsSection } from "./components/TestimonialsSection";
 export { default as TrustedBySection } from "./components/TrustedBy/TrustedBySection";
 export * from "./constants/home.constants";
 export * from "./data/industriesData";

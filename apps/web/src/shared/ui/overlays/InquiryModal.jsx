@@ -94,11 +94,11 @@ export default function InquiryModal({ product, onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name.trim()) {
-      setContactError("Please provide your name so our sales team knows whom to address.");
+      setContactError("Please enter your name so our team can address you properly.");
       return;
     }
     if (!formData.phone.trim() && !formData.email.trim()) {
-      setContactError("Please provide either a Phone/WhatsApp number or Work Email so we can provide your quote.");
+      setContactError("Please enter a phone number or work email address so we can send your quote.");
       return;
     }
 
@@ -106,7 +106,7 @@ export default function InquiryModal({ product, onClose }) {
       await submitInquiry({
         ...formData,
         product_id: product?.id,
-        product_name: productName || "Custom Specification",
+        product_name: productName || "Custom specification",
         product_sku: sku || "CUSTOM-RFP",
         product_category: productCategory,
       });
@@ -145,7 +145,7 @@ export default function InquiryModal({ product, onClose }) {
             <div className={styles.tagRow}>
               <span className={styles.rfqBadge}>
                 <Icon icon="carbon:badge" className="w-3.5 h-3.5" />
-                Direct Factory RFQ
+                Direct factory quote
               </span>
               {sku && (
                 <span className={styles.skuBadge}>
@@ -154,10 +154,10 @@ export default function InquiryModal({ product, onClose }) {
               )}
             </div>
             <h2 id="inquiry-modal-title" className={styles.modalTitle}>
-              {productName ? `Quote Request: ${productName}` : "Direct Factory Quote"}
+              {productName ? `Quote request: ${productName}` : "Direct factory quote"}
             </h2>
             <p className={styles.modalSubtitle}>
-              Official pricing, technical drawings & dispatch schedule from Ankleshwar Plant
+              Official pricing, technical drawings, and dispatch schedule from our Ankleshwar plant
             </p>
           </div>
 
@@ -182,12 +182,12 @@ export default function InquiryModal({ product, onClose }) {
                   {productCategory}
                 </span>
                 <span className={styles.snapshotName} title={productName}>
-                  {productName || "Custom Industrial Fabrication"}
+                  {productName || "Custom industrial fabrication"}
                 </span>
               </div>
               <div className={styles.snapshotResponse}>
                 <Icon icon="carbon:time" className="w-3.5 h-3.5" />
-                <span>Response ~2h</span>
+                <span>Response in ~2 hours</span>
               </div>
             </div>
           )}
@@ -198,7 +198,7 @@ export default function InquiryModal({ product, onClose }) {
                 <Icon icon="carbon:checkmark-filled" className="w-10 h-10" />
               </div>
               
-              <h3 className={styles.successTitle}>Inquiry Submitted Successfully</h3>
+              <h3 className={styles.successTitle}>Inquiry submitted successfully</h3>
               
               {referenceId && (
                 <div className={styles.referenceBadge}>
@@ -210,7 +210,7 @@ export default function InquiryModal({ product, onClose }) {
                     type="button"
                     onClick={handleCopyRef}
                     className={styles.copyRefBtn}
-                    title="Copy Reference Code"
+                    title="Copy reference code"
                     aria-label="Copy reference code"
                   >
                     <Icon
@@ -222,9 +222,9 @@ export default function InquiryModal({ product, onClose }) {
               )}
 
               <p className={styles.successDescription}>
-                Our engineering sales desk in Ankleshwar has received your quote request for{" "}
-                <strong>{productName || "custom items"}</strong>. An engineer will follow up within{" "}
-                <strong>2 business hours</strong> with technical datasheets, CAD drawings, and volume tiered pricing.
+                Our team has received your quote request for{" "}
+                <strong>{productName || "custom items"}</strong>. An engineer will review your specifications and follow up within{" "}
+                <strong>2 business hours</strong> with technical datasheets, drawings, and volume pricing.
               </p>
 
               <div className={styles.successActionRow}>
@@ -234,7 +234,7 @@ export default function InquiryModal({ product, onClose }) {
                   className="btn btn-secondary flex-1 min-h-[44px] justify-center"
                 >
                   <Icon icon="carbon:renew" className="w-4 h-4" />
-                  <span>New Inquiry</span>
+                  <span>New inquiry</span>
                 </button>
                 <button
                   type="button"
@@ -250,7 +250,7 @@ export default function InquiryModal({ product, onClose }) {
               {/* Full Name */}
               <div className={styles.formGroup}>
                 <label htmlFor="inquiry-name" className={styles.formLabel}>
-                  <span>Full Name<span className={styles.requiredMarker}>*</span></span>
+                  <span>Full name<span className={styles.requiredMarker}>*</span></span>
                 </label>
                 <div className={styles.inputWrapper}>
                   <Icon icon="carbon:user" className={styles.inputIcon} />
@@ -271,7 +271,7 @@ export default function InquiryModal({ product, onClose }) {
               <div className={styles.formGrid}>
                 <div className={styles.formGroup}>
                   <label htmlFor="inquiry-phone" className={styles.formLabel}>
-                    <span>Phone / WhatsApp<span className={styles.requiredMarker}>*</span></span>
+                    <span>Phone or WhatsApp<span className={styles.requiredMarker}>*</span></span>
                   </label>
                   <div className={styles.inputWrapper}>
                     <Icon icon="carbon:phone" className={styles.inputIcon} />
@@ -289,7 +289,7 @@ export default function InquiryModal({ product, onClose }) {
 
                 <div className={styles.formGroup}>
                   <label htmlFor="inquiry-email" className={styles.formLabel}>
-                    <span>Work Email</span>
+                    <span>Work email</span>
                   </label>
                   <div className={styles.inputWrapper}>
                     <Icon icon="carbon:email" className={styles.inputIcon} />
@@ -310,7 +310,7 @@ export default function InquiryModal({ product, onClose }) {
               <div className={styles.formGrid}>
                 <div className={styles.formGroup}>
                   <label htmlFor="inquiry-company" className={styles.formLabel}>
-                    <span>Company Name <span className="text-[11px] font-normal text-[var(--text-muted)]">(Optional)</span></span>
+                    <span>Company name <span className="text-[11px] font-normal text-[var(--text-muted)]">(optional)</span></span>
                   </label>
                   <div className={styles.inputWrapper}>
                     <Icon icon="carbon:enterprise" className={styles.inputIcon} />
@@ -327,7 +327,7 @@ export default function InquiryModal({ product, onClose }) {
 
                 <div className={styles.formGroup}>
                   <label htmlFor="inquiry-quantity" className={styles.formLabel}>
-                    <span>Order Volume</span>
+                    <span>Order volume</span>
                   </label>
                   <div className={styles.inputWrapper}>
                     <Icon icon="carbon:package" className={styles.inputIcon} />
@@ -367,7 +367,7 @@ export default function InquiryModal({ product, onClose }) {
               {/* Specifications / Notes Textarea */}
               <div className={styles.formGroup}>
                 <label htmlFor="inquiry-message" className={styles.formLabel}>
-                  <span>Specifications & Requirements</span>
+                  <span>Specifications and requirements</span>
                 </label>
                 <textarea
                   id="inquiry-message"
@@ -375,7 +375,7 @@ export default function InquiryModal({ product, onClose }) {
                   rows={2}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Mention required dimensions, static/dynamic load ratings, delivery PIN code, or custom color specifications..."
+                  placeholder="Specify required dimensions, load ratings, delivery PIN code, or custom specifications..."
                   className={styles.formTextarea}
                 />
               </div>
@@ -399,10 +399,10 @@ export default function InquiryModal({ product, onClose }) {
               target="_blank"
               rel="noopener noreferrer"
               className={styles.whatsAppBtn}
-              title="Chat with factory sales on WhatsApp"
+              title="Chat on WhatsApp"
             >
               <Icon icon="carbon:chat" className="w-4 h-4 text-[#25D366]" />
-              <span>WhatsApp Quick RFQ</span>
+              <span>Chat on WhatsApp</span>
             </a>
 
             <button
@@ -414,11 +414,11 @@ export default function InquiryModal({ product, onClose }) {
               {submitting ? (
                 <>
                   <Icon icon="carbon:renew" className="w-4 h-4 animate-spin" />
-                  <span>Dispatching RFQ...</span>
+                  <span>Submitting inquiry...</span>
                 </>
               ) : (
                 <>
-                  <span>Submit Quote Request</span>
+                  <span>Submit quote request</span>
                   <Icon icon="carbon:arrow-right" className="w-4 h-4" />
                 </>
               )}

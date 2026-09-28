@@ -47,18 +47,18 @@ export default function AdminInquiryDetail() {
         return (
             <EmptyState
                 icon="carbon:email-new"
-                title="Inquiry Not Found"
+                title="Inquiry not found"
                 description="The requested inquiry does not exist or has been deleted."
                 action={
                     <Link to="/admin/inquiries" className={styles.actionBtnSecondary}>
-                        <Icon icon="carbon:arrow-left" className="w-4 h-4 mr-1 inline" /> Return to Inquiries
+                        <Icon icon="carbon:arrow-left" className="w-4 h-4 mr-1 inline" /> Back to inquiries
                     </Link>
                 }
             />
         );
     }
 
-    const sourceLabel = current.source === 'contact_form' ? 'Contact Form' : 'Product Inquiry';
+    const sourceLabel = current.source === 'contact_form' ? 'Contact form' : 'Product inquiry';
 
     const handleDelete = async () => {
         setDeleting(true);
@@ -80,9 +80,9 @@ export default function AdminInquiryDetail() {
         <div>
             <BackHeader
                 to="/admin/inquiries"
-                backLabel="Back to Inquiries"
-                title={current.name || 'Anonymous Inquiry'}
-                subtitle={`Date Received: ${current.created_at ? new Date(current.created_at).toLocaleString('en-IN') : 'N/A'}`}
+                backLabel="Back to inquiries"
+                title={current.name || 'Anonymous inquiry'}
+                subtitle={`Date received: ${current.created_at ? new Date(current.created_at).toLocaleString('en-IN') : 'N/A'}`}
                 actions={
                     <div className="flex items-center gap-2.5">
                         <Button
@@ -101,7 +101,7 @@ export default function AdminInquiryDetail() {
                                 style={{ padding: '8px 14px' }}
                                 onClick={(e) => !previous && e.preventDefault()}
                             >
-                                <Icon icon="carbon:chevron-left" className="w-4 h-4 mr-1 inline" /> Prev
+                                <Icon icon="carbon:chevron-left" className="w-4 h-4 mr-1 inline" /> Previous
                             </Link>
                             <Link
                                 to={next ? `/admin/inquiries/${next.source}/${next.id}` : '#'}
@@ -127,33 +127,33 @@ export default function AdminInquiryDetail() {
 
                 <div className={iStyles.blocks}>
                     <section className={iStyles.block}>
-                        <h2 className={iStyles.blockTitle}>Contact Details</h2>
+                        <h2 className={iStyles.blockTitle}>Contact details</h2>
                         <div className={iStyles.detailGrid}>
-                            <div className={iStyles.detailRow}><span className={iStyles.detailKey}>Email Address</span><span className={iStyles.detailVal}>{current.email || '—'}</span></div>
-                            <div className={iStyles.detailRow}><span className={iStyles.detailKey}>Phone Number</span><span className={iStyles.detailVal}>{current.phone || '—'}</span></div>
+                            <div className={iStyles.detailRow}><span className={iStyles.detailKey}>Email address</span><span className={iStyles.detailVal}>{current.email || '—'}</span></div>
+                            <div className={iStyles.detailRow}><span className={iStyles.detailKey}>Phone number</span><span className={iStyles.detailVal}>{current.phone || '—'}</span></div>
                             <div className={iStyles.detailRow}><span className={iStyles.detailKey}>Company</span><span className={iStyles.detailVal}>{current.company || '—'}</span></div>
                         </div>
                     </section>
 
                     <section className={iStyles.block}>
-                        <h2 className={iStyles.blockTitle}>Inquiry Details</h2>
+                        <h2 className={iStyles.blockTitle}>Inquiry details</h2>
                         <div className={iStyles.detailGrid}>
                             <div className={iStyles.detailRow}><span className={iStyles.detailKey}>Product</span><span className={iStyles.detailVal}>{current.productName || current.product_name || '—'}</span></div>
-                            <div className={iStyles.detailRow}><span className={iStyles.detailKey}>Inquiry Type</span><span className={iStyles.detailVal}>{current.inquiryType || current.inquiry_type || 'General Info'}</span></div>
+                            <div className={iStyles.detailRow}><span className={iStyles.detailKey}>Inquiry type</span><span className={iStyles.detailVal}>{current.inquiryType || current.inquiry_type || 'General information'}</span></div>
                             <div className={iStyles.detailRow}><span className={iStyles.detailKey}>Source</span><span className={iStyles.detailVal}>{current.source}</span></div>
                         </div>
                     </section>
                 </div>
 
                 <section className={iStyles.messageBox}>
-                    <div className={iStyles.messageLabel}>Message Content</div>
-                    <p>{current.message || 'No message content.'}</p>
+                    <div className={iStyles.messageLabel}>Message content</div>
+                    <p>{current.message || 'No message provided.'}</p>
                 </section>
 
                 <div className={iStyles.actionsRow}>
                     {current.email && (
                         <a href={`mailto:${current.email}?subject=Re: ${current.productName || 'Your Request'}`} className={styles.actionBtnPrimary}>
-                            <Icon icon="carbon:reply" className="w-4 h-4 mr-1.5 inline" /> Reply via Email
+                            <Icon icon="carbon:reply" className="w-4 h-4 mr-1.5 inline" /> Reply by email
                         </a>
                     )}
                     {current.phone && (
@@ -172,7 +172,7 @@ export default function AdminInquiryDetail() {
                 isOpen={showDeleteConfirm}
                 onClose={() => setShowDeleteConfirm(false)}
                 onConfirm={handleDelete}
-                title="Delete Inquiry"
+                title="Delete inquiry"
                 message={`Are you sure you want to delete the inquiry from "${current.name || 'Anonymous'}"? This action cannot be undone.`}
                 confirmText="Delete"
                 confirmVariant="danger"

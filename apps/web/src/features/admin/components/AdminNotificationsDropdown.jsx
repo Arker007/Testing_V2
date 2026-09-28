@@ -1,6 +1,8 @@
 import React from "react";
+import { motion as Motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
 import { Button } from "@/shared/ui";
+import { dropdownMenuVariants } from "@/shared/constants/motion.constants";
 
 export default function AdminNotificationsDropdown({
   showNotifDropdown,
@@ -11,24 +13,28 @@ export default function AdminNotificationsDropdown({
   setNotifications,
   navigate,
 }) {
-  if (!showNotifDropdown) return null;
-
   return (
-    <div
-      style={{
-        position: "absolute",
-        top: "calc(100% + 12px)",
-        right: 0,
-        width: "340px",
-        background: "var(--bg-card)",
-        borderRadius: "var(--radius-admin, 8px)",
-        border: "1px solid var(--line)",
-        boxShadow: "var(--shadow-dropdown)",
-        zIndex: 300,
-        overflow: "hidden",
-        fontFamily: "inherit",
-      }}
-    >
+    <AnimatePresence>
+      {showNotifDropdown && (
+        <Motion.div
+          variants={dropdownMenuVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          style={{
+            position: "absolute",
+            top: "calc(100% + 12px)",
+            right: 0,
+            width: "340px",
+            background: "var(--bg-card)",
+            borderRadius: "var(--radius-admin, 8px)",
+            border: "1px solid var(--line)",
+            boxShadow: "var(--shadow-dropdown)",
+            zIndex: 300,
+            overflow: "hidden",
+            fontFamily: "inherit",
+          }}
+        >
       <div
         style={{
           padding: "14px 18px",
@@ -40,7 +46,7 @@ export default function AdminNotificationsDropdown({
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Icon icon="carbon:notification-new" className="w-4 h-4 text-[var(--brand-primary)]" />
+          <Icon icon="solar:bell-bing-bold" className="w-4 h-4 text-[var(--brand-primary)]" />
           <span
             style={{ fontWeight: 800, fontSize: "0.85rem", color: "var(--ink)" }}
           >
@@ -58,7 +64,7 @@ export default function AdminNotificationsDropdown({
               );
             }}
             className="!h-auto !py-1 !px-2 !text-xs font-bold text-[var(--brand-primary)] hover:bg-transparent"
-            icon={<Icon icon="carbon:checkmark" className="w-3.5 h-3.5 mr-1" />}
+            icon={<Icon icon="solar:check-read-linear" className="w-3.5 h-3.5 mr-1" />}
           >
             Mark read
           </Button>
@@ -76,7 +82,7 @@ export default function AdminNotificationsDropdown({
             }}
           >
             <Icon
-              icon="carbon:star"
+              icon="solar:bell-linear"
               className="w-6 h-6 mx-auto mb-2 text-slate-400"
             />
             No new notifications
@@ -181,11 +187,13 @@ export default function AdminNotificationsDropdown({
             setShowNotifDropdown(false);
           }}
           className="!w-full !text-xs !py-1.5 font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-          icon={<Icon icon="carbon:activity" className="w-3.5 h-3.5 mr-1.5" />}
+          icon={<Icon icon="solar:chart-square-linear" className="w-3.5 h-3.5 mr-1.5" />}
         >
           View all system logs
         </Button>
       </div>
-    </div>
+    </Motion.div>
+      )}
+    </AnimatePresence>
   );
 }

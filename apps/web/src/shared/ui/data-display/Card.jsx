@@ -5,7 +5,7 @@ import React from "react";
  */
 export function CardHeader({ children, className = "", ...props }) {
   return (
-    <div className={`p-6 pb-2 space-y-1.5 ${className}`.trim()} {...props}>
+    <div className={`p-6 pb-2 space-y-2 ${className}`.trim()} {...props}>
       {children}
     </div>
   );
@@ -82,29 +82,29 @@ export default function Card({
 
   const variantClassMap = {
     default:
-      "bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--surface,#161c24)] border border-[var(--border-subtle,rgba(242,242,242,0.12))] text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-[var(--shadow-sm)]",
+      "bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--surface,#161c24)] border border-[var(--border-subtle,rgba(242,242,242,0.12))] text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-[var(--shadow-3-down)]",
     feature:
-      "bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--surface,#161c24)] border border-[var(--border-subtle,rgba(242,242,242,0.12))] text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-[var(--shadow-md)]",
+      "bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--surface,#161c24)] border border-[var(--border-subtle,rgba(242,242,242,0.12))] text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-[var(--shadow-3-down)]",
     elevated:
-      "bg-white dark:bg-[var(--surface,#161c24)] border border-slate-200/90 dark:border-[var(--border-subtle,rgba(242,242,242,0.12))] text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-xl",
+      "bg-white dark:bg-[var(--surface,#161c24)] border border-slate-200/90 dark:border-[var(--border-subtle,rgba(242,242,242,0.12))] text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-[var(--shadow-3-down)]",
     interactive:
-      "bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--surface,#161c24)] border border-[var(--border-subtle,rgba(242,242,242,0.12))] text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-[var(--shadow-sm)] hover:-translate-y-1 hover:shadow-xl hover:border-[var(--brand-primary,#6BBF54)]/50 transition-all duration-300 cursor-pointer",
+      "bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--surface,#161c24)] border border-[var(--border-subtle,rgba(242,242,242,0.12))] text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-[var(--shadow-3-down)] hover:-translate-y-1 hover:shadow-[var(--shadow-3-down)] hover:border-[var(--brand-primary)]/50 transition-all duration-300 cursor-pointer",
     glass:
-      "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-white/10 text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-lg",
+      "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-white/10 text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-[var(--shadow-3-down)]",
     dark:
-      "bg-slate-900 dark:bg-[#161c24] text-white border border-slate-800 rounded-[var(--radius-card,8px)] shadow-xl",
+      "bg-slate-900 dark:bg-[#161c24] text-white border border-slate-800 rounded-[var(--radius-card,8px)] shadow-[var(--shadow-3-down)]",
     brand:
-      "bg-gradient-to-br from-white to-slate-50 dark:from-[#161c24] dark:to-[#1a232e] border border-[var(--brand-primary,#6BBF54)]/30 text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-lg",
+      "bg-gradient-to-br from-white to-slate-50 dark:from-[#161c24] dark:to-[#1a232e] border border-[var(--brand-primary)]/30 text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-[var(--shadow-3-down)]",
     outlined:
-      "bg-transparent border border-slate-200/90 dark:border-slate-800 text-[var(--text-primary)] rounded-[var(--radius-card,8px)]",
+      "bg-transparent border border-slate-200/90 dark:border-slate-800 text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-none",
     subtle:
-      "bg-slate-50/80 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 text-[var(--text-primary)] rounded-[var(--radius-card,8px)]",
+      "bg-slate-50/80 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 text-[var(--text-primary)] rounded-[var(--radius-card,8px)] shadow-none",
     proximity:
       "bg-[var(--bg-surface-secondary,#F8FAFC)] dark:bg-[var(--surface,#161c24)] text-[var(--text-primary)] rounded-[var(--radius-card,12px)] border-0 shadow-none hover:bg-[var(--neutral-100,#F1F5F9)] transition-colors duration-200",
     borderless:
       "bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--surface,#161c24)] text-[var(--text-primary)] rounded-[var(--radius-card,12px)] border-0 shadow-none",
     cta:
-      "p-8 sm:p-12 text-[var(--text-primary)] shadow-xl relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[var(--surface,#161c24)] border border-slate-200/90 dark:border-[var(--border-subtle,rgba(242,242,242,0.12))] rounded-[var(--radius-card,8px)]",
+      "p-8 sm:p-12 text-[var(--text-primary)] shadow-[var(--shadow-3-down)] relative overflow-hidden backdrop-blur-sm bg-white/95 dark:bg-[var(--surface,#161c24)] border border-slate-200/90 dark:border-[var(--border-subtle,rgba(242,242,242,0.12))] rounded-[var(--radius-card,8px)]",
   };
 
   const selectedVariantClass = variantClassMap[variant] || variantClassMap.default;

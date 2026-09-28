@@ -42,7 +42,7 @@ const Switch = forwardRef(function Switch(
   const variantTracks = {
     brand: checked ? "bg-[var(--brand-primary)]" : "bg-[var(--border-default)] dark:bg-[var(--bg-surface-tertiary)]",
     neutral: checked ? "bg-[var(--text-primary)]" : "bg-[var(--border-default)] dark:bg-[var(--bg-surface-tertiary)]",
-    success: checked ? "bg-emerald-600" : "bg-[var(--border-default)] dark:bg-[var(--bg-surface-tertiary)]",
+    success: checked ? "bg-[var(--color-success)]" : "bg-[var(--border-default)] dark:bg-[var(--bg-surface-tertiary)]",
   };
 
   const handleClick = () => {

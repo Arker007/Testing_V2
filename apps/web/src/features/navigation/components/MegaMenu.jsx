@@ -667,7 +667,7 @@ export default function MegaMenu({
   <meta charset="utf-8"/>
   <title>Vishal Enterprise - ${catName} Catalog</title>
   <style>
-    body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 40px; color: #0f172a; line-height: 1.6; max-width: 800px; margin: 0 auto; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; font-variant-numeric: tabular-nums; padding: 40px; color: #0f172a; line-height: 1.6; max-width: 800px; margin: 0 auto; }
     .header { border-bottom: 2px solid #16532d; padding-bottom: 16px; margin-bottom: 24px; }
     h1 { color: #16532d; margin: 0 0 4px 0; font-size: 24px; letter-spacing: -0.02em; }
     .subtitle { color: #475569; font-size: 14px; margin: 0; }

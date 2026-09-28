@@ -1,13 +1,12 @@
 /* Admin Catalog Generator Stylesheet */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
 .container {
   display: flex;
-  height: calc(100vh - var(--nav-h) - 40px);
+  height: calc(100vh - var(--layout-topbar-height, 72px));
   background: var(--bg-light);
   overflow: hidden;
-  margin: -20px;
-  font-family: 'Montserrat', sans-serif;
+  margin: -32px;
+  font-family: var(--font-family-admin, inherit);
 }
 
 /* Sidebar Controls */
@@ -244,7 +243,7 @@
   box-shadow: 0 30px 70px var(--shadow-md);
   overflow: hidden;
   position: relative;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-family-admin, inherit);
   text-align: left;
 }
 

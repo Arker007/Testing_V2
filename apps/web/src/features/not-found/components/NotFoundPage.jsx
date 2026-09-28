@@ -7,17 +7,17 @@ export default function NotFoundPage() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <span className={styles.badge}>404 Error</span>
-        <h1 className={styles.title}>Resource Not Found</h1>
+        <span className={styles.badge}>404 error</span>
+        <h1 className={styles.title}>Page not found</h1>
         <p className={styles.desc}>
-          The directory path or product record you are looking for has been moved, renamed, or is currently unavailable.
+          The page or product record you are looking for might have been moved, renamed, or is temporarily unavailable.
         </p>
         <div className={styles.actions}>
           <Link to="/" className={styles.btnPrimary}>
-            <Icon icon="carbon:home" className="w-4 h-4 mr-1.5" /> Back to Safety
+            <Icon icon="carbon:home" className="w-4 h-4 mr-1.5" /> Return to home
           </Link>
           <Link to="/products" className={styles.btnOutline}>
-            <Icon icon="carbon:cube" className="w-4 h-4 mr-1.5" /> Browse Catalog
+            <Icon icon="carbon:cube" className="w-4 h-4 mr-1.5" /> Browse catalog
           </Link>
         </div>
       </div>

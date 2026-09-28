@@ -103,12 +103,12 @@ function ProductListItemCard({
 
           <div className={styles.mobileListSpecsRow}>
             <div className={styles.mobileListSpecItem}>
-              <Icon icon="carbon:box" className={styles.mobileListSpecIcon} />
+              <Icon icon="solar:box-linear" className={styles.mobileListSpecIcon} />
               <span>{mobileLoadStr}</span>
             </div>
             <span className={styles.mobileListSpecDivider}>|</span>
             <div className={styles.mobileListSpecItem}>
-              <Icon icon="carbon:maximize" className={styles.mobileListSpecIcon} />
+              <Icon icon="solar:maximize-square-minimalistic-linear" className={styles.mobileListSpecIcon} />
               <span>{mobileDimStr}</span>
             </div>
           </div>
@@ -120,7 +120,7 @@ function ProductListItemCard({
           title={`View details for ${title}`}
           aria-label={`View details for ${title}`}
         >
-          <Icon icon="carbon:arrow-right" className={styles.mobileListActionIcon} />
+          <Icon icon="solar:arrow-right-linear" className={styles.mobileListActionIcon} />
         </Link>
       </div>
 
@@ -140,7 +140,7 @@ function ProductListItemCard({
         <div className={styles.listCardDetails}>
           <div className={styles.skuRow}>
             <span className={styles.skuCode}>{sku}</span>
-            {isCustomizable && <Badge variant="outline" size="xs">Customizable</Badge>}
+            {isCustomizable && <span className={styles.customBadge}>Customizable</span>}
           </div>
 
           <h3 className={styles.listCardSkuTitle}>
@@ -153,39 +153,39 @@ function ProductListItemCard({
             <p className={styles.listCardDesc}>{description}</p>
           )}
 
-          {/* Dimensions Standalone Block */}
-          <div className={styles.dimBlock}>
-            <div className={styles.dimIconWrap}>
-              <Icon icon="carbon:box" className="w-4 h-4 text-slate-700 dark:text-slate-300" />
+          {/* Ant Design Unified Specification Panel */}
+          <div className={styles.specPanel}>
+            <div className={styles.specDimRow}>
+              <span className={styles.specDimLabel}>
+                <Icon icon="solar:box-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
+                Dimensions
+              </span>
+              <span className={styles.specDimValue} title={cleanDimStr}>{cleanDimStr}</span>
             </div>
-            <div className={styles.dimContent}>
-              <span className={styles.dimLabel}>Dimensions</span>
-              <span className={styles.dimValue} title={cleanDimStr}>{cleanDimStr}</span>
-            </div>
-          </div>
 
-          <hr className={styles.cardDivider} />
-
-          {/* Category-Aware Specs Grid */}
-          <div className={styles.listBentoGrid}>
-            {specsList.map((item, i) => (
-              <div key={item.label || i} className={styles.bentoItem}>
-                <div className={styles.bentoIconWrap}>
-                  <Icon icon={item.icon} className="w-3.5 h-3.5 text-slate-600 dark:text-slate-300" />
+            {specsList.length > 0 && (
+              <>
+                <div className={styles.specDivider} />
+                <div className={styles.specMetricsGrid}>
+                  {specsList.map((item, i) => (
+                    <div key={item.label || i} className={styles.specMetricItem}>
+                      <span className={styles.specMetricHeader} title={item.title || item.label}>
+                        <Icon icon={item.icon} className="w-3 h-3 text-[var(--brand-primary)]/80 shrink-0" />
+                        {item.label}
+                      </span>
+                      <span className={styles.specMetricValue} title={item.value}>{item.value}</span>
+                    </div>
+                  ))}
                 </div>
-                <div className={styles.bentoContent}>
-                  <span className={styles.bentoLabel} title={item.title || item.label}>{item.label}</span>
-                  <span className={styles.bentoValue} title={item.value}>{item.value}</span>
-                </div>
-              </div>
-            ))}
+              </>
+            )}
           </div>
         </div>
 
         <div className={styles.listCardActions}>
           <Link to={`/products/${product.id}`} className={styles.primaryViewBtn}>
-            <span>View product</span>
-            <Icon icon="carbon:arrow-right" className={`w-4 h-4 ml-1 ${styles.primaryViewArrow}`} />
+            <span>View Product</span>
+            <Icon icon="solar:arrow-right-linear" className={`w-4 h-4 ml-1 ${styles.primaryViewArrow}`} />
           </Link>
 
           <button
@@ -195,7 +195,7 @@ function ProductListItemCard({
             title={`View Product Specs for ${title}`}
             aria-label={`View Product Specs for ${title}`}
           >
-            <Icon icon="carbon:document" className="w-4 h-4 mr-1.5" />
+            <Icon icon="solar:document-text-linear" className="w-3.5 h-3.5 mr-1.5" />
             <span className={styles.datasheetText}>Product Specs</span>
           </button>
         </div>

@@ -103,7 +103,7 @@ export default function SectionHeader({
 
       {title && (
         <h2
-          className={`${sizeTitleClasses[size] || sizeTitleClasses.md} mb-3 ${
+          className={`${sizeTitleClasses[size] || sizeTitleClasses.md} mb-2 ${
             light ? "!text-white" : "text-[var(--text-primary)]"
           }`}
         >

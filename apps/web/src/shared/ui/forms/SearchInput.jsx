@@ -47,25 +47,25 @@ export default function SearchInput({
   return (
     <div className={`relative inline-flex items-center w-full ${className}`.trim()}>
       <Icon
-        icon="carbon:search"
-        className={`absolute text-slate-400 pointer-events-none ${selectedIconSize}`}
+        icon="solar:magnifer-linear"
+        className={`absolute text-[var(--text-muted)] pointer-events-none ${selectedIconSize}`}
       />
       <input
         type="text"
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] placeholder-slate-400 focus:outline-none focus:border-[var(--brand-primary)] focus:ring-1 focus:ring-[var(--brand-primary)] transition-all ${selectedSize}`}
+        className={`w-full bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--brand-primary)] focus:ring-1 focus:ring-[var(--brand-primary)] shadow-none transition-all ${selectedSize}`}
         {...props}
       />
       {value && (
         <button
           type="button"
           onClick={handleClear}
-          className="absolute right-2.5 p-0.5 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-full hover:bg-slate-200 dark:hover:bg-white/10 transition-colors cursor-pointer"
+          className="absolute right-2.5 p-0.5 text-[var(--text-muted)] hover:text-[var(--text-primary)] rounded-full hover:bg-[var(--bg-surface-secondary)] transition-colors cursor-pointer"
           aria-label="Clear search"
         >
-          <Icon icon="carbon:close-filled" className="w-4 h-4" />
+          <Icon icon="solar:close-circle-bold" className="w-4 h-4" />
         </button>
       )}
     </div>

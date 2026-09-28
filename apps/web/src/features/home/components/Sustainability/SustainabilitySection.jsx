@@ -28,16 +28,16 @@ export default function SustainabilitySection() {
               variant="eyebrow"
               icon="carbon:renew"
             >
-              Circular Economy
+              Circular economy
             </Badge>
           </div>
 
           {/* Right Content */}
           <div className="flex flex-col gap-4">
             <SectionHeader
-              eyebrow={c("home_about_eyebrow", "Our Environmental Impact")}
+              eyebrow={c("home_about_eyebrow", "Our environmental impact")}
               eyebrowIcon="carbon:recycle"
-              title={c("home_about_title", "Replacing Wood. Saving Forests.")}
+              title={c("home_about_title", "Replacing wood, saving forests")}
               subtitle={c(
                 "home_about_desc",
                 `At ${co("name", "VISHAL ENTERPRISE")}, we turn recycled plastic into high-durability products. This prevents plastic waste from reaching landfills and provides strong, rot-proof alternatives to traditional wood without requiring toxic chemical treatments.`
@@ -52,24 +52,24 @@ export default function SustainabilitySection() {
                 <div className="text-xl sm:text-2xl font-black text-[var(--brand-primary)]">
                   {c("home_about_stat1_number", "20+")}
                 </div>
-                <div className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mt-1">
-                  {c("home_about_stat1_label", "Years Experience")}
+                <div className="text-xs font-semibold text-[var(--text-secondary)] mt-1">
+                  {c("home_about_stat1_label", "Years of experience")}
                 </div>
               </div>
               <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:shadow-md p-3 sm:p-4 rounded-[var(--radius-card,8px)] text-center shadow-2xs transition-all duration-200 hover:-translate-y-0.5">
                 <div className="text-xl sm:text-2xl font-black text-[var(--brand-primary)]">
-                  {c("home_about_stat2_number", "1000+")}
+                  {c("home_about_stat2_number", "1,000+")}
                 </div>
-                <div className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mt-1">
-                  {c("home_about_stat2_label", "Satisfied Clients")}
+                <div className="text-xs font-semibold text-[var(--text-secondary)] mt-1">
+                  {c("home_about_stat2_label", "Satisfied clients")}
                 </div>
               </div>
               <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:shadow-md p-3 sm:p-4 rounded-[var(--radius-card,8px)] text-center shadow-2xs transition-all duration-200 hover:-translate-y-0.5">
                 <div className="text-xl sm:text-2xl font-black text-[var(--brand-primary)]">
-                  {c("home_about_stat3_number", "1500+")}
+                  {c("home_about_stat3_number", "1,500+")}
                 </div>
-                <div className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mt-1">
-                  {c("home_about_stat3_label", "Tons Recycled")}
+                <div className="text-xs font-semibold text-[var(--text-secondary)] mt-1">
+                  {c("home_about_stat3_label", "Tons recycled")}
                 </div>
               </div>
             </div>

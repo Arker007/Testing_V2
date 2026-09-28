@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
+import { createPortal } from "react-dom";
+import { motion as Motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
+import { transitionFast, transitionBase } from "../../../shared/constants/motion.constants";
 
 /**
  * Unified Drawer / Sheet Slide-over Panel Component.
@@ -37,8 +40,6 @@ export default function Drawer({
     };
   }, [isOpen]);
 
-  if (!isOpen) return null;
-
   const sizeClasses = {
     right: {
       sm: "max-w-xs",
@@ -66,56 +67,97 @@ export default function Drawer({
     },
   };
 
-  const placementClasses = {
-    right: "top-0 right-0 h-full w-full border-l border-[var(--border-default)] animate-slideInRight",
-    left: "top-0 left-0 h-full w-full border-r border-[var(--border-default)] animate-slideInLeft",
-    bottom: "bottom-0 left-0 w-full rounded-t-[var(--radius-modal,16px)] border-t border-[var(--border-default)] animate-slideInUp",
-    top: "top-0 left-0 w-full rounded-b-[var(--radius-modal,16px)] border-b border-[var(--border-default)] animate-slideInDown",
+  const placementStyles = {
+    right: {
+      initial: { x: "100%" },
+      animate: { x: 0 },
+      exit: { x: "100%" },
+      classes: "top-0 right-0 h-full w-full border-l border-[var(--border-default)]",
+    },
+    left: {
+      initial: { x: "-100%" },
+      animate: { x: 0 },
+      exit: { x: "-100%" },
+      classes: "top-0 left-0 h-full w-full border-r border-[var(--border-default)]",
+    },
+    bottom: {
+      initial: { y: "100%" },
+      animate: { y: 0 },
+      exit: { y: "100%" },
+      classes: "bottom-0 left-0 w-full rounded-t-[var(--radius-modal,16px)] border-t border-[var(--border-default)]",
+    },
+    top: {
+      initial: { y: "-100%" },
+      animate: { y: 0 },
+      exit: { y: "-100%" },
+      classes: "top-0 left-0 w-full rounded-b-[var(--radius-modal,16px)] border-b border-[var(--border-default)]",
+    },
   };
 
-  const currentPlacement = placementClasses[placement] || placementClasses.right;
+  const placementShadows = {
+    right: "shadow-[var(--shadow-3-left)]",
+    left: "shadow-[var(--shadow-3-right)]",
+    bottom: "shadow-[var(--shadow-3-up)]",
+    top: "shadow-[var(--shadow-3-down)]",
+  };
+
+  const currentPlacement = placementStyles[placement] || placementStyles.right;
   const currentSize = sizeClasses[placement]?.[size] || sizeClasses.right.md;
+  const currentShadow = placementShadows[placement] || placementShadows.right;
 
-  return (
-    <div className="fixed inset-0 z-50 overflow-hidden flex" role="dialog" aria-modal="true">
-      {/* Backdrop */}
-      <div
-        className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity animate-fadeIn"
-        onClick={onClose}
-      />
-
-      {/* Drawer Body */}
-      <div
-        className={`relative z-10 flex flex-col bg-[var(--bg-surface)] shadow-2xl ${currentPlacement} ${currentSize} ${className}`.trim()}
-      >
-        {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-subtle)] shrink-0">
-          <div>
-            {title && <h3 className="text-base md:text-lg font-bold text-[var(--text-primary)]">{title}</h3>}
-            {description && (
-              <p className="text-xs text-[var(--text-secondary)] mt-0.5">{description}</p>
-            )}
-          </div>
-          <button
-            type="button"
+  const drawerContent = (
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-50 overflow-hidden flex" role="dialog" aria-modal="true">
+          {/* Backdrop */}
+          <Motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: transitionBase }}
+            exit={{ opacity: 0, transition: transitionFast }}
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs"
             onClick={onClose}
-            className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-secondary)] transition-colors cursor-pointer"
-            aria-label="Close drawer"
+          />
+
+          {/* Drawer Body */}
+          <Motion.div
+            initial={currentPlacement.initial}
+            animate={{ ...currentPlacement.animate, transition: transitionBase }}
+            exit={{ ...currentPlacement.exit, transition: transitionFast }}
+            className={`relative z-10 flex flex-col bg-[var(--bg-surface)] ${currentShadow} ${currentPlacement.classes} ${currentSize} ${className}`.trim()}
           >
-            <Icon icon="carbon:close" className="w-5 h-5" />
-          </button>
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-subtle)] shrink-0">
+              <div>
+                {title && <h3 className="text-base md:text-lg font-bold text-[var(--text-primary)]">{title}</h3>}
+                {description && (
+                  <p className="text-xs text-[var(--text-secondary)] mt-0.5">{description}</p>
+                )}
+              </div>
+              <button
+                type="button"
+                onClick={onClose}
+                className="p-1.5 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-secondary)] transition-colors cursor-pointer"
+                aria-label="Close drawer"
+              >
+                <Icon icon="solar:close-circle-bold" className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 overflow-y-auto p-6 space-y-4">{children}</div>
+
+            {/* Footer */}
+            {footer && (
+              <div className="px-6 py-4 border-t border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)]/50 shrink-0">
+                {footer}
+              </div>
+            )}
+          </Motion.div>
         </div>
-
-        {/* Content */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-4">{children}</div>
-
-        {/* Footer */}
-        {footer && (
-          <div className="px-6 py-4 border-t border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)]/50 shrink-0">
-            {footer}
-          </div>
-        )}
-      </div>
-    </div>
+      )}
+    </AnimatePresence>
   );
+
+  return typeof document !== "undefined" ? createPortal(drawerContent, document.body) : drawerContent;
 }
+

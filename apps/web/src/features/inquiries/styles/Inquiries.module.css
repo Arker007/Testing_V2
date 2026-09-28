@@ -105,7 +105,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 14px;
+  padding: 6px 12px;
   border-radius: var(--radius-admin, 8px);
   background: var(--brand-glow-subtle);
   color: var(--brand-primary);
@@ -124,7 +124,7 @@
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-admin, 8px);
-  padding: 20px;
+  padding: 24px;
 }
 
 .blockTitle {
@@ -133,9 +133,9 @@
   color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   border-bottom: 1px solid var(--border);
-  padding-bottom: 6px;
+  padding-bottom: 8px;
 }
 
 .detailGrid {

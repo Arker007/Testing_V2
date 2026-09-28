@@ -28,44 +28,44 @@ export default function FeaturesSection() {
 
   const featureCards = [
     {
-      category: c("why_us_f1_category", "QUALITY ASSURANCE"),
+      category: c("why_us_f1_category", "Quality Assurance"),
       title: c("why_us_f1_title", "Quality Assurance"),
       desc: c(
         "why_us_f1_desc",
         "Rigorous testing ensures superior structural performance, dimensional stability, and weather durability."
       ),
       href: "/products",
-      icon: <Icon icon="solar:shield-check-bold" className="w-6 h-6" />,
+      icon: <Icon icon="solar:shield-check-linear" className="w-6 h-6" />,
     },
     {
-      category: c("why_us_f2_category", "CUSTOM MANUFACTURING"),
+      category: c("why_us_f2_category", "Custom Manufacturing"),
       title: c("why_us_f2_title", "Custom Profiles"),
       desc: c(
         "why_us_f2_desc",
         "Tailored recycled polymer profiles, reinforced designs, and custom textures to meet your application needs."
       ),
       href: "/products",
-      icon: <Icon icon="solar:layers-minimalistic-bold" className="w-6 h-6" />,
+      icon: <Icon icon="solar:layers-minimalistic-linear" className="w-6 h-6" />,
     },
     {
-      category: c("why_us_f3_category", "SUSTAINABLE MATERIALS"),
+      category: c("why_us_f3_category", "Sustainable Materials"),
       title: c("why_us_f3_title", "Recycled Material"),
       desc: c(
         "why_us_f3_desc",
         "100% recycled HDPE material diverting landfill and marine plastic waste. A sustainable alternative to timber and steel."
       ),
       href: "/sustainability",
-      icon: <Icon icon="solar:restart-circle-bold" className="w-6 h-6" />,
+      icon: <Icon icon="solar:restart-circle-linear" className="w-6 h-6" />,
     },
     {
-      category: c("why_us_f4_category", "BUSINESS VALUE"),
+      category: c("why_us_f4_category", "Business Value"),
       title: c("why_us_f4_title", "Cost Efficiency"),
       desc: c(
         "why_us_f4_desc",
         "Minimal maintenance, no termite damage, and a longer service life deliver lower total cost of ownership across decades of use."
       ),
       href: "/contact",
-      icon: <Icon icon="solar:graph-up-bold" className="w-6 h-6" />,
+      icon: <Icon icon="solar:graph-up-linear" className="w-6 h-6" />,
     },
   ];
 
@@ -86,7 +86,7 @@ export default function FeaturesSection() {
             <div>
               {/* Subheader tag */}
               <div className="flex items-center space-x-3 mb-4">
-                <span className="w-7 h-[2.5px] bg-[var(--brand-primary)] rounded-full inline-block" />
+                <span className="w-7 h-[2.5px] bg-[var(--brand-primary)] inline-block" />
                 <span className="text-xs md:text-sm font-bold tracking-widest text-[var(--text-brand)] uppercase">
                   {c("why_us_eyebrow", c("why_us_badge", "WHY CHOOSE VISHAL ENTERPRISE"))}
                 </span>
@@ -226,17 +226,17 @@ export default function FeaturesSection() {
 
           {/* Right Column: 2x2 Clean Feature Cards Grid */}
           <div
-            className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6"
+            className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6"
             data-purpose="feature-cards-grid"
           >
             {featureCards.map((card, idx) => (
               <article
                 key={idx}
-                className="bg-[var(--bg-surface)] rounded-[var(--radius-card,16px)] p-7 flex flex-col justify-between shadow-[var(--shadow-sm)] border border-[var(--border-subtle)] transition-all hover:shadow-[var(--shadow-md)] hover:border-[var(--brand-border)]"
+                className="bg-[var(--bg-surface)] rounded-[var(--radius-card,16px)] p-6 sm:p-8 flex flex-col justify-between shadow-[var(--shadow-sm)] border border-[var(--border-subtle)] transition-all hover:shadow-[var(--shadow-md)] hover:border-[var(--brand-border)]"
               >
                 <div>
                   {/* Icon Badge */}
-                  <div className="w-12 h-12 rounded-full bg-[var(--brand-soft)] border border-[var(--brand-border)] flex items-center justify-center text-[var(--brand-primary)] mb-5">
+                  <div className="w-12 h-12 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] flex items-center justify-center text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs mb-5">
                     {card.icon}
                   </div>
 
@@ -265,7 +265,7 @@ export default function FeaturesSection() {
                     <span className="w-6 h-6 rounded-full border border-[var(--brand-primary)] flex items-center justify-center group-hover:bg-[var(--brand-primary)] group-hover:text-[var(--text-inverse)] transition-colors">
                       <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5 stroke-[2.5]" />
                     </span>
-                    <span className="uppercase">LEARN MORE</span>
+                    <span>Learn more</span>
                   </Link>
                 </div>
               </article>

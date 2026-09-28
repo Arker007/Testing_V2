@@ -482,10 +482,11 @@ html.dark .feature-card-item {
 .feature-icon-wrapper {
   width: 44px;
   height: 44px;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-icon, 8px);
   background: var(--brand-soft);
-  color: var(--brand-primary);
+  color: var(--text-brand);
   border: 1px solid var(--border-brand);
+  box-shadow: var(--shadow-xs);
   display: flex;
   align-items: center;
   justify-content: center;

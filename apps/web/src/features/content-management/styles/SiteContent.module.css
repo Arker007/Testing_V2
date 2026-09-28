@@ -8,14 +8,14 @@
   gap: 24px;
   align-items: stretch;
   margin-top: 16px;
-  height: calc(100vh - 76px - 60px - 16px - 24px); /* Full height minus topbar, paddings, and margins */
+  height: calc(100vh - var(--layout-topbar-height, 72px) - 64px - 16px - 24px); /* Full height minus topbar, paddings, and margins */
   overflow: hidden;
 }
 
 /* Left Panel: Section Tree Map navigation */
 .treeNav,
 .outlinePanel {
-  flex: 0 0 300px;
+  flex: 0 0 288px;
   background: var(--surface-card, #ffffff);
   border-radius: 12px;
   border: 1px solid var(--border, rgba(5, 40, 63, 0.08));
@@ -29,9 +29,9 @@
 }
 
 .treeTitle {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-family-admin, inherit);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ink);
   display: flex;
   align-items: center;
@@ -348,9 +348,9 @@
 }
 
 .editorTitle {
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-family-admin, inherit);
   font-size: 1.15rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--ink);
   margin: 0;
   display: flex;

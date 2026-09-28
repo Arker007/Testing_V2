@@ -159,11 +159,11 @@ export default function TimedInquiryModal() {
         form.company ? `Company / Organization: ${form.company}` : null,
         `Country: ${form.country || "India"}`,
         `Phone: ${form.phonePrefix || "+91"} ${form.phone || ""}`,
-        `\nMessage / Details:\n${form.message}`,
+        form.message ? `\nMessage / Details:\n${form.message}` : null,
       ]
         .filter(Boolean)
         .join("\n")
-        .trim();
+        .trim() || `Inquiry for ${form.productService || "General Products"}`;
 
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -236,7 +236,7 @@ export default function TimedInquiryModal() {
                   id="timed-inquiry-title"
                   className="text-lg sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight mb-1"
                 >
-                  Request a <span className="text-[var(--brand-primary)]">Quote</span>
+                  Request a <span className="text-[var(--brand-primary)]">quote</span>
                 </h2>
                 <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed max-w-lg">
                   Share your requirements and our team will get back to you with the best solution and pricing for your business.
@@ -261,7 +261,7 @@ export default function TimedInquiryModal() {
                   <div className="w-14 h-14 rounded-full bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20 flex items-center justify-center mx-auto mb-1 text-[var(--brand-primary)]">
                     <Icon icon="carbon:checkmark" className="w-7 h-7" />
                   </div>
-                  <h3 className="text-[var(--text-primary)] font-bold text-xl">Quote Request Sent</h3>
+                  <h3 className="text-[var(--text-primary)] font-bold text-xl">Quote request sent</h3>
 
                   {referenceId && (
                     <div className="my-1.5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
@@ -273,7 +273,7 @@ export default function TimedInquiryModal() {
                         type="button"
                         onClick={handleCopyRef}
                         className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer ml-0.5"
-                        title="Copy Reference Code"
+                        title="Copy reference code"
                         aria-label="Copy reference code"
                       >
                         <Icon
@@ -294,7 +294,7 @@ export default function TimedInquiryModal() {
                       size="sm"
                       onClick={handleResetForm}
                     >
-                      Submit Another Request
+                      Submit another request
                     </Button>
                     <Button
                       type="button"
@@ -310,18 +310,13 @@ export default function TimedInquiryModal() {
                 <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                   {/* Step 1: Select Product */}
                   <div className="space-y-2">
-                    <div className="flex items-start gap-2.5">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200 dark:border-emerald-800/40">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 border border-emerald-200 dark:border-emerald-800/40">
                         1
                       </div>
-                      <div>
-                        <h3 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-tight">
-                          Product / Requirement
-                        </h3>
-                        <p className="text-[11px] sm:text-xs text-[var(--text-secondary)] mt-0.5">
-                          Select the product category that best matches your requirement.
-                        </p>
-                      </div>
+                      <h3 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-tight">
+                        Product / Requirement
+                      </h3>
                     </div>
 
                     <div className="space-y-2 pt-0.5 pl-0 sm:pl-8">
@@ -367,18 +362,13 @@ export default function TimedInquiryModal() {
 
                   {/* Step 2: Contact Details */}
                   <div className="space-y-2">
-                    <div className="flex items-start gap-2.5">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200 dark:border-emerald-800/40">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 border border-emerald-200 dark:border-emerald-800/40">
                         2
                       </div>
-                      <div>
-                        <h3 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-tight">
-                          Your Details
-                        </h3>
-                        <p className="text-[11px] sm:text-xs text-[var(--text-secondary)] mt-0.5">
-                          Let us know how to get in touch with you.
-                        </p>
-                      </div>
+                      <h3 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-tight">
+                        Your Details
+                      </h3>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-0.5 pl-0 sm:pl-8">
@@ -448,7 +438,7 @@ export default function TimedInquiryModal() {
                       </FormField>
 
                       {/* Company Name */}
-                      <FormField label="Company Name (Optional)" htmlFor="modalCompany">
+                      <FormField label="Company Name" htmlFor="modalCompany">
                         <Input
                           id="modalCompany"
                           type="text"
@@ -464,24 +454,19 @@ export default function TimedInquiryModal() {
 
                   {/* Step 3: Requirement Details */}
                   <div className="space-y-2">
-                    <div className="flex items-start gap-2.5">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200 dark:border-emerald-800/40">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 border border-emerald-200 dark:border-emerald-800/40">
                         3
                       </div>
-                      <div>
-                        <h3 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-tight">
-                          Requirement Details
-                        </h3>
-                        <p className="text-[11px] sm:text-xs text-[var(--text-secondary)] mt-0.5">
-                          Help us understand your requirement better.
-                        </p>
-                      </div>
+                      <h3 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-tight">
+                        Requirement Details
+                      </h3>
                     </div>
 
                     <div className="space-y-2 pt-0.5 pl-0 sm:pl-8">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                         {/* Estimated Quantity */}
-                        <FormField label="Estimated Quantity (Optional)" htmlFor="modalEstimatedVolume">
+                        <FormField label="Estimated Quantity" htmlFor="modalEstimatedVolume">
                           <Input
                             id="modalEstimatedVolume"
                             type="text"
@@ -494,7 +479,7 @@ export default function TimedInquiryModal() {
                         </FormField>
 
                         {/* Target Application */}
-                        <FormField label="Target Application (Optional)" htmlFor="modalTargetApplication">
+                        <FormField label="Target Application" htmlFor="modalTargetApplication">
                           <Input
                             id="modalTargetApplication"
                             type="text"
@@ -508,14 +493,13 @@ export default function TimedInquiryModal() {
                       </div>
 
                       {/* Specifications or Message */}
-                      <FormField label="Specifications or Message" htmlFor="modalMessage" required>
+                      <FormField label="Specifications or Message" htmlFor="modalMessage">
                         <div className="relative">
                           <div className="absolute top-2.5 left-2.5 pointer-events-none text-[var(--text-muted)] z-10">
                             <Icon icon="carbon:edit" className="w-3.5 h-3.5" />
                           </div>
                           <Textarea
                             id="modalMessage"
-                            required
                             rows={2.5}
                             maxLength={1000}
                             showCount
@@ -544,12 +528,12 @@ export default function TimedInquiryModal() {
                       variant="primary"
                       size="md"
                       loading={status === "sending"}
-                      loadingText="Sending..."
+                      loadingText="Submitting..."
                       className="w-full sm:w-auto shrink-0 font-bold min-h-[40px] text-xs sm:text-sm px-5 shadow-2xs"
                       icon={<Icon icon="carbon:arrow-right" className="w-3.5 h-3.5 ml-1 inline" />}
                       id="modal-submit-quote-btn"
                     >
-                      Send Quote Request
+                      Send quote request
                     </Button>
 
                     {/* Secure Info Badge */}
@@ -559,7 +543,7 @@ export default function TimedInquiryModal() {
                       </div>
                       <div className="text-[11px] leading-tight">
                         <span className="block font-bold text-[var(--text-primary)]">
-                          Your information is secure.
+                          Your information is secure
                         </span>
                         <span className="block text-[var(--text-muted)] text-[10px] mt-0.5">
                           We respect your privacy and never share your data.

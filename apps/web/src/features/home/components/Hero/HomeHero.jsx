@@ -141,10 +141,10 @@ export default function HomeHero() {
       image: "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
       fallbackSrc: recycledPlasticProfiles,
       features: [
-        { icon: "ShieldCheck", title: c("home_slide1_f1_title", "DURABLE"), text: c("home_slide1_f1_desc", "Built for long lasting structural performance") },
-        { icon: "Droplets", title: c("home_slide1_f2_title", "WEATHERPROOF"), text: c("home_slide1_f2_desc", "Zero rot, zero splinter, moisture resistant") },
-        { icon: "Wrench", title: c("home_slide1_f3_title", "HIGH STRENGTH"), text: c("home_slide1_f3_desc", "High load capacity for demanding builds") },
-        { icon: "Leaf", title: c("home_slide1_f4_title", "ECO FRIENDLY"), text: c("home_slide1_f4_desc", "100% recycled polymer profile material") },
+        { icon: "ShieldCheck", title: c("home_slide1_f1_title", "Durable"), text: c("home_slide1_f1_desc", "Built for long-lasting structural performance") },
+        { icon: "Droplets", title: c("home_slide1_f2_title", "Weatherproof"), text: c("home_slide1_f2_desc", "Zero rot, zero splinter, moisture resistant") },
+        { icon: "Wrench", title: c("home_slide1_f3_title", "High Strength"), text: c("home_slide1_f3_desc", "High load capacity for demanding builds") },
+        { icon: "Leaf", title: c("home_slide1_f4_title", "Eco Friendly"), text: c("home_slide1_f4_desc", "100% recycled polymer profile material") },
       ],
     },
     {
@@ -159,10 +159,10 @@ export default function HomeHero() {
       image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
       fallbackSrc: highLoadCapacity,
       features: [
-        { icon: "ShieldCheck", title: c("home_slide2_f1_title", "HEAVY DUTY"), text: c("home_slide2_f1_desc", "Withstands heavy static & dynamic loads") },
-        { icon: "Droplets", title: c("home_slide2_f2_title", "CHEMICAL RESIST"), text: c("home_slide2_f2_desc", "Resistant to acids, alkalis, and oils") },
-        { icon: "Plane", title: c("home_slide2_f3_title", "EXPORT READY"), text: c("home_slide2_f3_desc", "Naturally phytosanitary exempt (ISPM-15)") },
-        { icon: "Leaf", title: c("home_slide2_f4_title", "SUSTAINABLE"), text: c("home_slide2_f4_desc", "Fully recyclable at end of lifecycle") },
+        { icon: "ShieldCheck", title: c("home_slide2_f1_title", "Heavy Duty"), text: c("home_slide2_f1_desc", "Withstands heavy static & dynamic loads") },
+        { icon: "Droplets", title: c("home_slide2_f2_title", "Chemical Resistant"), text: c("home_slide2_f2_desc", "Resistant to acids, alkalis, and oils") },
+        { icon: "Plane", title: c("home_slide2_f3_title", "Export Ready"), text: c("home_slide2_f3_desc", "Naturally phytosanitary exempt (ISPM-15)") },
+        { icon: "Leaf", title: c("home_slide2_f4_title", "Sustainable"), text: c("home_slide2_f4_desc", "Fully recyclable at end of lifecycle") },
       ],
     },
     {
@@ -177,10 +177,10 @@ export default function HomeHero() {
       image: "/uploads/products/categories/garden-bench-1770446422580-0.webp",
       fallbackSrc: weatherResistantBg,
       features: [
-        { icon: "ShieldCheck", title: c("home_slide3_f1_title", "WEATHERPROOF"), text: c("home_slide3_f1_desc", "Engineered to perform in all weather conditions") },
-        { icon: "Link2", title: c("home_slide3_f2_title", "RUSTPROOF"), text: c("home_slide3_f2_desc", "Corrosion-resistant for enhanced durability") },
-        { icon: "Eye", title: c("home_slide3_f3_title", "MODERN DESIGN"), text: c("home_slide3_f3_desc", "Aesthetic and functional for all environments") },
-        { icon: "Leaf", title: c("home_slide3_f4_title", "ECO FRIENDLY"), text: c("home_slide3_f4_desc", "Non-toxic, eco-friendly & safe for all use") },
+        { icon: "ShieldCheck", title: c("home_slide3_f1_title", "Weatherproof"), text: c("home_slide3_f1_desc", "Engineered to perform in all weather conditions") },
+        { icon: "Link2", title: c("home_slide3_f2_title", "Rustproof"), text: c("home_slide3_f2_desc", "Corrosion-resistant for enhanced durability") },
+        { icon: "Eye", title: c("home_slide3_f3_title", "Modern Design"), text: c("home_slide3_f3_desc", "Aesthetic and functional for all environments") },
+        { icon: "Leaf", title: c("home_slide3_f4_title", "Eco Friendly"), text: c("home_slide3_f4_desc", "Non-toxic, eco-friendly & safe for all use") },
       ],
     },
   ], [c]);
@@ -372,7 +372,7 @@ export default function HomeHero() {
                 className="inline-block"
               >
                 <Link to="/products" className="exploreBtnGlobal">
-                  <span>{c("hero_cta_primary", "EXPLORE PRODUCTS")}</span>
+                  <span>{c("hero_cta_primary", "Explore products")}</span>
                   <Motion.span
                     animate={shouldReduceMotion ? {} : { x: [0, 4, 0] }}
                     transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
@@ -568,7 +568,7 @@ export default function HomeHero() {
                     <Icon icon="carbon:headset" className="w-5 h-5 text-white" />
                   </Motion.div>
                   <div className={styles.assistanceTextGroup}>
-                    <span className={styles.assistanceLabel}>{c("hero_assistance_title", "NEED ASSISTANCE?")}</span>
+                    <span className={styles.assistanceLabel}>{c("hero_assistance_title", "Need assistance?")}</span>
                     <span className={styles.assistanceSub}>
                       {c("hero_assistance_sub", "Our team is ready to help you find the right solution.")}
                     </span>
@@ -581,7 +581,7 @@ export default function HomeHero() {
                     transition={{ type: "spring", stiffness: 450, damping: 25 }}
                   >
                     <Icon icon="carbon:phone" className="w-3.5 h-3.5 text-inherit" />
-                    <span>{c("hero_assistance_btn", "CONTACT US")}</span>
+                    <span>{c("hero_assistance_btn", "Contact us")}</span>
                   </Motion.a>
                 </Motion.div>
               </div>

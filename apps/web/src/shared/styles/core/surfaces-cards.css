@@ -10,16 +10,26 @@ body,
   color: var(--text-primary);
 }
 
-/* ─── Containers & Layout ────────────────────────────────── */
+/* ─── Containers & Layout (Ant Design Unified Canvas & Top-Bottom Adaptation) ─── */
 .container {
-  width: min(100% - var(--space-6, 32px), var(--container-xl, 1280px));
+  width: min(100% - (var(--margin-blanking-min, 24px) * 2), var(--canvas-content-width, 1168px));
   margin-inline: auto;
 }
 
 @media (min-width: 1024px) {
   .container {
-    width: min(100% - var(--space-8, 64px), var(--container-xl, 1280px));
+    width: min(100% - (var(--margin-blanking-desktop, 32px) * 2), var(--canvas-content-width, 1168px));
   }
+}
+
+.container-canvas {
+  width: min(100% - (var(--margin-blanking-min, 24px) * 2), var(--canvas-max-width, 1440px));
+  margin-inline: auto;
+}
+
+.container-content {
+  width: min(100% - (var(--margin-blanking-min, 24px) * 2), var(--canvas-content-width, 1168px));
+  margin-inline: auto;
 }
 
 .section {
@@ -164,12 +174,13 @@ body,
 .dropdown-menu {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-3-down);
 }
 
 .card {
   border-radius: var(--radius-card);
   overflow: hidden;
+  box-shadow: var(--shadow-3-down);
   transition: transform var(--motion-base) var(--ease-standard),
               box-shadow var(--motion-base) var(--ease-standard),
               border-color var(--motion-base) var(--ease-standard),
@@ -179,7 +190,110 @@ body,
 .card:hover {
   transform: translateY(-1px);
   border-color: var(--border-default);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-3-down);
+}
+
+/* ─── Inner Elements Inside Cards & Forms: Shadow Reduction / Zero-Nesting ─── */
+/* In accordance with clean elevation principles, inner elements nested within a
+   card or form container must not introduce competing drop-shadows. Elevation
+   hierarchy belongs to the parent surface boundary. */
+
+/* Nested inner cards inside cards or forms */
+.card .card,
+.card [class*="card"],
+.card [class*="Card"],
+[class*="Card"] .card,
+[class*="Card"] [class*="card"],
+[class*="Card"] [class*="Card"],
+form .card,
+form [class*="card"],
+form [class*="Card"],
+.form .card,
+.form [class*="card"],
+.form [class*="Card"] {
+  box-shadow: none !important;
+}
+
+/* Inner form controls, inputs, selects, textareas inside cards or forms */
+.card input,
+.card select,
+.card textarea,
+.card .form-input,
+.card .form-select,
+.card .form-textarea,
+.card [role="combobox"],
+.card [role="listbox"],
+[class*="Card"] input,
+[class*="Card"] select,
+[class*="Card"] textarea,
+form input,
+form select,
+form textarea,
+form .form-input,
+form .form-select,
+form .form-textarea,
+form [role="combobox"],
+form [role="listbox"],
+.form input,
+.form select,
+.form textarea {
+  box-shadow: none !important;
+}
+
+/* Inner badges, chips, tags, thumbs and media containers inside cards or forms */
+.card [class*="badge"],
+.card [class*="Badge"],
+.card [class*="tag"],
+.card [class*="Tag"],
+.card [class*="thumb"],
+.card [class*="Thumb"],
+.card [class*="dimBlock"],
+.card [class*="bentoItem"],
+[class*="Card"] [class*="badge"],
+[class*="Card"] [class*="Badge"],
+[class*="Card"] [class*="tag"],
+[class*="Card"] [class*="Tag"],
+[class*="Card"] [class*="thumb"],
+[class*="Card"] [class*="Thumb"],
+form [class*="badge"],
+form [class*="Badge"],
+form [class*="tag"],
+form [class*="Tag"],
+form [class*="thumb"],
+form [class*="Thumb"] {
+  box-shadow: none !important;
+}
+
+/* Inner buttons, dropdown triggers, and interactive elements inside cards or forms */
+.card button:not([class*="modal"]):not([class*="drawer"]):not([class*="trigger"]),
+.card a[class*="btn"],
+.card [class*="customSelectTrigger"],
+[class*="Card"] button:not([class*="modal"]):not([class*="drawer"]):not([class*="trigger"]),
+[class*="Card"] a[class*="btn"],
+[class*="Card"] [class*="customSelectTrigger"],
+form button:not([class*="modal"]):not([class*="drawer"]):not([class*="trigger"]),
+form a[class*="btn"],
+form [class*="customSelectTrigger"] {
+  box-shadow: none !important;
+}
+
+/* Inner table containers inside cards or forms */
+.card table,
+.card [class*="table"],
+.card [class*="Table"],
+.card div:has(> table),
+.card div.overflow-x-auto,
+[class*="Card"] table,
+[class*="Card"] [class*="table"],
+[class*="Card"] [class*="Table"],
+[class*="Card"] div:has(> table),
+[class*="Card"] div.overflow-x-auto,
+form table,
+form [class*="table"],
+form [class*="Table"],
+form div:has(> table),
+form div.overflow-x-auto {
+  box-shadow: none !important;
 }
 
 /* ─── Responsive Layout Overrides ────────────────────────── */

@@ -122,7 +122,7 @@ export default function ProductHeaderSpecs({
             <title>Technical Datasheet - ${product.name || "Product"}</title>
             <style>
               @page { size: A4; margin: 18mm; }
-              body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #0f172a; margin: 0; padding: 24px; }
+              body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; font-variant-numeric: tabular-nums; color: #0f172a; margin: 0; padding: 24px; font-size: 14px; line-height: 22px; }
               .header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 3px solid #16532d; padding-bottom: 16px; margin-bottom: 20px; }
               .brand { font-size: 20px; font-weight: 800; color: #16532d; letter-spacing: -0.5px; }
               .sub { font-size: 11px; color: #64748b; margin-top: 3px; }

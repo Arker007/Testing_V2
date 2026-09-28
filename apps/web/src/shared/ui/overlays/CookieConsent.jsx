@@ -57,7 +57,7 @@ export default function CookieConsent() {
           className="flex-1 text-xs px-2 h-9" 
           onClick={handleAccept}
         >
-          Accept All
+          Accept all
         </Button>
       </div>
     </div>

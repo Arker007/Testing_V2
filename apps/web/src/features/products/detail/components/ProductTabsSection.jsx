@@ -250,12 +250,12 @@ export default function ProductTabsSection({
             <meta charset="utf-8" />
             <title>Technical Datasheet - ${product.name || "Product"}</title>
             <style>
-              body { font-family: system-ui, -apple-system, sans-serif; padding: 24px; color: #0f172a; }
-              h1 { font-size: 20px; color: #16532d; margin-bottom: 4px; }
-              h2 { font-size: 16px; color: #334155; margin-top: 0; }
-              table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 13px; }
+              body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; font-variant-numeric: tabular-nums; padding: 24px; color: #0f172a; font-size: 14px; line-height: 22px; }
+              h1 { font-size: 20px; line-height: 28px; color: #16532d; margin-bottom: 4px; }
+              h2 { font-size: 16px; line-height: 24px; color: #334155; margin-top: 0; }
+              table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; font-variant-numeric: tabular-nums; }
               th { background: #16532d; color: white; padding: 10px 14px; text-align: left; }
-              td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+              td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-variant-numeric: tabular-nums; }
             </style>
           </head>
           <body>
@@ -447,7 +447,7 @@ export default function ProductTabsSection({
                         </div>
 
                         {/* Right Column: Specification Value */}
-                        <div className="col-span-7 text-xs sm:text-sm font-bold text-[var(--text-primary)] text-left">
+                        <div className="col-span-7 text-xs sm:text-sm font-bold text-[var(--text-primary)] text-right tabular-nums">
                           {row.value}
                         </div>
                       </div>

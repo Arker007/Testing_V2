@@ -31,16 +31,16 @@ export default function StatCard({
       {...props}
     >
       <div className="flex items-start justify-between gap-4">
-        <div className="space-y-1">
-          <p className="text-xs font-bold uppercase tracking-wider text-[var(--text-muted,slate-500)]">
+        <div className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
             {label}
           </p>
           <div className="flex items-baseline gap-2">
-            <span className="text-2xl sm:text-3xl font-black tracking-tight text-[var(--text-primary)]">
+            <span className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-primary)] tabular-nums">
               {value}
             </span>
             {trend && (
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800/40">
+              <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800/40">
                 {trend}
               </span>
             )}

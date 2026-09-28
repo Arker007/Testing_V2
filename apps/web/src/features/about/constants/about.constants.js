@@ -23,21 +23,21 @@ export const itemVariants = {
 
 export const testimonials = [
   {
-    quote: "We are extremely pleased with the premium recycled plastic pallets from Vishal Enterprise. They handle our heavy warehouse loads flawlessly and have significantly reduced our material handling costs over the years.",
-    author: "Jessica Wall",
-    role: "Logistics Manager, Legat Owen",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
+    quote: "Vishal Enterprise has been a reliable partner for our pallet requirements. The quality and durability of their recycled plastic pallets have helped us improve our handling operations while supporting our sustainability goals.",
+    role: "Procurement Manager",
+    company: "Pharma Company",
+    icon: "solar:buildings-2-bold"
   },
   {
-    quote: "Switching to Vishal's high-density eco-friendly crates has helped us meet our rigorous sustainability targets while ensuring safe, damage-free transit of agricultural goods across India.",
-    author: "Amit Patel",
-    role: "Supply Chain Director, GreenField Organics",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+    quote: "Switching to Vishal's high-density eco-friendly pallets and crates has helped us meet our rigorous sustainability targets while ensuring safe, damage-free transit of goods across India.",
+    role: "Supply Chain Director",
+    company: "Logistics Enterprise",
+    icon: "solar:box-minimalistic-bold"
   },
   {
-    quote: "Highly consistent quality and prompt delivery. Their GST Registration truly reflects on the structural integrity of their custom heavy-duty pallets. Outstanding service!",
-    author: "Rajesh Mehta",
-    role: "Production Head, Gujarat Polymers",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
+    quote: "Highly consistent quality and prompt factory delivery. Their engineering excellence truly reflects in the structural load capacity and longevity of their custom heavy-duty pallets.",
+    role: "Operations Head",
+    company: "Industrial Manufacturing Ltd.",
+    icon: "solar:factory-bold"
   }
 ];

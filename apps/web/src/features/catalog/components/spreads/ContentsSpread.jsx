@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import styles from "../../styles/AdminCatalog.module.css";
 import { pad, getProductImage, getSpecs, getDynamicColors } from "../../utils/catalog.utils";
 
@@ -37,7 +38,7 @@ export const renderIndexRow = (item, pageNum, idx) => {
           </>
         ) : (
           <div className={styles.indexCellThumbsFallback}>
-            <i className="fa-solid fa-cube" />
+            <Icon icon="carbon:box" className="w-4 h-4 text-slate-300" />
           </div>
         )}
       </div>
@@ -113,12 +114,12 @@ export function getContentsSpread({
         <div className={styles.userGuideRow}>
           <div className={styles.userGuideLabel}>User Guide</div>
           <div className={styles.userGuideIcons}>
-            <i
-              className="fa-solid fa-triangle-exclamation"
-              style={{ color: "var(--color-warning)" }}
+            <Icon
+              icon="carbon:warning-alt"
+              className="w-4 h-4 text-amber-500"
             />
-            <i className="fa-solid fa-ban" style={{ color: "var(--color-error)" }} />
-            <i className="fa-solid fa-info" style={{ color: "var(--navy)" }} />
+            <Icon icon="carbon:misuse" className="w-4 h-4 text-red-500" />
+            <Icon icon="carbon:information" className="w-4 h-4 text-[#061A26]" />
           </div>
           <div style={{ fontSize: "13px", fontWeight: 700, color: "var(--gray-600)" }}>
             {pad(11 + catalogProducts.length * 2, 2)}

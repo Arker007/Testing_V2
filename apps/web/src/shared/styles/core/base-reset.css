@@ -10,26 +10,29 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
   font-family: var(--font-sans);
-  color: var(--text-primary);
-  font-size: var(--font-size-base, 16px);
+  color: var(--color-text, var(--text-primary));
+  font-size: var(--font-size-base, 14px);
   font-weight: var(--font-weight-regular, 400);
-  line-height: var(--line-height-body, 1.5);
+  line-height: var(--line-height-base, 22px);
+  font-variant-numeric: var(--font-variant-numeric, tabular-nums);
   background-color: var(--bg-canvas);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-html, body, #root {
+body, #root {
   font-family: var(--font-family-primary);
-  font-weight: var(--font-weight-base);
-  font-size: var(--font-size-base, 16px);
-  color: var(--text-primary);
-  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-base, 400);
+  font-size: var(--font-size-base, 14px);
+  color: var(--color-text, var(--text-primary));
+  line-height: var(--line-height-base, 22px);
+  font-variant-numeric: var(--font-variant-numeric, tabular-nums);
 }
 
 img {
@@ -96,86 +99,88 @@ select:focus {
 }
 
 /* ==========================================================================
-   BASE HEADING & ELEMENT TYPOGRAPHY (7-Tier Scale)
+   BASE HEADING & ELEMENT TYPOGRAPHY (Ant Design Pentatonic Scale & Paired Leading)
    Wrapped in @layer base so utility classes (text-sm, text-base, etc.) take precedence
    ========================================================================== */
 @layer base {
   h1 {
     font-family: var(--font-family-primary);
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold, 700);
-    line-height: var(--line-height-tight);
-    letter-spacing: var(--tracking-h1);
-    color: var(--heading);
+    font-size: var(--font-size-7, 38px);
+    font-weight: var(--font-weight-semibold, 600);
+    line-height: var(--line-height-7, 46px);
+    letter-spacing: var(--tracking-tight, -0.02em);
+    color: var(--color-text-heading, var(--text-primary));
   }
 
   h2 {
     font-family: var(--font-family-primary);
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-bold, 700);
-    line-height: var(--line-height-heading);
-    letter-spacing: var(--tracking-h2);
-    color: var(--heading);
+    font-size: var(--font-size-6, 30px);
+    font-weight: var(--font-weight-semibold, 600);
+    line-height: var(--line-height-6, 38px);
+    letter-spacing: var(--tracking-tight, -0.02em);
+    color: var(--color-text-heading, var(--text-primary));
   }
 
   h3 {
     font-family: var(--font-family-primary);
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold, 600);
-    line-height: var(--line-height-heading);
-    letter-spacing: var(--tracking-h3);
-    color: var(--heading);
+    font-size: var(--font-size-5, 24px);
+    font-weight: var(--font-weight-medium, 500);
+    line-height: var(--line-height-5, 32px);
+    letter-spacing: var(--tracking-normal, 0);
+    color: var(--color-text-heading, var(--text-primary));
   }
 
   h4 {
     font-family: var(--font-family-primary);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold, 600);
-    line-height: var(--line-height-heading);
-    letter-spacing: var(--tracking-h4);
-    color: var(--heading);
+    font-size: var(--font-size-4, 20px);
+    font-weight: var(--font-weight-medium, 500);
+    line-height: var(--line-height-4, 28px);
+    letter-spacing: var(--tracking-normal, 0);
+    color: var(--color-text-heading, var(--text-primary));
   }
 
   h5 {
     font-family: var(--font-family-primary);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold, 600);
-    line-height: var(--line-height-heading);
-    color: var(--heading);
+    font-size: var(--font-size-3, 16px);
+    font-weight: var(--font-weight-medium, 500);
+    line-height: var(--line-height-3, 24px);
+    color: var(--color-text-heading, var(--text-primary));
   }
 
   h6 {
     font-family: var(--font-family-primary);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold, 600);
-    line-height: var(--line-height-heading);
-    color: var(--heading);
+    font-size: var(--font-size-2, 14px);
+    font-weight: var(--font-weight-medium, 500);
+    line-height: var(--line-height-2, 22px);
+    color: var(--color-text-heading, var(--text-primary));
   }
 
   p,
   li,
   td {
     font-family: var(--font-family-primary);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-body);
-    color: var(--text-secondary);
+    font-size: var(--font-size-2, 14px);
+    font-weight: var(--font-weight-regular, 400);
+    line-height: var(--line-height-2, 22px);
+    color: var(--color-text, var(--text-primary));
   }
 
   small,
   label {
     font-family: var(--font-family-primary);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-body);
+    font-size: var(--font-size-1, 12px);
+    font-weight: var(--font-weight-medium, 500);
+    line-height: var(--line-height-1, 20px);
+    color: var(--color-text-secondary, #475569);
   }
 
   input,
   textarea,
   select {
     font-family: var(--font-family-primary);
-    font-size: var(--font-size-md);
-    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-2, 14px);
+    line-height: var(--line-height-2, 22px);
+    font-weight: var(--font-weight-regular, 400);
   }
 
   @media (max-width: 768px) {
@@ -202,8 +207,13 @@ select:focus {
     p,
     li,
     td {
-      font-size: var(--font-size-sm);
-      line-height: var(--line-height-body);
+      font-size: var(--font-size-2, 14px);
+      line-height: var(--line-height-2, 22px);
+    }
+
+    small {
+      font-size: var(--font-size-1, 12px);
+      line-height: var(--line-height-1, 20px);
     }
   }
 }

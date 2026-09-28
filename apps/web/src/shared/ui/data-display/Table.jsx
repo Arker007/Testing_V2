@@ -1,4 +1,5 @@
 import React, { createContext, useContext } from "react";
+import { Icon } from "@iconify/react";
 
 const TableContext = createContext({
   variant: "simple",
@@ -8,6 +9,7 @@ const TableContext = createContext({
 
 /**
  * Unified Table Primitive with responsive wrapper and styling variants.
+ * Inspired by Preline UI data table specifications with theme tokens.
  *
  * @param {Object} props
  * @param {'simple' | 'striped' | 'bordered' | 'card'} [props.variant='simple']
@@ -41,7 +43,7 @@ export default function Table({
 
   if (responsive) {
     return (
-      <div className="w-full overflow-x-auto rounded-[var(--radius-card,12px)] border border-[var(--border-subtle)] bg-[var(--bg-surface)]">
+      <div className="w-full overflow-x-auto rounded-[var(--radius-card,12px)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] shadow-xs">
         {tableContent}
       </div>
     );
@@ -53,7 +55,7 @@ export default function Table({
 export function Thead({ className = "", children, ...props }) {
   return (
     <thead
-      className={`bg-[var(--bg-surface-secondary)] dark:bg-[var(--bg-surface-tertiary)] border-b border-[var(--border-default)] text-[var(--text-primary)] ${className}`.trim()}
+      className={`bg-[var(--bg-surface-secondary)] dark:bg-[var(--bg-surface-tertiary)] border-b border-[var(--border-subtle)] text-[var(--text-primary)] ${className}`.trim()}
       {...props}
     >
       {children}
@@ -72,7 +74,7 @@ export function Tbody({ className = "", children, ...props }) {
 export function Tfoot({ className = "", children, ...props }) {
   return (
     <tfoot
-      className={`bg-[var(--bg-surface-secondary)] border-t border-[var(--border-default)] font-semibold ${className}`.trim()}
+      className={`bg-[var(--bg-surface-secondary)] border-t border-[var(--border-subtle)] font-semibold text-[var(--text-secondary)] ${className}`.trim()}
       {...props}
     >
       {children}
@@ -87,10 +89,10 @@ export function Tr({ className = "", children, ...props }) {
 
   return (
     <tr
-      className={`transition-colors ${
+      className={`transition-colors duration-150 ${
         isStriped ? "even:bg-[var(--bg-surface-secondary)]/50" : ""
       } ${
-        hoverable ? "hover:bg-[var(--bg-surface-secondary)]/70 cursor-pointer" : ""
+        hoverable ? "hover:bg-[var(--bg-surface-secondary)]/80 cursor-pointer" : ""
       } ${className}`.trim()}
       {...props}
     >
@@ -99,7 +101,15 @@ export function Tr({ className = "", children, ...props }) {
   );
 }
 
-export function Th({ className = "", align = "left", children, ...props }) {
+export function Th({
+  className = "",
+  align = "left",
+  sortable = false,
+  sortDirection = null,
+  onSort,
+  children,
+  ...props
+}) {
   const { size } = useContext(TableContext);
 
   const sizeClasses = {
@@ -114,6 +124,29 @@ export function Th({ className = "", align = "left", children, ...props }) {
     right: "text-right",
   };
 
+  const content = sortable ? (
+    <button
+      type="button"
+      onClick={onSort}
+      className={`inline-flex items-center gap-1.5 font-semibold tracking-wider uppercase text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--brand-primary)] rounded px-1 -mx-1 ${
+        align === "right" ? "ml-auto" : align === "center" ? "mx-auto" : ""
+      }`}
+    >
+      <span>{children}</span>
+      <span className="shrink-0 text-[var(--text-muted)]">
+        {sortDirection === "asc" ? (
+          <Icon icon="solar:alt-arrow-up-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
+        ) : sortDirection === "desc" ? (
+          <Icon icon="solar:alt-arrow-down-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
+        ) : (
+          <Icon icon="solar:sort-vertical-linear" className="w-3.5 h-3.5 opacity-50 hover:opacity-100" />
+        )}
+      </span>
+    </button>
+  ) : (
+    children
+  );
+
   return (
     <th
       className={`font-semibold tracking-wider uppercase text-[var(--text-secondary)] ${
@@ -121,13 +154,21 @@ export function Th({ className = "", align = "left", children, ...props }) {
       } ${alignClasses[align] || alignClasses.left} ${className}`.trim()}
       {...props}
     >
-      {children}
+      {content}
     </th>
   );
 }
 
-export function Td({ className = "", align = "left", children, ...props }) {
+export function Td({ className = "", align = "left", isNumeric = false, children, ...props }) {
   const { size, variant } = useContext(TableContext);
+
+  const isNumberChild =
+    isNumeric ||
+    typeof children === "number" ||
+    (typeof children === "string" &&
+      /^[₹$€£]?\s*[\d,]+(\.\d+)?\s*[%a-zA-Z]*$/i.test(children.trim()));
+
+  const effectiveAlign = isNumberChild && align === "left" ? "right" : align;
 
   const sizeClasses = {
     sm: "px-3 py-2 text-xs",
@@ -144,8 +185,10 @@ export function Td({ className = "", align = "left", children, ...props }) {
   return (
     <td
       className={`${sizeClasses[size] || sizeClasses.md} ${
-        alignClasses[align] || alignClasses.left
-      } ${variant === "bordered" ? "border-r border-[var(--border-subtle)] last:border-r-0" : ""} ${className}`.trim()}
+        alignClasses[effectiveAlign] || alignClasses.left
+      } ${isNumberChild ? "tabular-nums text-right font-medium" : ""} ${
+        variant === "bordered" ? "border-r border-[var(--border-subtle)] last:border-r-0" : ""
+      } ${className}`.trim()}
       {...props}
     >
       {children}

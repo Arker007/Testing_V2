@@ -59,9 +59,9 @@ export default function Badge({
     brand:
       "bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs font-bold",
     hero:
-      "bg-[var(--hero-badge-bg)] border border-[var(--hero-badge-border)] text-[var(--hero-badge-text)] backdrop-blur-xs shadow-xs font-bold",
+      "bg-[var(--hero-badge-bg,rgba(107,191,84,0.15))] border border-[var(--hero-badge-border,rgba(107,191,84,0.35))] text-[var(--hero-badge-text,var(--brand-primary))] uppercase tracking-[0.06em] text-xs font-semibold shadow-xs",
     "hero-badge":
-      "bg-[var(--hero-badge-bg)] border border-[var(--hero-badge-border)] text-[var(--hero-badge-text)] backdrop-blur-xs shadow-xs font-bold",
+      "bg-[var(--hero-badge-bg,rgba(107,191,84,0.15))] border border-[var(--hero-badge-border,rgba(107,191,84,0.35))] text-[var(--hero-badge-text,var(--brand-primary))] uppercase tracking-[0.06em] text-xs font-semibold shadow-xs",
     dark:
       "bg-black/60 border border-white/20 text-white backdrop-blur-md shadow-xs font-bold",
     status:

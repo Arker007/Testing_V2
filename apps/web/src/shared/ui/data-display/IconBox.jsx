@@ -33,21 +33,21 @@ export default function IconBox({
 
   const variantClasses = {
     brand:
-      "bg-[var(--brand-soft)] text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold shadow-xs",
+      "bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] border border-[var(--border-brand)] shadow-xs",
     success:
-      "bg-[var(--brand-soft)] text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold shadow-xs",
+      "bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] border border-[var(--border-brand)] shadow-xs",
     sky:
-      "bg-[var(--brand-soft)] text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold shadow-xs",
+      "bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] border border-[var(--border-brand)] shadow-xs",
     neutral:
       "bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] border border-[var(--border-subtle)]",
     dark:
-      "bg-[var(--brand-soft)] text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold shadow-xs",
+      "bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] border border-[var(--border-brand)] shadow-xs",
     glass:
-      "bg-[var(--brand-soft)] text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold shadow-xs",
+      "bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] border border-[var(--border-brand)] shadow-xs",
     subtle:
-      "bg-[var(--brand-soft)] text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold shadow-xs",
+      "bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] border border-[var(--border-brand)] shadow-xs",
     outline:
-      "bg-transparent text-[var(--brand-primary)] border border-[var(--border-brand)] font-bold",
+      "bg-transparent text-[var(--text-brand)] dark:text-[var(--brand-primary)] border border-[var(--border-brand)]",
   };
 
   const selectedSize = sizeClasses[size] || sizeClasses.md;

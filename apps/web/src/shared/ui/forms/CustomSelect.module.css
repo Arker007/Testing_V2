@@ -20,13 +20,13 @@
   cursor: pointer;
   transition: all var(--motion-fast) var(--ease-standard);
   outline: none;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: none;
 }
 
 .customSelectTrigger:hover {
   border-color: var(--border-hover, #cbd5e1);
   background-color: var(--bg-surface, #ffffff);
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: none;
 }
 
 .customSelectContainerOpen .customSelectTrigger {
@@ -120,7 +120,7 @@
   background-color: var(--bg-surface-elevated, #ffffff);
   border: 1px solid var(--border-default, #e2e8f0);
   border-radius: var(--radius-lg, 10px);
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+  box-shadow: var(--shadow-2-down);
   padding: 0.35rem;
   overflow: hidden;
   animation: selectFadeIn var(--motion-instant) var(--ease-standard);
@@ -265,7 +265,7 @@
 :global([data-theme="dark"]) .customSelectDropdownWrapper {
   background-color: #1e293b;
   border-color: #334155;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-2-down);
 }
 
 :global(.dark) .optionLabel,

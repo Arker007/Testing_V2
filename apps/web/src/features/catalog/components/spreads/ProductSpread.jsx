@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import styles from "../../styles/AdminCatalog.module.css";
 import { pad, getProductImage, getSpecs } from "../../utils/catalog.utils";
 
@@ -81,7 +82,7 @@ export function getProductSpread({
                 <img src={imgUrl} alt="Feature" />
               ) : (
                 <div style={{ fontSize: "1.5rem", color: "var(--gray-200)" }}>
-                  <i className="fa-solid fa-cube" />
+                  <Icon icon="carbon:box" className="w-6 h-6 text-slate-300" />
                 </div>
               )}
             </div>
@@ -192,7 +193,7 @@ export function getProductSpread({
                       <img src={relImg} alt={rel.name} />
                     ) : (
                       <div className={styles.variantThumbItemFallback}>
-                        <i className="fa-solid fa-cube" />
+                        <Icon icon="carbon:box" className="w-5 h-5 text-slate-300" />
                       </div>
                     )}
                   </div>

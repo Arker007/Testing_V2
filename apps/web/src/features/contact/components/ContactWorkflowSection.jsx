@@ -2,15 +2,23 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import styles from "../styles/contact-workflow.module.css";
 import { WORKFLOW_STEPS } from "../constants";
-import { SectionHeader } from "@/shared/ui";
+import { SectionHeader, Badge } from "@/shared/ui";
 
 export default function ContactWorkflowSection() {
   return (
     <section className={styles.workflowSection}>
       <div className="container">
         <SectionHeader
-          eyebrow="Procurement Workflow"
-          eyebrowVariant="dark"
+          eyebrow={
+            <Badge
+              variant="eyebrow"
+              size="lg"
+              icon={<Icon icon="solar:round-transfer-vertical-linear" className="w-4 h-4" />}
+              className={styles.workflowBadge}
+            >
+              Procurement Workflow
+            </Badge>
+          }
           title="5-Stage Factory Procurement Process"
           subtitle="A structured manufacturing and supply lifecycle ensuring dimensional tolerance, load testing, and scheduled batch logistics."
           light

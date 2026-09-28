@@ -44,15 +44,21 @@ export default function Button({
   const isFullWidth = fullWidth || fullwidth;
 
   const sizeClasses = {
-    sm: "min-h-[var(--btn-h-sm,34px)] px-[var(--btn-px-sm,0.875rem)] py-[var(--btn-py-sm,0.375rem)] text-xs rounded-[var(--radius-btn,8px)] gap-1.5 font-semibold",
+    sm: "min-h-[var(--btn-h-sm,34px)] px-[var(--btn-px-sm,0.875rem)] py-[var(--btn-py-sm,0.375rem)] text-xs rounded-[var(--radius-btn,8px)] gap-2 font-semibold",
     md: "min-h-[var(--btn-h-md,42px)] px-[var(--btn-px-md,1.375rem)] py-[var(--btn-py-md,0.625rem)] text-sm rounded-[var(--radius-btn,8px)] gap-2 font-semibold",
-    lg: "min-h-[var(--btn-h-lg,48px)] px-[var(--btn-px-lg,1.75rem)] py-[var(--btn-py-lg,0.75rem)] text-base rounded-[var(--radius-btn,8px)] gap-2.5 font-semibold",
+    lg: "min-h-[var(--btn-h-lg,48px)] px-[var(--btn-px-lg,1.75rem)] py-[var(--btn-py-lg,0.75rem)] text-base rounded-[var(--radius-btn,8px)] gap-2 font-semibold",
   };
 
   const spinnerSizeClasses = {
     sm: "w-3.5 h-3.5",
     md: "w-4 h-4",
-    lg: "w-5 h-5",
+    lg: "w-4.5 h-4.5",
+  };
+
+  const arrowSizeClasses = {
+    sm: "w-3.5 h-3.5",
+    md: "w-4 h-4",
+    lg: "w-4.5 h-4.5",
   };
 
   const baseClasses =
@@ -72,21 +78,22 @@ export default function Button({
     explore:
       "bg-[var(--navy)] text-[var(--text-inverse)] hover:bg-[var(--navy-hover)] shadow-[var(--shadow-sm)] border border-transparent",
     danger:
-      "bg-rose-600 text-white hover:bg-rose-700 active:bg-rose-800 shadow-[var(--shadow-sm)] border border-transparent",
+      "bg-[var(--danger-500)] text-white hover:bg-[var(--danger-600)] active:bg-[var(--danger-700)] shadow-[var(--shadow-sm)] border border-transparent",
     success:
-      "bg-emerald-600 text-white hover:bg-emerald-700 active:bg-emerald-800 shadow-[var(--shadow-sm)] border border-transparent",
+      "bg-[var(--success-600)] text-white hover:bg-[var(--success-700)] active:bg-[var(--success-800)] shadow-[var(--shadow-sm)] border border-transparent",
   };
 
   const selectedSizeClass = sizeClasses[size] || sizeClasses.md;
   const selectedVariantClass = variantClasses[variant] || variantClasses.primary;
   const selectedSpinnerSize = spinnerSizeClasses[size] || spinnerSizeClasses.md;
+  const selectedArrowSize = arrowSizeClasses[size] || arrowSizeClasses.md;
   const isInteractive = !disabled && !loading;
 
   const content = (
     <>
       {loading ? (
         <Icon
-          icon="carbon:renew"
+          icon="solar:refresh-circle-linear"
           className={`${selectedSpinnerSize} animate-spin shrink-0`}
           aria-hidden="true"
         />
@@ -97,9 +104,9 @@ export default function Button({
       {showArrow && !loading && (
         <span className="shrink-0 transition-transform duration-200 group-hover:translate-x-1">
           {variant === "outline" || variant === "ghost" ? (
-            <Icon icon="carbon:chevron-right" className="w-4 h-4" />
+            <Icon icon="solar:alt-arrow-right-linear" className={selectedArrowSize} />
           ) : (
-            <Icon icon="carbon:arrow-right" className="w-4 h-4" />
+            <Icon icon="solar:arrow-right-linear" className={selectedArrowSize} />
           )}
         </span>
       )}

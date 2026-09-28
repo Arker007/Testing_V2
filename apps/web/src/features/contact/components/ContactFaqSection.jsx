@@ -70,7 +70,7 @@ export default function ContactFaqSection() {
 
       {/* Restored Direct Connect CTA Card */}
       {c("about_cta_enabled", "1") !== "0" && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12 cta-section">
+        <section className="container pt-6 pb-12 cta-section">
           <CtaCard
             badge="Direct Connect"
             badgeVariant="brand"

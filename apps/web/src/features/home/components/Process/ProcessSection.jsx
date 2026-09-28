@@ -397,8 +397,8 @@ export default function ProcessSection({ className = "" }) {
                     <Icon icon="carbon:renew" className="w-12 h-12 text-emerald-600 dark:text-emerald-400" />
                   </div>
                 </div>
-                <span className="block font-extrabold text-slate-900 dark:text-white text-sm tracking-tight">Zero Waste. Infinite Value.</span>
-                <p className="text-slate-600 dark:text-slate-300 text-xs font-normal max-w-xs mt-1">We don't just recycle, we recreate value.</p>
+                <span className="block font-extrabold text-slate-900 dark:text-white text-sm tracking-tight">Zero waste, infinite value</span>
+                <p className="text-slate-600 dark:text-slate-300 text-xs font-normal max-w-xs mt-1">We transform industrial polymer waste into durable, long-lasting infrastructure.</p>
               </div>
             </div>
 
@@ -481,9 +481,9 @@ export default function ProcessSection({ className = "" }) {
           {/* Mobile & Tablet Horizontal Stepper Layout */}
           <div className="lg:hidden flex flex-col gap-6 max-w-lg mx-auto">
             <div className="flex justify-between items-center px-1">
-              <span className="text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Select Manufacturing Step</span>
+              <span className="text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Select manufacturing step</span>
               <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1 animate-pulse">
-                Swipe left/right <Icon icon="carbon:chevron-right" className="w-3 h-3" />
+                Swipe left or right <Icon icon="carbon:chevron-right" className="w-3 h-3" />
               </span>
             </div>
 
@@ -615,8 +615,8 @@ export default function ProcessSection({ className = "" }) {
             {/* Card 1 */}
             <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
-                <Icon icon="carbon:renew" className="w-5 h-5" />
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-xs">
+                <Icon icon="solar:restart-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
                 <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Sustainable</span>
@@ -628,11 +628,11 @@ export default function ProcessSection({ className = "" }) {
             {/* Card 2 */}
             <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
-                <Icon icon="carbon:security" className="w-5 h-5" />
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-xs">
+                <Icon icon="solar:shield-check-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
-                <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Quality Assured</span>
+                <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Quality assured</span>
                 <p className="text-[var(--text-secondary)] text-xs leading-relaxed font-normal">Each step is tested for performance and safety.</p>
                 <div className="w-6 h-0.5 bg-[var(--brand-primary)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
               </div>
@@ -641,11 +641,11 @@ export default function ProcessSection({ className = "" }) {
             {/* Card 3 */}
             <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
-                <Icon icon="carbon:chip" className="w-5 h-5" />
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-xs">
+                <Icon icon="solar:cpu-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
-                <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Advanced Tech</span>
+                <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Advanced technology</span>
                 <p className="text-[var(--text-secondary)] text-xs leading-relaxed font-normal">Modern machines for precision and consistent quality.</p>
                 <div className="w-6 h-0.5 bg-[var(--brand-primary)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
               </div>
@@ -654,11 +654,11 @@ export default function ProcessSection({ className = "" }) {
             {/* Card 4 */}
             <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-2xs">
-                <Icon icon="carbon:globe" className="w-5 h-5" />
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-xs">
+                <Icon icon="solar:global-linear" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
-                <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Better for Planet</span>
+                <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Better for the planet</span>
                 <p className="text-[var(--text-secondary)] text-xs leading-relaxed font-normal">Reducing landfill waste and building a circular future.</p>
                 <div className="w-6 h-0.5 bg-[var(--brand-primary)] rounded-full mt-2 group-hover:w-10 transition-all duration-300" />
               </div>

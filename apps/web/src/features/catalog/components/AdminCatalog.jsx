@@ -34,7 +34,7 @@ export default function AdminCatalog() {
           onClick={() => setSplitView((prev) => !prev)}
           icon={<Icon icon={splitView ? "carbon:view-off" : "carbon:view"} className="w-4 h-4 mr-1" />}
         >
-          {splitView ? "Hide Template" : "Show Template Spread"}
+          {splitView ? "Hide template" : "Show template spread"}
         </Button>
         <Button
           type="button"
@@ -43,7 +43,7 @@ export default function AdminCatalog() {
           onClick={() => window.print()}
           icon={<Icon icon="carbon:printer" className="w-4 h-4 mr-1" />}
         >
-          Print / Save PDF
+          Print or save PDF
         </Button>
       </div>
     );
@@ -99,7 +99,7 @@ export default function AdminCatalog() {
               onClick={() => setActiveSpreadIdx((idx) => Math.max(0, idx - 1))}
               icon={<Icon icon="carbon:chevron-left" className="w-4 h-4 mr-1" />}
             >
-              Prev
+              Previous
             </Button>
 
             <span className={styles.pageIndicator}>
@@ -126,12 +126,11 @@ export default function AdminCatalog() {
             <span
               style={{
                 fontSize: "0.75rem",
-                fontWeight: 700,
+                fontWeight: 600,
                 color: "var(--text-muted)",
-                textTransform: "uppercase",
               }}
             >
-              Total Spreads: {spreads.length} ({spreads.length * 2} Pages)
+              Total spreads: {spreads.length} ({spreads.length * 2} pages)
             </span>
           </div>
         </div>
@@ -140,7 +139,7 @@ export default function AdminCatalog() {
           <div className={styles.splitWorkspace}>
             <div className={styles.spreadContainer}>
               <span className={styles.spreadSpreadTitle}>
-                Live Generated Preview ({company.name || "VISHAL ENTERPRISE"})
+                Live preview ({company.name || "Vishal Enterprise"})
               </span>
               <div className={styles.catalog} id="generated-spread">
                 {currentSpread?.left}
@@ -151,15 +150,15 @@ export default function AdminCatalog() {
             {splitView && (
               <div className={styles.spreadContainer}>
                 <span className={styles.spreadSpreadTitle}>
-                  Original Design Template (RePall Ref)
+                  Original design template (reference)
                 </span>
                 <div className={styles.templateSpread}>
                   <span className={styles.templateLabel}>
-                    Original Spec Reference
+                    Original specification reference
                   </span>
                   <img
                     src={templateImg}
-                    alt="Original Template"
+                    alt="Original template reference"
                     className={styles.templateImage}
                     onError={(e) => {
                       e.currentTarget.style.display = "none";

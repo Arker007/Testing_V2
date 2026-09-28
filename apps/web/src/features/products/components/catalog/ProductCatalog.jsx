@@ -270,10 +270,15 @@ export default function ProductCatalog() {
       .filter((p) => {
         if (!p) return false;
 
-        // Top Category Bar / Dropdown
-        if (selectedCategory !== "All") {
+        // Multi-Select Category Filtering (Supports multiple simultaneous selected categories)
+        if (selectedCategories.length > 0) {
+          const matchesAnyCat = selectedCategories.some((cat) => matchesCategory(p, cat));
+          if (!matchesAnyCat) return false;
+        } else if (selectedCategory && selectedCategory !== "All") {
           const pCatName = p.category_name || p.category || "";
-          if (!pCatName.toLowerCase().includes(selectedCategory.toLowerCase())) return false;
+          if (!pCatName.toLowerCase().includes(selectedCategory.toLowerCase()) && !matchesCategory(p, selectedCategory)) {
+            return false;
+          }
         }
 
         // Search Query
@@ -289,12 +294,6 @@ export default function ProductCatalog() {
         if (minStaticLoad > 0) {
           const load = getStaticLoadKg(p);
           if (load < minStaticLoad) return false;
-        }
-
-        // Sidebar Categories Checkboxes
-        if (selectedCategories.length > 0) {
-          const matchesAnyCat = selectedCategories.some((cat) => matchesCategory(p, cat));
-          if (!matchesAnyCat) return false;
         }
 
         // Sidebar Attributes Checkboxes

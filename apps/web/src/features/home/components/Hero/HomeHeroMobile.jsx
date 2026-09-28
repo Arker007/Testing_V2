@@ -405,7 +405,7 @@ export default function HomeHeroMobile() {
                   className="inline-block w-fit"
                 >
                   <Link to="/products" className="exploreBtnGlobal">
-                    <span>{c("hero_cta_primary", "EXPLORE PRODUCTS")}</span>
+                    <span>{c("hero_cta_primary", "Explore products")}</span>
                     <Motion.span
                       animate={shouldReduceMotion ? {} : { x: [0, 3, 0] }}
                       transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
@@ -446,7 +446,7 @@ export default function HomeHeroMobile() {
                       <Icon icon={iconName} className="w-[15px] h-[15px] stroke-[1.5px]" />
                     </div>
                     <div className="flex flex-col flex-1 min-w-0 justify-center">
-                      <span className="text-white text-[10px] uppercase font-extrabold tracking-wide leading-tight">{feat.title}</span>
+                      <span className="text-white text-[10px] font-bold tracking-normal leading-tight">{feat.title}</span>
                       <span className="text-slate-300 text-[9.5px] font-medium leading-snug mt-0.5">{feat.text}</span>
                     </div>
                   </Motion.div>
@@ -470,7 +470,7 @@ export default function HomeHeroMobile() {
             </div>
             
             <div className="flex flex-col gap-0.5">
-              <span className="text-[#0f1319] text-[10px] font-extrabold tracking-widest uppercase">{c("hero_assistance_title", "NEED ASSISTANCE?")}</span>
+              <span className="text-[#0f1319] text-[11px] font-bold tracking-normal">{c("hero_assistance_title", "Need assistance?")}</span>
               <span className="text-slate-500 text-[9.5px] font-medium leading-snug max-w-[140px]">
                 {c("hero_assistance_sub", "Our team is ready to help you find the right solution.")}
               </span>
@@ -481,12 +481,12 @@ export default function HomeHeroMobile() {
             href={`tel:${cleanedPhone}`}
             whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
             transition={{ type: "spring", stiffness: 450, damping: 25 }}
-            className="flex items-center justify-center gap-1.5 bg-[#0f1319] border border-[#0f1319] !text-white py-2 px-3 rounded-[8px] text-[10px] font-extrabold uppercase transition hover:bg-[var(--brand)] hover:border-[var(--brand)] hover:!text-[#0f1319] shrink-0"
+            className="flex items-center justify-center gap-1.5 bg-[#0f1319] border border-[#0f1319] !text-white py-2 px-3 rounded-[8px] text-[10px] font-bold uppercase transition hover:bg-[var(--brand)] hover:border-[var(--brand)] hover:!text-[#0f1319] shrink-0"
           >
             <svg className="w-3.5 h-3.5 !text-white" viewBox="0 0 32 32" fill="currentColor">
               <path d="M26 29h-1a22.09 22.09 0 01-22-22V6a3 3 0 013-3h5a1 1 0 011 .72l1.63 6.13a1 1 0 01-.34 1l-3.32 2.5A16.07 16.07 0 0015.65 19l2.5-3.32a1 1 0 011-.34l6.13 1.63a1 1 0 01.72 1.09v5a3 3 0 01-3 3z" />
             </svg>
-            <span className="!text-white">{c("hero_assistance_btn", "CONTACT US")}</span>
+            <span className="!text-white">{c("hero_assistance_btn", "Contact us")}</span>
           </Motion.a>
         </Motion.div>
       </div>

@@ -12,14 +12,14 @@ export default function WhoWeAreSection() {
   if (c("about_bento_enabled", "1") === "0") return null;
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <section className="container py-16 md:py-24">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         {/* Left Column: Heading & Paragraph */}
         <div className="lg:col-span-5 space-y-6">
           <SectionHeader
-            eyebrow="Who We Are"
+            eyebrow="Who we are"
             eyebrowIcon="carbon:industry"
-            title={c("about_who_title", "Pioneering Eco-Friendly Industrial Plastics Since 2008.")}
+            title={c("about_who_title", "Pioneering eco-friendly industrial plastics since 2008")}
             align="left"
             accentLine
             size="lg"
@@ -53,16 +53,16 @@ export default function WhoWeAreSection() {
             className="group flex flex-col p-6 bg-[var(--bg-surface)] rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex items-center justify-between gap-3 mb-3">
-              <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
-                <Icon icon="carbon:target" className="w-6 h-6" />
+              <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
+                <Icon icon="solar:target-linear" className="w-6 h-6" />
               </div>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[var(--radius-sm,6px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-[0.6875rem] font-bold text-[var(--text-secondary)] tracking-wider">
-                Core Purpose
+                Core purpose
               </span>
             </div>
             <div>
               <h3 className="text-[1.0625rem] font-bold text-[var(--text-primary)] mb-1.5 leading-snug group-hover:text-[var(--text-brand)] transition-colors">
-                {c("about_mission_title", "Our Mission")}
+                {c("about_mission_title", "Our mission")}
               </h3>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal">
                 {c("about_mission_text", "To deliver top-quality recycled plastic products that add value, reduce waste and create a better world.")}
@@ -76,16 +76,16 @@ export default function WhoWeAreSection() {
             className="group flex flex-col p-6 bg-[var(--bg-surface)] rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex items-center justify-between gap-3 mb-3">
-              <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
-                <Icon icon="carbon:view" className="w-6 h-6" />
+              <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
+                <Icon icon="solar:eye-linear" className="w-6 h-6" />
               </div>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[var(--radius-sm,6px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-[0.6875rem] font-bold text-[var(--text-secondary)] tracking-wider">
-                Long-Term Goal
+                Long-term goal
               </span>
             </div>
             <div>
               <h3 className="text-[1.0625rem] font-bold text-[var(--text-primary)] mb-1.5 leading-snug group-hover:text-[var(--text-brand)] transition-colors">
-                {c("about_vision_title", "Our Vision")}
+                {c("about_vision_title", "Our vision")}
               </h3>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal">
                 {c("about_vision_text", "To be India's most trusted and preferred manufacturer of sustainable plastic solutions.")}
@@ -99,16 +99,16 @@ export default function WhoWeAreSection() {
             className="group flex flex-col p-6 bg-[var(--bg-surface)] rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] shadow-xs dark:shadow-xl hover:shadow-md transition-all duration-300 hover:-translate-y-1"
           >
             <div className="flex items-center justify-between gap-3 mb-3">
-              <div className="w-11 h-11 rounded-[var(--radius-btn,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
-                <Icon icon="carbon:badge" className="w-6 h-6" />
+              <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
+                <Icon icon="solar:diploma-verified-linear" className="w-6 h-6" />
               </div>
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-[var(--radius-sm,6px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] text-[0.6875rem] font-bold text-[var(--text-secondary)] tracking-wider">
-                Quality Guarantee
+                Quality guarantee
               </span>
             </div>
             <div>
               <h3 className="text-[1.0625rem] font-bold text-[var(--text-primary)] mb-1.5 leading-snug group-hover:text-[var(--text-brand)] transition-colors">
-                {c("about_commitment_title", "Our Commitment")}
+                {c("about_commitment_title", "Our commitment")}
               </h3>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal">
                 {c("about_commitment_text", "Every product is checked, tested and delivered with a promise of quality you can rely on.")}

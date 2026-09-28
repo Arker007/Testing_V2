@@ -109,7 +109,7 @@ export default function Dashboard() {
         </div>
       )}
 
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <StatCard iconName="carbon:cube" label="Products Listed" value={loading ? "..." : stats?.products ?? 0} href="/admin/products" />
         <StatCard iconName="carbon:tag" label="Total Categories" value={loading ? "..." : stats?.categories ?? 0} href="/admin/categories" />
         <StatCard iconName="carbon:email" label="Inquiries Logged" value={loading ? "..." : inquiries.length} href="/admin/inquiries" />
@@ -207,7 +207,7 @@ function StatusRow({ iconName, label, ok, loading, detail }) {
     <div className={`${styles.statusRowMini} ${stateClass}`}>
       <div className={styles.statusIconMini}>
         {loading ? (
-          <Icon icon="carbon:renew" className="w-4 h-4 animate-spin" />
+          <Icon icon="solar:refresh-circle-linear" className="w-4 h-4 animate-spin" />
         ) : (
           <Icon icon={iconName} className="w-4 h-4" />
         )}
@@ -216,11 +216,11 @@ function StatusRow({ iconName, label, ok, loading, detail }) {
       <div className={styles.statusDetailMini}>{loading ? "Verifying..." : detail}</div>
       <div className={styles.statusBadgeMini}>
         {loading ? (
-          <Icon icon="carbon:renew" className="w-3.5 h-3.5 animate-spin" />
+          <Icon icon="solar:refresh-circle-linear" className="w-3.5 h-3.5 animate-spin" />
         ) : ok ? (
-          <Icon icon="carbon:checkmark-outline" className="w-3.5 h-3.5 text-emerald-500" />
+          <Icon icon="solar:check-circle-bold" className="w-3.5 h-3.5" />
         ) : (
-          <Icon icon="carbon:close-outline" className="w-3.5 h-3.5 text-rose-500" />
+          <Icon icon="solar:close-circle-bold" className="w-3.5 h-3.5" />
         )}
       </div>
     </div>

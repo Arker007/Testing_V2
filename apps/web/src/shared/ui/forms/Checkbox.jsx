@@ -86,9 +86,9 @@ const Checkbox = forwardRef(function Checkbox(
           }`}
         >
           {indeterminate ? (
-            <Icon icon="carbon:subtract" className={`${currentIconSize} text-slate-950 font-bold`} />
+            <Icon icon="solar:minus-bold" className={`${currentIconSize} text-slate-950 font-bold`} />
           ) : checked ? (
-            <Icon icon="carbon:checkmark-filled" className={`${currentIconSize} text-slate-950 font-bold`} />
+            <Icon icon="solar:check-read-bold" className={`${currentIconSize} text-slate-950 font-bold`} />
           ) : null}
         </div>
       </div>

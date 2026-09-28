@@ -2,23 +2,80 @@
    LAYOUT, NAVIGATION, 8-POINT GRID & STRUCTURAL ALIGNMENT
    ========================================================================== */
 
-/* ─── Base Layout Container ──────────────────────────────── */
+/* ─── Ant Design Unified Canvas & Adaptation Containers ───── */
 .layout-container {
   width: 100%;
+  max-width: var(--canvas-content-width, 1168px);
   margin-left: auto;
   margin-right: auto;
+  padding-left: var(--margin-blanking-min, 24px);
+  padding-right: var(--margin-blanking-min, 24px);
 }
 
-/* ─── 12-Column Responsive Layout Grid (Horizontal Rhythm) ───── */
-.grid-12 {
+/* Top-Bottom Layout Adaptation (Defined min marginal blanking + dynamic scale) */
+.layout-top-bottom {
+  width: 100%;
+  max-width: var(--canvas-content-width, 1168px);
+  margin-inline: auto;
+  padding-inline: max(var(--margin-blanking-min, 24px), env(safe-area-inset-left));
+}
+
+@media (min-width: 1440px) {
+  .layout-top-bottom {
+    padding-inline: var(--margin-blanking-desktop, 32px);
+  }
+}
+
+/* Left-Right Layout Adaptation (Fixed left nav, fluid right work area) */
+.layout-left-right {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.layout-left-fixed {
+  width: var(--layout-sidebar-width, 256px);
+  flex-shrink: 0;
+}
+
+.layout-right-fluid {
+  flex: 1 1 0%;
+  min-width: 0;
+  width: calc(100% - var(--layout-sidebar-width, 256px));
+}
+
+/* ─── Ant Design 24-Grid Raster Architecture (Dynamic Spatial Order) ── */
+.raster-24,
+.grid-24 {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--space-comp-lg, 24px);
-  row-gap: var(--space-comp-lg, 24px);
+  grid-template-columns: repeat(24, minmax(0, 1fr));
+  column-gap: var(--gutter-md, 24px);
+  row-gap: var(--gutter-md, 24px);
   width: 100%;
 }
 
-/* 12-Column Spans */
+/* Fixed Raster Gutters (Multiples of 8) */
+.gutter-8  { column-gap: var(--gutter-base, 8px);  row-gap: var(--gutter-base, 8px); }
+.gutter-16 { column-gap: var(--gutter-sm, 16px);   row-gap: var(--gutter-sm, 16px); }
+.gutter-24 { column-gap: var(--gutter-md, 24px);   row-gap: var(--gutter-md, 24px); }
+.gutter-32 { column-gap: var(--gutter-lg, 32px);   row-gap: var(--gutter-lg, 32px); }
+.gutter-40 { column-gap: var(--gutter-xl, 40px);   row-gap: var(--gutter-xl, 40px); }
+.gutter-48 { column-gap: var(--gutter-2xl, 48px);  row-gap: var(--gutter-2xl, 48px); }
+
+/* 24-Column Spans */
+.col-span-24 { grid-column: span 24 / span 24; }
+.col-span-23 { grid-column: span 23 / span 23; }
+.col-span-22 { grid-column: span 22 / span 22; }
+.col-span-21 { grid-column: span 21 / span 21; }
+.col-span-20 { grid-column: span 20 / span 20; }
+.col-span-19 { grid-column: span 19 / span 19; }
+.col-span-18 { grid-column: span 18 / span 18; }
+.col-span-17 { grid-column: span 17 / span 17; }
+.col-span-16 { grid-column: span 16 / span 16; }
+.col-span-15 { grid-column: span 15 / span 15; }
+.col-span-14 { grid-column: span 14 / span 14; }
+.col-span-13 { grid-column: span 13 / span 13; }
 .col-span-12 { grid-column: span 12 / span 12; }
 .col-span-11 { grid-column: span 11 / span 11; }
 .col-span-10 { grid-column: span 10 / span 10; }
@@ -32,7 +89,69 @@
 .col-span-2  { grid-column: span 2 / span 2; }
 .col-span-1  { grid-column: span 1 / span 1; }
 
+/* Beginning and Ending Columns (Ant Design Raster Rule 4) */
+.col-start-1  { grid-column-start: 1; }
+.col-start-2  { grid-column-start: 2; }
+.col-start-3  { grid-column-start: 3; }
+.col-start-4  { grid-column-start: 4; }
+.col-start-5  { grid-column-start: 5; }
+.col-start-6  { grid-column-start: 6; }
+.col-start-7  { grid-column-start: 7; }
+.col-start-8  { grid-column-start: 8; }
+.col-start-9  { grid-column-start: 9; }
+.col-start-10 { grid-column-start: 10; }
+.col-start-11 { grid-column-start: 11; }
+.col-start-12 { grid-column-start: 12; }
+.col-start-13 { grid-column-start: 13; }
+.col-start-14 { grid-column-start: 14; }
+.col-start-15 { grid-column-start: 15; }
+.col-start-16 { grid-column-start: 16; }
+.col-start-17 { grid-column-start: 17; }
+.col-start-18 { grid-column-start: 18; }
+.col-start-19 { grid-column-start: 19; }
+.col-start-20 { grid-column-start: 20; }
+.col-start-21 { grid-column-start: 21; }
+.col-start-22 { grid-column-start: 22; }
+.col-start-23 { grid-column-start: 23; }
+.col-start-24 { grid-column-start: 24; }
+
+.col-end-1  { grid-column-end: 1; }
+.col-end-2  { grid-column-end: 2; }
+.col-end-3  { grid-column-end: 3; }
+.col-end-4  { grid-column-end: 4; }
+.col-end-5  { grid-column-end: 5; }
+.col-end-6  { grid-column-end: 6; }
+.col-end-7  { grid-column-end: 7; }
+.col-end-8  { grid-column-end: 8; }
+.col-end-9  { grid-column-end: 9; }
+.col-end-10 { grid-column-end: 10; }
+.col-end-11 { grid-column-end: 11; }
+.col-end-12 { grid-column-end: 12; }
+.col-end-13 { grid-column-end: 13; }
+.col-end-14 { grid-column-end: 14; }
+.col-end-15 { grid-column-end: 15; }
+.col-end-16 { grid-column-end: 16; }
+.col-end-17 { grid-column-end: 17; }
+.col-end-18 { grid-column-end: 18; }
+.col-end-19 { grid-column-end: 19; }
+.col-end-20 { grid-column-end: 20; }
+.col-end-21 { grid-column-end: 21; }
+.col-end-22 { grid-column-end: 22; }
+.col-end-23 { grid-column-end: 23; }
+.col-end-24 { grid-column-end: 24; }
+.col-end-25 { grid-column-end: 25; }
+
+/* ─── 12-Column Responsive Layout Grid (Horizontal Rhythm) ───── */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--space-comp-lg, 24px);
+  row-gap: var(--space-comp-lg, 24px);
+  width: 100%;
+}
+
 @media (max-width: 1024px) {
+  .lg-col-span-24 { grid-column: span 24 / span 24; }
   .lg-col-span-12 { grid-column: span 12 / span 12; }
   .lg-col-span-8  { grid-column: span 8 / span 8; }
   .lg-col-span-6  { grid-column: span 6 / span 6; }
@@ -40,8 +159,14 @@
 }
 
 @media (max-width: 768px) {
+  .md-col-span-24 { grid-column: span 24 / span 24; }
   .md-col-span-12 { grid-column: span 12 / span 12; }
   .md-col-span-6  { grid-column: span 6 / span 6; }
+  .raster-24,
+  .grid-24 {
+    column-gap: var(--gutter-sm, 16px);
+    row-gap: var(--gutter-sm, 16px);
+  }
   .grid-12 {
     column-gap: var(--space-comp-md, 16px);
     row-gap: var(--space-comp-md, 16px);
@@ -49,7 +174,11 @@
 }
 
 @media (max-width: 640px) {
+  .sm-col-span-24 { grid-column: span 24 / span 24; }
   .sm-col-span-12 { grid-column: span 12 / span 12; }
+  .raster-24 > [class*="col-span-"] {
+    grid-column: span 24 / span 24;
+  }
   .grid-12 > [class*="col-span-"] {
     grid-column: span 12 / span 12;
   }

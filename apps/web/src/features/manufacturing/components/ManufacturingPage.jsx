@@ -41,7 +41,7 @@ export default function ManufacturingPage() {
 
       {/* Manufacturing Advantages / Tech Stats */}
       <section className="py-16 px-4 bg-[var(--bg-surface-secondary)] border-t border-[var(--border-subtle)]">
-        <div className="container mx-auto max-w-5xl">
+        <div className="container">
           <div className="text-center mb-12">
             <div className="mb-4">
               <Badge variant="eyebrow" size="lg" icon="carbon:star">
@@ -65,7 +65,7 @@ export default function ManufacturingPage() {
               </div>
               <div className="feature-card-top">
                 <div className="feature-icon-wrapper">
-                  <Icon icon="carbon:chip" className="w-6 h-6" />
+                  <Icon icon="solar:cpu-linear" className="w-6 h-6" />
                 </div>
                 <span className="feature-tag">Automated QA</span>
               </div>
@@ -85,7 +85,7 @@ export default function ManufacturingPage() {
               </div>
               <div className="feature-card-top">
                 <div className="feature-icon-wrapper">
-                  <Icon icon="carbon:certificate" className="w-6 h-6" />
+                  <Icon icon="solar:diploma-verified-linear" className="w-6 h-6" />
                 </div>
                 <span className="feature-tag">ISO 9001:2015</span>
               </div>
@@ -105,7 +105,7 @@ export default function ManufacturingPage() {
               </div>
               <div className="feature-card-top">
                 <div className="feature-icon-wrapper">
-                  <Icon icon="carbon:flash" className="w-6 h-6" />
+                  <Icon icon="solar:shield-check-linear" className="w-6 h-6" />
                 </div>
                 <span className="feature-tag">RoHS Compliant</span>
               </div>
@@ -119,7 +119,7 @@ export default function ManufacturingPage() {
       </section>
 
       {/* Bottom CTA Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 cta-section">
+      <section className="container pt-8 pb-12 cta-section">
         <CtaCard
           badge="Industrial Manufacturing Facility"
           badgeVariant="brand"

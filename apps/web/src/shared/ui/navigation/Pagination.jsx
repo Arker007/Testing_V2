@@ -48,17 +48,17 @@ export default function Pagination({
         type="button"
         disabled={currentPage <= 1}
         onClick={() => onPageChange(currentPage - 1)}
-        className="w-10 h-10 flex items-center justify-center rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-40 disabled:text-slate-400 dark:disabled:text-slate-600 disabled:cursor-not-allowed hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 active:scale-95"
+        className="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[var(--bg-surface-secondary)] hover:border-[var(--border-default)] transition-all cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95"
         aria-label="Previous Page"
       >
-        <Icon icon="carbon:chevron-left" className="w-4 h-4" />
+        <Icon icon="solar:alt-arrow-left-linear" className="w-4 h-4" />
       </button>
 
       {getPageNumbers().map((p, idx) =>
         p === "..." ? (
           <span
             key={`ellipsis-${idx}`}
-            className="w-8 flex items-center justify-center text-sm font-semibold text-slate-400 dark:text-slate-500 select-none"
+            className="w-8 flex items-center justify-center text-sm font-semibold text-[var(--text-muted)] select-none"
           >
             ...
           </span>
@@ -67,10 +67,10 @@ export default function Pagination({
             key={p}
             type="button"
             onClick={() => onPageChange(p)}
-            className={`min-w-[40px] h-10 px-3.5 flex items-center justify-center rounded-lg text-sm font-bold transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 active:scale-95 ${
+            className={`min-w-[40px] h-10 px-3.5 flex items-center justify-center rounded-lg text-sm font-bold transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95 ${
               currentPage === p
-                ? "bg-[var(--brand-primary,#16a34a)] text-white border border-[var(--brand-primary,#16a34a)] shadow-xs font-extrabold"
-                : "bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-xs"
+                ? "bg-[var(--brand-primary)] text-[var(--brand-btn-text)] border border-[var(--brand-primary)] shadow-xs font-extrabold"
+                : "bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-secondary)] hover:border-[var(--border-default)] shadow-xs"
             }`}
           >
             {p}
@@ -82,10 +82,10 @@ export default function Pagination({
         type="button"
         disabled={currentPage >= totalPages}
         onClick={() => onPageChange(currentPage + 1)}
-        className="w-10 h-10 flex items-center justify-center rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-40 disabled:text-slate-400 dark:disabled:text-slate-600 disabled:cursor-not-allowed hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 transition-all cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 active:scale-95"
+        className="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[var(--bg-surface-secondary)] hover:border-[var(--border-default)] transition-all cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95"
         aria-label="Next Page"
       >
-        <Icon icon="carbon:chevron-right" className="w-4 h-4" />
+        <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4" />
       </button>
     </nav>
   );

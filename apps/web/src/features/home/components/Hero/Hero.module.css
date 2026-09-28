@@ -73,8 +73,8 @@ html.dark .hero {
   position: absolute;
   top: 2.5rem;
   left: 3.5rem;
-  width: 130px;
-  height: 75px;
+  width: 128px;
+  height: 72px;
   background-image: radial-gradient(var(--neutral-100) 2.5px, transparent 2.5px);
   opacity: 0.35;
   background-size: 16px 16px;
@@ -93,7 +93,7 @@ html.dark .dotsPatternLeft,
   position: absolute;
   top: 2.5rem;
   right: 3.5rem;
-  width: 140px;
+  width: 144px;
   height: 80px;
   background-image: radial-gradient(rgba(15, 20, 26, 0.18) 2.5px, transparent 2.5px);
   background-size: 16px 16px;
@@ -114,7 +114,7 @@ html.dark .dotsPatternRightTop,
   bottom: 2rem;
   right: 3rem;
   width: 120px;
-  height: 50px;
+  height: 48px;
   background-image: radial-gradient(rgba(15, 20, 26, 0.18) 2.5px, transparent 2.5px);
   background-size: 16px 16px;
   z-index: 3;
@@ -210,7 +210,7 @@ html.dark .dotsPatternRightBottom,
   padding: 0.5rem 1.25rem 0.5rem 0.75rem;
   border-radius: 8px;
   margin-top: 0.25rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem; /* 16px - Level 2 medium group */
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 16px var(--shadow-md);
   transition: all 0.3s ease;
@@ -275,8 +275,8 @@ html.dark .dotsPatternRightBottom,
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 0.5rem;
-  margin-bottom: 1.25rem;
+  margin-top: 0.5rem;   /* 8px - Level 1 close binding */
+  margin-bottom: 1rem;  /* 16px - Level 2 medium group */
 }
 
 .underlineLine {
@@ -298,7 +298,7 @@ html.dark .dotsPatternRightBottom,
   font-size: 1.0625rem;
   line-height: 1.65;
   color: var(--text-inverse-secondary);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem; /* 24px - Level 3 large section break */
   max-width: 530px;
   min-height: 4.8rem;
   display: -webkit-box;
@@ -311,12 +311,12 @@ html.dark .dotsPatternRightBottom,
 .featurePanel {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
+  gap: 1rem; /* 16px - Level 2 medium grid gap */
   background: transparent;
   border: none;
   border-radius: 0;
   padding: 0.5rem 0 0.5rem 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem; /* 24px - Level 3 large section break */
   backdrop-filter: none;
   box-shadow: none;
   max-width: 100%;
@@ -335,8 +335,8 @@ html.dark .dotsPatternRightBottom,
 }
 
 .featureIconRing {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   border: 2px solid var(--brand-primary, var(--brand-green));
   background: transparent !important;
@@ -344,7 +344,7 @@ html.dark .dotsPatternRightBottom,
   align-items: center;
   justify-content: center;
   color: var(--brand-primary, var(--brand-green));
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.625rem;
   transition: transform 0.2s ease, border-color 0.2s ease;
   flex-shrink: 0;
 }
@@ -356,8 +356,8 @@ html.dark .dotsPatternRightBottom,
 }
 
 .featureIcon {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   color: var(--brand-primary, var(--brand-green)) !important;
   stroke: var(--brand-primary, var(--brand-green)) !important;
 }
@@ -365,13 +365,16 @@ html.dark .dotsPatternRightBottom,
 .featureTitle {
   font-family: var(--font-family-primary, var(--font-sans));
   font-size: 0.8125rem !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
   color: var(--text-inverse, #FFFFFF) !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  margin-bottom: 0.35rem !important;
+  letter-spacing: 0.04em !important;
   line-height: 1.25 !important;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.1rem;
+  margin-bottom: 0.25rem !important;
   text-align: center;
 }
 
@@ -380,10 +383,11 @@ html.dark .dotsPatternRightBottom,
   font-size: 0.75rem !important;
   font-weight: 400 !important;
   color: var(--text-inverse-muted, #CBD5E1) !important;
-  line-height: 1.35 !important;
-  max-width: 140px;
+  line-height: 1.45 !important;
+  max-width: 148px;
   margin: 0 auto;
   text-align: center;
+  text-wrap: balance;
 }
 
 /* CTA Row & Decorative Slashes */

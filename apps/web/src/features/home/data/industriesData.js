@@ -20,7 +20,7 @@ import {
 export const INDUSTRIES_DATA = [
   {
     id: "construction",
-    title: "Construction & Civil",
+    title: "Construction and civil",
     desc: "Heavy-duty structural formwork, framing lumber, shoring blocks, and site protection barriers built to withstand extreme mechanical loads and jobsite wear.",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
     delay: 0,
@@ -30,8 +30,8 @@ export const INDUSTRIES_DATA = [
     iconBoxClass: "iconBoxLime",
     statIcon: MotionShieldCheck,
     statVariants: shieldCheckVariants,
-    statText: "50+ Year Lifespan",
-    tagText: "Zero Rot",
+    statText: "50+ year lifespan",
+    tagText: "Zero rot",
   },
   {
     id: "infrastructure",
@@ -46,7 +46,7 @@ export const INDUSTRIES_DATA = [
   },
   {
     id: "municipal",
-    title: "Municipal Parks",
+    title: "Municipal parks",
     desc: "Vandal-resistant outdoor park benches, heavy-duty picnic tables, anti-corrosion trash receptacles, and bollards for civic parks and public spaces.",
     image: "https://images.unsplash.com/photo-1519974719765-e6559eac2575?q=80&w=1000&auto=format&fit=crop",
     delay: 0.1,
@@ -69,7 +69,7 @@ export const INDUSTRIES_DATA = [
   },
   {
     id: "warehousing",
-    title: "Warehousing & Cold Logistics",
+    title: "Warehousing and cold logistics",
     desc: "High-density rackable pallets, skid boards, and cold storage platforms engineered for automated high-bay warehouses and multi-ton forklift operations.",
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000&auto=format&fit=crop",
     delay: 0.2,
@@ -81,7 +81,7 @@ export const INDUSTRIES_DATA = [
   },
   {
     id: "commercial",
-    title: "Commercial & Hospitality",
+    title: "Commercial and hospitality",
     desc: "Resort outdoor loungers, corporate campus amenities, and custom architectural fixtures tailored for zero-maintenance public spaces.",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
     delay: 0.25,

@@ -11,6 +11,7 @@ import {
   HomeHeroMobile,
   TrustedBySection,
   IndustriesGrid,
+  TestimonialsSection,
   HomeCtaSection,
 } from "../";
 
@@ -50,6 +51,7 @@ export default function HomePage() {
 
       <FeaturesSection />
       <IndustriesGrid />
+      <TestimonialsSection />
       <HomeCtaSection />
     </div>
   );
