@@ -747,80 +747,17 @@ html.dark .assistanceBtn {
   }
   .assistanceCard {
     width: 100%;
-    margin-right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 @media (max-width: 991px) {
   .hero {
-    background: var(--neutral-100);
+    background: var(--hero-gradient, linear-gradient(135deg, var(--neutral-950) 0%, var(--neutral-950) 55%, var(--neutral-800) 100%));
     padding-top: 4rem;
     padding-bottom: 4rem;
-    color: var(--neutral-950);
-  }
-  :root[data-theme="dark"] .hero,
-  html.dark .hero,
-  .dark .hero {
-    background: var(--hero-gradient, linear-gradient(135deg, var(--neutral-950) 0%, var(--neutral-950) 55%, var(--neutral-800) 100%));
     color: var(--text-inverse);
-  }
-  .titleWhite {
-    color: var(--neutral-950);
-  }
-  :root[data-theme="dark"] .titleWhite,
-  html.dark .titleWhite,
-  .dark .titleWhite {
-    color: var(--white);
-  }
-  .description {
-    color: var(--neutral-700);
-  }
-  :root[data-theme="dark"] .description,
-  html.dark .description,
-  .dark .description {
-    color: var(--text-inverse-secondary);
-  }
-  .featureTitle {
-    color: var(--text-inverse);
-  }
-  :root[data-theme="dark"] .featureTitle,
-  html.dark .featureTitle,
-  .dark .featureTitle {
-    color: var(--text-inverse);
-  }
-  .featureDesc {
-    color: var(--text-inverse-secondary);
-  }
-  :root[data-theme="dark"] .featureDesc,
-  html.dark .featureDesc,
-  .dark .featureDesc {
-    color: var(--text-inverse-secondary);
-  }
-  .badgeText {
-    color: var(--neutral-950);
-  }
-  :root[data-theme="dark"] .badgeText,
-  html.dark .badgeText,
-  .dark .badgeText {
-    color: var(--white);
-  }
-  .badge {
-    background: var(--neutral-200);
-    border-color: var(--neutral-300);
-  }
-  :root[data-theme="dark"] .badge,
-  html.dark .badge,
-  .dark .badge {
-    background: var(--neutral-950);
-    border-color: rgba(255, 255, 255, 0.12);
-  }
-  .badgeIconWrapper {
-    border-color: var(--neutral-300);
-  }
-  :root[data-theme="dark"] .badgeIconWrapper,
-  html.dark .badgeIconWrapper,
-  .dark .badgeIconWrapper {
-    border-color: rgba(255, 255, 255, 0.12);
   }
   .slantBgGreen, .slantBgDark {
     display: none;
@@ -860,11 +797,11 @@ html.dark .assistanceBtn {
   }
   .featureColumn:nth-child(1),
   .featureColumn:nth-child(2) {
-    border-bottom: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-on-dark);
     padding-bottom: 1rem;
   }
   .featureColumn:nth-child(odd) {
-    border-right: 1px solid var(--border-dark);
+    border-right: 1px solid var(--border-on-dark);
   }
   .featureColumn:nth-child(even) {
     border-right: none;
@@ -919,7 +856,7 @@ html.dark .assistanceBtn {
   }
   .featureColumn:nth-child(1),
   .featureColumn:nth-child(2) {
-    border-bottom: 1px solid var(--border-dark) !important;
+    border-bottom: 1px solid var(--border-on-dark) !important;
     padding-bottom: 1rem !important;
   }
   .featureColumn:nth-child(3),
@@ -928,7 +865,7 @@ html.dark .assistanceBtn {
     padding-top: 0.5rem !important;
   }
   .featureColumn:nth-child(odd) {
-    border-right: 1px solid var(--border-dark) !important;
+    border-right: 1px solid var(--border-on-dark) !important;
   }
   .featureColumn:nth-child(even) {
     border-right: none !important;

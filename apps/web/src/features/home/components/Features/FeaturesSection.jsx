@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useSite } from "@/shared/context/SiteContext";
+import { Badge } from "@/shared/ui";
 import FeaturesTrustRow from "./FeaturesTrustRow";
 import styles from "./Features.module.css";
 
@@ -85,11 +86,13 @@ export default function FeaturesSection() {
           <div className="lg:col-span-6 flex flex-col justify-between relative pt-2">
             <div>
               {/* Subheader tag */}
-              <div className="flex items-center space-x-3 mb-4">
-                <span className="w-7 h-[2.5px] bg-[var(--brand-primary)] inline-block" />
-                <span className="text-xs md:text-sm font-bold tracking-widest text-[var(--text-brand)] uppercase">
-                  {c("why_us_eyebrow", c("why_us_badge", "WHY CHOOSE VISHAL ENTERPRISE"))}
-                </span>
+              <div className="mb-4">
+                <Badge
+                  variant="extrusion"
+                  icon="solar:shield-check-linear"
+                >
+                  {c("why_us_eyebrow", c("why_us_badge", "WHY INDUSTRIES CHOOSE US"))}
+                </Badge>
               </div>
 
               {/* Main Title */}
