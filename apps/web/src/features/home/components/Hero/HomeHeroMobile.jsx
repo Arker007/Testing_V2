@@ -165,7 +165,8 @@ export default function HomeHeroMobile() {
   return (
     <section
       ref={heroRef}
-      className="relative w-full bg-[#10141b] bg-navy dark-context min-h-screen flex flex-col pt-8 pb-8 font-sans overflow-hidden"
+      className="relative w-full dark-context min-h-screen flex flex-col pt-8 pb-8 font-sans overflow-x-hidden"
+      style={{ background: "var(--hero-gradient, linear-gradient(135deg, var(--neutral-950) 0%, var(--neutral-950) 55%, var(--neutral-800) 100%))" }}
       id="home-hero-mobile"
     >
       {/* Top right dots pattern */}
@@ -175,253 +176,313 @@ export default function HomeHeroMobile() {
         ))}
       </div>
 
-      <div className="w-[calc(100%-1rem)] mx-auto relative z-10 flex flex-col">
+      <div className="w-full max-w-[1280px] px-5 sm:px-6 md:px-8 mx-auto relative z-10 flex flex-col">
         
-        {/* Main Vertical Layout to prevent overlapping */}
-        <div className="flex flex-col mb-4 pt-4">
+        {/* Responsive Grid Layout to maximize space usage and maintain visual structure */}
+        <div className={`mb-4 pt-4 items-center ${styles.mobileGrid}`}>
           
-          {/* Badge */}
-          <div className="inline-flex items-center gap-[0.75rem] bg-[var(--neutral-950,#0a0a0a)] border border-white/12 py-2 pl-3 pr-5 mb-5 w-fit shadow-[0_4px_16px_var(--shadow-md,rgba(0,0,0,0.3))] backdrop-blur-md rounded-[8px]">
-            <div className="flex items-center justify-center bg-transparent text-[var(--brand)] pr-3 border-r border-white/12 rounded-none">
-              <svg className="w-6 h-6" viewBox="0 0 32 32" fill="currentColor">
-                <path d="M28 26V10a2 2 0 00-2-2h-4V4a2 2 0 00-2-2h-8a2 2 0 00-2 2v4H4a2 2 0 00-2 2v16a2 2 0 002 2h24a2 2 0 002-2zM12 4h8v4h-8zm-8 6h16v16H4zm22 16h-4V10h4z" />
-              </svg>
+          {/* Left Column: Badge, Title, Underline, and Description/Button (only for screens >= 615px) */}
+          <div className="flex flex-col">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-[0.75rem] bg-[var(--neutral-950,#0a0a0a)] border border-white/12 py-2 pl-3 pr-5 mb-5 w-fit shadow-[0_4px_16px_var(--shadow-md,rgba(0,0,0,0.3))] backdrop-blur-md rounded-[8px]">
+              <div className="flex items-center justify-center bg-transparent text-[var(--brand)] pr-3 border-r border-white/12 rounded-none">
+                <svg className="w-6 h-6" viewBox="0 0 32 32" fill="currentColor">
+                  <path d="M28 26V10a2 2 0 00-2-2h-4V4a2 2 0 00-2-2h-8a2 2 0 00-2 2v4H4a2 2 0 00-2 2v16a2 2 0 002 2h24a2 2 0 002-2zM12 4h8v4h-8zm-8 6h16v16H4zm22 16h-4V10h4z" />
+                </svg>
+              </div>
+              <span className="text-[0.8rem] font-extrabold tracking-[0.05em] text-white uppercase">{activeSlide.badge}</span>
             </div>
-            <span className="text-[0.8rem] font-extrabold tracking-[0.05em] text-white uppercase">{activeSlide.badge}</span>
+
+            <AnimatePresence mode="wait" initial={false}>
+              <Motion.div
+                key={current}
+                variants={mobileTextContainerVariants}
+                initial={isFirstRender ? false : "initial"}
+                animate="animate"
+                exit="exit"
+                className="flex flex-col w-full"
+              >
+                {/* Title */}
+                <h1 className="text-[32px] sm:text-4xl font-black uppercase leading-[1.05] mb-4 tracking-tight">
+                  <Motion.span variants={mobileTitleItemVariants} className="text-[var(--brand)] block mb-1">
+                    {activeSlide.titleLime}
+                  </Motion.span>
+                  <Motion.span variants={mobileTitleItemVariants} className="text-white block">
+                    {activeSlide.titleWhite}
+                  </Motion.span>
+                </h1>
+
+                {/* Headline Underline Accent */}
+                <Motion.div variants={mobileTitleItemVariants} className="flex items-center gap-2 mt-1 mb-6">
+                  <span className="h-[3px] w-[90px] bg-[var(--brand)] rounded-sm" />
+                  <span className="h-[7px] w-[7px] bg-[var(--brand)] rounded-full" />
+                </Motion.div>
+
+                {/* Description (visible on screens >= 615px) */}
+                <Motion.p
+                  variants={mobileTitleItemVariants}
+                  className={`text-[13px] text-slate-200 leading-relaxed mb-6 pr-2 font-medium ${styles.descDesktop}`}
+                >
+                  {activeSlide.desc}
+                </Motion.p>
+
+                {/* Button (visible on screens >= 615px) */}
+                <div className={`justify-start w-full mt-2 ${styles.btnDesktop}`}>
+                  <Motion.div
+                    whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
+                    whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 22 }}
+                    className="inline-block w-fit"
+                  >
+                    <Link to="/products" className="exploreBtnGlobal">
+                      <span>{c("hero_cta_primary", "Explore products")}</span>
+                      <Motion.span
+                        animate={shouldReduceMotion ? {} : { x: [0, 3, 0] }}
+                        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                        className="inline-flex items-center"
+                      >
+                        <svg className="exploreBtnArrowGlobal" viewBox="0 0 32 32" fill="currentColor">
+                          <path d="M18 15.5l6.5-6.5-6.5-6.5-1.4 1.4 4.1 4.1H4v2h16.7l-4.1 4.1z" />
+                        </svg>
+                      </Motion.span>
+                    </Link>
+                  </Motion.div>
+                </div>
+              </Motion.div>
+            </AnimatePresence>
           </div>
 
-          <AnimatePresence mode="wait" initial={false}>
-            <Motion.div
-              key={current}
-              variants={mobileTextContainerVariants}
-              initial={isFirstRender ? false : "initial"}
-              animate="animate"
-              exit="exit"
-              className="flex flex-col w-full"
-            >
-              {/* Title */}
-              <h1 className="text-[32px] sm:text-4xl font-black uppercase leading-[1.05] mb-4 tracking-tight">
-                <Motion.span variants={mobileTitleItemVariants} className="text-[var(--brand)] block mb-1">
-                  {activeSlide.titleLime}
-                </Motion.span>
-                <Motion.span variants={mobileTitleItemVariants} className="text-white block">
-                  {activeSlide.titleWhite}
-                </Motion.span>
-              </h1>
-
-              {/* Headline Underline Accent */}
-              <Motion.div variants={mobileTitleItemVariants} className="flex items-center gap-2 mt-1 mb-6">
-                <span className="h-[3px] w-[90px] bg-[var(--brand)] rounded-sm" />
-                <span className="h-[7px] w-[7px] bg-[var(--brand)] rounded-full" />
-              </Motion.div>
-
-              {/* Centered Hexagon Product Card with Navigation Chevrons */}
-              <div className="relative w-screen left-1/2 -translate-x-1/2 flex justify-center items-center my-6 h-[260px] z-10">
-                {/* Navigation Chevron Buttons pinned stably to screen edges */}
-                <button
-                  id="mobile-hero-chevron-prev"
-                  type="button"
-                  onClick={handlePrev}
-                  className={`${styles.chevronBtn} ${styles.chevronBtnLeft}`}
-                  aria-label="Previous Slide"
-                >
-                  <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M20 24l-8-8 8-8 1.4 1.4L14.8 16l6.6 6.6z" />
-                  </svg>
-                </button>
-                <button
-                  id="mobile-hero-chevron-next"
-                  type="button"
-                  onClick={handleNext}
-                  className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
-                  aria-label="Next Slide"
-                >
-                  <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="currentColor">
-                    <path d="M12 8l8 8-8 8-1.4-1.4 6.6-6.6-6.6-6.6z" />
-                  </svg>
-                </button>
-
-                <div
-                  ref={hexagonCardRef}
-                  id="mobile-hero-product-hexagon-frame"
-                  className="mx-auto w-[250px] h-[260px] pointer-events-none"
-                >
-                  <Motion.svg
-                    className="w-full h-full drop-shadow-2xl"
-                    viewBox="0 0 500 520"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    animate={shouldReduceMotion ? {} : { y: [0, -5, 0] }}
-                    transition={{
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
+          {/* Right Column: Hexagon Card + Pagination Capsule */}
+          <div className="flex flex-col items-center justify-center">
+            <AnimatePresence mode="wait" initial={false}>
+              <Motion.div
+                key={current}
+                variants={mobileTextContainerVariants}
+                initial={isFirstRender ? false : "initial"}
+                animate="animate"
+                exit="exit"
+                className="flex flex-col w-full items-center"
+              >
+                {/* Centered Hexagon Product Card with Navigation Chevrons */}
+                <div className={`flex justify-center items-center my-6 h-[260px] z-10 ${styles.hexagonContainer}`}>
+                  {/* Navigation Chevron Buttons pinned stably to screen edges */}
+                  <button
+                    id="mobile-hero-chevron-prev"
+                    type="button"
+                    onClick={handlePrev}
+                    className={`${styles.chevronBtn} ${styles.chevronBtnLeft}`}
+                    aria-label="Previous Slide"
                   >
-                    <defs>
-                      <radialGradient id="stageSpotlight" cx="50%" cy="52%" r="50%">
-                        <stop offset="0%" stopColor="#5FBF50" stopOpacity="0.14" />
-                        <stop offset="50%" stopColor="#011A38" stopOpacity="0.04" />
-                        <stop offset="100%" stopColor="#F2F2F2" stopOpacity="0" />
-                      </radialGradient>
-                      <clipPath id="heroHexagonClipMobile">
-                        <path
-                          d="M 250 42
-                              C 270 42, 430 118, 438 131
-                              C 446 144, 446 376, 438 389
-                              C 430 402, 270 478, 250 478
-                              C 230 478, 70 402, 62 389
-                              C 54 376, 54 144, 62 131
-                              C 70 118, 230 42, 250 42 Z"
-                        />
-                      </clipPath>
-                    </defs>
-                    {/* Outer White Hexagonal Card */}
-                    <path
-                      d="M 250 15
-                          C 275 15, 455 100, 465 115
-                          C 475 130, 475 390, 465 405
-                          C 455 420, 275 505, 250 505
-                          C 225 505, 45 420, 35 405
-                          C 25 390, 25 130, 35 115
-                          C 45 100, 225 15, 250 15 Z"
-                      fill="var(--white, #ffffff)"
-                    />
-                    {/* Specular Inner Top Highlight Line */}
-                    <path
-                      d="M 50 120
-                          C 60 108, 225 24, 250 24
-                          C 275 24, 440 108, 450 120"
+                    <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="currentColor">
+                      <path d="M20 24l-8-8 8-8 1.4 1.4L14.8 16l6.6 6.6z" />
+                    </svg>
+                  </button>
+                  <button
+                    id="mobile-hero-chevron-next"
+                    type="button"
+                    onClick={handleNext}
+                    className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
+                    aria-label="Next Slide"
+                  >
+                    <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="currentColor">
+                      <path d="M12 8l8 8-8 8-1.4-1.4 6.6-6.6-6.6-6.6z" />
+                    </svg>
+                  </button>
+
+                  <div
+                    ref={hexagonCardRef}
+                    id="mobile-hero-product-hexagon-frame"
+                    className="mx-auto w-[250px] h-[260px] pointer-events-none"
+                  >
+                    <Motion.svg
+                      className="w-full h-full drop-shadow-2xl"
+                      viewBox="0 0 500 520"
                       fill="none"
-                      stroke="rgba(255, 255, 255, 0.95)"
-                      strokeWidth="3"
-                    />
-                    {/* Full-Screen Product Image Clipped to Hexagon with Framer Motion */}
-                    <g clipPath="url(#heroHexagonClipMobile)">
-                      <foreignObject x="0" y="0" width="500" height="520">
-                        <div className="w-full h-full bg-white relative overflow-hidden">
-                          <div
-                            style={{
-                              position: "absolute",
-                              inset: 0,
-                              background: "radial-gradient(circle at 50% 50%, rgba(152, 209, 42, 0.16) 0%, rgba(11, 47, 99, 0.04) 55%, transparent 75%)",
-                              pointerEvents: "none",
-                            }}
+                      xmlns="http://www.w3.org/2000/svg"
+                      animate={shouldReduceMotion ? {} : { y: [0, -5, 0] }}
+                      transition={{
+                        duration: 5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <defs>
+                        <radialGradient id="stageSpotlight" cx="50%" cy="52%" r="50%">
+                          <stop offset="0%" stopColor="#5FBF50" stopOpacity="0.14" />
+                          <stop offset="50%" stopColor="#011A38" stopOpacity="0.04" />
+                          <stop offset="100%" stopColor="#F2F2F2" stopOpacity="0" />
+                        </radialGradient>
+                        <clipPath id="heroHexagonClipMobile">
+                          <path
+                            d="M 250 42
+                                C 270 42, 430 118, 438 131
+                                C 446 144, 446 376, 438 389
+                                C 430 402, 270 478, 250 478
+                                C 230 478, 70 402, 62 389
+                                C 54 376, 54 144, 62 131
+                                C 70 118, 230 42, 250 42 Z"
                           />
-                          <AnimatePresence mode="wait" initial={false}>
-                            <Motion.div
-                              key={current}
-                              initial={isFirstRender ? false : { opacity: 0, scale: 0.9, y: 10, filter: "blur(4px)" }}
-                              animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
-                              exit={{ opacity: 0, scale: 1.06, y: -6, filter: "blur(3px)" }}
-                              transition={{
-                                duration: 0.45,
-                                ease: [0.16, 1, 0.3, 1],
-                              }}
+                        </clipPath>
+                      </defs>
+                      {/* Outer White Hexagonal Card */}
+                      <path
+                        d="M 250 15
+                            C 275 15, 455 100, 465 115
+                            C 475 130, 475 390, 465 405
+                            C 455 420, 275 505, 250 505
+                            C 225 505, 45 420, 35 405
+                            C 25 390, 25 130, 35 115
+                            C 45 100, 225 15, 250 15 Z"
+                        fill="var(--white, #ffffff)"
+                      />
+                      {/* Specular Inner Top Highlight Line */}
+                      <path
+                        d="M 50 120
+                            C 60 108, 225 24, 250 24
+                            C 275 24, 440 108, 450 120"
+                        fill="none"
+                        stroke="rgba(255, 255, 255, 0.95)"
+                        strokeWidth="3"
+                      />
+                      {/* Full-Screen Product Image Clipped to Hexagon with Framer Motion */}
+                      <g clipPath="url(#heroHexagonClipMobile)">
+                        <foreignObject x="0" y="0" width="500" height="520">
+                          <div className="w-full h-full bg-white relative overflow-hidden">
+                            <div
                               style={{
                                 position: "absolute",
                                 inset: 0,
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                padding: "20px",
-                                zIndex: 2,
+                                background: "radial-gradient(circle at 50% 50%, rgba(152, 209, 42, 0.16) 0%, rgba(11, 47, 99, 0.04) 55%, transparent 75%)",
+                                pointerEvents: "none",
                               }}
-                            >
-                              <OptimizedImage
-                                src={getOptimizedMobileHeroImage(activeSlide.image)}
-                                fallbackSrc={activeSlide.fallbackSrc}
-                                alt={activeSlide.titleWhite}
-                                loading="eager"
-                                fetchPriority="high"
-                                width="500"
-                                height="520"
-                                style={{
-                                  width: "100%",
-                                  height: "100%",
-                                  objectFit: "contain",
-                                  display: "block",
-                                  filter: "none",
+                            />
+                            <AnimatePresence mode="wait" initial={false}>
+                              <Motion.div
+                                key={current}
+                                initial={isFirstRender ? false : { opacity: 0, scale: 0.9, y: 10, filter: "blur(4px)" }}
+                                animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
+                                exit={{ opacity: 0, scale: 1.06, y: -6, filter: "blur(3px)" }}
+                                transition={{
+                                  duration: 0.45,
+                                  ease: [0.16, 1, 0.3, 1],
                                 }}
-                              />
-                            </Motion.div>
-                          </AnimatePresence>
-                        </div>
-                      </foreignObject>
-                    </g>
-                    {/* Inset Green Accent Stroke Frame */}
-                    <path
-                      d="M 250 42
-                          C 270 42, 430 118, 438 131
-                          C 446 144, 446 376, 438 389
-                          C 430 402, 270 478, 250 478
-                          C 230 478, 70 402, 62 389
-                          C 54 376, 54 144, 62 131
-                          C 70 118, 230 42, 250 42 Z"
-                      fill="none"
-                      stroke="var(--brand-primary, #6BBF54)"
-                      strokeWidth="2.5"
-                    />
-                  </Motion.svg>
-                </div>
-              </div>
-
-              {/* Pagination Capsule matching desktop */}
-              <div className="flex justify-center items-center mb-6">
-                <div className={styles.paginationDots}>
-                  <div className={styles.paginationTrack}>
-                    {slides.map((slide, idx) => (
-                      <Motion.button
-                        key={idx}
-                        onClick={() => setCurrent(idx)}
-                        whileHover={shouldReduceMotion ? {} : { scale: 1.25 }}
-                        whileTap={shouldReduceMotion ? {} : { scale: 0.85 }}
-                        transition={{ type: "spring", stiffness: 500, damping: 28 }}
-                        className={`${styles.paginationDot} ${
-                          idx === current ? styles.paginationDotActive : ""
-                        }`}
-                        aria-label={`Go to slide ${idx + 1}: ${slide.titleWhite}`}
-                        title={slide.titleWhite}
+                                style={{
+                                  position: "absolute",
+                                  inset: 0,
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  padding: "20px",
+                                  zIndex: 2,
+                                }}
+                              >
+                                <OptimizedImage
+                                  src={getOptimizedMobileHeroImage(activeSlide.image)}
+                                  fallbackSrc={activeSlide.fallbackSrc}
+                                  alt={activeSlide.titleWhite}
+                                  loading="eager"
+                                  fetchPriority="high"
+                                  width="500"
+                                  height="520"
+                                  style={{
+                                    width: "100%",
+                                    height: "100%",
+                                    objectFit: "contain",
+                                    display: "block",
+                                    filter: "none",
+                                  }}
+                                />
+                              </Motion.div>
+                            </AnimatePresence>
+                          </div>
+                        </foreignObject>
+                      </g>
+                      {/* Inset Green Accent Stroke Frame */}
+                      <path
+                        d="M 250 42
+                            C 270 42, 430 118, 438 131
+                            C 446 144, 446 376, 438 389
+                            C 430 402, 270 478, 250 478
+                            C 230 478, 70 402, 62 389
+                            C 54 376, 54 144, 62 131
+                            C 70 118, 230 42, 250 42 Z"
+                        fill="none"
+                        stroke="var(--brand-primary, #6BBF54)"
+                        strokeWidth="2.5"
                       />
-                    ))}
+                    </Motion.svg>
                   </div>
                 </div>
-              </div>
 
-              {/* Description */}
-              <Motion.p
-                variants={mobileTitleItemVariants}
-                className="text-[13px] text-slate-200 leading-relaxed mb-6 pr-2 font-medium"
-              >
-                {activeSlide.desc}
-              </Motion.p>
+                {/* Pagination Capsule matching desktop */}
+                <div className="flex justify-center items-center mb-6">
+                  <div className={styles.paginationDots}>
+                    <div className={styles.paginationTrack}>
+                      {slides.map((slide, idx) => (
+                        <Motion.button
+                          key={idx}
+                          onClick={() => setCurrent(idx)}
+                          whileHover={shouldReduceMotion ? {} : { scale: 1.25 }}
+                          whileTap={shouldReduceMotion ? {} : { scale: 0.85 }}
+                          transition={{ type: "spring", stiffness: 500, damping: 28 }}
+                          className={`${styles.paginationDot} ${
+                            idx === current ? styles.paginationDotActive : ""
+                          }`}
+                          aria-label={`Go to slide ${idx + 1}: ${slide.titleWhite}`}
+                          title={slide.titleWhite}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Motion.div>
+            </AnimatePresence>
+          </div>
 
-              {/* Button */}
-              <div className="flex justify-center w-full mt-2">
-                <Motion.div
-                  whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
-                  whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 22 }}
-                  className="inline-block w-fit"
-                >
-                  <Link to="/products" className="exploreBtnGlobal">
-                    <span>{c("hero_cta_primary", "Explore products")}</span>
-                    <Motion.span
-                      animate={shouldReduceMotion ? {} : { x: [0, 3, 0] }}
-                      transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                      className="inline-flex items-center"
-                    >
-                      <svg className="exploreBtnArrowGlobal" viewBox="0 0 32 32" fill="currentColor">
-                        <path d="M18 15.5l6.5-6.5-6.5-6.5-1.4 1.4 4.1 4.1H4v2h16.7l-4.1 4.1z" />
-                      </svg>
-                    </Motion.span>
-                  </Link>
-                </Motion.div>
-              </div>
-            </Motion.div>
-          </AnimatePresence>
-          
         </div>
+
+        {/* Description & Button (only visible on true portrait mobile < 615px, rendered below the hexagon to maintain stacking order) */}
+        <AnimatePresence mode="wait" initial={false}>
+          <Motion.div
+            key={current}
+            variants={mobileTextContainerVariants}
+            initial={isFirstRender ? false : "initial"}
+            animate="animate"
+            exit="exit"
+            className={`flex flex-col w-full mb-6 ${styles.descMobile}`}
+          >
+            {/* Description */}
+            <Motion.p
+              variants={mobileTitleItemVariants}
+              className="text-[13px] text-slate-200 leading-relaxed mb-6 pr-2 font-medium"
+            >
+              {activeSlide.desc}
+            </Motion.p>
+
+            {/* Button */}
+            <div className="flex justify-center w-full mt-2">
+              <Motion.div
+                whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
+                whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 400, damping: 22 }}
+                className="inline-block w-fit"
+              >
+                <Link to="/products" className="exploreBtnGlobal">
+                  <span>{c("hero_cta_primary", "Explore products")}</span>
+                  <Motion.span
+                    animate={shouldReduceMotion ? {} : { x: [0, 3, 0] }}
+                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                    className="inline-flex items-center"
+                  >
+                    <svg className="exploreBtnArrowGlobal" viewBox="0 0 32 32" fill="currentColor">
+                      <path d="M18 15.5l6.5-6.5-6.5-6.5-1.4 1.4 4.1 4.1H4v2h16.7l-4.1 4.1z" />
+                    </svg>
+                  </Motion.span>
+                </Link>
+              </Motion.div>
+            </div>
+          </Motion.div>
+        </AnimatePresence>
 
         {/* Features Grid */}
         <AnimatePresence mode="wait">
@@ -431,23 +492,27 @@ export default function HomeHeroMobile() {
             initial={isFirstRender ? false : "hidden"}
             animate="visible"
             exit="exit"
-            className="grid grid-cols-1 gap-4 mb-10 sm:grid-cols-2"
+            className="mb-10 w-full"
           >
-            <div className="grid grid-cols-2 gap-2.5 col-span-1 sm:col-span-2">
+            <div className="grid grid-cols-2 gap-0 border-t border-b border-white/5 py-1">
               {activeSlide.features.slice(0, 4).map((feat, idx) => {
                 const iconName = iconMap[feat.icon] || "carbon:security";
                 return (
                   <Motion.div
                     key={idx}
                     variants={mobileTitleItemVariants}
-                    className="p-2.5 sm:p-3 flex flex-row items-center gap-2.5 bg-[#1b2129] rounded-[8px]"
+                    className="p-3 sm:p-4 flex flex-row items-center gap-3 bg-transparent text-left"
+                    style={{
+                      borderBottom: (idx === 0 || idx === 1) ? "1px solid var(--border-on-dark, rgba(255, 255, 255, 0.12))" : "none",
+                      borderRight: (idx % 2 === 0) ? "1px solid var(--border-on-dark, rgba(255, 255, 255, 0.12))" : "none",
+                    }}
                   >
-                    <div className="w-[30px] h-[30px] shrink-0 rounded-full bg-[rgba(107,191,84,0.15)] text-[var(--brand)] border border-[rgba(107,191,84,0.3)] flex items-center justify-center">
-                      <Icon icon={iconName} className="w-[15px] h-[15px] stroke-[1.5px]" />
+                    <div className="w-[34px] h-[34px] shrink-0 rounded-full border-2 border-[var(--brand-primary,#6BBF54)] bg-transparent flex items-center justify-center text-[var(--brand-primary,#6BBF54)]">
+                      <Icon icon={iconName} className="w-[16px] h-[16px]" style={{ color: "var(--brand-primary, #6BBF54)" }} />
                     </div>
                     <div className="flex flex-col flex-1 min-w-0 justify-center">
-                      <span className="text-white text-[10px] font-bold tracking-normal leading-tight">{feat.title}</span>
-                      <span className="text-slate-300 text-[9.5px] font-medium leading-snug mt-0.5">{feat.text}</span>
+                      <span className="text-white text-[11px] font-bold uppercase tracking-wider leading-tight">{feat.title}</span>
+                      <span className="text-slate-300 text-[10px] font-medium leading-relaxed mt-0.5">{feat.text}</span>
                     </div>
                   </Motion.div>
                 );

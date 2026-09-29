@@ -3,8 +3,8 @@
   position: relative;
   background: var(--neutral-100);
   color: var(--text-inverse);
-  padding-top: 3.5rem;
-  padding-bottom: 4rem;
+  padding-top: clamp(2.5rem, 4.5vw, 3.5rem);
+  padding-bottom: clamp(3rem, 5vw, 4rem);
   overflow: hidden;
   min-height: 780px;
   display: flex;
@@ -186,7 +186,7 @@ html.dark .dotsPatternRightBottom,
 .heroGrid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap: 3rem;
+  gap: clamp(1.5rem, 3.5vw, 3rem);
   align-items: center;
   position: relative;
   z-index: 10;
@@ -244,7 +244,7 @@ html.dark .dotsPatternRightBottom,
 .headline {
   margin-bottom: 0.5rem;
   line-height: var(--line-height-display, 1.15);
-  min-height: clamp(4.8rem, 8.5vw, 8.2rem);
+  min-height: clamp(4.5rem, 8vw, 8rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -295,10 +295,10 @@ html.dark .dotsPatternRightBottom,
 
 /* Description */
 .description {
-  font-size: 1.0625rem;
+  font-size: clamp(0.95rem, 1.1vw, 1.0625rem);
   line-height: 1.65;
   color: var(--text-inverse-secondary);
-  margin-bottom: 1.5rem; /* 24px - Level 3 large section break */
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
   max-width: 530px;
   min-height: 4.8rem;
   display: -webkit-box;
@@ -311,12 +311,12 @@ html.dark .dotsPatternRightBottom,
 .featurePanel {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1rem; /* 16px - Level 2 medium grid gap */
+  gap: clamp(0.5rem, 1.2vw, 1rem);
   background: transparent;
   border: none;
   border-radius: 0;
   padding: 0.5rem 0 0.5rem 0;
-  margin-bottom: 1.5rem; /* 24px - Level 3 large section break */
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
   backdrop-filter: none;
   box-shadow: none;
   max-width: 100%;
@@ -335,8 +335,8 @@ html.dark .dotsPatternRightBottom,
 }
 
 .featureIconRing {
-  width: 48px;
-  height: 48px;
+  width: clamp(40px, 4.5vw, 48px);
+  height: clamp(40px, 4.5vw, 48px);
   border-radius: 50%;
   border: 2px solid var(--brand-primary, var(--brand-green));
   background: transparent !important;
@@ -344,7 +344,7 @@ html.dark .dotsPatternRightBottom,
   align-items: center;
   justify-content: center;
   color: var(--brand-primary, var(--brand-green));
-  margin-bottom: 0.625rem;
+  margin-bottom: clamp(0.4rem, 1vw, 0.625rem);
   transition: transform 0.2s ease, border-color 0.2s ease;
   flex-shrink: 0;
 }
@@ -364,7 +364,7 @@ html.dark .dotsPatternRightBottom,
 
 .featureTitle {
   font-family: var(--font-family-primary, var(--font-sans));
-  font-size: 0.8125rem !important;
+  font-size: clamp(0.75rem, 0.9vw, 0.8125rem) !important;
   font-weight: 700 !important;
   color: var(--text-inverse, #FFFFFF) !important;
   text-transform: uppercase !important;
@@ -373,14 +373,14 @@ html.dark .dotsPatternRightBottom,
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.1rem;
+  min-height: clamp(1.8rem, 2.5vw, 2.1rem);
   margin-bottom: 0.25rem !important;
   text-align: center;
 }
 
 .featureDesc {
   font-family: var(--font-family-primary, var(--font-sans));
-  font-size: 0.75rem !important;
+  font-size: clamp(0.7rem, 0.8vw, 0.75rem) !important;
   font-weight: 400 !important;
   color: var(--text-inverse-muted, #CBD5E1) !important;
   line-height: 1.45 !important;
@@ -394,7 +394,7 @@ html.dark .dotsPatternRightBottom,
 .ctaRow {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
 }
 
 .exploreBtn {
@@ -462,7 +462,8 @@ html.dark .dotsPatternRightBottom,
 
 @media (min-width: 992px) {
   .heroRight {
-    transform: translateX(clamp(35px, 24vw - 240px, 190px));
+    justify-content: flex-end;
+    transform: none;
   }
 }
 
@@ -474,10 +475,16 @@ html.dark .dotsPatternRightBottom,
   width: 100%;
 }
 
+@media (min-width: 992px) {
+  .productShowcase {
+    align-items: flex-end;
+  }
+}
+
 .productFrameWrapper {
   position: relative;
   width: 100%;
-  max-width: 580px;
+  max-width: 460px;
   aspect-ratio: 1 / 1.04;
   display: flex;
   align-items: center;
@@ -522,7 +529,7 @@ html.dark .dotsPatternRightBottom,
 .bottomControlsRow {
   position: relative;
   width: 100%;
-  max-width: 580px;
+  max-width: 460px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -750,9 +757,32 @@ html.dark .assistanceBtn {
     margin-left: auto;
     margin-right: auto;
   }
+  .chevronBtn {
+    display: none !important;
+  }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
+  .featurePanel {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(0.85rem, 2vw, 1.25rem) clamp(0.4rem, 1vw, 0.75rem);
+    width: 100%;
+    padding: 1.25rem 0;
+  }
+  .featureColumn:nth-child(1),
+  .featureColumn:nth-child(2) {
+    border-bottom: 1px solid var(--border-on-dark);
+    padding-bottom: 1rem;
+  }
+  .featureColumn:nth-child(odd) {
+    border-right: 1px solid var(--border-on-dark);
+  }
+  .featureColumn:nth-child(even) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 767px) {
   .hero {
     background: var(--hero-gradient, linear-gradient(135deg, var(--neutral-950) 0%, var(--neutral-950) 55%, var(--neutral-800) 100%));
     padding-top: 4rem;
@@ -787,24 +817,6 @@ html.dark .assistanceBtn {
   }
   .description {
     max-width: 100%;
-  }
-  .featurePanel {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem 0.5rem;
-    width: 100%;
-    max-width: 580px;
-    padding: 1.25rem 1rem;
-  }
-  .featureColumn:nth-child(1),
-  .featureColumn:nth-child(2) {
-    border-bottom: 1px solid var(--border-on-dark);
-    padding-bottom: 1rem;
-  }
-  .featureColumn:nth-child(odd) {
-    border-right: 1px solid var(--border-on-dark);
-  }
-  .featureColumn:nth-child(even) {
-    border-right: none;
   }
   .ctaRow {
     justify-content: center;
@@ -895,3 +907,63 @@ html.dark .assistanceBtn {
     overflow: hidden;
   }
 }
+
+/* ── Custom 600px Responsive Classes for Mobile Hero Grid ── */
+.mobileGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+@media (min-width: 600px) {
+  .mobileGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.descDesktop {
+  display: none !important;
+}
+
+@media (min-width: 600px) {
+  .descDesktop {
+    display: block !important;
+  }
+}
+
+.btnDesktop {
+  display: none !important;
+}
+
+@media (min-width: 600px) {
+  .btnDesktop {
+    display: flex !important;
+  }
+}
+
+.descMobile {
+  display: flex !important;
+}
+
+@media (min-width: 600px) {
+  .descMobile {
+    display: none !important;
+  }
+}
+
+.hexagonContainer {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (min-width: 600px) {
+  .hexagonContainer {
+    width: 100% !important;
+    left: auto !important;
+    transform: none !important;
+  }
+}
+

@@ -2,6 +2,16 @@
    LAYOUT, NAVIGATION, 8-POINT GRID & STRUCTURAL ALIGNMENT
    ========================================================================== */
 
+:root {
+  --canvas-content-width: 1168px;
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --canvas-content-width: 1400px;
+  }
+}
+
 /* ─── Ant Design Unified Canvas & Adaptation Containers ───── */
 .layout-container {
   width: 100%;

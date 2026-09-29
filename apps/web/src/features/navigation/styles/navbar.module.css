@@ -425,6 +425,7 @@ html.dark .mobileMenuBtn:hover {
   height: auto !important;
   box-shadow: var(--shadow-sm) !important;
   border-radius: 8px !important;
+  white-space: nowrap !important;
 }
 
 .headerQuoteBtnWrap :global(.btn-icon-bubble) {
@@ -552,7 +553,7 @@ html.dark .dropdownOpen .dropdownBtn:hover {
   justify-content: center;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1199px) {
   .dropdownMenu {
     display: none !important;
   }
@@ -1836,13 +1837,13 @@ html.dark .mobileCardDrawer {
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .floatingWa {
     display: none;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1199px) {
   .logoNameLine1 {
     font-size: 0.95rem;
   }

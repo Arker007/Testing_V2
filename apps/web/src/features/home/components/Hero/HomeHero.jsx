@@ -285,7 +285,7 @@ export default function HomeHero() {
         <Icon icon="carbon:chevron-right" className="w-5 h-5 text-white" />
       </button>
 
-      <div className="container relative z-10">
+      <div className="layout-container relative z-10">
         <div className={styles.heroGrid}>
           {/* Left Content Column */}
           <div className={styles.heroLeft}>
