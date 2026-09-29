@@ -75,7 +75,25 @@ export default function TimedInquiryModal() {
     setReferenceId("");
   };
 
-  // Track site usage time across public navigation
+  // Always listen for manual trigger events from anywhere across the app
+  useEffect(() => {
+    const handleManualOpen = (e) => {
+      if (e?.detail?.product) {
+        setForm((prev) => ({
+          ...prev,
+          productService: e.detail.product.name || prev.productService,
+        }));
+      }
+      setIsOpen(true);
+    };
+
+    window.addEventListener("open-inquiry-modal", handleManualOpen);
+    return () => {
+      window.removeEventListener("open-inquiry-modal", handleManualOpen);
+    };
+  }, []);
+
+  // Track site usage time across public navigation for auto-trigger
   useEffect(() => {
     // If user has already dismissed or submitted in this session, do not auto-open
     if (sessionStorage.getItem(STORAGE_DISMISSED_KEY) === "true") {
@@ -97,22 +115,8 @@ export default function TimedInquiryModal() {
       }
     }, remainingTime);
 
-    // Global event listener to allow manual triggering from anywhere
-    const handleManualOpen = (e) => {
-      if (e?.detail?.product) {
-        setForm((prev) => ({
-          ...prev,
-          productService: e.detail.product.name || prev.productService,
-        }));
-      }
-      setIsOpen(true);
-    };
-
-    window.addEventListener("open-inquiry-modal", handleManualOpen);
-
     return () => {
       clearTimeout(timer);
-      window.removeEventListener("open-inquiry-modal", handleManualOpen);
     };
   }, []);
 
@@ -226,19 +230,19 @@ export default function TimedInquiryModal() {
             {/* Modal Header */}
             <div className={styles.modalHeader}>
               <div className="pr-4 min-w-0 flex-1">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-3.5 h-[2px] bg-[var(--brand-primary)] inline-block shrink-0 rounded-full" />
-                  <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.16em] text-emerald-600 dark:text-emerald-400 uppercase">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="w-4 h-[2px] bg-[var(--brand-primary)] inline-block shrink-0" />
+                  <span className="text-[11px] font-bold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">
                     GET A QUOTE
                   </span>
                 </div>
                 <h2
                   id="timed-inquiry-title"
-                  className="text-lg sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight mb-1"
+                  className="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight mb-1.5"
                 >
-                  Request a <span className="text-[var(--brand-primary)]">quote</span>
+                  Request a <span className="text-[var(--brand-primary)]">Quote</span>
                 </h2>
-                <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed max-w-lg">
+                <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed max-w-xl">
                   Share your requirements and our team will get back to you with the best solution and pricing for your business.
                 </p>
               </div>
@@ -257,44 +261,44 @@ export default function TimedInquiryModal() {
             {/* Modal Scrollable Body */}
             <div className={styles.modalScrollBody}>
               {status === "sent" ? (
-                <div className="text-center py-6 sm:py-8 flex flex-col items-center gap-3">
-                  <div className="w-14 h-14 rounded-full bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20 flex items-center justify-center mx-auto mb-1 text-[var(--brand-primary)]">
-                    <Icon icon="carbon:checkmark" className="w-7 h-7" />
+                <div className="text-center py-6 sm:py-8 flex flex-col items-center">
+                  <div className="w-10 h-10 rounded-full bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20 flex items-center justify-center mx-auto mb-2.5 text-[var(--brand-primary)]">
+                    <Icon icon="carbon:checkmark" className="w-5 h-5" />
                   </div>
-                  <h3 className="text-[var(--text-primary)] font-bold text-xl">Quote request sent</h3>
+                  <h3 className="text-[var(--text-primary)] font-bold text-base mb-1">Quote Request Sent</h3>
 
                   {referenceId && (
-                    <div className="my-1.5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
-                      <span className="text-xs text-[var(--text-muted)] font-mono">Ref:</span>
-                      <span className="text-xs font-mono font-semibold text-[var(--text-primary)]">
+                    <div className="my-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)]">
+                      <span className="text-[11px] text-[var(--text-muted)] font-mono">Ref:</span>
+                      <span className="text-[11px] font-mono font-semibold text-[var(--text-primary)]">
                         {referenceId}
                       </span>
                       <button
                         type="button"
                         onClick={handleCopyRef}
                         className="p-1 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors cursor-pointer ml-0.5"
-                        title="Copy reference code"
+                        title="Copy Reference Code"
                         aria-label="Copy reference code"
                       >
                         <Icon
                           icon={copiedRef ? "carbon:checkmark" : "carbon:copy"}
-                          className="w-4 h-4 text-[var(--brand-primary)]"
+                          className="w-3.5 h-3.5 text-[var(--brand-primary)]"
                         />
                       </button>
                     </div>
                   )}
 
-                  <p className="text-[var(--text-secondary)] text-xs sm:text-sm max-w-md leading-relaxed">
+                  <p className="text-[var(--text-secondary)] text-xs mb-3.5 max-w-md">
                     Thank you. We have received your inquiry and will follow up with pricing shortly.
                   </p>
-                  <div className="flex items-center gap-3 mt-4">
+                  <div className="flex items-center gap-2.5">
                     <Button
                       type="button"
                       variant="outline"
                       size="sm"
                       onClick={handleResetForm}
                     >
-                      Submit another request
+                      Submit Another Request
                     </Button>
                     <Button
                       type="button"
@@ -309,17 +313,17 @@ export default function TimedInquiryModal() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                   {/* Step 1: Select Product */}
-                  <div className="space-y-2">
+                  <div className="space-y-2.5">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 border border-emerald-200 dark:border-emerald-800/40">
+                      <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0">
                         1
                       </div>
-                      <h3 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-tight">
+                      <h3 className="!text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight">
                         Product / Requirement
                       </h3>
                     </div>
 
-                    <div className="space-y-2 pt-0.5 pl-0 sm:pl-8">
+                    <div className="space-y-2.5 pt-0.5 pl-0 sm:pl-9">
                       <CustomSelect
                         value={form.productService || ""}
                         onChange={(val) => handleChange("productService")(val)}
@@ -340,17 +344,17 @@ export default function TimedInquiryModal() {
                               key={cat}
                               type="button"
                               onClick={() => handleChange("productService")(cat)}
-                              className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-all cursor-pointer flex items-center justify-center gap-1 text-center ${
+                              className={`px-2.5 py-1.5 rounded-md text-xs transition-all cursor-pointer flex items-center justify-center gap-1 text-center ${
                                 isSelected
-                                  ? "bg-[var(--bg-surface)] text-[var(--brand-primary)] border-2 border-[var(--brand-primary)] font-bold shadow-2xs"
-                                  : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-default)] hover:border-[var(--brand-primary)]/40"
+                                  ? "bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] font-bold shadow-xs"
+                                  : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-default)] hover:border-[var(--border-brand)]/60 font-medium"
                               }`}
                             >
-                              <span className="truncate">{cat}</span>
+                              <span>{cat}</span>
                               {isSelected && (
                                 <Icon
                                   icon="carbon:checkmark"
-                                  className="w-3 h-3 text-[var(--brand-primary)] shrink-0"
+                                  className="w-3 h-3 text-[var(--text-brand)] shrink-0"
                                 />
                               )}
                             </button>
@@ -361,17 +365,17 @@ export default function TimedInquiryModal() {
                   </div>
 
                   {/* Step 2: Contact Details */}
-                  <div className="space-y-2">
+                  <div className="space-y-2.5">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 border border-emerald-200 dark:border-emerald-800/40">
+                      <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0">
                         2
                       </div>
-                      <h3 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-tight">
+                      <h3 className="!text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight">
                         Your Details
                       </h3>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-0.5 pl-0 sm:pl-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-0.5 pl-0 sm:pl-9">
                       {/* Full Name */}
                       <FormField label="Full Name" htmlFor="modalFullName" required>
                         <Input
@@ -406,7 +410,7 @@ export default function TimedInquiryModal() {
                           <div className="relative flex items-center h-full shrink-0 border-r border-[var(--border-default)] bg-[var(--bg-surface-secondary)]">
                             <select
                               id="modalPhonePrefix"
-                              className="h-full pl-2 sm:pl-2.5 pr-4 sm:pr-5 bg-transparent appearance-none text-xs font-medium text-[var(--text-primary)] focus:outline-none cursor-pointer z-10"
+                              className="h-full pl-2.5 pr-5 bg-transparent appearance-none text-xs font-medium text-[var(--text-primary)] focus:outline-none cursor-pointer z-10"
                               value={form.phonePrefix || "+91"}
                               onChange={handleChange("phonePrefix")}
                               aria-label="Country phone code"
@@ -422,7 +426,7 @@ export default function TimedInquiryModal() {
                             </select>
                             <Icon
                               icon="carbon:chevron-down"
-                              className="w-2.5 h-2.5 text-[var(--text-muted)] absolute right-1 pointer-events-none z-0"
+                              className="w-2.5 h-2.5 text-[var(--text-muted)] absolute right-1.5 pointer-events-none z-0"
                             />
                           </div>
                           <input
@@ -453,17 +457,17 @@ export default function TimedInquiryModal() {
                   </div>
 
                   {/* Step 3: Requirement Details */}
-                  <div className="space-y-2">
+                  <div className="space-y-2.5">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-[var(--brand-primary)] dark:text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 border border-emerald-200 dark:border-emerald-800/40">
+                      <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0">
                         3
                       </div>
-                      <h3 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] leading-tight">
+                      <h3 className="!text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight">
                         Requirement Details
                       </h3>
                     </div>
 
-                    <div className="space-y-2 pt-0.5 pl-0 sm:pl-8">
+                    <div className="space-y-2.5 pt-0.5 pl-0 sm:pl-9">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                         {/* Estimated Quantity */}
                         <FormField label="Estimated Quantity" htmlFor="modalEstimatedVolume">
@@ -500,7 +504,7 @@ export default function TimedInquiryModal() {
                           </div>
                           <Textarea
                             id="modalMessage"
-                            rows={2.5}
+                            rows={3}
                             maxLength={1000}
                             showCount
                             size="sm"
@@ -521,34 +525,25 @@ export default function TimedInquiryModal() {
                   )}
 
                   {/* Bottom Action Buttons & Trust Badge */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-[var(--border-subtle)]">
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-[var(--border-subtle)]">
                     {/* Submit CTA */}
                     <Button
                       type="submit"
                       variant="primary"
-                      size="md"
+                      size="lg"
                       loading={status === "sending"}
                       loadingText="Submitting..."
-                      className="w-full sm:w-auto shrink-0 font-bold min-h-[40px] text-xs sm:text-sm px-5 shadow-2xs"
-                      icon={<Icon icon="carbon:arrow-right" className="w-3.5 h-3.5 ml-1 inline" />}
+                      className="w-full sm:w-auto font-bold min-h-[44px] shadow-sm"
+                      icon={<Icon icon="carbon:arrow-right" className="w-4 h-4 ml-1 inline" />}
                       id="modal-submit-quote-btn"
                     >
-                      Send quote request
+                      Send Quote Request
                     </Button>
 
                     {/* Secure Info Badge */}
-                    <div className="flex items-center gap-2.5 px-1 py-1 text-left sm:border-l sm:border-[var(--border-subtle)] sm:pl-4">
-                      <div className="text-[var(--brand-primary)] dark:text-emerald-400 shrink-0">
-                        <Icon icon="carbon:security" className="w-5 h-5" />
-                      </div>
-                      <div className="text-[11px] leading-tight">
-                        <span className="block font-bold text-[var(--text-primary)]">
-                          Your information is secure
-                        </span>
-                        <span className="block text-[var(--text-muted)] text-[10px] mt-0.5">
-                          We respect your privacy and never share your data.
-                        </span>
-                      </div>
+                    <div className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
+                      <Icon icon="carbon:security" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
+                      <span>Your information is secure &amp; confidential</span>
                     </div>
                   </div>
                 </form>

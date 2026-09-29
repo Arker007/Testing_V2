@@ -26,9 +26,9 @@
 .modalDialog {
   position: relative;
   background-color: var(--bg-surface, #ffffff);
-  border: 1px solid var(--border-subtle, rgba(5, 40, 63, 0.08));
-  border-radius: 20px;
-  box-shadow: var(--shadow-3-down);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card, 12px);
+  box-shadow: var(--shadow-xl);
   width: 100%;
   max-width: 660px;
   max-height: min(92vh, 90dvh, 800px);
@@ -46,7 +46,7 @@
   }
 
   .modalDialog {
-    border-radius: 16px;
+    border-radius: var(--radius-card, 12px);
     max-height: min(94vh, 94dvh);
   }
 }
@@ -70,7 +70,7 @@
   gap: 1rem;
   padding: 1.25rem 1.5rem 1rem 1.5rem;
   background-color: var(--bg-surface, #ffffff);
-  border-bottom: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.06));
+  border-bottom: 1px solid var(--border-subtle);
   flex-shrink: 0;
   position: relative;
 }
@@ -87,21 +87,22 @@
   height: 36px;
   min-width: 36px;
   min-height: 36px;
-  border-radius: 9999px;
-  background: var(--bg-surface-elevated, #f1f5f9);
-  border: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.06));
-  color: var(--text-secondary, #64748b);
+  border-radius: var(--radius-btn, 8px);
+  background: var(--bg-surface-secondary);
+  border: 1px solid var(--border-default);
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--motion-fast) var(--ease-standard);
   flex-shrink: 0;
 }
 
 .closeBtn:hover {
-  background: var(--bg-surface-secondary, #e2e8f0);
-  color: var(--text-primary, #0f172a);
+  background: var(--surface-hover);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
   transform: scale(1.05);
 }
 

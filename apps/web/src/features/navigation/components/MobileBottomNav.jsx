@@ -4,7 +4,7 @@ import { useSite } from "../../../shared/context/SiteContext";
 import styles from "../styles/mobile-bottom-nav.module.css";
 
 export default function MobileBottomNav() {
-  const { pathname, search } = useLocation();
+  const { pathname } = useLocation();
   const { co, cms, mobileMenuOpen, setMobileMenuOpen } = useSite();
   const isPageVisible = (key) => cms?.[key] !== "0";
 
@@ -16,7 +16,6 @@ export default function MobileBottomNav() {
 
   const isHomeActive = !mobileMenuOpen && pathname === "/";
   const isProductsActive = !mobileMenuOpen && (pathname.startsWith("/products") || pathname.startsWith("/product"));
-  const isQuoteActive = !mobileMenuOpen && pathname.startsWith("/contact") && search.includes("quote");
 
   const handleNavClick = () => {
     if (mobileMenuOpen) {
@@ -79,14 +78,19 @@ export default function MobileBottomNav() {
       </a>
 
       {isPageVisible("nav_show_contact") && (
-        <NavLink
-          to="/contact?quote=1"
-          onClick={handleNavClick}
-          className={isQuoteActive ? `${styles.navItem} ${styles.active} ${styles.quoteItem}` : `${styles.navItem} ${styles.quoteItem}`}
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            handleNavClick();
+            window.dispatchEvent(new CustomEvent("open-inquiry-modal"));
+          }}
+          className={`${styles.navItem} ${styles.quoteItem}`}
+          aria-label="Request a Quote"
         >
           <Icon icon="carbon:document" className="w-5 h-5 mb-0.5" />
           <span>Quote</span>
-        </NavLink>
+        </button>
       )}
     </nav>
   );
