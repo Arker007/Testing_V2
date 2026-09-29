@@ -76,7 +76,7 @@ export default function FeaturesSection() {
       aria-label="Features and Durability"
       className="py-10 sm:py-14 md:py-16 bg-[var(--bg-surface-secondary)] border-t border-b border-[var(--border-subtle)] relative overflow-hidden"
     >
-      <div className="max-w-[1580px] w-full mx-auto px-4 sm:px-6 lg:px-10 space-y-6">
+      <div className="container space-y-6">
         {/* Split Section: Hero / Value Proposition + Feature Cards Grid */}
         <div
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch"

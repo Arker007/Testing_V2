@@ -501,18 +501,18 @@ export default function HomeHeroMobile() {
                   <Motion.div
                     key={idx}
                     variants={mobileTitleItemVariants}
-                    className="p-3 sm:p-4 flex flex-row items-center gap-3 bg-transparent text-left"
+                    className="p-4 sm:p-5 flex flex-col items-center text-center gap-2 bg-transparent"
                     style={{
                       borderBottom: (idx === 0 || idx === 1) ? "1px solid var(--border-on-dark, rgba(255, 255, 255, 0.12))" : "none",
                       borderRight: (idx % 2 === 0) ? "1px solid var(--border-on-dark, rgba(255, 255, 255, 0.12))" : "none",
                     }}
                   >
-                    <div className="w-[34px] h-[34px] shrink-0 rounded-full border-2 border-[var(--brand-primary,#6BBF54)] bg-transparent flex items-center justify-center text-[var(--brand-primary,#6BBF54)]">
+                    <div className="w-[34px] h-[34px] shrink-0 rounded-full border-2 border-[var(--brand-primary,#6BBF54)] bg-transparent flex items-center justify-center text-[var(--brand-primary,#6BBF54)] mb-1">
                       <Icon icon={iconName} className="w-[16px] h-[16px]" style={{ color: "var(--brand-primary, #6BBF54)" }} />
                     </div>
-                    <div className="flex flex-col flex-1 min-w-0 justify-center">
-                      <span className="text-white text-[11px] font-bold uppercase tracking-wider leading-tight">{feat.title}</span>
-                      <span className="text-slate-300 text-[10px] font-medium leading-relaxed mt-0.5">{feat.text}</span>
+                    <div className="flex flex-col items-center justify-center w-full">
+                      <span className="text-white text-[11px] font-bold uppercase tracking-wider leading-tight text-center">{feat.title}</span>
+                      <span className="text-slate-300 text-[10px] font-medium leading-normal mt-1.5 max-w-[140px] text-center">{feat.text}</span>
                     </div>
                   </Motion.div>
                 );
