@@ -58,22 +58,32 @@ export default function MobileNavDrawer({
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation menu"
-            initial={{ opacity: 0, scale: 0.96, y: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: -10 }}
-            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Optional Search Bar */}
             <form onSubmit={handleSearch} className={styles.dSearch}>
-          <Icon icon="carbon:search" className="w-4 h-4 text-slate-400" />
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            aria-label="Search products"
-          />
-        </form>
+              <Icon icon="carbon:search" className="w-4 h-4 text-slate-400 shrink-0" />
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                aria-label="Search products"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className={styles.dSearchClear}
+                  aria-label="Clear search text"
+                >
+                  <Icon icon="carbon:close" className="w-4 h-4" />
+                </button>
+              )}
+            </form>
 
         {/* Navigation Items Stack */}
         <motion.div

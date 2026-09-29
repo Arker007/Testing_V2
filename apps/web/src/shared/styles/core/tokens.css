@@ -2,6 +2,12 @@
 
 @custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
 
+@utility container {
+  width: min(100% - (var(--margin-blanking-min, 24px) * 2), var(--canvas-content-width, 1168px));
+  max-width: var(--canvas-content-width, 1168px);
+  margin-inline: auto;
+}
+
 /* ==========================================================================
    TAILWIND V4 THEME INTEGRATION
    ========================================================================== */
@@ -148,6 +154,7 @@
   --border-accent: var(--brand-green-deep);
   --focus-light: var(--brand-green-deep);
   --focus-dark: var(--brand-green);
+  --header-height: 56px;
 
   /* ========================================================================
      1. COLOR SYSTEM (Derived & Scaled Tokens)

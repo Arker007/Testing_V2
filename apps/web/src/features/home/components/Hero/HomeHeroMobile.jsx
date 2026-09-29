@@ -253,7 +253,7 @@ export default function HomeHeroMobile() {
           </div>
 
           {/* Right Column: Hexagon Card + Pagination Capsule */}
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center w-full">
             <AnimatePresence mode="wait" initial={false}>
               <Motion.div
                 key={current}
@@ -261,41 +261,41 @@ export default function HomeHeroMobile() {
                 initial={isFirstRender ? false : "initial"}
                 animate="animate"
                 exit="exit"
-                className="flex flex-col w-full items-center"
+                className="flex flex-col w-full items-center justify-center"
               >
                 {/* Centered Hexagon Product Card with Navigation Chevrons */}
-                <div className={`flex justify-center items-center my-6 h-[260px] z-10 ${styles.hexagonContainer}`}>
-                  {/* Navigation Chevron Buttons pinned stably to screen edges */}
-                  <button
-                    id="mobile-hero-chevron-prev"
-                    type="button"
-                    onClick={handlePrev}
-                    className={`${styles.chevronBtn} ${styles.chevronBtnLeft}`}
-                    aria-label="Previous Slide"
-                  >
-                    <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="currentColor">
-                      <path d="M20 24l-8-8 8-8 1.4 1.4L14.8 16l6.6 6.6z" />
-                    </svg>
-                  </button>
-                  <button
-                    id="mobile-hero-chevron-next"
-                    type="button"
-                    onClick={handleNext}
-                    className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
-                    aria-label="Next Slide"
-                  >
-                    <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="currentColor">
-                      <path d="M12 8l8 8-8 8-1.4-1.4 6.6-6.6-6.6-6.6z" />
-                    </svg>
-                  </button>
-
+                <div className={`flex justify-center items-center my-6 h-[260px] w-full z-10 ${styles.hexagonContainer}`}>
                   <div
                     ref={hexagonCardRef}
                     id="mobile-hero-product-hexagon-frame"
-                    className="mx-auto w-[250px] h-[260px] pointer-events-none"
+                    className="relative mx-auto w-[250px] h-[260px] flex items-center justify-center"
                   >
+                    {/* Navigation Chevron Buttons stuck directly to hexagon sides */}
+                    <button
+                      id="mobile-hero-chevron-prev"
+                      type="button"
+                      onClick={handlePrev}
+                      className={`${styles.chevronBtn} ${styles.chevronBtnLeft} ${styles.hexagonSideBtn}`}
+                      aria-label="Previous Slide"
+                    >
+                      <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M20 24l-8-8 8-8 1.4 1.4L14.8 16l6.6 6.6z" />
+                      </svg>
+                    </button>
+                    <button
+                      id="mobile-hero-chevron-next"
+                      type="button"
+                      onClick={handleNext}
+                      className={`${styles.chevronBtn} ${styles.chevronBtnRight} ${styles.hexagonSideBtn}`}
+                      aria-label="Next Slide"
+                    >
+                      <svg className="w-5 h-5 text-white" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M12 8l8 8-8 8-1.4-1.4 6.6-6.6-6.6-6.6z" />
+                      </svg>
+                    </button>
+
                     <Motion.svg
-                      className="w-full h-full drop-shadow-2xl"
+                      className="w-full h-full drop-shadow-2xl pointer-events-none"
                       viewBox="0 0 500 520"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -415,7 +415,7 @@ export default function HomeHeroMobile() {
                 </div>
 
                 {/* Pagination Capsule matching desktop */}
-                <div className="flex justify-center items-center mb-6">
+                <div className="flex justify-center items-center mb-6 w-full">
                   <div className={styles.paginationDots}>
                     <div className={styles.paginationTrack}>
                       {slides.map((slide, idx) => (

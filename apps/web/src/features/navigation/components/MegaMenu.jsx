@@ -12,7 +12,7 @@ import { QuoteButton } from "@/shared/ui";
 const CATEGORY_ICONS = {
   "plastic-pallets": "carbon:box",
   "plastic-lumber": "carbon:layers",
-  "garden-bench": "carbon:seat",
+  "garden-bench": "carbon:tree",
   "plastic-table": "carbon:table",
   "garden-fence": "carbon:security",
   "outdoor-furniture": "carbon:sun",
@@ -27,7 +27,7 @@ const getCategoryIcon = (slug = "", name = "") => {
   if (n.includes("lumber") || n.includes("profile") || n.includes("plank"))
     return "carbon:layers";
   if (n.includes("bench") || n.includes("seating"))
-    return "carbon:seat";
+    return "carbon:tree";
   if (n.includes("table") || n.includes("picnic") || n.includes("dining"))
     return "carbon:table";
   if (n.includes("fence") || n.includes("fencing"))
@@ -139,7 +139,7 @@ const DEFAULT_CATEGORIES = [
     id: "garden-bench",
     slug: "garden-bench",
     name: "Garden Benches",
-    icon: "carbon:seat",
+    icon: "carbon:tree",
     eyebrow: "GARDEN BENCHES",
     description:
       "Park, society, municipal, and heritage benches engineered with maintenance-free recycled polymer.",
@@ -449,7 +449,7 @@ export default function MegaMenu({
     }, 240);
   };
 
-  // Safe Hover Intent: 120ms debounce prevents accidental category switching during diagonal cursor motion
+  // Safe Hover Intent: 160ms debounce prevents accidental category switching during diagonal cursor motion
   const handleCategoryMouseEnter = (slug) => {
     if (categoryHoverTimerRef.current) {
       clearTimeout(categoryHoverTimerRef.current);
@@ -457,7 +457,7 @@ export default function MegaMenu({
     categoryHoverTimerRef.current = setTimeout(() => {
       setActiveCategorySlug(slug);
       setHoveredProduct(null);
-    }, 120);
+    }, 160);
   };
 
   // When cursor enters content area, cancel any pending switch timer to lock the selected category
@@ -468,14 +468,14 @@ export default function MegaMenu({
     }
   };
 
-  // Direct Click on Category Tab: Navigates immediately to category listing page
+  // Direct Click on Category Tab: Activates and pins category in panel for product exploration
   const handleCategoryClick = (slug) => {
     if (categoryHoverTimerRef.current) {
       clearTimeout(categoryHoverTimerRef.current);
+      categoryHoverTimerRef.current = null;
     }
     setActiveCategorySlug(slug);
-    navigate(`/products?cat=${encodeURIComponent(slug)}`);
-    setIsOpen(false);
+    setHoveredProduct(null);
   };
 
   // Keyboard navigation across categories
@@ -499,10 +499,14 @@ export default function MegaMenu({
       const lastIdx = categoryList.length - 1;
       setActiveCategorySlug(categoryList[lastIdx].slug);
       categoryButtonRefs.current[lastIdx]?.focus();
-    } else if (e.key === "ArrowRight" || e.key === "Enter") {
+    } else if (e.key === "ArrowRight") {
       e.preventDefault();
       const firstInteractive = panelRef.current?.querySelector("a, button:not([disabled])");
       firstInteractive?.focus();
+    } else if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setActiveCategorySlug(categoryList[index].slug);
+      setHoveredProduct(null);
     }
   };
 
@@ -750,7 +754,7 @@ export default function MegaMenu({
           >
             <div className={styles.dropdownMenuPanel}>
               {/* 3-Column Redesigned Mega Menu Layout */}
-              <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr_330px] gap-6 lg:gap-8 items-stretch min-h-[440px]">
+              <div className="grid grid-cols-1 lg:grid-cols-[270px_1fr_320px] gap-6 lg:gap-8 items-stretch min-h-[440px]">
                 
                 {/* 1. Left Column: Categories Sidebar & Bottom Sustainability Card */}
                 <div className="flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--border-subtle)] pb-6 lg:pb-0 lg:pr-5">
@@ -776,27 +780,27 @@ export default function MegaMenu({
                           onClick={() => handleCategoryClick(cat.slug)}
                           onMouseEnter={() => handleCategoryMouseEnter(cat.slug)}
                           onKeyDown={(e) => handleSidebarKeyDown(e, idx)}
-                          className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-lg text-sm transition-all duration-150 cursor-pointer text-left border ${
+                          style={{ borderRadius: "8px 4px 4px 8px" }}
+                          className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-[8px_4px_4px_8px] text-sm transition-all duration-150 cursor-pointer text-left border ${
                             isActive
                               ? "bg-[var(--brand-soft)] text-[var(--text-brand)] border-[var(--border-brand)] border-l-[3.5px] border-l-[var(--brand-primary)] font-bold shadow-2xs"
-                              : "border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] font-semibold"
+                              : "border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] hover:border-[var(--border-subtle)] font-medium"
                           }`}
-                          title={`View ${cat.name}`}
                         >
-                          <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="flex items-center gap-2.5 min-w-0 pr-1">
                             <Icon
                               icon={cat.icon || "carbon:box"}
                               className={`w-4.5 h-4.5 shrink-0 ${
                                 isActive
                                   ? "text-[var(--text-brand)]"
-                                  : "text-[var(--text-muted)]"
+                                  : "text-[var(--text-secondary)]"
                               }`}
                             />
-                            <span className="truncate">{cat.name}</span>
+                            <span className="leading-snug break-words">{cat.name}</span>
                           </div>
                           <Icon
                             icon="carbon:chevron-right"
-                            className={`w-3.5 h-3.5 shrink-0 transition-transform ${
+                            className={`w-3.5 h-3.5 shrink-0 ml-1.5 transition-transform ${
                               isActive
                                 ? "text-[var(--text-brand)] translate-x-0.5"
                                 : "text-[var(--text-muted)]"

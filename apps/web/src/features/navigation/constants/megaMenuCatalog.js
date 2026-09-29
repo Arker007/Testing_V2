@@ -220,7 +220,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "garden-bench",
     id: "garden-bench",
     name: "Garden Benches",
-    icon: "carbon:seat",
+    icon: "carbon:tree",
     description: "Park, society, municipal, and heritage benches",
     columns: [
       {

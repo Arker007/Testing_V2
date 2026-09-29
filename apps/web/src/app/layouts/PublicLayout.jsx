@@ -1,7 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
 import { Navbar, MobileBottomNav, Footer } from "../../features/navigation";
-import { ScrollProgressBar } from "@/shared/ui";
 
 const TimedInquiryModal = lazy(() => import("../../shared/ui/overlays/TimedInquiryModal"));
 
@@ -66,7 +65,6 @@ export default function PublicLayout() {
       >
         Skip to main content
       </a>
-      <ScrollProgressBar />
       <Navbar />
       <main id="main-content">
         <Outlet />

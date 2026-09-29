@@ -149,7 +149,7 @@ html.dark .dotsPatternRightBottom,
 .chevronBtnLeft {
   left: 0;
   background: var(--brand-primary, var(--brand-500));
-  border-radius: 0 16px 16px 0;
+  border-radius: 8px 4px 4px 8px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-left: none;
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.15);
@@ -167,7 +167,7 @@ html.dark .dotsPatternRightBottom,
 .chevronBtnRight {
   right: 0;
   background: var(--brand-primary, var(--brand-500));
-  border-radius: 16px 0 0 16px;
+  border-radius: 4px 8px 8px 4px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-right: none;
   box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.15);
@@ -180,6 +180,52 @@ html.dark .dotsPatternRightBottom,
 
 .chevronBtnRight:active {
   transform: translateY(-50%) scale(0.9);
+}
+
+/* Screen-edge chevron buttons hidden - chevrons now stick directly to hexagon card sides */
+.desktopOnlyChevron {
+  display: none !important;
+}
+
+/* Hexagon-side chevron buttons (visible across all screen sizes, stuck directly to hexagon card sides) */
+.hexagonSideBtn {
+  display: flex !important;
+  position: absolute;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 35;
+  pointer-events: auto !important;
+  cursor: pointer;
+  width: 46px !important;
+  min-width: 46px !important;
+  height: 68px !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hexagonSideBtn.chevronBtnLeft {
+  left: -20px !important;
+  right: auto !important;
+  border-radius: 8px 4px 4px 8px !important;
+  box-shadow: -3px 6px 16px rgba(0, 0, 0, 0.28) !important;
+  border-right: none !important;
+}
+
+.hexagonSideBtn.chevronBtnRight {
+  right: -20px !important;
+  left: auto !important;
+  border-radius: 4px 8px 8px 4px !important;
+  box-shadow: 3px 6px 16px rgba(0, 0, 0, 0.28) !important;
+  border-left: none !important;
+}
+
+.hexagonSideBtn:hover {
+  background: var(--brand-active, var(--brand-600)) !important;
+  transform: translateY(-50%) scale(1.08) !important;
+}
+
+.hexagonSideBtn:active {
+  transform: translateY(-50%) scale(0.92) !important;
 }
 
 /* Hero Main Grid */
@@ -757,8 +803,19 @@ html.dark .assistanceBtn {
     margin-left: auto;
     margin-right: auto;
   }
-  .chevronBtn {
-    display: none !important;
+}
+
+@media (max-width: 767px) {
+  .hexagonSideBtn {
+    width: 36px !important;
+    min-width: 36px !important;
+    height: 52px !important;
+  }
+  .hexagonSideBtn.chevronBtnLeft {
+    left: -14px !important;
+  }
+  .hexagonSideBtn.chevronBtnRight {
+    right: -14px !important;
   }
 }
 
@@ -954,9 +1011,15 @@ html.dark .assistanceBtn {
 
 .hexagonContainer {
   position: relative;
-  width: 100vw;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  left: auto;
+  transform: none;
 }
 
 @media (min-width: 600px) {

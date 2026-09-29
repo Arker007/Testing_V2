@@ -12,13 +12,22 @@ body,
 
 /* ─── Containers & Layout (Ant Design Unified Canvas & Top-Bottom Adaptation) ─── */
 .container {
-  width: min(100% - (var(--margin-blanking-min, 24px) * 2), var(--canvas-content-width, 1168px));
-  margin-inline: auto;
+  width: min(100% - (var(--margin-blanking-min, 24px) * 2), var(--canvas-content-width, 1168px)) !important;
+  max-width: var(--canvas-content-width, 1168px) !important;
+  margin-inline: auto !important;
 }
 
 @media (min-width: 1024px) {
   .container {
-    width: min(100% - (var(--margin-blanking-desktop, 32px) * 2), var(--canvas-content-width, 1168px));
+    width: min(100% - (var(--margin-blanking-desktop, 32px) * 2), var(--canvas-content-width, 1168px)) !important;
+    max-width: var(--canvas-content-width, 1168px) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 32px, var(--canvas-content-width, 1168px)) !important;
+    max-width: var(--canvas-content-width, 1168px) !important;
   }
 }
 

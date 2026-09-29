@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useMemo, useRef, useCallback } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { motion as Motion, AnimatePresence, useReducedMotion } from "motion/react";
@@ -189,41 +189,6 @@ export default function HomeHero() {
 
   const heroRef = useRef(null);
   const hexagonCardRef = useRef(null);
-  const [chevronTop, setChevronTop] = useState(null);
-
-  const updateChevronPosition = useCallback(() => {
-    if (!heroRef.current || !hexagonCardRef.current) return;
-    const heroRect = heroRef.current.getBoundingClientRect();
-    const cardRect = hexagonCardRef.current.getBoundingClientRect();
-    if (!heroRect.height || !cardRect.height) return;
-
-    // Measured the exact vertical center of the hexagonal product card dynamically relative to the hero section
-    const cardCenterY = cardRect.top + cardRect.height / 2;
-    setChevronTop(cardCenterY - heroRect.top);
-  }, []);
-
-  useLayoutEffect(() => {
-    updateChevronPosition();
-  }, [updateChevronPosition, current]);
-
-  useEffect(() => {
-    updateChevronPosition();
-    window.addEventListener("resize", updateChevronPosition);
-
-    let resizeObserver;
-    if (typeof ResizeObserver !== "undefined") {
-      resizeObserver = new ResizeObserver(() => {
-        updateChevronPosition();
-      });
-      if (heroRef.current) resizeObserver.observe(heroRef.current);
-      if (hexagonCardRef.current) resizeObserver.observe(hexagonCardRef.current);
-    }
-
-    return () => {
-      window.removeEventListener("resize", updateChevronPosition);
-      if (resizeObserver) resizeObserver.disconnect();
-    };
-  }, [updateChevronPosition]);
 
   // Auto-advance logic (resets timer when current changes)
   useEffect(() => {
@@ -252,7 +217,6 @@ export default function HomeHero() {
       ref={heroRef}
       className={styles.hero}
       id="home-hero-redesign"
-      style={chevronTop != null ? { "--hero-chevron-top": `${chevronTop}px` } : undefined}
     >
       {/* Background Diagonal Split Elements */}
       <div className={styles.slantBgGreen} />
@@ -262,28 +226,6 @@ export default function HomeHero() {
       <div className={styles.dotsPatternLeft} />
       <div className={styles.dotsPatternRightTop} />
       <div className={styles.dotsPatternRightBottom} />
-
-      {/* Navigation Chevron Buttons */}
-      <button
-        id="hero-chevron-prev"
-        type="button"
-        onClick={handlePrev}
-        className={`${styles.chevronBtn} ${styles.chevronBtnLeft}`}
-        style={chevronTop != null ? { top: `${chevronTop}px` } : undefined}
-        aria-label="Previous Slide"
-      >
-        <Icon icon="carbon:chevron-left" className="w-5 h-5 text-white" />
-      </button>
-      <button
-        id="hero-chevron-next"
-        type="button"
-        onClick={handleNext}
-        className={`${styles.chevronBtn} ${styles.chevronBtnRight}`}
-        style={chevronTop != null ? { top: `${chevronTop}px` } : undefined}
-        aria-label="Next Slide"
-      >
-        <Icon icon="carbon:chevron-right" className="w-5 h-5 text-white" />
-      </button>
 
       <div className="container relative z-10">
         <div className={styles.heroGrid}>
@@ -397,6 +339,30 @@ export default function HomeHero() {
                 id="hero-product-hexagon-frame"
                 className={styles.productFrameWrapper}
               >
+                {/* Navigation Chevron Buttons stuck directly to hexagon sides */}
+                <button
+                  id="hero-hexagon-chevron-prev"
+                  type="button"
+                  onClick={handlePrev}
+                  className={`${styles.chevronBtn} ${styles.chevronBtnLeft} ${styles.hexagonSideBtn}`}
+                  aria-label="Previous Slide"
+                >
+                  <svg className="w-6 h-6 text-white" viewBox="0 0 32 32" fill="currentColor">
+                    <path d="M20 24l-8-8 8-8 1.4 1.4L14.8 16l6.6 6.6z" />
+                  </svg>
+                </button>
+                <button
+                  id="hero-hexagon-chevron-next"
+                  type="button"
+                  onClick={handleNext}
+                  className={`${styles.chevronBtn} ${styles.chevronBtnRight} ${styles.hexagonSideBtn}`}
+                  aria-label="Next Slide"
+                >
+                  <svg className="w-6 h-6 text-white" viewBox="0 0 32 32" fill="currentColor">
+                    <path d="M12 8l8 8-8 8-1.4-1.4 6.6-6.6-6.6-6.6z" />
+                  </svg>
+                </button>
+
                 {/* Hexagonal Geometric SVG Frame with Full-Screen Clipped Image and 3D Pedestal Stage */}
                 <Motion.svg
                   className={styles.productFrameSvg}

@@ -4,7 +4,7 @@ import { useSite } from "../../../shared/context/SiteContext";
 import styles from "../styles/mobile-bottom-nav.module.css";
 
 export default function MobileBottomNav() {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const { co, cms, mobileMenuOpen, setMobileMenuOpen } = useSite();
   const isPageVisible = (key) => cms?.[key] !== "0";
 
@@ -14,15 +14,24 @@ export default function MobileBottomNav() {
   const rawWa = co("whatsapp", "919898686379");
   const waClean = rawWa.replace(/\D/g, "");
 
+  const isHomeActive = !mobileMenuOpen && pathname === "/";
+  const isProductsActive = !mobileMenuOpen && (pathname.startsWith("/products") || pathname.startsWith("/product"));
+  const isQuoteActive = !mobileMenuOpen && pathname.startsWith("/contact") && search.includes("quote");
+
+  const handleNavClick = () => {
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+  };
+
   return (
     <nav className={styles.mobileNav} aria-label="Mobile Navigation Bar">
       {isPageVisible("nav_show_home") && (
         <NavLink
           to="/"
           end
-          className={({ isActive }) =>
-            isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
-          }
+          onClick={handleNavClick}
+          className={isHomeActive ? `${styles.navItem} ${styles.active}` : styles.navItem}
         >
           <Icon icon="carbon:home" className="w-5 h-5 mb-0.5" />
           <span>Home</span>
@@ -32,9 +41,8 @@ export default function MobileBottomNav() {
       {isPageVisible("nav_show_products") && (
         <NavLink
           to="/products"
-          className={({ isActive }) =>
-            isActive ? `${styles.navItem} ${styles.active}` : styles.navItem
-          }
+          onClick={handleNavClick}
+          className={isProductsActive ? `${styles.navItem} ${styles.active}` : styles.navItem}
         >
           <Icon icon="carbon:cube" className="w-5 h-5 mb-0.5" />
           <span>Catalog</span>
@@ -62,6 +70,7 @@ export default function MobileBottomNav() {
         href={`https://wa.me/${waClean}`}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleNavClick}
         className={`${styles.navItem} ${styles.waItem}`}
         aria-label="Chat on WhatsApp"
       >
@@ -72,9 +81,8 @@ export default function MobileBottomNav() {
       {isPageVisible("nav_show_contact") && (
         <NavLink
           to="/contact?quote=1"
-          className={({ isActive }) =>
-            isActive ? `${styles.navItem} ${styles.active} ${styles.quoteItem}` : `${styles.navItem} ${styles.quoteItem}`
-          }
+          onClick={handleNavClick}
+          className={isQuoteActive ? `${styles.navItem} ${styles.active} ${styles.quoteItem}` : `${styles.navItem} ${styles.quoteItem}`}
         >
           <Icon icon="carbon:document" className="w-5 h-5 mb-0.5" />
           <span>Quote</span>

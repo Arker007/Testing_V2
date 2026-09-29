@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { motion as Motion, AnimatePresence } from "motion/react";
@@ -11,7 +11,7 @@ const DEFAULT_CATEGORIES = [
   { id: "custom-products", name: "Custom & Fencing", slug: "custom-products" },
 ];
 
-import { QuoteButton } from "@/shared/ui";
+import { QuoteButton, ScrollProgressBar } from "@/shared/ui";
 import MegaMenu from "./MegaMenu";
 import MobileNavDrawer from "./MobileNavDrawer";
 import NavbarSearch from "./NavbarSearch";
@@ -32,6 +32,19 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { co, cms, mobileMenuOpen: open, setMobileMenuOpen: setOpen } = useSite();
   const isPageVisible = (key) => cms?.[key] !== "0";
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        const height = headerRef.current.offsetHeight;
+        document.documentElement.style.setProperty("--header-height", `${height}px`);
+      }
+    };
+    updateHeaderHeight();
+    window.addEventListener("resize", updateHeaderHeight);
+    return () => window.removeEventListener("resize", updateHeaderHeight);
+  }, [scrolled]);
 
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";
@@ -128,7 +141,10 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`${styles.headerContainer} ${scrolled ? styles.headerScrolled : ""} ${open ? styles.headerMenuOpen : ""}`}>
+      <header
+        ref={headerRef}
+        className={`${styles.headerContainer} ${scrolled ? styles.headerScrolled : ""} ${open ? styles.headerMenuOpen : ""}`}
+      >
         <div className={`${styles.nav} ${scrolled ? styles.navShrink : ""}`}>
           <div className={styles.inner}>
             {/* Logo */}
@@ -308,6 +324,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+        <ScrollProgressBar />
       </header>
 
       <MobileNavDrawer

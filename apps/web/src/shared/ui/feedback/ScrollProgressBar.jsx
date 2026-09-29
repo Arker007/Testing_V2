@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import { useSite } from "../../context/SiteContext";
 
 export default function ScrollProgressBar() {
   const [progress, setProgress] = useState(0);
+  const siteCtx = useSite();
+  const mobileMenuOpen = Boolean(siteCtx?.mobileMenuOpen);
 
   useEffect(() => {
     let ticking = false;
@@ -36,14 +39,16 @@ export default function ScrollProgressBar() {
     <div
       id="scroll-progress-container"
       style={{
-        position: "fixed",
-        top: 0,
+        position: "absolute",
+        bottom: 0,
         left: 0,
         width: "100%",
         height: "3px",
-        backgroundColor: "rgba(5, 40, 63, 0.08)", // subtle tint of dark navy
-        zIndex: 9999,
+        backgroundColor: "transparent",
+        zIndex: 9998,
         pointerEvents: "none",
+        opacity: mobileMenuOpen || progress <= 0 ? 0 : 1,
+        transition: "opacity 0.15s ease",
       }}
     >
       <div
@@ -51,7 +56,8 @@ export default function ScrollProgressBar() {
         style={{
           width: `${progress}%`,
           height: "100%",
-          backgroundColor: "var(--brand, #6BBF54)", // brand emerald/green color
+          backgroundColor: "var(--brand-primary, #6BBF54)",
+          boxShadow: "0 0 8px rgba(107, 191, 84, 0.4)",
           transition: "width 0.1s ease-out",
         }}
       />
