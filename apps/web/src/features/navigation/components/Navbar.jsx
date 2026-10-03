@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { motion as Motion, AnimatePresence } from "motion/react";
-import { useSite } from "../../../shared/context/SiteContext";
+import { useSite, useSiteUI } from "../../../shared/context/SiteContext";
 const DEFAULT_CATEGORIES = [
   { id: "plastic-pallets", name: "Plastic Pallets", slug: "plastic-pallets" },
   { id: "plastic-lumber", name: "Plastic Lumber", slug: "plastic-lumber" },
@@ -30,21 +30,30 @@ export default function Navbar() {
   const [products, setProducts] = useState([]);
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { co, cms, mobileMenuOpen: open, setMobileMenuOpen: setOpen } = useSite();
+  const { co, cms } = useSite();
+  const { mobileMenuOpen: open, setMobileMenuOpen: setOpen } = useSiteUI();
   const isPageVisible = (key) => cms?.[key] !== "0";
   const headerRef = useRef(null);
 
   useEffect(() => {
-    const updateHeaderHeight = () => {
-      if (headerRef.current) {
-        const height = headerRef.current.offsetHeight;
-        document.documentElement.style.setProperty("--header-height", `${height}px`);
+    if (!headerRef.current) return;
+    const updateHeaderHeight = (entries) => {
+      const height = entries?.[0]?.contentRect?.height || headerRef.current?.offsetHeight;
+      if (height) {
+        document.documentElement.style.setProperty("--header-height", `${Math.round(height)}px`);
       }
     };
-    updateHeaderHeight();
-    window.addEventListener("resize", updateHeaderHeight);
-    return () => window.removeEventListener("resize", updateHeaderHeight);
-  }, [scrolled]);
+
+    if (typeof ResizeObserver !== "undefined") {
+      const observer = new ResizeObserver(updateHeaderHeight);
+      observer.observe(headerRef.current);
+      return () => observer.disconnect();
+    } else {
+      updateHeaderHeight();
+      window.addEventListener("resize", updateHeaderHeight);
+      return () => window.removeEventListener("resize", updateHeaderHeight);
+    }
+  }, []);
 
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";

@@ -135,6 +135,14 @@ function getTableSchemas(hashedPassword) {
       args: [],
     },
     {
+      sql: `CREATE INDEX IF NOT EXISTS idx_products_published_created ON products(published, created_at DESC)`,
+      args: [],
+    },
+    {
+      sql: `CREATE INDEX IF NOT EXISTS idx_inquiries_product_id ON inquiries(product_id)`,
+      args: [],
+    },
+    {
       sql: `CREATE INDEX IF NOT EXISTS idx_inquiries_created_at ON inquiries(created_at DESC)`,
       args: [],
     },

@@ -11,6 +11,7 @@ function ImageZoom({ src, alt, onOpenModal }) {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const containerRef = useRef(null);
+  const containerRectRef = useRef(null);
 
   useEffect(() => {
     const checkTouch = () => {
@@ -28,14 +29,10 @@ function ImageZoom({ src, alt, onOpenModal }) {
 
   const handleMouseMove = (e) => {
     if (isTouchDevice || !containerRef.current) return;
-    const { left, top, width, height } = containerRef.current.getBoundingClientRect();
+    const rect = containerRectRef.current || containerRef.current.getBoundingClientRect();
 
-    if (dimensions.width !== width || dimensions.height !== height) {
-      setDimensions({ width, height });
-    }
-
-    const x = e.clientX - left;
-    const y = e.clientY - top;
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
     const lensX = x - lensSize / 2;
     const lensY = y - lensSize / 2;
@@ -46,8 +43,9 @@ function ImageZoom({ src, alt, onOpenModal }) {
   const handleMouseEnter = () => {
     if (isTouchDevice) return;
     if (containerRef.current) {
-      const { width, height } = containerRef.current.getBoundingClientRect();
-      setDimensions({ width, height });
+      const rect = containerRef.current.getBoundingClientRect();
+      containerRectRef.current = rect;
+      setDimensions({ width: rect.width, height: rect.height });
     }
     setShowLens(true);
   };

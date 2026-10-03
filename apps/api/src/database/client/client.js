@@ -62,6 +62,17 @@ async function runSetup(c) {
   await c.execute("SELECT 1");
   console.log("✅ Database connection established");
 
+  // Apply high-performance SQLite PRAGMAs (WAL mode, memory temp store, 64MB cache)
+  try {
+    await c.execute("PRAGMA journal_mode = WAL;");
+    await c.execute("PRAGMA synchronous = NORMAL;");
+    await c.execute("PRAGMA foreign_keys = ON;");
+    await c.execute("PRAGMA cache_size = -64000;");
+    await c.execute("PRAGMA temp_store = MEMORY;");
+  } catch (pragmaErr) {
+    // Ignore PRAGMA limitations in non-local environments
+  }
+
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash("admin123", salt);
 

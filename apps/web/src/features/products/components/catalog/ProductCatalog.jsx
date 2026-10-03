@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useDeferredValue } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { Icon } from "@iconify/react";
@@ -153,6 +153,7 @@ export default function ProductCatalog() {
   // Basic Filter States
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState(activeSearchParam);
+  const deferredSearchQuery = useDeferredValue(searchQuery);
   const [minStaticLoad, setMinStaticLoad] = useState(0);
   const [selectedApplication, setSelectedApplication] = useState("All");
   const [sortBy, setSortBy] = useState("featured");
@@ -281,9 +282,9 @@ export default function ProductCatalog() {
           }
         }
 
-        // Search Query
-        if (searchQuery.trim()) {
-          const q = searchQuery.toLowerCase();
+        // Search Query (Uses deferred search query to avoid dropping typing frames)
+        if (deferredSearchQuery.trim()) {
+          const q = deferredSearchQuery.toLowerCase();
           const name = (p.name || p.title || "").toLowerCase();
           const desc = (p.description || "").toLowerCase();
           const sku = (p.sku || "").toLowerCase();
@@ -352,7 +353,7 @@ export default function ProductCatalog() {
   }, [
     products,
     selectedCategory,
-    searchQuery,
+    deferredSearchQuery,
     minStaticLoad,
     selectedCategories,
     selectedAttributes,
@@ -369,7 +370,7 @@ export default function ProductCatalog() {
     setCurrentPage(1);
   }, [
     selectedCategory,
-    searchQuery,
+    deferredSearchQuery,
     minStaticLoad,
     selectedApplication,
     selectedCategories,

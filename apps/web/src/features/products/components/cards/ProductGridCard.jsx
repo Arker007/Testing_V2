@@ -1,6 +1,8 @@
 import React from "react";
 import { ProductCard } from "@/shared/ui";
 
-export default function ProductGridCard(props) {
+function ProductGridCard(props) {
   return <ProductCard variant="grid" {...props} />;
 }
+
+export default React.memo(ProductGridCard);

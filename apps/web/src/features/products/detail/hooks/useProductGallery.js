@@ -23,11 +23,32 @@ export function useProductGallery(images = [], { autoRotate = true, intervalMs =
   useEffect(() => {
     if (!autoRotate || images.length < 2 || paused) return;
 
-    const timer = setInterval(() => {
-      setCurrentImgIdx((prev) => (prev + 1) % images.length);
-    }, intervalMs);
+    let timer = null;
+    const startTimer = () => {
+      if (typeof document !== "undefined" && document.hidden) return;
+      timer = setInterval(() => {
+        setCurrentImgIdx((prev) => (prev + 1) % images.length);
+      }, intervalMs);
+    };
 
-    return () => clearInterval(timer);
+    const handleVisibilityChange = () => {
+      if (timer) clearInterval(timer);
+      if (typeof document !== "undefined" && !document.hidden) {
+        startTimer();
+      }
+    };
+
+    startTimer();
+    if (typeof document !== "undefined") {
+      document.addEventListener("visibilitychange", handleVisibilityChange);
+    }
+
+    return () => {
+      if (timer) clearInterval(timer);
+      if (typeof document !== "undefined") {
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
+      }
+    };
   }, [autoRotate, images.length, paused, intervalMs]);
 
   return {

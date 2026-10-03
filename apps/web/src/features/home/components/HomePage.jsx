@@ -48,9 +48,11 @@ export default function HomePage() {
         </section>
       )}
 
-      <FeaturesSection />
-      <IndustriesGrid />
-      <HomeCtaSection />
+      <div className={styles.belowFoldSection}>
+        <FeaturesSection />
+        <IndustriesGrid />
+        <HomeCtaSection />
+      </div>
     </div>
   );
 }

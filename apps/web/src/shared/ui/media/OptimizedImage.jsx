@@ -54,9 +54,26 @@ export default function OptimizedImage({
 
   const finalSrc = hasError || !initialUrl ? activeFallback : initialUrl;
 
+  const computedSrcSet = useMemo(() => {
+    if (props.srcSet) return props.srcSet;
+    if (
+      !hasError &&
+      typeof finalSrc === "string" &&
+      finalSrc.startsWith("/uploads/") &&
+      finalSrc.endsWith(".webp") &&
+      !finalSrc.includes("_thumb") &&
+      !finalSrc.includes("_medium")
+    ) {
+      const base = finalSrc.slice(0, -5);
+      return `${base}_thumb.webp 400w, ${base}_medium.webp 800w, ${finalSrc} 1600w`;
+    }
+    return undefined;
+  }, [finalSrc, hasError, props.srcSet]);
+
   return (
     <img
       src={finalSrc}
+      srcSet={computedSrcSet}
       alt={alt || "Industrial Plastic Product"}
       className={className}
       style={style}

@@ -9,6 +9,11 @@
   border-top: 1px solid var(--border-subtle);
 }
 
+.belowFoldSection {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 650px;
+}
+
 :global([data-theme="dark"]) .categoriesSection,
 :global(.dark) .categoriesSection,
 html.dark .categoriesSection {

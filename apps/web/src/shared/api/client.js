@@ -54,33 +54,56 @@ function extractErrorMessage(data, response) {
   return response.statusText || `HTTP Error ${response.status}`;
 }
 
+const inFlightRequests = new Map();
+
 async function request(path, options = {}) {
+  const method = (options.method || "GET").toUpperCase();
   const url = buildUrl(path, options.params);
   const headers = getHeaders(options.headers);
 
-  let body = options.body;
-  if (body && typeof body === "object" && !(body instanceof FormData)) {
-    body = JSON.stringify(body);
-    headers["Content-Type"] = "application/json";
+  // Deduplicate concurrent identical GET requests to avoid duplicate network fetches
+  const isDedupeable = method === "GET" && !options.noDedupe;
+  const dedupeKey = isDedupeable ? `${url}:${headers.Authorization || ""}` : null;
+
+  if (dedupeKey && inFlightRequests.has(dedupeKey)) {
+    return inFlightRequests.get(dedupeKey);
   }
 
-  const response = await fetch(url, {
-    ...options,
-    headers,
-    body,
-  });
+  const executeRequest = async () => {
+    let body = options.body;
+    if (body && typeof body === "object" && !(body instanceof FormData)) {
+      body = JSON.stringify(body);
+      headers["Content-Type"] = "application/json";
+    }
 
-  const contentType = response.headers.get("content-type");
-  const isJson = contentType && contentType.includes("application/json");
-  const data = isJson ? await response.json().catch(() => null) : await response.text();
+    const response = await fetch(url, {
+      ...options,
+      headers,
+      body,
+    });
 
-  if (!response.ok) {
-    const errorMsg = extractErrorMessage(data, response);
-    const details = typeof data === "object" && data !== null ? data.details || data.errors || null : null;
-    throw new ApiError(errorMsg, response.status, details);
+    const contentType = response?.headers?.get ? response.headers.get("content-type") : "";
+    const isJson = contentType ? contentType.includes("application/json") : (typeof response?.json === "function");
+    const data = isJson && typeof response?.json === "function" ? await response.json().catch(() => null) : (await response?.text?.() || null);
+
+    if (!response.ok) {
+      const errorMsg = extractErrorMessage(data, response);
+      const details = typeof data === "object" && data !== null ? data.details || data.errors || null : null;
+      throw new ApiError(errorMsg, response.status, details);
+    }
+
+    return data;
+  };
+
+  if (dedupeKey) {
+    const promise = executeRequest().finally(() => {
+      inFlightRequests.delete(dedupeKey);
+    });
+    inFlightRequests.set(dedupeKey, promise);
+    return promise;
   }
 
-  return data;
+  return executeRequest();
 }
 
 const api = {

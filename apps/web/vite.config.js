@@ -72,6 +72,7 @@ export default defineConfig(({ mode }) => {
     test: {
       globals: true,
       environment: "jsdom",
+      pool: "vmThreads",
       setupFiles: "./src/test/setup.js",
     },
   };

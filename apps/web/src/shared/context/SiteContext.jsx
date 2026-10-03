@@ -12,7 +12,9 @@ export function useSite() {
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function useSiteUI() {
-    return useContext(SiteUIContext)
+    const ui = useContext(SiteUIContext)
+    const site = useContext(SiteContext)
+    return ui?.setMobileMenuOpen !== undefined ? ui : site
 }
 
 export function SiteProvider({ children }) {
@@ -51,9 +53,7 @@ export function SiteProvider({ children }) {
         c,
         co,
         ready,
-        mobileMenuOpen,
-        setMobileMenuOpen
-    }), [company, cms, c, co, ready, mobileMenuOpen])
+    }), [company, cms, c, co, ready])
 
     return (
         <SiteUIContext.Provider value={uiValue}>
