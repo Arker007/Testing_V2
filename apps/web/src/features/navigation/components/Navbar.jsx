@@ -34,13 +34,18 @@ export default function Navbar() {
   const { mobileMenuOpen: open, setMobileMenuOpen: setOpen } = useSiteUI();
   const isPageVisible = (key) => cms?.[key] !== "0";
   const headerRef = useRef(null);
+  const lastHeaderHeightRef = useRef(0);
 
   useEffect(() => {
     if (!headerRef.current) return;
     const updateHeaderHeight = (entries) => {
-      const height = entries?.[0]?.contentRect?.height || headerRef.current?.offsetHeight;
-      if (height) {
-        document.documentElement.style.setProperty("--header-height", `${Math.round(height)}px`);
+      const rawHeight = entries?.[0]?.contentRect?.height || headerRef.current?.offsetHeight;
+      if (rawHeight) {
+        const rounded = Math.round(rawHeight);
+        if (rounded !== lastHeaderHeightRef.current) {
+          lastHeaderHeightRef.current = rounded;
+          document.documentElement.style.setProperty("--header-height", `${rounded}px`);
+        }
       }
     };
 
@@ -50,7 +55,7 @@ export default function Navbar() {
       return () => observer.disconnect();
     } else {
       updateHeaderHeight();
-      window.addEventListener("resize", updateHeaderHeight);
+      window.addEventListener("resize", updateHeaderHeight, { passive: true });
       return () => window.removeEventListener("resize", updateHeaderHeight);
     }
   }, []);
@@ -71,6 +76,14 @@ export default function Navbar() {
       document.documentElement.classList.remove("dark");
     }
     localStorage.setItem("theme", theme);
+
+    const handleStorage = (e) => {
+      if (e.key === "theme" && e.newValue && e.newValue !== theme) {
+        setTheme(e.newValue);
+      }
+    };
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
   }, [theme]);
 
   const isProductsActive =
@@ -128,13 +141,11 @@ export default function Navbar() {
   }, [pathname, setOpen]);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    if (!open) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = prevOverflow;
     };
   }, [open]);
 

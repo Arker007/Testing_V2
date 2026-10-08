@@ -59,19 +59,27 @@ export default function NavbarSearch({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [query, setExpandedState]);
 
-  // Filter matching products (only when user starts typing)
+  // Pre-index lowercase search strings once per products update
+  const indexedProducts = useMemo(() => {
+    if (!products?.length) return [];
+    return products.map((p) => ({
+      raw: p,
+      searchIndex: `${p.name || p.title || ""} ${p.category_name || p.category || ""} ${p.sku || ""}`.toLowerCase(),
+    }));
+  }, [products]);
+
+  // Fast filter matching products with early exit at 5 results
   const matchingProducts = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return [];
-    return products
-      .filter((p) => {
-        const name = (p.name || p.title || "").toLowerCase();
-        const cat = (p.category_name || p.category || "").toLowerCase();
-        const sku = (p.sku || "").toLowerCase();
-        return name.includes(q) || cat.includes(q) || sku.includes(q);
-      })
-      .slice(0, 5);
-  }, [products, query]);
+    const results = [];
+    for (let i = 0; i < indexedProducts.length && results.length < 5; i++) {
+      if (indexedProducts[i].searchIndex.includes(q)) {
+        results.push(indexedProducts[i].raw);
+      }
+    }
+    return results;
+  }, [indexedProducts, query]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

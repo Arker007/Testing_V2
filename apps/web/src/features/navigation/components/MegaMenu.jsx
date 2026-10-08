@@ -405,14 +405,9 @@ export default function MegaMenu({
     if (propProducts?.length > 0) setProducts(propProducts);
   }, [propProducts]);
 
-  // Fallback fetch if parent passed empty arrays
+  // Only self-fetch if MegaMenu is mounted standalone without parent data
   useEffect(() => {
-    if (
-      !propCategories ||
-      propCategories.length === 0 ||
-      !propProducts ||
-      propProducts.length === 0
-    ) {
+    if (propCategories === undefined && propProducts === undefined) {
       Promise.all([
         CategoryService.getAll().catch(() => null),
         ProductService.getProducts().catch(() => null),
@@ -446,10 +441,10 @@ export default function MegaMenu({
     }
     leaveTimeoutRef.current = setTimeout(() => {
       setIsOpen(false);
-    }, 240);
+    }, 190);
   };
 
-  // Safe Hover Intent: 160ms debounce prevents accidental category switching during diagonal cursor motion
+  // Safe Hover Intent: 85ms debounce provides instantaneous category feedback while preventing diagonal slip
   const handleCategoryMouseEnter = (slug) => {
     if (categoryHoverTimerRef.current) {
       clearTimeout(categoryHoverTimerRef.current);
@@ -457,7 +452,7 @@ export default function MegaMenu({
     categoryHoverTimerRef.current = setTimeout(() => {
       setActiveCategorySlug(slug);
       setHoveredProduct(null);
-    }, 160);
+    }, 85);
   };
 
   // When cursor enters content area, cancel any pending switch timer to lock the selected category
@@ -746,11 +741,20 @@ export default function MegaMenu({
         {isOpen && (
           <motion.div
             className={styles.dropdownMenu}
-            initial={{ opacity: 0, y: -6, scale: 0.992 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -6, scale: 0.992 }}
-            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-            style={{ display: "flex" }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6, transition: { duration: 0.12, ease: "easeOut" } }}
+            transition={{
+              type: "spring",
+              damping: 28,
+              stiffness: 360,
+              mass: 0.5,
+            }}
+            style={{
+              display: "flex",
+              willChange: "transform, opacity",
+              transform: "translate3d(0, 0, 0)",
+            }}
           >
             <div className={styles.dropdownMenuPanel}>
               {/* 3-Column Redesigned Mega Menu Layout */}
@@ -842,72 +846,83 @@ export default function MegaMenu({
                   onMouseEnter={handleContentMouseEnter}
                   onKeyDown={handlePanelKeyDown}
                 >
-                  <div>
-                    {/* Header */}
-                    <div className="mb-4">
-                      <span className="block text-[11px] font-bold uppercase tracking-wider text-[var(--text-brand)] mb-0.5">
-                        {activeCategoryData.eyebrow}
-                      </span>
-                      <h3 className="text-2xl font-bold text-[var(--text-primary)] tracking-tight">
-                        {activeCategoryData.name}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1 leading-relaxed max-w-xl">
-                        {activeCategoryData.description}
-                      </p>
-                    </div>
-
-                    {/* Products List Rows */}
-                    <div className="divide-y divide-[var(--border-subtle)]">
-                      {displayProducts.map((product) => (
-                        <div
-                          key={product.id}
-                          className="py-2.5 sm:py-3 transition-colors"
-                          onMouseEnter={() => setHoveredProduct(product.raw || product)}
-                          onMouseLeave={() => setHoveredProduct(null)}
-                        >
-                          <Link
-                            to={product.targetUrl}
-                            onClick={handleLinkClick}
-                            className="flex items-center justify-between gap-3 group"
-                          >
-                            <div className="flex flex-col min-w-0 pr-2">
-                              <span className="text-sm font-bold text-[var(--text-primary)] group-hover:text-[var(--text-brand)] transition-colors truncate">
-                                {product.name}
-                              </span>
-                              {product.spec && (
-                                <span className="text-xs text-[var(--text-muted)] mt-0.5">
-                                  {product.spec}
-                                </span>
-                              )}
-                            </div>
-                            <div className="flex items-center gap-3 shrink-0">
-                              {product.badge && (
-                                <span className="bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase border border-[var(--border-subtle)]">
-                                  {product.badge}
-                                </span>
-                              )}
-                              <Icon
-                                icon="carbon:chevron-right"
-                                className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-brand)] group-hover:translate-x-0.5 transition-all"
-                              />
-                            </div>
-                          </Link>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* View All Link */}
-                  <div className="pt-4 mt-2">
-                    <Link
-                      to={`/products?cat=${encodeURIComponent(activeCategorySlug)}`}
-                      onClick={handleLinkClick}
-                      className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--text-brand)] hover:text-[var(--brand-hover)] hover:underline transition-all"
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.div
+                      key={activeCategorySlug}
+                      initial={{ opacity: 0, y: 4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -3 }}
+                      transition={{ duration: 0.14, ease: [0.16, 1, 0.3, 1] }}
+                      className="flex flex-col justify-between h-full"
                     >
-                      <span>View all {activeCategoryData.name}</span>
-                      <Icon icon="carbon:arrow-right" className="w-4 h-4" />
-                    </Link>
-                  </div>
+                      <div>
+                        {/* Header */}
+                        <div className="mb-4">
+                          <span className="block text-[11px] font-bold uppercase tracking-wider text-[var(--text-brand)] mb-0.5">
+                            {activeCategoryData.eyebrow}
+                          </span>
+                          <h3 className="text-2xl font-bold text-[var(--text-primary)] tracking-tight">
+                            {activeCategoryData.name}
+                          </h3>
+                          <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1 leading-relaxed max-w-xl">
+                            {activeCategoryData.description}
+                          </p>
+                        </div>
+
+                        {/* Products List Rows */}
+                        <div className="divide-y divide-[var(--border-subtle)]">
+                          {displayProducts.map((product) => (
+                            <div
+                              key={product.id}
+                              className="py-2.5 sm:py-3 transition-colors"
+                              onMouseEnter={() => setHoveredProduct(product.raw || product)}
+                              onMouseLeave={() => setHoveredProduct(null)}
+                            >
+                              <Link
+                                to={product.targetUrl}
+                                onClick={handleLinkClick}
+                                className="flex items-center justify-between gap-3 group"
+                              >
+                                <div className="flex flex-col min-w-0 pr-2">
+                                  <span className="text-sm font-bold text-[var(--text-primary)] group-hover:text-[var(--text-brand)] transition-colors truncate">
+                                    {product.name}
+                                  </span>
+                                  {product.spec && (
+                                    <span className="text-xs text-[var(--text-muted)] mt-0.5">
+                                      {product.spec}
+                                    </span>
+                                  )}
+                                </div>
+                                <div className="flex items-center gap-3 shrink-0">
+                                  {product.badge && (
+                                    <span className="bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase border border-[var(--border-subtle)]">
+                                      {product.badge}
+                                    </span>
+                                  )}
+                                  <Icon
+                                    icon="carbon:chevron-right"
+                                    className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-brand)] group-hover:translate-x-0.5 transition-all"
+                                  />
+                                </div>
+                              </Link>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* View All Link */}
+                      <div className="pt-4 mt-2">
+                        <Link
+                          to={`/products?cat=${encodeURIComponent(activeCategorySlug)}`}
+                          onClick={handleLinkClick}
+                          className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--text-brand)] hover:text-[var(--brand-hover)] hover:underline transition-all"
+                        >
+                          <span>View all {activeCategoryData.name}</span>
+                          <Icon icon="carbon:arrow-right" className="w-4 h-4" />
+                        </Link>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
 
                 {/* 3. Right Column: Bespoke Manufacturing Spotlight & RFQ Card */}
