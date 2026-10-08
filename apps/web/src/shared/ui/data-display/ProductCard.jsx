@@ -249,6 +249,8 @@ function ProductCard({
               src={imageSrc}
               alt={title}
               className={styles.gridCardImg}
+              loading={index < 2 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
             />
           ) : (
             <Icon icon="solar:gallery-minimalistic-linear" className="w-10 h-10 text-[var(--text-muted)]" />

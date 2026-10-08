@@ -4,6 +4,7 @@ import { useSite } from "../../../shared/context/SiteContext";
 import { SustainabilitySection } from "../../home";
 import { Icon } from "@iconify/react";
 import { CtaCard, QuoteButton, PageHero, Badge } from "@/shared/ui";
+import sustainabilityHeroBg from "@assets/images/backgrounds/weather_resistant_bg_1785866780021.jpg";
 
 export default function SustainabilityPage() {
   const { c, co } = useSite();
@@ -24,6 +25,8 @@ export default function SustainabilityPage() {
           { label: "Home", to: "/" },
           { label: "Sustainability" },
         ]}
+        bgImage={sustainabilityHeroBg}
+        bgOpacity="opacity-40"
         tag={c("sus_hero_tag", "Environmental Impact & Circular Economy")}
         tagIcon="carbon:recycle"
         title="Turning Plastic Waste into Long-Lasting Products"

@@ -254,8 +254,8 @@ export default function ProductsShowcase() {
               alt={featuredProduct.name}
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
             />
-            {/* Seamless gradient overlay directly on image */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/10 pointer-events-none" />
+            {/* Soft black tint gradient from bottom for clean contrast and visibility */}
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/70 via-black/40 via-45% to-transparent pointer-events-none" />
           </div>
 
           {/* TOP BAR: Badge '01 / 06' + Top Right Action Arrow with Dark Backdrops */}
@@ -374,8 +374,8 @@ export default function ProductsShowcase() {
                   alt={title}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
-                {/* Smooth gradient overlay directly on bottom 45% */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
+                {/* Soft black tint gradient from bottom for natural visibility and readability */}
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/65 via-black/35 via-35% to-transparent pointer-events-none" />
               </div>
 
               {/* TOP BAR */}
@@ -413,11 +413,11 @@ export default function ProductsShowcase() {
               </div>
 
               {/* BOTTOM DIRECT OVERLAY TEXT */}
-              <div className="relative z-20 mt-auto pt-6">
-                <h3 className="text-lg sm:text-xl font-black !text-white tracking-tight mb-1 drop-shadow-sm">
+              <div className="relative z-20 mt-auto pt-8">
+                <h3 className="text-lg sm:text-xl font-black !text-white tracking-tight mb-1 drop-shadow-md">
                   {title}
                 </h3>
-                <p className="!text-[var(--text-on-dark-secondary)] text-xs leading-relaxed font-medium line-clamp-2 drop-shadow-xs">
+                <p className="!text-slate-100 text-xs sm:text-[13px] leading-relaxed font-semibold line-clamp-2 drop-shadow-sm">
                   {desc}
                 </p>
               </div>
@@ -448,8 +448,8 @@ export default function ProductsShowcase() {
                   alt={title}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
-                {/* Smooth gradient overlay directly on bottom 45% */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
+                {/* Soft black tint gradient from bottom for natural visibility and readability */}
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/65 via-black/35 via-35% to-transparent pointer-events-none" />
               </div>
 
               {/* TOP BAR */}
@@ -487,11 +487,11 @@ export default function ProductsShowcase() {
               </div>
 
               {/* BOTTOM DIRECT OVERLAY TEXT */}
-              <div className="relative z-20 mt-auto pt-6">
-                <h3 className="text-lg sm:text-xl font-black !text-white tracking-tight mb-1 drop-shadow-sm">
+              <div className="relative z-20 mt-auto pt-8">
+                <h3 className="text-lg sm:text-xl font-black !text-white tracking-tight mb-1 drop-shadow-md">
                   {title}
                 </h3>
-                <p className="!text-[var(--text-on-dark-secondary)] text-xs leading-relaxed font-medium line-clamp-2 drop-shadow-xs">
+                <p className="!text-slate-100 text-xs sm:text-[13px] leading-relaxed font-semibold line-clamp-2 drop-shadow-sm">
                   {desc}
                 </p>
               </div>

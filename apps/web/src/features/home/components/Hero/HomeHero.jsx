@@ -222,6 +222,23 @@ export default function HomeHero() {
       <div className={styles.slantBgGreen} />
       <div className={styles.slantBgDark} />
 
+      {/* Low-Opacity Thematic Industrial Background Image */}
+      <div
+        className="absolute inset-0 z-[2] pointer-events-none overflow-hidden select-none"
+        style={{ clipPath: "polygon(0 0, 62% 0, 48% 100%, 0 100%)" }}
+        aria-hidden="true"
+      >
+        <img
+          src={recycledPlasticProfiles}
+          alt=""
+          className="w-full h-full object-cover object-center opacity-40 brightness-70 contrast-105 mix-blend-luminosity scale-105 pointer-events-none"
+          loading="eager"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--neutral-950,#061A26)]/80 via-transparent to-[var(--neutral-950,#061A26)]/70 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--neutral-950,#061A26)] via-transparent to-[var(--neutral-950,#061A26)]/60 pointer-events-none" />
+      </div>
+
       {/* Decorative Dotted Grids */}
       <div className={styles.dotsPatternLeft} />
       <div className={styles.dotsPatternRightTop} />

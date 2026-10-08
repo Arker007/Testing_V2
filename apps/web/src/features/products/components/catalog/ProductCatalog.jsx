@@ -772,7 +772,7 @@ export default function ProductCatalog() {
 
         {/* Pagination Controls - Centered across container */}
         {totalPages > 1 && (
-          <div className="mt-4 sm:mt-6 flex justify-center w-full" id="catalog-pagination">
+          <div className="mt-4 sm:mt-6 flex justify-center w-full overflow-x-auto no-scrollbar py-1" id="catalog-pagination">
             <Pagination
               currentPage={currentPage}
               totalPages={totalPages}

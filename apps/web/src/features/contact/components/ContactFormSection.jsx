@@ -17,6 +17,34 @@ import { useContactForm } from "../hooks/useContactForm";
 import styles from "../styles/quote-form.module.css";
 import mapStyles from "../styles/contact-map.module.css";
 
+function CardCopyButton({ text, copyKey, copiedKey, onCopy, title }) {
+  const isCopied = copiedKey === copyKey;
+
+  return (
+    <button
+      type="button"
+      onClick={() => onCopy(text, copyKey)}
+      className={`${styles.cardCopyBtn} ${isCopied ? styles.cardCopyBtnCopied : ""}`}
+      title={isCopied ? "Copied!" : title}
+      aria-label={title}
+    >
+      {isCopied ? (
+        <>
+          <Icon icon="carbon:checkmark-filled" className="w-3 h-3 text-emerald-600 dark:text-emerald-400 shrink-0" />
+          <span className={`${styles.cardCopyBtnLabel} text-emerald-600 dark:text-emerald-400 font-semibold`}>
+            Copied
+          </span>
+        </>
+      ) : (
+        <>
+          <Icon icon="carbon:copy" className="w-3 h-3 shrink-0" />
+          <span className={styles.cardCopyBtnLabel}>Copy</span>
+        </>
+      )}
+    </button>
+  );
+}
+
 export default function ContactFormSection() {
   const { c, co } = useSite();
   const {
@@ -426,24 +454,13 @@ export default function ContactFormSection() {
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
                       <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Manufacturing Plant & Works</span>
-                      <button
-                        type="button"
-                        onClick={() => handleCopyCardText(address, "address")}
-                        className="inline-flex items-center gap-1 text-[10px] font-semibold text-[var(--text-muted)] hover:text-[var(--brand-primary)] transition-colors py-0.5 px-1.5 rounded bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] cursor-pointer shrink-0"
+                      <CardCopyButton
+                        text={address}
+                        copyKey="address"
+                        copiedKey={copiedCardKey}
+                        onCopy={handleCopyCardText}
                         title="Copy full address"
-                      >
-                        {copiedCardKey === "address" ? (
-                          <>
-                            <Icon icon="carbon:checkmark-filled" className="w-3 h-3 text-emerald-600" />
-                            <span className="text-emerald-600 font-semibold">Copied</span>
-                          </>
-                        ) : (
-                          <>
-                            <Icon icon="carbon:copy" className="w-3 h-3" />
-                            <span>Copy</span>
-                          </>
-                        )}
-                      </button>
+                      />
                     </div>
                     <h3 className="text-sm sm:text-[15px] !text-sm font-extrabold text-[var(--text-primary)] leading-snug mt-0.5">
                       {address}
@@ -462,24 +479,13 @@ export default function ContactFormSection() {
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
                       <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Direct Sales Line</span>
-                      <button
-                        type="button"
-                        onClick={() => handleCopyCardText(phoneVal, "phone")}
-                        className="inline-flex items-center gap-1 text-[10px] font-semibold text-[var(--text-muted)] hover:text-[var(--brand-primary)] transition-colors py-0.5 px-1.5 rounded bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] cursor-pointer shrink-0"
+                      <CardCopyButton
+                        text={phoneVal}
+                        copyKey="phone"
+                        copiedKey={copiedCardKey}
+                        onCopy={handleCopyCardText}
                         title="Copy phone number"
-                      >
-                        {copiedCardKey === "phone" ? (
-                          <>
-                            <Icon icon="carbon:checkmark-filled" className="w-3 h-3 text-emerald-600" />
-                            <span className="text-emerald-600 font-semibold">Copied</span>
-                          </>
-                        ) : (
-                          <>
-                            <Icon icon="carbon:copy" className="w-3 h-3" />
-                            <span>Copy</span>
-                          </>
-                        )}
-                      </button>
+                      />
                     </div>
                     <div className="flex items-center gap-2 mt-0.5">
                       <h3 className="!text-sm sm:!text-[15px] !font-extrabold text-[var(--text-primary)]">
@@ -507,24 +513,13 @@ export default function ContactFormSection() {
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
                       <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Official Procurement Email</span>
-                      <button
-                        type="button"
-                        onClick={() => handleCopyCardText(emailVal, "email")}
-                        className="inline-flex items-center gap-1 text-[10px] font-semibold text-[var(--text-muted)] hover:text-[var(--brand-primary)] transition-colors py-0.5 px-1.5 rounded bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] cursor-pointer shrink-0"
+                      <CardCopyButton
+                        text={emailVal}
+                        copyKey="email"
+                        copiedKey={copiedCardKey}
+                        onCopy={handleCopyCardText}
                         title="Copy email address"
-                      >
-                        {copiedCardKey === "email" ? (
-                          <>
-                            <Icon icon="carbon:checkmark-filled" className="w-3 h-3 text-emerald-600" />
-                            <span className="text-emerald-600 font-semibold">Copied</span>
-                          </>
-                        ) : (
-                          <>
-                            <Icon icon="carbon:copy" className="w-3 h-3" />
-                            <span>Copy</span>
-                          </>
-                        )}
-                      </button>
+                      />
                     </div>
                     <h3 className="!text-sm sm:!text-[15px] !font-extrabold text-[var(--text-primary)] mt-0.5">
                       <a
@@ -556,24 +551,13 @@ export default function ContactFormSection() {
                           <span>Verified</span>
                         </span>
                       </div>
-                      <button
-                        type="button"
-                        onClick={() => handleCopyCardText(gstinVal, "gstin")}
-                        className="inline-flex items-center gap-1 text-[10px] font-semibold text-[var(--text-muted)] hover:text-[var(--brand-primary)] transition-colors py-0.5 px-1.5 rounded bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] cursor-pointer shrink-0"
+                      <CardCopyButton
+                        text={gstinVal}
+                        copyKey="gstin"
+                        copiedKey={copiedCardKey}
+                        onCopy={handleCopyCardText}
                         title="Copy GSTIN"
-                      >
-                        {copiedCardKey === "gstin" ? (
-                          <>
-                            <Icon icon="carbon:checkmark-filled" className="w-3 h-3 text-emerald-600" />
-                            <span className="text-emerald-600 font-semibold">Copied</span>
-                          </>
-                        ) : (
-                          <>
-                            <Icon icon="carbon:copy" className="w-3 h-3" />
-                            <span>Copy</span>
-                          </>
-                        )}
-                      </button>
+                      />
                     </div>
                     <h3 className="!text-sm sm:!text-[15px] !font-extrabold text-[var(--text-primary)] tracking-wider mt-0.5 font-mono">{gstinVal}</h3>
                     <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5 leading-relaxed">Official tax registration for billing and compliance.</p>

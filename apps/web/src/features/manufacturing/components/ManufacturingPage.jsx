@@ -4,6 +4,7 @@ import { useSite } from "../../../shared/context/SiteContext";
 import { ProcessSection } from "../../home";
 import { Icon } from "@iconify/react";
 import { CtaCard, QuoteButton, PageHero, Badge } from "@/shared/ui";
+import mfgHeroBg from "@assets/images/backgrounds/custom_manufacturing_bg_1785866818566.jpg";
 
 export default function ManufacturingPage() {
   const { c, co } = useSite();
@@ -24,6 +25,8 @@ export default function ManufacturingPage() {
           { label: "Home", to: "/" },
           { label: "Manufacturing" },
         ]}
+        bgImage={mfgHeroBg}
+        bgOpacity="opacity-40"
         tag={c("mfg_hero_tag", "High-Precision Polymer Processing")}
         tagIcon="carbon:settings"
         title={c("mfg_hero_title", "High-Pressure Polymer Extrusion & Quality Control")}

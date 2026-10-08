@@ -1,6 +1,7 @@
 import React from "react";
 import { useSite } from "../../../shared/context/SiteContext";
 import { PageHero } from "@/shared/ui";
+import aboutHeroBg from "@assets/images/marketing/recycled_plastic_profiles_1785866736886.jpg";
 
 export default function AboutHero() {
   const { c } = useSite();
@@ -19,6 +20,8 @@ export default function AboutHero() {
         { label: "Home", to: "/" },
         { label: "About Us" },
       ]}
+      bgImage={aboutHeroBg}
+      bgOpacity="opacity-40"
       tag={c("about_hero_tag", "Pioneering Recycled Polymer Extrusion")}
       tagIcon="carbon:time"
       title={rawTitle}

@@ -39,7 +39,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
             alt={title}
             className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/15 pointer-events-none" />
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/70 via-black/40 via-45% to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
@@ -82,7 +82,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
             alt={title}
             className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/65 via-black/35 via-35% to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
@@ -125,7 +125,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
             alt={title}
             className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/65 via-black/35 via-35% to-transparent pointer-events-none" />
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
@@ -167,7 +167,7 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
           alt={title}
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/65 via-black/35 via-35% to-transparent pointer-events-none" />
       </div>
 
       <div className="relative z-10 flex items-center justify-between mb-4">

@@ -82,6 +82,8 @@ function ProductListItemCard({
               src={img}
               alt={title}
               className={styles.mobileListImg}
+              loading={index < 2 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
             />
           </div>
         </Link>
@@ -132,6 +134,8 @@ function ProductListItemCard({
               src={img}
               alt={title}
               className={styles.listCardImg}
+              loading={index < 2 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
             />
           </div>
           {categoryName && <span className={styles.catTag}>{categoryName}</span>}

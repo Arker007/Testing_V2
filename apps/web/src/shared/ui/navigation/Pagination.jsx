@@ -2,7 +2,7 @@ import React from "react";
 import { Icon } from "@iconify/react";
 
 /**
- * Reusable Pagination component for dataset navigation.
+ * Reusable Pagination component matching the clean bordered container design.
  *
  * @param {Object} props
  * @param {number} props.currentPage - Active 1-indexed page number
@@ -19,73 +19,115 @@ export default function Pagination({
   if (totalPages <= 1) return null;
 
   const getPageNumbers = () => {
-    const pages = [];
-    const maxVisible = 5;
-
-    if (totalPages <= maxVisible) {
-      for (let i = 1; i <= totalPages; i++) pages.push(i);
-    } else {
-      pages.push(1);
-      if (currentPage > 3) pages.push("...");
-
-      const start = Math.max(2, currentPage - 1);
-      const end = Math.min(totalPages - 1, currentPage + 1);
-
-      for (let i = start; i <= end; i++) pages.push(i);
-
-      if (currentPage < totalPages - 2) pages.push("...");
-      pages.push(totalPages);
+    if (totalPages <= 7) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
     }
-    return pages;
+
+    // Near start (first 4 pages)
+    if (currentPage <= 4) {
+      return [1, 2, 3, 4, 5, "...", totalPages];
+    }
+
+    // Near end (last 4 pages)
+    if (currentPage >= totalPages - 3) {
+      return [
+        1,
+        "...",
+        totalPages - 4,
+        totalPages - 3,
+        totalPages - 2,
+        totalPages - 1,
+        totalPages,
+      ];
+    }
+
+    // Middle pages
+    return [
+      1,
+      "...",
+      currentPage - 1,
+      currentPage,
+      currentPage + 1,
+      "...",
+      totalPages,
+    ];
+  };
+
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages && page !== currentPage) {
+      onPageChange?.(page);
+    }
   };
 
   return (
     <nav
       aria-label="Pagination Navigation"
-      className={`flex items-center justify-center gap-2 ${className}`.trim()}
+      className={`relative inline-flex items-center h-10 sm:h-11 bg-white dark:bg-[var(--bg-surface)] border border-slate-200 dark:border-[var(--border-subtle)] rounded-lg sm:rounded-xl shadow-xs select-none ${className}`.trim()}
     >
+      {/* Previous Button */}
       <button
         type="button"
         disabled={currentPage <= 1}
-        onClick={() => onPageChange(currentPage - 1)}
-        className="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[var(--bg-surface-secondary)] hover:border-[var(--border-default)] transition-all cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95"
+        onClick={() => handlePageChange(currentPage - 1)}
+        style={{ borderRadius: 0 }}
+        className="flex items-center gap-1.5 h-full pl-3.5 pr-2.5 sm:pl-4 sm:pr-3 text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-black dark:hover:text-white disabled:text-slate-300 dark:disabled:text-slate-600 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-slate-300 dark:disabled:hover:text-slate-600 transition-colors cursor-pointer shrink-0 focus-visible:outline-none !rounded-none"
         aria-label="Previous Page"
       >
-        <Icon icon="solar:alt-arrow-left-linear" className="w-4 h-4" />
+        <Icon
+          icon="solar:alt-arrow-left-linear"
+          className="w-3.5 h-3.5 shrink-0"
+        />
+        <span>Previous</span>
       </button>
 
+      {/* Page Numbers & Ellipsis */}
       {getPageNumbers().map((p, idx) =>
         p === "..." ? (
           <span
             key={`ellipsis-${idx}`}
-            className="w-8 flex items-center justify-center text-sm font-semibold text-[var(--text-muted)] select-none"
+            className="flex items-center justify-center min-w-7 sm:min-w-8 h-full text-sm font-medium text-slate-400 dark:text-slate-500 select-none px-1"
           >
             ...
           </span>
+        ) : p === currentPage ? (
+          <button
+            key={`page-${p}`}
+            type="button"
+            aria-current="page"
+            aria-label={`Page ${p}`}
+            style={{ borderRadius: 0 }}
+            className="relative flex items-center justify-center w-10 sm:w-11 h-[calc(100%+2px)] -my-[1px] text-sm sm:text-base font-bold text-black dark:text-white bg-white dark:bg-[var(--bg-surface)] border border-black dark:border-white z-10 cursor-default !rounded-none focus-visible:outline-none"
+          >
+            {p}
+          </button>
         ) : (
           <button
-            key={p}
+            key={`page-${p}`}
             type="button"
-            onClick={() => onPageChange(p)}
-            className={`min-w-[40px] h-10 px-3.5 flex items-center justify-center rounded-lg text-sm font-bold transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95 ${
-              currentPage === p
-                ? "bg-[var(--brand-primary)] text-[var(--brand-btn-text)] border border-[var(--brand-primary)] shadow-xs font-extrabold"
-                : "bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] hover:bg-[var(--bg-surface-secondary)] hover:border-[var(--border-default)] shadow-xs"
-            }`}
+            onClick={() => handlePageChange(p)}
+            aria-label={`Page ${p}`}
+            style={{ borderRadius: 0 }}
+            className="flex items-center justify-center min-w-8 sm:min-w-9 h-full text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white hover:bg-slate-50 dark:hover:bg-white/5 transition-colors cursor-pointer !rounded-none focus-visible:outline-none"
           >
             {p}
           </button>
         )
       )}
 
+      {/* Next Button */}
       <button
         type="button"
         disabled={currentPage >= totalPages}
-        onClick={() => onPageChange(currentPage + 1)}
-        className="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--bg-surface)] border border-[var(--border-subtle)] text-[var(--text-primary)] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[var(--bg-surface-secondary)] hover:border-[var(--border-default)] transition-all cursor-pointer shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] active:scale-95"
+        onClick={() => handlePageChange(currentPage + 1)}
+        style={{ borderRadius: 0 }}
+        className="flex items-center gap-1.5 h-full pl-2.5 pr-3.5 sm:pl-3 sm:pr-4 text-sm font-medium text-slate-800 dark:text-slate-200 hover:text-black dark:hover:text-white disabled:text-slate-300 dark:disabled:text-slate-600 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-slate-300 dark:disabled:hover:text-slate-600 transition-colors cursor-pointer shrink-0 focus-visible:outline-none !rounded-none"
         aria-label="Next Page"
       >
-        <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4" />
+        <span>Next</span>
+        <Icon
+          icon="solar:alt-arrow-right-linear"
+          className="w-3.5 h-3.5 shrink-0"
+        />
       </button>
     </nav>
   );

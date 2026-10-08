@@ -446,3 +446,62 @@ html.dark .phonePrefixSelect:focus {
   border-color: var(--brand-primary) !important;
   box-shadow: none !important;
 }
+
+/* Card Copy Button (Icon-only by default; label reveals smoothly only on mouse hover/focus) */
+.cardCopyBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  height: 22px;
+  padding: 0 0.35rem;
+  border-radius: 4px;
+  background-color: var(--bg-surface-secondary);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardCopyBtn:hover,
+.cardCopyBtn:focus-visible {
+  color: var(--brand-primary);
+  background-color: var(--brand-soft);
+  border-color: var(--border-brand);
+  padding: 0 0.5rem;
+}
+
+.cardCopyBtnLabel {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+  transition: max-width 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.15s ease;
+}
+
+.cardCopyBtn:hover .cardCopyBtnLabel,
+.cardCopyBtn:focus-visible .cardCopyBtnLabel,
+.cardCopyBtnCopied .cardCopyBtnLabel {
+  max-width: 48px;
+  opacity: 1;
+}
+
+.cardCopyBtnCopied {
+  color: #059669 !important;
+  border-color: #a7f3d0 !important;
+  background-color: #ecfdf5 !important;
+  padding: 0 0.5rem !important;
+}
+
+:global([data-theme="dark"]) .cardCopyBtnCopied,
+:global(.dark) .cardCopyBtnCopied,
+html.dark .cardCopyBtnCopied {
+  color: #34d399 !important;
+  border-color: #065f46 !important;
+  background-color: rgba(6, 78, 59, 0.35) !important;
+}
