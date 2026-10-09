@@ -258,7 +258,7 @@ export default function ProcessSection({ className = "" }) {
         {/* Section Title Header */}
         <SectionHeader
           eyebrow={c("process_eyebrow", "Circular Supply Chain")}
-          eyebrowIcon={<Icon icon="carbon:renew" className="w-4 h-4 animate-spin-slow" />}
+          eyebrowIcon={<Icon icon="carbon:renew" flip="horizontal" className="w-4 h-4 animate-spin-slow" />}
           title={c("process_title", "Our Manufacturing Process")}
           highlightText="Process"
           subtitle={c("process_subtitle", "From responsible plastic waste to high-performance products — every step is engineered for quality, sustainability, and long-term impact.")}

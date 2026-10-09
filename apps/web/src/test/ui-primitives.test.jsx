@@ -1,9 +1,14 @@
 import React from "react";
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { Badge, Pagination } from "@/shared/ui";
+import { Badge, Pagination, Spinner } from "@/shared/ui";
 
 describe("Shared UI Primitives", () => {
+  it("renders Spinner component with label and container", () => {
+    const { container } = render(<Spinner label="Loading items..." size="md" />);
+    expect(screen.getByText("Loading items...")).toBeInTheDocument();
+    expect(container.firstChild).toBeInTheDocument();
+  });
   it("renders Badge component with correct label and classes", () => {
     render(<Badge variant="brand">Eco-Friendly</Badge>);
     const badge = screen.getByText("Eco-Friendly");

@@ -207,7 +207,7 @@ function StatusRow({ iconName, label, ok, loading, detail }) {
     <div className={`${styles.statusRowMini} ${stateClass}`}>
       <div className={styles.statusIconMini}>
         {loading ? (
-          <Icon icon="solar:refresh-circle-linear" className="w-4 h-4 animate-spin" />
+          <Icon icon="solar:refresh-circle-linear" flip="horizontal" className="w-4 h-4 animate-spin" />
         ) : (
           <Icon icon={iconName} className="w-4 h-4" />
         )}
@@ -216,7 +216,7 @@ function StatusRow({ iconName, label, ok, loading, detail }) {
       <div className={styles.statusDetailMini}>{loading ? "Verifying..." : detail}</div>
       <div className={styles.statusBadgeMini}>
         {loading ? (
-          <Icon icon="solar:refresh-circle-linear" className="w-3.5 h-3.5 animate-spin" />
+          <Icon icon="solar:refresh-circle-linear" flip="horizontal" className="w-3.5 h-3.5 animate-spin" />
         ) : ok ? (
           <Icon icon="solar:check-circle-bold" className="w-3.5 h-3.5" />
         ) : (

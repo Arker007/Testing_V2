@@ -413,7 +413,7 @@ export default function InquiryModal({ product, onClose }) {
             >
               {submitting ? (
                 <>
-                  <Icon icon="carbon:renew" className="w-4 h-4 animate-spin" />
+                  <Icon icon="carbon:renew" flip="horizontal" className="w-4 h-4 animate-spin" />
                   <span>Submitting inquiry...</span>
                 </>
               ) : (

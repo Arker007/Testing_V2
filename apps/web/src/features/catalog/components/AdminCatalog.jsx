@@ -62,6 +62,7 @@ export default function AdminCatalog() {
       >
         <Icon
           icon="carbon:renew"
+          flip="horizontal"
           className="w-10 h-10 animate-spin text-[var(--brand)]"
         />
       </div>

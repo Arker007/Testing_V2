@@ -94,6 +94,7 @@ export default function Button({
       {loading ? (
         <Icon
           icon="solar:refresh-circle-linear"
+          flip="horizontal"
           className={`${selectedSpinnerSize} animate-spin shrink-0`}
           aria-hidden="true"
         />

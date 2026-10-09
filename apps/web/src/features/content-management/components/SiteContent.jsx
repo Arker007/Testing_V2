@@ -98,7 +98,7 @@ export default function SiteContent() {
   if (loading) {
     return (
       <div className={cStyles.loader}>
-        <Icon icon="carbon:renew" className="w-5 h-5 animate-spin mr-2 inline" /> Loading content...
+        <Icon icon="carbon:renew" flip="horizontal" className="w-5 h-5 animate-spin mr-2 inline" /> Loading content...
       </div>
     );
   }

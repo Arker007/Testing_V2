@@ -17,6 +17,7 @@ export default function Spinner({
   label = "",
   fullPage = false,
   className = "",
+  flip = "horizontal",
   ...props
 }) {
   const sizeClasses = {
@@ -39,6 +40,7 @@ export default function Spinner({
   const spinnerIcon = (
     <Icon
       icon="carbon:renew"
+      flip={flip}
       className={`animate-spin shrink-0 ${selectedSize} ${selectedVariant} ${className}`.trim()}
       {...props}
     />

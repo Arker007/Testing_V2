@@ -115,7 +115,7 @@ export default function AdminProductEditor() {
   if (loading) {
     return (
       <div className={styles.loadingState}>
-        <Icon icon="carbon:renew" className="w-5 h-5 animate-spin inline mr-2" /> Loading product editor...
+        <Icon icon="carbon:renew" flip="horizontal" className="w-5 h-5 animate-spin inline mr-2" /> Loading product editor...
       </div>
     );
   }

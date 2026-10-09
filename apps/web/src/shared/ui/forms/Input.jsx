@@ -133,7 +133,7 @@ const Input = forwardRef(function Input(
 
       {isLoading && (
         <div className="pr-3 flex items-center">
-          <Icon icon="solar:refresh-circle-linear" className={`${currentIconSize} animate-spin text-[var(--brand-primary)]`} />
+          <Icon icon="solar:refresh-circle-linear" flip="horizontal" className={`${currentIconSize} animate-spin text-[var(--brand-primary)]`} />
         </div>
       )}
 

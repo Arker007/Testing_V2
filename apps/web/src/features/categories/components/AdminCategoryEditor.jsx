@@ -102,7 +102,7 @@ export default function AdminCategoryEditor() {
     } catch (err) { alert(err.message || "A network error occurred. Please try again."); } finally { setSaving(false); }
   };
 
-  if (loading) return <div className={styles.loadingState}><Icon icon="carbon:renew" className="w-5 h-5 animate-spin inline mr-2" /> Loading category editor...</div>;
+  if (loading) return <div className={styles.loadingState}><Icon icon="carbon:renew" flip="horizontal" className="w-5 h-5 animate-spin inline mr-2" /> Loading category editor...</div>;
 
   return (
     <div className={styles.dashboard}>
