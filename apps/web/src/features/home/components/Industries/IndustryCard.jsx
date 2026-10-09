@@ -2,7 +2,6 @@ import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 import { OptimizedImage } from "@/shared/ui";
-import { Badge } from "@/shared/ui";
 import styles from "./Industries.module.css";
 
 export const IndustryCard = React.memo(function IndustryCard({ item }) {
@@ -43,13 +42,20 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-105">
-            <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
+          <div
+            style={{
+              backgroundColor: "var(--brand-primary)",
+              borderColor: "var(--brand-primary)",
+              color: "var(--brand-btn-text)",
+            }}
+            className="w-11 h-11 rounded-[var(--radius-btn,8px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] flex items-center justify-center border !border-[var(--brand-primary)] shrink-0 shadow-md transition-all duration-200 group-hover:scale-105"
+          >
+            <IconComponent className="w-5 h-5 !text-[var(--brand-btn-text)] text-current" variants={iconVariants} />
           </div>
           {badgeText && (
-            <Badge variant="dark" size="sm">
+            <span className="text-[0.6875rem] font-bold uppercase tracking-wider text-white/75 shrink-0 drop-shadow-xs">
               {badgeText}
-            </Badge>
+            </span>
           )}
         </div>
 
@@ -86,13 +92,20 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-105">
-            <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
+          <div
+            style={{
+              backgroundColor: "var(--brand-primary)",
+              borderColor: "var(--brand-primary)",
+              color: "var(--brand-btn-text)",
+            }}
+            className="w-11 h-11 rounded-[var(--radius-btn,8px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] flex items-center justify-center border !border-[var(--brand-primary)] shrink-0 shadow-md transition-all duration-200 group-hover:scale-105"
+          >
+            <IconComponent className="w-5 h-5 !text-[var(--brand-btn-text)] text-current" variants={iconVariants} />
           </div>
           {cardType === "wideRowHeader" && badgeText && (
-            <Badge variant="dark" size="sm">
+            <span className="text-[0.6875rem] font-bold uppercase tracking-wider text-white/75 shrink-0 drop-shadow-xs">
               {badgeText}
-            </Badge>
+            </span>
           )}
         </div>
 
@@ -129,13 +142,20 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
         </div>
 
         <div className="relative z-10 flex items-center justify-between mb-4">
-          <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-105">
-            <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
+          <div
+            style={{
+              backgroundColor: "var(--brand-primary)",
+              borderColor: "var(--brand-primary)",
+              color: "var(--brand-btn-text)",
+            }}
+            className="w-11 h-11 rounded-[var(--radius-btn,8px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] flex items-center justify-center border !border-[var(--brand-primary)] shrink-0 shadow-md transition-all duration-200 group-hover:scale-105"
+          >
+            <IconComponent className="w-5 h-5 !text-[var(--brand-btn-text)] text-current" variants={iconVariants} />
           </div>
           {cardType === "wideHeader" && badgeText && (
-            <Badge variant="dark" size="sm">
+            <span className="text-[0.6875rem] font-bold uppercase tracking-wider text-white/75 shrink-0 drop-shadow-xs">
               {badgeText}
-            </Badge>
+            </span>
           )}
         </div>
 
@@ -171,8 +191,15 @@ export const IndustryCard = React.memo(function IndustryCard({ item }) {
       </div>
 
       <div className="relative z-10 flex items-center justify-between mb-4">
-        <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] backdrop-blur-md border border-[var(--border-brand)] flex items-center justify-center shrink-0 shadow-xs transition-transform duration-300 group-hover:scale-105">
-          <IconComponent className="w-5 h-5 text-current" variants={iconVariants} />
+        <div
+          style={{
+            backgroundColor: "var(--brand-primary)",
+            borderColor: "var(--brand-primary)",
+            color: "var(--brand-btn-text)",
+          }}
+          className="w-9 h-9 rounded-[var(--radius-btn,8px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] flex items-center justify-center border !border-[var(--brand-primary)] shrink-0 shadow-md transition-colors duration-200 group-hover:scale-105"
+        >
+          <IconComponent className="w-4 h-4 !text-[var(--brand-btn-text)] text-current" variants={iconVariants} />
         </div>
       </div>
 

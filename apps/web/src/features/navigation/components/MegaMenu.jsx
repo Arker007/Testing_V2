@@ -39,231 +39,6 @@ const getCategoryIcon = (slug = "", name = "") => {
   return "carbon:box";
 };
 
-// Fallback category catalog ensuring complete layout representation
-const DEFAULT_CATEGORIES = [
-  {
-    id: "plastic-pallets",
-    slug: "plastic-pallets",
-    name: "Plastic Pallets",
-    icon: "carbon:box",
-    eyebrow: "PLASTIC PALLETS",
-    description:
-      "Durable, weather-resistant plastic pallets for industrial, export and high-performance applications.",
-    image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
-    defaultProducts: [
-      {
-        id: "pallet-hd-racking-1210",
-        name: "Heavy-Duty Rackable Plastic Pallet 1200x1000",
-        spec: "1200 × 1000 × 150 mm",
-        badge: "RACKING",
-        image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
-      },
-      {
-        id: "pallet-euro-export-1208",
-        name: "Euro Standard Export Pallet 1200x800",
-        spec: "1200 × 800 × 144 mm",
-        badge: "EXPORT",
-        image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
-      },
-      {
-        id: "pallet-2way-entry-1111",
-        name: "Medium-Duty 2-Way Pallet 1100x1100",
-        spec: "1100 × 1100 × 140 mm",
-        badge: "2-WAY",
-        image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
-      },
-      {
-        id: "pallet-4way-reversible-1212",
-        name: "Heavy-Duty Reversible Pallet 1200x1200",
-        spec: "1200 × 1200 × 160 mm",
-        badge: "REVERSIBLE",
-        image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
-      },
-      {
-        id: "pallet-plastic-lumber-skid",
-        name: "Custom Recycled Plastic Lumber Skid 1300x1100",
-        spec: "1300 × 1100 × 150 mm (Customizable)",
-        badge: "CUSTOM",
-        image: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
-      },
-    ],
-  },
-  {
-    id: "plastic-lumber",
-    slug: "plastic-lumber",
-    name: "Plastic Lumber",
-    icon: "carbon:layers",
-    eyebrow: "PLASTIC LUMBER",
-    description:
-      "Structural profiles, heavy posts, decking, and tongue-groove battens for construction & industry.",
-    image: "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
-    defaultProducts: [
-      {
-        id: "lumber-rpl-2x4",
-        name: "RPL 2x4 Structural Lumber (38x89mm)",
-        spec: "38 × 89 × 2400 mm",
-        badge: "STRUCTURAL",
-        image: "/uploads/products/lumber/plastic-lumber-pallet-1770447286569-0.webp",
-      },
-      {
-        id: "lumber-rpl-4x4-post",
-        name: "Heavy-Duty RPL Post 4x4 (90x90mm)",
-        spec: "90 × 90 × 2400 mm",
-        badge: "POST",
-        image: "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
-      },
-      {
-        id: "lumber-rpl-tongue-groove",
-        name: "Tongue & Groove Interlocking Plank",
-        spec: "25 × 125 × 2400 mm",
-        badge: "INTERLOCK",
-        image: "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
-      },
-      {
-        id: "lumber-rpl-2x6-decking",
-        name: "Anti-Slip RPL Decking Plank 2x6",
-        spec: "38 × 140 × 2400 mm",
-        badge: "DECKING",
-        image: "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
-      },
-      {
-        id: "lumber-custom-profile",
-        name: "Machined Solid Plastic Timber Profile",
-        spec: "Custom Dimensions & Colors",
-        badge: "CUSTOM",
-        image: "/uploads/products/lumber/plastic-lumber-pallet-1770447286569-0.webp",
-      },
-    ],
-  },
-  {
-    id: "garden-bench",
-    slug: "garden-bench",
-    name: "Garden Benches",
-    icon: "carbon:tree",
-    eyebrow: "GARDEN BENCHES",
-    description:
-      "Park, society, municipal, and heritage benches engineered with maintenance-free recycled polymer.",
-    image: "/uploads/products/garden-bench/gardenbench-1770441701366-1.webp",
-    defaultProducts: [
-      {
-        id: "bench-classic-municipal-180",
-        name: "Classic Municipal Park Bench (1.8m)",
-        spec: "1800 × 600 × 750 mm (4-5 Seater)",
-        badge: "MUNICIPAL",
-        image: "/uploads/products/garden-bench/gardenbench-1770441701366-1.webp",
-      },
-      {
-        id: "bench-cast-iron-hybrid-150",
-        name: "Cast Iron Heritage Bench (1.5m)",
-        spec: "1500 × 580 × 780 mm",
-        badge: "HERITAGE",
-        image: "/uploads/products/categories/garden-bench-1770446422580-0.webp",
-      },
-      {
-        id: "bench-backless-promenade-180",
-        name: "Contemporary Backless Promenade Bench",
-        spec: "1800 × 450 × 450 mm",
-        badge: "PROMENADE",
-        image: "/uploads/products/garden-bench/gardenbench-1770441701366-1.webp",
-      },
-      {
-        id: "bench-tree-surround-hex",
-        name: "Hexagonal Tree Surround Bench",
-        spec: "2200 mm Outer Diameter",
-        badge: "TREE SURROUND",
-        image: "/uploads/products/categories/garden-bench-1770446422580-0.webp",
-      },
-      {
-        id: "bench-memorial-inscribed",
-        name: "Memorial & Inscribed Park Bench",
-        spec: "1800 × 600 × 750 mm (Custom Plaque)",
-        badge: "MEMORIAL",
-        image: "/uploads/products/garden-bench/gardenbench-1770441701366-1.webp",
-      },
-    ],
-  },
-  {
-    id: "plastic-table",
-    slug: "plastic-table",
-    name: "Recycled Plastic Tables",
-    icon: "carbon:table",
-    eyebrow: "RECYCLED PLASTIC TABLES",
-    description:
-      "Heavy-duty outdoor picnic tables, park dining sets, and commercial courtyard furniture.",
-    image: "/uploads/products/categories/plastic-table-1770446441648-0.webp",
-    defaultProducts: [
-      {
-        id: "table-picnic-integrated-180",
-        name: "Heavy-Duty Integrated Picnic Table & Benches",
-        spec: "1800 × 1500 × 750 mm (6-8 Seater)",
-        badge: "PICNIC",
-        image: "/uploads/products/categories/plastic-table-1770446441648-0.webp",
-      },
-      {
-        id: "table-accessible-ada-picnic",
-        name: "ADA Wheelchair-Accessible Picnic Table",
-        spec: "2400 × 1500 × 750 mm",
-        badge: "ADA COMPLIANT",
-        image: "/uploads/products/categories/plastic-table-1770446441648-0.webp",
-      },
-      {
-        id: "table-round-courtyard-set",
-        name: "Circular Plaza Table with Attached Stools",
-        spec: "1200 mm Table Dia + 4 Stools",
-        badge: "COURTYARD",
-        image: "/uploads/products/categories/plastic-table-1770446441648-0.webp",
-      },
-      {
-        id: "table-industrial-work-bench",
-        name: "Industrial Heavy Assembly & Work Table",
-        spec: "2000 × 900 × 850 mm",
-        badge: "HEAVY DUTY",
-        image: "/uploads/products/categories/plastic-table-1770446441648-0.webp",
-      },
-    ],
-  },
-  {
-    id: "custom-products",
-    slug: "custom-products",
-    name: "Custom Products",
-    icon: "carbon:settings",
-    eyebrow: "CUSTOM PRODUCTS",
-    description:
-      "Bespoke industrial fabrications, custom molds, machinery skids, and tailor-made plastic components.",
-    image: "/uploads/products/1770374592312-377465318.webp",
-    defaultProducts: [
-      {
-        id: "custom-machinery-skid",
-        name: "Heavy Machinery & Transformer Skid",
-        spec: "Engineered to Customer Drawings",
-        badge: "BESPOKE",
-        image: "/uploads/products/1770374592312-377465318.webp",
-      },
-      {
-        id: "custom-molded-component",
-        name: "Precision Machined Polymer Components",
-        spec: "High Molecular Weight HDPE",
-        badge: "CUSTOM",
-        image: "/uploads/products/1770374592312-377465318.webp",
-      },
-      {
-        id: "custom-spill-containment",
-        name: "Custom Chemical Spill Containment Base",
-        spec: "Acid & Alkali Resistant",
-        badge: "CHEMICAL",
-        image: "/uploads/products/1770374592312-377465318.webp",
-      },
-      {
-        id: "custom-rebar-support-block",
-        name: "Construction Rebar & Foundation Spacer Blocks",
-        spec: "Heavy Compressive Strength",
-        badge: "FOUNDATION",
-        image: "/uploads/products/1770374592312-377465318.webp",
-      },
-    ],
-  },
-];
-
 // Safely extract product image URL from various database representations
 const resolveProductImage = (product) => {
   if (!product) return null;
@@ -387,7 +162,12 @@ export default function MegaMenu({
   const [isOpen, setIsOpen] = useState(false);
   const [categories, setCategories] = useState(propCategories);
   const [products, setProducts] = useState(propProducts);
-  const [activeCategorySlug, setActiveCategorySlug] = useState("plastic-pallets");
+  const [activeCategorySlug, setActiveCategorySlug] = useState(() => {
+    if (Array.isArray(propCategories) && propCategories.length > 0) {
+      return propCategories[0].slug || propCategories[0].id || null;
+    }
+    return null;
+  });
   const [hoveredProduct, setHoveredProduct] = useState(null);
 
   const triggerBtnRef = useRef(null);
@@ -396,31 +176,38 @@ export default function MegaMenu({
   const categoryHoverTimerRef = useRef(null);
   const categoryButtonRefs = useRef([]);
 
-  // Synchronize when props update
+  // Synchronize when props update or fetch dynamically if missing
   useEffect(() => {
-    if (propCategories?.length > 0) setCategories(propCategories);
+    if (Array.isArray(propCategories) && propCategories.length > 0) {
+      setCategories(propCategories);
+    } else {
+      CategoryService.getAll()
+        .then((cd) => {
+          if (cd?.categories && Array.isArray(cd.categories)) {
+            setCategories(cd.categories);
+          } else if (Array.isArray(cd)) {
+            setCategories(cd);
+          }
+        })
+        .catch(() => {});
+    }
   }, [propCategories]);
 
   useEffect(() => {
-    if (propProducts?.length > 0) setProducts(propProducts);
-  }, [propProducts]);
-
-  // Only self-fetch if MegaMenu is mounted standalone without parent data
-  useEffect(() => {
-    if (propCategories === undefined && propProducts === undefined) {
-      Promise.all([
-        CategoryService.getAll().catch(() => null),
-        ProductService.getProducts().catch(() => null),
-      ]).then(([catData, prodData]) => {
-        if (catData?.categories?.length > 0) {
-          setCategories(catData.categories);
-        }
-        if (prodData?.products?.length > 0) {
-          setProducts(prodData.products);
-        }
-      });
+    if (Array.isArray(propProducts) && propProducts.length > 0) {
+      setProducts(propProducts);
+    } else {
+      ProductService.getProducts()
+        .then((pd) => {
+          if (pd?.products && Array.isArray(pd.products)) {
+            setProducts(pd.products);
+          } else if (Array.isArray(pd)) {
+            setProducts(pd);
+          }
+        })
+        .catch(() => {});
     }
-  }, [propCategories, propProducts]);
+  }, [propProducts]);
 
   const handleMouseEnter = () => {
     if (leaveTimeoutRef.current) {
@@ -554,86 +341,66 @@ export default function MegaMenu({
     setIsOpen(false);
   };
 
-  // Derive consolidated category list
+  // Derive consolidated category list purely from dynamic category taxonomy
   const categoryList = useMemo(() => {
-    const defaultSlugs = DEFAULT_CATEGORIES.map((c) => c.slug);
-    const combined = [...DEFAULT_CATEGORIES];
-
-    if (Array.isArray(categories) && categories.length > 0) {
-      categories.forEach((cat) => {
-        const slug = cat.slug || cat.id;
-        const exists = combined.some((c) => c.slug === slug || c.id === slug);
-        if (!exists) {
-          combined.push({
-            id: cat.id || slug,
-            slug,
-            name: cat.name || slug,
-            icon: getCategoryIcon(slug, cat.name),
-            eyebrow: (cat.name || slug).toUpperCase(),
-            description: cat.description || "Browse industrial recycled plastic solutions.",
-            image: cat.image || null,
-            defaultProducts: [],
-          });
-        }
-      });
+    if (!Array.isArray(categories) || categories.length === 0) {
+      return [];
     }
 
-    return combined;
+    return categories.map((cat) => {
+      const slug = cat.slug || cat.id;
+      const name = cat.name || slug;
+      return {
+        id: cat.id || slug,
+        slug,
+        name,
+        icon: getCategoryIcon(slug, name),
+        eyebrow: name.toUpperCase(),
+        description:
+          cat.description || "Browse industrial recycled plastic solutions.",
+        image: cat.image || null,
+      };
+    });
   }, [categories]);
 
-  // Keep active category slug synchronized
+  // Keep active category slug synchronized with dynamic categories
   useEffect(() => {
     if (categoryList.length > 0) {
-      if (!activeCategorySlug || !categoryList.some((c) => c.slug === activeCategorySlug)) {
-        setActiveCategorySlug(categoryList[0].slug);
+      if (
+        !activeCategorySlug ||
+        !categoryList.some((c) => c.slug === activeCategorySlug || c.id === activeCategorySlug)
+      ) {
+        setActiveCategorySlug(categoryList[0].slug || categoryList[0].id);
       }
+    } else {
+      setActiveCategorySlug(null);
     }
   }, [categoryList, activeCategorySlug]);
 
   // Active category metadata
   const activeCategoryData = useMemo(() => {
-    const found = categoryList.find(
-      (c) => c.slug === activeCategorySlug || c.id === activeCategorySlug
+    if (categoryList.length === 0) return null;
+    return (
+      categoryList.find(
+        (c) => c.slug === activeCategorySlug || c.id === activeCategorySlug
+      ) || categoryList[0]
     );
-    const defaultMeta =
-      DEFAULT_CATEGORIES.find((c) => c.slug === activeCategorySlug) || DEFAULT_CATEGORIES[0];
-    return {
-      name: found?.name || defaultMeta.name,
-      slug: activeCategorySlug || defaultMeta.slug,
-      icon: found?.icon || defaultMeta.icon,
-      eyebrow: found?.eyebrow || defaultMeta.eyebrow || found?.name?.toUpperCase(),
-      description: found?.description || defaultMeta.description,
-      image: found?.image || defaultMeta.image,
-      defaultProducts: defaultMeta.defaultProducts || [],
-    };
   }, [activeCategorySlug, categoryList]);
 
-  // Filter actual products for active category or fallback to curated list
+  // Filter actual products for active category
   const displayProducts = useMemo(() => {
+    if (!activeCategoryData) return [];
     const matched = Array.isArray(products)
       ? products.filter((p) => isProductMatchingCategory(p, activeCategoryData))
       : [];
 
-    if (matched.length > 0) {
-      return matched.slice(0, 6).map((p) => ({
-        id: p.id,
-        name: p.name,
-        badge: p.badge || p.type || getItemBadge(p.name),
-        spec: extractProductSpec(p) || p.dimensions || "Industrial Specification",
-        targetUrl: `/products/${p.id}`,
-        image: resolveProductImage(p),
-        raw: p,
-      }));
-    }
-
-    // Use default products when database has no matched items
-    return activeCategoryData.defaultProducts.map((p) => ({
+    return matched.slice(0, 6).map((p) => ({
       id: p.id,
       name: p.name,
-      badge: p.badge || getItemBadge(p.name),
-      spec: p.spec,
+      badge: p.badge || p.type || getItemBadge(p.name),
+      spec: extractProductSpec(p) || p.dimensions || "Industrial Specification",
       targetUrl: `/products/${p.id}`,
-      image: p.image,
+      image: resolveProductImage(p),
       raw: p,
     }));
   }, [products, activeCategoryData]);
@@ -647,19 +414,18 @@ export default function MegaMenu({
     if (displayProducts.length > 0 && displayProducts[0].image) {
       return displayProducts[0].image;
     }
-    return (
-      activeCategoryData?.image ||
-      "/uploads/products/pallets/pallets-1770374237161-67758.webp"
-    );
+    return activeCategoryData?.image || null;
   }, [hoveredProduct, displayProducts, activeCategoryData]);
 
   const handleDownloadCatalog = (e) => {
     e.preventDefault();
+    if (!activeCategoryData) return;
     try {
       const catName = activeCategoryData?.name || "Industrial Products";
       const catDesc =
         activeCategoryData?.description ||
         "High-performance recycled plastic solutions engineered for longevity.";
+      const catSlug = activeCategoryData?.slug || "catalog";
       const htmlContent = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -699,7 +465,7 @@ export default function MegaMenu({
       tempLink.href = url;
       tempLink.setAttribute(
         "download",
-        `Vishal_Enterprise_${activeCategorySlug}_Catalog.html`
+        `Vishal_Enterprise_${catSlug}_Catalog.html`
       );
       document.body.appendChild(tempLink);
       tempLink.click();
@@ -757,236 +523,264 @@ export default function MegaMenu({
             }}
           >
             <div className={styles.dropdownMenuPanel}>
-              {/* 3-Column Redesigned Mega Menu Layout */}
-              <div className="grid grid-cols-1 lg:grid-cols-[270px_1fr_320px] gap-6 lg:gap-8 items-stretch min-h-[440px]">
-                
-                {/* 1. Left Column: Categories Sidebar & Bottom Sustainability Card */}
-                <div className="flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--border-subtle)] pb-6 lg:pb-0 lg:pr-5">
-                  {/* Category Nav List */}
-                  <div
-                    role="tablist"
-                    aria-orientation="vertical"
-                    aria-label="Product categories"
-                    className="flex flex-col gap-1.5"
-                  >
-                    {categoryList.map((cat, idx) => {
-                      const isActive = cat.slug === activeCategorySlug;
-                      return (
-                        <button
-                          key={cat.slug}
-                          ref={(el) => (categoryButtonRefs.current[idx] = el)}
-                          type="button"
-                          role="tab"
-                          id={`mega-tab-${cat.slug}`}
-                          aria-selected={isActive}
-                          aria-controls={`mega-panel-${cat.slug}`}
-                          tabIndex={isActive ? 0 : -1}
-                          onClick={() => handleCategoryClick(cat.slug)}
-                          onMouseEnter={() => handleCategoryMouseEnter(cat.slug)}
-                          onKeyDown={(e) => handleSidebarKeyDown(e, idx)}
-                          style={{ borderRadius: "8px 4px 4px 8px" }}
-                          className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-[8px_4px_4px_8px] text-sm transition-all duration-150 cursor-pointer text-left border ${
-                            isActive
-                              ? "bg-[var(--brand-soft)] text-[var(--text-brand)] border-[var(--border-brand)] border-l-[3.5px] border-l-[var(--brand-primary)] font-bold shadow-2xs"
-                              : "border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] hover:border-[var(--border-subtle)] font-medium"
-                          }`}
-                        >
-                          <div className="flex items-center gap-2.5 min-w-0 pr-1">
+              {categoryList.length === 0 ? (
+                <div className="py-12 flex flex-col items-center justify-center text-center text-sm text-[var(--text-secondary)]">
+                  <Icon icon="carbon:hourglass" className="w-6 h-6 text-[var(--text-muted)] mb-2 animate-pulse" />
+                  <p>Loading catalog categories...</p>
+                </div>
+              ) : (
+                /* 3-Column Dynamic Mega Menu Layout */
+                <div className="grid grid-cols-1 lg:grid-cols-[270px_1fr_320px] gap-6 lg:gap-8 items-stretch min-h-[440px]">
+                  
+                  {/* 1. Left Column: Categories Sidebar & Bottom Sustainability Card */}
+                  <div className="flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--border-subtle)] pb-6 lg:pb-0 lg:pr-5">
+                    {/* Category Nav List */}
+                    <div
+                      role="tablist"
+                      aria-orientation="vertical"
+                      aria-label="Product categories"
+                      className="flex flex-col gap-1.5"
+                    >
+                      {categoryList.map((cat, idx) => {
+                        const isActive = cat.slug === activeCategorySlug;
+                        return (
+                          <button
+                            key={cat.slug}
+                            ref={(el) => (categoryButtonRefs.current[idx] = el)}
+                            type="button"
+                            role="tab"
+                            id={`mega-tab-${cat.slug}`}
+                            aria-selected={isActive}
+                            aria-controls={`mega-panel-${cat.slug}`}
+                            tabIndex={isActive ? 0 : -1}
+                            onClick={() => handleCategoryClick(cat.slug)}
+                            onMouseEnter={() => handleCategoryMouseEnter(cat.slug)}
+                            onKeyDown={(e) => handleSidebarKeyDown(e, idx)}
+                            style={{ borderRadius: "8px 4px 4px 8px" }}
+                            className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-[8px_4px_4px_8px] text-sm transition-all duration-150 cursor-pointer text-left border ${
+                              isActive
+                                ? "bg-[var(--brand-soft)] text-[var(--text-brand)] border-[var(--border-brand)] border-l-[3.5px] border-l-[var(--brand-primary)] font-bold shadow-2xs"
+                                : "border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-hover)] hover:border-[var(--border-subtle)] font-medium"
+                            }`}
+                          >
+                            <div className="flex items-center gap-2.5 min-w-0 pr-1">
+                              <Icon
+                                icon={cat.icon || "carbon:box"}
+                                className={`w-4.5 h-4.5 shrink-0 ${
+                                  isActive
+                                    ? "text-[var(--text-brand)]"
+                                    : "text-[var(--text-secondary)]"
+                                }`}
+                              />
+                              <span className="leading-snug break-words">{cat.name}</span>
+                            </div>
                             <Icon
-                              icon={cat.icon || "carbon:box"}
-                              className={`w-4.5 h-4.5 shrink-0 ${
+                              icon="carbon:chevron-right"
+                              className={`w-3.5 h-3.5 shrink-0 ml-1.5 transition-transform ${
                                 isActive
-                                  ? "text-[var(--text-brand)]"
-                                  : "text-[var(--text-secondary)]"
+                                  ? "text-[var(--text-brand)] translate-x-0.5"
+                                  : "text-[var(--text-muted)]"
                               }`}
                             />
-                            <span className="leading-snug break-words">{cat.name}</span>
-                          </div>
-                          <Icon
-                            icon="carbon:chevron-right"
-                            className={`w-3.5 h-3.5 shrink-0 ml-1.5 transition-transform ${
-                              isActive
-                                ? "text-[var(--text-brand)] translate-x-0.5"
-                                : "text-[var(--text-muted)]"
-                            }`}
-                          />
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Sustainability Commitment Box (Bottom Left) */}
-                  <div className="pt-6 mt-6 border-t border-[var(--border-subtle)] flex flex-col items-start gap-1">
-                    <Icon
-                      icon="carbon:recycle"
-                      className="w-5 h-5 text-[var(--text-brand)] mb-1"
-                    />
-                    <p className="text-xs font-bold text-[var(--text-primary)] leading-snug">
-                      Durable products.
-                      <br />
-                      A cleaner tomorrow.
-                    </p>
-                    <div className="w-7 h-[2px] bg-[var(--brand-primary)] rounded-full my-1.5" />
-                    <p className="text-[11px] text-[var(--text-muted)] leading-normal">
-                      Made from recycled plastic.
-                      <br />
-                      Built for a sustainable world.
-                    </p>
-                  </div>
-                </div>
-
-                {/* 2. Middle Column: Product List for Active Category */}
-                <div
-                  ref={panelRef}
-                  role="tabpanel"
-                  id={`mega-panel-${activeCategorySlug}`}
-                  aria-labelledby={`mega-tab-${activeCategorySlug}`}
-                  tabIndex={-1}
-                  className="flex flex-col justify-between min-w-0 outline-none"
-                  onMouseEnter={handleContentMouseEnter}
-                  onKeyDown={handlePanelKeyDown}
-                >
-                  <AnimatePresence mode="wait" initial={false}>
-                    <motion.div
-                      key={activeCategorySlug}
-                      initial={{ opacity: 0, y: 4 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -3 }}
-                      transition={{ duration: 0.14, ease: [0.16, 1, 0.3, 1] }}
-                      className="flex flex-col justify-between h-full"
-                    >
-                      <div>
-                        {/* Header */}
-                        <div className="mb-4">
-                          <span className="block text-[11px] font-bold uppercase tracking-wider text-[var(--text-brand)] mb-0.5">
-                            {activeCategoryData.eyebrow}
-                          </span>
-                          <h3 className="text-2xl font-bold text-[var(--text-primary)] tracking-tight">
-                            {activeCategoryData.name}
-                          </h3>
-                          <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1 leading-relaxed max-w-xl">
-                            {activeCategoryData.description}
-                          </p>
-                        </div>
-
-                        {/* Products List Rows */}
-                        <div className="divide-y divide-[var(--border-subtle)]">
-                          {displayProducts.map((product) => (
-                            <div
-                              key={product.id}
-                              className="py-2.5 sm:py-3 transition-colors"
-                              onMouseEnter={() => setHoveredProduct(product.raw || product)}
-                              onMouseLeave={() => setHoveredProduct(null)}
-                            >
-                              <Link
-                                to={product.targetUrl}
-                                onClick={handleLinkClick}
-                                className="flex items-center justify-between gap-3 group"
-                              >
-                                <div className="flex flex-col min-w-0 pr-2">
-                                  <span className="text-sm font-bold text-[var(--text-primary)] group-hover:text-[var(--text-brand)] transition-colors truncate">
-                                    {product.name}
-                                  </span>
-                                  {product.spec && (
-                                    <span className="text-xs text-[var(--text-muted)] mt-0.5">
-                                      {product.spec}
-                                    </span>
-                                  )}
-                                </div>
-                                <div className="flex items-center gap-3 shrink-0">
-                                  {product.badge && (
-                                    <span className="bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase border border-[var(--border-subtle)]">
-                                      {product.badge}
-                                    </span>
-                                  )}
-                                  <Icon
-                                    icon="carbon:chevron-right"
-                                    className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-brand)] group-hover:translate-x-0.5 transition-all"
-                                  />
-                                </div>
-                              </Link>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* View All Link */}
-                      <div className="pt-4 mt-2">
-                        <Link
-                          to={`/products?cat=${encodeURIComponent(activeCategorySlug)}`}
-                          onClick={handleLinkClick}
-                          className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--text-brand)] hover:text-[var(--brand-hover)] hover:underline transition-all"
-                        >
-                          <span>View all {activeCategoryData.name}</span>
-                          <Icon icon="carbon:arrow-right" className="w-4 h-4" />
-                        </Link>
-                      </div>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-
-                {/* 3. Right Column: Bespoke Manufacturing Spotlight & RFQ Card */}
-                <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] rounded-xl p-5 flex flex-col justify-between gap-3.5 h-full">
-                  <div>
-                    {/* Header Row */}
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-brand)]">
-                        Bespoke & Bulk Supply
-                      </span>
-                      <span className="text-[11px] font-medium text-[var(--text-muted)]">
-                        Factory Direct
-                      </span>
+                          </button>
+                        );
+                      })}
                     </div>
 
-                    {/* Image Preview Box */}
-                    <div className="w-full h-36 rounded-lg overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-center justify-center relative shadow-2xs mb-3.5">
-                      <img
-                        src={previewImageUrl}
-                        alt={hoveredProduct?.name || activeCategoryData.name}
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                        referrerPolicy="no-referrer"
-                        onError={(e) => {
-                          e.currentTarget.src =
-                            "/uploads/products/pallets/pallets-1770374237161-67758.webp";
-                        }}
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <h4 className="text-base font-bold text-[var(--text-primary)] leading-snug mb-1.5">
-                      Need Custom Sizes or Heavy-Duty Specs?
-                    </h4>
-                    <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
-                      We manufacture directly to your engineering drawings. Get custom
-                      dimensions, specific color formulations, or large volume dispatch.
-                    </p>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="flex flex-col gap-2.5 pt-2">
-                    <QuoteButton
-                      to="/contact?quote=custom"
-                      onClick={handleLinkClick}
-                      text="Request Custom RFQ"
-                      className="w-full !justify-center !text-sm !py-2.5"
-                    />
-
-                    <button
-                      type="button"
-                      onClick={handleDownloadCatalog}
-                      className="w-full text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-brand)] flex items-center justify-center gap-1.5 py-1 transition-colors cursor-pointer"
-                      aria-label={`Download ${activeCategoryData.name} Catalog`}
-                    >
+                    {/* Sustainability Commitment Box (Bottom Left) */}
+                    <div className="pt-6 mt-6 border-t border-[var(--border-subtle)] flex flex-col items-start gap-1">
                       <Icon
-                        icon="carbon:download"
-                        className="w-4 h-4 text-[var(--text-brand)]"
+                        icon="carbon:recycle"
+                        className="w-5 h-5 text-[var(--text-brand)] mb-1"
                       />
-                      <span>Download {activeCategoryData.name} Catalog</span>
-                    </button>
+                      <p className="text-xs font-bold text-[var(--text-primary)] leading-snug">
+                        Durable products.
+                        <br />
+                        A cleaner tomorrow.
+                      </p>
+                      <div className="w-7 h-[2px] bg-[var(--brand-primary)] rounded-full my-1.5" />
+                      <p className="text-[11px] text-[var(--text-muted)] leading-normal">
+                        Made from recycled plastic.
+                        <br />
+                        Built for a sustainable world.
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-              </div>
+                  {/* 2. Middle Column: Product List for Active Category */}
+                  <div
+                    ref={panelRef}
+                    role="tabpanel"
+                    id={`mega-panel-${activeCategorySlug || "default"}`}
+                    aria-labelledby={`mega-tab-${activeCategorySlug || "default"}`}
+                    tabIndex={-1}
+                    className="flex flex-col justify-between min-w-0 outline-none"
+                    onMouseEnter={handleContentMouseEnter}
+                    onKeyDown={handlePanelKeyDown}
+                  >
+                    <AnimatePresence mode="wait" initial={false}>
+                      {activeCategoryData && (
+                        <motion.div
+                          key={activeCategorySlug}
+                          initial={{ opacity: 0, y: 4 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -3 }}
+                          transition={{ duration: 0.14, ease: [0.16, 1, 0.3, 1] }}
+                          className="flex flex-col justify-between h-full"
+                        >
+                          <div>
+                            {/* Header */}
+                            <div className="mb-4">
+                              <span className="block text-[11px] font-bold uppercase tracking-wider text-[var(--text-brand)] mb-0.5">
+                                {activeCategoryData.eyebrow}
+                              </span>
+                              <h3 className="text-2xl font-bold text-[var(--text-primary)] tracking-tight">
+                                {activeCategoryData.name}
+                              </h3>
+                              <p className="text-xs sm:text-sm text-[var(--text-secondary)] mt-1 leading-relaxed max-w-xl">
+                                {activeCategoryData.description}
+                              </p>
+                            </div>
+
+                            {/* Products List Rows */}
+                            {displayProducts.length > 0 ? (
+                              <div className="divide-y divide-[var(--border-subtle)]">
+                                {displayProducts.map((product) => (
+                                  <div
+                                    key={product.id}
+                                    className="py-2.5 sm:py-3 transition-colors"
+                                    onMouseEnter={() => setHoveredProduct(product.raw || product)}
+                                    onMouseLeave={() => setHoveredProduct(null)}
+                                  >
+                                    <Link
+                                      to={product.targetUrl}
+                                      onClick={handleLinkClick}
+                                      className="flex items-center justify-between gap-3 group"
+                                    >
+                                      <div className="flex flex-col min-w-0 pr-2">
+                                        <span className="text-sm font-bold text-[var(--text-primary)] group-hover:text-[var(--text-brand)] transition-colors truncate">
+                                          {product.name}
+                                        </span>
+                                        {product.spec && (
+                                          <span className="text-xs text-[var(--text-muted)] mt-0.5">
+                                            {product.spec}
+                                          </span>
+                                        )}
+                                      </div>
+                                      <div className="flex items-center gap-3 shrink-0">
+                                        {product.badge && (
+                                          <span className="bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase border border-[var(--border-subtle)]">
+                                            {product.badge}
+                                          </span>
+                                        )}
+                                        <Icon
+                                          icon="carbon:chevron-right"
+                                          className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-brand)] group-hover:translate-x-0.5 transition-all"
+                                        />
+                                      </div>
+                                    </Link>
+                                  </div>
+                                ))}
+                              </div>
+                            ) : (
+                              <div className="py-8 text-center text-sm text-[var(--text-muted)] border border-dashed border-[var(--border-subtle)] rounded-lg my-3 px-4">
+                                <p className="font-medium text-[var(--text-secondary)]">
+                                  No products in this category yet
+                                </p>
+                                <p className="text-xs mt-1 text-[var(--text-muted)]">
+                                  Custom configurations & sizes available upon request.
+                                </p>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* View All Link */}
+                          <div className="pt-4 mt-2">
+                            <Link
+                              to={`/products?cat=${encodeURIComponent(activeCategoryData.slug)}`}
+                              onClick={handleLinkClick}
+                              className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--text-brand)] hover:text-[var(--brand-hover)] hover:underline transition-all"
+                            >
+                              <span>View all {activeCategoryData.name}</span>
+                              <Icon icon="carbon:arrow-right" className="w-4 h-4" />
+                            </Link>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  {/* 3. Right Column: Bespoke Manufacturing Spotlight & RFQ Card */}
+                  <div className="bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] rounded-xl p-5 flex flex-col justify-between gap-3.5 h-full">
+                    <div>
+                      {/* Header Row */}
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-brand)]">
+                          Bespoke & Bulk Supply
+                        </span>
+                        <span className="text-[11px] font-medium text-[var(--text-muted)]">
+                          Factory Direct
+                        </span>
+                      </div>
+
+                      {/* Image Preview Box */}
+                      <div className="w-full h-36 rounded-lg overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-center justify-center relative shadow-2xs mb-3.5">
+                        {previewImageUrl ? (
+                          <img
+                            src={previewImageUrl}
+                            alt={hoveredProduct?.name || activeCategoryData?.name || "Product preview"}
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                            referrerPolicy="no-referrer"
+                          />
+                        ) : (
+                          <div className="flex flex-col items-center justify-center text-[var(--text-muted)] gap-1">
+                            <Icon
+                              icon={activeCategoryData?.icon || "carbon:box"}
+                              className="w-8 h-8 text-[var(--text-muted)]"
+                            />
+                            <span className="text-[11px] font-medium">Bespoke Fabrication</span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Content */}
+                      <h4 className="text-base font-bold text-[var(--text-primary)] leading-snug mb-1.5">
+                        Need Custom Sizes or Heavy-Duty Specs?
+                      </h4>
+                      <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
+                        We manufacture directly to your engineering drawings. Get custom
+                        dimensions, specific color formulations, or large volume dispatch.
+                      </p>
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex flex-col gap-2.5 pt-2">
+                      <QuoteButton
+                        to="/contact?quote=custom"
+                        onClick={handleLinkClick}
+                        text="Request Custom RFQ"
+                        className="w-full !justify-center !text-sm !py-2.5"
+                      />
+
+                      {activeCategoryData && (
+                        <button
+                          type="button"
+                          onClick={handleDownloadCatalog}
+                          className="w-full text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-brand)] flex items-center justify-center gap-1.5 py-1 transition-colors cursor-pointer"
+                          aria-label={`Download ${activeCategoryData.name} Catalog`}
+                        >
+                          <Icon
+                            icon="carbon:download"
+                            className="w-4 h-4 text-[var(--text-brand)]"
+                          />
+                          <span>Download {activeCategoryData.name} Catalog</span>
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                </div>
+              )}
             </div>
           </motion.div>
         )}

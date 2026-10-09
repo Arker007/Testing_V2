@@ -13,58 +13,6 @@ const DEFAULT_SPECIFICATIONS = [
   { title: "Zero Maintenance", icon: "carbon:tool-box" },
 ];
 
-const DEFAULT_BENTO_PRODUCTS = [
-  {
-    id: "plastic-lumber",
-    name: "Plastic Lumber",
-    category_name: "Plastic Lumber",
-    description: "Durable recycled plastic profiles for construction framing, decking, walkways and industrial applications.",
-    image_url: "/uploads/products/categories/plastic-lumber-1770446410430-0.webp",
-    fallback_image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop",
-    features: DEFAULT_SPECIFICATIONS,
-  },
-  {
-    id: "plastic-pallets",
-    name: "Plastic Pallets",
-    category_name: "Plastic Pallets",
-    description: "Heavy-duty pallets for racking, warehousing, export and industrial logistics.",
-    image_url: "/uploads/products/pallets/pallets-1770374237161-67758.webp",
-    fallback_image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    id: "garden-benches",
-    name: "Garden Benches",
-    category_name: "Garden Benches",
-    description: "Comfortable and weatherproof benches designed for outdoor spaces.",
-    image_url: "/uploads/products/categories/garden-bench-1770446422580-0.webp",
-    fallback_image: "https://images.unsplash.com/photo-1519974719765-e6559eac2575?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    id: "outdoor-furniture",
-    name: "Outdoor Furniture",
-    category_name: "Outdoor Furniture",
-    description: "Ergonomic and long-lasting furniture for resorts, parks and public spaces.",
-    image_url: "/uploads/products/garden-bench/gardenbench-1770441701366-1.webp",
-    fallback_image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    id: "garden-fences",
-    name: "Garden Fences",
-    category_name: "Garden Fences",
-    description: "Strong and maintenance-free fencing solutions for gardens and landscapes.",
-    image_url: "/uploads/products/categories/categories-1770374476904-61107.webp",
-    fallback_image: "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    id: "plastic-tables",
-    name: "Plastic Tables",
-    category_name: "Plastic Tables",
-    description: "All-weather tables for cafeterias, picnic spots, and industrial breakrooms.",
-    image_url: "/uploads/products/categories/plastic-table-1770446441648-0.webp",
-    fallback_image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1000&auto=format&fit=crop",
-  },
-];
-
 const simplifyFeatureText = (text) => {
   return simplifyFeature(text);
 };
@@ -193,21 +141,13 @@ const badgeHoverVariant = {
 
 export default function ProductsShowcase() {
   const navigate = useNavigate();
-  const { products: fetchedProducts } = useProducts();
+  const { products: fetchedProducts, loading } = useProducts();
 
   const products = useMemo(() => {
-    if (fetchedProducts && fetchedProducts.length >= 6) {
-      return fetchedProducts;
-    }
-    if (fetchedProducts && fetchedProducts.length > 0) {
-      const existingIds = new Set(fetchedProducts.map((p) => String(p.id)));
-      const extras = DEFAULT_BENTO_PRODUCTS.filter((p) => !existingIds.has(p.id));
-      return [...fetchedProducts, ...extras].slice(0, 6);
-    }
-    return DEFAULT_BENTO_PRODUCTS;
+    return Array.isArray(fetchedProducts) ? fetchedProducts.slice(0, 6) : [];
   }, [fetchedProducts]);
 
-  const featuredProduct = products[0] || DEFAULT_BENTO_PRODUCTS[0];
+  const featuredProduct = products[0];
   const gridProducts = products.slice(1, 6);
 
   const handleCardClick = (prod) => {
@@ -219,14 +159,15 @@ export default function ProductsShowcase() {
     }
   };
 
-  const getImgUrl = (prod, fallbackIdx) => {
-    const userImg = getImg(prod);
-    if (userImg) return userImg;
-    const fallback = DEFAULT_BENTO_PRODUCTS[fallbackIdx];
-    return fallback?.image_url || fallback?.fallback_image;
+  const getImgUrl = (prod) => {
+    return getImg(prod) || prod?.image_url || prod?.image || "";
   };
 
-  const featuredFeatures = getCardFeatures(featuredProduct);
+  const featuredFeatures = featuredProduct ? getCardFeatures(featuredProduct) : [];
+
+  if (!featuredProduct) {
+    return null;
+  }
 
   return (
     <div className="w-full pt-4 pb-16 sm:pb-24">
@@ -249,8 +190,8 @@ export default function ProductsShowcase() {
           {/* Full Container Background Image */}
           <div className="absolute inset-0 z-0 bg-slate-950 pointer-events-none overflow-hidden">
             <OptimizedImage
-              src={getImgUrl(featuredProduct, 0)}
-              fallbackSrc={DEFAULT_BENTO_PRODUCTS[0].fallback_image}
+              src={getImgUrl(featuredProduct)}
+              fallbackSrc="/images/products/profiles.png"
               alt={featuredProduct.name}
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
             />
@@ -356,7 +297,7 @@ export default function ProductsShowcase() {
           const cardNum = String(idx + 2).padStart(2, "0");
           const title = prod.name || prod.title || "Product";
           const desc = prod.description || prod.headline || "";
-          const img = getImgUrl(prod, idx + 1);
+          const img = getImgUrl(prod);
 
           return (
             <Motion.div
@@ -370,7 +311,7 @@ export default function ProductsShowcase() {
               <div className="absolute inset-0 z-0 bg-slate-950 pointer-events-none overflow-hidden">
                 <OptimizedImage
                   src={img}
-                  fallbackSrc={DEFAULT_BENTO_PRODUCTS[idx + 1]?.fallback_image}
+                  fallbackSrc="/images/products/profiles.png"
                   alt={title}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
@@ -430,7 +371,7 @@ export default function ProductsShowcase() {
           const cardNum = String(idx + 4).padStart(2, "0");
           const title = prod.name || prod.title || "Product";
           const desc = prod.description || prod.headline || "";
-          const img = getImgUrl(prod, idx + 3);
+          const img = getImgUrl(prod);
 
           return (
             <Motion.div
@@ -444,7 +385,7 @@ export default function ProductsShowcase() {
               <div className="absolute inset-0 z-0 bg-slate-950 pointer-events-none overflow-hidden">
                 <OptimizedImage
                   src={img}
-                  fallbackSrc={DEFAULT_BENTO_PRODUCTS[idx + 3]?.fallback_image}
+                  fallbackSrc="/images/products/profiles.png"
                   alt={title}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
                 />

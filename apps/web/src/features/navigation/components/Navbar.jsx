@@ -3,14 +3,6 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { motion as Motion, AnimatePresence } from "motion/react";
 import { useSite, useSiteUI } from "../../../shared/context/SiteContext";
-const DEFAULT_CATEGORIES = [
-  { id: "plastic-pallets", name: "Plastic Pallets", slug: "plastic-pallets" },
-  { id: "plastic-lumber", name: "Plastic Lumber", slug: "plastic-lumber" },
-  { id: "garden-bench", name: "Garden Benches", slug: "garden-bench" },
-  { id: "plastic-table", name: "Recycled Plastic Tables", slug: "plastic-table" },
-  { id: "custom-products", name: "Custom & Fencing", slug: "custom-products" },
-];
-
 import { QuoteButton, ScrollProgressBar } from "@/shared/ui";
 import MegaMenu from "./MegaMenu";
 import MobileNavDrawer from "./MobileNavDrawer";
@@ -19,14 +11,13 @@ import styles from "../styles/navbar.module.css";
 import { ProductService } from "../../products/services/product.service";
 import { CategoryService } from "../../categories/services/category.service";
 
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
-  const [categories, setCategories] = useState(DEFAULT_CATEGORIES);
+  const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const { pathname } = useLocation();
   const navigate = useNavigate();

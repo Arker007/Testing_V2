@@ -215,7 +215,7 @@ function ProductCard({
               </span>
             </div>
 
-            <span className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-[var(--radius-btn,6px)] bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] text-xs font-semibold group-hover:bg-[var(--brand-primary,#059669)] group-hover:text-white transition-all shrink-0">
+            <span className="inline-flex items-center gap-1 text-xs font-bold text-[var(--brand-primary,#059669)] group-hover:underline transition-all shrink-0">
               <span>Specs</span>
               <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </span>

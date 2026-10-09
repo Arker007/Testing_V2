@@ -56,7 +56,7 @@ export function AccordionItem({
             )}
             <span className="truncate sm:whitespace-normal">{title}</span>
             {badge && (
-              <span className="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] shrink-0">
+              <span className="hidden sm:inline-flex items-center text-xs font-semibold text-[var(--text-muted)] tracking-wider uppercase shrink-0">
                 {badge}
               </span>
             )}
