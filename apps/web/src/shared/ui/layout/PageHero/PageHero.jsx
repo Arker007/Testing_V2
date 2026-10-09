@@ -15,13 +15,13 @@ export default function PageHero({
   children,
   className = "",
   bgImage = defaultHeroBg,
-  bgOpacity = "opacity-40",
+  bgOpacity = "opacity-60",
 }) {
   return (
     <header className={`${styles.hero} relative ${className}`.trim()}>
       <div className={styles.heroBg} />
 
-      {/* Thematic industrial background image (opacity-40, dimmed luminous intensity) */}
+      {/* Thematic industrial background image */}
       {bgImage && (
         <div
           className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none"
@@ -30,12 +30,12 @@ export default function PageHero({
           <img
             src={bgImage}
             alt=""
-            className={`w-full h-full object-cover object-center ${bgOpacity} brightness-70 contrast-105 mix-blend-luminosity scale-105 pointer-events-none`}
+            className={`w-full h-full object-cover object-center ${bgOpacity} brightness-85 contrast-105 mix-blend-luminosity scale-105 pointer-events-none`}
             loading="eager"
             decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--neutral-950,#061A26)] via-transparent to-[var(--neutral-950,#061A26)]/70 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--neutral-950,#061A26)]/80 via-transparent to-[var(--neutral-950,#061A26)]/80 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--neutral-950,#061A26)] via-transparent to-[var(--neutral-950,#061A26)]/60 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--neutral-950,#061A26)]/70 via-transparent to-[var(--neutral-950,#061A26)]/70 pointer-events-none" />
         </div>
       )}
 

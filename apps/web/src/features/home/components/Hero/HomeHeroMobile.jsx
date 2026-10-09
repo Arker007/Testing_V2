@@ -169,16 +169,16 @@ export default function HomeHeroMobile() {
       style={{ background: "var(--hero-gradient, linear-gradient(135deg, var(--neutral-950) 0%, var(--neutral-950) 55%, var(--neutral-800) 100%))" }}
       id="home-hero-mobile"
     >
-      {/* Low-Opacity Thematic Industrial Background Image */}
+      {/* Thematic Industrial Background Image */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
         <img
           src={recycledPlasticProfiles}
           alt=""
-          className="w-full h-full object-cover object-center opacity-40 brightness-70 contrast-105 mix-blend-luminosity scale-105 pointer-events-none"
+          className="w-full h-full object-cover object-center opacity-60 brightness-85 contrast-105 mix-blend-luminosity scale-105 pointer-events-none"
           loading="eager"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--neutral-950,#061A26)]/70 via-transparent to-[var(--neutral-950,#061A26)]/80 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--neutral-950,#061A26)]/60 via-transparent to-[var(--neutral-950,#061A26)]/60 pointer-events-none" />
       </div>
 
       {/* Top right dots pattern */}

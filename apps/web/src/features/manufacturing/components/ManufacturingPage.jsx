@@ -26,7 +26,7 @@ export default function ManufacturingPage() {
           { label: "Manufacturing" },
         ]}
         bgImage={mfgHeroBg}
-        bgOpacity="opacity-40"
+        bgOpacity="opacity-60"
         tag={c("mfg_hero_tag", "High-Precision Polymer Processing")}
         tagIcon="carbon:settings"
         title={c("mfg_hero_title", "High-Pressure Polymer Extrusion & Quality Control")}

@@ -61,6 +61,12 @@
   animation-play-state: paused;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .tickerTrack {
+    animation: none;
+  }
+}
+
 @keyframes marqueeRightToLeft {
   0% {
     transform: translateX(0);

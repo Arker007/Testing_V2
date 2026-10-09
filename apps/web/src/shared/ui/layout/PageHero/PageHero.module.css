@@ -62,10 +62,10 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.375rem 0.875rem;
-  background-color: var(--hero-badge-bg, rgba(107, 191, 84, 0.15));
-  border: 1px solid var(--hero-badge-border, rgba(107, 191, 84, 0.35));
+  background-color: var(--hero-badge-bg, var(--badge-bg));
+  border: 1px solid var(--hero-badge-border, var(--badge-border));
   border-radius: var(--radius-badge, 4px);
-  color: var(--hero-badge-text, var(--brand-400));
+  color: var(--hero-badge-text, var(--badge-text));
   font-weight: 600;
   font-size: 0.75rem;
   letter-spacing: 0.06em;

@@ -55,17 +55,17 @@ export default function Badge({
 
   const variantClasses = {
     eyebrow:
-      "bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs font-bold",
+      "bg-[var(--badge-bg,var(--brand-soft))] border border-[var(--badge-border,var(--border-brand))] text-[var(--badge-text,var(--text-brand))] shadow-xs font-bold",
     brand:
-      "bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs font-bold",
+      "bg-[var(--badge-bg,var(--brand-soft))] border border-[var(--badge-border,var(--border-brand))] text-[var(--badge-text,var(--text-brand))] shadow-xs font-bold",
     hero:
-      "bg-[var(--hero-badge-bg,rgba(107,191,84,0.15))] border border-[var(--hero-badge-border,rgba(107,191,84,0.35))] text-[var(--hero-badge-text,var(--brand-400))] uppercase tracking-[0.06em] !text-xs font-semibold shadow-xs",
+      "bg-[var(--badge-bg,var(--brand-soft))] border border-[var(--badge-border,var(--border-brand))] text-[var(--badge-text,var(--text-brand))] shadow-xs font-bold",
     "hero-badge":
-      "bg-[var(--hero-badge-bg,rgba(107,191,84,0.15))] border border-[var(--hero-badge-border,rgba(107,191,84,0.35))] text-[var(--hero-badge-text,var(--brand-400))] uppercase tracking-[0.06em] !text-xs font-semibold shadow-xs",
+      "bg-[var(--badge-bg,var(--brand-soft))] border border-[var(--badge-border,var(--border-brand))] text-[var(--badge-text,var(--text-brand))] shadow-xs font-bold",
     dark:
       "bg-black/60 border border-white/20 text-white backdrop-blur-md shadow-xs font-bold",
     status:
-      "bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs font-bold",
+      "bg-[var(--badge-bg,var(--brand-soft))] border border-[var(--badge-border,var(--border-brand))] text-[var(--badge-text,var(--text-brand))] shadow-xs font-bold",
     success:
       "bg-[var(--success-bg)] text-[var(--success-text)] border border-[var(--success-border)] shadow-xs font-bold",
     warning:

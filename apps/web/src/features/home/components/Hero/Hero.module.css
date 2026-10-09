@@ -563,12 +563,6 @@ html.dark .dotsPatternRightBottom,
   object-fit: contain;
   filter: drop-shadow(0 14px 20px var(--shadow-md));
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  animation: floatProduct 6s ease-in-out infinite;
-}
-
-@keyframes floatProduct {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-6px) scale(1.01); }
 }
 
 /* Bottom Controls Row: Pagination + Assistance Card */

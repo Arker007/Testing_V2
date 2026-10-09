@@ -78,7 +78,7 @@ export default function FormField({
 
         {error ? (
           <p className="text-xs font-medium text-[var(--color-danger)] flex items-center gap-1 mt-0.5 animate-fadeIn">
-            <Icon icon="carbon:warning-alt" className="w-3.5 h-3.5 shrink-0" />
+            <Icon icon="solar:danger-triangle-linear" className="w-3.5 h-3.5 shrink-0" />
             <span>{error}</span>
           </p>
         ) : hint ? (

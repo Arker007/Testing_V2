@@ -15,7 +15,7 @@ export default function ContactHero() {
         { label: "Contact Us" },
       ]}
       bgImage={contactHeroBg}
-      bgOpacity="opacity-40"
+      bgOpacity="opacity-60"
       tag={c("contact_hero_badge", "Direct Factory Sales Desk")}
       tagIcon="carbon:headset"
       title={c("contact_hero_title", "Commercial Procurement & Engineering Support")}

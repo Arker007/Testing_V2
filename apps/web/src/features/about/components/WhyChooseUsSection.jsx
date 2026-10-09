@@ -25,7 +25,6 @@ export default function WhyChooseUsSection() {
               <SectionHeader
                 eyebrow="Why industries choose us"
                 eyebrowIcon="solar:shield-check-linear"
-                eyebrowVariant="hero"
                 title="Engineered for strength, built for generations"
                 subtitle="Our recycled plastic products are designed to withstand harsh conditions, heavy loads and continuous use — without compromising on quality."
                 align="left"

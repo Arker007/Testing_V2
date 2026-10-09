@@ -51,7 +51,7 @@ export default function Spinner({
       <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 gap-3 text-center">
         {spinnerIcon}
         {label && (
-          <p className="text-sm font-medium text-[var(--text-secondary)] animate-pulse">
+          <p className="text-sm font-medium text-[var(--text-secondary)]">
             {label}
           </p>
         )}

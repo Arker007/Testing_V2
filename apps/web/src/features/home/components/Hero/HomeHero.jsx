@@ -62,12 +62,11 @@ const badgeVariants = {
 };
 
 const titlePartVariants = {
-  initial: { opacity: 0, y: 16, filter: "blur(4px)" },
+  initial: { opacity: 0, y: 12 },
   animate: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -222,7 +221,7 @@ export default function HomeHero() {
       <div className={styles.slantBgGreen} />
       <div className={styles.slantBgDark} />
 
-      {/* Low-Opacity Thematic Industrial Background Image */}
+      {/* Thematic Industrial Background Image */}
       <div
         className="absolute inset-0 z-[2] pointer-events-none overflow-hidden select-none"
         style={{ clipPath: "polygon(0 0, 62% 0, 48% 100%, 0 100%)" }}
@@ -231,12 +230,12 @@ export default function HomeHero() {
         <img
           src={recycledPlasticProfiles}
           alt=""
-          className="w-full h-full object-cover object-center opacity-40 brightness-70 contrast-105 mix-blend-luminosity scale-105 pointer-events-none"
+          className="w-full h-full object-cover object-center opacity-60 brightness-85 contrast-105 mix-blend-luminosity scale-105 pointer-events-none"
           loading="eager"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--neutral-950,#061A26)]/80 via-transparent to-[var(--neutral-950,#061A26)]/70 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--neutral-950,#061A26)] via-transparent to-[var(--neutral-950,#061A26)]/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--neutral-950,#061A26)]/60 via-transparent to-[var(--neutral-950,#061A26)]/50 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--neutral-950,#061A26)]/70 via-transparent to-[var(--neutral-950,#061A26)]/40 pointer-events-none" />
       </div>
 
       {/* Decorative Dotted Grids */}

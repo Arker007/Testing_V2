@@ -92,16 +92,18 @@ export default function Button({
   const content = (
     <>
       {loading ? (
-        <Icon
-          icon="solar:refresh-circle-linear"
-          flip="horizontal"
-          className={`${selectedSpinnerSize} animate-spin shrink-0`}
-          aria-hidden="true"
-        />
+        <span className="shrink-0 inline-flex items-center transition-opacity duration-150">
+          <Icon
+            icon="solar:refresh-circle-linear"
+            flip="horizontal"
+            className={`${selectedSpinnerSize} animate-spin shrink-0`}
+            aria-hidden="true"
+          />
+        </span>
       ) : (
-        icon && <span className="shrink-0">{icon}</span>
+        icon && <span className="shrink-0 transition-opacity duration-150">{icon}</span>
       )}
-      <span>{loading && loadingText ? loadingText : children}</span>
+      <span className="transition-opacity duration-150">{loading && loadingText ? loadingText : children}</span>
       {showArrow && !loading && (
         <span className="shrink-0 transition-transform duration-200 group-hover:translate-x-1">
           {variant === "outline" || variant === "ghost" ? (

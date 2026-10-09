@@ -21,7 +21,7 @@ export default function SustainabilitySection() {
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[0.7fr_1.3fr] gap-8 lg:gap-12 items-center">
           {/* Left Graphic */}
           <div className="flex flex-col items-center justify-center gap-4 py-4">
-            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/8 border-2 border-dashed border-[var(--brand-primary)] dark:border-[var(--brand-primary)]/50 flex items-center justify-center text-[var(--brand-primary)] shadow-sm animate-icon-pulse">
+            <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/8 border-2 border-dashed border-[var(--brand-primary)] dark:border-[var(--brand-primary)]/50 flex items-center justify-center text-[var(--brand-primary)] shadow-sm">
               <Icon icon="carbon:recycle" className="w-12 h-12 sm:w-16 sm:h-16" />
             </div>
             <Badge

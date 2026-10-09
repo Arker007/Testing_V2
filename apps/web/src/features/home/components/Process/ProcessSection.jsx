@@ -258,7 +258,7 @@ export default function ProcessSection({ className = "" }) {
         {/* Section Title Header */}
         <SectionHeader
           eyebrow={c("process_eyebrow", "Circular Supply Chain")}
-          eyebrowIcon={<Icon icon="carbon:renew" flip="horizontal" className="w-4 h-4 animate-spin-slow" />}
+          eyebrowIcon={<Icon icon="carbon:renew" flip="horizontal" className="w-4 h-4" />}
           title={c("process_title", "Our Manufacturing Process")}
           highlightText="Process"
           subtitle={c("process_subtitle", "From responsible plastic waste to high-performance products — every step is engineered for quality, sustainability, and long-term impact.")}
@@ -388,11 +388,11 @@ export default function ProcessSection({ className = "" }) {
 
             {/* Center Circular Recycle Banner */}
             <div className="flex flex-col items-center justify-center relative p-8">
-              <div className="absolute w-56 h-56 rounded-full border-2 border-dashed border-emerald-500/30 animate-spin-slow pointer-events-none" />
+              <div className="absolute w-56 h-56 rounded-full border-2 border-dashed border-emerald-500/20 pointer-events-none" />
               <div className="absolute w-44 h-44 rounded-full bg-[var(--gray-50)]/80 dark:bg-white/5 filter blur-md pointer-events-none" />
               
               <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-emerald-500/20 to-blue-500/20 flex items-center justify-center border border-emerald-200 dark:border-emerald-800 shadow-lg mb-4 p-1.5 animate-pulse-slow">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-emerald-500/20 to-blue-500/20 flex items-center justify-center border border-emerald-200 dark:border-emerald-800 shadow-lg mb-4 p-1.5">
                   <div className="w-full h-full rounded-full bg-white dark:bg-[#161c24] flex items-center justify-center shadow-inner">
                     <Icon icon="carbon:renew" className="w-12 h-12 text-emerald-600 dark:text-emerald-400" />
                   </div>
@@ -482,7 +482,7 @@ export default function ProcessSection({ className = "" }) {
           <div className="lg:hidden flex flex-col gap-6 max-w-lg mx-auto">
             <div className="flex justify-between items-center px-1">
               <span className="text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Select manufacturing step</span>
-              <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1 animate-pulse">
+              <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1">
                 Swipe left or right <Icon icon="carbon:chevron-right" className="w-3 h-3" />
               </span>
             </div>

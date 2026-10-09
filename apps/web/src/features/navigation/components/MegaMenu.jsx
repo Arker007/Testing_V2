@@ -983,10 +983,6 @@ export default function MegaMenu({
                       />
                       <span>Download {activeCategoryData.name} Catalog</span>
                     </button>
-
-                    <div className="text-[10px] text-[var(--text-muted)] text-center pt-2.5 border-t border-[var(--border-subtle)]">
-                      Factory Direct • Gujarat Manufacturing • Bulk Supply
-                    </div>
                   </div>
                 </div>
 

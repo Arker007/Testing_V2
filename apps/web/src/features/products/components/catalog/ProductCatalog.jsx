@@ -721,15 +721,15 @@ export default function ProductCatalog() {
                 </div>
               </motion.div>
             ) : (
-              <>
+              <AnimatePresence mode="wait">
                 {viewMode === "grid" ? (
                   <motion.div
                     key={`grid-view-p${currentPage}`}
                     className={styles.prodGrid}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.16, ease: "easeOut" }}
                   >
                     {paginatedProducts.map((p, index) => (
                       <ProductGridCard
@@ -747,10 +747,10 @@ export default function ProductCatalog() {
                   <motion.div
                     key={`list-view-p${currentPage}`}
                     className={styles.prodList}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.16, ease: "easeOut" }}
                   >
                     {paginatedProducts.map((p, idx) => (
                       <ProductListItemCard
@@ -765,7 +765,7 @@ export default function ProductCatalog() {
                     ))}
                   </motion.div>
                 )}
-              </>
+              </AnimatePresence>
             )}
           </section>
         </div>

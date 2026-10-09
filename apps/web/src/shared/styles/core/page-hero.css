@@ -117,9 +117,9 @@
 
 .hero :global(.section-eyebrow),
 .productsHero :global(.section-eyebrow) {
-  color: var(--hero-badge-text, var(--brand-400)) !important;
-  background-color: var(--hero-badge-bg, rgba(107, 191, 84, 0.15)) !important;
-  border-color: var(--hero-badge-border, rgba(107, 191, 84, 0.35)) !important;
+  color: var(--hero-badge-text, var(--badge-text)) !important;
+  background-color: var(--hero-badge-bg, var(--badge-bg)) !important;
+  border-color: var(--hero-badge-border, var(--badge-border)) !important;
 }
 
 .about-hero-section {

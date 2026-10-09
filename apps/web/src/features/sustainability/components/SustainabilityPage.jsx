@@ -26,7 +26,7 @@ export default function SustainabilityPage() {
           { label: "Sustainability" },
         ]}
         bgImage={sustainabilityHeroBg}
-        bgOpacity="opacity-40"
+        bgOpacity="opacity-60"
         tag={c("sus_hero_tag", "Environmental Impact & Circular Economy")}
         tagIcon="carbon:recycle"
         title="Turning Plastic Waste into Long-Lasting Products"

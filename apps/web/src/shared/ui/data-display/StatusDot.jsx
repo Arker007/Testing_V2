@@ -66,7 +66,7 @@ export default function StatusDot({
       <span className="relative flex items-center justify-center shrink-0">
         {variant === "pulse" && (
           <span
-            className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${currentColor.ping}`}
+            className={`animate-ping motion-reduce:hidden absolute inline-flex h-full w-full rounded-full opacity-75 ${currentColor.ping}`}
           />
         )}
         {variant === "ring" && (

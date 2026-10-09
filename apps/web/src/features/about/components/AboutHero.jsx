@@ -21,7 +21,7 @@ export default function AboutHero() {
         { label: "About Us" },
       ]}
       bgImage={aboutHeroBg}
-      bgOpacity="opacity-40"
+      bgOpacity="opacity-60"
       tag={c("about_hero_tag", "Pioneering Recycled Polymer Extrusion")}
       tagIcon="carbon:time"
       title={rawTitle}

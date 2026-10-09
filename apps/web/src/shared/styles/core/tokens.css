@@ -341,9 +341,9 @@
   --hero-bg: var(--brand-navy);
   --hero-gradient: linear-gradient(135deg, #061A26 0%, #092333 55%, #0F3249 100%);
   --bg-hero: var(--hero-gradient);
-  --hero-badge-bg: rgba(120, 191, 69, 0.14);
-  --hero-badge-border: rgba(120, 191, 69, 0.35);
-  --hero-badge-text: var(--brand-green-deep);
+  --hero-badge-bg: var(--badge-bg);
+  --hero-badge-border: var(--badge-border);
+  --hero-badge-text: var(--badge-text);
   --bg-glass: rgba(255, 255, 255, 0.90);
   --bg-glass-card: rgba(255, 255, 255, 0.95);
   --bg-dark-overlay: rgba(6, 26, 38, 0.65);

@@ -113,7 +113,7 @@ export default function BackToTop({
           )}
 
           <Icon
-            icon="carbon:chevron-up"
+            icon="solar:alt-arrow-up-linear"
             className="w-5 h-5 text-slate-700 dark:text-slate-200 group-hover:text-[var(--brand)] dark:group-hover:text-[var(--brand)] transition-colors duration-200 relative z-10"
             aria-hidden="true"
           />
