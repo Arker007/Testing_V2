@@ -74,7 +74,7 @@ export default function ContactFormSection() {
     { value: "Plastic Table", label: "Plastic Table" },
     { value: "Garden Fence", label: "Garden Fence" },
     { value: "Outdoor Furniture", label: "Outdoor Furniture" },
-    { value: "Custom Moulding", label: "Custom Moulding / Other" },
+    { value: "Custom", label: "Custom" },
   ], []);
 
   const handleCopyRef = () => {
@@ -173,7 +173,7 @@ export default function ContactFormSection() {
                       1
                     </div>
                     <h2 className={`${styles.stepTitle} !text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight`}>
-                      Product / Requirement
+                      Product
                     </h2>
                   </div>
                   
@@ -190,7 +190,7 @@ export default function ContactFormSection() {
                         "Industrial Pallets",
                         "Plastic Lumber",
                         "Garden Benches",
-                        "Custom Moulding",
+                        "Custom",
                       ].map((cat) => {
                         const isSelected = form.productService === cat;
                         return (
@@ -222,27 +222,27 @@ export default function ContactFormSection() {
                       2
                     </div>
                     <h2 className={`${styles.stepTitle} !text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight`}>
-                      Your Details
+                      Details
                     </h2>
                   </div>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-0.5 pl-0 sm:pl-9">
-                    {/* Full Name */}
-                    <FormField label="Full Name" htmlFor="fullName" required>
+                    {/* Name */}
+                    <FormField label="Name" htmlFor="fullName" required>
                       <Input
                         id="fullName"
                         required
                         type="text"
                         size="sm"
                         leftIcon="carbon:user"
-                        placeholder="Full name"
+                        placeholder="Name"
                         value={form.fullName || ""}
                         onChange={f("fullName")}
                       />
                     </FormField>
 
-                    {/* Email Address */}
-                    <FormField label="Email Address" htmlFor="email" required>
+                    {/* Email */}
+                    <FormField label="Email" htmlFor="email" required>
                       <Input
                         id="email"
                         required
@@ -255,8 +255,8 @@ export default function ContactFormSection() {
                       />
                     </FormField>
 
-                    {/* Phone Number */}
-                    <FormField label="Phone Number" htmlFor="phone" required>
+                    {/* Phone */}
+                    <FormField label="Phone" htmlFor="phone" required>
                       <div className="flex items-center rounded-[var(--radius-input,6px)] border border-[var(--border-default)] bg-[var(--bg-surface)] focus-within:border-[var(--brand-primary)] focus-within:ring-2 focus-within:ring-[var(--brand-primary)]/20 transition-all overflow-hidden h-9 min-h-[36px]">
                         <div className="relative flex items-center h-full shrink-0 border-r border-[var(--border-default)] bg-[var(--bg-surface-secondary)]">
                           <select
@@ -282,21 +282,21 @@ export default function ContactFormSection() {
                           required
                           type="tel"
                           className="w-full h-full px-2.5 bg-transparent text-xs font-normal text-[var(--text-primary)] placeholder:text-[var(--text-disabled)] focus:outline-none"
-                          placeholder="Phone number"
+                          placeholder="Phone"
                           value={form.phone || ""}
                           onChange={f("phone")}
                         />
                       </div>
                     </FormField>
 
-                    {/* Company Name */}
-                    <FormField label="Company Name" htmlFor="company">
+                    {/* Company */}
+                    <FormField label="Company" htmlFor="company">
                       <Input
                         id="company"
                         type="text"
                         size="sm"
                         leftIcon="carbon:enterprise"
-                        placeholder="Company name"
+                        placeholder="Company"
                         value={form.company || ""}
                         onChange={f("company")}
                       />
@@ -304,21 +304,21 @@ export default function ContactFormSection() {
                   </div>
                 </div>
 
-                {/* Step 3: Requirement Details */}
+                {/* Step 3: Requirements */}
                 <div className="space-y-2.5">
                   <div className="flex items-center gap-2.5">
                     <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0">
                       3
                     </div>
                     <h2 className={`${styles.stepTitle} !text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight`}>
-                      Requirement Details
+                      Requirements
                     </h2>
                   </div>
                   
                   <div className="space-y-2.5 pt-0.5 pl-0 sm:pl-9">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-                      {/* Estimated Quantity */}
-                      <FormField label="Estimated Quantity" htmlFor="estimatedVolume">
+                      {/* Quantity */}
+                      <FormField label="Quantity" htmlFor="estimatedVolume">
                         <Input
                           id="estimatedVolume"
                           type="text"
@@ -330,8 +330,8 @@ export default function ContactFormSection() {
                         />
                       </FormField>
 
-                      {/* Target Application */}
-                      <FormField label="Target Application" htmlFor="targetApplication">
+                      {/* Application */}
+                      <FormField label="Application" htmlFor="targetApplication">
                         <Input
                           id="targetApplication"
                           type="text"
@@ -344,8 +344,8 @@ export default function ContactFormSection() {
                       </FormField>
                     </div>
 
-                    {/* Specifications or Message */}
-                    <FormField label="Specifications or Message" htmlFor="message">
+                    {/* Message */}
+                    <FormField label="Message" htmlFor="message">
                       <div className="relative">
                         <div className="absolute top-2.5 left-2.5 pointer-events-none text-[var(--text-muted)] z-10">
                           <Icon icon="carbon:edit" className="w-3.5 h-3.5" />
@@ -437,9 +437,9 @@ export default function ContactFormSection() {
                     <Icon icon="solar:user-linear" className="w-5 h-5" />
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
-                    <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Sales & Technical Contact</span>
+                    <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Sales Contact</span>
                     <h3 className="text-sm sm:text-[15px] !text-sm font-extrabold text-[var(--text-primary)] mt-0.5">{contactPerson}</h3>
-                    <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5 leading-relaxed">Product guidance, technical support, and quotations.</p>
+                    <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5 leading-relaxed">For product guidance, quotes, and technical specs.</p>
                   </div>
                 </div>
 
@@ -453,7 +453,7 @@ export default function ContactFormSection() {
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Manufacturing Plant & Works</span>
+                      <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Factory Address</span>
                       <CardCopyButton
                         text={address}
                         copyKey="address"
@@ -478,7 +478,7 @@ export default function ContactFormSection() {
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Direct Sales Line</span>
+                      <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Sales Phone</span>
                       <CardCopyButton
                         text={phoneVal}
                         copyKey="phone"
@@ -512,7 +512,7 @@ export default function ContactFormSection() {
                   </div>
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Official Procurement Email</span>
+                      <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Sales Email</span>
                       <CardCopyButton
                         text={emailVal}
                         copyKey="email"
@@ -530,7 +530,7 @@ export default function ContactFormSection() {
                         <Icon icon="carbon:chevron-right" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
                       </a>
                     </h3>
-                    <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5 leading-relaxed">For purchase orders, RFQs, and bulk inquiries.</p>
+                    <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5 leading-relaxed">For orders, price quotes, and bulk inquiries.</p>
                   </div>
                 </div>
 
@@ -545,7 +545,7 @@ export default function ContactFormSection() {
                   <div className="pt-0.5 flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-1.5">
-                        <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">Goods & Services Tax (GSTIN)</span>
+                        <span className="block text-[11px] !text-[11px] font-bold uppercase tracking-wider text-[var(--text-muted)]">GST Number</span>
                         <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/60 px-1.5 py-0.2 rounded border border-emerald-300 dark:border-emerald-700">
                           <Icon icon="carbon:checkmark-filled" className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-400" />
                           <span>Verified</span>
@@ -560,7 +560,7 @@ export default function ContactFormSection() {
                       />
                     </div>
                     <h3 className="!text-sm sm:!text-[15px] !font-extrabold text-[var(--text-primary)] tracking-wider mt-0.5 font-mono">{gstinVal}</h3>
-                    <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5 leading-relaxed">Official tax registration for billing and compliance.</p>
+                    <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5 leading-relaxed">Registered business tax ID for billing and invoicing.</p>
                   </div>
                 </div>
 
@@ -574,8 +574,8 @@ export default function ContactFormSection() {
                       <Icon icon="solar:headphones-round-linear" className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-xs sm:text-sm font-extrabold text-[var(--text-primary)]">Need Immediate Assistance?</h4>
-                      <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5">Our technical team is ready to assist your bulk order.</p>
+                      <h4 className="text-xs sm:text-sm font-extrabold text-[var(--text-primary)]">Need Quick Help?</h4>
+                      <p className="text-xs text-[var(--text-secondary)] dark:text-slate-300 mt-0.5">Chat directly with our team on WhatsApp for fast pricing.</p>
                     </div>
                   </div>
                   <a

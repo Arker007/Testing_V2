@@ -250,7 +250,7 @@ export default function InquiryModal({ product, onClose }) {
               {/* Full Name */}
               <div className={styles.formGroup}>
                 <label htmlFor="inquiry-name" className={styles.formLabel}>
-                  <span>Full name<span className={styles.requiredMarker}>*</span></span>
+                  <span>Name<span className={styles.requiredMarker}>*</span></span>
                 </label>
                 <div className={styles.inputWrapper}>
                   <Icon icon="carbon:user" className={styles.inputIcon} />
@@ -271,7 +271,7 @@ export default function InquiryModal({ product, onClose }) {
               <div className={styles.formGrid}>
                 <div className={styles.formGroup}>
                   <label htmlFor="inquiry-phone" className={styles.formLabel}>
-                    <span>Phone or WhatsApp<span className={styles.requiredMarker}>*</span></span>
+                    <span>Phone<span className={styles.requiredMarker}>*</span></span>
                   </label>
                   <div className={styles.inputWrapper}>
                     <Icon icon="carbon:phone" className={styles.inputIcon} />
@@ -289,7 +289,7 @@ export default function InquiryModal({ product, onClose }) {
 
                 <div className={styles.formGroup}>
                   <label htmlFor="inquiry-email" className={styles.formLabel}>
-                    <span>Work email</span>
+                    <span>Email</span>
                   </label>
                   <div className={styles.inputWrapper}>
                     <Icon icon="carbon:email" className={styles.inputIcon} />
@@ -310,7 +310,7 @@ export default function InquiryModal({ product, onClose }) {
               <div className={styles.formGrid}>
                 <div className={styles.formGroup}>
                   <label htmlFor="inquiry-company" className={styles.formLabel}>
-                    <span>Company name <span className="text-[11px] font-normal text-[var(--text-muted)]">(optional)</span></span>
+                    <span>Company</span>
                   </label>
                   <div className={styles.inputWrapper}>
                     <Icon icon="carbon:enterprise" className={styles.inputIcon} />
@@ -327,7 +327,7 @@ export default function InquiryModal({ product, onClose }) {
 
                 <div className={styles.formGroup}>
                   <label htmlFor="inquiry-quantity" className={styles.formLabel}>
-                    <span>Order volume</span>
+                    <span>Quantity</span>
                   </label>
                   <div className={styles.inputWrapper}>
                     <Icon icon="carbon:package" className={styles.inputIcon} />
@@ -367,7 +367,7 @@ export default function InquiryModal({ product, onClose }) {
               {/* Specifications / Notes Textarea */}
               <div className={styles.formGroup}>
                 <label htmlFor="inquiry-message" className={styles.formLabel}>
-                  <span>Specifications and requirements</span>
+                  <span>Message</span>
                 </label>
                 <textarea
                   id="inquiry-message"

@@ -733,10 +733,10 @@ export default function ProductTabsSection({
                       </div>
                       <div>
                         <div className="text-sm font-bold text-[var(--text-primary)]">
-                          Technical Datasheet (PDF)
+                          Product Specifications (PDF)
                         </div>
                         <div className="text-xs text-[var(--text-muted)]">
-                          Engineering metrics, load tables & tolerances
+                          Engineering measurements, load capacity & dimensions
                         </div>
                       </div>
                     </div>

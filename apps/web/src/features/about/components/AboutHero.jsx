@@ -22,13 +22,13 @@ export default function AboutHero() {
       ]}
       bgImage={aboutHeroBg}
       bgOpacity="opacity-60"
-      tag={c("about_hero_tag", "Pioneering Recycled Polymer Extrusion")}
-      tagIcon="carbon:time"
+      tag={c("about_hero_tag", "Industrial Recycled Plastics Manufacturer")}
+      tagIcon="carbon:industry"
       title={rawTitle}
       titleAccent=""
       description={c(
         "about_hero_subtitle",
-        "Pioneering sustainable plastic manufacturing for over 15 years in Gujarat, India. Transforming polymer waste into high-density industrial lumber & profiles."
+        "Manufacturing heavy-duty recycled plastic products for over 15 years in Gujarat, India. Supplying industrial pallets, crates, and premium recycled granules to leading enterprises."
       )}
     />
   );

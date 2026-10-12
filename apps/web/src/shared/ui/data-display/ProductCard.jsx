@@ -262,7 +262,7 @@ function ProductCard({
       <div className={styles.gridCardDetails}>
         <div className={styles.skuRow}>
           <span className={styles.skuCode}>{sku}</span>
-          {isCustomizable && <span className={styles.customBadge}>Customizable</span>}
+          {isCustomizable && <span className={styles.customBadge}>Custom</span>}
         </div>
 
         <h3 className={styles.gridCardSkuTitle}>

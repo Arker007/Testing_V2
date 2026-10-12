@@ -23,21 +23,21 @@ export const itemVariants = {
 
 export const testimonials = [
   {
-    quote: "We are extremely pleased with the premium recycled plastic pallets from Vishal Enterprise. They handle our heavy warehouse loads flawlessly and have significantly reduced our material handling costs over the years.",
+    quote: "Switching to Vishal Enterprise's heavy-duty recycled plastic pallets reduced our warehouse breakage to zero. Their racking pallets easily handle our 1.5-ton chemical drum loads.",
     author: "Jessica Wall",
-    role: "Logistics Manager, Legat Owen",
+    role: "Supply Chain Manager, Legat Owen Logistics",
     avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
   },
   {
-    quote: "Switching to Vishal's high-density eco-friendly crates has helped us meet our rigorous sustainability targets while ensuring safe, damage-free transit of agricultural goods across India.",
+    quote: "Their recycled plastic crates are tough, hygienic, and withstand harsh field handling. We've eliminated wood splinter contamination completely from our supply line.",
     author: "Amit Patel",
-    role: "Supply Chain Director, GreenField Organics",
+    role: "Operations Director, GreenField Organics",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
   },
   {
-    quote: "Highly consistent quality and prompt delivery. Their engineering excellence truly reflects in the structural integrity of their custom heavy-duty pallets.",
+    quote: "Consistently uniform melt flow and clean melt filtration on their recycled plastic granules. We procure full truckloads every month for our industrial molding plant.",
     author: "Rajesh Mehta",
-    role: "Production Head, Gujarat Polymers",
+    role: "Plant Head, Gujarat Polymers",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
   }
 ];

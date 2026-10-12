@@ -16,12 +16,12 @@ export default function ContactHero() {
       ]}
       bgImage={contactHeroBg}
       bgOpacity="opacity-60"
-      tag={c("contact_hero_badge", "Direct Factory Sales Desk")}
+      tag={c("contact_hero_badge", "Sales & Inquiries")}
       tagIcon="carbon:headset"
-      title={c("contact_hero_title", "Commercial Procurement & Engineering Support")}
+      title={c("contact_hero_title", "Get a Quote & Contact Our Factory")}
       description={c(
         "contact_hero_sub",
-        "Request volume pricing, custom extruded profiles, or schedule plant dispatches directly with our Ankleshwar manufacturing facility."
+        "Request bulk pricing, custom sizes, or place direct orders with our Ankleshwar manufacturing facility."
       )}
     />
   );

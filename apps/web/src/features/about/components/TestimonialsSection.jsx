@@ -23,11 +23,11 @@ export default function TestimonialsSection() {
   return (
     <section className="container py-16 md:py-20">
       <SectionHeader
-        eyebrow={c("about_testimonials_eyebrow", "Client Feedback")}
-        title={c("about_testimonials_title", "Trusted by Procurement & Logistics Leaders")}
+        eyebrow={c("about_testimonials_eyebrow", "Customer Feedback")}
+        title={c("about_testimonials_title", "Trusted by Industrial Buyers Across India")}
         subtitle={c(
           "about_testimonials_subtitle",
-          "What our enterprise partners across India say about our recycled plastic products and service reliability."
+          "What plant heads, warehouse managers, and procurement leads say about our industrial recycled plastic products."
         )}
       />
 

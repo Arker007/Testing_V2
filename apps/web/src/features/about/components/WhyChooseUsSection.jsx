@@ -25,8 +25,8 @@ export default function WhyChooseUsSection() {
               <SectionHeader
                 eyebrow="Why industries choose us"
                 eyebrowIcon="solar:shield-check-linear"
-                title="Engineered for strength, built for generations"
-                subtitle="Our recycled plastic products are designed to withstand harsh conditions, heavy loads and continuous use — without compromising on quality."
+                title="Industrial strength built for demanding operations"
+                subtitle="Engineered from reinforced recycled plastic polymers to withstand multi-tier racking, forklift impacts, and heavy warehouse loads."
                 align="left"
                 accentLine
                 light
@@ -38,7 +38,7 @@ export default function WhyChooseUsSection() {
             <div className="mt-8">
               <QuoteButton
                 to="/products"
-                text="Explore our products"
+                text="View product catalog"
               />
             </div>
           </div>
@@ -52,10 +52,10 @@ export default function WhyChooseUsSection() {
               </div>
               <div>
                 <h3 className="text-base font-bold text-white mb-1.5 leading-snug group-hover:text-[var(--brand-primary)] transition-colors">
-                  Heavy-duty and durable
+                  High load bearing
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                  Built to handle extreme conditions and maximum load.
+                  Dynamic capacities up to 1.5 tons and static loads up to 4 tons for heavy warehouses.
                 </p>
               </div>
             </div>
@@ -67,10 +67,10 @@ export default function WhyChooseUsSection() {
               </div>
               <div>
                 <h3 className="text-base font-bold text-white mb-1.5 leading-snug group-hover:text-[var(--brand-primary)] transition-colors">
-                  Weather and corrosion resistant
+                  Chemical & rot proof
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                  Performance that stays strong in every climate.
+                  Resistant to acids, alkalis, moisture, and pests — zero rot, termites, or mold.
                 </p>
               </div>
             </div>
@@ -82,10 +82,10 @@ export default function WhyChooseUsSection() {
               </div>
               <div>
                 <h3 className="text-base font-bold text-white mb-1.5 leading-snug group-hover:text-[var(--brand-primary)] transition-colors">
-                  Zero maintenance
+                  Zero splintering & maintenance
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                  Designed for long life with no painting, no treatment, no worries.
+                  No loose nails, splintering wood, or fumigation costs. Washable and easily sanitized.
                 </p>
               </div>
             </div>
@@ -97,10 +97,10 @@ export default function WhyChooseUsSection() {
               </div>
               <div>
                 <h3 className="text-base font-bold text-white mb-1.5 leading-snug group-hover:text-[var(--brand-primary)] transition-colors">
-                  Sustainable solution
+                  100% Recycled & circular
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                  Made from 100% recycled plastic for a cleaner tomorrow.
+                  Produced from clean recovered industrial polymers with closed-loop buyback options.
                 </p>
               </div>
             </div>

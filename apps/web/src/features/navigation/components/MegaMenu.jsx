@@ -102,14 +102,16 @@ const getItemBadge = (name = "") => {
   if (n.includes("racking") || n.includes("rackable")) return "RACKING";
   if (n.includes("reversible")) return "REVERSIBLE";
   if (n.includes("euro standard") || n.includes("ispm-15") || n.includes("export"))
-    return "EXPORT";
+    return "EXPORT GRADE";
   if (n.includes("2-way") || n.includes("2way")) return "2-WAY";
   if (n.includes("steel-reinforced")) return "STEEL CORE";
   if (n.includes("cleanroom") || n.includes("hygiene") || n.includes("food"))
     return "FOOD GRADE";
-  if (n.includes("cold storage") || n.includes("-30°c")) return "-30°C";
-  if (n.includes("chemical") || n.includes("acid")) return "CHEMICAL";
+  if (n.includes("cold storage") || n.includes("-30°c")) return "COLD STORAGE";
+  if (n.includes("chemical") || n.includes("acid")) return "CHEMICAL SAFE";
   if (n.includes("tongue") || n.includes("groove")) return "INTERLOCK";
+  if (n.includes("lumber") || n.includes("profile") || n.includes("plank"))
+    return "RECYCLED LUMBER";
   if (n.includes("post")) return "POST";
   if (n.includes("decking")) return "DECKING";
   if (n.includes("cast iron") || n.includes("heritage")) return "HERITAGE";
@@ -119,11 +121,11 @@ const getItemBadge = (name = "") => {
   if (n.includes("tree")) return "TREE SURROUND";
   if (n.includes("picnic")) return "PICNIC";
   if (n.includes("courtyard") || n.includes("plaza")) return "COURTYARD";
-  if (n.includes("heavy-duty") || n.includes("4x4") || n.includes("6x6"))
+  if (n.includes("heavy-duty") || n.includes("heavy duty") || n.includes("4x4") || n.includes("6x6"))
     return "HEAVY DUTY";
   if (n.includes("custom") || n.includes("skid") || n.includes("bespoke"))
     return "CUSTOM";
-  return "STANDARD";
+  return "HEAVY DUTY";
 };
 
 // Helper to test if a product belongs to a category definition
@@ -394,15 +396,30 @@ export default function MegaMenu({
       ? products.filter((p) => isProductMatchingCategory(p, activeCategoryData))
       : [];
 
-    return matched.slice(0, 6).map((p) => ({
-      id: p.id,
-      name: p.name,
-      badge: p.badge || p.type || getItemBadge(p.name),
-      spec: extractProductSpec(p) || p.dimensions || "Industrial Specification",
-      targetUrl: `/products/${p.id}`,
-      image: resolveProductImage(p),
-      raw: p,
-    }));
+    return matched.slice(0, 6).map((p) => {
+      let badge = null;
+      if (p.badge) {
+        const b = String(p.badge).trim().toUpperCase();
+        badge = b === "CUSTOMIZABLE" ? "CUSTOM" : b;
+      } else if (p.customizable || p.is_customizable) {
+        badge = "CUSTOM";
+      } else if (p.type && String(p.type).toUpperCase() !== "STANDARD") {
+        const t = String(p.type).trim().toUpperCase();
+        badge = t === "CUSTOMIZABLE" ? "CUSTOM" : t;
+      } else {
+        badge = getItemBadge(p.name);
+      }
+
+      return {
+        id: p.id,
+        name: p.name,
+        badge,
+        spec: extractProductSpec(p) || p.dimensions || "Industrial Specification",
+        targetUrl: `/products/${p.id}`,
+        image: resolveProductImage(p),
+        raw: p,
+      };
+    });
   }, [products, activeCategoryData]);
 
   // Preview Image for Spotlight Column
@@ -450,7 +467,7 @@ export default function MegaMenu({
     <h2>${catName} Overview</h2>
     <div class="spec-card">
       <p>${catDesc}</p>
-      <p><strong>Available Catalog Items:</strong> Standard models + bespoke variations fabricated to project drawings.</p>
+      <p><strong>Available Catalog Items:</strong> Standard models + custom sizes fabricated to project drawings.</p>
     </div>
   </div>
   <div class="footer">
@@ -628,9 +645,9 @@ export default function MegaMenu({
                           transition={{ duration: 0.14, ease: [0.16, 1, 0.3, 1] }}
                           className="flex flex-col justify-between h-full"
                         >
-                          <div>
+                          <div className="flex flex-col flex-1 min-h-0">
                             {/* Header */}
-                            <div className="mb-4">
+                            <div className="mb-4 shrink-0">
                               <span className="block text-[11px] font-bold uppercase tracking-wider text-[var(--text-brand)] mb-0.5">
                                 {activeCategoryData.eyebrow}
                               </span>
@@ -683,13 +700,27 @@ export default function MegaMenu({
                                 ))}
                               </div>
                             ) : (
-                              <div className="py-8 text-center text-sm text-[var(--text-muted)] border border-dashed border-[var(--border-subtle)] rounded-lg my-3 px-4">
-                                <p className="font-medium text-[var(--text-secondary)]">
-                                  No products in this category yet
+                              <div className="flex-1 min-h-[220px] flex flex-col items-center justify-center text-center p-6 border border-dashed border-[var(--border-subtle)] rounded-xl my-2 bg-[var(--bg-surface-secondary)]/40">
+                                <div className="w-12 h-12 rounded-full bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex items-center justify-center mb-3 text-[var(--text-muted)] shadow-2xs">
+                                  <Icon
+                                    icon={activeCategoryData.icon || "carbon:box"}
+                                    className="w-6 h-6 text-[var(--text-secondary)]"
+                                  />
+                                </div>
+                                <p className="font-semibold text-sm sm:text-base text-[var(--text-primary)]">
+                                  No Standard Stock Products Listed
                                 </p>
-                                <p className="text-xs mt-1 text-[var(--text-muted)]">
-                                  Custom configurations & sizes available upon request.
+                                <p className="text-xs text-[var(--text-secondary)] mt-1.5 max-w-sm leading-relaxed">
+                                  Products in this category are manufactured to custom industrial specifications, dimensions, and bulk volume contracts.
                                 </p>
+                                <Link
+                                  to={`/contact?quote=${encodeURIComponent(activeCategoryData.slug)}`}
+                                  onClick={handleLinkClick}
+                                  className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-[var(--text-brand)] hover:text-[var(--brand-hover)] bg-[var(--brand-soft)] hover:bg-[var(--brand-soft)]/80 px-3.5 py-1.5 rounded-lg border border-[var(--border-brand)] transition-colors"
+                                >
+                                  <span>Request Custom Specifications</span>
+                                  <Icon icon="carbon:arrow-right" className="w-3.5 h-3.5" />
+                                </Link>
                               </div>
                             )}
                           </div>
@@ -699,10 +730,15 @@ export default function MegaMenu({
                             <Link
                               to={`/products?cat=${encodeURIComponent(activeCategoryData.slug)}`}
                               onClick={handleLinkClick}
-                              className="inline-flex items-center gap-1.5 text-sm font-bold text-[var(--text-brand)] hover:text-[var(--brand-hover)] hover:underline transition-all"
+                              className="group/all inline-flex items-center gap-2 text-sm font-bold text-[var(--text-brand)] hover:text-[var(--brand-primary)] px-2.5 py-1.5 -ml-2.5 rounded-lg hover:bg-[var(--brand-soft)] transition-all duration-150"
                             >
-                              <span>View all {activeCategoryData.name}</span>
-                              <Icon icon="carbon:arrow-right" className="w-4 h-4" />
+                              <span className="group-hover/all:underline underline-offset-4">
+                                View all {activeCategoryData.name}
+                              </span>
+                              <Icon
+                                icon="carbon:arrow-right"
+                                className="w-4 h-4 transition-transform duration-150 group-hover/all:translate-x-1"
+                              />
                             </Link>
                           </div>
                         </motion.div>
@@ -716,7 +752,7 @@ export default function MegaMenu({
                       {/* Header Row */}
                       <div className="flex items-center justify-between gap-2 mb-3">
                         <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-brand)]">
-                          Bespoke & Bulk Supply
+                          Custom & Bulk Orders
                         </span>
                         <span className="text-[11px] font-medium text-[var(--text-muted)]">
                           Factory Direct
@@ -724,12 +760,12 @@ export default function MegaMenu({
                       </div>
 
                       {/* Image Preview Box */}
-                      <div className="w-full h-36 rounded-lg overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-center justify-center relative shadow-2xs mb-3.5">
+                      <div className="w-full h-40 rounded-lg overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-center justify-center relative shadow-2xs mb-3.5 p-2">
                         {previewImageUrl ? (
                           <img
                             src={previewImageUrl}
                             alt={hoveredProduct?.name || activeCategoryData?.name || "Product preview"}
-                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                            className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
                             referrerPolicy="no-referrer"
                           />
                         ) : (
@@ -738,7 +774,7 @@ export default function MegaMenu({
                               icon={activeCategoryData?.icon || "carbon:box"}
                               className="w-8 h-8 text-[var(--text-muted)]"
                             />
-                            <span className="text-[11px] font-medium">Bespoke Fabrication</span>
+                            <span className="text-[11px] font-medium">Custom Fabrication</span>
                           </div>
                         )}
                       </div>
@@ -758,7 +794,7 @@ export default function MegaMenu({
                       <QuoteButton
                         to="/contact?quote=custom"
                         onClick={handleLinkClick}
-                        text="Request Custom RFQ"
+                        text="Get Custom Quote"
                         className="w-full !justify-center !text-sm !py-2.5"
                       />
 

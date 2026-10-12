@@ -356,6 +356,7 @@ export function getProductCardBadge(product) {
   if (title.includes("rackable")) return "RACKABLE";
   if (title.includes("reversible")) return "REVERSIBLE";
   if (title.includes("export") || title.includes("euro")) return "EXPORT GRADE";
+  if (title.includes("lumber") || title.includes("profile")) return "RECYCLED LUMBER";
   if (title.includes("medium duty") || title.includes("medium-duty")) return "MEDIUM DUTY";
   if (title.includes("light duty") || title.includes("light-duty")) return "LIGHT DUTY";
   if (title.includes("spill") || title.includes("containment")) return "SPILL SAFE";
@@ -367,6 +368,7 @@ export function getProductCardBadge(product) {
     const cleaned = String(rawCat).replace(/[-_]/g, " ").trim();
     if (cleaned.toLowerCase() === "pallets" || cleaned.toLowerCase() === "pallet") return "PLASTIC PALLET";
     if (cleaned.toLowerCase() === "garden bench" || cleaned.toLowerCase() === "benches") return "GARDEN BENCH";
+    if (cleaned.toLowerCase().includes("lumber") || cleaned.toLowerCase().includes("profile")) return "RECYCLED LUMBER";
     return cleaned.toUpperCase();
   }
   return "HEAVY DUTY";

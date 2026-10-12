@@ -6,7 +6,7 @@ export const ContactTrustedRow = React.memo(function ContactTrustedRow() {
   return (
     <div className={styles.trustedCompanies}>
       <p className={styles.companiesTitle}>
-        Trusted by Procurement Managers at Leading Industries
+        Trusted by Buyers Across Leading Industries
       </p>
       <div className={styles.companiesGrid}>
         <div className={styles.companyBadge}>

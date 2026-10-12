@@ -16,11 +16,11 @@ export default function ContactWorkflowSection() {
               icon={<Icon icon="solar:round-transfer-vertical-linear" className="w-4 h-4" />}
               className={styles.workflowBadge}
             >
-              Procurement Workflow
+              How to Order
             </Badge>
           }
-          title="5-Stage Factory Procurement Process"
-          subtitle="A structured manufacturing and supply lifecycle ensuring dimensional tolerance, load testing, and scheduled batch logistics."
+          title="5 Simple Steps to Order"
+          subtitle="From your initial inquiry to customized production, load testing, and scheduled delivery to your site."
           light
           size="lg"
         />

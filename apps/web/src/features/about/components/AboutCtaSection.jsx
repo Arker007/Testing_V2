@@ -10,18 +10,18 @@ export default function AboutCtaSection() {
   return (
     <section className="container pt-8 cta-section w-full">
       <CtaCard
-        badge={c("about_cta_eyebrow", "Ready to Upgrade Your Supply Chain?")}
+        badge={c("about_cta_eyebrow", "Bulk Orders & Factory Direct Pricing")}
         badgeVariant="brand"
         badgeIcon="carbon:launch"
-        title={c("about_cta_title", "Get Custom Quotes & Product Specs Today")}
+        title={c("about_cta_title", "Get a Factory Quote for Recycled Plastics")}
         subtitle={c(
           "about_cta_text",
-          "Talk directly with our technical team in Ankleshwar for custom bulk orders, pallet dimensions, or granule specifications."
+          "Contact our sales team in Ankleshwar for wholesale rates, custom pallet sizes, crate dimensions, or recycled granule samples."
         )}
       >
         <QuoteButton
           to="/contact"
-          text={c("about_cta_btn_text", "Get Started")}
+          text={c("about_cta_btn_text", "Contact Sales")}
           className="shadow-sm"
         />
       </CtaCard>

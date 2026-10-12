@@ -71,6 +71,29 @@ const mobileFeaturesVariants = {
   },
 };
 
+const mobileHexagonImageVariants = {
+  initial: { opacity: 0, scale: 0.92, y: 8 },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.38,
+      ease: [0.16, 1, 0.3, 1],
+      delay: 0.03, // Aligned with mobile text delayChildren
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 1.04,
+    y: -6,
+    transition: {
+      duration: 0.2, // Aligned with mobileTextContainerVariants exit duration
+      ease: [0.32, 0, 0.67, 0],
+    },
+  },
+};
+
 export default function HomeHeroMobile() {
   const { c, co } = useSite();
   const [isFirstRender, setIsFirstRender] = useState(true);
@@ -371,13 +394,10 @@ export default function HomeHeroMobile() {
                             <AnimatePresence mode="wait" initial={false}>
                               <Motion.div
                                 key={current}
-                                initial={isFirstRender ? false : { opacity: 0, scale: 0.9, y: 10, filter: "blur(4px)" }}
-                                animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
-                                exit={{ opacity: 0, scale: 1.06, y: -6, filter: "blur(3px)" }}
-                                transition={{
-                                  duration: 0.45,
-                                  ease: [0.16, 1, 0.3, 1],
-                                }}
+                                variants={mobileHexagonImageVariants}
+                                initial={isFirstRender ? false : "initial"}
+                                animate="animate"
+                                exit="exit"
                                 style={{
                                   position: "absolute",
                                   inset: 0,

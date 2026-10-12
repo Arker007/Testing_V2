@@ -118,6 +118,30 @@ const featureItemVariants = {
   },
 };
 
+// Hexagon product image variants synchronized with text container cadence
+const hexagonImageVariants = {
+  initial: { opacity: 0, scale: 0.92, y: 8 },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.38,
+      ease: [0.16, 1, 0.3, 1],
+      delay: 0.04, // Perfectly aligned with headline titlePartVariants entrance
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 1.04,
+    y: -6,
+    transition: {
+      duration: 0.22, // Matches textContainerVariants exit duration precisely
+      ease: [0.32, 0, 0.67, 0],
+    },
+  },
+};
+
 export default function HomeHero() {
   const { c, co } = useSite();
   const [isFirstRender, setIsFirstRender] = useState(true);
@@ -130,7 +154,7 @@ export default function HomeHero() {
   const slides = useMemo(() => [
     {
       category: c("home_slide1_category", "Recycled Plastic Lumber"),
-      badge: c("home_slide1_badge", "Manufacturer & Supplier"),
+      badge: c("home_slide1_badge", "Rot-Proof Polymer"),
       titleLime: c("home_slide1_title_accent", "RECYCLED"),
       titleWhite: c("home_slide1_title_main", "PLASTIC LUMBER"),
       desc: c(
@@ -148,7 +172,7 @@ export default function HomeHero() {
     },
     {
       category: c("home_slide2_category", "Industrial Plastic Pallets"),
-      badge: c("home_slide2_badge", "Manufacturer & Supplier"),
+      badge: c("home_slide2_badge", "Heavy-Duty Warehouse Grade"),
       titleLime: c("home_slide2_title_accent", "HEAVY-DUTY"),
       titleWhite: c("home_slide2_title_main", "PLASTIC PALLETS"),
       desc: c(
@@ -166,7 +190,7 @@ export default function HomeHero() {
     },
     {
       category: c("home_slide3_category", "Outdoor Benches & Tables"),
-      badge: c("home_slide3_badge", "Manufacturer & Supplier"),
+      badge: c("home_slide3_badge", "100% Weatherproof"),
       titleLime: c("home_slide3_title_accent", "WEATHERPROOF"),
       titleWhite: c("home_slide3_title_main", "GARDEN BENCHES"),
       desc: c(
@@ -459,13 +483,10 @@ export default function HomeHero() {
                         <AnimatePresence mode="wait" initial={false}>
                           <Motion.div
                             key={current}
-                            initial={isFirstRender ? false : { opacity: 0, scale: 0.88, y: 12, filter: "blur(6px)" }}
-                            animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
-                            exit={{ opacity: 0, scale: 1.08, y: -8, filter: "blur(4px)" }}
-                            transition={{
-                              duration: 0.55,
-                              ease: [0.16, 1, 0.3, 1],
-                            }}
+                            variants={hexagonImageVariants}
+                            initial={isFirstRender ? false : "initial"}
+                            animate="animate"
+                            exit="exit"
                             style={{
                               position: "absolute",
                               inset: 0,

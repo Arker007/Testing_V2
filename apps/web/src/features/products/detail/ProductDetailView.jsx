@@ -175,7 +175,7 @@ export default function ProductDetailView() {
         {/* Custom Size & Direct Factory Manufacturing Callout */}
         <section>
           <CtaCard
-            badge="Custom Manufacturing"
+            badge="Custom Orders"
             badgeVariant="brand"
             badgeIcon="carbon:tools"
             title="Need Custom Sizes, Colors, or Your Company Logo?"

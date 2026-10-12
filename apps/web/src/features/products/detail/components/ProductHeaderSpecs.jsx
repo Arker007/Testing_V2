@@ -322,7 +322,7 @@ export default function ProductHeaderSpecs({
               icon="carbon:download"
               className="w-4 h-4 text-[var(--text-brand)] shrink-0"
             />
-            <span>Datasheet (PDF)</span>
+            <span>Product Specs (PDF)</span>
           </button>
         </div>
       </div>

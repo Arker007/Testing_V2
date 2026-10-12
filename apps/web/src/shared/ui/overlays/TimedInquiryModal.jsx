@@ -44,7 +44,7 @@ export default function TimedInquiryModal() {
       { value: "Plastic Table", label: "Plastic Table" },
       { value: "Garden Fence", label: "Garden Fence" },
       { value: "Outdoor Furniture", label: "Outdoor Furniture" },
-      { value: "Custom Moulding", label: "Custom Moulding / Other" },
+      { value: "Custom", label: "Custom" },
     ],
     []
   );
@@ -336,7 +336,7 @@ export default function TimedInquiryModal() {
                           "Industrial Pallets",
                           "Plastic Lumber",
                           "Garden Benches",
-                          "Custom Moulding",
+                          "Custom",
                         ].map((cat) => {
                           const isSelected = form.productService === cat;
                           return (
@@ -371,27 +371,27 @@ export default function TimedInquiryModal() {
                         2
                       </div>
                       <h3 className="!text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight">
-                        Your Details
+                        Details
                       </h3>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-0.5 pl-0 sm:pl-9">
-                      {/* Full Name */}
-                      <FormField label="Full Name" htmlFor="modalFullName" required>
+                      {/* Name */}
+                      <FormField label="Name" htmlFor="modalFullName" required>
                         <Input
                           id="modalFullName"
                           required
                           type="text"
                           size="sm"
                           leftIcon="carbon:user"
-                          placeholder="Full name"
+                          placeholder="Name"
                           value={form.fullName || ""}
                           onChange={handleChange("fullName")}
                         />
                       </FormField>
 
-                      {/* Email Address */}
-                      <FormField label="Email Address" htmlFor="modalEmail" required>
+                      {/* Email */}
+                      <FormField label="Email" htmlFor="modalEmail" required>
                         <Input
                           id="modalEmail"
                           required
@@ -404,8 +404,8 @@ export default function TimedInquiryModal() {
                         />
                       </FormField>
 
-                      {/* Phone Number */}
-                      <FormField label="Phone Number" htmlFor="modalPhone" required>
+                      {/* Phone */}
+                      <FormField label="Phone" htmlFor="modalPhone" required>
                         <div className="flex items-center rounded-[var(--radius-input,6px)] border border-[var(--border-default)] bg-[var(--bg-surface)] focus-within:border-[var(--brand-primary)] focus-within:ring-2 focus-within:ring-[var(--brand-primary)]/20 transition-all overflow-hidden h-9 min-h-[36px]">
                           <div className="relative flex items-center h-full shrink-0 border-r border-[var(--border-default)] bg-[var(--bg-surface-secondary)]">
                             <select
@@ -434,21 +434,21 @@ export default function TimedInquiryModal() {
                             required
                             type="tel"
                             className="w-full h-full px-2.5 bg-transparent text-xs font-normal text-[var(--text-primary)] placeholder:text-[var(--text-disabled)] focus:outline-none"
-                            placeholder="Phone number"
+                            placeholder="Phone"
                             value={form.phone || ""}
                             onChange={handleChange("phone")}
                           />
                         </div>
                       </FormField>
 
-                      {/* Company Name */}
-                      <FormField label="Company Name" htmlFor="modalCompany">
+                      {/* Company */}
+                      <FormField label="Company" htmlFor="modalCompany">
                         <Input
                           id="modalCompany"
                           type="text"
                           size="sm"
                           leftIcon="carbon:enterprise"
-                          placeholder="Company name"
+                          placeholder="Company"
                           value={form.company || ""}
                           onChange={handleChange("company")}
                         />
@@ -456,21 +456,21 @@ export default function TimedInquiryModal() {
                     </div>
                   </div>
 
-                  {/* Step 3: Requirement Details */}
+                  {/* Step 3: Requirements */}
                   <div className="space-y-2.5">
                     <div className="flex items-center gap-2.5">
                       <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0">
                         3
                       </div>
                       <h3 className="!text-sm sm:!text-base font-bold text-[var(--text-primary)] leading-tight">
-                        Requirement Details
+                        Requirements
                       </h3>
                     </div>
 
                     <div className="space-y-2.5 pt-0.5 pl-0 sm:pl-9">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-                        {/* Estimated Quantity */}
-                        <FormField label="Estimated Quantity" htmlFor="modalEstimatedVolume">
+                        {/* Quantity */}
+                        <FormField label="Quantity" htmlFor="modalEstimatedVolume">
                           <Input
                             id="modalEstimatedVolume"
                             type="text"
@@ -482,8 +482,8 @@ export default function TimedInquiryModal() {
                           />
                         </FormField>
 
-                        {/* Target Application */}
-                        <FormField label="Target Application" htmlFor="modalTargetApplication">
+                        {/* Application */}
+                        <FormField label="Application" htmlFor="modalTargetApplication">
                           <Input
                             id="modalTargetApplication"
                             type="text"
@@ -496,8 +496,8 @@ export default function TimedInquiryModal() {
                         </FormField>
                       </div>
 
-                      {/* Specifications or Message */}
-                      <FormField label="Specifications or Message" htmlFor="modalMessage">
+                      {/* Message */}
+                      <FormField label="Message" htmlFor="modalMessage">
                         <div className="relative">
                           <div className="absolute top-2.5 left-2.5 pointer-events-none text-[var(--text-muted)] z-10">
                             <Icon icon="carbon:edit" className="w-3.5 h-3.5" />

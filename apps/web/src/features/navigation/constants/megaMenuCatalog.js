@@ -53,7 +53,7 @@ export const MEGA_MENU_CATEGORIES = [
               { name: "Recycled RPL Skid (1300x1100)", id: "pallet-plastic-lumber-skid" },
               { name: "Transformer & Machinery Skid", query: "machinery skid" },
               { name: "Heavy Equipment Footings", query: "footings" },
-              { name: "Bespoke Warehouse Runners", query: "runners" },
+              { name: "Custom Warehouse Runners", query: "runners" },
             ],
             showAllQuery: "skid",
           },
@@ -428,7 +428,7 @@ export const MEGA_MENU_CATEGORIES = [
     id: "custom-products",
     name: "Custom Products",
     icon: "carbon:settings",
-    description: "Bespoke molded parts, wear strips, and CNC components",
+    description: "Custom molded parts, wear strips, and CNC components",
     columns: [
       {
         groups: [
@@ -445,7 +445,7 @@ export const MEGA_MENU_CATEGORIES = [
           {
             title: "Compression Molding",
             items: [
-              { name: "Bespoke Cross-Section Dies", query: "dies" },
+              { name: "Custom Extrusion Dies", query: "dies" },
               { name: "High-Load Machine Footings", query: "footings" },
               { name: "Vibration Dampener Blocks", query: "vibration" },
             ],
@@ -573,7 +573,7 @@ export const MEGA_MENU_CATEGORIES = [
             items: [
               { name: "Outdoor Cushion Storage Boxes", query: "storage box" },
               { name: "Pergola Corner Planters", query: "corner planter" },
-              { name: "Bespoke Sized Greenery Troughs", query: "troughs" },
+              { name: "Custom Planter Troughs", query: "troughs" },
             ],
             showAllQuery: "accents",
           },

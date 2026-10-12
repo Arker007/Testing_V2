@@ -28,7 +28,7 @@ export default function SustainabilitySection() {
               variant="eyebrow"
               icon="carbon:renew"
             >
-              Circular economy
+              100% Recycled Plastic
             </Badge>
           </div>
 

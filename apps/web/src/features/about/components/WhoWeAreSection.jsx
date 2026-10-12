@@ -19,7 +19,7 @@ export default function WhoWeAreSection() {
           <SectionHeader
             eyebrow="Who we are"
             eyebrowIcon="carbon:industry"
-            title={c("about_who_title", "Pioneering eco-friendly industrial plastics since 2008")}
+            title={c("about_who_title", "Manufacturing industrial recycled plastic products since 2008")}
             align="left"
             accentLine
             size="lg"
@@ -28,13 +28,13 @@ export default function WhoWeAreSection() {
           <p className="text-[var(--text-secondary)] text-base leading-relaxed font-normal">
             {c(
               "about_who_text_1",
-              "Founded in Gujarat, Vishal Enterprise has grown from a local recycling facility into one of Western India's most dependable manufacturers of high-density plastic pallets, industrial crates, and premium recycled plastic granules."
+              "Based in Gujarat, Vishal Enterprise manufactures heavy-duty recycled plastic pallets, industrial crates, and production-ready recycled plastic granules for logistics, warehousing, and factories across India."
             )}
           </p>
           <p className="text-[var(--text-secondary)] text-base leading-relaxed font-normal">
             {c(
               "about_who_text_2",
-              "By merging rigorous quality control with environmentally responsible processing techniques, we support logistics, agriculture, chemical, and manufacturing sectors to cut operational overhead while significantly lowering their carbon footprint."
+              "By recycling industrial-grade plastics with strict quality testing, we help supply chain managers, chemical plants, and distributors cut packaging and storage costs while meeting environmental standards."
             )}
           </p>
         </div>
@@ -66,7 +66,7 @@ export default function WhoWeAreSection() {
               </span>
             </div>
             <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal">
-              {c("about_mission_text", "To deliver top-quality recycled plastic products that add value, reduce waste and create a better world.")}
+              {c("about_mission_text", "To supply durable, factory-grade recycled plastic products that reduce material handling costs and eliminate industrial waste.")}
             </p>
           </motion.div>
 
@@ -89,7 +89,7 @@ export default function WhoWeAreSection() {
               </span>
             </div>
             <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal">
-              {c("about_vision_text", "To be India's most trusted and preferred manufacturer of sustainable plastic solutions.")}
+              {c("about_vision_text", "To be the premier B2B manufacturer of industrial recycled pallets, crates, and polymer compounds in India.")}
             </p>
           </motion.div>
 
@@ -112,7 +112,7 @@ export default function WhoWeAreSection() {
               </span>
             </div>
             <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-normal">
-              {c("about_commitment_text", "Every product is checked, tested and delivered with a promise of quality you can rely on.")}
+              {c("about_commitment_text", "Factory-tested for racking load, impact resistance, and durability — backed by direct manufacturer warranty.")}
             </p>
           </motion.div>
         </motion.div>

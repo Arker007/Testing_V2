@@ -91,7 +91,7 @@ export default function FeaturesSection() {
                   variant="extrusion"
                   icon="solar:shield-check-linear"
                 >
-                  {c("why_us_eyebrow", c("why_us_badge", "WHY INDUSTRIES CHOOSE US"))}
+                  {c("why_us_eyebrow", c("why_us_badge", "Why Industries Choose Us"))}
                 </Badge>
               </div>
 

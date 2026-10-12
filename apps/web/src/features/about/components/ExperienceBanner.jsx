@@ -10,13 +10,13 @@ export default function ExperienceBanner() {
   return (
     <section className="container py-10 w-full cta-section">
       <CtaCard
-        badge={c("experience_banner_badge", "Industrial Standards & Quality")}
+        badge={c("experience_banner_badge", "Factory Direct & Certified")}
         badgeVariant="brand"
         badgeIcon="carbon:badge"
         title={c("experience_banner_title", "Over 15 Years of Industrial Excellence")}
         subtitle={c(
           "experience_banner_desc",
-          "Equipped with high-capacity extrusion lines and testing equipment at our Ankleshwar plant, ensuring zero defect tolerance on every shipment."
+          "Operating modern recycling, compounding, and molding lines in Ankleshwar, Gujarat. Standard and custom configurations delivered across India."
         )}
       >
         {c("cert_gst", "GST Registered") && (

@@ -30,12 +30,12 @@ export default function ProcurementAdvantage() {
       <div className={styles.procurementHead}>
         <div className="flex justify-center mb-4">
           <Badge variant="eyebrow" size="lg" icon="carbon:certificate">
-            Procurement Advantage
+            Why Buy Direct
           </Badge>
         </div>
-        <h2 className="section-title text-3xl sm:text-4xl font-black text-[var(--text-primary)] tracking-tight">Built for Reliable Sourcing</h2>
+        <h2 className="section-title text-3xl sm:text-4xl font-black text-[var(--text-primary)] tracking-tight">Direct Factory Advantages</h2>
         <p className="section-desc text-[var(--text-secondary)] text-sm sm:text-base max-w-2xl mx-auto mt-3 leading-relaxed">
-          Beyond structural performance, we ensure batch-to-batch consistency, tight tolerance control, and dependable dispatch schedules for industrial buyers.
+          Get direct manufacturer rates, exact custom sizes, certified strength, and reliable pan-India delivery straight from our Ankleshwar plant.
         </p>
       </div>
 
