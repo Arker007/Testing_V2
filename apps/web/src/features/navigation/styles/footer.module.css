@@ -593,7 +593,7 @@
   background-color: var(--color-whatsapp);
   color: var(--white);
   padding: 0.625rem 1.25rem;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
   font-weight: 700;
   font-size: 0.9rem;
   text-decoration: none;

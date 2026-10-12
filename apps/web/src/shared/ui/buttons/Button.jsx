@@ -44,9 +44,9 @@ export default function Button({
   const isFullWidth = fullWidth || fullwidth;
 
   const sizeClasses = {
-    sm: "min-h-[var(--btn-h-sm,34px)] px-[var(--btn-px-sm,0.875rem)] py-[var(--btn-py-sm,0.375rem)] text-xs rounded-[var(--radius-btn,8px)] gap-2 font-semibold",
-    md: "min-h-[var(--btn-h-md,42px)] px-[var(--btn-px-md,1.375rem)] py-[var(--btn-py-md,0.625rem)] text-sm rounded-[var(--radius-btn,8px)] gap-2 font-semibold",
-    lg: "min-h-[var(--btn-h-lg,48px)] px-[var(--btn-px-lg,1.75rem)] py-[var(--btn-py-lg,0.75rem)] text-base rounded-[var(--radius-btn,8px)] gap-2 font-semibold",
+    sm: "min-h-[var(--btn-h-sm,34px)] px-[var(--btn-px-sm,0.875rem)] py-[var(--btn-py-sm,0.375rem)] text-xs rounded-[var(--radius-btn,6px)] gap-2 font-semibold",
+    md: "min-h-[var(--btn-h-md,42px)] px-[var(--btn-px-md,1.375rem)] py-[var(--btn-py-md,0.625rem)] text-sm rounded-[var(--radius-btn,6px)] gap-2 font-semibold",
+    lg: "min-h-[var(--btn-h-lg,48px)] px-[var(--btn-px-lg,1.75rem)] py-[var(--btn-py-lg,0.75rem)] text-base rounded-[var(--radius-btn,6px)] gap-2 font-semibold",
   };
 
   const spinnerSizeClasses = {

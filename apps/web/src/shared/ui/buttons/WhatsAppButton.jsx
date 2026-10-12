@@ -27,9 +27,9 @@ export default function WhatsAppButton({
   const waUrl = getWhatsAppUrl(phone, text);
 
   const sizeClasses = {
-    sm: "min-h-[var(--btn-h-sm,34px)] px-[var(--btn-px-sm,0.875rem)] py-[var(--btn-py-sm,0.375rem)] text-xs gap-1.5 rounded-[var(--radius-btn,8px)]",
-    md: "min-h-[var(--btn-h-md,42px)] px-[var(--btn-px-md,1.375rem)] py-[var(--btn-py-md,0.625rem)] text-xs sm:text-sm gap-2 rounded-[var(--radius-btn,8px)]",
-    lg: "min-h-[var(--btn-h-lg,48px)] px-[var(--btn-px-lg,1.75rem)] py-[var(--btn-py-lg,0.75rem)] text-sm sm:text-base gap-2.5 rounded-[var(--radius-btn,8px)] font-bold",
+    sm: "min-h-[var(--btn-h-sm,34px)] px-[var(--btn-px-sm,0.875rem)] py-[var(--btn-py-sm,0.375rem)] text-xs gap-1.5 rounded-[var(--radius-btn,6px)]",
+    md: "min-h-[var(--btn-h-md,42px)] px-[var(--btn-px-md,1.375rem)] py-[var(--btn-py-md,0.625rem)] text-xs sm:text-sm gap-2 rounded-[var(--radius-btn,6px)]",
+    lg: "min-h-[var(--btn-h-lg,48px)] px-[var(--btn-px-lg,1.75rem)] py-[var(--btn-py-lg,0.75rem)] text-sm sm:text-base gap-2.5 rounded-[var(--radius-btn,6px)] font-bold",
   };
 
   const iconSizes = {
@@ -46,7 +46,7 @@ export default function WhatsAppButton({
     subtle:
       "bg-[var(--color-whatsapp)]/15 text-[var(--color-whatsapp)] font-bold hover:bg-[var(--color-whatsapp)]/25 active:scale-[0.98] transition-all",
     dark: "bg-[var(--navy-900)] hover:bg-[var(--navy-800)] text-[var(--white)] border border-[var(--border-dark)] font-bold shadow-xs active:scale-[0.98] transition-all",
-    pill: "bg-[var(--color-whatsapp)] hover:brightness-95 text-[var(--white)] font-bold rounded-[var(--radius-btn,8px)] shadow-md transition-all hover:scale-105 active:scale-[0.98]",
+    pill: "bg-[var(--color-whatsapp)] hover:brightness-95 text-[var(--white)] font-bold rounded-[var(--radius-btn,6px)] shadow-md transition-all hover:scale-105 active:scale-[0.98]",
   };
 
   const selectedSize = sizeClasses[size] || sizeClasses.md;

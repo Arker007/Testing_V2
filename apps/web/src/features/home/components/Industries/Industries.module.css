@@ -77,7 +77,7 @@
 .indIconBox {
   width: 44px;
   height: 44px;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
   background: var(--brand-primary);
   color: var(--brand-btn-text);
   border: 1px solid var(--brand-primary);
@@ -366,7 +366,7 @@
 .bentoBottomIcon {
   width: 2.75rem;
   height: 2.75rem;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
   background: var(--brand-primary);
   color: var(--brand-btn-text);
   display: flex;

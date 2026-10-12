@@ -8,30 +8,30 @@ html[data-theme="dark"] {
   color-scheme: dark;
 
   /* === DARK THEME SEMANTIC TOKENS === */
-  /* Base Surfaces & Backgrounds */
-  --brand-navy: #061A26;
-  --bg-primary: #061A26;
-  --bg-canvas: var(--brand-navy);
-  --bg-base: var(--brand-navy);
-  --bg-page: var(--brand-navy);
-  --bg-default: var(--brand-navy);
-  --bg-dark: var(--brand-navy);
-  --bg-dark-container: var(--brand-navy);
-  --dark-page: var(--brand-navy);
-  --bg-section: var(--brand-navy);
+  /* Base Surfaces & Backgrounds (Matched directly to Industrial Recycling Reference) */
+  --brand-navy: #04141E;
+  --bg-primary: #04141E;
+  --bg-canvas: #04141E;
+  --bg-base: #04141E;
+  --bg-page: #04141E;
+  --bg-default: #04141E;
+  --bg-dark: #04141E;
+  --bg-dark-container: #04141E;
+  --dark-page: #04141E;
+  --bg-section: #04141E;
 
-  --bg-surface: #0A2233;
-  --bg-surface-secondary: #132E40;
-  --bg-surface-tertiary: #1D3F57;
-  --bg-surface-elevated: #132E40;
-  --bg-subtle: #0A2233;
-  --bg-hero: linear-gradient(135deg, #061A26 0%, #092333 60%, #0F3249 100%);
-  --hero-bg: #061A26;
-  --hero-gradient: linear-gradient(135deg, #061A26 0%, #092333 60%, #0F3249 100%);
+  --bg-surface: #071E2C;
+  --bg-surface-secondary: #0D2B3E;
+  --bg-surface-tertiary: #133950;
+  --bg-surface-elevated: #0D2B3E;
+  --bg-subtle: #071E2C;
+  --bg-hero: linear-gradient(135deg, #04141E 0%, #071E2C 60%, #0D2B3E 100%);
+  --hero-bg: #04141E;
+  --hero-gradient: linear-gradient(135deg, #04141E 0%, #071E2C 60%, #0D2B3E 100%);
   --bg-grid-overlay: rgba(255, 255, 255, 0.04);
-  --bg-nav: rgba(6, 26, 38, 0.95);
+  --bg-nav: rgba(4, 20, 30, 0.95);
 
-  /* Brand & Accent Colors */
+  /* Brand & Accent Colors (Retaining existing high-performance eco green #78BF45 / #8ED35A) */
   --primary: var(--brand-green);
   --primary-hover: var(--brand-400);
   --primary-muted: rgba(120, 191, 69, 0.16);
@@ -41,7 +41,7 @@ html[data-theme="dark"] {
   --brand-hover: var(--brand-400);
   --brand-active: var(--brand-600);
   --brand-soft: rgba(120, 191, 69, 0.15);
-  --brand-border: rgba(120, 191, 69, 0.35);
+  --brand-border: rgba(142, 211, 90, 0.38);
   --brand-glow: rgba(120, 191, 69, 0.25);
   --brand-glow-subtle: rgba(120, 191, 69, 0.10);
 
@@ -58,13 +58,13 @@ html[data-theme="dark"] {
   --text-brand: #8ED35A;
 
   /* Borders & Dividers */
-  --border-subtle: rgba(255, 255, 255, 0.12);
-  --border-default: rgba(255, 255, 255, 0.18);
-  --border-medium: rgba(255, 255, 255, 0.24);
-  --border-strong: rgba(255, 255, 255, 0.32);
-  --border-brand: rgba(142, 211, 90, 0.40);
-  --border-accent: rgba(142, 211, 90, 0.40);
-  --border-on-dark: rgba(255, 255, 255, 0.16);
+  --border-subtle: rgba(255, 255, 255, 0.10);
+  --border-default: rgba(255, 255, 255, 0.16);
+  --border-medium: rgba(255, 255, 255, 0.22);
+  --border-strong: rgba(255, 255, 255, 0.30);
+  --border-brand: rgba(142, 211, 90, 0.38);
+  --border-accent: rgba(142, 211, 90, 0.38);
+  --border-on-dark: rgba(255, 255, 255, 0.12);
   --divider: var(--border-subtle);
 
   /* ✨ Elevation & Shadows (Dark Mode Calibrated Hierarchy) */

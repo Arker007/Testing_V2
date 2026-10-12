@@ -87,7 +87,7 @@
   height: 36px;
   min-width: 36px;
   min-height: 36px;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
   background: var(--bg-surface-secondary);
   border: 1px solid var(--border-default);
   color: var(--text-secondary);

@@ -316,7 +316,7 @@ export default function ProductHeaderSpecs({
           <button
             type="button"
             onClick={handleDownloadDatasheet}
-            className="sm:col-span-5 min-h-[48px] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] hover:text-[var(--text-brand)] font-bold text-xs sm:text-sm px-4 rounded-[var(--radius-btn,8px)] flex items-center justify-center gap-2 border border-[var(--border-default)] transition-all cursor-pointer shadow-2xs hover:border-[var(--border-brand)]"
+            className="sm:col-span-5 min-h-[48px] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] hover:text-[var(--text-brand)] font-bold text-xs sm:text-sm px-4 rounded-[var(--radius-btn,6px)] flex items-center justify-center gap-2 border border-[var(--border-default)] transition-all cursor-pointer shadow-2xs hover:border-[var(--border-brand)]"
           >
             <Icon
               icon="carbon:download"

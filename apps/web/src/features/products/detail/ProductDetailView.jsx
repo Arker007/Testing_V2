@@ -189,7 +189,7 @@ export default function ProductDetailView() {
             />
             <a
               href={`tel:${phone.replace(/\s+/g, "")}`}
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-btn,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] hover:bg-[var(--bg-surface-tertiary)] hover:border-[var(--border-default)] text-[var(--text-primary)] text-sm font-bold transition-all shadow-2xs whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-btn,6px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] hover:bg-[var(--bg-surface-tertiary)] hover:border-[var(--border-default)] text-[var(--text-primary)] text-sm font-bold transition-all shadow-2xs whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
               <Icon icon="carbon:phone" className="w-4 h-4 text-[var(--text-brand)] shrink-0" />
               <span>Call Sales Team</span>
@@ -218,7 +218,7 @@ export default function ProductDetailView() {
             href={`https://wa.me/919898686379?text=${encodeURIComponent(`Hello Vishal Enterprise, I am requesting quote for: ${product.name}${sku ? ` (REF: ${sku})` : ""}`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2.5 !min-h-[44px] !w-[44px] rounded-[var(--radius-btn,8px)] border border-[#25D366]/40 bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#128C7E] dark:text-[#25D366] flex items-center justify-center transition-all decoration-none active:scale-95"
+            className="p-2.5 !min-h-[44px] !w-[44px] rounded-[var(--radius-btn,6px)] border border-[#25D366]/40 bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#128C7E] dark:text-[#25D366] flex items-center justify-center transition-all decoration-none active:scale-95"
             aria-label="WhatsApp Sales Desk"
             title="WhatsApp Sales Desk"
           >

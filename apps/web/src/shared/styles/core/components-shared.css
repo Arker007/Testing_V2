@@ -17,7 +17,7 @@
   font-weight: 600;
   line-height: 1;
   padding: 0.65rem 1.25rem;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
   border: 1px solid transparent;
   cursor: pointer;
   text-decoration: none;
@@ -96,20 +96,20 @@
 .btn-shared-sm {
   padding: 0.4rem 0.85rem;
   font-size: 0.75rem;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
 }
 
 .btn-shared-lg {
   padding: 0.85rem 1.75rem;
   font-size: 1rem;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
 }
 
 .btn-shared-icon {
   width: 40px;
   height: 40px;
   padding: 0;
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--radius-btn, 6px);
 }
 
 /* --------------------------------------------------------------------------

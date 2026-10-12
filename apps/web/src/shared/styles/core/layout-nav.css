@@ -312,7 +312,7 @@
   letter-spacing: 0.02em;
   background: var(--brand-primary, #6BBF54) !important;
   color: var(--navy-950, #0B0E14) !important;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
   box-shadow: var(--shadow-md);
   transition: all var(--motion-fast) var(--ease-standard);
   transform-origin: center;
@@ -335,7 +335,7 @@
   background: transparent;
   color: var(--text-secondary, #4E4E4E);
   border: 1px solid var(--border-default, #CBD5E1);
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
   transition: all var(--motion-fast) var(--ease-standard);
 }
 

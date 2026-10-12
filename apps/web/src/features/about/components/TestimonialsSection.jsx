@@ -78,7 +78,7 @@ export default function TestimonialsSection() {
               type="button"
               onClick={prevSlide}
               aria-label="Previous testimonial"
-              className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-[var(--border-default)] hover:border-[var(--brand-primary)] bg-[var(--bg-surface)] hover:bg-[var(--brand-primary)] text-[var(--text-primary)] hover:text-[var(--action-primary-text)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+              className="w-10 h-10 rounded-[var(--radius-btn,6px)] border border-[var(--border-default)] hover:border-[var(--brand-primary)] bg-[var(--bg-surface)] hover:bg-[var(--brand-primary)] text-[var(--text-primary)] hover:text-[var(--action-primary-text)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
               <Icon icon="carbon:arrow-left" className="w-4 h-4" />
             </button>
@@ -89,7 +89,7 @@ export default function TestimonialsSection() {
               type="button"
               onClick={nextSlide}
               aria-label="Next testimonial"
-              className="w-10 h-10 rounded-[var(--radius-btn,8px)] border border-[var(--border-default)] hover:border-[var(--brand-primary)] bg-[var(--bg-surface)] hover:bg-[var(--brand-primary)] text-[var(--text-primary)] hover:text-[var(--action-primary-text)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
+              className="w-10 h-10 rounded-[var(--radius-btn,6px)] border border-[var(--border-default)] hover:border-[var(--brand-primary)] bg-[var(--bg-surface)] hover:bg-[var(--brand-primary)] text-[var(--text-primary)] hover:text-[var(--action-primary-text)] flex items-center justify-center transition-all duration-200 shadow-xs active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
               <Icon icon="carbon:arrow-right" className="w-4 h-4" />
             </button>

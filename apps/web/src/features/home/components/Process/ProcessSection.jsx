@@ -535,7 +535,7 @@ export default function ProcessSection({ className = "" }) {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent pointer-events-none" />
-                <div className="absolute top-3 left-3 w-10 h-10 rounded-[var(--radius-btn,8px)] bg-black/60 backdrop-blur-md border border-white/20 text-[var(--brand-primary)] flex items-center justify-center shadow-md">
+                <div className="absolute top-3 left-3 w-10 h-10 rounded-[var(--radius-btn,6px)] bg-black/60 backdrop-blur-md border border-white/20 text-[var(--brand-primary)] flex items-center justify-center shadow-md">
                   <Icon icon={steps[activeStep].stepIconName} className="w-5 h-5" />
                 </div>
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">

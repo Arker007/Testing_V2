@@ -208,7 +208,7 @@ export default function ProductsShowcase() {
                 borderColor: "var(--brand-primary)",
                 color: "var(--brand-btn-text)",
               }}
-              className="inline-flex items-center gap-2 !bg-[var(--brand-primary)] !text-[var(--brand-btn-text)] border !border-[var(--brand-primary)] px-3.5 py-1.5 rounded-[var(--radius-btn,8px)] shadow-md font-extrabold"
+              className="inline-flex items-center gap-2 !bg-[var(--brand-primary)] !text-[var(--brand-btn-text)] border !border-[var(--brand-primary)] px-3.5 py-1.5 rounded-[var(--radius-btn,6px)] shadow-md font-extrabold"
             >
               <span className="!text-[var(--brand-btn-text)] font-black text-xs tracking-wide">
                 01
@@ -232,7 +232,7 @@ export default function ProductsShowcase() {
                 color: "var(--brand-btn-text)",
               }}
               aria-label="View collection"
-              className="relative z-30 w-11 h-11 rounded-[var(--radius-btn,8px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] flex items-center justify-center cursor-pointer border !border-[var(--brand-primary)] shrink-0 shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              className="relative z-30 w-11 h-11 rounded-[var(--radius-btn,6px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] flex items-center justify-center cursor-pointer border !border-[var(--brand-primary)] shrink-0 shadow-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               <Icon icon="carbon:launch" className="w-5 h-5 !text-[var(--brand-btn-text)]" />
             </Motion.button>
@@ -261,7 +261,7 @@ export default function ProductsShowcase() {
                       key={idx}
                       whileHover={{ scale: 1.05, y: -2 }}
                       transition={{ duration: 0.2 }}
-                      className="flex items-center gap-1.5 bg-black/55 backdrop-blur-md px-3 py-1.5 rounded-[var(--radius-btn,8px)] border border-white/20 shadow-xs text-[var(--brand-primary)]"
+                      className="flex items-center gap-1.5 bg-black/55 backdrop-blur-md px-3 py-1.5 rounded-[var(--radius-btn,6px)] border border-white/20 shadow-xs text-[var(--brand-primary)]"
                     >
                       {renderFeatureIcon(iconName, feat.title)}
                       <span className="!text-[#F4F5F7] text-[11px] sm:text-xs font-semibold">{feat.title}</span>
@@ -283,7 +283,7 @@ export default function ProductsShowcase() {
                   borderColor: "var(--brand-primary)",
                   color: "var(--brand-btn-text)",
                 }}
-                className="relative z-30 min-h-[var(--btn-h-md,42px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-[var(--radius-btn,8px)] flex items-center gap-2 cursor-pointer border !border-[var(--brand-primary)] shrink-0 shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                className="relative z-30 min-h-[var(--btn-h-md,42px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-[var(--radius-btn,6px)] flex items-center gap-2 cursor-pointer border !border-[var(--brand-primary)] shrink-0 shadow-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               >
                 <span className="!text-[var(--brand-btn-text)] font-bold">Explore collection</span>
                 <Icon icon="carbon:arrow-right" className="w-4 h-4 !text-[var(--brand-btn-text)]" />
@@ -328,7 +328,7 @@ export default function ProductsShowcase() {
                     borderColor: "var(--brand-primary)",
                     color: "var(--brand-btn-text)",
                   }}
-                  className="inline-flex items-center !bg-[var(--brand-primary)] !text-[var(--brand-btn-text)] font-black text-xs px-3 py-1 rounded-[var(--radius-btn,8px)] shadow-md border !border-[var(--brand-primary)]"
+                  className="inline-flex items-center !bg-[var(--brand-primary)] !text-[var(--brand-btn-text)] font-black text-xs px-3 py-1 rounded-[var(--radius-btn,6px)] shadow-md border !border-[var(--brand-primary)]"
                 >
                   {cardNum}
                 </Motion.span>
@@ -347,7 +347,7 @@ export default function ProductsShowcase() {
                     color: "var(--brand-btn-text)",
                   }}
                   aria-label="View product"
-                  className="relative z-30 w-9 h-9 rounded-[var(--radius-btn,8px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] flex items-center justify-center cursor-pointer border !border-[var(--brand-primary)] shrink-0 shadow-md transition-colors duration-200"
+                  className="relative z-30 w-9 h-9 rounded-[var(--radius-btn,6px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] flex items-center justify-center cursor-pointer border !border-[var(--brand-primary)] shrink-0 shadow-md transition-colors duration-200"
                 >
                   <Icon icon="carbon:launch" className="w-4 h-4 !text-[var(--brand-btn-text)]" />
                 </Motion.button>
@@ -402,7 +402,7 @@ export default function ProductsShowcase() {
                     borderColor: "var(--brand-primary)",
                     color: "var(--brand-btn-text)",
                   }}
-                  className="inline-flex items-center !bg-[var(--brand-primary)] !text-[var(--brand-btn-text)] font-black text-xs px-3 py-1 rounded-[var(--radius-btn,8px)] shadow-md border !border-[var(--brand-primary)]"
+                  className="inline-flex items-center !bg-[var(--brand-primary)] !text-[var(--brand-btn-text)] font-black text-xs px-3 py-1 rounded-[var(--radius-btn,6px)] shadow-md border !border-[var(--brand-primary)]"
                 >
                   {cardNum}
                 </Motion.span>
@@ -421,7 +421,7 @@ export default function ProductsShowcase() {
                     color: "var(--brand-btn-text)",
                   }}
                   aria-label="View product"
-                  className="relative z-30 w-9 h-9 rounded-[var(--radius-btn,8px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] flex items-center justify-center cursor-pointer border !border-[var(--brand-primary)] shrink-0 shadow-md transition-colors duration-200"
+                  className="relative z-30 w-9 h-9 rounded-[var(--radius-btn,6px)] !bg-[var(--brand-primary)] hover:opacity-90 active:scale-95 !text-[var(--brand-btn-text)] flex items-center justify-center cursor-pointer border !border-[var(--brand-primary)] shrink-0 shadow-md transition-colors duration-200"
                 >
                   <Icon icon="carbon:launch" className="w-4 h-4 !text-[var(--brand-btn-text)]" />
                 </Motion.button>

@@ -358,6 +358,6 @@ html.dark .customTextarea::placeholder {
 
 /* ─── Button Radius Helper ────────────────────────────────── */
 .rounded-btn {
-  border-radius: var(--radius-btn, 8px) !important;
+  border-radius: var(--radius-btn, 6px) !important;
 }
 

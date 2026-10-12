@@ -180,7 +180,7 @@
   transition: all var(--motion-fast) var(--ease-standard);
   position: relative;
   padding: 0.45rem 0.75rem;
-  border-radius: var(--radius-btn, 8px) !important;
+  border-radius: var(--radius-btn, 6px) !important;
   border: 1px solid transparent;
 }
 
@@ -207,7 +207,7 @@ html.dark .link:hover {
   font-weight: 700;
   background: var(--brand-soft);
   border: 1px solid var(--border-brand);
-  border-radius: var(--radius-btn, 8px) !important;
+  border-radius: var(--radius-btn, 6px) !important;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
@@ -306,7 +306,7 @@ html.dark .linkActive:hover {
   border: 1px solid var(--border-default) !important;
   box-shadow: none !important;
   outline: none !important;
-  border-radius: var(--radius-btn, 8px) !important;
+  border-radius: var(--radius-btn, 6px) !important;
   gap: 0.5rem;
   transition: width var(--motion-base, 250ms) var(--ease-standard), background-color var(--motion-fast, 150ms) var(--ease-standard), border-color var(--motion-fast, 150ms) var(--ease-standard), box-shadow var(--motion-fast, 150ms) var(--ease-standard) !important;
 }
@@ -473,7 +473,7 @@ html.dark .mobileMenuBtn:hover {
   align-items: center;
   gap: 0.25rem;
   padding: 0.45rem 0.75rem;
-  border-radius: var(--radius-btn, 8px) !important;
+  border-radius: var(--radius-btn, 6px) !important;
   transition: all var(--motion-fast) var(--ease-standard);
 }
 
@@ -1439,7 +1439,7 @@ html.dark .dSearch input {
     background: var(--surface-card) !important;
     border: 1px solid var(--border-default) !important;
     outline: none !important;
-    border-radius: var(--radius-btn, 8px) !important;
+    border-radius: var(--radius-btn, 6px) !important;
     transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
   }
   .headerQuoteBtnWrap {

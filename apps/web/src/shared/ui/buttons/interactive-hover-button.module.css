@@ -5,7 +5,7 @@
   justify-content: center;
   cursor: pointer;
   overflow: hidden;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
   border: 1px solid var(--border-default, #e2e8f0);
   background-color: var(--bg-surface, #ffffff);
   padding: 0.5rem 1.25rem 0.5rem 2.25rem;

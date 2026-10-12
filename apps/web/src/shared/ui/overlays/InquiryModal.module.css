@@ -415,7 +415,7 @@
   padding: 0 1.5rem;
   height: 44px;
   min-height: 44px;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
   border: none;
   cursor: pointer;
   transition: all var(--motion-fast, 150ms) ease;
@@ -446,7 +446,7 @@
   padding: 0 1.25rem;
   height: 44px;
   min-height: 44px;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
   border: 1px solid rgba(37, 211, 102, 0.4);
   background-color: rgba(37, 211, 102, 0.08);
   color: #075e54;
@@ -501,7 +501,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.4rem 0.85rem;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
   background-color: var(--bg-surface-secondary, #f8fafc);
   border: 1px solid var(--border-default, #cbd5e1);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;

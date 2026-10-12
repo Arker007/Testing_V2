@@ -67,7 +67,7 @@
   font-size: var(--font-size-xs, 0.75rem);
   font-weight: 700;
   padding: 0.25rem 0.65rem;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   border: 1px solid var(--border-brand);
@@ -156,7 +156,7 @@
   color: var(--text-primary, #0f172a);
   border: 1px solid var(--border-subtle, #e2e8f0);
   padding: 0.65rem 1rem;
-  border-radius: var(--radius-btn, 8px);
+  border-radius: var(--radius-btn, 6px);
   font-size: 0.8125rem;
   font-weight: 700;
   cursor: pointer;
