@@ -1,4 +1,5 @@
 import React from "react";
+import { GstIcon } from "@/shared/ui";
 import styles from "../../styles/AdminCatalog.module.css";
 
 export function getQualityStandardsSpread({ emailVal, webVal }) {
@@ -27,13 +28,17 @@ export function getQualityStandardsSpread({ emailVal, webVal }) {
           >
             <div
               style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
                 fontWeight: 700,
                 color: "var(--color-warning)",
                 fontSize: "15px",
                 marginBottom: "5px",
               }}
             >
-              GSTIN: 24AXCPS0336E1ZV
+              <GstIcon className="w-5 h-5 shrink-0" />
+              <span>GSTIN: 24AXCPS0336E1ZV</span>
             </div>
             <div style={{ color: "var(--gray-500)" }}>
               GST Registered Enterprise

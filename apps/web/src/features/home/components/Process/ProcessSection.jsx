@@ -16,7 +16,7 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "Collection & Sourcing",
       brief: "Collected from trusted partners and sources.",
       desc: "We collect post-consumer and post-industrial plastic waste from verified partners to ensure clean, high-density, and high-quality raw materials.",
-      stepIconName: "carbon:trash-can",
+      stepIconName: "hugeicons:delete-02",
       image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "Verified Partners", desc: "Ensuring reliable source and transparency." },
@@ -27,13 +27,13 @@ export default function ProcessSection({ className = "" }) {
       icon: (
         <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
-          <Icon icon="carbon:trash-can" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <Icon icon="hugeicons:delete-02" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
           <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
         <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
-          <Icon icon="carbon:trash-can" className="w-12 h-12 text-[var(--brand-primary)]" />
+          <Icon icon="hugeicons:delete-02" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     },
@@ -43,7 +43,7 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "Polymer Grade Separation",
       brief: "Sorting by type and separating impurities.",
       desc: "Waste is sorted meticulously into different polymer grades (HDPE, LDPE, PP) using high-precision optical scanners and skilled manual separation.",
-      stepIconName: "carbon:layers",
+      stepIconName: "hugeicons:layers-01",
       image: "https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "Grade Integrity", desc: "Separation by density and chemical composition." },
@@ -54,13 +54,13 @@ export default function ProcessSection({ className = "" }) {
       icon: (
         <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
-          <Icon icon="carbon:layers" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <Icon icon="hugeicons:layers-01" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
           <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
         <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
-          <Icon icon="carbon:layers" className="w-12 h-12 text-[var(--brand-primary)]" />
+          <Icon icon="hugeicons:layers-01" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     },
@@ -70,7 +70,7 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "Washing & Decontamination",
       brief: "Deep cleaning to remove contaminants and labels.",
       desc: "Shredded plastic flakes undergo rigorous high-speed friction washes and eco-friendly hot chemical treatments to strip adhesive, dirt, and organic matter.",
-      stepIconName: "carbon:magic-wand",
+      stepIconName: "hugeicons:sparkles",
       image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "Friction Washing", desc: "High-speed scrubbing of deep particle layers." },
@@ -81,13 +81,13 @@ export default function ProcessSection({ className = "" }) {
       icon: (
         <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
-          <Icon icon="carbon:magic-wand" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <Icon icon="hugeicons:sparkles" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
           <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
         <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
-          <Icon icon="carbon:magic-wand" className="w-12 h-12 text-[var(--brand-primary)]" />
+          <Icon icon="hugeicons:sparkles" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     },
@@ -97,7 +97,7 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "High-Pressure Molding",
       brief: "Melted and extruded into strong, durable profiles.",
       desc: "Cleaned flakes are melted under computerized, uniform thermal profiles and forced through custom industrial dies under extreme high pressure.",
-      stepIconName: "carbon:fire",
+      stepIconName: "hugeicons:fire",
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "Zero Voids", desc: "High pressure prevents structural air bubbles or cavities." },
@@ -108,13 +108,13 @@ export default function ProcessSection({ className = "" }) {
       icon: (
         <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
-          <Icon icon="carbon:fire" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <Icon icon="hugeicons:fire" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
           <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
         <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
-          <Icon icon="carbon:fire" className="w-12 h-12 text-[var(--brand-primary)]" />
+          <Icon icon="hugeicons:fire" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     },
@@ -124,7 +124,7 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "Structural Solidification",
       brief: "Cooled for dimensional stability and strength.",
       desc: "The molten plastic sections enter specialized temperature-regulated water-cooling chambers to solidify evenly and lock in dimensional accuracy.",
-      stepIconName: "carbon:snowflake",
+      stepIconName: "hugeicons:snowflake",
       image: "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "Symmetric Cool Down", desc: "Eliminates warping, bending, or inner thermal stresses." },
@@ -135,13 +135,13 @@ export default function ProcessSection({ className = "" }) {
       icon: (
         <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
-          <Icon icon="carbon:snowflake" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <Icon icon="hugeicons:snowflake" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
           <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
         <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
-          <Icon icon="carbon:snowflake" className="w-12 h-12 text-[var(--brand-primary)]" />
+          <Icon icon="hugeicons:snowflake" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     },
@@ -151,7 +151,7 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "Load & Quality Check",
       brief: "Rigorous testing to ensure strength and reliability.",
       desc: "Samples from each production run undergo systematic mechanical load testing, UV degradation studies, and water absorption analysis.",
-      stepIconName: "carbon:security",
+      stepIconName: "hugeicons:security-check",
       image: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "Flexural Load Test", desc: "Ensures heavy load-bearing capacities without breakage." },
@@ -162,13 +162,13 @@ export default function ProcessSection({ className = "" }) {
       icon: (
         <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
-          <Icon icon="carbon:security" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <Icon icon="hugeicons:security-check" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
           <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
         <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
-          <Icon icon="carbon:security" className="w-12 h-12 text-[var(--brand-primary)]" />
+          <Icon icon="hugeicons:security-check" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     },
@@ -178,7 +178,7 @@ export default function ProcessSection({ className = "" }) {
       subtitle: "Dispatch & Delivery",
       brief: "Final products ready for delivery to you.",
       desc: "Approved sections are cut to custom sizes, sorted on heavy duty eco-friendly pallets, and prepared for express dispatch to sites worldwide.",
-      stepIconName: "carbon:checkmark-outline",
+      stepIconName: "hugeicons:checkmark-circle-02",
       image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop",
       features: [
         { label: "On-Demand Sizing", desc: "Precision cutting eliminates on-site fabrication labor." },
@@ -189,13 +189,13 @@ export default function ProcessSection({ className = "" }) {
       icon: (
         <div className="relative w-16 h-16 bg-[var(--brand-soft)] rounded-[var(--radius-md,8px)] flex items-center justify-center border border-[var(--border-brand)] overflow-hidden shadow-inner">
           <div className="absolute inset-0 bg-gradient-to-tr from-[var(--brand-soft)] to-transparent" />
-          <Icon icon="carbon:checkmark-outline" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
+          <Icon icon="hugeicons:checkmark-circle-02" className="w-8 h-8 text-[var(--brand-primary)] relative z-10" />
           <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[var(--brand-primary)] rounded-[var(--radius-md,8px)] opacity-20 filter blur-sm" />
         </div>
       ),
       activeIcon: (
         <div className="relative w-28 h-28 bg-[var(--brand-soft)] rounded-[var(--radius-lg,8px)] flex items-center justify-center border-4 border-[var(--border-brand)] shadow-lg text-[var(--brand-primary)]">
-          <Icon icon="carbon:checkmark-outline" className="w-12 h-12 text-[var(--brand-primary)]" />
+          <Icon icon="hugeicons:checkmark-circle-02" className="w-12 h-12 text-[var(--brand-primary)]" />
         </div>
       )
     }
@@ -258,7 +258,7 @@ export default function ProcessSection({ className = "" }) {
         {/* Section Title Header */}
         <SectionHeader
           eyebrow={c("process_eyebrow", "Circular Supply Chain")}
-          eyebrowIcon={<Icon icon="carbon:renew" flip="horizontal" className="w-4 h-4" />}
+          eyebrowIcon={<Icon icon="hugeicons:recycle-01" flip="horizontal" className="w-4 h-4" />}
           title={c("process_title", "Our Manufacturing Process")}
           highlightText="Process"
           subtitle={c("process_subtitle", "From responsible plastic waste to high-performance products — every step is engineered for quality, sustainability, and long-term impact.")}
@@ -315,7 +315,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               <div className="absolute top-1/2 -right-6 -translate-y-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
-                <Icon icon="carbon:chevron-right" className="w-2.5 h-2.5" />
+                <Icon icon="hugeicons:arrow-right-01" className="w-2.5 h-2.5" />
               </div>
             </div>
 
@@ -337,7 +337,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               <div className="absolute top-1/2 -right-6 -translate-y-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
-                <Icon icon="carbon:chevron-right" className="w-2.5 h-2.5" />
+                <Icon icon="hugeicons:arrow-right-01" className="w-2.5 h-2.5" />
               </div>
             </div>
 
@@ -359,7 +359,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
-                <Icon icon="carbon:chevron-down" className="w-2.5 h-2.5" />
+                <Icon icon="hugeicons:arrow-down-01" className="w-2.5 h-2.5" />
               </div>
             </div>
 
@@ -382,7 +382,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
-                <Icon icon="carbon:chevron-up" className="w-2.5 h-2.5" />
+                <Icon icon="hugeicons:arrow-up-01" className="w-2.5 h-2.5" />
               </div>
             </div>
 
@@ -394,7 +394,7 @@ export default function ProcessSection({ className = "" }) {
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-emerald-500/20 to-blue-500/20 flex items-center justify-center border border-emerald-200 dark:border-emerald-800 shadow-lg mb-4 p-1.5">
                   <div className="w-full h-full rounded-full bg-white dark:bg-[#161c24] flex items-center justify-center shadow-inner">
-                    <Icon icon="carbon:renew" className="w-12 h-12 text-emerald-600 dark:text-emerald-400" />
+                    <Icon icon="hugeicons:recycle-01" className="w-12 h-12 text-emerald-600 dark:text-emerald-400" />
                   </div>
                 </div>
                 <span className="block font-extrabold text-slate-900 dark:text-white text-sm tracking-tight">Zero waste, infinite value</span>
@@ -420,7 +420,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
-                <Icon icon="carbon:chevron-down" className="w-2.5 h-2.5" />
+                <Icon icon="hugeicons:arrow-down-01" className="w-2.5 h-2.5" />
               </div>
             </div>
 
@@ -443,14 +443,14 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               <div className="absolute top-1/2 -left-6 -translate-y-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
-                <Icon icon="carbon:chevron-left" className="w-2.5 h-2.5" />
+                <Icon icon="hugeicons:arrow-left-01" className="w-2.5 h-2.5" />
               </div>
             </div>
 
             {/* Bottom Row Spacers & Alignments */}
             <div className="flex justify-center items-center pointer-events-none">
               <div className="w-10 h-10 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shadow-xs z-20">
-                <Icon icon="carbon:chevron-left" className="w-3.5 h-3.5" />
+                <Icon icon="hugeicons:arrow-left-01" className="w-3.5 h-3.5" />
               </div>
             </div>
 
@@ -472,7 +472,7 @@ export default function ProcessSection({ className = "" }) {
                 </div>
               </button>
               <div className="absolute top-1/2 -left-6 -translate-y-1/2 w-4 h-4 rounded-[var(--radius-sm,4px)] bg-emerald-50 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-700 flex items-center justify-center z-20 text-emerald-600 dark:text-emerald-400 shadow-xs">
-                <Icon icon="carbon:chevron-left" className="w-2.5 h-2.5" />
+                <Icon icon="hugeicons:arrow-left-01" className="w-2.5 h-2.5" />
               </div>
             </div>
 
@@ -483,7 +483,7 @@ export default function ProcessSection({ className = "" }) {
             <div className="flex justify-between items-center px-1">
               <span className="text-xs font-extrabold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Select manufacturing step</span>
               <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                Swipe left or right <Icon icon="carbon:chevron-right" className="w-3 h-3" />
+                Swipe left or right <Icon icon="hugeicons:arrow-right-01" className="w-3 h-3" />
               </span>
             </div>
 
@@ -554,7 +554,7 @@ export default function ProcessSection({ className = "" }) {
               <Badge
                 variant="eyebrow"
                 size="sm"
-                icon="carbon:information"
+                icon="hugeicons:information-circle"
                 className="mb-3"
               >
                 {steps[activeStep].subtitle}
@@ -572,7 +572,7 @@ export default function ProcessSection({ className = "" }) {
               {steps[activeStep].features.map((feature, idx) => (
                 <div key={idx} className="flex gap-3">
                   <div className="w-5 h-5 rounded-control bg-[var(--brand-soft)] text-[var(--text-brand)] flex items-center justify-center flex-shrink-0 mt-0.5 border border-[var(--brand-border)]/30">
-                    <Icon icon="carbon:checkmark" className="w-3.5 h-3.5 font-bold" />
+                    <Icon icon="hugeicons:checkmark-circle-02" className="w-3.5 h-3.5 font-bold" />
                   </div>
                   <div>
                     <span className="block font-extrabold text-sm text-slate-900 dark:text-white">{feature.label}</span>
@@ -592,7 +592,7 @@ export default function ProcessSection({ className = "" }) {
               className="w-10 h-10 rounded-btn bg-slate-100 dark:bg-white/10 hover:bg-[var(--brand-primary)] hover:text-slate-950 border border-slate-200 dark:border-subtle flex items-center justify-center transition text-slate-800 dark:text-white shadow-xs cursor-pointer"
               title="Previous Step"
             >
-              <Icon icon="carbon:chevron-left" className="w-5 h-5" />
+              <Icon icon="hugeicons:arrow-left-01" className="w-5 h-5" />
             </button>
             <button
               type="button"
@@ -600,7 +600,7 @@ export default function ProcessSection({ className = "" }) {
               className="w-10 h-10 rounded-btn bg-[var(--brand-primary)] text-slate-950 hover:brightness-110 flex items-center justify-center transition font-bold shadow-md cursor-pointer border border-emerald-600 dark:border-emerald-400"
               title="Next Step"
             >
-              <Icon icon="carbon:chevron-right" className="w-5 h-5" />
+              <Icon icon="hugeicons:arrow-right-01" className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -616,7 +616,7 @@ export default function ProcessSection({ className = "" }) {
             <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-xs">
-                <Icon icon="solar:restart-linear" className="w-5 h-5" />
+                <Icon icon="hugeicons:reload" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
                 <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Sustainable</span>
@@ -629,7 +629,7 @@ export default function ProcessSection({ className = "" }) {
             <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-xs">
-                <Icon icon="solar:shield-check-linear" className="w-5 h-5" />
+                <Icon icon="hugeicons:shield-check" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
                 <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Quality assured</span>
@@ -642,7 +642,7 @@ export default function ProcessSection({ className = "" }) {
             <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-xs">
-                <Icon icon="solar:cpu-linear" className="w-5 h-5" />
+                <Icon icon="hugeicons:cpu" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
                 <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Advanced technology</span>
@@ -655,7 +655,7 @@ export default function ProcessSection({ className = "" }) {
             <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-xs">
-                <Icon icon="solar:global-linear" className="w-5 h-5" />
+                <Icon icon="hugeicons:globe-02" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
                 <span className="block font-bold text-[var(--text-primary)] text-sm mb-1">Better for the planet</span>

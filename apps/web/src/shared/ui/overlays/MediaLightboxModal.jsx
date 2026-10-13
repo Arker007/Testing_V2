@@ -129,7 +129,7 @@ export default function MediaLightboxModal({
                   className="min-h-[40px] px-3 rounded-[var(--radius-card,8px)] bg-white/10 hover:bg-white/20 text-xs font-medium text-white transition-colors cursor-pointer flex items-center gap-1.5 focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:outline-none"
                   title="Copy Image URL"
                 >
-                  <Icon icon={copied ? "carbon:checkmark" : "carbon:copy"} className="w-4 h-4" />
+                  <Icon icon={copied ? "hugeicons:tick-circle" : "hugeicons:copy-01"} className="w-4 h-4" />
                   <span className="hidden sm:inline">{copied ? "Copied" : "Copy URL"}</span>
                 </button>
               )}
@@ -141,7 +141,7 @@ export default function MediaLightboxModal({
                 title={isZoomed ? "Reset Zoom" : "Zoom Image"}
                 aria-label={isZoomed ? "Reset Zoom" : "Zoom Image"}
               >
-                <Icon icon={isZoomed ? "carbon:zoom-out" : "carbon:zoom-in"} className="w-4 h-4" />
+                <Icon icon={isZoomed ? "hugeicons:zoom-out" : "hugeicons:zoom-in"} className="w-4 h-4" />
               </button>
 
               {/* High Contrast Close Button */}
@@ -152,7 +152,7 @@ export default function MediaLightboxModal({
                 aria-label="Close fullscreen inspection"
                 title="Close (Esc)"
               >
-                <Icon icon="carbon:close" className="w-5 h-5" />
+                <Icon icon="hugeicons:cancel-circle" className="w-5 h-5" />
                 <span>Close</span>
               </button>
             </div>
@@ -180,7 +180,7 @@ export default function MediaLightboxModal({
               />
             ) : (
               <div className="flex flex-col items-center justify-center text-slate-500 gap-2">
-                <Icon icon="carbon:image-reference" className="w-16 h-16" />
+                <Icon icon="hugeicons:image-01" className="w-16 h-16" />
                 <span className="text-sm font-mono">No Image Available</span>
               </div>
             )}
@@ -197,7 +197,7 @@ export default function MediaLightboxModal({
                   }}
                   aria-label="Previous image"
                 >
-                  <Icon icon="carbon:chevron-left" className="w-6 h-6" />
+                  <Icon icon="hugeicons:arrow-left-01" className="w-6 h-6" />
                 </button>
                 <button
                   type="button"
@@ -208,7 +208,7 @@ export default function MediaLightboxModal({
                   }}
                   aria-label="Next image"
                 >
-                  <Icon icon="carbon:chevron-right" className="w-6 h-6" />
+                  <Icon icon="hugeicons:arrow-right-01" className="w-6 h-6" />
                 </button>
               </>
             )}

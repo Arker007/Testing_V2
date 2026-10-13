@@ -56,7 +56,7 @@ export default function ProductDetailView() {
     return (
       <main className="pt-0 min-h-[60vh] flex flex-col items-center justify-center p-6 bg-[var(--bg-canvas)] text-[var(--text-primary)]">
         <EmptyState
-          icon="carbon:warning-alt"
+          icon="hugeicons:alert-02-alt"
           title="Product not found"
           description="The product you are looking for does not exist or has been removed."
           action={
@@ -64,7 +64,7 @@ export default function ProductDetailView() {
               to="/products"
               className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-[var(--radius-card,8px)] border border-[var(--border-default)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] font-bold text-sm transition-all shadow-2xs hover:border-[var(--brand-border)]"
             >
-              <Icon icon="carbon:arrow-left" className="w-4 h-4" />
+              <Icon icon="hugeicons:arrow-left-01" className="w-4 h-4" />
               <span>Back to Products</span>
             </Link>
           }
@@ -88,19 +88,19 @@ export default function ProductDetailView() {
             <Link to="/" className="text-[var(--text-secondary)] hover:text-[var(--text-brand)] flex items-center gap-1 transition-colors">
               <span>Home</span>
             </Link>
-            <Icon icon="carbon:chevron-right" className="w-3 h-3 text-[var(--text-muted)]" />
+            <Icon icon="hugeicons:arrow-right-01" className="w-3 h-3 text-[var(--text-muted)]" />
             <Link to="/products" className="text-[var(--text-secondary)] hover:text-[var(--text-brand)] transition-colors">
               Products
             </Link>
             {categoryObj && (
               <>
-                <Icon icon="carbon:chevron-right" className="w-3 h-3 text-[var(--text-muted)]" />
+                <Icon icon="hugeicons:arrow-right-01" className="w-3 h-3 text-[var(--text-muted)]" />
                 <Link to={`/products?cat=${categoryObj.id}`} className="text-[var(--text-secondary)] hover:text-[var(--text-brand)] transition-colors">
                   {categoryObj.name}
                 </Link>
               </>
             )}
-            <Icon icon="carbon:chevron-right" className="w-3 h-3 text-[var(--text-muted)]" />
+            <Icon icon="hugeicons:arrow-right-01" className="w-3 h-3 text-[var(--text-muted)]" />
             <span className="text-[var(--text-primary)] font-semibold truncate max-w-[200px] sm:max-w-none">
               {product.name}
             </span>
@@ -120,7 +120,7 @@ export default function ProductDetailView() {
               }}
               className="inline-flex items-center gap-1.5 text-[var(--text-secondary)] hover:text-[var(--text-brand)] transition-colors cursor-pointer"
             >
-              <Icon icon="carbon:share" className="w-4 h-4" />
+              <Icon icon="hugeicons:share-01" className="w-4 h-4" />
               <span>Share</span>
             </button>
           </div>
@@ -177,7 +177,7 @@ export default function ProductDetailView() {
           <CtaCard
             badge="Custom Orders"
             badgeVariant="brand"
-            badgeIcon="carbon:tools"
+            badgeIcon="hugeicons:wrench-01"
             title="Need Custom Sizes, Colors, or Your Company Logo?"
             subtitle={`We make pallets and products in any size or specification directly at our Ankleshwar factory. Send us your requirements or call our sales team directly at ${phone}.`}
           >
@@ -191,7 +191,7 @@ export default function ProductDetailView() {
               href={`tel:${phone.replace(/\s+/g, "")}`}
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-btn,6px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] hover:bg-[var(--bg-surface-tertiary)] hover:border-[var(--border-default)] text-[var(--text-primary)] text-sm font-bold transition-all shadow-2xs whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
-              <Icon icon="carbon:phone" className="w-4 h-4 text-[var(--text-brand)] shrink-0" />
+              <Icon icon="hugeicons:call" className="w-4 h-4 text-[var(--text-brand)] shrink-0" />
               <span>Call Sales Team</span>
             </a>
           </CtaCard>
@@ -222,7 +222,7 @@ export default function ProductDetailView() {
             aria-label="WhatsApp Sales Desk"
             title="WhatsApp Sales Desk"
           >
-            <Icon icon="carbon:chat" className="w-5 h-5 text-[#25D366]" />
+            <Icon icon="hugeicons:message-chat-01" className="w-5 h-5 text-[#25D366]" />
           </a>
           <Button
             type="button"
@@ -230,7 +230,7 @@ export default function ProductDetailView() {
             size="sm"
             onClick={() => setShowInquiry(true)}
             className="!min-h-[44px]"
-            icon={<Icon icon="carbon:chat" className="w-4 h-4 mr-1.5" />}
+            icon={<Icon icon="hugeicons:message-chat-01" className="w-4 h-4 mr-1.5" />}
           >
             Request Quote
           </Button>

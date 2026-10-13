@@ -17,28 +17,28 @@ export default function HomeCtaSection() {
       ),
       name: c("home_testimonial_name", "Procurement Manager"),
       company: c("home_testimonial_company", "Pharma Company"),
-      icon: "carbon:building",
+      icon: "hugeicons:building-03",
     },
     {
       quote:
         "Switching our facility handling platforms over to VISHAL ENTERPRISE's high-capacity recycled plastic pallets eliminated our recurring replacement budget entirely. They handle heavy racking cycles flawlessly without a single crack.",
       name: "Procurement Manager",
       company: "National Logistics Hub",
-      icon: "carbon:delivery-parcel",
+      icon: "hugeicons:delivery-box-01",
     },
     {
       quote:
         "We are extremely pleased with the premium recycled plastic pallets from Vishal Enterprise. They handle our heavy warehouse loads flawlessly and have significantly reduced our material handling costs over the years.",
       name: "Logistics Manager",
       company: "Legat Owen",
-      icon: "carbon:industry",
+      icon: "hugeicons:factory",
     },
     {
       quote:
         "Switching to Vishal's high-density eco-friendly crates has helped us meet our rigorous sustainability targets while ensuring safe, damage-free transit of agricultural goods across India.",
       name: "Supply Chain Director",
       company: "GreenField Organics",
-      icon: "carbon:agriculture",
+      icon: "hugeicons:sprout",
     },
   ];
 
@@ -101,13 +101,13 @@ export default function HomeCtaSection() {
                           aria-label="Previous testimonial"
                           className="p-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-secondary)] rounded-full transition-colors focus:outline-none cursor-pointer"
                         >
-                          <Icon icon="carbon:chevron-left" className="w-5 h-5" />
+                          <Icon icon="hugeicons:arrow-left-01" className="w-5 h-5" />
                         </button>
 
                         {/* Author Info */}
                         <div className="flex items-center gap-3 sm:gap-3.5">
                           <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center shrink-0 shadow-xs">
-                            <Icon icon={currentTestimonial.icon || "carbon:building"} className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
+                            <Icon icon={currentTestimonial.icon || "hugeicons:building-03"} className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
                           </div>
                           <div>
                             <div className="font-bold text-[var(--text-primary)] text-sm sm:text-base leading-snug">
@@ -126,7 +126,7 @@ export default function HomeCtaSection() {
                           aria-label="Next testimonial"
                           className="p-2 text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-surface-secondary)] rounded-full transition-colors focus:outline-none cursor-pointer"
                         >
-                          <Icon icon="carbon:chevron-right" className="w-5 h-5" />
+                          <Icon icon="hugeicons:arrow-right-01" className="w-5 h-5" />
                         </button>
                       </div>
                     </motion.div>
@@ -157,7 +157,7 @@ export default function HomeCtaSection() {
                   {/* Stat 1: Businesses Served */}
                   <div className="px-2 sm:px-4 first:pl-0 text-center">
                     <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] flex items-center justify-center text-[var(--text-brand)] dark:text-[var(--brand-primary)] mx-auto mb-2.5 shadow-xs">
-                      <Icon icon="solar:box-minimalistic-linear" className="w-5 h-5" />
+                      <Icon icon="hugeicons:package" className="w-5 h-5" />
                     </div>
                     <div className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight">
                       {c("home_stat1_value", "500+")}
@@ -170,7 +170,7 @@ export default function HomeCtaSection() {
                   {/* Stat 2: Pallets Supplied */}
                   <div className="px-2 sm:px-4 text-center">
                     <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] flex items-center justify-center text-[var(--text-brand)] dark:text-[var(--brand-primary)] mx-auto mb-2.5 shadow-xs">
-                      <Icon icon="solar:delivery-linear" className="w-5 h-5" />
+                      <Icon icon="hugeicons:delivery-truck-01" className="w-5 h-5" />
                     </div>
                     <div className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight">
                       {c("home_stat2_value", "10M+")}
@@ -183,7 +183,7 @@ export default function HomeCtaSection() {
                   {/* Stat 3: Recycled Material */}
                   <div className="px-2 sm:px-4 last:pr-0 text-center">
                     <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] flex items-center justify-center text-[var(--text-brand)] dark:text-[var(--brand-primary)] mx-auto mb-2.5 shadow-xs">
-                      <Icon icon="solar:restart-circle-linear" className="w-5 h-5" />
+                      <Icon icon="hugeicons:recycle-01" className="w-5 h-5" />
                     </div>
                     <div className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight">
                       {c("home_stat3_value", "100%")}
@@ -204,7 +204,7 @@ export default function HomeCtaSection() {
           <CtaCard
             badge={c("home_cta_eyebrow", "Direct factory supply")}
             badgeVariant="brand"
-            badgeIcon="carbon:industry"
+            badgeIcon="hugeicons:factory"
             title={c("home_cta_title", "Looking for durable recycled plastic products?")}
             subtitle={c(
               "home_cta_subtitle",

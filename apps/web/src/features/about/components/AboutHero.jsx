@@ -23,7 +23,7 @@ export default function AboutHero() {
       bgImage={aboutHeroBg}
       bgOpacity="opacity-60"
       tag={c("about_hero_tag", "Industrial Recycled Plastics Manufacturer")}
-      tagIcon="carbon:industry"
+      tagIcon="hugeicons:factory"
       title={rawTitle}
       titleAccent=""
       description={c(

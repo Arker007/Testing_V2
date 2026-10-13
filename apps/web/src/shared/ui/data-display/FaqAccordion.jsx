@@ -63,7 +63,7 @@ export function FaqAccordionItem({
             aria-hidden="true"
           >
             <Icon
-              icon="carbon:chevron-down"
+              icon="hugeicons:arrow-down-01"
               className={`w-4 h-4 transition-transform duration-300 ${
                 isOpen ? "rotate-180" : "rotate-0"
               }`}

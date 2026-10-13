@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useSite } from "../../../shared/context/SiteContext";
-import { Input, Button, OptimizedImage } from "@/shared/ui";
+import { Input, Button, OptimizedImage, GstIcon } from "@/shared/ui";
 import styles from "../styles/footer.module.css";
 
 const QUICK_LINKS = [
@@ -47,10 +47,10 @@ export default function Footer() {
     : "Plot No. 1706/06, South 9 Road, G.I.D.C., Ankleshwar, Bharuch, Gujarat, 393002";
 
   const CONTACT = [
-    { icon: "carbon:location", text: addr },
-    { icon: "carbon:phone", text: co("phone", "+91 9898686379") },
-    { icon: "carbon:email", text: co("email", "Info@vishalenterpriseank.com") },
-    { icon: "carbon:time", text: "Mon – Sat: 9 AM – 6 PM" },
+    { icon: "hugeicons:location-01", text: addr },
+    { icon: "hugeicons:smart-phone-01", text: co("phone", "+91 9898686379") },
+    { icon: "hugeicons:mail-01", text: co("email", "Info@vishalenterpriseank.com") },
+    { icon: "hugeicons:clock-01", text: "Mon – Sat: 9 AM – 6 PM" },
   ];
 
   const handleSubscribe = (e) => {
@@ -157,7 +157,7 @@ export default function Footer() {
           <div className={styles.brandLine} />
 
           <div className={styles.isoRow}>
-            <Icon icon="carbon:certificate" className="text-emerald-500 w-5 h-5 inline mr-1.5" />
+            <GstIcon className="w-5 h-5 inline mr-1.5 align-middle" />
             <span>{co("gstin") ? `GSTIN: ${co("gstin")}` : c("cert_gst", "GSTIN: 24AXCPS0336E1ZV")}</span>
           </div>
 
@@ -181,7 +181,7 @@ export default function Footer() {
                     {item.name}
                     <span className={styles.socialUnderline} />
                   </span>
-                  <Icon icon="carbon:arrow-up-right" className={styles.socialArrow} />
+                  <Icon icon="hugeicons:arrow-up-right-01" className={styles.socialArrow} />
                 </a>
               ))}
             </div>
@@ -199,7 +199,7 @@ export default function Footer() {
           >
             <span>Our Products</span>
             <Icon
-              icon="carbon:chevron-down"
+              icon="hugeicons:arrow-down-01"
               className={`${styles.headingChevron} ${openSections.products ? styles.headingChevronActive : ""}`}
             />
           </button>
@@ -209,7 +209,7 @@ export default function Footer() {
               {PRODUCT_LINKS.map((item) => (
                 <li key={item.label}>
                   <Link to={item.path} className={styles.fLink}>
-                    <Icon icon="carbon:chevron-right" className="w-3 h-3 inline mr-1 text-emerald-500" />
+                    <Icon icon="hugeicons:arrow-right-01" className="w-3 h-3 inline mr-1 text-emerald-500" />
                     {item.label}
                   </Link>
                 </li>
@@ -229,7 +229,7 @@ export default function Footer() {
           >
             <span>Quick Links</span>
             <Icon
-              icon="carbon:chevron-down"
+              icon="hugeicons:arrow-down-01"
               className={`${styles.headingChevron} ${openSections.quick ? styles.headingChevronActive : ""}`}
             />
           </button>
@@ -239,7 +239,7 @@ export default function Footer() {
               {QUICK_LINKS.map((item) => (
                 <li key={item.label}>
                   <Link to={item.path} className={styles.fLink}>
-                    <Icon icon="carbon:chevron-right" className="w-3 h-3 inline mr-1 text-emerald-500" />
+                    <Icon icon="hugeicons:arrow-right-01" className="w-3 h-3 inline mr-1 text-emerald-500" />
                     {item.label}
                   </Link>
                 </li>
@@ -259,7 +259,7 @@ export default function Footer() {
           >
             <span>Contact Us</span>
             <Icon
-              icon="carbon:chevron-down"
+              icon="hugeicons:arrow-down-01"
               className={`${styles.headingChevron} ${openSections.contact ? styles.headingChevronActive : ""}`}
             />
           </button>
@@ -285,7 +285,7 @@ export default function Footer() {
             <div className={styles.headingLine} />
             {subscribed ? (
               <p className={styles.subscribedText}>
-                <Icon icon="carbon:checkmark-outline" className="text-emerald-500 inline mr-1" />
+                <Icon icon="hugeicons:checkmark-circle-02" className="text-emerald-500 inline mr-1" />
                 Thank you for subscribing!
               </p>
             ) : (
@@ -305,7 +305,7 @@ export default function Footer() {
                   variant="primary"
                   aria-label="Subscribe"
                   className="!px-3 !h-9 shrink-0"
-                  icon={<Icon icon="carbon:send-alt" className="w-4 h-4" />}
+                  icon={<Icon icon="hugeicons:sent" className="w-4 h-4" />}
                 />
               </form>
             )}

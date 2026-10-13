@@ -24,7 +24,7 @@ export function InteractiveHoverButton({
       <span className={styles.dot} />
       <span className={styles.text}>{labelText}</span>
       <span className={styles.arrowWrap}>
-        <Icon icon="carbon:arrow-right" className={`${styles.arrow} w-4 h-4`} />
+        <Icon icon="hugeicons:arrow-right-01" className={`${styles.arrow} w-4 h-4`} />
       </span>
     </button>
   );

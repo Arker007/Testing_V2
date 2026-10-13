@@ -12,7 +12,7 @@ export default function AboutCtaSection() {
       <CtaCard
         badge={c("about_cta_eyebrow", "Bulk Orders & Factory Direct Pricing")}
         badgeVariant="brand"
-        badgeIcon="carbon:launch"
+        badgeIcon="hugeicons:arrow-up-right-01"
         title={c("about_cta_title", "Get a Factory Quote for Recycled Plastics")}
         subtitle={c(
           "about_cta_text",

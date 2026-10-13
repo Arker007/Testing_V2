@@ -62,6 +62,7 @@ export { default as Accordion, AccordionItem } from './data-display/Accordion';
 export { default as FaqAccordion, FaqAccordionItem } from './data-display/FaqAccordion';
 export { default as ProductCard } from './data-display/ProductCard';
 export { default as Kbd } from './data-display/Kbd';
+export { default as GstIcon } from './data-display/GstIcon';
 
 // Layout
 export { default as Divider } from './layout/Divider';

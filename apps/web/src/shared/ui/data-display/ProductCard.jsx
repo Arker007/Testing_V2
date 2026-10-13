@@ -112,38 +112,38 @@ function ProductCard({
     // 2. Dynamic contextual badge instead of repeating "Verified Spec" on every card
     let badgeText = product.badge || "";
     let badgeVariant = "brand";
-    let badgeIcon = "solar:verified-check-linear";
+    let badgeIcon = "hugeicons:shield-check";
 
     if (!badgeText) {
       const lowerTitle = (title || "").toLowerCase();
       if (lowerTitle.includes("rackable")) {
         badgeText = "Rackable";
         badgeVariant = "brand";
-        badgeIcon = "solar:layers-linear";
+        badgeIcon = "hugeicons:layers-01";
       } else if (lowerTitle.includes("export") || lowerTitle.includes("euro")) {
         badgeText = "Export Grade";
         badgeVariant = "info";
-        badgeIcon = "solar:delivery-linear";
+        badgeIcon = "hugeicons:delivery-truck-01";
       } else if (lowerTitle.includes("reversible")) {
         badgeText = "Reversible";
         badgeVariant = "neutral";
-        badgeIcon = "solar:sort-vertical-linear";
+        badgeIcon = "hugeicons:sort-by-down-01";
       } else if (lowerTitle.includes("2-way")) {
         badgeText = "2-Way Entry";
         badgeVariant = "neutral";
-        badgeIcon = "solar:branching-paths-down-linear";
+        badgeIcon = "hugeicons:route-01";
       } else if (lowerTitle.includes("4-way")) {
         badgeText = "4-Way Entry";
         badgeVariant = "brand";
-        badgeIcon = "solar:transfer-horizontal-linear";
+        badgeIcon = "hugeicons:arrow-right-01";
       } else if (lowerTitle.includes("heavy-duty") || lowerTitle.includes("heavy duty")) {
         badgeText = "Heavy Duty";
         badgeVariant = "brand";
-        badgeIcon = "solar:shield-check-linear";
+        badgeIcon = "hugeicons:shield-check";
       } else if (product.verified !== false) {
         badgeText = "Factory Direct";
         badgeVariant = "success";
-        badgeIcon = "solar:verified-check-linear";
+        badgeIcon = "hugeicons:shield-check";
       }
     }
 
@@ -178,7 +178,7 @@ function ProductCard({
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 block"
             />
           ) : (
-            <Icon icon="solar:gallery-minimalistic-linear" className="w-10 h-10 text-[var(--text-muted)]" />
+            <Icon icon="hugeicons:image-01" className="w-10 h-10 text-[var(--text-muted)]" />
           )}
         </div>
 
@@ -195,11 +195,11 @@ function ProductCard({
           {/* Quick Specifications Strip for buyers */}
           <div className="flex flex-col gap-1.5 py-1 text-xs">
             <div className="flex items-center gap-1.5 text-[var(--text-secondary)] font-medium">
-              <Icon icon="solar:box-linear" className="w-3.5 h-3.5 text-[var(--brand-primary,#059669)] shrink-0" />
+              <Icon icon="hugeicons:package" className="w-3.5 h-3.5 text-[var(--brand-primary,#059669)] shrink-0" />
               <span className="truncate">{cleanDimStr}</span>
             </div>
             <div className="flex items-center gap-1.5 text-[var(--text-muted)]">
-              <Icon icon="solar:shield-check-linear" className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <Icon icon="hugeicons:shield-check" className="w-3.5 h-3.5 text-slate-400 shrink-0" />
               <span className="truncate">{loadStr}</span>
             </div>
           </div>
@@ -217,7 +217,7 @@ function ProductCard({
 
             <span className="inline-flex items-center gap-1 text-xs font-bold text-[var(--brand-primary,#059669)] group-hover:underline transition-all shrink-0">
               <span>Specs</span>
-              <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              <Icon icon="hugeicons:arrow-right-01" className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </span>
           </div>
         </div>
@@ -253,7 +253,7 @@ function ProductCard({
               fetchPriority={index === 0 ? "high" : "auto"}
             />
           ) : (
-            <Icon icon="solar:gallery-minimalistic-linear" className="w-10 h-10 text-[var(--text-muted)]" />
+            <Icon icon="hugeicons:image-01" className="w-10 h-10 text-[var(--text-muted)]" />
           )}
         </div>
         {categoryName && <span className={styles.catTag}>{categoryName}</span>}
@@ -275,7 +275,7 @@ function ProductCard({
         <div className={styles.specPanel}>
           <div className={styles.specDimRow}>
             <span className={styles.specDimLabel}>
-              <Icon icon="solar:box-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
+              <Icon icon="hugeicons:package" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
               Dimensions
             </span>
             <span className={styles.specDimValue} title={cleanDimStr}>{cleanDimStr}</span>
@@ -302,7 +302,7 @@ function ProductCard({
         <div className={styles.gridCardActions}>
           <Link to={`/products/${product.id}`} className={styles.primaryViewBtn}>
             <span>View Product</span>
-            <Icon icon="solar:arrow-right-linear" className={`w-4 h-4 ml-1 ${styles.primaryViewArrow}`} />
+            <Icon icon="hugeicons:arrow-right-01" className={`w-4 h-4 ml-1 ${styles.primaryViewArrow}`} />
           </Link>
 
           <button
@@ -312,7 +312,7 @@ function ProductCard({
             title={`View Product Specs for ${title}`}
             aria-label={`View Product Specs for ${title}`}
           >
-            <Icon icon="solar:document-text-linear" className="w-3.5 h-3.5 mr-1.5" />
+            <Icon icon="hugeicons:document-attachment" className="w-3.5 h-3.5 mr-1.5" />
             <span className={styles.datasheetText}>Product Specs</span>
           </button>
         </div>

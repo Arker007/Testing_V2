@@ -88,7 +88,7 @@ export default function Tag({
           className="ml-1 -mr-1 p-0.5 rounded-full hover:bg-black/10 dark:hover:bg-white/10 text-inherit transition-colors cursor-pointer"
           aria-label="Remove tag"
         >
-          <Icon icon="carbon:close-filled" className={currentIconSize} />
+          <Icon icon="hugeicons:cancel-circle-filled" className={currentIconSize} />
         </button>
       )}
     </span>

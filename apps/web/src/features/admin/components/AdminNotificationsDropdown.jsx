@@ -46,7 +46,7 @@ export default function AdminNotificationsDropdown({
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <Icon icon="solar:bell-bing-bold" className="w-4 h-4 text-[var(--brand-primary)]" />
+          <Icon icon="hugeicons:notification-02" className="w-4 h-4 text-[var(--brand-primary)]" />
           <span
             style={{ fontWeight: 800, fontSize: "0.85rem", color: "var(--ink)" }}
           >
@@ -64,7 +64,7 @@ export default function AdminNotificationsDropdown({
               );
             }}
             className="!h-auto !py-1 !px-2 !text-xs font-bold text-[var(--brand-primary)] hover:bg-transparent"
-            icon={<Icon icon="solar:check-read-linear" className="w-3.5 h-3.5 mr-1" />}
+            icon={<Icon icon="hugeicons:checkmark-circle-02" className="w-3.5 h-3.5 mr-1" />}
           >
             Mark read
           </Button>
@@ -82,7 +82,7 @@ export default function AdminNotificationsDropdown({
             }}
           >
             <Icon
-              icon="solar:bell-linear"
+              icon="hugeicons:notification-01"
               className="w-6 h-6 mx-auto mb-2 text-slate-400"
             />
             No new notifications
@@ -187,7 +187,7 @@ export default function AdminNotificationsDropdown({
             setShowNotifDropdown(false);
           }}
           className="!w-full !text-xs !py-1.5 font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-          icon={<Icon icon="solar:chart-square-linear" className="w-3.5 h-3.5 mr-1.5" />}
+          icon={<Icon icon="hugeicons:analytics-01" className="w-3.5 h-3.5 mr-1.5" />}
         >
           View all system logs
         </Button>

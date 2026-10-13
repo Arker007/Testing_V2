@@ -36,7 +36,7 @@ export default function FeaturesSection() {
         "Rigorous testing ensures superior structural performance, dimensional stability, and weather durability."
       ),
       href: "/products",
-      icon: <Icon icon="solar:shield-check-linear" className="w-6 h-6" />,
+      icon: <Icon icon="hugeicons:shield-check" className="w-6 h-6" />,
     },
     {
       category: c("why_us_f2_category", "Custom Manufacturing"),
@@ -46,7 +46,7 @@ export default function FeaturesSection() {
         "Tailored recycled polymer profiles, reinforced designs, and custom textures to meet your application needs."
       ),
       href: "/products",
-      icon: <Icon icon="solar:layers-minimalistic-linear" className="w-6 h-6" />,
+      icon: <Icon icon="hugeicons:layers-01" className="w-6 h-6" />,
     },
     {
       category: c("why_us_f3_category", "Sustainable Materials"),
@@ -56,7 +56,7 @@ export default function FeaturesSection() {
         "100% recycled HDPE material diverting landfill and marine plastic waste. A sustainable alternative to timber and steel."
       ),
       href: "/sustainability",
-      icon: <Icon icon="solar:restart-circle-linear" className="w-6 h-6" />,
+      icon: <Icon icon="hugeicons:recycle-01" className="w-6 h-6" />,
     },
     {
       category: c("why_us_f4_category", "Business Value"),
@@ -66,7 +66,7 @@ export default function FeaturesSection() {
         "Minimal maintenance, no termite damage, and a longer service life deliver lower total cost of ownership across decades of use."
       ),
       href: "/contact",
-      icon: <Icon icon="solar:graph-up-linear" className="w-6 h-6" />,
+      icon: <Icon icon="hugeicons:analytics-up" className="w-6 h-6" />,
     },
   ];
 
@@ -89,7 +89,7 @@ export default function FeaturesSection() {
               <div className="mb-4">
                 <Badge
                   variant="extrusion"
-                  icon="solar:shield-check-linear"
+                  icon="hugeicons:shield-check"
                 >
                   {c("why_us_eyebrow", c("why_us_badge", "Why Industries Choose Us"))}
                 </Badge>
@@ -112,7 +112,7 @@ export default function FeaturesSection() {
               <ul className="space-y-3.5 mb-10">
                 <li className="flex items-center space-x-3">
                   <span className="shrink-0 w-5 h-5 rounded-full bg-[var(--brand-primary)] flex items-center justify-center text-[var(--text-inverse)]">
-                    <Icon icon="solar:check-read-linear" className="w-3.5 h-3.5 stroke-[2.5]" />
+                    <Icon icon="hugeicons:checkmark-circle-02" className="w-3.5 h-3.5 stroke-[2.5]" />
                   </span>
                   <span className="text-[15px] sm:text-base font-semibold text-[var(--text-primary)]">
                     {c("why_us_bullet_1", "Certified ASTM flexural & tensile QA")}
@@ -120,7 +120,7 @@ export default function FeaturesSection() {
                 </li>
                 <li className="flex items-center space-x-3">
                   <span className="shrink-0 w-5 h-5 rounded-full bg-[var(--brand-primary)] flex items-center justify-center text-[var(--text-inverse)]">
-                    <Icon icon="solar:check-read-linear" className="w-3.5 h-3.5 stroke-[2.5]" />
+                    <Icon icon="hugeicons:checkmark-circle-02" className="w-3.5 h-3.5 stroke-[2.5]" />
                   </span>
                   <span className="text-[15px] sm:text-base font-semibold text-[var(--text-primary)]">
                     {c("why_us_bullet_2", "Custom die tooling & reinforced profiles")}
@@ -128,7 +128,7 @@ export default function FeaturesSection() {
                 </li>
                 <li className="flex items-center space-x-3">
                   <span className="shrink-0 w-5 h-5 rounded-full bg-[var(--brand-primary)] flex items-center justify-center text-[var(--text-inverse)]">
-                    <Icon icon="solar:check-read-linear" className="w-3.5 h-3.5 stroke-[2.5]" />
+                    <Icon icon="hugeicons:checkmark-circle-02" className="w-3.5 h-3.5 stroke-[2.5]" />
                   </span>
                   <span className="text-[15px] sm:text-base font-semibold text-[var(--text-primary)]">
                     {c("why_us_bullet_3", "100% industrial circular polymer recycling")}
@@ -136,7 +136,7 @@ export default function FeaturesSection() {
                 </li>
                 <li className="flex items-center space-x-3">
                   <span className="shrink-0 w-5 h-5 rounded-full bg-[var(--brand-primary)] flex items-center justify-center text-[var(--text-inverse)]">
-                    <Icon icon="solar:check-read-linear" className="w-3.5 h-3.5 stroke-[2.5]" />
+                    <Icon icon="hugeicons:checkmark-circle-02" className="w-3.5 h-3.5 stroke-[2.5]" />
                   </span>
                   <span className="text-[15px] sm:text-base font-semibold text-[var(--text-primary)]">
                     {c("why_us_bullet_4", "Zero rotting, splintering, or termite corrosion")}
@@ -266,7 +266,7 @@ export default function FeaturesSection() {
                     className="inline-flex items-center space-x-2 text-xs font-bold tracking-wider text-[var(--brand-primary)] hover:text-[var(--brand-hover)] group"
                   >
                     <span className="w-6 h-6 rounded-full border border-[var(--brand-primary)] flex items-center justify-center group-hover:bg-[var(--brand-primary)] group-hover:text-[var(--text-inverse)] transition-colors">
-                      <Icon icon="solar:arrow-right-linear" className="w-3.5 h-3.5 stroke-[2.5]" />
+                      <Icon icon="hugeicons:arrow-right-01" className="w-3.5 h-3.5 stroke-[2.5]" />
                     </span>
                     <span>Learn more</span>
                   </Link>

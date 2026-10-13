@@ -18,7 +18,7 @@ export default function WhoWeAreSection() {
         <div className="lg:col-span-5 space-y-6">
           <SectionHeader
             eyebrow="Who we are"
-            eyebrowIcon="carbon:industry"
+            eyebrowIcon="hugeicons:factory"
             title={c("about_who_title", "Manufacturing industrial recycled plastic products since 2008")}
             align="left"
             accentLine
@@ -55,7 +55,7 @@ export default function WhoWeAreSection() {
             <div className="flex items-center justify-between gap-3 mb-3">
               <div className="flex items-center gap-3 min-w-0">
                 <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
-                  <Icon icon="solar:target-linear" className="w-6 h-6" />
+                  <Icon icon="hugeicons:target-02" className="w-6 h-6" />
                 </div>
                 <h3 className="text-[1.0625rem] font-bold text-[var(--text-primary)] leading-snug group-hover:text-[var(--text-brand)] transition-colors">
                   {c("about_mission_title", "Our mission")}
@@ -78,7 +78,7 @@ export default function WhoWeAreSection() {
             <div className="flex items-center justify-between gap-3 mb-3">
               <div className="flex items-center gap-3 min-w-0">
                 <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
-                  <Icon icon="solar:eye-linear" className="w-6 h-6" />
+                  <Icon icon="hugeicons:view" className="w-6 h-6" />
                 </div>
                 <h3 className="text-[1.0625rem] font-bold text-[var(--text-primary)] leading-snug group-hover:text-[var(--text-brand)] transition-colors">
                   {c("about_vision_title", "Our vision")}
@@ -101,7 +101,7 @@ export default function WhoWeAreSection() {
             <div className="flex items-center justify-between gap-3 mb-3">
               <div className="flex items-center gap-3 min-w-0">
                 <div className="w-11 h-11 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0">
-                  <Icon icon="solar:diploma-verified-linear" className="w-6 h-6" />
+                  <Icon icon="hugeicons:award-01" className="w-6 h-6" />
                 </div>
                 <h3 className="text-[1.0625rem] font-bold text-[var(--text-primary)] leading-snug group-hover:text-[var(--text-brand)] transition-colors">
                   {c("about_commitment_title", "Our commitment")}

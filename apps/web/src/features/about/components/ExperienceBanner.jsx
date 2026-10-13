@@ -1,6 +1,6 @@
 import React from "react";
 import { useSite } from "../../../shared/context/SiteContext";
-import { CtaCard, Badge } from "@/shared/ui";
+import { CtaCard, Badge, GstIcon } from "@/shared/ui";
 
 export default function ExperienceBanner() {
   const { c } = useSite();
@@ -12,7 +12,7 @@ export default function ExperienceBanner() {
       <CtaCard
         badge={c("experience_banner_badge", "Factory Direct & Certified")}
         badgeVariant="brand"
-        badgeIcon="carbon:badge"
+        badgeIcon="hugeicons:badge"
         title={c("experience_banner_title", "Over 15 Years of Industrial Excellence")}
         subtitle={c(
           "experience_banner_desc",
@@ -20,7 +20,7 @@ export default function ExperienceBanner() {
         )}
       >
         {c("cert_gst", "GST Registered") && (
-          <Badge variant="neutral" size="md">
+          <Badge variant="neutral" size="md" icon={<GstIcon className="w-4 h-4" />}>
             {c("cert_gst", "GST Registered")}
           </Badge>
         )}

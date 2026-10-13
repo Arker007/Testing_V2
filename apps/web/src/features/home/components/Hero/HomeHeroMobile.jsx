@@ -11,15 +11,15 @@ import highLoadCapacity from "../../../../assets/images/backgrounds/high_load_ca
 import weatherResistantBg from "../../../../assets/images/backgrounds/weather_resistant_bg_1785866780021.jpg";
 
 const iconMap = {
-  ShieldCheck: "carbon:security",
-  Link2: "carbon:certificate",
-  Droplets: "carbon:rain-drop",
-  Wrench: "carbon:flash",
-  Leaf: "carbon:recycle",
-  Check: "carbon:checkmark",
-  Eye: "carbon:star",
-  Plane: "carbon:cube",
-  Waves: "carbon:rain-drop"
+  ShieldCheck: "hugeicons:security-check",
+  Link2: "hugeicons:award-01",
+  Droplets: "hugeicons:droplet",
+  Wrench: "hugeicons:flash",
+  Leaf: "hugeicons:recycle-01",
+  Check: "hugeicons:checkmark-circle-02",
+  Eye: "hugeicons:star",
+  Plane: "hugeicons:package",
+  Waves: "hugeicons:droplet"
 };
 
 const getOptimizedMobileHeroImage = (imgSrc) => {
@@ -528,7 +528,7 @@ export default function HomeHeroMobile() {
           >
             <div className="grid grid-cols-2 gap-0 border-t border-b border-white/5 py-1">
               {activeSlide.features.slice(0, 4).map((feat, idx) => {
-                const iconName = iconMap[feat.icon] || "carbon:security";
+                const iconName = iconMap[feat.icon] || "hugeicons:security-check";
                 return (
                   <Motion.div
                     key={idx}

@@ -287,9 +287,9 @@ export default function Navbar() {
                     transition={{ duration: 0.12, ease: "easeOut" }}
                   >
                     {theme === "dark" ? (
-                      <Icon icon="carbon:sun" className="w-5 h-5" />
+                      <Icon icon="hugeicons:sun-01" className="w-5 h-5" />
                     ) : (
-                      <Icon icon="carbon:moon" className="w-5 h-5" />
+                      <Icon icon="hugeicons:moon-02" className="w-5 h-5" />
                     )}
                   </Motion.div>
                 </AnimatePresence>
@@ -322,13 +322,9 @@ export default function Navbar() {
                   transition={{ duration: 0.2 }}
                 >
                   {open ? (
-                    <svg className="w-5 h-5 pointer-events-none" viewBox="0 0 32 32" fill="currentColor">
-                      <path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16z" />
-                    </svg>
+                    <Icon icon="hugeicons:cancel-circle" className="w-6 h-6 pointer-events-none" />
                   ) : (
-                    <svg className="w-5 h-5 pointer-events-none" viewBox="0 0 32 32" fill="currentColor">
-                      <path d="M4 6h24v2H4zm0 18h24v2H4zm0-9h24v2H4z" />
-                    </svg>
+                    <Icon icon="hugeicons:menu-01" className="w-6 h-6 pointer-events-none" />
                   )}
                 </Motion.div>
               </Motion.button>

@@ -145,7 +145,7 @@ export default function NavbarSearch({
             whileHover={{ rotate: 12, scale: 1.1 }}
             transition={{ duration: 0.12, ease: "easeOut" }}
           >
-            <Icon icon="carbon:search" className="w-5 h-5 shrink-0" />
+            <Icon icon="hugeicons:search-01" className="w-5 h-5 shrink-0" />
           </motion.div>
         </motion.button>
 
@@ -180,9 +180,7 @@ export default function NavbarSearch({
             title="Close"
             aria-label="Close search"
           >
-            <svg className="w-4 h-4" viewBox="0 0 32 32" fill="currentColor">
-              <path d="M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16z" />
-            </svg>
+            <Icon icon="hugeicons:cancel-circle" className="w-4 h-4" />
           </button>
         )}
       </motion.form>
@@ -270,7 +268,7 @@ export default function NavbarSearch({
                           </div>
                         </div>
                         <Icon
-                          icon="carbon:chevron-right"
+                          icon="hugeicons:arrow-right-01"
                           className={styles.suggestionItemArrow}
                         />
                       </motion.button>
@@ -287,10 +285,10 @@ export default function NavbarSearch({
                   transition={{ delay: 0.2 }}
                 >
                   <div className={styles.suggestionAllLeft}>
-                    <Icon icon="carbon:search" className={styles.suggestionAllIcon} />
+                    <Icon icon="hugeicons:search-01" className={styles.suggestionAllIcon} />
                     <span>View all results for <strong>&ldquo;{query.trim()}&rdquo;</strong></span>
                   </div>
-                  <Icon icon="carbon:arrow-right" className={styles.suggestionAllArrow} />
+                  <Icon icon="hugeicons:arrow-right-01" className={styles.suggestionAllArrow} />
                 </motion.button>
               </>
             ) : (
@@ -299,7 +297,7 @@ export default function NavbarSearch({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
-                <Icon icon="carbon:search" className={styles.noSuggestionIcon} />
+                <Icon icon="hugeicons:search-01" className={styles.noSuggestionIcon} />
                 <p className={styles.noSuggestionText}>
                   No products found for <strong>&ldquo;{query.trim()}&rdquo;</strong>
                 </p>

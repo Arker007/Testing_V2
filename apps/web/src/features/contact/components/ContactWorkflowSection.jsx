@@ -13,7 +13,7 @@ export default function ContactWorkflowSection() {
             <Badge
               variant="eyebrow"
               size="lg"
-              icon={<Icon icon="solar:round-transfer-vertical-linear" className="w-4 h-4" />}
+              icon={<Icon icon="hugeicons:arrow-up-down" className="w-4 h-4" />}
               className={styles.workflowBadge}
             >
               How to Order
@@ -32,7 +32,7 @@ export default function ContactWorkflowSection() {
                 <div className={`${styles.workflowNum} font-mono tabular-nums`}>{step.num}</div>
                 {index < WORKFLOW_STEPS.length - 1 && (
                   <span className={styles.stepArrow} aria-hidden="true">
-                    <Icon icon="carbon:chevron-right" className="w-4 h-4" />
+                    <Icon icon="hugeicons:arrow-right-01" className="w-4 h-4" />
                   </span>
                 )}
               </div>

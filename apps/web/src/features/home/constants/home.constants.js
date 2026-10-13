@@ -40,16 +40,16 @@ function createMotionIcon(iconName) {
   return motion.create(IconWrapper);
 }
 
-export const MotionHardHat = createMotionIcon("solar:shield-check-linear");
-export const MotionShieldCheck = createMotionIcon("solar:shield-check-linear");
-export const MotionRoute = createMotionIcon("solar:routing-linear");
-export const MotionTrees = createMotionIcon("solar:tree-linear");
-export const MotionSchool = createMotionIcon("solar:diploma-verified-linear");
-export const MotionWarehouse = createMotionIcon("solar:box-linear");
-export const MotionSprout = createMotionIcon("solar:leaf-linear");
-export const MotionHomeIcon = createMotionIcon("solar:home-2-linear");
-export const MotionBuilding2 = createMotionIcon("solar:buildings-2-linear");
-export const MotionArrowRight = createMotionIcon("solar:arrow-right-linear");
+export const MotionHardHat = createMotionIcon("hugeicons:shield-check");
+export const MotionShieldCheck = createMotionIcon("hugeicons:shield-check");
+export const MotionRoute = createMotionIcon("hugeicons:route-01");
+export const MotionTrees = createMotionIcon("hugeicons:tree-01");
+export const MotionSchool = createMotionIcon("hugeicons:award-01");
+export const MotionWarehouse = createMotionIcon("hugeicons:package");
+export const MotionSprout = createMotionIcon("hugeicons:leaf-01");
+export const MotionHomeIcon = createMotionIcon("hugeicons:home-01");
+export const MotionBuilding2 = createMotionIcon("hugeicons:building-03");
+export const MotionArrowRight = createMotionIcon("hugeicons:arrow-right-01");
 
 export const hardHatVariants = {
   hover: {

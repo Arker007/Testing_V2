@@ -60,7 +60,7 @@ export default function AdminCategoryEditor() {
         disabled={saving}
         loading={saving}
         loadingText="Saving..."
-        icon={<Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
+        icon={<Icon icon="hugeicons:floppy-disk" className="w-4 h-4 mr-1.5" />}
         className="min-w-[150px]"
       >
         Save category
@@ -102,13 +102,13 @@ export default function AdminCategoryEditor() {
     } catch (err) { alert(err.message || "A network error occurred. Please try again."); } finally { setSaving(false); }
   };
 
-  if (loading) return <div className={styles.loadingState}><Icon icon="carbon:renew" flip="horizontal" className="w-5 h-5 animate-spin inline mr-2" /> Loading category editor...</div>;
+  if (loading) return <div className={styles.loadingState}><Icon icon="hugeicons:recycle-01" flip="horizontal" className="w-5 h-5 animate-spin inline mr-2" /> Loading category editor...</div>;
 
   return (
     <div className={styles.dashboard}>
       <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "8px" }}>
         <Button variant="outline" size="sm" onClick={() => navigate("/admin/categories")}>
-          <Icon icon="carbon:arrow-left" className="w-4 h-4 mr-1 inline" /> Back
+          <Icon icon="hugeicons:arrow-left-01" className="w-4 h-4 mr-1 inline" /> Back
         </Button>
         <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--gray-800)", margin: 0 }}>
           {isNew ? "Add new category" : `Edit category: ${form.name}`}
@@ -119,7 +119,7 @@ export default function AdminCategoryEditor() {
         <form id="category-editor-form" onSubmit={handleSave}>
           <div className={styles.formGrid} style={{ gridTemplateColumns: "1.4fr 0.6fr" }}>
             <div className="space-y-4">
-              <div className={styles.formSectionTitle}><Icon icon="carbon:information" className="w-4 h-4 mr-1 inline" /> Category details</div>
+              <div className={styles.formSectionTitle}><Icon icon="hugeicons:information-circle" className="w-4 h-4 mr-1 inline" /> Category details</div>
               <Input
                 label="Category name *"
                 required
@@ -135,7 +135,7 @@ export default function AdminCategoryEditor() {
                 placeholder="Enter category description..."
               />
 
-              <div className={styles.formSectionTitle} style={{ marginTop: "32px" }}><Icon icon="carbon:list-checked" className="w-4 h-4 mr-1 inline" /> Specification fields template</div>
+              <div className={styles.formSectionTitle} style={{ marginTop: "32px" }}><Icon icon="hugeicons:check-list" className="w-4 h-4 mr-1 inline" /> Specification fields template</div>
               <p style={{ fontSize: "0.8125rem", color: "var(--text-muted)", marginBottom: "16px" }}>Define custom specification fields (such as dimensions or material) for products in this category.</p>
               
               {form.fields.length > 0 && (
@@ -181,7 +181,7 @@ export default function AdminCategoryEditor() {
                     }}
                     title="Drag to reorder"
                   >
-                    <Icon icon="carbon:menu" className="w-4 h-4" />
+                    <Icon icon="hugeicons:menu-01" className="w-4 h-4" />
                   </div>
                   <Input value={fld.name} onChange={(e) => setForm(p => ({ ...p, fields: p.fields.map((x, idx) => idx === i ? { ...x, name: e.target.value } : x) }))} placeholder="e.g. dimensions" />
                   <Input value={fld.label} onChange={(e) => setForm(p => ({ ...p, fields: p.fields.map((x, idx) => idx === i ? { ...x, label: e.target.value } : x) }))} placeholder="e.g. Dimensions (mm)" />
@@ -194,7 +194,7 @@ export default function AdminCategoryEditor() {
                     onClick={() => setForm(p => ({ ...p, fields: p.fields.filter((_, idx) => idx !== i) }))}
                     title="Remove field"
                   >
-                    <Icon icon="carbon:trash-can" className="w-4 h-4" />
+                    <Icon icon="hugeicons:delete-02" className="w-4 h-4" />
                   </Button>
                 </div>
               ))}
@@ -204,13 +204,13 @@ export default function AdminCategoryEditor() {
                 size="sm"
                 onClick={() => setForm(p => ({ ...p, fields: [...p.fields, { name: "", label: "", type: "text", placeholder: "" }] }))}
               >
-                <Icon icon="carbon:add-alt" className="w-4 h-4 mr-1.5 inline" /> Add custom field
+                <Icon icon="hugeicons:add-circle" className="w-4 h-4 mr-1.5 inline" /> Add custom field
               </Button>
             </div>
 
             <div>
               <div className={styles.formSectionTitle}>
-                <Icon icon="carbon:image" className="w-4 h-4 mr-1 inline" /> Category image
+                <Icon icon="hugeicons:image-01" className="w-4 h-4 mr-1 inline" /> Category image
               </div>
               <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginBottom: "16px" }}>Upload a thumbnail image to represent this category in the catalog.</p>
               <div className={styles.imgSection}>
@@ -224,7 +224,7 @@ export default function AdminCategoryEditor() {
                         onClick={() => setForm(p => ({ ...p, image: "" }))}
                         title="Remove image"
                       >
-                        <Icon icon="carbon:close" className="w-3.5 h-3.5" />
+                        <Icon icon="hugeicons:cancel-circle" className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   )}
@@ -235,7 +235,7 @@ export default function AdminCategoryEditor() {
                       onClick={() => setUploadModalOpen(true)}
                       className="w-40 h-32 !flex !flex-col items-center justify-center gap-2 border-dashed border-2 border-[var(--border)] hover:border-[var(--brand-primary)] bg-[var(--bg-surface-secondary)]/50 rounded-lg"
                     >
-                      <Icon icon="carbon:add-alt" className="w-6 h-6 text-[var(--text-muted)]" />
+                      <Icon icon="hugeicons:add-circle" className="w-6 h-6 text-[var(--text-muted)]" />
                       <span className="text-xs font-semibold text-[var(--text-secondary)]">Add image</span>
                     </Button>
                   )}
@@ -255,7 +255,7 @@ export default function AdminCategoryEditor() {
               disabled={saving}
               loading={saving}
               loadingText="Saving category..."
-              icon={<Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
+              icon={<Icon icon="hugeicons:floppy-disk" className="w-4 h-4 mr-1.5" />}
               className="min-w-[160px]"
             >
               Save category

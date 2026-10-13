@@ -93,7 +93,7 @@ export default function AdminLogin() {
 
                     {/* Authority Tag & Hero Headline */}
                     <div className={styles.brandBadge}>
-                        <Icon icon="carbon:security" className="w-3.5 h-3.5" />
+                        <Icon icon="hugeicons:security-check" className="w-3.5 h-3.5" />
                         <span>Authorized access only</span>
                     </div>
 
@@ -110,7 +110,7 @@ export default function AdminLogin() {
                     <div className={styles.featureList}>
                         <div className={styles.featureItem}>
                             <div className={styles.featureIconWrap}>
-                                <Icon icon="carbon:box" className="w-5 h-5" />
+                                <Icon icon="hugeicons:package" className="w-5 h-5" />
                             </div>
                             <div>
                                 <div className={styles.featureTitle}>Catalog and inventory control</div>
@@ -122,7 +122,7 @@ export default function AdminLogin() {
 
                         <div className={styles.featureItem}>
                             <div className={styles.featureIconWrap}>
-                                <Icon icon="carbon:email" className="w-5 h-5" />
+                                <Icon icon="hugeicons:mail-01" className="w-5 h-5" />
                             </div>
                             <div>
                                 <div className={styles.featureTitle}>Direct inquiry dispatch</div>
@@ -134,7 +134,7 @@ export default function AdminLogin() {
 
                         <div className={styles.featureItem}>
                             <div className={styles.featureIconWrap}>
-                                <Icon icon="carbon:password" className="w-5 h-5" />
+                                <Icon icon="hugeicons:lock-password" className="w-5 h-5" />
                             </div>
                             <div>
                                 <div className={styles.featureTitle}>Audit-grade security</div>
@@ -153,7 +153,7 @@ export default function AdminLogin() {
                         <span>System status: All services operational</span>
                     </div>
                     <div className={styles.complianceText}>
-                        <Icon icon="carbon:locked" className="w-3.5 h-3.5" />
+                        <Icon icon="hugeicons:lock-password" className="w-3.5 h-3.5" />
                         <span>256-bit SSL encrypted • ISO 9001:2015 manufacturing standard</span>
                     </div>
                 </div>
@@ -164,11 +164,11 @@ export default function AdminLogin() {
                 {/* Top Nav Bar */}
                 <header className={styles.formTopBar}>
                     <Link to="/" className={styles.backLink} title="Return to public website">
-                        <Icon icon="carbon:arrow-left" className="w-4 h-4" />
+                        <Icon icon="hugeicons:arrow-left-01" className="w-4 h-4" />
                         <span>Return to website</span>
                     </Link>
                     <span className={styles.securityBadge}>
-                        <Icon icon="carbon:locked" className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                        <Icon icon="hugeicons:lock-password" className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                         <span>Admin gateway</span>
                     </span>
                 </header>
@@ -197,7 +197,7 @@ export default function AdminLogin() {
                                     autoComplete="username"
                                     value={form.username}
                                     onChange={(e) => setForm((f) => ({ ...f, username: e.target.value }))}
-                                    leftIcon="carbon:user"
+                                    leftIcon="hugeicons:user"
                                 />
                             </FormField>
 
@@ -212,7 +212,7 @@ export default function AdminLogin() {
                                     autoComplete="current-password"
                                     value={form.password}
                                     onChange={(e) => setForm((f) => ({ ...f, password: e.target.value }))}
-                                    leftIcon="carbon:password"
+                                    leftIcon="hugeicons:lock-password"
                                     rightIcon={
                                         <button
                                             type="button"
@@ -222,7 +222,7 @@ export default function AdminLogin() {
                                             aria-label={showPw ? 'Hide password' : 'Show password'}
                                         >
                                             <Icon
-                                                icon={showPw ? 'carbon:view-off' : 'carbon:view'}
+                                                icon={showPw ? 'hugeicons:view-off' : 'hugeicons:view'}
                                                 className="w-4 h-4"
                                             />
                                         </button>
@@ -248,7 +248,7 @@ export default function AdminLogin() {
                             {error && (
                                 <Alert status="danger" variant="subtle" className="text-xs py-2.5">
                                     <div className="flex items-start gap-1.5">
-                                        <Icon icon="carbon:warning" className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                                        <Icon icon="hugeicons:alert-02" className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
                                         <span>{error}</span>
                                     </div>
                                 </Alert>
@@ -262,7 +262,7 @@ export default function AdminLogin() {
                                 loading={loading}
                                 loadingText="Signing in..."
                                 className={`w-full font-bold shadow-sm ${styles.submitBtn}`}
-                                icon={<Icon icon="carbon:login" className="w-4 h-4 mr-1.5 inline" />}
+                                icon={<Icon icon="hugeicons:login-01" className="w-4 h-4 mr-1.5 inline" />}
                             >
                                 Sign in
                             </Button>
@@ -272,7 +272,7 @@ export default function AdminLogin() {
                         <div className={styles.demoAssistant}>
                             <div className={styles.demoInfo}>
                                 <span className={styles.demoLabel}>
-                                    <Icon icon="carbon:key" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
+                                    <Icon icon="hugeicons:key-01" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
                                     Default credentials
                                 </span>
                                 <span className={styles.demoCreds}>
@@ -285,7 +285,7 @@ export default function AdminLogin() {
                                 className={styles.fillDemoBtn}
                                 title="Auto-fill test credentials"
                             >
-                                <Icon icon="carbon:magic-wand" className="w-3 h-3" />
+                                <Icon icon="hugeicons:sparkles" className="w-3 h-3" />
                                 Auto-fill
                             </button>
                         </div>

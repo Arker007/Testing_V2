@@ -40,7 +40,7 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
 
       <div className={cStyles.formGroup}>
         <label htmlFor="team-member-name" className={cStyles.formLabel}>
-          <Icon icon="carbon:user" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+          <Icon icon="hugeicons:user" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
           <span>Full Representative Name</span>
           <span className="text-red-500 font-bold ml-0.5">*</span>
         </label>
@@ -59,13 +59,13 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
             }
           }}
           placeholder="e.g. Dr. Rajesh Sharma"
-          leftIcon="carbon:user"
+          leftIcon="hugeicons:user"
         />
       </div>
 
       <div className={cStyles.formGroup}>
         <label htmlFor="team-member-role" className={cStyles.formLabel}>
-          <Icon icon="carbon:portfolio" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+          <Icon icon="hugeicons:briefcase-01" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
           <span>Functional Role Title</span>
           <span className="text-red-500 font-bold ml-0.5">*</span>
         </label>
@@ -75,14 +75,14 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
           value={data.role || ""}
           onChange={(e) => onChange("role", e.target.value)}
           placeholder="e.g. Senior Polymer Materials Lead"
-          leftIcon="carbon:portfolio"
+          leftIcon="hugeicons:briefcase-01"
         />
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
         <div className={cStyles.formGroup}>
           <label htmlFor="team-member-init" className={cStyles.formLabel}>
-            <Icon icon="carbon:tag" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+            <Icon icon="hugeicons:tag-01" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
             <span>Avatar Initials (Max 2)</span>
             <span className="text-red-500 font-bold ml-0.5">*</span>
           </label>
@@ -93,13 +93,13 @@ export const TeamModalFields = React.memo(function TeamModalFields({ data, onCha
             value={data.init || ""}
             onChange={(e) => onChange("init", e.target.value.toUpperCase().slice(0, 2))}
             placeholder="e.g. RS"
-            leftIcon="carbon:catalog"
+            leftIcon="hugeicons:catalogue"
           />
         </div>
 
         <div className={cStyles.formGroup}>
           <label className={cStyles.formLabel}>
-            <Icon icon="carbon:color-palette" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
+            <Icon icon="hugeicons:paint-board" className="w-3.5 h-3.5 text-emerald-600 inline mr-1" />
             Custom Color (Hex/Var) *
           </label>
           <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>

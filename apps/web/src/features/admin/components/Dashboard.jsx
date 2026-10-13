@@ -85,7 +85,7 @@ export default function Dashboard() {
           <Button
             variant="primary"
             size="md"
-            icon={<Icon icon="carbon:add" className="w-4 h-4 mr-1.5" />}
+            icon={<Icon icon="hugeicons:add-circle" className="w-4 h-4 mr-1.5" />}
             onClick={() => navigate("/admin/products?new=1")}
           >
             Add Product
@@ -93,7 +93,7 @@ export default function Dashboard() {
           <Button
             variant="outline"
             size="md"
-            icon={<Icon icon="carbon:add" className="w-4 h-4 mr-1.5" />}
+            icon={<Icon icon="hugeicons:add-circle" className="w-4 h-4 mr-1.5" />}
             onClick={() => navigate("/admin/categories?new=1")}
           >
             Add Category
@@ -110,20 +110,20 @@ export default function Dashboard() {
       )}
 
       <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <StatCard iconName="carbon:cube" label="Products Listed" value={loading ? "..." : stats?.products ?? 0} href="/admin/products" />
-        <StatCard iconName="carbon:tag" label="Total Categories" value={loading ? "..." : stats?.categories ?? 0} href="/admin/categories" />
-        <StatCard iconName="carbon:email" label="Inquiries Logged" value={loading ? "..." : inquiries.length} href="/admin/inquiries" />
+        <StatCard iconName="hugeicons:package" label="Products Listed" value={loading ? "..." : stats?.products ?? 0} href="/admin/products" />
+        <StatCard iconName="hugeicons:tag-01" label="Total Categories" value={loading ? "..." : stats?.categories ?? 0} href="/admin/categories" />
+        <StatCard iconName="hugeicons:mail-01" label="Inquiries Logged" value={loading ? "..." : inquiries.length} href="/admin/inquiries" />
       </section>
 
       <section className={styles.grid2}>
         <Card className="p-6">
           <div className={styles.panelHead}>
             <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Icon icon="carbon:cube" className="w-4.5 h-4.5 text-[var(--brand-primary)]" /> Recent Catalog Products
+              <Icon icon="hugeicons:package" className="w-4.5 h-4.5 text-[var(--brand-primary)]" /> Recent Catalog Products
             </h3>
             <Link to="/admin/products" className={styles.link}>See all</Link>
           </div>
-          {loading ? <Skel rows={5} /> : products.length === 0 ? <Empty iconName="carbon:email-new" msg="No products yet" /> : (
+          {loading ? <Skel rows={5} /> : products.length === 0 ? <Empty iconName="hugeicons:mail-01" msg="No products yet" /> : (
             products.map((p) => {
               let img = null;
               try { img = JSON.parse(p.image)?.[0]; } catch { img = p.image; }
@@ -133,14 +133,14 @@ export default function Dashboard() {
                     {img ? (
                       <OptimizedImage src={img} alt={p.name} className="w-full h-full object-cover" />
                     ) : (
-                      <Icon icon="carbon:image" className="w-4.5 h-4.5 text-slate-400" />
+                      <Icon icon="hugeicons:image-01" className="w-4.5 h-4.5 text-slate-400" />
                     )}
                   </div>
                   <div className={styles.listInfo}>
                     <div className={styles.listName}>{p.name}</div>
                     <div className={styles.listSub}>{p.category_name || "Uncategorized"}</div>
                   </div>
-                  <Link to={`/admin/products/${p.id}`} className={styles.miniBtn}><Icon icon="carbon:edit" className="w-3.5 h-3.5" /></Link>
+                  <Link to={`/admin/products/${p.id}`} className={styles.miniBtn}><Icon icon="hugeicons:edit-02" className="w-3.5 h-3.5" /></Link>
                 </div>
               );
             })
@@ -150,11 +150,11 @@ export default function Dashboard() {
         <Card className="p-6">
           <div className={styles.panelHead}>
             <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Icon icon="carbon:email" className="w-4.5 h-4.5 text-[var(--brand-primary)]" /> Recent Inquiries Timeline
+              <Icon icon="hugeicons:mail-01" className="w-4.5 h-4.5 text-[var(--brand-primary)]" /> Recent Inquiries Timeline
             </h3>
             <Link to="/admin/inquiries" className={styles.link}>See all</Link>
           </div>
-          {loading ? <Skel rows={5} /> : inquiries.length === 0 ? <Empty iconName="carbon:email-new" msg="No incoming inquiries" /> : (
+          {loading ? <Skel rows={5} /> : inquiries.length === 0 ? <Empty iconName="hugeicons:mail-01" msg="No incoming inquiries" /> : (
             <div className={styles.activityFeed}>
               {inquiries.map((inq, idx) => {
                 const isProduct = inq.product_id || inq.message?.toLowerCase().includes("product") || inq.message?.toLowerCase().includes("pallet");
@@ -185,15 +185,15 @@ export default function Dashboard() {
       <Card className="p-6 mt-6">
         <div className={styles.panelHead}>
           <h3 className={styles.panelTitle} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <Icon icon="carbon:data-base" className="w-4.5 h-4.5 text-[var(--brand-primary)]" /> System Service Metrics
+            <Icon icon="hugeicons:database" className="w-4.5 h-4.5 text-[var(--brand-primary)]" /> System Service Metrics
           </h3>
           {sysStatus && <span className={styles.healthTime}>Refreshed at {sysStatus.time.toLocaleTimeString("en-IN")}</span>}
         </div>
         <div className={styles.statusFlexRow}>
-          <StatusRow label="API Framework" ok={sysStatus?.api?.ok} loading={sysLoading} detail={sysStatus?.api?.ok ? `${sysStatus.api.ms}ms` : "Network down"} iconName="carbon:activity" />
-          <StatusRow label="Products Registry" ok={sysStatus?.api?.ok} loading={sysLoading} detail={sysStatus?.api?.ok ? `${stats?.products ?? 0} items` : "Locked"} iconName="carbon:cube" />
-          <StatusRow label="Categories Matrix" ok={sysStatus?.cats?.ok} loading={sysLoading} detail={sysStatus?.cats?.ok ? `${stats?.categories ?? 0} groups` : "Locked"} iconName="carbon:tag" />
-          <StatusRow label="Inquiries Stream" ok={sysStatus?.inqs?.ok} loading={sysLoading} detail={sysStatus?.inqs?.ok ? "Live" : "Unreachable"} iconName="carbon:email" />
+          <StatusRow label="API Framework" ok={sysStatus?.api?.ok} loading={sysLoading} detail={sysStatus?.api?.ok ? `${sysStatus.api.ms}ms` : "Network down"} iconName="hugeicons:activity-01" />
+          <StatusRow label="Products Registry" ok={sysStatus?.api?.ok} loading={sysLoading} detail={sysStatus?.api?.ok ? `${stats?.products ?? 0} items` : "Locked"} iconName="hugeicons:package" />
+          <StatusRow label="Categories Matrix" ok={sysStatus?.cats?.ok} loading={sysLoading} detail={sysStatus?.cats?.ok ? `${stats?.categories ?? 0} groups` : "Locked"} iconName="hugeicons:tag-01" />
+          <StatusRow label="Inquiries Stream" ok={sysStatus?.inqs?.ok} loading={sysLoading} detail={sysStatus?.inqs?.ok ? "Live" : "Unreachable"} iconName="hugeicons:mail-01" />
         </div>
       </Card>
     </div>
@@ -207,7 +207,7 @@ function StatusRow({ iconName, label, ok, loading, detail }) {
     <div className={`${styles.statusRowMini} ${stateClass}`}>
       <div className={styles.statusIconMini}>
         {loading ? (
-          <Icon icon="solar:refresh-circle-linear" flip="horizontal" className="w-4 h-4 animate-spin" />
+          <Icon icon="hugeicons:recycle-01" flip="horizontal" className="w-4 h-4 animate-spin" />
         ) : (
           <Icon icon={iconName} className="w-4 h-4" />
         )}
@@ -216,11 +216,11 @@ function StatusRow({ iconName, label, ok, loading, detail }) {
       <div className={styles.statusDetailMini}>{loading ? "Verifying..." : detail}</div>
       <div className={styles.statusBadgeMini}>
         {loading ? (
-          <Icon icon="solar:refresh-circle-linear" flip="horizontal" className="w-3.5 h-3.5 animate-spin" />
+          <Icon icon="hugeicons:recycle-01" flip="horizontal" className="w-3.5 h-3.5 animate-spin" />
         ) : ok ? (
-          <Icon icon="solar:check-circle-bold" className="w-3.5 h-3.5" />
+          <Icon icon="hugeicons:checkmark-circle-02" className="w-3.5 h-3.5" />
         ) : (
-          <Icon icon="solar:close-circle-bold" className="w-3.5 h-3.5" />
+          <Icon icon="hugeicons:cancel-circle" className="w-3.5 h-3.5" />
         )}
       </div>
     </div>

@@ -118,7 +118,7 @@ export default function ImageUploadModal({
         loading={uploading}
         loadingText="Uploading..."
         disabled={!file || uploading}
-        icon={<Icon icon="carbon:upload" className="w-4 h-4 mr-1.5" />}
+        icon={<Icon icon="hugeicons:upload-01" className="w-4 h-4 mr-1.5" />}
       >
         Upload Image
       </Button>
@@ -187,7 +187,7 @@ export default function ImageUploadModal({
           ) : (
             <div className="space-y-2 py-4">
               <div className="w-12 h-12 rounded-full bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] flex items-center justify-center mx-auto mb-2">
-                <Icon icon="carbon:cloud-upload" className="w-6 h-6" />
+                <Icon icon="hugeicons:upload-01" className="w-6 h-6" />
               </div>
               <p className="text-sm font-semibold text-[var(--text-primary)]">
                 Click to upload or drag & drop

@@ -136,7 +136,7 @@ export default function AdminProducts() {
           [1, 2, 3, 4, 5].map((i) => <div key={i} className={styles.skeleRow} />)
         ) : filtered.length === 0 ? (
           <EmptyState
-            icon="solar:box-minimalistic-linear"
+            icon="hugeicons:package"
             title={search || catFilter !== "all" ? "No products match your search filters" : "No products found"}
             description={!search && catFilter === "all" ? "Start by adding your first product to the catalog." : "Try clearing your search query or selecting a different category."}
             action={
@@ -170,7 +170,7 @@ export default function AdminProducts() {
                       {img ? (
                         <OptimizedImage src={img} alt={p.name} className="w-full h-full object-cover rounded" />
                       ) : (
-                        <Icon icon="solar:box-minimalistic-linear" className="w-4 h-4 text-slate-400" />
+                        <Icon icon="hugeicons:package" className="w-4 h-4 text-slate-400" />
                       )}
                     </div>
                     <div>
@@ -201,7 +201,7 @@ export default function AdminProducts() {
                   <div className={styles.rowActions}>
                     <Link to={`/admin/products/${p.id}`} title="Edit product">
                       <Button variant="ghost" size="sm" className="!p-1.5 !h-auto text-slate-500 hover:text-slate-800">
-                        <Icon icon="solar:pen-linear" className="w-4 h-4" />
+                        <Icon icon="hugeicons:edit-02" className="w-4 h-4" />
                       </Button>
                     </Link>
                     <Button
@@ -212,7 +212,7 @@ export default function AdminProducts() {
                       title="Delete product"
                       disabled={deleting === p.id}
                     >
-                      {deleting === p.id ? <Spinner size="sm" /> : <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />}
+                      {deleting === p.id ? <Spinner size="sm" /> : <Icon icon="hugeicons:delete-02" className="w-4 h-4" />}
                     </Button>
                   </div>
                 </div>
@@ -237,7 +237,7 @@ export default function AdminProducts() {
         <div className={styles.drawerHeader}>
           <h2 className={styles.drawerTitle}>Product preview</h2>
           <button className={styles.drawerCloseBtn} onClick={() => setActiveItem(null)}>
-            <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
+            <Icon icon="hugeicons:cancel-circle" className="w-5 h-5" />
           </button>
         </div>
         {activeItem && (
@@ -279,7 +279,7 @@ export default function AdminProducts() {
             </div>
             <div style={{ marginTop: "auto", paddingTop: 16, borderTop: "1px solid var(--border)", display: "flex", gap: 12 }}>
               <Link to={`/admin/products/${activeItem.id}`} style={{ flex: 1, textDecoration: "none" }}>
-                <Button variant="primary" size="md" className="w-full justify-center" icon={<Icon icon="solar:pen-linear" className="w-4 h-4 mr-1.5" />}>
+                <Button variant="primary" size="md" className="w-full justify-center" icon={<Icon icon="hugeicons:edit-02" className="w-4 h-4 mr-1.5" />}>
                   Edit full details
                 </Button>
               </Link>

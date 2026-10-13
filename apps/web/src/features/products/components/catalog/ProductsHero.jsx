@@ -18,7 +18,7 @@ export default function ProductsHero({ activeCategory }) {
       bgImage={productsHeroBg}
       bgOpacity="opacity-60"
       tag={c("products_hero_tag", "Industrial Polymer Products")}
-      tagIcon="carbon:cube"
+      tagIcon="hugeicons:package"
       title={c("products_hero_title", "Recycled Plastic Pallet & Lumber Catalog")}
       description={c(
         "products_hero_subtitle",

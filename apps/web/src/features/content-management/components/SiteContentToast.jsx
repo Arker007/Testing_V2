@@ -44,7 +44,7 @@ export default function SiteContentToast({
         }}
       >
         <Icon
-          icon={isError ? "carbon:close-filled" : "carbon:checkmark-filled"}
+          icon={isError ? "hugeicons:cancel-circle" : "hugeicons:checkmark-circle-02"}
           className="w-4 h-4"
         />
       </div>
@@ -63,7 +63,7 @@ export default function SiteContentToast({
         }}
         title="Dismiss"
       >
-        <Icon icon="carbon:close-outline" className="w-4 h-4" />
+        <Icon icon="hugeicons:cancel-circle" className="w-4 h-4" />
       </button>
     </div>
   );

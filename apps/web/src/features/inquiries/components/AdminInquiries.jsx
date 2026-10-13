@@ -104,7 +104,7 @@ export default function AdminInquiries() {
                 {loading ? [1, 2, 3, 4].map(i => <div key={i} className={styles.skeleRow} />) :
                     filteredInquiries.length === 0 ? (
                         <EmptyState
-                            icon="carbon:email-new"
+                            icon="hugeicons:mail-01"
                             title="No matching inquiries found"
                             description="Try adjusting your search terms or filter selection."
                             size="sm"
@@ -128,8 +128,8 @@ export default function AdminInquiries() {
                                         {inq.message || 'No text snippet provided.'}
                                     </div>
                                     <div className={iStyles.metaLine}>
-                                        {inq.phone && <span><Icon icon="solar:phone-linear" className="w-3.5 h-3.5 inline mr-1" /> {inq.phone}</span>}
-                                        {inq.company && <span><Icon icon="solar:buildings-2-linear" className="w-3.5 h-3.5 inline mr-1" /> {inq.company}</span>}
+                                        {inq.phone && <span><Icon icon="hugeicons:call" className="w-3.5 h-3.5 inline mr-1" /> {inq.phone}</span>}
+                                        {inq.company && <span><Icon icon="hugeicons:building-03" className="w-3.5 h-3.5 inline mr-1" /> {inq.company}</span>}
                                     </div>
                                 </div>
                                 <div className={iStyles.contactCell}>
@@ -151,7 +151,7 @@ export default function AdminInquiries() {
                                 <div className={styles.rowActions} style={{ justifyContent: 'center' }}>
                                     <Link to={`/admin/inquiries/${inq.source}/${inq.id}`} title="View inquiry">
                                         <Button variant="ghost" size="sm" className="!p-1.5 !h-auto text-slate-500 hover:text-slate-800">
-                                            <Icon icon="solar:eye-linear" className="w-4 h-4" />
+                                            <Icon icon="hugeicons:view" className="w-4 h-4" />
                                         </Button>
                                     </Link>
                                     <Button
@@ -162,7 +162,7 @@ export default function AdminInquiries() {
                                         disabled={isDeletingThis}
                                         title="Delete inquiry"
                                     >
-                                        {isDeletingThis ? <Spinner size="sm" /> : <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />}
+                                        {isDeletingThis ? <Spinner size="sm" /> : <Icon icon="hugeicons:delete-02" className="w-4 h-4" />}
                                     </Button>
                                 </div>
                             </div>
@@ -186,7 +186,7 @@ export default function AdminInquiries() {
                 <div className={styles.drawerHeader}>
                     <h2 className={styles.drawerTitle}>Inquiry details</h2>
                     <button className={styles.drawerCloseBtn} onClick={() => setActiveItem(null)}>
-                        <Icon icon="solar:close-circle-linear" className="w-5 h-5" />
+                        <Icon icon="hugeicons:cancel-circle" className="w-5 h-5" />
                     </button>
                 </div>
                 {activeItem && (

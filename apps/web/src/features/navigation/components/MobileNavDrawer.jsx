@@ -65,7 +65,7 @@ export default function MobileNavDrawer({
           >
             {/* Optional Search Bar */}
             <form onSubmit={handleSearch} className={styles.dSearch}>
-              <Icon icon="carbon:search" className="w-4 h-4 text-slate-400 shrink-0" />
+              <Icon icon="hugeicons:search-01" className="w-4 h-4 text-slate-400 shrink-0" />
               <input
                 type="text"
                 placeholder="Search products..."
@@ -80,7 +80,7 @@ export default function MobileNavDrawer({
                   className={styles.dSearchClear}
                   aria-label="Clear search text"
                 >
-                  <Icon icon="carbon:close" className="w-4 h-4" />
+                  <Icon icon="hugeicons:cancel-circle" className="w-4 h-4" />
                 </button>
               )}
             </form>
@@ -140,7 +140,7 @@ export default function MobileNavDrawer({
             >
               <span>Products</span>
               <Icon
-                icon="carbon:chevron-down"
+                icon="hugeicons:arrow-down-01"
                 className={`w-4 h-4 transition-transform duration-200 ${
                   mobileProductsOpen ? "rotate-180" : ""
                 }`}
@@ -182,7 +182,7 @@ export default function MobileNavDrawer({
                             onClick={() => setOpen(false)}
                           >
                             {cat.name}
-                            <Icon icon="carbon:chevron-right" className="w-3.5 h-3.5 ml-auto text-slate-400" />
+                            <Icon icon="hugeicons:arrow-right-01" className="w-3.5 h-3.5 ml-auto text-slate-400" />
                           </Link>
                           <div className={styles.dCategoryProducts}>
                             {catProducts.slice(0, 3).map((prod) => (

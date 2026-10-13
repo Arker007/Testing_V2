@@ -94,7 +94,7 @@ export default function Button({
       {loading ? (
         <span className="shrink-0 inline-flex items-center transition-opacity duration-150">
           <Icon
-            icon="solar:refresh-circle-linear"
+            icon="hugeicons:recycle-01"
             flip="horizontal"
             className={`${selectedSpinnerSize} animate-spin shrink-0`}
             aria-hidden="true"
@@ -107,9 +107,9 @@ export default function Button({
       {showArrow && !loading && (
         <span className="shrink-0 transition-transform duration-200 group-hover:translate-x-1">
           {variant === "outline" || variant === "ghost" ? (
-            <Icon icon="solar:alt-arrow-right-linear" className={selectedArrowSize} />
+            <Icon icon="hugeicons:arrow-right-01" className={selectedArrowSize} />
           ) : (
-            <Icon icon="solar:arrow-right-linear" className={selectedArrowSize} />
+            <Icon icon="hugeicons:arrow-right-01" className={selectedArrowSize} />
           )}
         </span>
       )}

@@ -46,12 +46,12 @@ export default function AdminInquiryDetail() {
     if (!current) {
         return (
             <EmptyState
-                icon="carbon:email-new"
+                icon="hugeicons:mail-01"
                 title="Inquiry not found"
                 description="The requested inquiry does not exist or has been deleted."
                 action={
                     <Link to="/admin/inquiries" className={styles.actionBtnSecondary}>
-                        <Icon icon="carbon:arrow-left" className="w-4 h-4 mr-1 inline" /> Back to inquiries
+                        <Icon icon="hugeicons:arrow-left-01" className="w-4 h-4 mr-1 inline" /> Back to inquiries
                     </Link>
                 }
             />
@@ -91,7 +91,7 @@ export default function AdminInquiryDetail() {
                             onClick={() => setShowDeleteConfirm(true)}
                             disabled={deleting}
                         >
-                            {deleting ? <Spinner size="sm" /> : <Icon icon="carbon:trash-can" className="w-4 h-4 mr-1.5" />}
+                            {deleting ? <Spinner size="sm" /> : <Icon icon="hugeicons:delete-02" className="w-4 h-4 mr-1.5" />}
                             Delete
                         </Button>
                         <div className={iStyles.navCluster}>
@@ -101,7 +101,7 @@ export default function AdminInquiryDetail() {
                                 style={{ padding: '8px 14px' }}
                                 onClick={(e) => !previous && e.preventDefault()}
                             >
-                                <Icon icon="carbon:chevron-left" className="w-4 h-4 mr-1 inline" /> Previous
+                                <Icon icon="hugeicons:arrow-left-01" className="w-4 h-4 mr-1 inline" /> Previous
                             </Link>
                             <Link
                                 to={next ? `/admin/inquiries/${next.source}/${next.id}` : '#'}
@@ -109,7 +109,7 @@ export default function AdminInquiryDetail() {
                                 style={{ padding: '8px 14px' }}
                                 onClick={(e) => !next && e.preventDefault()}
                             >
-                                Next <Icon icon="carbon:chevron-right" className="w-4 h-4 ml-1 inline" />
+                                Next <Icon icon="hugeicons:arrow-right-01" className="w-4 h-4 ml-1 inline" />
                             </Link>
                         </div>
                     </div>
@@ -120,7 +120,7 @@ export default function AdminInquiryDetail() {
                 <div className={iStyles.detailHeader}>
                     <div>
                         <span className={iStyles.sourceBadge}>
-                            <Icon icon="carbon:email-new" className="w-4 h-4 mr-1 inline text-emerald-500" /> {sourceLabel}
+                            <Icon icon="hugeicons:mail-01" className="w-4 h-4 mr-1 inline text-emerald-500" /> {sourceLabel}
                         </span>
                     </div>
                 </div>
@@ -153,7 +153,7 @@ export default function AdminInquiryDetail() {
                 <div className={iStyles.actionsRow}>
                     {current.email && (
                         <a href={`mailto:${current.email}?subject=Re: ${current.productName || 'Your Request'}`} className={styles.actionBtnPrimary}>
-                            <Icon icon="carbon:reply" className="w-4 h-4 mr-1.5 inline" /> Reply by email
+                            <Icon icon="hugeicons:reply" className="w-4 h-4 mr-1.5 inline" /> Reply by email
                         </a>
                     )}
                     {current.phone && (

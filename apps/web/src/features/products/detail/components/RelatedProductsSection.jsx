@@ -22,7 +22,7 @@ export default function RelatedProductsSection({ relatedProducts }) {
           className="text-xs sm:text-sm font-bold text-[var(--text-brand)] hover:underline flex items-center gap-1.5"
         >
           <span>View Full Catalog</span>
-          <Icon icon="carbon:arrow-right" className="w-4 h-4" />
+          <Icon icon="hugeicons:arrow-right-01" className="w-4 h-4" />
         </Link>
       </div>
 

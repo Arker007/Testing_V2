@@ -105,12 +105,12 @@ function ProductListItemCard({
 
           <div className={styles.mobileListSpecsRow}>
             <div className={styles.mobileListSpecItem}>
-              <Icon icon="solar:box-linear" className={styles.mobileListSpecIcon} />
+              <Icon icon="hugeicons:package" className={styles.mobileListSpecIcon} />
               <span>{mobileLoadStr}</span>
             </div>
             <span className={styles.mobileListSpecDivider}>|</span>
             <div className={styles.mobileListSpecItem}>
-              <Icon icon="solar:maximize-square-minimalistic-linear" className={styles.mobileListSpecIcon} />
+              <Icon icon="hugeicons:maximize-screen" className={styles.mobileListSpecIcon} />
               <span>{mobileDimStr}</span>
             </div>
           </div>
@@ -122,7 +122,7 @@ function ProductListItemCard({
           title={`View details for ${title}`}
           aria-label={`View details for ${title}`}
         >
-          <Icon icon="solar:arrow-right-linear" className={styles.mobileListActionIcon} />
+          <Icon icon="hugeicons:arrow-right-01" className={styles.mobileListActionIcon} />
         </Link>
       </div>
 
@@ -161,7 +161,7 @@ function ProductListItemCard({
           <div className={styles.specPanel}>
             <div className={styles.specDimRow}>
               <span className={styles.specDimLabel}>
-                <Icon icon="solar:box-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
+                <Icon icon="hugeicons:package" className="w-3.5 h-3.5 text-[var(--brand-primary)] shrink-0" />
                 Dimensions
               </span>
               <span className={styles.specDimValue} title={cleanDimStr}>{cleanDimStr}</span>
@@ -189,7 +189,7 @@ function ProductListItemCard({
         <div className={styles.listCardActions}>
           <Link to={`/products/${product.id}`} className={styles.primaryViewBtn}>
             <span>View Product</span>
-            <Icon icon="solar:arrow-right-linear" className={`w-4 h-4 ml-1 ${styles.primaryViewArrow}`} />
+            <Icon icon="hugeicons:arrow-right-01" className={`w-4 h-4 ml-1 ${styles.primaryViewArrow}`} />
           </Link>
 
           <button
@@ -199,7 +199,7 @@ function ProductListItemCard({
             title={`View Product Specs for ${title}`}
             aria-label={`View Product Specs for ${title}`}
           >
-            <Icon icon="solar:document-text-linear" className="w-3.5 h-3.5 mr-1.5" />
+            <Icon icon="hugeicons:document-attachment" className="w-3.5 h-3.5 mr-1.5" />
             <span className={styles.datasheetText}>Product Specs</span>
           </button>
         </div>

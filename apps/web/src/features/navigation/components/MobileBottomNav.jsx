@@ -32,7 +32,7 @@ export default function MobileBottomNav() {
           onClick={handleNavClick}
           className={isHomeActive ? `${styles.navItem} ${styles.active}` : styles.navItem}
         >
-          <Icon icon="carbon:home" className="w-5 h-5 mb-0.5" />
+          <Icon icon="hugeicons:home-01" className="w-5 h-5 mb-0.5" />
           <span>Home</span>
         </NavLink>
       )}
@@ -43,7 +43,7 @@ export default function MobileBottomNav() {
           onClick={handleNavClick}
           className={isProductsActive ? `${styles.navItem} ${styles.active}` : styles.navItem}
         >
-          <Icon icon="carbon:cube" className="w-5 h-5 mb-0.5" />
+          <Icon icon="hugeicons:package" className="w-5 h-5 mb-0.5" />
           <span>Catalog</span>
         </NavLink>
       )}
@@ -59,7 +59,7 @@ export default function MobileBottomNav() {
         aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
       >
         <Icon
-          icon={mobileMenuOpen ? "carbon:close" : "carbon:menu"}
+          icon={mobileMenuOpen ? "hugeicons:cancel-circle" : "hugeicons:menu-01"}
           className="w-5 h-5 mb-0.5 pointer-events-none"
         />
         <span>{mobileMenuOpen ? "Close" : "Menu"}</span>
@@ -73,7 +73,7 @@ export default function MobileBottomNav() {
         className={`${styles.navItem} ${styles.waItem}`}
         aria-label="Chat on WhatsApp"
       >
-        <Icon icon="carbon:chat" className="w-5 h-5 mb-0.5 text-[#25D366]" />
+        <Icon icon="hugeicons:chat-01" className="w-5 h-5 mb-0.5 text-[#25D366]" />
         <span>WhatsApp</span>
       </a>
 
@@ -88,7 +88,7 @@ export default function MobileBottomNav() {
           className={`${styles.navItem} ${styles.quoteItem}`}
           aria-label="Request a Quote"
         >
-          <Icon icon="carbon:document" className="w-5 h-5 mb-0.5" />
+          <Icon icon="hugeicons:document-attachment" className="w-5 h-5 mb-0.5" />
           <span>Quote</span>
         </button>
       )}

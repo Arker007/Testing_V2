@@ -8,7 +8,7 @@ export const TimelineModalFields = React.memo(function TimelineModalFields({ dat
     <>
       <div className={cStyles.formGroup}>
         <label htmlFor="timeline-year" className={cStyles.formLabel}>
-          <Icon icon="carbon:calendar" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+          <Icon icon="hugeicons:calendar-01" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
           <span>Year / Milestone Period</span>
           <span className="text-red-500 font-bold ml-0.5">*</span>
         </label>
@@ -18,13 +18,13 @@ export const TimelineModalFields = React.memo(function TimelineModalFields({ dat
           value={data.year || ""}
           onChange={(e) => onChange("year", e.target.value)}
           placeholder="e.g. 2018 or 2024–Present"
-          leftIcon="carbon:calendar"
+          leftIcon="hugeicons:calendar-01"
         />
       </div>
 
       <div className={cStyles.formGroup}>
         <label htmlFor="timeline-title" className={cStyles.formLabel}>
-          <Icon icon="carbon:flag" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+          <Icon icon="hugeicons:flag-01" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
           <span>Strategic Milestone Title</span>
           <span className="text-red-500 font-bold ml-0.5">*</span>
         </label>
@@ -34,13 +34,13 @@ export const TimelineModalFields = React.memo(function TimelineModalFields({ dat
           value={data.title || ""}
           onChange={(e) => onChange("title", e.target.value)}
           placeholder="e.g. Nationwide Distribution & Export Expansion"
-          leftIcon="carbon:flag"
+          leftIcon="hugeicons:flag-01"
         />
       </div>
 
       <div className={cStyles.formGroup}>
         <label htmlFor="timeline-desc" className={cStyles.formLabel}>
-          <Icon icon="carbon:text-align-left" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+          <Icon icon="hugeicons:left-to-right-list-bullet" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
           <span>Descriptive Detail & Key Accomplishments</span>
         </label>
         <Textarea

@@ -15,7 +15,7 @@ export default function ImagesTab({
   return (
     <div>
       <div className={styles.formSectionTitle} style={{ marginTop: 0 }}>
-        <Icon icon="carbon:image" className="w-4 h-4 mr-1 inline" /> Linked Product Images
+        <Icon icon="hugeicons:image-01" className="w-4 h-4 mr-1 inline" /> Linked Product Images
       </div>
       <p
         style={{
@@ -48,7 +48,7 @@ export default function ImagesTab({
                   />
                 ) : (
                   <Icon
-                    icon="carbon:image"
+                    icon="hugeicons:image-01"
                     className="w-6 h-6 text-slate-400"
                   />
                 )}
@@ -106,7 +106,7 @@ export default function ImagesTab({
                   className="!p-1.5 !h-auto text-rose-500 hover:text-rose-700 hover:bg-rose-500/10 rounded-lg"
                   title="Delete Image Slot"
                 >
-                  <Icon icon="carbon:trash-can" className="w-4 h-4" />
+                  <Icon icon="hugeicons:delete-02" className="w-4 h-4" />
                 </Button>
                 {i > 0 && (
                   <Button
@@ -136,14 +136,14 @@ export default function ImagesTab({
             style={{ display: "none" }}
           />
           <span className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg border border-[var(--border)] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] transition-colors shadow-sm">
-            <Icon icon="carbon:upload" className="w-4 h-4" /> Upload Multiple Images
+            <Icon icon="hugeicons:upload-01" className="w-4 h-4" /> Upload Multiple Images
           </span>
         </label>
         <Button
           type="button"
           variant="outline"
           size="md"
-          icon={<Icon icon="carbon:link" className="w-4 h-4 mr-1.5" />}
+          icon={<Icon icon="hugeicons:link-01" className="w-4 h-4 mr-1.5" />}
           onClick={handleAddBlankImage}
         >
           Add External Image URL Only

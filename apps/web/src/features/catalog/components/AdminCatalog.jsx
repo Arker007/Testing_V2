@@ -32,7 +32,7 @@ export default function AdminCatalog() {
           variant={splitView ? "secondary" : "outline"}
           size="sm"
           onClick={() => setSplitView((prev) => !prev)}
-          icon={<Icon icon={splitView ? "carbon:view-off" : "carbon:view"} className="w-4 h-4 mr-1" />}
+          icon={<Icon icon={splitView ? "hugeicons:view-off" : "hugeicons:view"} className="w-4 h-4 mr-1" />}
         >
           {splitView ? "Hide template" : "Show template spread"}
         </Button>
@@ -41,7 +41,7 @@ export default function AdminCatalog() {
           variant="primary"
           size="sm"
           onClick={() => window.print()}
-          icon={<Icon icon="carbon:printer" className="w-4 h-4 mr-1" />}
+          icon={<Icon icon="hugeicons:printer" className="w-4 h-4 mr-1" />}
         >
           Print or save PDF
         </Button>
@@ -61,7 +61,7 @@ export default function AdminCatalog() {
         }}
       >
         <Icon
-          icon="carbon:renew"
+          icon="hugeicons:recycle-01"
           flip="horizontal"
           className="w-10 h-10 animate-spin text-[var(--brand)]"
         />
@@ -98,7 +98,7 @@ export default function AdminCatalog() {
               size="sm"
               disabled={activeSpreadIdx === 0}
               onClick={() => setActiveSpreadIdx((idx) => Math.max(0, idx - 1))}
-              icon={<Icon icon="carbon:chevron-left" className="w-4 h-4 mr-1" />}
+              icon={<Icon icon="hugeicons:arrow-left-01" className="w-4 h-4 mr-1" />}
             >
               Previous
             </Button>
@@ -117,7 +117,7 @@ export default function AdminCatalog() {
                   Math.min(spreads.length - 1, idx + 1)
                 )
               }
-              icon={<Icon icon="carbon:chevron-right" className="w-4 h-4 ml-1 order-last" />}
+              icon={<Icon icon="hugeicons:arrow-right-01" className="w-4 h-4 ml-1 order-last" />}
             >
               Next
             </Button>

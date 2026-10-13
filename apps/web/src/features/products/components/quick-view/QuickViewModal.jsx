@@ -71,7 +71,7 @@ export default function QuickViewModal({
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.92 }}
             >
-              <Icon icon="carbon:close" className="w-5 h-5" />
+              <Icon icon="hugeicons:cancel-circle" className="w-5 h-5" />
             </motion.button>
 
             {/* Header category and SKU row */}
@@ -122,11 +122,11 @@ export default function QuickViewModal({
             {/* Highlights List */}
             <div className={styles.modalHighlights}>
               <div className={styles.highlightItem}>
-                <Icon icon="carbon:checkmark-outline" className={`${styles.checkIcon} w-4 h-4`} />
+                <Icon icon="hugeicons:checkmark-circle-02" className={`${styles.checkIcon} w-4 h-4`} />
                 <span>Water, termite & rot proof section</span>
               </div>
               <div className={styles.highlightItem}>
-                <Icon icon="carbon:checkmark-outline" className={`${styles.checkIcon} w-4 h-4`} />
+                <Icon icon="hugeicons:checkmark-circle-02" className={`${styles.checkIcon} w-4 h-4`} />
                 <span>Can be sawn, drilled & screwed like wood</span>
               </div>
             </div>
@@ -140,7 +140,7 @@ export default function QuickViewModal({
                   size="md"
                   onClick={() => onRequestQuote(product)}
                   className="flex-1 min-h-[44px]"
-                  icon={<Icon icon="carbon:chat" className="w-4 h-4 mr-1.5" />}
+                  icon={<Icon icon="hugeicons:chat-01" className="w-4 h-4 mr-1.5" />}
                 >
                   Get a Quote
                 </Button>
@@ -158,7 +158,7 @@ export default function QuickViewModal({
                 className={styles.modalDetailsBtn}
               >
                 <span>Full Specs Page</span>
-                <Icon icon="carbon:chevron-right" className="w-4 h-4" />
+                <Icon icon="hugeicons:arrow-right-01" className="w-4 h-4" />
               </Link>
             </div>
           </motion.div>

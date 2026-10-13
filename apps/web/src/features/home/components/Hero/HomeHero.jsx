@@ -12,15 +12,15 @@ import weatherResistantBg from "../../../../assets/images/backgrounds/weather_re
 
 // Slide-specific linear icons map from @iconify/react
 const iconMap = {
-  ShieldCheck: "carbon:security",
-  Link2: "carbon:certificate",
-  Droplets: "carbon:rain-drop",
-  Wrench: "carbon:flash",
-  Leaf: "carbon:recycle",
-  Check: "carbon:checkmark",
-  Eye: "carbon:star",
-  Plane: "carbon:delivery-truck",
-  Waves: "carbon:rain-drop"
+  ShieldCheck: "hugeicons:security-check",
+  Link2: "hugeicons:award-01",
+  Droplets: "hugeicons:droplet",
+  Wrench: "hugeicons:flash",
+  Leaf: "hugeicons:recycle-01",
+  Check: "hugeicons:checkmark-circle-02",
+  Eye: "hugeicons:star",
+  Plane: "hugeicons:truck-delivery",
+  Waves: "hugeicons:droplet"
 };
 
 const getOptimizedHeroImage = (imgSrc) => {
@@ -283,7 +283,7 @@ export default function HomeHero() {
                 {/* Manufacturer Badge */}
                 <Motion.div variants={badgeVariants} className={styles.badge}>
                   <div className={styles.badgeIconWrapper}>
-                    <Icon icon="carbon:industry" className={styles.badgeIcon} />
+                    <Icon icon="hugeicons:factory" className={styles.badgeIcon} />
                   </div>
                   <span className={styles.badgeText}>{activeSlide.badge}</span>
                 </Motion.div>
@@ -322,7 +322,7 @@ export default function HomeHero() {
                 className={styles.featurePanel}
               >
                 {activeSlide.features.map((feat, idx) => {
-                  const iconName = iconMap[feat.icon] || "carbon:security";
+                  const iconName = iconMap[feat.icon] || "hugeicons:security-check";
                   return (
                     <Motion.div
                       key={idx}
@@ -360,7 +360,7 @@ export default function HomeHero() {
                     transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
                     className="inline-flex items-center"
                   >
-                    <Icon icon="carbon:arrow-right" className="exploreBtnArrowGlobal" />
+                    <Icon icon="hugeicons:arrow-right-01" className="exploreBtnArrowGlobal" />
                   </Motion.span>
                 </Link>
               </Motion.div>
@@ -568,7 +568,7 @@ export default function HomeHero() {
                     whileHover={shouldReduceMotion ? {} : { rotate: [0, -8, 8, 0] }}
                     transition={{ duration: 0.4 }}
                   >
-                    <Icon icon="carbon:headset" className="w-5 h-5 text-white" />
+                    <Icon icon="hugeicons:customer-service" className="w-5 h-5 text-white" />
                   </Motion.div>
                   <div className={styles.assistanceTextGroup}>
                     <span className={styles.assistanceLabel}>{c("hero_assistance_title", "Need assistance?")}</span>
@@ -583,7 +583,7 @@ export default function HomeHero() {
                     whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 450, damping: 25 }}
                   >
-                    <Icon icon="carbon:phone" className="w-3.5 h-3.5 text-inherit" />
+                    <Icon icon="hugeicons:call" className="w-3.5 h-3.5 text-inherit" />
                     <span>{c("hero_assistance_btn", "Contact us")}</span>
                   </Motion.a>
                 </Motion.div>

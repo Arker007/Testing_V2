@@ -135,11 +135,11 @@ export function Th({
       <span>{children}</span>
       <span className="shrink-0 text-[var(--text-muted)]">
         {sortDirection === "asc" ? (
-          <Icon icon="solar:alt-arrow-up-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
+          <Icon icon="hugeicons:arrow-up-01" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
         ) : sortDirection === "desc" ? (
-          <Icon icon="solar:alt-arrow-down-linear" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
+          <Icon icon="hugeicons:arrow-down-01" className="w-3.5 h-3.5 text-[var(--brand-primary)]" />
         ) : (
-          <Icon icon="solar:sort-vertical-linear" className="w-3.5 h-3.5 opacity-50 hover:opacity-100" />
+          <Icon icon="hugeicons:sorting-05" className="w-3.5 h-3.5 opacity-50 hover:opacity-100" />
         )}
       </span>
     </button>

@@ -96,7 +96,7 @@ export default function AdminCategories() {
         {loading ? [1, 2, 3].map((i) => <div key={i} className={styles.skeleRow} />) :
           filteredCats.length === 0 ? (
             <EmptyState
-              icon="solar:tag-linear"
+              icon="hugeicons:tag-01"
               title={search ? "No matching categories found" : "No categories created"}
               description={search ? "Try searching for a different keyword." : "Create categories to organize your product catalog."}
               action={
@@ -122,7 +122,7 @@ export default function AdminCategories() {
                       <OptimizedImage src={c.image} alt={c.name} className="w-full h-full object-cover rounded" />
                     </div>
                   ) : (
-                    <div className={styles.catIcon}><Icon icon="solar:tag-linear" className="w-4 h-4" /></div>
+                    <div className={styles.catIcon}><Icon icon="hugeicons:tag-01" className="w-4 h-4" /></div>
                   )}
                   <span className={styles.prodName}>{c.name}</span>
                 </div>
@@ -147,7 +147,7 @@ export default function AdminCategories() {
                     onClick={() => navigate(`/admin/categories/${c.id}`)}
                     title="Edit category"
                   >
-                    <Icon icon="solar:pen-linear" className="w-4 h-4" />
+                    <Icon icon="hugeicons:edit-02" className="w-4 h-4" />
                   </Button>
                   <Button
                     variant="ghost"
@@ -157,7 +157,7 @@ export default function AdminCategories() {
                     title="Delete category"
                     disabled={deleting === c.id}
                   >
-                    {deleting === c.id ? <Spinner size="sm" /> : <Icon icon="solar:trash-bin-trash-linear" className="w-4 h-4" />}
+                    {deleting === c.id ? <Spinner size="sm" /> : <Icon icon="hugeicons:delete-02" className="w-4 h-4" />}
                   </Button>
                 </div>
               </div>

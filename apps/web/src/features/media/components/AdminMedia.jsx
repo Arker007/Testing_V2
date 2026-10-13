@@ -95,7 +95,7 @@ export default function AdminMedia() {
                             loading={uploading}
                             loadingText="Uploading..."
                             onClick={() => fileInputRef.current?.click()}
-                            icon={<Icon icon="carbon:upload" className="w-4 h-4 mr-1.5" />}
+                            icon={<Icon icon="hugeicons:upload-01" className="w-4 h-4 mr-1.5" />}
                         >
                             Upload Assets
                         </Button>
@@ -110,11 +110,11 @@ export default function AdminMedia() {
                         Directories
                     </div>
                     {[
-                        { id: 'all', label: 'All Uploads', icon: 'carbon:folder-details' },
-                        { id: 'pallets', label: 'pallets/', icon: 'carbon:folder' },
-                        { id: 'lumber', label: 'lumber/', icon: 'carbon:folder' },
-                        { id: 'garden-bench', label: 'garden-bench/', icon: 'carbon:folder' },
-                        { id: 'general', label: 'general/', icon: 'carbon:folder' },
+                        { id: 'all', label: 'All Uploads', icon: 'hugeicons:folder-02' },
+                        { id: 'pallets', label: 'pallets/', icon: 'hugeicons:folder-01' },
+                        { id: 'lumber', label: 'lumber/', icon: 'hugeicons:folder-01' },
+                        { id: 'garden-bench', label: 'garden-bench/', icon: 'hugeicons:folder-01' },
+                        { id: 'general', label: 'general/', icon: 'hugeicons:folder-01' },
                     ].map(f => {
                         const count = media.filter(m => f.id === 'all' || getFileCategory(m.url) === f.id).length;
                         return (
@@ -144,7 +144,7 @@ export default function AdminMedia() {
                     ) : filteredMedia.length === 0 ? (
                         <div className={styles.card} style={{ width: '100%' }}>
                             <EmptyState
-                                icon="carbon:image"
+                                icon="hugeicons:image-01"
                                 title="No media files found"
                                 description="No media files found in this directory folder."
                                 action={
@@ -153,7 +153,7 @@ export default function AdminMedia() {
                                         variant="primary"
                                         size="sm"
                                         onClick={() => fileInputRef.current?.click()}
-                                        icon={<Icon icon="carbon:upload" className="w-4 h-4 mr-1.5" />}
+                                        icon={<Icon icon="hugeicons:upload-01" className="w-4 h-4 mr-1.5" />}
                                     >
                                         Upload Files
                                     </Button>
@@ -171,14 +171,14 @@ export default function AdminMedia() {
                                         title="Click to preview fullscreen"
                                     >
                                         <img src={m.url} alt={m.filename} onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }} />
-                                        <div className={mStyles.fallback} style={{ display: 'none' }}><Icon icon="carbon:image" className="w-8 h-8 text-slate-400" /></div>
+                                        <div className={mStyles.fallback} style={{ display: 'none' }}><Icon icon="hugeicons:image-01" className="w-8 h-8 text-slate-400" /></div>
                                     </div>
                                     <div className={mStyles.info}>
                                         <div className={mStyles.filename} title={m.filename}>{m.filename}</div>
                                         <div className={mStyles.url} title={m.url}>{m.url}</div>
                                         <div className="flex items-center justify-between gap-1.5 mt-2">
                                             <button className={mStyles.copyBtn} onClick={() => copyUrl(m.url)}>
-                                                <Icon icon={copied === m.url ? "carbon:checkmark" : "carbon:copy"} className="w-3.5 h-3.5 mr-1 inline" />
+                                                <Icon icon={copied === m.url ? "hugeicons:checkmark-circle-02" : "hugeicons:copy-01"} className="w-3.5 h-3.5 mr-1 inline" />
                                                 {copied === m.url ? 'Copied!' : 'Copy URL'}
                                             </button>
                                             <button
@@ -187,7 +187,7 @@ export default function AdminMedia() {
                                                 onClick={() => setPreviewMedia(m)}
                                                 title="Preview image"
                                             >
-                                                <Icon icon="carbon:view" className="w-3.5 h-3.5" />
+                                                <Icon icon="hugeicons:view" className="w-3.5 h-3.5" />
                                             </button>
                                         </div>
                                     </div>

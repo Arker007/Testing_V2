@@ -17,7 +17,7 @@ export default function ContactHero() {
       bgImage={contactHeroBg}
       bgOpacity="opacity-60"
       tag={c("contact_hero_badge", "Sales & Inquiries")}
-      tagIcon="carbon:headset"
+      tagIcon="hugeicons:customer-service"
       title={c("contact_hero_title", "Get a Quote & Contact Our Factory")}
       description={c(
         "contact_hero_sub",

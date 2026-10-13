@@ -65,17 +65,17 @@ export default function ProductHeaderSpecs({
 
   const highlights = [
     {
-      icon: "carbon:box",
+      icon: "hugeicons:package",
       line1: isPallet ? "High Load" : isLumber ? "High Impact" : "Heavy Duty",
       line2: isPallet ? "Capacity" : isLumber ? "Strength" : "Performance",
     },
     {
-      icon: "carbon:security",
+      icon: "hugeicons:shield-check",
       line1: "Durable &",
       line2: "Long Lasting",
     },
     {
-      icon: "carbon:renew",
+      icon: "hugeicons:leaf-01",
       line1: "Sustainable",
       line2: "& Recycled",
     },
@@ -319,7 +319,7 @@ export default function ProductHeaderSpecs({
             className="sm:col-span-5 min-h-[48px] bg-[var(--bg-surface)] hover:bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] hover:text-[var(--text-brand)] font-bold text-xs sm:text-sm px-4 rounded-[var(--radius-btn,6px)] flex items-center justify-center gap-2 border border-[var(--border-default)] transition-all cursor-pointer shadow-2xs hover:border-[var(--border-brand)]"
           >
             <Icon
-              icon="carbon:download"
+              icon="hugeicons:download-01"
               className="w-4 h-4 text-[var(--text-brand)] shrink-0"
             />
             <span>Product Specs (PDF)</span>
@@ -332,7 +332,7 @@ export default function ProductHeaderSpecs({
         {/* Item 1: MOQ */}
         <div className="flex items-center gap-2.5 px-2 first:pl-0">
           <div className="w-8 h-8 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] text-[var(--text-muted)] flex items-center justify-center shrink-0">
-            <Icon icon="carbon:view" className="w-4 h-4" />
+            <Icon icon="hugeicons:package" className="w-4 h-4" />
           </div>
           <div className="flex flex-col min-w-0">
             <span className="text-[11px] font-semibold text-[var(--text-muted)] truncate">Min. Order (MOQ)</span>
@@ -343,7 +343,7 @@ export default function ProductHeaderSpecs({
         {/* Item 2: Lead Time */}
         <div className="flex items-center gap-2.5 px-3">
           <div className="w-8 h-8 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] text-[var(--text-muted)] flex items-center justify-center shrink-0">
-            <Icon icon="carbon:time" className="w-4 h-4" />
+            <Icon icon="hugeicons:clock-01" className="w-4 h-4" />
           </div>
           <div className="flex flex-col min-w-0">
             <span className="text-[11px] font-semibold text-[var(--text-muted)] truncate">Lead Time</span>
@@ -354,7 +354,7 @@ export default function ProductHeaderSpecs({
         {/* Item 3: Forklift Entry */}
         <div className="flex items-center gap-2.5 px-3">
           <div className="w-8 h-8 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] text-[var(--text-muted)] flex items-center justify-center shrink-0">
-            <Icon icon="carbon:delivery" className="w-4 h-4" />
+            <Icon icon="hugeicons:delivery-truck-01" className="w-4 h-4" />
           </div>
           <div className="flex flex-col min-w-0">
             <span className="text-[11px] font-semibold text-[var(--text-muted)] truncate">Forklift Entry</span>

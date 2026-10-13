@@ -1,53 +1,53 @@
 export const CLOSED_LOOP_BENEFITS = [
   {
-    icon: "carbon:activity",
+    icon: "hugeicons:activity-01",
     text: "Made from recycled high-density polyethylene (HDPE) with impact, UV, and moisture resistance.",
   },
   {
-    icon: "carbon:checkmark-outline",
+    icon: "hugeicons:checkmark-circle-02-outline",
     text: "Versatility for use in both stacking and racking systems.",
   },
   {
-    icon: "carbon:layers",
+    icon: "hugeicons:layers-01",
     text: "Compatibility with RFID and customizable labeling.",
   },
   {
-    icon: "carbon:security",
+    icon: "hugeicons:security-check",
     text: "Hygienic, easy to clean, and non-absorbent.",
   },
   {
-    icon: "carbon:rule",
+    icon: "hugeicons:ruler",
     text: "Available in 100% virgin material for FDA-grade applications.",
   },
   {
-    icon: "carbon:hourglass",
+    icon: "hugeicons:clock-01",
     text: "10+ years of durability.",
   },
 ];
 
 export const LIGHTWEIGHT_BENEFITS = [
   {
-    icon: "carbon:shield-alert",
+    icon: "hugeicons:shield-alert",
     text: "Made from recycled high-density polyethylene (HDPE) with impact, UV, and moisture resistance.",
   },
   {
-    icon: "carbon:document-tasks",
+    icon: "hugeicons:file-01-tasks",
     text: "Exempt from NOM 144 requirements.",
   },
   {
-    icon: "carbon:arrows-vertical",
+    icon: "hugeicons:arrow-up-down",
     text: "Lightweight pallet design.",
   },
   {
-    icon: "carbon:cube",
+    icon: "hugeicons:package",
     text: "Nestable design that maximizes space.",
   },
   {
-    icon: "carbon:box",
+    icon: "hugeicons:package",
     text: "Available in 100% virgin material for FDA-grade applications.",
   },
   {
-    icon: "carbon:rain-drop",
+    icon: "hugeicons:droplet",
     text: "Hygienic, easy to clean, and non-absorbent.",
   },
 ];
@@ -61,13 +61,13 @@ export const DEFAULT_RETURN_POLICY =
   "All batches are factory load-tested and quality verified. We offer direct replacements for transit damages or non-conformance within 7 days of delivery receipt.";
 
 export const DEFAULT_TRUST_INDICATORS = [
-  { icon: "carbon:certificate", label: "Factory Direct" },
-  { icon: "carbon:package", label: "Pan-India Dispatch" },
-  { icon: "carbon:security", label: "GST Registered" },
+  { icon: "hugeicons:award-01", label: "Factory Direct" },
+  { icon: "hugeicons:package", label: "Pan-India Dispatch" },
+  { icon: "hugeicons:security-check", label: "GST Registered" },
 ];
 
 export const DEFAULT_STANDARDS_BAR = [
-  { icon: "carbon:certificate", label: "ISPM-15 Exempt" },
-  { icon: "carbon:recycle", label: "Zero Rot/Splinter" },
-  { icon: "carbon:renew", label: "100% Recycled PE" },
+  { icon: "hugeicons:award-01", label: "ISPM-15 Exempt" },
+  { icon: "hugeicons:recycle-01", label: "Zero Rot/Splinter" },
+  { icon: "hugeicons:recycle-01", label: "100% Recycled PE" },
 ];

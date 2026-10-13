@@ -28,7 +28,7 @@ export default function CompanyForm({
     <div>
       {filteredFields.length === 0 ? (
         <div style={{ textAlign: "center", padding: "40px 20px", color: "var(--text-muted)", fontSize: "0.85rem" }}>
-          <Icon icon="carbon:information" style={{ marginRight: "6px", color: "var(--brand)" }} className="w-4 h-4 inline" />
+          <Icon icon="hugeicons:information-circle" style={{ marginRight: "6px", color: "var(--brand)" }} className="w-4 h-4 inline" />
           No fields match your search filter "{searchFieldQuery}"
         </div>
       ) : (
@@ -39,7 +39,7 @@ export default function CompanyForm({
               return (
                 <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: "1 / -1" }}>
                   <label className={cStyles.formLabel}>
-                    <Icon icon="carbon:image" className="w-4 h-4 text-emerald-600 inline mr-1" />
+                    <Icon icon="hugeicons:image-01" className="w-4 h-4 text-emerald-600 inline mr-1" />
                     {f.label}
                   </label>
                   <div className={cStyles.imageUploadContainer}>
@@ -51,7 +51,7 @@ export default function CompanyForm({
                       />
                     ) : (
                       <div style={{ width: "52px", height: "52px", borderRadius: "var(--radius-admin, 8px)", border: "1px dashed var(--border)", display: "flex", alignItems: "center", justifyContent: "center", background: "var(--surface-card)" }}>
-                        <Icon icon="carbon:image" className="w-5 h-5 text-slate-400" />
+                        <Icon icon="hugeicons:image-01" className="w-5 h-5 text-slate-400" />
                       </div>
                     )}
                     <div className={cStyles.imageUploadMeta}>
@@ -80,7 +80,7 @@ export default function CompanyForm({
               return (
                 <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: "1 / -1" }}>
                   <label htmlFor={`company-${f.key}`} className={cStyles.formLabel}>
-                    <Icon icon="carbon:text-align-left" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+                    <Icon icon="hugeicons:left-to-right-list-bullet" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
                     <span>{f.label}</span>
                     <span className={cStyles.fieldKeyBadge}>{f.key}</span>
                   </label>
@@ -98,7 +98,7 @@ export default function CompanyForm({
             return (
               <div key={f.key} className={cStyles.formGroup} style={{ gridColumn: f.key === "address" || f.key === "description" ? "1 / -1" : "span 1" }}>
                 <label htmlFor={`company-${f.key}`} className={cStyles.formLabel}>
-                  <Icon icon="carbon:string-text" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+                  <Icon icon="hugeicons:text" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
                   <span>{f.label}</span>
                   <span className={cStyles.fieldKeyBadge}>{f.key}</span>
                 </label>

@@ -8,35 +8,35 @@ import { ProductService } from "../../products/services/product.service";
 import { CategoryService } from "../../categories";
 import { QuoteButton } from "@/shared/ui";
 
-// IBM Carbon icon mapping for standard category slugs & naming patterns
+// Hugeicons Stroke Rounded mapping for standard category slugs & naming patterns
 const CATEGORY_ICONS = {
-  "plastic-pallets": "carbon:box",
-  "plastic-lumber": "carbon:layers",
-  "garden-bench": "carbon:tree",
-  "plastic-table": "carbon:table",
-  "garden-fence": "carbon:security",
-  "outdoor-furniture": "carbon:sun",
-  "custom-products": "carbon:settings",
+  "plastic-pallets": "hugeicons:package",
+  "plastic-lumber": "hugeicons:layers-01",
+  "garden-bench": "hugeicons:sofa-01",
+  "plastic-table": "hugeicons:table",
+  "garden-fence": "hugeicons:shield-check",
+  "outdoor-furniture": "hugeicons:sun-01",
+  "custom-products": "hugeicons:settings-01",
 };
 
 const getCategoryIcon = (slug = "", name = "") => {
   const s = slug.toLowerCase();
   if (CATEGORY_ICONS[s]) return CATEGORY_ICONS[s];
   const n = `${slug} ${name}`.toLowerCase();
-  if (n.includes("pallet")) return "carbon:box";
+  if (n.includes("pallet")) return "hugeicons:package";
   if (n.includes("lumber") || n.includes("profile") || n.includes("plank"))
-    return "carbon:layers";
+    return "hugeicons:layers-01";
   if (n.includes("bench") || n.includes("seating"))
-    return "carbon:tree";
+    return "hugeicons:sofa-01";
   if (n.includes("table") || n.includes("picnic") || n.includes("dining"))
-    return "carbon:table";
+    return "hugeicons:table";
   if (n.includes("fence") || n.includes("fencing"))
-    return "carbon:security";
+    return "hugeicons:shield-check";
   if (n.includes("furniture"))
-    return "carbon:sun";
+    return "hugeicons:sun-01";
   if (n.includes("custom") || n.includes("molded") || n.includes("part"))
-    return "carbon:settings";
-  return "carbon:box";
+    return "hugeicons:settings-01";
+  return "hugeicons:package";
 };
 
 // Safely extract product image URL from various database representations
@@ -513,7 +513,7 @@ export default function MegaMenu({
       >
         <span>Products</span>
         <Icon
-          icon="carbon:chevron-down"
+          icon="hugeicons:arrow-down-01"
           className={`w-3.5 h-3.5 ml-1 inline transition-transform duration-200 ${
             isOpen ? "rotate-180 text-[var(--brand-primary)]" : ""
           }`}
@@ -542,7 +542,7 @@ export default function MegaMenu({
             <div className={styles.dropdownMenuPanel}>
               {categoryList.length === 0 ? (
                 <div className="py-12 flex flex-col items-center justify-center text-center text-sm text-[var(--text-secondary)]">
-                  <Icon icon="carbon:hourglass" className="w-6 h-6 text-[var(--text-muted)] mb-2 animate-pulse" />
+                  <Icon icon="hugeicons:clock-01" className="w-6 h-6 text-[var(--text-muted)] mb-2 animate-pulse" />
                   <p>Loading catalog categories...</p>
                 </div>
               ) : (
@@ -582,7 +582,7 @@ export default function MegaMenu({
                           >
                             <div className="flex items-center gap-2.5 min-w-0 pr-1">
                               <Icon
-                                icon={cat.icon || "carbon:box"}
+                                icon={cat.icon || "hugeicons:package"}
                                 className={`w-4.5 h-4.5 shrink-0 ${
                                   isActive
                                     ? "text-[var(--text-brand)]"
@@ -592,11 +592,11 @@ export default function MegaMenu({
                               <span className="leading-snug break-words">{cat.name}</span>
                             </div>
                             <Icon
-                              icon="carbon:chevron-right"
+                              icon="hugeicons:arrow-right-01"
                               className={`w-3.5 h-3.5 shrink-0 ml-1.5 transition-transform ${
                                 isActive
-                                  ? "text-[var(--text-brand)] translate-x-0.5"
-                                  : "text-[var(--text-muted)]"
+                                    ? "text-[var(--text-brand)] translate-x-0.5"
+                                    : "text-[var(--text-muted)]"
                               }`}
                             />
                           </button>
@@ -607,7 +607,7 @@ export default function MegaMenu({
                     {/* Sustainability Commitment Box (Bottom Left) */}
                     <div className="pt-6 mt-6 border-t border-[var(--border-subtle)] flex flex-col items-start gap-1">
                       <Icon
-                        icon="carbon:recycle"
+                        icon="hugeicons:leaf-01"
                         className="w-5 h-5 text-[var(--text-brand)] mb-1"
                       />
                       <p className="text-xs font-bold text-[var(--text-primary)] leading-snug">
@@ -691,7 +691,7 @@ export default function MegaMenu({
                                           </span>
                                         )}
                                         <Icon
-                                          icon="carbon:chevron-right"
+                                          icon="hugeicons:arrow-right-01"
                                           className="w-4 h-4 text-[var(--text-muted)] group-hover:text-[var(--text-brand)] group-hover:translate-x-0.5 transition-all"
                                         />
                                       </div>
@@ -703,7 +703,7 @@ export default function MegaMenu({
                               <div className="flex-1 min-h-[220px] flex flex-col items-center justify-center text-center p-6 border border-dashed border-[var(--border-subtle)] rounded-xl my-2 bg-[var(--bg-surface-secondary)]/40">
                                 <div className="w-12 h-12 rounded-full bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] flex items-center justify-center mb-3 text-[var(--text-muted)] shadow-2xs">
                                   <Icon
-                                    icon={activeCategoryData.icon || "carbon:box"}
+                                    icon={activeCategoryData.icon || "hugeicons:package"}
                                     className="w-6 h-6 text-[var(--text-secondary)]"
                                   />
                                 </div>
@@ -719,7 +719,7 @@ export default function MegaMenu({
                                   className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-[var(--text-brand)] hover:text-[var(--brand-hover)] bg-[var(--brand-soft)] hover:bg-[var(--brand-soft)]/80 px-3.5 py-1.5 rounded-lg border border-[var(--border-brand)] transition-colors"
                                 >
                                   <span>Request Custom Specifications</span>
-                                  <Icon icon="carbon:arrow-right" className="w-3.5 h-3.5" />
+                                  <Icon icon="hugeicons:arrow-right-01" className="w-3.5 h-3.5" />
                                 </Link>
                               </div>
                             )}
@@ -736,7 +736,7 @@ export default function MegaMenu({
                                 View all {activeCategoryData.name}
                               </span>
                               <Icon
-                                icon="carbon:arrow-right"
+                                icon="hugeicons:arrow-right-01"
                                 className="w-4 h-4 transition-transform duration-150 group-hover/all:translate-x-1"
                               />
                             </Link>
@@ -771,7 +771,7 @@ export default function MegaMenu({
                         ) : (
                           <div className="flex flex-col items-center justify-center text-[var(--text-muted)] gap-1">
                             <Icon
-                              icon={activeCategoryData?.icon || "carbon:box"}
+                              icon={activeCategoryData?.icon || "hugeicons:package"}
                               className="w-8 h-8 text-[var(--text-muted)]"
                             />
                             <span className="text-[11px] font-medium">Custom Fabrication</span>
@@ -806,7 +806,7 @@ export default function MegaMenu({
                           aria-label={`Download ${activeCategoryData.name} Catalog`}
                         >
                           <Icon
-                            icon="carbon:download"
+                            icon="hugeicons:download-01"
                             className="w-4 h-4 text-[var(--text-brand)]"
                           />
                           <span>Download {activeCategoryData.name} Catalog</span>

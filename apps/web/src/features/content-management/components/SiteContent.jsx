@@ -51,7 +51,7 @@ export default function SiteContent() {
         disabled={saving}
         loading={saving}
         loadingText="Saving…"
-        icon={saved ? <Icon icon="carbon:checkmark-filled" className="w-4 h-4 mr-1.5" /> : <Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
+        icon={saved ? <Icon icon="hugeicons:checkmark-circle-02" className="w-4 h-4 mr-1.5" /> : <Icon icon="hugeicons:floppy-disk" className="w-4 h-4 mr-1.5" />}
         className="min-w-[150px]"
       >
         {saved ? "Saved!" : "Save Changes"}
@@ -98,7 +98,7 @@ export default function SiteContent() {
   if (loading) {
     return (
       <div className={cStyles.loader}>
-        <Icon icon="carbon:renew" flip="horizontal" className="w-5 h-5 animate-spin mr-2 inline" /> Loading content...
+        <Icon icon="hugeicons:recycle-01" flip="horizontal" className="w-5 h-5 animate-spin mr-2 inline" /> Loading content...
       </div>
     );
   }
@@ -124,7 +124,7 @@ export default function SiteContent() {
         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(5, 40, 63, 0.06)", paddingBottom: "16px", marginBottom: "24px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <div style={{ width: "40px", height: "40px", borderRadius: "var(--radius-admin, 8px)", background: "var(--brand-light)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Icon icon={allSectionsList.find(s => s.key === activeSub)?.icon || "carbon:document"} className="w-5 h-5 text-emerald-700" />
+              <Icon icon={allSectionsList.find(s => s.key === activeSub)?.icon || "hugeicons:file-01"} className="w-5 h-5 text-emerald-700" />
             </div>
             <div>
               <h3 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 800, color: "var(--ink)" }}>{getSectionDisplayName(activeSub)}</h3>
@@ -165,7 +165,7 @@ export default function SiteContent() {
             />
             <div className={cStyles.stickyActionBar}>
               <div className={cStyles.stickyStatusText}>
-                <Icon icon="carbon:security" className="w-4 h-4 text-emerald-600" />
+                <Icon icon="hugeicons:security-check" className="w-4 h-4 text-emerald-600" />
                 <span>All profile adjustments auto-validate before sync.</span>
               </div>
               <Button
@@ -175,7 +175,7 @@ export default function SiteContent() {
                 disabled={saving}
                 loading={saving}
                 loadingText="Saving…"
-                icon={saved ? <Icon icon="carbon:checkmark-filled" className="w-4 h-4 mr-1.5" /> : <Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
+                icon={saved ? <Icon icon="hugeicons:checkmark-circle-02" className="w-4 h-4 mr-1.5" /> : <Icon icon="hugeicons:floppy-disk" className="w-4 h-4 mr-1.5" />}
                 className="min-w-[150px]"
               >
                 {saved ? "Saved!" : "Save Profile"}
@@ -197,7 +197,7 @@ export default function SiteContent() {
             />
             <div className={cStyles.stickyActionBar}>
               <div className={cStyles.stickyStatusText}>
-                <Icon icon="carbon:security" className="w-4 h-4 text-emerald-600" />
+                <Icon icon="hugeicons:security-check" className="w-4 h-4 text-emerald-600" />
                 <span>Modifications apply live to public website upon save.</span>
               </div>
               <Button
@@ -207,7 +207,7 @@ export default function SiteContent() {
                 disabled={saving}
                 loading={saving}
                 loadingText="Saving…"
-                icon={saved ? <Icon icon="carbon:checkmark-filled" className="w-4 h-4 mr-1.5" /> : <Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
+                icon={saved ? <Icon icon="hugeicons:checkmark-circle-02" className="w-4 h-4 mr-1.5" /> : <Icon icon="hugeicons:floppy-disk" className="w-4 h-4 mr-1.5" />}
                 className="min-w-[150px]"
               >
                 {saved ? "Saved!" : "Save Section"}

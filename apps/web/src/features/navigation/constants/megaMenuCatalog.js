@@ -1,7 +1,7 @@
 /**
  * MegaMenu Catalog Data & Hierarchy
  * Structured for the redesigned category sidebar + 3-column sub-group layout
- * Conforms to AGENTS.md icon standard: @iconify/react with carbon:* icons
+ * Conforms to AGENTS.md icon standard: @iconify/react with hugeicons:* icons
  */
 
 export const MEGA_MENU_CATEGORIES = [
@@ -9,7 +9,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "plastic-pallets",
     id: "plastic-pallets",
     name: "Plastic Pallets",
-    icon: "carbon:box",
+    icon: "hugeicons:package",
     description: "ISPM-15 export, heavy racking, euro, and chemical pallets",
     columns: [
       {
@@ -114,7 +114,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "plastic-lumber",
     id: "plastic-lumber",
     name: "Plastic Lumber",
-    icon: "carbon:layers",
+    icon: "hugeicons:layers-01",
     description: "Structural profiles, heavy posts, decking, and tongue-groove battens",
     columns: [
       {
@@ -220,7 +220,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "garden-bench",
     id: "garden-bench",
     name: "Garden Benches",
-    icon: "carbon:tree",
+    icon: "hugeicons:tree-01",
     description: "Park, society, municipal, and heritage benches",
     columns: [
       {
@@ -323,7 +323,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "plastic-table",
     id: "plastic-table",
     name: "Recycled Plastic Tables",
-    icon: "carbon:table",
+    icon: "hugeicons:table",
     description: "Picnic sets, dining ensembles, and park game tables",
     columns: [
       {
@@ -427,7 +427,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "custom-products",
     id: "custom-products",
     name: "Custom Products",
-    icon: "carbon:settings",
+    icon: "hugeicons:settings-01",
     description: "Custom molded parts, wear strips, and CNC components",
     columns: [
       {
@@ -530,7 +530,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "outdoor-furniture",
     id: "outdoor-furniture",
     name: "Outdoor Furniture",
-    icon: "carbon:sun",
+    icon: "hugeicons:sun-01",
     description: "Chairs, loungers, planters, and community amenities",
     columns: [
       {
@@ -608,7 +608,7 @@ export const MEGA_MENU_CATEGORIES = [
     slug: "garden-fence",
     id: "garden-fence",
     name: "Garden Fence",
-    icon: "carbon:security",
+    icon: "hugeicons:security-check",
     description: "Maintenance-free perimeter and residential fencing",
     columns: [
       {

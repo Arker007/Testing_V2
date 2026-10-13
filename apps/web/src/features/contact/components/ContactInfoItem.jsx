@@ -50,7 +50,7 @@ export const ContactInfoItem = React.memo(function ContactInfoItem({
                     transition={{ type: "spring", stiffness: 400, damping: 15 }}
                     className="inline-flex items-center justify-center text-[var(--brand-dark)]"
                   >
-                    <Icon icon="carbon:checkmark" className="w-3.5 h-3.5" />
+                    <Icon icon="hugeicons:checkmark-circle-02" className="w-3.5 h-3.5" />
                   </motion.span>
                 ) : (
                   <motion.span
@@ -58,7 +58,7 @@ export const ContactInfoItem = React.memo(function ContactInfoItem({
                     whileTap={{ scale: 0.85 }}
                     className="inline-flex items-center justify-center"
                   >
-                    <Icon icon="carbon:copy" className="w-3.5 h-3.5" />
+                    <Icon icon="hugeicons:copy-01" className="w-3.5 h-3.5" />
                   </motion.span>
                 )}
               </Button>

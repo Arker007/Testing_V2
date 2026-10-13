@@ -7,7 +7,7 @@ export default function FaqsTab({ form, setForm }) {
   return (
     <div>
       <div className={styles.formSectionTitle} style={{ marginTop: 0 }}>
-        <Icon icon="carbon:help" className="w-4 h-4 mr-1 inline" /> Product FAQs
+        <Icon icon="hugeicons:help-circle" className="w-4 h-4 mr-1 inline" /> Product FAQs
       </div>
       <p
         style={{

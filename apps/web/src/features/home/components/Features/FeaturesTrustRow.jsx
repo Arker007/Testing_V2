@@ -14,7 +14,7 @@ export default function FeaturesTrustRow() {
         {/* Value 1: Sustainable Choice */}
         <div className="lg:col-span-3 flex items-start space-x-4">
           <div className="w-12 h-12 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] flex-shrink-0 flex items-center justify-center text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs">
-            <Icon icon="solar:leaf-bold" className="w-6 h-6" />
+            <Icon icon="hugeicons:leaf-01" className="w-6 h-6" />
           </div>
           <div>
             <h3 className="font-bold text-[var(--text-primary)] text-[15px] leading-snug">
@@ -29,7 +29,7 @@ export default function FeaturesTrustRow() {
         {/* Value 2: Corrosion Resistant */}
         <div className="lg:col-span-3 flex items-start space-x-4">
           <div className="w-12 h-12 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] flex-shrink-0 flex items-center justify-center text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs">
-            <Icon icon="solar:shield-check-bold" className="w-6 h-6" />
+            <Icon icon="hugeicons:shield-check" className="w-6 h-6" />
           </div>
           <div>
             <h3 className="font-bold text-[var(--text-primary)] text-[15px] leading-snug">
@@ -44,7 +44,7 @@ export default function FeaturesTrustRow() {
         {/* Value 3: Low Maintenance */}
         <div className="lg:col-span-4 flex items-start space-x-4">
           <div className="w-12 h-12 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] flex-shrink-0 flex items-center justify-center text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs">
-            <Icon icon="solar:tuning-square-2-bold" className="w-6 h-6" />
+            <Icon icon="hugeicons:configuration-01" className="w-6 h-6" />
           </div>
           <div>
             <h3 className="font-bold text-[var(--text-primary)] text-[15px] leading-snug whitespace-nowrap">

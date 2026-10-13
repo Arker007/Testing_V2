@@ -28,7 +28,7 @@ export default function SustainabilityPage() {
         bgImage={sustainabilityHeroBg}
         bgOpacity="opacity-60"
         tag={c("sus_hero_tag", "Environmental Impact & Circular Economy")}
-        tagIcon="carbon:recycle"
+        tagIcon="hugeicons:recycle-01"
         title="Turning Plastic Waste into Long-Lasting Products"
         description={c(
           "sus_hero_sub",
@@ -47,7 +47,7 @@ export default function SustainabilityPage() {
         <div className="container">
           <div className="text-center mb-12">
             <div className="mb-4">
-              <Badge variant="eyebrow" size="lg" icon="carbon:recycle">
+              <Badge variant="eyebrow" size="lg" icon="hugeicons:recycle-01">
                 Our Pillars
               </Badge>
             </div>
@@ -90,7 +90,7 @@ export default function SustainabilityPage() {
               </div>
               <div className="feature-card-top">
                 <div className="feature-icon-wrapper">
-                  <Icon icon="solar:restart-circle-linear" className="w-6 h-6" />
+                  <Icon icon="hugeicons:recycle-01" className="w-6 h-6" />
                 </div>
                 <span className="feature-tag">88% Less Energy</span>
               </div>
@@ -110,7 +110,7 @@ export default function SustainabilityPage() {
               </div>
               <div className="feature-card-top">
                 <div className="feature-icon-wrapper">
-                  <Icon icon="solar:global-linear" className="w-6 h-6" />
+                  <Icon icon="hugeicons:globe-02" className="w-6 h-6" />
                 </div>
                 <span className="feature-tag">Zero Landfill</span>
               </div>
@@ -128,7 +128,7 @@ export default function SustainabilityPage() {
         <CtaCard
           badge="ESG Partnership"
           badgeVariant="brand"
-          badgeIcon="carbon:partnership"
+          badgeIcon="hugeicons:user-group"
           title="Partner on Circular Economy & Net-Zero Commitments"
           subtitle="Help your enterprise transition from conventional single-use packaging to circular, sustainable closed-loop recycled pallets and containers."
         >
@@ -141,7 +141,7 @@ export default function SustainabilityPage() {
             href="tel:+919825125164"
             className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-btn,6px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] hover:bg-[var(--bg-surface-tertiary)] hover:border-[var(--border-default)] text-[var(--text-primary)] text-sm font-bold transition-all shadow-2xs whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
           >
-            <Icon icon="carbon:phone" className="w-4 h-4 text-[var(--brand-primary,#059669)] shrink-0" />
+            <Icon icon="hugeicons:call" className="w-4 h-4 text-[var(--brand-primary,#059669)] shrink-0" />
             <span>Consult ESG Desk</span>
           </a>
         </CtaCard>

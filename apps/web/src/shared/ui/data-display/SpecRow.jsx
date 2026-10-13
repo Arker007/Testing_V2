@@ -82,7 +82,7 @@ export default function SpecRow({
             aria-label="Copy specification"
           >
             <Icon
-              icon={copied ? "carbon:checkmark-filled" : "carbon:copy"}
+              icon={copied ? "hugeicons:checkmark-circle-02-filled" : "hugeicons:copy-01"}
               className={`w-3.5 h-3.5 ${copied ? "text-[var(--brand-primary)]" : ""}`}
             />
           </button>

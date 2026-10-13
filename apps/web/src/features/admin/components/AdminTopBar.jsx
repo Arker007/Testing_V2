@@ -42,7 +42,7 @@ export default function AdminTopBar({
     <header className={`${styles.topbar} ${!sidebarOpen ? styles.topbarCollapsed : ""}`}>
       <div className={styles.topLeft}>
         <button className={styles.toggleBtn} onClick={() => setSidebarOpen(!sidebarOpen)}>
-          {sidebarOpen ? <Icon icon="carbon:close-outline" className="w-5 h-5" /> : <Icon icon="carbon:menu" className="w-5 h-5" />}
+          {sidebarOpen ? <Icon icon="hugeicons:cancel-circle" className="w-5 h-5" /> : <Icon icon="hugeicons:menu-01" className="w-5 h-5" />}
         </button>
         <div>
           <h1 className={styles.pageTitle}>{pageTitle}</h1>
@@ -62,7 +62,7 @@ export default function AdminTopBar({
         >
           <Input
             size="sm"
-            leftIcon="carbon:search"
+            leftIcon="hugeicons:search-01"
             placeholder="Search anything... (/)"
             readOnly
             className="cursor-pointer pointer-events-none"
@@ -79,9 +79,9 @@ export default function AdminTopBar({
             title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
             {theme === "dark" ? (
-              <Icon icon="carbon:sun" className="w-5 h-5" />
+              <Icon icon="hugeicons:sun-01" className="w-5 h-5" />
             ) : (
-              <Icon icon="carbon:moon" className="w-5 h-5" />
+              <Icon icon="hugeicons:moon-02" className="w-5 h-5" />
             )}
           </button>
         </div>
@@ -95,7 +95,7 @@ export default function AdminTopBar({
             }}
             style={{ position: "relative" }}
           >
-            <Icon icon="carbon:notification" className="w-5 h-5" />
+            <Icon icon="hugeicons:notification-01" className="w-5 h-5" />
             {unreadCount > 0 && (
               <Badge
                 variant="danger"

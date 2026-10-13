@@ -14,10 +14,10 @@ export default function NotFoundPage() {
         </p>
         <div className={styles.actions}>
           <Link to="/" className={styles.btnPrimary}>
-            <Icon icon="carbon:home" className="w-4 h-4 mr-1.5" /> Return to home
+            <Icon icon="hugeicons:home-01" className="w-4 h-4 mr-1.5" /> Return to home
           </Link>
           <Link to="/products" className={styles.btnOutline}>
-            <Icon icon="carbon:cube" className="w-4 h-4 mr-1.5" /> Browse catalog
+            <Icon icon="hugeicons:package" className="w-4 h-4 mr-1.5" /> Browse catalog
           </Link>
         </div>
       </div>

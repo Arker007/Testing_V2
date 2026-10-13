@@ -40,7 +40,7 @@ export default function AdminCommandPalette({
                 <Input
                   type="text"
                   size="md"
-                  leftIcon="solar:magnifer-linear"
+                  leftIcon="hugeicons:search-01"
                   placeholder="Type a command or page name..."
                   autoFocus
                   value={searchQuery}
@@ -68,7 +68,7 @@ export default function AdminCommandPalette({
                 </div>
               ) : (
                 filteredNavs.map((n) => {
-                  const iconName = typeof n.icon === "string" ? n.icon : "solar:box-minimalistic-bold";
+                  const iconName = typeof n.icon === "string" ? n.icon : "hugeicons:package";
                   return (
                     <button
                       key={n.path}
@@ -86,7 +86,7 @@ export default function AdminCommandPalette({
                           {n.label}
                         </span>
                       </div>
-                      <Icon icon="solar:alt-arrow-right-linear" className="w-4 h-4 text-[var(--text-muted)]" />
+                      <Icon icon="hugeicons:arrow-right-01" className="w-4 h-4 text-[var(--text-muted)]" />
                     </button>
                   );
                 })

@@ -17,7 +17,7 @@
   - `shared/utils/` — Shared utility functions (`formatters.js`, `parsers.js`)
 * **Backend Architecture (`apps/api/src/`)**:
   - `modules/<domain>/` — Follow standard Router -> Controller -> Service -> Repository layer pattern.
-* **Icon Standard**: Standardize strictly on `@iconify/react` (`solar:*` icon sets). Do not add secondary icon packages.
+* **Icon Standard**: Standardize strictly on `@iconify/react` (`hugeicons:*` Stroke Rounded icon set). Do not add secondary icon packages.
 * **Asset Boundaries**:
   - Static Assets: `apps/web/src/assets/images/<category>/` (`backgrounds/`, `brand/`, `manufacturing/`, `maps/`, `marketing/`).
   - Runtime Uploads: `uploads/` (`uploads/products/`, `uploads/categories/`, `uploads/company/`, `uploads/content/`).

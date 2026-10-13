@@ -85,7 +85,7 @@ function ImageZoom({ src, alt, onOpenModal }) {
 
       {isTouchDevice && (
         <div className="absolute bottom-3 right-3 bg-black/60 text-white text-[11px] font-semibold px-2.5 py-1 rounded-[var(--radius-card,8px)] backdrop-blur-xs flex items-center gap-1 pointer-events-none z-20">
-          <Icon icon="carbon:maximize" className="w-3.5 h-3.5" />
+          <Icon icon="hugeicons:maximize-screen" className="w-3.5 h-3.5" />
           <span>Tap to expand</span>
         </div>
       )}
@@ -183,7 +183,7 @@ export default function ProductGallery({
             />
           ) : (
             <div className="flex flex-col items-center justify-center h-full text-[var(--text-muted)]">
-              <Icon icon="carbon:image" className="w-12 h-12" />
+              <Icon icon="hugeicons:image-01" className="w-12 h-12" />
               <span className="text-xs mt-2 font-semibold">Inspection Image Not Available</span>
             </div>
           )}
@@ -198,7 +198,7 @@ export default function ProductGallery({
             aria-label="View image full screen"
             title="Expand Full View"
           >
-            <Icon icon="carbon:maximize" className="w-4 h-4" />
+            <Icon icon="hugeicons:maximize-screen" className="w-4 h-4" />
           </button>
         )}
 
@@ -214,7 +214,7 @@ export default function ProductGallery({
               }}
               aria-label="Previous product image"
             >
-              <Icon icon="carbon:chevron-left" className="w-5 h-5" />
+              <Icon icon="hugeicons:arrow-left-01" className="w-5 h-5" />
             </button>
             <button
               type="button"
@@ -225,7 +225,7 @@ export default function ProductGallery({
               }}
               aria-label="Next product image"
             >
-              <Icon icon="carbon:chevron-right" className="w-5 h-5" />
+              <Icon icon="hugeicons:arrow-right-01" className="w-5 h-5" />
             </button>
           </>
         )}

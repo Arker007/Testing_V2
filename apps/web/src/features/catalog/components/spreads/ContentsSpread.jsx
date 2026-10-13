@@ -38,7 +38,7 @@ export const renderIndexRow = (item, pageNum, idx) => {
           </>
         ) : (
           <div className={styles.indexCellThumbsFallback}>
-            <Icon icon="carbon:box" className="w-4 h-4 text-slate-300" />
+            <Icon icon="hugeicons:package" className="w-4 h-4 text-slate-300" />
           </div>
         )}
       </div>
@@ -115,11 +115,11 @@ export function getContentsSpread({
           <div className={styles.userGuideLabel}>User Guide</div>
           <div className={styles.userGuideIcons}>
             <Icon
-              icon="carbon:warning-alt"
+              icon="hugeicons:alert-02"
               className="w-4 h-4 text-amber-500"
             />
-            <Icon icon="carbon:misuse" className="w-4 h-4 text-red-500" />
-            <Icon icon="carbon:information" className="w-4 h-4 text-[#061A26]" />
+            <Icon icon="hugeicons:cancel-circle" className="w-4 h-4 text-red-500" />
+            <Icon icon="hugeicons:information-circle" className="w-4 h-4 text-[#061A26]" />
           </div>
           <div style={{ fontSize: "13px", fontWeight: 700, color: "var(--gray-600)" }}>
             {pad(11 + catalogProducts.length * 2, 2)}

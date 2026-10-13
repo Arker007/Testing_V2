@@ -15,7 +15,7 @@ export default function SpecsTab({
   return (
     <div>
       <div className={styles.formSectionTitle} style={{ marginTop: 0 }}>
-        <Icon icon="carbon:settings" className="w-4 h-4 mr-1 inline" /> Category Specification Matrix
+        <Icon icon="hugeicons:settings-01" className="w-4 h-4 mr-1 inline" /> Category Specification Matrix
       </div>
       {filteredCatFields.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
@@ -50,7 +50,7 @@ export default function SpecsTab({
       )}
 
       <div className={styles.formSectionTitle}>
-        <Icon icon="carbon:list-checked" className="w-4 h-4 mr-1 inline" /> Core Bullet Features
+        <Icon icon="hugeicons:check-list" className="w-4 h-4 mr-1 inline" /> Core Bullet Features
       </div>
       <p
         style={{
@@ -79,7 +79,7 @@ export default function SpecsTab({
               className="cursor-grab flex items-center justify-center w-9 h-10 border border-[var(--border)] rounded-lg bg-[var(--bg-surface)] text-[var(--text-muted)] shrink-0"
               title="Drag to reorder"
             >
-              <Icon icon="carbon:menu" className="w-4 h-4" />
+              <Icon icon="hugeicons:menu-01" className="w-4 h-4" />
             </div>
             <div className="flex-1">
               <Input
@@ -107,7 +107,7 @@ export default function SpecsTab({
               }
               title="Remove Feature"
             >
-              <Icon icon="carbon:trash-can" className="w-4 h-4" />
+              <Icon icon="hugeicons:delete-02" className="w-4 h-4" />
             </Button>
           </div>
         ))}
@@ -116,7 +116,7 @@ export default function SpecsTab({
             type="button"
             variant="outline"
             size="sm"
-            icon={<Icon icon="carbon:add-alt" className="w-4 h-4 mr-1.5" />}
+            icon={<Icon icon="hugeicons:add-circle" className="w-4 h-4 mr-1.5" />}
             onClick={() =>
               setForm((prev) => ({
                 ...prev,

@@ -28,7 +28,7 @@ export default function ManufacturingPage() {
         bgImage={mfgHeroBg}
         bgOpacity="opacity-60"
         tag={c("mfg_hero_tag", "High-Precision Polymer Processing")}
-        tagIcon="carbon:settings"
+        tagIcon="hugeicons:settings-01"
         title={c("mfg_hero_title", "High-Pressure Polymer Extrusion & Quality Control")}
         description={c(
           "mfg_hero_sub",
@@ -47,7 +47,7 @@ export default function ManufacturingPage() {
         <div className="container">
           <div className="text-center mb-12">
             <div className="mb-4">
-              <Badge variant="eyebrow" size="lg" icon="carbon:star">
+              <Badge variant="eyebrow" size="lg" icon="hugeicons:star">
                 Quality Standards
               </Badge>
             </div>
@@ -68,7 +68,7 @@ export default function ManufacturingPage() {
               </div>
               <div className="feature-card-top">
                 <div className="feature-icon-wrapper">
-                  <Icon icon="solar:cpu-linear" className="w-6 h-6" />
+                  <Icon icon="hugeicons:cpu" className="w-6 h-6" />
                 </div>
                 <span className="feature-tag">Automated QA</span>
               </div>
@@ -88,7 +88,7 @@ export default function ManufacturingPage() {
               </div>
               <div className="feature-card-top">
                 <div className="feature-icon-wrapper">
-                  <Icon icon="solar:diploma-verified-linear" className="w-6 h-6" />
+                  <Icon icon="hugeicons:award-01" className="w-6 h-6" />
                 </div>
                 <span className="feature-tag">ISO 9001:2015</span>
               </div>
@@ -108,7 +108,7 @@ export default function ManufacturingPage() {
               </div>
               <div className="feature-card-top">
                 <div className="feature-icon-wrapper">
-                  <Icon icon="solar:shield-check-linear" className="w-6 h-6" />
+                  <Icon icon="hugeicons:shield-check" className="w-6 h-6" />
                 </div>
                 <span className="feature-tag">RoHS Compliant</span>
               </div>
@@ -126,7 +126,7 @@ export default function ManufacturingPage() {
         <CtaCard
           badge="Industrial Manufacturing Facility"
           badgeVariant="brand"
-          badgeIcon="carbon:enterprise"
+          badgeIcon="hugeicons:building-05"
           title="Schedule a Facility Inspection or Request Batch Specs"
           subtitle="Connect with our Ankleshwar plant engineers for detailed polymer test reports, custom extrusion capabilities, or factory audits."
         >
@@ -139,7 +139,7 @@ export default function ManufacturingPage() {
             href="tel:+919825125164"
             className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-btn,6px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] hover:bg-[var(--bg-surface-tertiary)] hover:border-[var(--border-default)] text-[var(--text-primary)] text-sm font-bold transition-all shadow-2xs whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
           >
-            <Icon icon="carbon:phone" className="w-4 h-4 text-[var(--brand-primary,#059669)] shrink-0" />
+            <Icon icon="hugeicons:call" className="w-4 h-4 text-[var(--brand-primary,#059669)] shrink-0" />
             <span>Call Plant Engineers</span>
           </a>
         </CtaCard>

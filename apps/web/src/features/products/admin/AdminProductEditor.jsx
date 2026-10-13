@@ -80,7 +80,7 @@ export default function AdminProductEditor() {
           disabled={saving || uploading}
           loading={saving}
           loadingText="Saving..."
-          icon={<Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
+          icon={<Icon icon="hugeicons:floppy-disk" className="w-4 h-4 mr-1.5" />}
           className="min-w-[150px]"
         >
           Save product
@@ -115,7 +115,7 @@ export default function AdminProductEditor() {
   if (loading) {
     return (
       <div className={styles.loadingState}>
-        <Icon icon="carbon:renew" flip="horizontal" className="w-5 h-5 animate-spin inline mr-2" /> Loading product editor...
+        <Icon icon="hugeicons:recycle-01" flip="horizontal" className="w-5 h-5 animate-spin inline mr-2" /> Loading product editor...
       </div>
     );
   }
@@ -124,7 +124,7 @@ export default function AdminProductEditor() {
     <div className={styles.dashboard}>
       <div style={{ display: "flex", alignItems: "center", justifyItems: "center", gap: "16px", marginBottom: "8px" }}>
         <Button variant="outline" size="sm" onClick={() => navigate("/admin/products")}>
-          <Icon icon="carbon:arrow-left" className="w-4 h-4 mr-1 inline" /> Back
+          <Icon icon="hugeicons:arrow-left-01" className="w-4 h-4 mr-1 inline" /> Back
         </Button>
         <h2 style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--gray-800)", margin: 0 }}>
           {isNew ? "Add new product" : `Edit product: ${form.name}`}
@@ -136,10 +136,10 @@ export default function AdminProductEditor() {
           {/* Tab Selector Headers */}
           <div className="flex gap-2 border-b border-[var(--border-subtle)] pb-3 mb-6 flex-wrap">
             {[
-              { id: "general", label: "Core details", icon: "carbon:information" },
-              { id: "media", label: "Image gallery", icon: "carbon:image" },
-              { id: "specs", label: "Technical specifications", icon: "carbon:settings" },
-              { id: "faqs", label: "FAQs", icon: "carbon:help" },
+              { id: "general", label: "Core details", icon: "hugeicons:information-circle" },
+              { id: "media", label: "Image gallery", icon: "hugeicons:image-01" },
+              { id: "specs", label: "Technical specifications", icon: "hugeicons:settings-01" },
+              { id: "faqs", label: "FAQs", icon: "hugeicons:help-circle" },
             ].map((t) => (
               <button
                 key={t.id}
@@ -214,7 +214,7 @@ export default function AdminProductEditor() {
                 disabled={saving || uploading}
                 loading={saving}
                 loadingText="Saving..."
-                icon={<Icon icon="carbon:save" className="w-4 h-4 mr-1.5" />}
+                icon={<Icon icon="hugeicons:floppy-disk" className="w-4 h-4 mr-1.5" />}
                 className="min-w-[150px]"
               >
                 Save product

@@ -24,7 +24,7 @@ export default function AdminSidebar({
             </div>
           ) : (
             <div className={styles.logoIcon}>
-              <Icon icon="carbon:flash" className="w-5 h-5 text-white" />
+              <Icon icon="hugeicons:flash" className="w-5 h-5 text-white" />
             </div>
           )}
           {sidebarOpen && (
@@ -39,7 +39,7 @@ export default function AdminSidebar({
 
         <nav className={styles.nav}>
           {NAV_ITEMS.map((n) => {
-            const iconName = typeof n.icon === "string" ? n.icon : "carbon:cube";
+            const iconName = typeof n.icon === "string" ? n.icon : "hugeicons:package";
             return (
               <NavLink
                 key={n.path}
@@ -70,7 +70,7 @@ export default function AdminSidebar({
           title="View Website"
           data-label="View Website"
         >
-          <Icon icon="carbon:globe" className={`${styles.navIcon} w-4.5 h-4.5`} />
+          <Icon icon="hugeicons:globe-02" className={`${styles.navIcon} w-4.5 h-4.5`} />
           {sidebarOpen && <span>View Website</span>}
         </a>
         <Button
@@ -80,7 +80,7 @@ export default function AdminSidebar({
           title="Logout"
           data-label="Logout"
           onClick={logout}
-          icon={<Icon icon="carbon:logout" className="w-4 h-4 mr-2" />}
+          icon={<Icon icon="hugeicons:logout-01" className="w-4 h-4 mr-2" />}
         >
           {sidebarOpen && <span>Logout</span>}
         </Button>

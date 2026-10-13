@@ -44,7 +44,7 @@ export default function SectionEditor({
       <div style={!isCmsGroupEnabled ? { opacity: 0.55, pointerEvents: "none" } : {}}>
         {fieldsToRender.length === 0 ? (
           <div style={{ textAlign: "center", padding: "40px 20px", color: "var(--text-muted)", fontSize: "0.85rem" }}>
-            <Icon icon="carbon:information" style={{ marginRight: "6px", color: "var(--brand)" }} className="w-4 h-4 inline" />
+            <Icon icon="hugeicons:information-circle" style={{ marginRight: "6px", color: "var(--brand)" }} className="w-4 h-4 inline" />
             No fields match your search filter "{searchFieldQuery}"
           </div>
         ) : (
@@ -60,7 +60,7 @@ export default function SectionEditor({
                   {f.type === "textarea" ? (
                     <div>
                       <label htmlFor={`field-${f.key}`} className={cStyles.formLabel}>
-                        <Icon icon="carbon:text-align-left" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+                        <Icon icon="hugeicons:left-to-right-list-bullet" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
                         <span>{f.label}</span>
                         <span className={cStyles.fieldKeyBadge}>{f.key}</span>
                       </label>
@@ -75,7 +75,7 @@ export default function SectionEditor({
                   ) : f.type === "checkbox" ? (
                     <div>
                       <label className={cStyles.formLabel}>
-                        <Icon icon="carbon:checkbox-checked" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+                        <Icon icon="hugeicons:checkmark-square-01" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
                         <span>{f.label}</span>
                         <span className={cStyles.fieldKeyBadge}>{f.key}</span>
                       </label>
@@ -95,7 +95,7 @@ export default function SectionEditor({
                   ) : (
                     <div>
                       <label htmlFor={`field-${f.key}`} className={cStyles.formLabel}>
-                        <Icon icon="carbon:string-text" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
+                        <Icon icon="hugeicons:text" className="w-3.5 h-3.5 text-emerald-600 inline mr-0.5 opacity-80" />
                         <span>{f.label}</span>
                         <span className={cStyles.fieldKeyBadge}>{f.key}</span>
                       </label>

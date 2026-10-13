@@ -5,19 +5,19 @@ import styles from "../../products.module.css";
 
 const procurementItems = [
   {
-    icon: "solar:shield-check-linear",
+    icon: "hugeicons:shield-check",
     tag: "±0.5mm QA",
     title: "Dimensional Tolerance Control",
     desc: "Extrusion section control to maintain exact cross-section dimensions and structural density across volume orders.",
   },
   {
-    icon: "solar:layers-linear",
+    icon: "hugeicons:layers-01",
     tag: "Pan-India SLA",
     title: "Scheduled Batch Dispatch",
     desc: "Streamlined inventory and logistics support for recurring OEM production schedules and dependable pan-India distribution.",
   },
   {
-    icon: "solar:diploma-verified-linear",
+    icon: "hugeicons:award-01",
     tag: "Engineering QA",
     title: "Technical Consultation",
     desc: "Direct access to polymer extrusion engineers to determine exact load calculations, FEA analysis, and custom profile selection.",
@@ -29,7 +29,7 @@ export default function ProcurementAdvantage() {
     <section className={styles.procurementSection}>
       <div className={styles.procurementHead}>
         <div className="flex justify-center mb-4">
-          <Badge variant="eyebrow" size="lg" icon="carbon:certificate">
+          <Badge variant="eyebrow" size="lg" icon="hugeicons:award-01">
             Why Buy Direct
           </Badge>
         </div>

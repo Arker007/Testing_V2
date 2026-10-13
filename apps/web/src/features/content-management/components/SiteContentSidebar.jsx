@@ -45,7 +45,7 @@ export default function SiteContentSidebar({
       <div className={cStyles.treeTitle}>
         <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
           <Icon
-            icon="carbon:layers"
+            icon="hugeicons:layers-01"
             className="w-4 h-4 text-emerald-600"
           />
           Sections
@@ -84,7 +84,7 @@ export default function SiteContentSidebar({
             }}
           >
             <Icon
-              icon="carbon:information"
+              icon="hugeicons:information-circle"
               className="w-5 h-5 mx-auto mb-1 text-slate-400 block"
             />
             No sections match your filter
@@ -126,7 +126,7 @@ export default function SiteContentSidebar({
                       }}
                     >
                       <Icon
-                        icon={sec.icon || "carbon:document"}
+                        icon={sec.icon || "hugeicons:file-01"}
                         className={`w-4 h-4 flex-shrink-0 ${
                           isSelected ? cStyles.treeIconActive : cStyles.treeIcon
                         }`}

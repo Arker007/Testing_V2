@@ -32,11 +32,11 @@ export default function ProductTabsSection({
 
   // Standard engineering tab items matching the UI reference
   const tabItems = [
-    { key: "specs", label: "Technical Specifications", icon: "carbon:document" },
-    { key: "materials", label: "Materials", icon: "carbon:layers" },
-    { key: "applications", label: "Applications", icon: "carbon:grid" },
-    { key: "downloads", label: "Downloads", icon: "carbon:download" },
-    { key: "faq", label: "FAQ", icon: "carbon:help" },
+    { key: "specs", label: "Technical Specifications", icon: "hugeicons:document-attachment" },
+    { key: "materials", label: "Materials", icon: "hugeicons:layers-01" },
+    { key: "applications", label: "Applications", icon: "hugeicons:layout-grid-01" },
+    { key: "downloads", label: "Downloads", icon: "hugeicons:download-01" },
+    { key: "faq", label: "FAQ", icon: "hugeicons:help-circle" },
   ];
 
   // Map incoming tab aliases
@@ -214,17 +214,17 @@ export default function ProductTabsSection({
 
   const _getRowIcon = (param = "") => {
     const p = param.toLowerCase();
-    if (p.includes("dimension") || p.includes("size")) return "carbon:cube";
-    if (p.includes("static")) return "carbon:align-box-bottom-center";
-    if (p.includes("dynamic")) return "carbon:delivery";
-    if (p.includes("racking") || p.includes("rack")) return "carbon:align-vertical-center";
-    if (p.includes("weight")) return "carbon:tag";
-    if (p.includes("material")) return "carbon:recycle";
-    if (p.includes("water") || p.includes("moisture")) return "carbon:water";
-    if (p.includes("density") || p.includes("modulus")) return "carbon:layers";
-    if (p.includes("weather")) return "carbon:sun";
-    if (p.includes("anchor") || p.includes("seating")) return "carbon:user";
-    return "carbon:information";
+    if (p.includes("dimension") || p.includes("size")) return "hugeicons:package";
+    if (p.includes("static")) return "hugeicons:shield-check";
+    if (p.includes("dynamic")) return "hugeicons:delivery-truck-01";
+    if (p.includes("racking") || p.includes("rack")) return "hugeicons:layers-01";
+    if (p.includes("weight")) return "hugeicons:tag-01";
+    if (p.includes("material")) return "hugeicons:recycle-01";
+    if (p.includes("water") || p.includes("moisture")) return "hugeicons:droplet";
+    if (p.includes("density") || p.includes("modulus")) return "hugeicons:layers-01";
+    if (p.includes("weather")) return "hugeicons:sun-01";
+    if (p.includes("anchor") || p.includes("seating")) return "hugeicons:user";
+    return "hugeicons:information-circle";
   };
 
   const rows = getSpecificationRows();
@@ -398,7 +398,7 @@ export default function ProductTabsSection({
           </div>
         ) : (
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[var(--radius-card,8px)] border border-[var(--border-brand)] bg-[var(--brand-soft)] text-xs font-bold text-[var(--text-brand)] my-1 shrink-0 shadow-xs">
-            <Icon icon="carbon:checkmark-filled" className="w-4 h-4 text-[var(--text-brand)]" />
+            <Icon icon="hugeicons:shield-check" className="w-4 h-4 text-[var(--text-brand)]" />
             <span>ISPM-15 Exempt & ISO 9001 QA</span>
           </div>
         )}
@@ -461,7 +461,7 @@ export default function ProductTabsSection({
                   {/* Card 1: Operating Temperature Range */}
                   <div className="p-5 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-start gap-4 shadow-xs">
                     <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] flex items-center justify-center shrink-0">
-                      <Icon icon="carbon:temperature" className="w-5 h-5 text-[var(--text-brand)]" />
+                      <Icon icon="hugeicons:thermometer" className="w-5 h-5 text-[var(--text-brand)]" />
                     </div>
                     <div className="space-y-1">
                       <h4 className="text-sm font-bold text-[var(--text-primary)]">
@@ -479,7 +479,7 @@ export default function ProductTabsSection({
                   {/* Card 2: Chemical & Weather Resistance */}
                   <div className="p-5 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-start gap-4 shadow-xs">
                     <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] flex items-center justify-center shrink-0">
-                      <Icon icon="carbon:security" className="w-5 h-5 text-[var(--text-brand)]" />
+                      <Icon icon="hugeicons:shield-check" className="w-5 h-5 text-[var(--text-brand)]" />
                     </div>
                     <div className="space-y-1">
                       <h4 className="text-sm font-bold text-[var(--text-primary)]">
@@ -494,7 +494,7 @@ export default function ProductTabsSection({
                   {/* Card 3: Environmental */}
                   <div className="p-5 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] bg-[var(--bg-surface)] flex items-start gap-4 shadow-xs">
                     <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] flex items-center justify-center shrink-0">
-                      <Icon icon="carbon:eco" className="w-5 h-5 text-[var(--text-brand)]" />
+                      <Icon icon="hugeicons:leaf-01" className="w-5 h-5 text-[var(--text-brand)]" />
                     </div>
                     <div className="space-y-1">
                       <h4 className="text-sm font-bold text-[var(--text-primary)]">
@@ -516,7 +516,7 @@ export default function ProductTabsSection({
                 <div className="p-5 sm:p-6 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface-secondary)] border border-[var(--border-subtle)] space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center shrink-0">
-                      <Icon icon="carbon:layers" className="w-5 h-5" />
+                      <Icon icon="hugeicons:layers-01" className="w-5 h-5" />
                     </div>
                     <div>
                       <h3 className="text-base font-bold text-[var(--text-primary)]">
@@ -546,19 +546,19 @@ export default function ProductTabsSection({
                   {/* Material Specs Quick Pills */}
                   <div className="flex flex-wrap gap-2 pt-2 border-t border-[var(--border-subtle)]">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs text-xs font-semibold">
-                      <Icon icon="carbon:security" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
+                      <Icon icon="hugeicons:security-check" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                       100% Recycled HDPE / PP
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs text-xs font-semibold">
-                      <Icon icon="carbon:water" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
+                      <Icon icon="hugeicons:droplet" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                       0.00% Water Absorption
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs text-xs font-semibold">
-                      <Icon icon="carbon:send" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
+                      <Icon icon="hugeicons:sent" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                       ISPM-15 Exempt (No Fumigation)
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs text-xs font-semibold">
-                      <Icon icon="carbon:recycle" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
+                      <Icon icon="hugeicons:recycle-01" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                       100% Circular Lifecycle
                     </span>
                   </div>
@@ -569,7 +569,7 @@ export default function ProductTabsSection({
                   <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex flex-col justify-between shadow-xs">
                     <div>
                       <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center mb-3">
-                        <Icon icon="carbon:security" className="w-5 h-5" />
+                        <Icon icon="hugeicons:security-check" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
                         Chemical & Rot Immunity
@@ -587,7 +587,7 @@ export default function ProductTabsSection({
                   <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex flex-col justify-between shadow-xs">
                     <div>
                       <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center mb-3">
-                        <Icon icon="carbon:sun" className="w-5 h-5" />
+                        <Icon icon="hugeicons:sun-01" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
                         UV Weathering Stabilization
@@ -605,7 +605,7 @@ export default function ProductTabsSection({
                   <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex flex-col justify-between shadow-xs">
                     <div>
                       <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center mb-3">
-                        <Icon icon="carbon:recycle" className="w-5 h-5" />
+                        <Icon icon="hugeicons:recycle-01" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
                         Circular ESG Compliance
@@ -626,7 +626,7 @@ export default function ProductTabsSection({
                   <div className="space-y-3 pt-2">
                     <div className="flex items-center gap-2.5 pb-1">
                       <div className="w-7 h-7 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center shrink-0">
-                        <Icon icon="carbon:list-checked" className="w-4 h-4" />
+                        <Icon icon="hugeicons:checklist" className="w-4 h-4" />
                       </div>
                       <h4 className="text-sm sm:text-base font-bold text-[var(--text-primary)]">
                         Engineering Attributes & Standards
@@ -639,7 +639,7 @@ export default function ProductTabsSection({
                           className="p-3.5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex items-start gap-3 shadow-xs"
                         >
                           <div className="w-5 h-5 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-2xs flex items-center justify-center shrink-0 mt-0.5">
-                            <Icon icon="carbon:checkmark-filled" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
+                            <Icon icon="hugeicons:checkmark-circle-02-filled" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                           </div>
                           <span className="font-semibold text-xs sm:text-sm text-[var(--text-primary)] leading-snug">
                             {simplifyFeature(feat)}
@@ -659,7 +659,7 @@ export default function ProductTabsSection({
                   <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex flex-col justify-between shadow-xs">
                     <div>
                       <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center mb-3">
-                        <Icon icon="carbon:box" className="w-5 h-5" />
+                        <Icon icon="hugeicons:package" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
                         Automated AS/RS Racking
@@ -677,7 +677,7 @@ export default function ProductTabsSection({
                   <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex flex-col justify-between shadow-xs">
                     <div>
                       <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center mb-3">
-                        <Icon icon="carbon:snowflake" className="w-5 h-5" />
+                        <Icon icon="hugeicons:snowflake" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
                         Cold Storage & Freezers
@@ -695,7 +695,7 @@ export default function ProductTabsSection({
                   <div className="p-5 rounded-[var(--radius-card,8px)] bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] transition-all flex flex-col justify-between shadow-xs">
                     <div>
                       <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center mb-3">
-                        <Icon icon="carbon:delivery" className="w-5 h-5" />
+                        <Icon icon="hugeicons:delivery-truck-01" className="w-5 h-5" />
                       </div>
                       <h4 className="text-sm font-bold text-[var(--text-primary)] mb-1.5">
                         Global Export & Shipping
@@ -729,7 +729,7 @@ export default function ProductTabsSection({
                   <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors shadow-xs">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center shrink-0">
-                        <Icon icon="carbon:document" className="w-5 h-5" />
+                        <Icon icon="hugeicons:file-01" className="w-5 h-5" />
                       </div>
                       <div>
                         <div className="text-sm font-bold text-[var(--text-primary)]">
@@ -745,7 +745,7 @@ export default function ProductTabsSection({
                       onClick={handleDownloadDatasheet}
                       className="px-3.5 py-1.5 rounded-[var(--radius-card,8px)] text-xs font-bold bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-[var(--brand-btn-text)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0 shadow-2xs"
                     >
-                      <Icon icon="carbon:download" className="w-3.5 h-3.5" />
+                      <Icon icon="hugeicons:download-01" className="w-3.5 h-3.5" />
                       <span>Download</span>
                     </button>
                   </div>
@@ -753,7 +753,7 @@ export default function ProductTabsSection({
                   <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors shadow-xs">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center shrink-0">
-                        <Icon icon="carbon:security" className="w-5 h-5" />
+                        <Icon icon="hugeicons:security-check" className="w-5 h-5" />
                       </div>
                       <div>
                         <div className="text-sm font-bold text-[var(--text-primary)]">
@@ -769,7 +769,7 @@ export default function ProductTabsSection({
                       onClick={handleDownloadDatasheet}
                       className="px-3.5 py-1.5 rounded-[var(--radius-card,8px)] text-xs font-bold border border-[var(--border-default)] hover:border-[var(--border-brand)] hover:bg-[var(--brand-soft)] text-[var(--text-primary)] hover:text-[var(--text-brand)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0 shadow-2xs"
                     >
-                      <Icon icon="carbon:view" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
+                      <Icon icon="hugeicons:view" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                       <span>View</span>
                     </button>
                   </div>
@@ -777,7 +777,7 @@ export default function ProductTabsSection({
                   <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors shadow-xs">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center shrink-0">
-                        <Icon icon="carbon:box" className="w-5 h-5" />
+                        <Icon icon="hugeicons:package" className="w-5 h-5" />
                       </div>
                       <div>
                         <div className="text-sm font-bold text-[var(--text-primary)]">
@@ -793,7 +793,7 @@ export default function ProductTabsSection({
                       onClick={handleDownloadDatasheet}
                       className="px-3.5 py-1.5 rounded-[var(--radius-card,8px)] text-xs font-bold bg-[var(--brand-primary)] hover:bg-[var(--brand-hover)] text-[var(--brand-btn-text)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0 shadow-2xs"
                     >
-                      <Icon icon="carbon:download" className="w-3.5 h-3.5" />
+                      <Icon icon="hugeicons:download-01" className="w-3.5 h-3.5" />
                       <span>Download</span>
                     </button>
                   </div>
@@ -801,7 +801,7 @@ export default function ProductTabsSection({
                   <div className="p-4 rounded-[var(--radius-card,8px)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] bg-[var(--bg-surface)] flex items-center justify-between gap-4 transition-colors shadow-xs">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-[var(--radius-card,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] shadow-xs flex items-center justify-center shrink-0">
-                        <Icon icon="carbon:certificate" className="w-5 h-5" />
+                        <Icon icon="hugeicons:award-01" className="w-5 h-5" />
                       </div>
                       <div>
                         <div className="text-sm font-bold text-[var(--text-primary)]">
@@ -817,7 +817,7 @@ export default function ProductTabsSection({
                       onClick={handleDownloadDatasheet}
                       className="px-3.5 py-1.5 rounded-[var(--radius-card,8px)] text-xs font-bold border border-[var(--border-default)] hover:border-[var(--border-brand)] hover:bg-[var(--brand-soft)] text-[var(--text-primary)] hover:text-[var(--text-brand)] flex items-center gap-1.5 transition-all cursor-pointer shrink-0 shadow-2xs"
                     >
-                      <Icon icon="carbon:view" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
+                      <Icon icon="hugeicons:view" className="w-3.5 h-3.5 text-[var(--text-brand)]" />
                       <span>View</span>
                     </button>
                   </div>

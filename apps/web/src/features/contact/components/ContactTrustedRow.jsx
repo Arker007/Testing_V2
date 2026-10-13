@@ -10,23 +10,23 @@ export const ContactTrustedRow = React.memo(function ContactTrustedRow() {
       </p>
       <div className={styles.companiesGrid}>
         <div className={styles.companyBadge}>
-          <Icon icon="carbon:delivery-truck" className="w-4 h-4 shrink-0" />
+          <Icon icon="hugeicons:truck-delivery" className="w-4 h-4 shrink-0" />
           <span>APEX LOGISTICS</span>
         </div>
         <div className={styles.companyBadge}>
-          <Icon icon="carbon:shield-alert" className="w-4 h-4 shrink-0" />
+          <Icon icon="hugeicons:shield-alert" className="w-4 h-4 shrink-0" />
           <span>MATRIX BUILD</span>
         </div>
         <div className={styles.companyBadge}>
-          <Icon icon="carbon:chemistry" className="w-4 h-4 shrink-0" />
+          <Icon icon="hugeicons:flask-conical" className="w-4 h-4 shrink-0" />
           <span>BIOPHARMA LABS</span>
         </div>
         <div className={styles.companyBadge}>
-          <Icon icon="carbon:recycle" className="w-4 h-4 shrink-0" />
+          <Icon icon="hugeicons:recycle-01" className="w-4 h-4 shrink-0" />
           <span>ECOAGRO FARMS</span>
         </div>
         <div className={styles.companyBadge}>
-          <Icon icon="carbon:industry" className="w-4 h-4 shrink-0" />
+          <Icon icon="hugeicons:factory" className="w-4 h-4 shrink-0" />
           <span>CIVIC INFRA</span>
         </div>
       </div>
