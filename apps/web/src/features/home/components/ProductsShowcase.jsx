@@ -141,7 +141,7 @@ const badgeHoverVariant = {
 
 export default function ProductsShowcase() {
   const navigate = useNavigate();
-  const { products: fetchedProducts, loading } = useProducts();
+  const { products: fetchedProducts } = useProducts();
 
   const products = useMemo(() => {
     return Array.isArray(fetchedProducts) ? fetchedProducts.slice(0, 6) : [];

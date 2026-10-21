@@ -449,10 +449,10 @@ button.btn::after {
 table thead th,
 table th,
 .table thead th {
-  background-color: var(--bg-surface-elevated) !important;
-  color: var(--text-inverse) !important;
+  background-color: var(--bg-surface-secondary);
+  color: var(--text-primary);
   font-weight: 700;
-  border-bottom: 1px solid var(--border-dark, rgba(255, 255, 255, 0.1));
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .form-textarea {

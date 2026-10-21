@@ -615,7 +615,7 @@ export default function ProcessSection({ className = "" }) {
             {/* Card 1 */}
             <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-xs">
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] shadow-xs">
                 <Icon icon="hugeicons:reload" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
@@ -628,7 +628,7 @@ export default function ProcessSection({ className = "" }) {
             {/* Card 2 */}
             <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-xs">
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] shadow-xs">
                 <Icon icon="hugeicons:shield-check" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
@@ -641,7 +641,7 @@ export default function ProcessSection({ className = "" }) {
             {/* Card 3 */}
             <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-xs">
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] shadow-xs">
                 <Icon icon="hugeicons:cpu" className="w-5 h-5" />
               </div>
               <div className="relative z-10">
@@ -654,7 +654,7 @@ export default function ProcessSection({ className = "" }) {
             {/* Card 4 */}
             <div className="relative overflow-hidden bg-[var(--bg-surface)] border border-[var(--border-subtle)] hover:border-[var(--border-brand)] hover:-translate-y-1 hover:shadow-md rounded-[var(--radius-card,8px)] p-4 flex items-start gap-4 transition-all duration-300 group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--brand-primary)]/10 dark:bg-[var(--brand-primary)]/15 rounded-full blur-xl -mr-8 -mt-8 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] group-hover:scale-105 transition-transform duration-300 shadow-xs">
+              <div className="relative z-10 w-10 h-10 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] flex items-center justify-center flex-shrink-0 border border-[var(--border-brand)] shadow-xs">
                 <Icon icon="hugeicons:globe-02" className="w-5 h-5" />
               </div>
               <div className="relative z-10">

@@ -8,23 +8,11 @@ import { Badge, CtaCard, FaqAccordion } from "@/shared/ui";
 import { FAQ_ITEMS } from "../constants";
 
 const WhatsAppIcon = () => (
-  <motion.div
-    animate={{ scale: [1, 1.1, 1] }}
-    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-    className="shrink-0"
-  >
-    <Icon icon="hugeicons:chat-01" className="w-5 h-5" />
-  </motion.div>
+  <Icon icon="hugeicons:chat-01" className="w-5 h-5 shrink-0" />
 );
 
-const AnimatedCatalogIcon = () => (
-  <motion.div
-    whileHover={{ scale: 1.15, rotate: [0, -10, 10, -10, 0] }}
-    transition={{ duration: 0.5 }}
-    className="shrink-0"
-  >
-    <Icon icon="hugeicons:package" className="w-5 h-5" />
-  </motion.div>
+const CatalogIcon = () => (
+  <Icon icon="hugeicons:package" className="w-5 h-5 shrink-0" />
 );
 
 export default function ContactFaqSection() {
@@ -90,7 +78,7 @@ export default function ContactFaqSection() {
               to="/products"
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[var(--radius-btn,6px)] border border-[var(--border-subtle)] bg-[var(--bg-surface-secondary)] hover:bg-[var(--bg-surface-tertiary)] hover:border-[var(--border-default)] text-[var(--text-primary)] text-sm font-bold transition-all shadow-2xs whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)]"
             >
-              <AnimatedCatalogIcon />
+              <CatalogIcon />
               <span>Explore Catalog</span>
             </Link>
           </CtaCard>

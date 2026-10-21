@@ -143,7 +143,7 @@ const hexagonImageVariants = {
 };
 
 export default function HomeHero() {
-  const { c, co } = useSite();
+  const { c, co, openInquiryModal } = useSite();
   const [isFirstRender, setIsFirstRender] = useState(true);
   const shouldReduceMotion = useReducedMotion();
 
@@ -345,7 +345,7 @@ export default function HomeHero() {
               </Motion.div>
             </AnimatePresence>
 
-            {/* CTA Row & Decorative Slashes */}
+            {/* CTA Row & Actions */}
             <div className={styles.ctaRow}>
               <Motion.div
                 whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
@@ -364,10 +364,24 @@ export default function HomeHero() {
                   </Motion.span>
                 </Link>
               </Motion.div>
-              <div className={styles.decorativeSlashes} aria-hidden="true">
-                <span>/</span><span>/</span><span>/</span><span>/</span>
-                <span>/</span><span>/</span><span>/</span><span>/</span>
-              </div>
+              <button
+                type="button"
+                onClick={() =>
+                  openInquiryModal({
+                    source: "Home Hero Quick RFQ",
+                    productName: activeSlide.category,
+                    category: activeSlide.category.includes("Pallet")
+                      ? "Pallets"
+                      : activeSlide.category.includes("Lumber")
+                      ? "Lumber"
+                      : "Benches",
+                  })
+                }
+                className="inline-flex items-center gap-2 px-5 py-3 border border-white/20 hover:border-white/40 hover:bg-white/10 text-white text-xs font-bold uppercase tracking-wider rounded transition-all duration-200 whitespace-nowrap shrink-0 cursor-pointer"
+              >
+                <Icon icon="hugeicons:document-attachment" width="16" height="16" />
+                <span>Request Bulk Quote</span>
+              </button>
             </div>
           </div>
 

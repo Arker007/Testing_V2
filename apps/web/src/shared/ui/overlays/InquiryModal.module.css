@@ -517,11 +517,10 @@
   justify-content: center;
   padding: 2px;
   border-radius: 4px;
-  transition: transform var(--motion-fast, 150ms) ease;
 }
 
 .copyRefBtn:hover {
-  transform: scale(1.15);
+  opacity: 0.8;
 }
 
 .successDescription {

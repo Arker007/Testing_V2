@@ -230,12 +230,7 @@ export default function TimedInquiryModal() {
             {/* Modal Header */}
             <div className={styles.modalHeader}>
               <div className="pr-4 min-w-0 flex-1">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <span className="w-4 h-[2px] bg-[var(--brand-primary)] inline-block shrink-0" />
-                  <span className="text-[11px] font-bold tracking-[0.16em] text-slate-500 dark:text-slate-400 uppercase">
-                    GET A QUOTE
-                  </span>
-                </div>
+
                 <h2
                   id="timed-inquiry-title"
                   className="text-2xl sm:text-3xl font-extrabold text-[var(--text-primary)] tracking-tight leading-tight mb-1.5"
@@ -258,9 +253,9 @@ export default function TimedInquiryModal() {
               </button>
             </div>
 
-            {/* Modal Scrollable Body */}
-            <div className={styles.modalScrollBody}>
-              {status === "sent" ? (
+            {/* Modal Body / Form */}
+            {status === "sent" ? (
+              <div className={styles.modalScrollBody}>
                 <div className="text-center py-6 sm:py-8 flex flex-col items-center">
                   <div className="w-10 h-10 rounded-full bg-[var(--brand-primary)]/10 border border-[var(--brand-primary)]/20 flex items-center justify-center mx-auto mb-2.5 text-[var(--brand-primary)]">
                     <Icon icon="carbon:checkmark" className="w-5 h-5" />
@@ -310,9 +305,12 @@ export default function TimedInquiryModal() {
                     </Button>
                   </div>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                  {/* Step 1: Select Product */}
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col flex-1 min-h-0 overflow-hidden">
+                <div className={styles.modalScrollBody}>
+                  <div className="space-y-4 sm:space-y-5">
+                    {/* Step 1: Select Product */}
                   <div className="space-y-2.5">
                     <div className="flex items-center gap-2.5">
                       <div className="w-6 h-6 rounded-full bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] font-bold text-xs flex items-center justify-center shrink-0">
@@ -323,44 +321,13 @@ export default function TimedInquiryModal() {
                       </h3>
                     </div>
 
-                    <div className="space-y-2.5 pt-0.5 pl-0 sm:pl-9">
+                    <div className="pt-0.5 pl-0 sm:pl-9">
                       <CustomSelect
                         value={form.productService || ""}
                         onChange={(val) => handleChange("productService")(val)}
                         options={productOptions}
                         placeholder="Select product or requirement"
                       />
-
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-0.5">
-                        {[
-                          "Industrial Pallets",
-                          "Plastic Lumber",
-                          "Garden Benches",
-                          "Custom",
-                        ].map((cat) => {
-                          const isSelected = form.productService === cat;
-                          return (
-                            <button
-                              key={cat}
-                              type="button"
-                              onClick={() => handleChange("productService")(cat)}
-                              className={`px-2.5 py-1.5 rounded-md text-xs transition-all cursor-pointer flex items-center justify-center gap-1 text-center ${
-                                isSelected
-                                  ? "bg-[var(--brand-soft)] text-[var(--text-brand)] border border-[var(--border-brand)] font-bold shadow-xs"
-                                  : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-default)] hover:border-[var(--border-brand)]/60 font-medium"
-                              }`}
-                            >
-                              <span>{cat}</span>
-                              {isSelected && (
-                                <Icon
-                                  icon="carbon:checkmark"
-                                  className="w-3 h-3 text-[var(--text-brand)] shrink-0"
-                                />
-                              )}
-                            </button>
-                          );
-                        })}
-                      </div>
                     </div>
                   </div>
 
@@ -523,32 +490,33 @@ export default function TimedInquiryModal() {
                       {errorMessage || "Submission failed. Please try again or contact us directly."}
                     </Alert>
                   )}
-
-                  {/* Bottom Action Buttons & Trust Badge */}
-                  <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-[var(--border-subtle)]">
-                    {/* Submit CTA */}
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      size="lg"
-                      loading={status === "sending"}
-                      loadingText="Submitting..."
-                      className="w-full sm:w-auto font-bold min-h-[44px] shadow-sm"
-                      icon={<Icon icon="carbon:arrow-right" className="w-4 h-4 ml-1 inline" />}
-                      id="modal-submit-quote-btn"
-                    >
-                      Send Quote Request
-                    </Button>
-
-                    {/* Secure Info Badge */}
-                    <div className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
-                      <Icon icon="carbon:security" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
-                      <span>Your information is secure &amp; confidential</span>
-                    </div>
                   </div>
-                </form>
-              )}
-            </div>
+                </div>
+
+                {/* Bottom Action Buttons & Trust Badge (Always Visible Footer) */}
+                <div className={styles.modalFooter}>
+                  {/* Submit CTA */}
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="lg"
+                    loading={status === "sending"}
+                    loadingText="Submitting..."
+                    className="w-full sm:w-auto font-bold min-h-[44px] shadow-sm"
+                    icon={<Icon icon="carbon:arrow-right" className="w-4 h-4 ml-1 inline" />}
+                    id="modal-submit-quote-btn"
+                  >
+                    Send Quote Request
+                  </Button>
+
+                  {/* Secure Info Badge */}
+                  <div className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
+                    <Icon icon="carbon:security" className="w-4 h-4 text-[var(--brand-primary)] shrink-0" />
+                    <span>Your information is secure &amp; confidential</span>
+                  </div>
+                </div>
+              </form>
+            )}
           </motion.div>
         </motion.div>
       )}

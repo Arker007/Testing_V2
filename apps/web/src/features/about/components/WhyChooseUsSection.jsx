@@ -47,7 +47,7 @@ export default function WhyChooseUsSection() {
           <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
             {/* Feature 1 */}
             <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/50 hover:bg-white/[0.07] rounded-[var(--radius-card,8px)] p-6 flex flex-col gap-3.5 shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center">
                 <Icon icon="hugeicons:shield-check" className="w-6 h-6" />
               </div>
               <div>
@@ -62,7 +62,7 @@ export default function WhyChooseUsSection() {
 
             {/* Feature 2 */}
             <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/50 hover:bg-white/[0.07] rounded-[var(--radius-card,8px)] p-6 flex flex-col gap-3.5 shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center">
                 <Icon icon="hugeicons:sun-01" className="w-6 h-6" />
               </div>
               <div>
@@ -77,7 +77,7 @@ export default function WhyChooseUsSection() {
 
             {/* Feature 3 */}
             <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/50 hover:bg-white/[0.07] rounded-[var(--radius-card,8px)] p-6 flex flex-col gap-3.5 shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center">
                 <Icon icon="hugeicons:settings-01" className="w-6 h-6" />
               </div>
               <div>
@@ -92,7 +92,7 @@ export default function WhyChooseUsSection() {
 
             {/* Feature 4 */}
             <div className="group bg-white/[0.04] border border-white/10 hover:border-[var(--brand)]/50 hover:bg-white/[0.07] rounded-[var(--radius-card,8px)] p-6 flex flex-col gap-3.5 shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <div className="w-12 h-12 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-[var(--radius-icon,8px)] bg-[var(--brand-soft)] border border-[var(--border-brand)] text-[var(--text-brand)] dark:text-[var(--brand-primary)] shadow-xs flex items-center justify-center">
                 <Icon icon="hugeicons:recycle-01" className="w-6 h-6" />
               </div>
               <div>

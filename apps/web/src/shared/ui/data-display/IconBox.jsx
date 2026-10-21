@@ -56,7 +56,7 @@ export default function IconBox({
 
   return (
     <div
-      className={`inline-flex items-center justify-center shrink-0 transition-transform ${selectedSize} ${selectedVariant} ${className}`.trim()}
+      className={`inline-flex items-center justify-center shrink-0 ${selectedSize} ${selectedVariant} ${className}`.trim()}
       {...props}
     >
       {typeof icon === "string" ? (

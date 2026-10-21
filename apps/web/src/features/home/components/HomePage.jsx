@@ -10,6 +10,7 @@ import {
   HomeHero,
   HomeHeroMobile,
   TrustedBySection,
+  PlasticVsWoodComparison,
   IndustriesGrid,
   HomeCtaSection,
 } from "../";
@@ -47,6 +48,10 @@ export default function HomePage() {
           </div>
         </section>
       )}
+
+      {/* Technical Specification Benchmark: Plastic vs Traditional Timber */}
+      <PlasticVsWoodComparison />
+
 
       <div className={styles.belowFoldSection}>
         <FeaturesSection />

@@ -51,81 +51,16 @@ export const MotionHomeIcon = createMotionIcon("hugeicons:home-01");
 export const MotionBuilding2 = createMotionIcon("hugeicons:building-03");
 export const MotionArrowRight = createMotionIcon("hugeicons:arrow-right-01");
 
-export const hardHatVariants = {
-  hover: {
-    y: [0, -3, 0],
-    rotate: [0, -5, 5, -5, 0],
-    transition: { duration: 0.5, ease: "easeInOut" }
-  }
-};
-
-export const shieldCheckVariants = {
-  hover: {
-    scale: [1, 1.15, 1],
-    transition: { duration: 0.5, ease: "easeInOut" }
-  }
-};
-
-export const routeVariants = {
-  hover: {
-    scale: 1.1,
-    rotate: [0, 8, -8, 0],
-    transition: { duration: 0.5, ease: "easeInOut" }
-  }
-};
-
-export const treesVariants = {
-  hover: {
-    scale: 1.12,
-    y: -2,
-    transition: { duration: 0.4, ease: "easeInOut" }
-  }
-};
-
-export const schoolVariants = {
-  hover: {
-    y: [0, -3, 0],
-    scale: 1.08,
-    transition: { duration: 0.4, ease: "easeInOut" }
-  }
-};
-
-export const warehouseVariants = {
-  hover: {
-    scale: [1, 1.12, 1],
-    transition: { duration: 0.4, ease: "easeInOut" }
-  }
-};
-
-export const sproutVariants = {
-  hover: {
-    scale: [1, 1.18, 1.08, 1.12],
-    y: [0, -2, -1],
-    transition: { duration: 0.5, ease: "easeOut" }
-  }
-};
-
-export const homeIconVariants = {
-  hover: {
-    scale: 1.1,
-    y: -2,
-    transition: { type: "spring", stiffness: 300, damping: 12 }
-  }
-};
-
-export const building2Variants = {
-  hover: {
-    scale: 1.1,
-    transition: { type: "spring", stiffness: 300, damping: 12 }
-  }
-};
-
-export const bentoArrowVariants = {
-  hover: {
-    x: 4,
-    transition: { type: "spring", stiffness: 400, damping: 10 }
-  }
-};
+export const hardHatVariants = {};
+export const shieldCheckVariants = {};
+export const routeVariants = {};
+export const treesVariants = {};
+export const schoolVariants = {};
+export const warehouseVariants = {};
+export const sproutVariants = {};
+export const homeIconVariants = {};
+export const building2Variants = {};
+export const bentoArrowVariants = {};
 
 export const industryCardVariant = {
   hidden: { 

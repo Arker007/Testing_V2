@@ -1,6 +1,7 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import { useSite } from "../../../../shared/context/SiteContext";
-import { BRAND_COMPANIES } from "./brandsData";
+import { SECTOR_ECOSYSTEM } from "./sectorData";
 import styles from "./TrustedBy.module.css";
 
 export default function TrustedBySection() {
@@ -8,21 +9,21 @@ export default function TrustedBySection() {
 
   if (c("show_trusted_by", "1") === "0") return null;
 
-  // Duplicate 2 cycles of the authentic brand list for seamless 50% infinite translation
+  // Duplicate 2 cycles for smooth infinite translation
   const tickerItems = [
-    ...BRAND_COMPANIES,
-    ...BRAND_COMPANIES,
+    ...SECTOR_ECOSYSTEM,
+    ...SECTOR_ECOSYSTEM,
   ];
 
   return (
     <section
       id="trusted-by-section"
       className={styles.trustedBy}
-      aria-label="Trusted Enterprise Partners"
+      aria-label="Engineered for Demanding Industrial Sectors & Supply Chains"
     >
       <div className="container">
         <p className={styles.trustedHeading}>
-          {c("trusted_title", "Trusted by Leading Industrial & Logistics Enterprises")}
+          {c("trusted_title", "Engineered for Demanding Industrial Sectors & Supply Chains")}
         </p>
       </div>
 
@@ -33,19 +34,16 @@ export default function TrustedBySection() {
             <div
               key={`${item.id}-${idx}`}
               className={styles.logoBadge}
-              style={{ "--brand-hover-color": item.color }}
-              title={item.name}
+              style={{ "--brand-hover-color": item.accentColor }}
+              title={`${item.name} · ${item.compliance}`}
             >
-              <svg
-                viewBox={item.viewBox || "0 0 24 24"}
-                className={`${styles.brandSvg} ${item.isWide ? styles.brandSvgWide : ""}`}
-                aria-hidden="true"
-                focusable="false"
-                fill="currentColor"
-              >
-                <path d={item.path} />
-              </svg>
-              <span className={styles.brandName}>{item.name}</span>
+              <span className={styles.sectorIcon}>
+                <Icon icon={item.icon} width="20" height="20" />
+              </span>
+              <div className={styles.badgeContent}>
+                <span className={styles.brandName}>{item.name}</span>
+                <span className={styles.sectorCompliance}>· {item.compliance}</span>
+              </div>
             </div>
           ))}
         </div>

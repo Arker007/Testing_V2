@@ -95,7 +95,7 @@ const mobileHexagonImageVariants = {
 };
 
 export default function HomeHeroMobile() {
-  const { c, co } = useSite();
+  const { c, co, openInquiryModal } = useSite();
   const [isFirstRender, setIsFirstRender] = useState(true);
   const shouldReduceMotion = useReducedMotion();
 
@@ -491,8 +491,8 @@ export default function HomeHeroMobile() {
               {activeSlide.desc}
             </Motion.p>
 
-            {/* Button */}
-            <div className="flex justify-center w-full mt-2">
+            {/* Buttons */}
+            <div className="flex flex-wrap items-center justify-center gap-3 w-full mt-2">
               <Motion.div
                 whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
                 whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
@@ -512,6 +512,18 @@ export default function HomeHeroMobile() {
                   </Motion.span>
                 </Link>
               </Motion.div>
+              <button
+                type="button"
+                onClick={() =>
+                  openInquiryModal({
+                    source: "Home Hero Mobile Quick RFQ",
+                    productName: activeSlide.category,
+                  })
+                }
+                className="inline-flex items-center gap-2 px-4 py-2.5 border border-white/20 text-white text-xs font-bold uppercase tracking-wider rounded transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              >
+                <span>Quick RFQ</span>
+              </button>
             </div>
           </Motion.div>
         </AnimatePresence>

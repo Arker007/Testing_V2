@@ -6,6 +6,8 @@ export { default as IndustryCard } from "./components/Industries/IndustryCard";
 export { default as IndustryValueProps } from "./components/Industries/IndustryValueProps";
 export { default as ProcessSection } from "./components/Process/ProcessSection";
 export { default as ProductsShowcase } from "./components/ProductsShowcase";
+export { default as PlasticVsWoodComparison } from "./components/Comparison/PlasticVsWoodComparison";
+export { default as PlantCapacitySection } from "./components/Manufacturing/PlantCapacitySection";
 export { default as SustainabilitySection } from "./components/Sustainability/SustainabilitySection";
 export { default as TrustedBySection } from "./components/TrustedBy/TrustedBySection";
 export * from "./constants/home.constants";

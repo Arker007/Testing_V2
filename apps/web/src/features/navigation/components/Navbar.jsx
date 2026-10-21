@@ -94,19 +94,14 @@ export default function Navbar() {
       })
       .catch((err) => console.error("Error loading categories:", err));
 
-    // Defer products catalog loading to keep the main-thread completely free during load
-    const timer = setTimeout(() => {
-      const productsPromise = pf.products || ProductService.getProducts();
-      productsPromise
-        .then((pd) => {
-          if (pd?.products && Array.isArray(pd.products)) {
-            setProducts(pd.products);
-          }
-        })
-        .catch((err) => console.error("Error loading products:", err));
-    }, 1200);
-
-    return () => clearTimeout(timer);
+    const productsPromise = pf.products || ProductService.getProducts();
+    productsPromise
+      .then((pd) => {
+        if (pd?.products && Array.isArray(pd.products)) {
+          setProducts(pd.products);
+        }
+      })
+      .catch((err) => console.error("Error loading products:", err));
   }, []);
 
   useEffect(() => {

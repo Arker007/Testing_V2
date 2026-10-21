@@ -344,12 +344,21 @@ export default function MegaMenu({
   };
 
   // Derive consolidated category list purely from dynamic category taxonomy
+  // Exclude categories that have 0 matching products
   const categoryList = useMemo(() => {
     if (!Array.isArray(categories) || categories.length === 0) {
       return [];
     }
 
-    return categories.map((cat) => {
+    // Only show categories that contain at least one published product
+    const validCategories =
+      Array.isArray(products) && products.length > 0
+        ? categories.filter((cat) =>
+            products.some((p) => isProductMatchingCategory(p, cat))
+          )
+        : [];
+
+    return validCategories.map((cat) => {
       const slug = cat.slug || cat.id;
       const name = cat.name || slug;
       return {
@@ -363,7 +372,7 @@ export default function MegaMenu({
         image: cat.image || null,
       };
     });
-  }, [categories]);
+  }, [categories, products]);
 
   // Keep active category slug synchronized with dynamic categories
   useEffect(() => {

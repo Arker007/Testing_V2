@@ -25,7 +25,7 @@ export function FaqAccordionItem({
     <div
       className={`group rounded-[var(--radius-card,8px)] overflow-hidden transition-all duration-200 bg-[var(--bg-surface,#ffffff)] dark:bg-[var(--bg-surface,#1e2530)] border ${
         isOpen
-          ? "border-l-4 border-l-[var(--brand-primary)] border-t-[var(--border-subtle)] border-r-[var(--border-subtle)] border-b-[var(--border-subtle)] shadow-xs"
+          ? "border-[var(--border-default)] !border-l-4 !border-l-[var(--brand-primary)] shadow-xs bg-[var(--bg-surface)]"
           : "border-[var(--border-subtle)] hover:border-[var(--border-default)] hover:shadow-2xs"
       } ${className}`.trim()}
     >
@@ -36,15 +36,15 @@ export function FaqAccordionItem({
           aria-expanded={isOpen}
           aria-controls={panelId}
           onClick={onToggle}
-          className="w-full text-left min-h-[52px] px-5 py-4 sm:px-6 sm:py-4.5 flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-[var(--text-primary)] hover:text-[var(--brand-primary)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-canvas)] cursor-pointer"
+          className="w-full text-left min-h-[52px] px-5 py-4 sm:px-6 sm:py-4.5 flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-[var(--text-primary)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-canvas)] cursor-pointer"
         >
           <span className="flex items-center gap-3 min-w-0 pr-2">
             {icon && (
-              <span className="shrink-0 w-7 h-7 rounded-md bg-[var(--brand-primary)]/10 text-[var(--brand-primary)] flex items-center justify-center">
+              <span className="shrink-0 w-7 h-7 rounded-md bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] border border-[var(--border-subtle)] flex items-center justify-center">
                 {typeof icon === "string" ? <Icon icon={icon} className="w-4 h-4" /> : icon}
               </span>
             )}
-            <span className={`font-bold transition-colors ${isOpen ? "text-[var(--brand-primary)]" : "text-[var(--text-primary)]"}`}>
+            <span className="font-semibold text-[var(--text-primary)] leading-snug">
               {title}
             </span>
             {badge && (
@@ -55,16 +55,16 @@ export function FaqAccordionItem({
           </span>
 
           <span
-            className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
+            className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
               isOpen
-                ? "bg-[var(--brand-primary)] text-[var(--brand-btn-text,#0f141a)] shadow-xs"
-                : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] border border-[var(--border-subtle)] group-hover:border-[var(--brand-border)] group-hover:text-[var(--brand-primary)] group-hover:bg-[var(--bg-surface-tertiary)]"
+                ? "bg-[var(--bg-surface-secondary)] text-[var(--text-primary)] border border-[var(--border-default)]"
+                : "bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] border border-[var(--border-subtle)] group-hover:border-[var(--border-default)] group-hover:text-[var(--text-primary)]"
             }`}
             aria-hidden="true"
           >
             <Icon
               icon="hugeicons:arrow-down-01"
-              className={`w-4 h-4 transition-transform duration-300 ${
+              className={`w-4 h-4 transition-transform duration-200 ${
                 isOpen ? "rotate-180" : "rotate-0"
               }`}
             />
@@ -97,7 +97,7 @@ export function FaqAccordionItem({
             }}
             className="overflow-hidden"
           >
-            <div className="px-5 pt-3.5 pb-5 sm:px-6 sm:pt-4 sm:pb-6 text-sm text-[var(--text-secondary)] leading-relaxed border-t border-[var(--border-subtle)]">
+            <div className="px-5 pt-3.5 pb-5 sm:px-6 sm:pt-4 sm:pb-6 text-sm sm:text-[0.9375rem] text-[var(--text-secondary)] leading-relaxed border-t border-[var(--border-subtle)]">
               {children}
             </div>
           </motion.div>
